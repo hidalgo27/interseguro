@@ -1,0 +1,2421 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="749.613" height="429.948" viewBox="0 0 749.613 429.948">
+    <defs>
+        <clipPath id="prefix__clip-path">
+            <path id="prefix__SVGID" d="M1088.562 1608.458a5.071 5.071 0 0 1-1.35-.528c-.276-.175-.516-.4-.788-.584a7.014 7.014 0 0 0-.8-.434 17.357 17.357 0 0 1-2.418-1.457 8.134 8.134 0 0 1-1.659-1.509 10.6 10.6 0 0 1-.624-.913q-.54-.854-1.066-1.717c-.085 1.237.67 2.972 3.279 5.375l3.5 3.066 1.806-1.1c.074-.044.158-.122.12-.199z" class="prefix__cls-1" transform="translate(-1079.847 -1601.316)"/>
+        </clipPath>
+        <style>
+            .prefix__cls-1,.prefix__cls-24{fill:none}.prefix__cls-2{fill:#bce0fc}.prefix__cls-4{fill:#e9f6ff}.prefix__cls-5{fill:#cae7fc}.prefix__cls-6{opacity:.7}.prefix__cls-7{fill:#83c5fa}.prefix__cls-8{fill:#fff}.prefix__cls-9{fill:#5bbbfc}.prefix__cls-10{fill:#63b6f9}.prefix__cls-24{stroke-miterlimit:10;stroke-width:.75px}.prefix__cls-15{fill:#cde7fc}.prefix__cls-17{fill:#00a9ff}.prefix__cls-18{fill:#1361b9}.prefix__cls-19{fill:#ffaf97}.prefix__cls-20{fill:#d54f1f}.prefix__cls-21{fill:#1c5cc1}.prefix__cls-22{fill:#19467c}.prefix__cls-23{fill:#4f80c9}.prefix__cls-24{stroke:#4f80c9}.prefix__cls-27{fill:#ffc764}.prefix__cls-28{fill:#f29c61}.prefix__cls-29{fill:#031f59}.prefix__cls-32{fill:#d3892f}.prefix__cls-35{fill:#dcefec}.prefix__cls-36{fill:#d8923d}.prefix__cls-38{fill:#ff733b}.prefix__cls-41{fill:#264d91}.prefix__cls-42{opacity:.29}.prefix__cls-44{fill:#ffc43a}.prefix__cls-45{fill:#352d2a}.prefix__cls-46{fill:#dd4b24}.prefix__cls-48{fill:#fcbe5b}.prefix__cls-91{fill:#cc8333}
+        </style>
+    </defs>
+    <g id="prefix__Grupo_7541" data-name="Grupo 7541" transform="translate(-4052.863 643.448)">
+        <g id="prefix__Grupo_6919" data-name="Grupo 6919" transform="translate(4350.618 -594.476)">
+            <g id="prefix__Grupo_6449" data-name="Grupo 6449" transform="translate(348.88 51.452)">
+                <g id="prefix__Grupo_6448" data-name="Grupo 6448">
+                    <g id="prefix__Grupo_6447" data-name="Grupo 6447">
+                        <g id="prefix__Grupo_6446" data-name="Grupo 6446">
+                            <path id="prefix__Rectángulo_2634" d="M0 0H53.831V186.366H0z" class="prefix__cls-2" data-name="Rectángulo 2634"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6453" data-name="Grupo 6453" transform="translate(335.394 67.487)">
+                <g id="prefix__Grupo_6452" data-name="Grupo 6452">
+                    <g id="prefix__Grupo_6451" data-name="Grupo 6451">
+                        <g id="prefix__Grupo_6450" data-name="Grupo 6450">
+                            <path id="prefix__Trazado_6843" d="M1602.309 1371.009l13.486 8.28v161.3h-13.486z" data-name="Trazado 6843" transform="translate(-1602.309 -1371.009)" style="fill:#62a9ef"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6457" data-name="Grupo 6457" transform="translate(239.115 64.16)">
+                <g id="prefix__Grupo_6456" data-name="Grupo 6456">
+                    <g id="prefix__Grupo_6455" data-name="Grupo 6455">
+                        <g id="prefix__Grupo_6454" data-name="Grupo 6454">
+                            <path id="prefix__Trazado_6844" d="M1533.124 1369.139v6.064h-62.258v-9.391h-18.941v174.046h96.275v-170.719z" class="prefix__cls-4" data-name="Trazado 6844" transform="translate(-1451.925 -1365.812)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6461" data-name="Grupo 6461" transform="translate(185.923 79.477)">
+                <g id="prefix__Grupo_6460" data-name="Grupo 6460">
+                    <g id="prefix__Grupo_6459" data-name="Grupo 6459">
+                        <g id="prefix__Grupo_6458" data-name="Grupo 6458">
+                            <path id="prefix__Rectángulo_2635" d="M0 0H53.193V158.341H0z" class="prefix__cls-5" data-name="Rectángulo 2635"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6465" class="prefix__cls-6" data-name="Grupo 6465" transform="translate(185.923 79.477)">
+                <g id="prefix__Grupo_6464" data-name="Grupo 6464">
+                    <g id="prefix__Grupo_6463" data-name="Grupo 6463">
+                        <g id="prefix__Grupo_6462" data-name="Grupo 6462">
+                            <path id="prefix__Rectángulo_2636" d="M0 0H53.193V4.874H0z" class="prefix__cls-7" data-name="Rectángulo 2636"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6469" data-name="Grupo 6469" transform="translate(220.421 102.642)">
+                <g id="prefix__Grupo_6468" data-name="Grupo 6468">
+                    <g id="prefix__Grupo_6467" data-name="Grupo 6467">
+                        <g id="prefix__Grupo_6466" data-name="Grupo 6466">
+                            <path id="prefix__Rectángulo_2637" d="M0 0H14.728V26.598H0z" class="prefix__cls-8" data-name="Rectángulo 2637"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6473" data-name="Grupo 6473" transform="translate(192.351 97.065)">
+                <g id="prefix__Grupo_6472" data-name="Grupo 6472">
+                    <g id="prefix__Grupo_6471" data-name="Grupo 6471">
+                        <g id="prefix__Grupo_6470" data-name="Grupo 6470">
+                            <path id="prefix__Rectángulo_2638" d="M0 0H22.76V16.574H0z" class="prefix__cls-8" data-name="Rectángulo 2638"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6477" data-name="Grupo 6477" transform="translate(202.655 95.072)">
+                <g id="prefix__Grupo_6476" data-name="Grupo 6476">
+                    <g id="prefix__Grupo_6475" data-name="Grupo 6475">
+                        <g id="prefix__Grupo_6474" data-name="Grupo 6474">
+                            <path id="prefix__Rectángulo_2639" d="M0 0H0.671V20.146H0z" class="prefix__cls-5" data-name="Rectángulo 2639"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6481" data-name="Grupo 6481" transform="translate(190.324 109.381)">
+                <g id="prefix__Grupo_6480" data-name="Grupo 6480">
+                    <g id="prefix__Grupo_6479" data-name="Grupo 6479">
+                        <g id="prefix__Grupo_6478" data-name="Grupo 6478">
+                            <path id="prefix__Rectángulo_2640" d="M0 0H27.846V0.671H0z" class="prefix__cls-5" data-name="Rectángulo 2640"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6485" data-name="Grupo 6485" transform="translate(190.324 100.023)">
+                <g id="prefix__Grupo_6484" data-name="Grupo 6484">
+                    <g id="prefix__Grupo_6483" data-name="Grupo 6483">
+                        <g id="prefix__Grupo_6482" data-name="Grupo 6482">
+                            <path id="prefix__Rectángulo_2641" d="M0 0H27.846V0.671H0z" class="prefix__cls-5" data-name="Rectángulo 2641"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6489" class="prefix__cls-6" data-name="Grupo 6489" transform="translate(185.923 129.042)">
+                <g id="prefix__Grupo_6488" data-name="Grupo 6488">
+                    <g id="prefix__Grupo_6487" data-name="Grupo 6487">
+                        <g id="prefix__Grupo_6486" data-name="Grupo 6486">
+                            <path id="prefix__Rectángulo_2642" d="M0 0H53.193V5.617H0z" class="prefix__cls-7" data-name="Rectángulo 2642"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6493" data-name="Grupo 6493" transform="translate(217.835 54.632)">
+                <g id="prefix__Grupo_6492" data-name="Grupo 6492">
+                    <g id="prefix__Grupo_6491" data-name="Grupo 6491">
+                        <g id="prefix__Grupo_6490" data-name="Grupo 6490">
+                            <path id="prefix__Rectángulo_2643" d="M0 0H0.671V24.677H0z" class="prefix__cls-7" data-name="Rectángulo 2643"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6497" data-name="Grupo 6497" transform="translate(209.444 59.802)">
+                <g id="prefix__Grupo_6496" data-name="Grupo 6496">
+                    <g id="prefix__Grupo_6495" data-name="Grupo 6495">
+                        <g id="prefix__Grupo_6494" data-name="Grupo 6494">
+                            <path id="prefix__Rectángulo_2644" d="M0 0H17.06V0.671H0z" class="prefix__cls-7" data-name="Rectángulo 2644" transform="rotate(-13.67 16.82 2.016)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6501" data-name="Grupo 6501" transform="translate(209.444 64.841)">
+                <g id="prefix__Grupo_6500" data-name="Grupo 6500">
+                    <g id="prefix__Grupo_6499" data-name="Grupo 6499">
+                        <g id="prefix__Grupo_6498" data-name="Grupo 6498">
+                            <path id="prefix__Rectángulo_2645" d="M0 0H17.06V0.671H0z" class="prefix__cls-7" data-name="Rectángulo 2645" transform="rotate(-13.67 16.82 2.016)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6505" data-name="Grupo 6505" transform="translate(209.803 69.477)">
+                <g id="prefix__Grupo_6504" data-name="Grupo 6504">
+                    <g id="prefix__Grupo_6503" data-name="Grupo 6503">
+                        <g id="prefix__Grupo_6502" data-name="Grupo 6502">
+                            <path id="prefix__Rectángulo_2646" d="M0 0H17.06V0.671H0z" class="prefix__cls-7" data-name="Rectángulo 2646" transform="rotate(-13.67 16.82 2.016)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6509" data-name="Grupo 6509" transform="translate(261.53 101.042)">
+                <g id="prefix__Grupo_6508" data-name="Grupo 6508">
+                    <g id="prefix__Grupo_6507" data-name="Grupo 6507">
+                        <g id="prefix__Grupo_6506" data-name="Grupo 6506">
+                            <path id="prefix__Rectángulo_2647" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2647"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6542" data-name="Grupo 6542" transform="translate(252.229 97.065)">
+                <g id="prefix__Grupo_6513" data-name="Grupo 6513" transform="translate(2.153)">
+                    <g id="prefix__Grupo_6512" data-name="Grupo 6512">
+                        <g id="prefix__Grupo_6511" data-name="Grupo 6511">
+                            <g id="prefix__Grupo_6510" data-name="Grupo 6510">
+                                <path id="prefix__Rectángulo_2648" d="M0 0H23.922V18.509H0z" class="prefix__cls-7" data-name="Rectángulo 2648"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6517" data-name="Grupo 6517" transform="translate(46.223)">
+                    <g id="prefix__Grupo_6516" data-name="Grupo 6516">
+                        <g id="prefix__Grupo_6515" data-name="Grupo 6515">
+                            <g id="prefix__Grupo_6514" data-name="Grupo 6514">
+                                <path id="prefix__Rectángulo_2649" d="M0 0H23.922V18.509H0z" class="prefix__cls-7" data-name="Rectángulo 2649"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6521" data-name="Grupo 6521" transform="translate(0 3.725)">
+                    <g id="prefix__Grupo_6520" data-name="Grupo 6520">
+                        <g id="prefix__Grupo_6519" data-name="Grupo 6519">
+                            <g id="prefix__Grupo_6518" data-name="Grupo 6518">
+                                <path id="prefix__Rectángulo_2650" d="M0 0H30.063V0.503H0z" class="prefix__cls-4" data-name="Rectángulo 2650"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6525" data-name="Grupo 6525" transform="translate(18.292 3.977)">
+                    <g id="prefix__Grupo_6524" data-name="Grupo 6524">
+                        <g id="prefix__Grupo_6523" data-name="Grupo 6523">
+                            <g id="prefix__Grupo_6522" data-name="Grupo 6522">
+                                <path id="prefix__Rectángulo_2651" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2651"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6529" data-name="Grupo 6529" transform="translate(9.301 3.977)">
+                    <g id="prefix__Grupo_6528" data-name="Grupo 6528">
+                        <g id="prefix__Grupo_6527" data-name="Grupo 6527">
+                            <g id="prefix__Grupo_6526" data-name="Grupo 6526">
+                                <path id="prefix__Rectángulo_2652" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2652"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6533" data-name="Grupo 6533" transform="translate(44.392 3.725)">
+                    <g id="prefix__Grupo_6532" data-name="Grupo 6532">
+                        <g id="prefix__Grupo_6531" data-name="Grupo 6531">
+                            <g id="prefix__Grupo_6530" data-name="Grupo 6530">
+                                <path id="prefix__Rectángulo_2653" d="M0 0H30.063V0.503H0z" class="prefix__cls-4" data-name="Rectángulo 2653"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6537" data-name="Grupo 6537" transform="translate(62.683 3.977)">
+                    <g id="prefix__Grupo_6536" data-name="Grupo 6536">
+                        <g id="prefix__Grupo_6535" data-name="Grupo 6535">
+                            <g id="prefix__Grupo_6534" data-name="Grupo 6534">
+                                <path id="prefix__Rectángulo_2654" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2654"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6541" data-name="Grupo 6541" transform="translate(53.693 3.977)">
+                    <g id="prefix__Grupo_6540" data-name="Grupo 6540">
+                        <g id="prefix__Grupo_6539" data-name="Grupo 6539">
+                            <g id="prefix__Grupo_6538" data-name="Grupo 6538">
+                                <path id="prefix__Rectángulo_2655" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2655"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6575" data-name="Grupo 6575" transform="translate(252.229 131.968)">
+                <g id="prefix__Grupo_6546" data-name="Grupo 6546" transform="translate(2.153)">
+                    <g id="prefix__Grupo_6545" data-name="Grupo 6545">
+                        <g id="prefix__Grupo_6544" data-name="Grupo 6544">
+                            <g id="prefix__Grupo_6543" data-name="Grupo 6543">
+                                <path id="prefix__Rectángulo_2656" d="M0 0H23.922V18.509H0z" class="prefix__cls-7" data-name="Rectángulo 2656"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6550" data-name="Grupo 6550" transform="translate(46.223)">
+                    <g id="prefix__Grupo_6549" data-name="Grupo 6549">
+                        <g id="prefix__Grupo_6548" data-name="Grupo 6548">
+                            <g id="prefix__Grupo_6547" data-name="Grupo 6547">
+                                <path id="prefix__Rectángulo_2657" d="M0 0H23.922V18.509H0z" class="prefix__cls-7" data-name="Rectángulo 2657"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6554" data-name="Grupo 6554" transform="translate(0 3.725)">
+                    <g id="prefix__Grupo_6553" data-name="Grupo 6553">
+                        <g id="prefix__Grupo_6552" data-name="Grupo 6552">
+                            <g id="prefix__Grupo_6551" data-name="Grupo 6551">
+                                <path id="prefix__Rectángulo_2658" d="M0 0H30.063V0.503H0z" class="prefix__cls-4" data-name="Rectángulo 2658"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6558" data-name="Grupo 6558" transform="translate(18.292 3.977)">
+                    <g id="prefix__Grupo_6557" data-name="Grupo 6557">
+                        <g id="prefix__Grupo_6556" data-name="Grupo 6556">
+                            <g id="prefix__Grupo_6555" data-name="Grupo 6555">
+                                <path id="prefix__Rectángulo_2659" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2659"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6562" data-name="Grupo 6562" transform="translate(9.301 3.977)">
+                    <g id="prefix__Grupo_6561" data-name="Grupo 6561">
+                        <g id="prefix__Grupo_6560" data-name="Grupo 6560">
+                            <g id="prefix__Grupo_6559" data-name="Grupo 6559">
+                                <path id="prefix__Rectángulo_2660" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2660"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6566" data-name="Grupo 6566" transform="translate(44.392 3.725)">
+                    <g id="prefix__Grupo_6565" data-name="Grupo 6565">
+                        <g id="prefix__Grupo_6564" data-name="Grupo 6564">
+                            <g id="prefix__Grupo_6563" data-name="Grupo 6563">
+                                <path id="prefix__Rectángulo_2661" d="M0 0H30.063V0.503H0z" class="prefix__cls-4" data-name="Rectángulo 2661"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6570" data-name="Grupo 6570" transform="translate(62.683 3.977)">
+                    <g id="prefix__Grupo_6569" data-name="Grupo 6569">
+                        <g id="prefix__Grupo_6568" data-name="Grupo 6568">
+                            <g id="prefix__Grupo_6567" data-name="Grupo 6567">
+                                <path id="prefix__Rectángulo_2662" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2662"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6574" data-name="Grupo 6574" transform="translate(53.693 3.977)">
+                    <g id="prefix__Grupo_6573" data-name="Grupo 6573">
+                        <g id="prefix__Grupo_6572" data-name="Grupo 6572">
+                            <g id="prefix__Grupo_6571" data-name="Grupo 6571">
+                                <path id="prefix__Rectángulo_2663" d="M0 0H0.503V15.582H0z" class="prefix__cls-4" data-name="Rectángulo 2663"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6579" class="prefix__cls-6" data-name="Grupo 6579" transform="translate(39.488)">
+                <g id="prefix__Grupo_6578" data-name="Grupo 6578">
+                    <g id="prefix__Grupo_6577" data-name="Grupo 6577">
+                        <g id="prefix__Grupo_6576" data-name="Grupo 6576">
+                            <path id="prefix__Rectángulo_2664" d="M0 0H0.671V29.143H0z" class="prefix__cls-9" data-name="Rectángulo 2664"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6583" data-name="Grupo 6583" transform="translate(29.532 6.165)">
+                <g id="prefix__Grupo_6582" data-name="Grupo 6582">
+                    <g id="prefix__Grupo_6581" data-name="Grupo 6581">
+                        <g id="prefix__Grupo_6580" data-name="Grupo 6580">
+                            <path id="prefix__Rectángulo_2665" d="M0 0H20.148V0.671H0z" class="prefix__cls-9" data-name="Rectángulo 2665" transform="rotate(-13.67 19.86 2.38)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6587" data-name="Grupo 6587" transform="translate(29.532 12.116)">
+                <g id="prefix__Grupo_6586" data-name="Grupo 6586">
+                    <g id="prefix__Grupo_6585" data-name="Grupo 6585">
+                        <g id="prefix__Grupo_6584" data-name="Grupo 6584">
+                            <path id="prefix__Rectángulo_2666" d="M0 0H20.148V0.671H0z" class="prefix__cls-9" data-name="Rectángulo 2666" transform="rotate(-13.67 19.86 2.38)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6591" data-name="Grupo 6591" transform="translate(122.835 51.452)">
+                <g id="prefix__Grupo_6590" data-name="Grupo 6590">
+                    <g id="prefix__Grupo_6589" data-name="Grupo 6589">
+                        <g id="prefix__Grupo_6588" data-name="Grupo 6588">
+                            <rect id="prefix__Rectángulo_2667" width="21.691" height="17.978" class="prefix__cls-10" data-name="Rectángulo 2667" rx="8.989"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6595" data-name="Grupo 6595" transform="translate(0 26.5)">
+                <g id="prefix__Grupo_6594" data-name="Grupo 6594">
+                    <g id="prefix__Grupo_6593" data-name="Grupo 6593">
+                        <g id="prefix__Grupo_6592" data-name="Grupo 6592">
+                            <path id="prefix__Rectángulo_2668" d="M0 0H74.181V211.706H0z" class="prefix__cls-2" data-name="Rectángulo 2668"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6652" data-name="Grupo 6652" transform="translate(23.495 43.113)">
+                <g id="prefix__Grupo_6599" data-name="Grupo 6599">
+                    <g id="prefix__Grupo_6598" data-name="Grupo 6598">
+                        <g id="prefix__Grupo_6597" data-name="Grupo 6597">
+                            <g id="prefix__Grupo_6596" data-name="Grupo 6596">
+                                <path id="prefix__Rectángulo_2669" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2669"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6603" data-name="Grupo 6603" transform="translate(22.393)">
+                    <g id="prefix__Grupo_6602" data-name="Grupo 6602">
+                        <g id="prefix__Grupo_6601" data-name="Grupo 6601">
+                            <g id="prefix__Grupo_6600" data-name="Grupo 6600">
+                                <path id="prefix__Rectángulo_2670" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2670"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6607" data-name="Grupo 6607" transform="translate(0 24.953)">
+                    <g id="prefix__Grupo_6606" data-name="Grupo 6606">
+                        <g id="prefix__Grupo_6605" data-name="Grupo 6605">
+                            <g id="prefix__Grupo_6604" data-name="Grupo 6604">
+                                <path id="prefix__Rectángulo_2671" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2671"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6611" data-name="Grupo 6611" transform="translate(22.393 24.953)">
+                    <g id="prefix__Grupo_6610" data-name="Grupo 6610">
+                        <g id="prefix__Grupo_6609" data-name="Grupo 6609">
+                            <g id="prefix__Grupo_6608" data-name="Grupo 6608">
+                                <path id="prefix__Rectángulo_2672" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2672"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6615" data-name="Grupo 6615" transform="translate(0 50.932)">
+                    <g id="prefix__Grupo_6614" data-name="Grupo 6614">
+                        <g id="prefix__Grupo_6613" data-name="Grupo 6613">
+                            <g id="prefix__Grupo_6612" data-name="Grupo 6612">
+                                <path id="prefix__Rectángulo_2673" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2673"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6619" data-name="Grupo 6619" transform="translate(22.393 50.932)">
+                    <g id="prefix__Grupo_6618" data-name="Grupo 6618">
+                        <g id="prefix__Grupo_6617" data-name="Grupo 6617">
+                            <g id="prefix__Grupo_6616" data-name="Grupo 6616">
+                                <path id="prefix__Rectángulo_2674" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2674"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6623" data-name="Grupo 6623" transform="translate(0 76.488)">
+                    <g id="prefix__Grupo_6622" data-name="Grupo 6622">
+                        <g id="prefix__Grupo_6621" data-name="Grupo 6621">
+                            <g id="prefix__Grupo_6620" data-name="Grupo 6620">
+                                <path id="prefix__Rectángulo_2675" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2675"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6627" data-name="Grupo 6627" transform="translate(22.393 76.488)">
+                    <g id="prefix__Grupo_6626" data-name="Grupo 6626">
+                        <g id="prefix__Grupo_6625" data-name="Grupo 6625">
+                            <g id="prefix__Grupo_6624" data-name="Grupo 6624">
+                                <path id="prefix__Rectángulo_2676" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2676"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6631" data-name="Grupo 6631" transform="translate(0 99.972)">
+                    <g id="prefix__Grupo_6630" data-name="Grupo 6630">
+                        <g id="prefix__Grupo_6629" data-name="Grupo 6629">
+                            <g id="prefix__Grupo_6628" data-name="Grupo 6628">
+                                <path id="prefix__Rectángulo_2677" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2677"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6635" data-name="Grupo 6635" transform="translate(22.393 99.972)">
+                    <g id="prefix__Grupo_6634" data-name="Grupo 6634">
+                        <g id="prefix__Grupo_6633" data-name="Grupo 6633">
+                            <g id="prefix__Grupo_6632" data-name="Grupo 6632">
+                                <path id="prefix__Rectángulo_2678" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2678"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6639" data-name="Grupo 6639" transform="translate(0 126.221)">
+                    <g id="prefix__Grupo_6638" data-name="Grupo 6638">
+                        <g id="prefix__Grupo_6637" data-name="Grupo 6637">
+                            <g id="prefix__Grupo_6636" data-name="Grupo 6636">
+                                <path id="prefix__Rectángulo_2679" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2679"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6643" data-name="Grupo 6643" transform="translate(22.393 126.221)">
+                    <g id="prefix__Grupo_6642" data-name="Grupo 6642">
+                        <g id="prefix__Grupo_6641" data-name="Grupo 6641">
+                            <g id="prefix__Grupo_6640" data-name="Grupo 6640">
+                                <path id="prefix__Rectángulo_2680" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2680"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6647" data-name="Grupo 6647" transform="translate(0 150.882)">
+                    <g id="prefix__Grupo_6646" data-name="Grupo 6646">
+                        <g id="prefix__Grupo_6645" data-name="Grupo 6645">
+                            <g id="prefix__Grupo_6644" data-name="Grupo 6644">
+                                <path id="prefix__Rectángulo_2681" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2681"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6651" data-name="Grupo 6651" transform="translate(22.393 150.882)">
+                    <g id="prefix__Grupo_6650" data-name="Grupo 6650">
+                        <g id="prefix__Grupo_6649" data-name="Grupo 6649">
+                            <g id="prefix__Grupo_6648" data-name="Grupo 6648">
+                                <path id="prefix__Rectángulo_2682" d="M0 0H14.405V14.405H0z" class="prefix__cls-8" data-name="Rectángulo 2682"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6709" data-name="Grupo 6709" transform="translate(360.838 64.832)">
+                <g id="prefix__Grupo_6656" data-name="Grupo 6656">
+                    <g id="prefix__Grupo_6655" data-name="Grupo 6655">
+                        <g id="prefix__Grupo_6654" data-name="Grupo 6654">
+                            <g id="prefix__Grupo_6653" data-name="Grupo 6653">
+                                <path id="prefix__Rectángulo_2683" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2683"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6660" data-name="Grupo 6660" transform="translate(18.01)">
+                    <g id="prefix__Grupo_6659" data-name="Grupo 6659">
+                        <g id="prefix__Grupo_6658" data-name="Grupo 6658">
+                            <g id="prefix__Grupo_6657" data-name="Grupo 6657">
+                                <path id="prefix__Rectángulo_2684" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2684"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6664" data-name="Grupo 6664" transform="translate(0 20.068)">
+                    <g id="prefix__Grupo_6663" data-name="Grupo 6663">
+                        <g id="prefix__Grupo_6662" data-name="Grupo 6662">
+                            <g id="prefix__Grupo_6661" data-name="Grupo 6661">
+                                <path id="prefix__Rectángulo_2685" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2685"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6668" data-name="Grupo 6668" transform="translate(18.01 20.068)">
+                    <g id="prefix__Grupo_6667" data-name="Grupo 6667">
+                        <g id="prefix__Grupo_6666" data-name="Grupo 6666">
+                            <g id="prefix__Grupo_6665" data-name="Grupo 6665">
+                                <path id="prefix__Rectángulo_2686" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2686"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6672" data-name="Grupo 6672" transform="translate(0 40.963)">
+                    <g id="prefix__Grupo_6671" data-name="Grupo 6671">
+                        <g id="prefix__Grupo_6670" data-name="Grupo 6670">
+                            <g id="prefix__Grupo_6669" data-name="Grupo 6669">
+                                <path id="prefix__Rectángulo_2687" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2687"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6676" data-name="Grupo 6676" transform="translate(18.01 40.963)">
+                    <g id="prefix__Grupo_6675" data-name="Grupo 6675">
+                        <g id="prefix__Grupo_6674" data-name="Grupo 6674">
+                            <g id="prefix__Grupo_6673" data-name="Grupo 6673">
+                                <path id="prefix__Rectángulo_2688" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2688"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6680" data-name="Grupo 6680" transform="translate(0 61.516)">
+                    <g id="prefix__Grupo_6679" data-name="Grupo 6679">
+                        <g id="prefix__Grupo_6678" data-name="Grupo 6678">
+                            <g id="prefix__Grupo_6677" data-name="Grupo 6677">
+                                <path id="prefix__Rectángulo_2689" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2689"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6684" data-name="Grupo 6684" transform="translate(18.01 61.516)">
+                    <g id="prefix__Grupo_6683" data-name="Grupo 6683">
+                        <g id="prefix__Grupo_6682" data-name="Grupo 6682">
+                            <g id="prefix__Grupo_6681" data-name="Grupo 6681">
+                                <path id="prefix__Rectángulo_2690" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2690"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6688" data-name="Grupo 6688" transform="translate(0 80.404)">
+                    <g id="prefix__Grupo_6687" data-name="Grupo 6687">
+                        <g id="prefix__Grupo_6686" data-name="Grupo 6686">
+                            <g id="prefix__Grupo_6685" data-name="Grupo 6685">
+                                <path id="prefix__Rectángulo_2691" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2691"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6692" data-name="Grupo 6692" transform="translate(18.01 80.404)">
+                    <g id="prefix__Grupo_6691" data-name="Grupo 6691">
+                        <g id="prefix__Grupo_6690" data-name="Grupo 6690">
+                            <g id="prefix__Grupo_6689" data-name="Grupo 6689">
+                                <path id="prefix__Rectángulo_2692" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2692"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6696" data-name="Grupo 6696" transform="translate(0 101.515)">
+                    <g id="prefix__Grupo_6695" data-name="Grupo 6695">
+                        <g id="prefix__Grupo_6694" data-name="Grupo 6694">
+                            <g id="prefix__Grupo_6693" data-name="Grupo 6693">
+                                <path id="prefix__Rectángulo_2693" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2693"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6700" data-name="Grupo 6700" transform="translate(18.01 101.515)">
+                    <g id="prefix__Grupo_6699" data-name="Grupo 6699">
+                        <g id="prefix__Grupo_6698" data-name="Grupo 6698">
+                            <g id="prefix__Grupo_6697" data-name="Grupo 6697">
+                                <path id="prefix__Rectángulo_2694" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2694"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6704" data-name="Grupo 6704" transform="translate(0 121.349)">
+                    <g id="prefix__Grupo_6703" data-name="Grupo 6703">
+                        <g id="prefix__Grupo_6702" data-name="Grupo 6702">
+                            <g id="prefix__Grupo_6701" data-name="Grupo 6701">
+                                <path id="prefix__Rectángulo_2695" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2695"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6708" data-name="Grupo 6708" transform="translate(18.01 121.349)">
+                    <g id="prefix__Grupo_6707" data-name="Grupo 6707">
+                        <g id="prefix__Grupo_6706" data-name="Grupo 6706">
+                            <g id="prefix__Grupo_6705" data-name="Grupo 6705">
+                                <path id="prefix__Rectángulo_2696" d="M0 0H11.586V11.586H0z" class="prefix__cls-8" data-name="Rectángulo 2696"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6713" data-name="Grupo 6713" transform="translate(74.181 26.796)">
+                <g id="prefix__Grupo_6712" data-name="Grupo 6712">
+                    <g id="prefix__Grupo_6711" data-name="Grupo 6711">
+                        <g id="prefix__Grupo_6710" data-name="Grupo 6710">
+                            <path id="prefix__Trazado_6845" d="M1227.3 1518.86h-33v-211.41l33.186 5.643z" data-name="Trazado 6845" transform="translate(-1194.302 -1307.449)" style="fill:#63a7ea"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6742" data-name="Grupo 6742" transform="translate(84.218 44.361)" style="opacity:.64">
+                <g id="prefix__Grupo_6717" data-name="Grupo 6717">
+                    <g id="prefix__Grupo_6716" data-name="Grupo 6716">
+                        <g id="prefix__Grupo_6715" data-name="Grupo 6715">
+                            <g id="prefix__Grupo_6714" data-name="Grupo 6714">
+                                <path id="prefix__Trazado_6846" d="M1224.467 1350.653l-14.487-1.28v-14.487l14.487 1.279z" class="prefix__cls-2" data-name="Trazado 6846" transform="translate(-1209.98 -1334.886)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6721" data-name="Grupo 6721" transform="translate(0 25.094)">
+                    <g id="prefix__Grupo_6720" data-name="Grupo 6720">
+                        <g id="prefix__Grupo_6719" data-name="Grupo 6719">
+                            <g id="prefix__Grupo_6718" data-name="Grupo 6718">
+                                <path id="prefix__Trazado_6847" d="M1224.467 1389.85l-14.487-1.28v-14.487l14.487 1.28z" class="prefix__cls-2" data-name="Trazado 6847" transform="translate(-1209.98 -1374.083)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6725" data-name="Grupo 6725" transform="translate(0 51.222)">
+                    <g id="prefix__Grupo_6724" data-name="Grupo 6724">
+                        <g id="prefix__Grupo_6723" data-name="Grupo 6723">
+                            <g id="prefix__Grupo_6722" data-name="Grupo 6722">
+                                <path id="prefix__Trazado_6848" d="M1224.467 1430.66l-14.487-1.28v-14.487l14.487 1.28z" class="prefix__cls-2" data-name="Trazado 6848" transform="translate(-1209.98 -1414.893)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6729" data-name="Grupo 6729" transform="translate(0 76.923)">
+                    <g id="prefix__Grupo_6728" data-name="Grupo 6728">
+                        <g id="prefix__Grupo_6727" data-name="Grupo 6727">
+                            <g id="prefix__Grupo_6726" data-name="Grupo 6726">
+                                <path id="prefix__Trazado_6849" d="M1224.467 1470.8l-14.487-1.28v-14.487l14.487 1.28z" class="prefix__cls-2" data-name="Trazado 6849" transform="translate(-1209.98 -1455.037)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6733" data-name="Grupo 6733" transform="translate(0 100.541)">
+                    <g id="prefix__Grupo_6732" data-name="Grupo 6732">
+                        <g id="prefix__Grupo_6731" data-name="Grupo 6731">
+                            <g id="prefix__Grupo_6730" data-name="Grupo 6730">
+                                <path id="prefix__Trazado_6850" d="M1224.467 1507.695l-14.487-1.28v-14.487l14.487 1.28z" class="prefix__cls-2" data-name="Trazado 6850" transform="translate(-1209.98 -1491.928)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6737" data-name="Grupo 6737" transform="translate(0 126.939)">
+                    <g id="prefix__Grupo_6736" data-name="Grupo 6736">
+                        <g id="prefix__Grupo_6735" data-name="Grupo 6735">
+                            <g id="prefix__Grupo_6734" data-name="Grupo 6734">
+                                <path id="prefix__Trazado_6851" d="M1224.467 1548.928l-14.487-1.28v-14.487l14.487 1.28z" class="prefix__cls-2" data-name="Trazado 6851" transform="translate(-1209.98 -1533.161)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6741" data-name="Grupo 6741" transform="translate(0 151.741)">
+                    <g id="prefix__Grupo_6740" data-name="Grupo 6740">
+                        <g id="prefix__Grupo_6739" data-name="Grupo 6739">
+                            <g id="prefix__Grupo_6738" data-name="Grupo 6738">
+                                <path id="prefix__Trazado_6852" d="M1224.467 1587.667l-14.487-1.28V1571.9l14.487 1.279z" class="prefix__cls-2" data-name="Trazado 6852" transform="translate(-1209.98 -1571.901)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6746" data-name="Grupo 6746" transform="translate(93.759 67.183)">
+                <g id="prefix__Grupo_6745" data-name="Grupo 6745">
+                    <g id="prefix__Grupo_6744" data-name="Grupo 6744">
+                        <g id="prefix__Grupo_6743" data-name="Grupo 6743">
+                            <path id="prefix__Rectángulo_2697" d="M0 0H69.424V171.023H0z" class="prefix__cls-4" data-name="Rectángulo 2697"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6750" class="prefix__cls-6" data-name="Grupo 6750" transform="translate(92.104 67.183)">
+                <g id="prefix__Grupo_6749" data-name="Grupo 6749">
+                    <g id="prefix__Grupo_6748" data-name="Grupo 6748">
+                        <g id="prefix__Grupo_6747" data-name="Grupo 6747">
+                            <path id="prefix__Rectángulo_2698" d="M0 0H71.079V6.368H0z" class="prefix__cls-7" data-name="Rectángulo 2698"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6754" class="prefix__cls-6" data-name="Grupo 6754" transform="translate(92.104 118.1)">
+                <g id="prefix__Grupo_6753" data-name="Grupo 6753">
+                    <g id="prefix__Grupo_6752" data-name="Grupo 6752">
+                        <g id="prefix__Grupo_6751" data-name="Grupo 6751">
+                            <path id="prefix__Rectángulo_2699" d="M0 0H71.079V6.368H0z" class="prefix__cls-7" data-name="Rectángulo 2699"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6775" data-name="Grupo 6775" transform="translate(105.186 83.062)">
+                <g id="prefix__Grupo_6758" data-name="Grupo 6758">
+                    <g id="prefix__Grupo_6757" data-name="Grupo 6757">
+                        <g id="prefix__Grupo_6756" data-name="Grupo 6756">
+                            <g id="prefix__Grupo_6755" data-name="Grupo 6755">
+                                <path id="prefix__Trazado_6853" d="M1289.3 1421.434h-46.57v-26.1h46.57v26.1z" class="prefix__cls-8" data-name="Trazado 6853" transform="translate(-1242.732 -1395.335)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6762" data-name="Grupo 6762" transform="translate(0 17.477)">
+                    <g id="prefix__Grupo_6761" data-name="Grupo 6761">
+                        <g id="prefix__Grupo_6760" data-name="Grupo 6760">
+                            <g id="prefix__Grupo_6759" data-name="Grupo 6759">
+                                <path id="prefix__Rectángulo_2700" d="M0 0H46.57V1.007H0z" class="prefix__cls-4" data-name="Rectángulo 2700"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6766" data-name="Grupo 6766" transform="translate(22.781)">
+                    <g id="prefix__Grupo_6765" data-name="Grupo 6765">
+                        <g id="prefix__Grupo_6764" data-name="Grupo 6764">
+                            <g id="prefix__Grupo_6763" data-name="Grupo 6763">
+                                <path id="prefix__Rectángulo_2701" d="M0 0H1.007V26.1H0z" class="prefix__cls-4" data-name="Rectángulo 2701"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6770" data-name="Grupo 6770" transform="translate(33.074)">
+                    <g id="prefix__Grupo_6769" data-name="Grupo 6769">
+                        <g id="prefix__Grupo_6768" data-name="Grupo 6768">
+                            <g id="prefix__Grupo_6767" data-name="Grupo 6767">
+                                <path id="prefix__Rectángulo_2702" d="M0 0H1.007V17.98H0z" class="prefix__cls-4" data-name="Rectángulo 2702"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6774" data-name="Grupo 6774" transform="translate(14.713)">
+                    <g id="prefix__Grupo_6773" data-name="Grupo 6773">
+                        <g id="prefix__Grupo_6772" data-name="Grupo 6772">
+                            <g id="prefix__Grupo_6771" data-name="Grupo 6771">
+                                <path id="prefix__Rectángulo_2703" d="M0 0H1.007V17.98H0z" class="prefix__cls-4" data-name="Rectángulo 2703"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6796" data-name="Grupo 6796" transform="translate(105.186 137.237)">
+                <g id="prefix__Grupo_6779" data-name="Grupo 6779">
+                    <g id="prefix__Grupo_6778" data-name="Grupo 6778">
+                        <g id="prefix__Grupo_6777" data-name="Grupo 6777">
+                            <g id="prefix__Grupo_6776" data-name="Grupo 6776">
+                                <path id="prefix__Trazado_6854" d="M1289.3 1506.056h-46.57v-26.1h46.57v26.1z" class="prefix__cls-8" data-name="Trazado 6854" transform="translate(-1242.732 -1479.956)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6783" data-name="Grupo 6783" transform="translate(0 17.645)">
+                    <g id="prefix__Grupo_6782" data-name="Grupo 6782">
+                        <g id="prefix__Grupo_6781" data-name="Grupo 6781">
+                            <g id="prefix__Grupo_6780" data-name="Grupo 6780">
+                                <path id="prefix__Rectángulo_2704" d="M0 0H46.57V0.671H0z" class="prefix__cls-4" data-name="Rectángulo 2704"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6787" data-name="Grupo 6787" transform="translate(22.949)">
+                    <g id="prefix__Grupo_6786" data-name="Grupo 6786">
+                        <g id="prefix__Grupo_6785" data-name="Grupo 6785">
+                            <g id="prefix__Grupo_6784" data-name="Grupo 6784">
+                                <path id="prefix__Rectángulo_2705" d="M0 0H0.671V26.1H0z" class="prefix__cls-4" data-name="Rectángulo 2705"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6791" data-name="Grupo 6791" transform="translate(33.242)">
+                    <g id="prefix__Grupo_6790" data-name="Grupo 6790">
+                        <g id="prefix__Grupo_6789" data-name="Grupo 6789">
+                            <g id="prefix__Grupo_6788" data-name="Grupo 6788">
+                                <path id="prefix__Rectángulo_2706" d="M0 0H0.671V17.98H0z" class="prefix__cls-4" data-name="Rectángulo 2706"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6795" data-name="Grupo 6795" transform="translate(14.881)">
+                    <g id="prefix__Grupo_6794" data-name="Grupo 6794">
+                        <g id="prefix__Grupo_6793" data-name="Grupo 6793">
+                            <g id="prefix__Grupo_6792" data-name="Grupo 6792">
+                                <path id="prefix__Rectángulo_2707" d="M0 0H0.671V17.98H0z" class="prefix__cls-4" data-name="Rectángulo 2707"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6800" data-name="Grupo 6800" transform="translate(163.183 67.183)">
+                <g id="prefix__Grupo_6799" data-name="Grupo 6799">
+                    <g id="prefix__Grupo_6798" data-name="Grupo 6798">
+                        <g id="prefix__Grupo_6797" data-name="Grupo 6797">
+                            <path id="prefix__Trazado_6855" d="M1333.321 1370.533l22.74 12.294v158.433h-22.74z" class="prefix__cls-7" data-name="Trazado 6855" transform="translate(-1333.321 -1370.533)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6804" data-name="Grupo 6804" transform="translate(167.567 131.3)">
+                <g id="prefix__Grupo_6803" data-name="Grupo 6803">
+                    <g id="prefix__Grupo_6802" data-name="Grupo 6802">
+                        <g id="prefix__Grupo_6801" data-name="Grupo 6801">
+                            <path id="prefix__Trazado_6856" d="M1355.473 1503.892l-15.305-6.588.252-26.622 15.305 6.589z" class="prefix__cls-7" data-name="Trazado 6856" transform="translate(-1340.168 -1470.682)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6808" data-name="Grupo 6808" transform="translate(163.183 67.183)">
+                <g id="prefix__Grupo_6807" data-name="Grupo 6807">
+                    <g id="prefix__Grupo_6806" data-name="Grupo 6806">
+                        <g id="prefix__Grupo_6805" data-name="Grupo 6805">
+                            <path id="prefix__Trazado_6857" d="M1333.321 1376.9l22.74 10.8v-4.874l-22.74-12.294z" class="prefix__cls-10" data-name="Trazado 6857" transform="translate(-1333.321 -1370.533)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6812" data-name="Grupo 6812" transform="translate(163.183 118.1)">
+                <g id="prefix__Grupo_6811" data-name="Grupo 6811">
+                    <g id="prefix__Grupo_6810" data-name="Grupo 6810">
+                        <g id="prefix__Grupo_6809" data-name="Grupo 6809">
+                            <path id="prefix__Trazado_6858" d="M1333.321 1456.432l22.74 10.191v-5.538l-22.74-11.021z" class="prefix__cls-10" data-name="Trazado 6858" transform="translate(-1333.321 -1450.064)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6816" class="prefix__cls-6" data-name="Grupo 6816" transform="translate(92.104 170.904)">
+                <g id="prefix__Grupo_6815" data-name="Grupo 6815">
+                    <g id="prefix__Grupo_6814" data-name="Grupo 6814">
+                        <g id="prefix__Grupo_6813" data-name="Grupo 6813">
+                            <path id="prefix__Rectángulo_2708" d="M0 0H71.079V6.368H0z" class="prefix__cls-7" data-name="Rectángulo 2708"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6820" data-name="Grupo 6820" transform="translate(163.183 170.904)">
+                <g id="prefix__Grupo_6819" data-name="Grupo 6819">
+                    <g id="prefix__Grupo_6818" data-name="Grupo 6818">
+                        <g id="prefix__Grupo_6817" data-name="Grupo 6817">
+                            <path id="prefix__Trazado_6859" d="M1333.321 1538.911l22.74 10.191v-5.537l-22.74-11.022z" class="prefix__cls-10" data-name="Trazado 6859" transform="translate(-1333.321 -1532.542)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6824" class="prefix__cls-6" data-name="Grupo 6824" transform="translate(185.923 181.846)">
+                <g id="prefix__Grupo_6823" data-name="Grupo 6823">
+                    <g id="prefix__Grupo_6822" data-name="Grupo 6822">
+                        <g id="prefix__Grupo_6821" data-name="Grupo 6821">
+                            <path id="prefix__Rectángulo_2709" d="M0 0H53.193V5.617H0z" class="prefix__cls-7" data-name="Rectángulo 2709"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6828" data-name="Grupo 6828" transform="translate(347.452 43.113)">
+                <g id="prefix__Grupo_6827" data-name="Grupo 6827">
+                    <g id="prefix__Grupo_6826" data-name="Grupo 6826">
+                        <g id="prefix__Grupo_6825" data-name="Grupo 6825">
+                            <path id="prefix__Rectángulo_2710" d="M0 0H55.258V8.34H0z" class="prefix__cls-7" data-name="Rectángulo 2710"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6832" data-name="Grupo 6832" transform="translate(355.733 13.141)">
+                <g id="prefix__Grupo_6831" data-name="Grupo 6831">
+                    <g id="prefix__Grupo_6830" data-name="Grupo 6830">
+                        <g id="prefix__Grupo_6829" data-name="Grupo 6829">
+                            <path id="prefix__Trazado_6860" d="M1634.414 1324.365l-.335-.011c.008-.256.891-25.809 5.584-38.232l.314.119c-4.677 12.37-5.555 37.867-5.563 38.124z" class="prefix__cls-7" data-name="Trazado 6860" transform="translate(-1634.078 -1286.121)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6836" data-name="Grupo 6836" transform="translate(359.018 13.507)">
+                <g id="prefix__Grupo_6835" data-name="Grupo 6835">
+                    <g id="prefix__Grupo_6834" data-name="Grupo 6834">
+                        <g id="prefix__Grupo_6833" data-name="Grupo 6833">
+                            <path id="prefix__Trazado_6861" d="M1639.545 1324.935l-.335-.011c.009-.257.892-25.809 5.585-38.232l.314.118c-4.673 12.372-5.555 37.869-5.564 38.125z" class="prefix__cls-7" data-name="Trazado 6861" transform="translate(-1639.21 -1286.692)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6840" data-name="Grupo 6840" transform="translate(361.805 15.059)">
+                <g id="prefix__Grupo_6839" data-name="Grupo 6839">
+                    <g id="prefix__Grupo_6838" data-name="Grupo 6838">
+                        <g id="prefix__Grupo_6837" data-name="Grupo 6837">
+                            <path id="prefix__Trazado_6862" d="M1643.9 1327.361l-.336-.012c.009-.257.892-25.81 5.585-38.233l.314.119c-4.675 12.371-5.556 37.865-5.563 38.126z" class="prefix__cls-7" data-name="Trazado 6862" transform="translate(-1643.563 -1289.117)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6844" data-name="Grupo 6844" transform="translate(351.486 43.446)">
+                <g id="prefix__Grupo_6843" data-name="Grupo 6843">
+                    <g id="prefix__Grupo_6842" data-name="Grupo 6842">
+                        <g id="prefix__Grupo_6841" data-name="Grupo 6841">
+                            <path id="prefix__Trazado_6863" d="M1630.178 1337.4l-2.733-2.242 3.039-1.7 2.237 2.554zm-2.14-2.19l2.178 1.787 1.976-1.081-1.782-2.035z" class="prefix__cls-7" data-name="Trazado 6863" transform="translate(-1627.445 -1333.456)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6848" data-name="Grupo 6848" transform="translate(356.757 35.561)">
+                <g id="prefix__Grupo_6847" data-name="Grupo 6847">
+                    <g id="prefix__Grupo_6846" data-name="Grupo 6846">
+                        <g id="prefix__Grupo_6845" data-name="Grupo 6845">
+                            <path id="prefix__Trazado_6864" d="M1638.849 1325.917l-3.172-3.036 3.641-1.74 2.913 2.9zm-2.59-2.943l2.643 2.529 2.775-1.543-2.428-2.413z" class="prefix__cls-7" data-name="Trazado 6864" transform="translate(-1635.677 -1321.141)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6852" data-name="Grupo 6852" transform="translate(357.715 27.723)">
+                <g id="prefix__Grupo_6851" data-name="Grupo 6851">
+                    <g id="prefix__Grupo_6850" data-name="Grupo 6850">
+                        <g id="prefix__Grupo_6849" data-name="Grupo 6849">
+                            <path id="prefix__Trazado_6865" d="M1640.152 1314.052l-2.978-3.428 3.694-1.726 2.877 2.731zm-2.433-3.312l2.491 2.868 3-2.023-2.408-2.286z" class="prefix__cls-7" data-name="Trazado 6865" transform="translate(-1637.174 -1308.898)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6856" data-name="Grupo 6856" transform="translate(358.917 19.982)">
+                <g id="prefix__Grupo_6855" data-name="Grupo 6855">
+                    <g id="prefix__Grupo_6854" data-name="Grupo 6854">
+                        <g id="prefix__Grupo_6853" data-name="Grupo 6853">
+                            <path id="prefix__Trazado_6866" d="M1641.945 1302.114l-2.892-3.784 3.961-1.523 2.6 2.876zm-2.354-3.632l2.43 3.179 3.085-2.041-2.188-2.417z" class="prefix__cls-7" data-name="Trazado 6866" transform="translate(-1639.052 -1296.807)"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6885" data-name="Grupo 6885" transform="translate(348.748 55.398)">
+                <g id="prefix__Grupo_6860" data-name="Grupo 6860" transform="translate(.604)">
+                    <g id="prefix__Grupo_6859" data-name="Grupo 6859">
+                        <g id="prefix__Grupo_6858" data-name="Grupo 6858">
+                            <g id="prefix__Grupo_6857" data-name="Grupo 6857">
+                                <path id="prefix__Rectángulo_2711" d="M0 0H10.806V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2711"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6864" data-name="Grupo 6864" transform="translate(2.951 2.133)">
+                    <g id="prefix__Grupo_6863" data-name="Grupo 6863">
+                        <g id="prefix__Grupo_6862" data-name="Grupo 6862">
+                            <g id="prefix__Grupo_6861" data-name="Grupo 6861">
+                                <path id="prefix__Rectángulo_2712" d="M0 0H10.806V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2712"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6868" data-name="Grupo 6868" transform="translate(0 4.514)">
+                    <g id="prefix__Grupo_6867" data-name="Grupo 6867">
+                        <g id="prefix__Grupo_6866" data-name="Grupo 6866">
+                            <g id="prefix__Grupo_6865" data-name="Grupo 6865">
+                                <path id="prefix__Rectángulo_2713" d="M0 0H10.806V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2713"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6872" data-name="Grupo 6872" transform="translate(4.088 6.54)">
+                    <g id="prefix__Grupo_6871" data-name="Grupo 6871">
+                        <g id="prefix__Grupo_6870" data-name="Grupo 6870">
+                            <g id="prefix__Grupo_6869" data-name="Grupo 6869">
+                                <path id="prefix__Rectángulo_2714" d="M0 0H10.06V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2714"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6876" data-name="Grupo 6876" transform="translate(8.683 .168)">
+                    <g id="prefix__Grupo_6875" data-name="Grupo 6875">
+                        <g id="prefix__Grupo_6874" data-name="Grupo 6874">
+                            <g id="prefix__Grupo_6873" data-name="Grupo 6873">
+                                <path id="prefix__Rectángulo_2715" d="M0 0H0.336V2.133H0z" class="prefix__cls-7" data-name="Rectángulo 2715"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6880" data-name="Grupo 6880" transform="translate(3.778 2.425)">
+                    <g id="prefix__Grupo_6879" data-name="Grupo 6879">
+                        <g id="prefix__Grupo_6878" data-name="Grupo 6878">
+                            <g id="prefix__Grupo_6877" data-name="Grupo 6877">
+                                <path id="prefix__Rectángulo_2716" d="M0 0H0.336V2.133H0z" class="prefix__cls-7" data-name="Rectángulo 2716"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6884" data-name="Grupo 6884" transform="translate(9.856 4.682)">
+                    <g id="prefix__Grupo_6883" data-name="Grupo 6883">
+                        <g id="prefix__Grupo_6882" data-name="Grupo 6882">
+                            <g id="prefix__Grupo_6881" data-name="Grupo 6881">
+                                <path id="prefix__Rectángulo_2717" d="M0 0H0.336V2.133H0z" class="prefix__cls-7" data-name="Rectángulo 2717"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6914" data-name="Grupo 6914" transform="translate(60.293 84.96)">
+                <g id="prefix__Grupo_6889" data-name="Grupo 6889" transform="translate(.604)">
+                    <g id="prefix__Grupo_6888" data-name="Grupo 6888">
+                        <g id="prefix__Grupo_6887" data-name="Grupo 6887">
+                            <g id="prefix__Grupo_6886" data-name="Grupo 6886">
+                                <path id="prefix__Rectángulo_2718" d="M0 0H10.806V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2718"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6893" data-name="Grupo 6893" transform="translate(2.95 2.133)">
+                    <g id="prefix__Grupo_6892" data-name="Grupo 6892">
+                        <g id="prefix__Grupo_6891" data-name="Grupo 6891">
+                            <g id="prefix__Grupo_6890" data-name="Grupo 6890">
+                                <path id="prefix__Rectángulo_2719" d="M0 0H10.806V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2719"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6897" data-name="Grupo 6897" transform="translate(0 4.514)">
+                    <g id="prefix__Grupo_6896" data-name="Grupo 6896">
+                        <g id="prefix__Grupo_6895" data-name="Grupo 6895">
+                            <g id="prefix__Grupo_6894" data-name="Grupo 6894">
+                                <path id="prefix__Rectángulo_2720" d="M0 0H10.806V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2720"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6901" data-name="Grupo 6901" transform="translate(4.088 6.54)">
+                    <g id="prefix__Grupo_6900" data-name="Grupo 6900">
+                        <g id="prefix__Grupo_6899" data-name="Grupo 6899">
+                            <g id="prefix__Grupo_6898" data-name="Grupo 6898">
+                                <path id="prefix__Rectángulo_2721" d="M0 0H10.06V0.336H0z" class="prefix__cls-7" data-name="Rectángulo 2721"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6905" data-name="Grupo 6905" transform="translate(8.683 .168)">
+                    <g id="prefix__Grupo_6904" data-name="Grupo 6904">
+                        <g id="prefix__Grupo_6903" data-name="Grupo 6903">
+                            <g id="prefix__Grupo_6902" data-name="Grupo 6902">
+                                <path id="prefix__Rectángulo_2722" d="M0 0H0.336V2.133H0z" class="prefix__cls-7" data-name="Rectángulo 2722"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6909" data-name="Grupo 6909" transform="translate(3.778 2.425)">
+                    <g id="prefix__Grupo_6908" data-name="Grupo 6908">
+                        <g id="prefix__Grupo_6907" data-name="Grupo 6907">
+                            <g id="prefix__Grupo_6906" data-name="Grupo 6906">
+                                <path id="prefix__Rectángulo_2723" d="M0 0H0.336V2.133H0z" class="prefix__cls-7" data-name="Rectángulo 2723"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_6913" data-name="Grupo 6913" transform="translate(9.856 4.682)">
+                    <g id="prefix__Grupo_6912" data-name="Grupo 6912">
+                        <g id="prefix__Grupo_6911" data-name="Grupo 6911">
+                            <g id="prefix__Grupo_6910" data-name="Grupo 6910">
+                                <path id="prefix__Rectángulo_2724" d="M0 0H0.336V2.133H0z" class="prefix__cls-7" data-name="Rectángulo 2724"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6918" data-name="Grupo 6918" transform="translate(162.68 150.287)">
+                <g id="prefix__Grupo_6917" data-name="Grupo 6917">
+                    <g id="prefix__Grupo_6916" data-name="Grupo 6916">
+                        <g id="prefix__Grupo_6915" data-name="Grupo 6915">
+                            <path id="prefix__Rectángulo_2725" d="M0 0H1.007V87.656H0z" data-name="Rectángulo 2725" style="fill:#3396ef"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6922" data-name="Grupo 6922" transform="translate(4270.417 -440.616)">
+            <g id="prefix__Grupo_6921" data-name="Grupo 6921">
+                <g id="prefix__Grupo_6920" data-name="Grupo 6920">
+                    <path id="prefix__Trazado_6867" d="M905.19 1584.4s114.926-95.145 208.063-73.237l42.579-3.276 75.242 11.113 41.142 54.945-52.009 54.687S896.591 1607.7 905.19 1584.4z" class="prefix__cls-8" data-name="Trazado 6867" transform="translate(-905.022 -1507.889)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6926" data-name="Grupo 6926" transform="translate(4211.22 -443.05)">
+            <g id="prefix__Grupo_6925" data-name="Grupo 6925">
+                <g id="prefix__Grupo_6924" data-name="Grupo 6924">
+                    <g id="prefix__Grupo_6923" data-name="Grupo 6923"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6931" data-name="Grupo 6931" transform="translate(4609.229 -605.564)">
+            <g id="prefix__Grupo_6928" data-name="Grupo 6928" transform="translate(.239 .239)">
+                <g id="prefix__Grupo_6927" data-name="Grupo 6927">
+                    <path id="prefix__Trazado_6869" d="M1310.414 1299.441a7.529 7.529 0 0 0-1.363.124c-1.82-3.72-6.307-6.353-11.559-6.353-5.376 0-9.954 2.758-11.687 6.619a7.434 7.434 0 0 0-2.387-.39c-3.592 0-6.5 2.5-6.5 5.579s2.911 5.578 6.5 5.578a7.15 7.15 0 0 0 4.159-1.292 13.586 13.586 0 0 0 9.914 3.988 13.761 13.761 0 0 0 9.474-3.546 7.271 7.271 0 0 0 3.448.85c3.591 0 6.5-2.5 6.5-5.578s-2.908-5.579-6.499-5.579z" class="prefix__cls-15" data-name="Trazado 6869" transform="translate(-1276.916 -1293.212)"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6930" data-name="Grupo 6930">
+                <g id="prefix__Grupo_6929" data-name="Grupo 6929">
+                    <path id="prefix__Trazado_6870" d="M1297.356 1313.4a13.814 13.814 0 0 1-9.946-3.914 7.468 7.468 0 0 1-4.128 1.219c-3.717 0-6.741-2.61-6.741-5.818s3.024-5.817 6.741-5.817a7.671 7.671 0 0 1 2.26.336c1.879-3.936 6.594-6.566 11.815-6.566 5.153 0 9.72 2.477 11.694 6.326a7.835 7.835 0 0 1 1.228-.1c3.717 0 6.741 2.609 6.741 5.817s-3.024 5.818-6.741 5.818a7.566 7.566 0 0 1-3.408-.8 14.081 14.081 0 0 1-9.515 3.499zm-9.884-4.543l.143.152a13.287 13.287 0 0 0 9.74 3.912 13.554 13.554 0 0 0 9.31-3.479l.125-.119.152.082a7.062 7.062 0 0 0 3.335.822c3.454 0 6.263-2.4 6.263-5.34s-2.809-5.339-6.263-5.339a7.313 7.313 0 0 0-1.319.12l-.178.033-.08-.163c-1.848-3.778-6.3-6.219-11.345-6.219-5.121 0-9.729 2.6-11.469 6.478l-.089.2-.205-.07a7.186 7.186 0 0 0-2.311-.377c-3.453 0-6.263 2.395-6.263 5.339s2.809 5.34 6.263 5.34a6.956 6.956 0 0 0 4.021-1.247z" class="prefix__cls-15" data-name="Trazado 6870" transform="translate(-1276.541 -1292.837)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6936" data-name="Grupo 6936" transform="translate(4237.688 -637.828)" style="opacity:.708">
+            <g id="prefix__Grupo_6933" data-name="Grupo 6933" transform="translate(.439 .439)">
+                <g id="prefix__Grupo_6932" data-name="Grupo 6932">
+                    <path id="prefix__Trazado_6871" d="M958.938 1357.173a8.608 8.608 0 0 0-1.553.141c-2.073-4.237-7.184-7.236-13.166-7.236-6.123 0-11.337 3.142-13.311 7.54a8.466 8.466 0 0 0-2.719-.444c-4.09 0-7.406 2.845-7.406 6.354s3.316 6.353 7.406 6.353a8.149 8.149 0 0 0 4.738-1.47 15.476 15.476 0 0 0 11.292 4.542 15.67 15.67 0 0 0 10.791-4.039 8.29 8.29 0 0 0 3.927.968c4.09 0 7.406-2.844 7.406-6.353s-3.315-6.356-7.405-6.356z" class="prefix__cls-2" data-name="Trazado 6871" transform="translate(-920.784 -1350.078)"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6935" data-name="Grupo 6935">
+                <g id="prefix__Grupo_6934" data-name="Grupo 6934">
+                    <path id="prefix__Trazado_6872" d="M943.97 1373.141a15.941 15.941 0 0 1-11.352-4.411 8.7 8.7 0 0 1-4.679 1.339c-4.325 0-7.844-3.047-7.844-6.792s3.519-6.792 7.844-6.792a8.937 8.937 0 0 1 2.486.349c2.207-4.468 7.59-7.445 13.544-7.445 5.884 0 11.105 2.812 13.411 7.19a9.045 9.045 0 0 1 1.307-.1c4.325 0 7.844 3.047 7.844 6.792s-3.519 6.792-7.844 6.792a8.775 8.775 0 0 1-3.854-.876 16.233 16.233 0 0 1-10.863 3.954zm-11.236-5.561l.263.28a14.968 14.968 0 0 0 10.972 4.4 15.27 15.27 0 0 0 10.489-3.918l.231-.219.28.151a7.867 7.867 0 0 0 3.719.915c3.841 0 6.967-2.653 6.967-5.914s-3.126-5.915-6.967-5.915a8.167 8.167 0 0 0-1.474.133l-.326.059-.147-.3c-2.077-4.247-7.09-6.99-12.771-6.99-5.77 0-10.956 2.926-12.91 7.28l-.163.365-.378-.128a8.017 8.017 0 0 0-2.58-.421c-3.841 0-6.967 2.653-6.967 5.915s3.126 5.914 6.967 5.914a7.765 7.765 0 0 0 4.483-1.388z" class="prefix__cls-2" data-name="Trazado 6872" transform="translate(-920.095 -1349.39)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6939" data-name="Grupo 6939" transform="translate(4332.858 -399.188)">
+            <g id="prefix__Grupo_6938" data-name="Grupo 6938">
+                <g id="prefix__Grupo_6937" data-name="Grupo 6937">
+                    <path id="prefix__Trazado_6873" d="M1011.243 1574.332c-1.558-1.207-3.071-1.707-4.4-1.311-4.383 1.3-5.139 11.772-1.688 23.384s9.8 19.969 14.185 18.667a4.694 4.694 0 0 0 2.793-3.022c-3.1-3.808-6.236-10.125-8.457-17.6-2.34-7.866-3.127-15.219-2.433-20.118z" class="prefix__cls-17" data-name="Trazado 6873" transform="translate(-1002.989 -1572.888)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6942" data-name="Grupo 6942" transform="translate(4340.873 -397.744)">
+            <g id="prefix__Grupo_6941" data-name="Grupo 6941">
+                <g id="prefix__Grupo_6940" data-name="Grupo 6940">
+                    <path id="prefix__Trazado_6874" d="M1025.587 1592.51c-2.4-8.086-6.212-14.589-9.784-17.356a31.071 31.071 0 0 0-.179 5.938 48.968 48.968 0 0 1 5.427 12.274 47.717 47.717 0 0 1 2.154 14.172 34.847 34.847 0 0 0 3.486 5.334c1.686-4.172 1.391-11.964-1.104-20.362z" class="prefix__cls-18" data-name="Trazado 6874" transform="translate(-1015.563 -1575.154)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6945" data-name="Grupo 6945" transform="translate(4330.157 -404.724)">
+            <g id="prefix__Grupo_6944" data-name="Grupo 6944">
+                <g id="prefix__Grupo_6943" data-name="Grupo 6943">
+                    <path id="prefix__Trazado_6875" d="M1046.934 1587.611l-25.843-14.455-10.659-8.954-11.1 6.181v1.929l-.584 3.6s1.46 4.258 1.314 5.135c0 0 3.3 1.239 2.044-5.135l1.168-2.458 3.066-1.137 3.212 1.137.438 1.606s-3.212 5.4 1.9 5.4c0 0 2.336 3.925 7.3 1.6l20.149 23.954s9.347-2.925 7.595-18.403z" class="prefix__cls-19" data-name="Trazado 6875" transform="translate(-998.751 -1564.202)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6948" data-name="Grupo 6948" transform="translate(4343.253 -392.16)">
+            <g id="prefix__Grupo_6947" data-name="Grupo 6947">
+                <g id="prefix__Grupo_6946" data-name="Grupo 6946">
+                    <path id="prefix__Trazado_6876" d="M1019.417 1587.767l-.12-.3c.767-.313 1.205-.733 1.3-1.249.188-.995-.923-2.066-.934-2.076l.219-.232a3.123 3.123 0 0 1 1.028 2.366 2.149 2.149 0 0 1-1.493 1.491z" class="prefix__cls-20" data-name="Trazado 6876" transform="translate(-1019.297 -1583.915)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6951" data-name="Grupo 6951" transform="translate(4330.476 -403.292)">
+            <g id="prefix__Grupo_6950" data-name="Grupo 6950">
+                <g id="prefix__Grupo_6949" data-name="Grupo 6949">
+                    <path id="prefix__Trazado_6877" d="M999.562 1573.836l-.311-.069.555-2.5.072-.033 10.447-4.788 2.085 1.782-.207.243-1.931-1.65-10.19 4.67z" class="prefix__cls-20" data-name="Trazado 6877" transform="translate(-999.251 -1566.45)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6954" data-name="Grupo 6954" transform="translate(4350.618 -387.265)">
+            <g id="prefix__Grupo_6953" data-name="Grupo 6953">
+                <g id="prefix__Grupo_6952" data-name="Grupo 6952">
+                    <path id="prefix__Trazado_6878" d="M1040.472 1597.347l-5.223-3.984a8.043 8.043 0 0 0-2.021-1.248 2.6 2.6 0 0 0-2.212.093l-.164-.273a2.876 2.876 0 0 1 2.485-.118 8.277 8.277 0 0 1 2.1 1.292l5.223 3.984z" class="prefix__cls-20" data-name="Trazado 6878" transform="translate(-1030.853 -1591.595)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6957" data-name="Grupo 6957" transform="translate(4326.03 -407.276)">
+            <g id="prefix__Grupo_6956" data-name="Grupo 6956">
+                <g id="prefix__Grupo_6955" data-name="Grupo 6955">
+                    <path id="prefix__Trazado_6879" d="M1014.482 1560.814l-20.593 11.675a23.3 23.3 0 0 1-1.614-2.389 7.576 7.576 0 0 1 3.4-3.449c1.912-.747 7.7-3.987 8.817-4.359s7.118-1.912 7.33-2.072a12.289 12.289 0 0 1 2.66.594z" class="prefix__cls-8" data-name="Trazado 6879" transform="translate(-992.275 -1560.198)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6960" data-name="Grupo 6960" transform="translate(4370.748 -399.188)">
+            <g id="prefix__Grupo_6959" data-name="Grupo 6959">
+                <g id="prefix__Grupo_6958" data-name="Grupo 6958">
+                    <path id="prefix__Trazado_6880" d="M1109.523 1572.888s-11.652 1.676-20.087 9.927a23.124 23.124 0 0 1-2.333 1.995l-8.753 6.535-2.727-.191a1.342 1.342 0 0 0-2.088-.147 2.257 2.257 0 0 0-3.507-.246s2.534 12.486-7.592 18.4h25.94s14.657-5.557 15.018-6.21c.258-.467 4.285-5.522 6.562-8.369a7.028 7.028 0 0 0 1.538-4.39v-7.021z" class="prefix__cls-21" data-name="Trazado 6880" transform="translate(-1062.435 -1572.888)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6963" data-name="Grupo 6963" transform="translate(4378.992 -381.098)">
+            <g id="prefix__Grupo_6962" data-name="Grupo 6962">
+                <g id="prefix__Grupo_6961" data-name="Grupo 6961">
+                    <path id="prefix__Trazado_6881" d="M1075.626 1614.754l-.256-.189c4.095-5.523 2.713-13.159 2.7-13.234l.313-.06c.017.077 1.417 7.846-2.757 13.483z" class="prefix__cls-22" data-name="Trazado 6881" transform="translate(-1075.37 -1601.27)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6966" data-name="Grupo 6966" transform="translate(4332.858 -371.323)">
+            <g id="prefix__Grupo_6965" data-name="Grupo 6965">
+                <g id="prefix__Grupo_6964" data-name="Grupo 6964">
+                    <path id="prefix__Trazado_6882" d="M1006.479 1618.034l56.658-1.428-9.4 10.952-22.467 3.156-18.709 1.756-9.571-2.956z" class="prefix__cls-8" data-name="Trazado 6882" transform="translate(-1002.989 -1616.606)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6969" data-name="Grupo 6969" transform="translate(4071.263 -442.79)">
+            <g id="prefix__Grupo_6968" data-name="Grupo 6968">
+                <g id="prefix__Grupo_6967" data-name="Grupo 6967">
+                    <path id="prefix__Trazado_6883" d="M1319.4 1637.078c-6.049-5.395-15.893-19.189-15.256-26.6s6.033-36.323-12.409-41.728-47.99-12.392-86.76-28.919-94.081-34.96-169.751-35.277c-75.641-.313-117.6-.949-169.414 25.748s-69.605 38.769-90.909 42.9c0 0-71.192 6.363-100.115 14.939s-65.161 20.34-71.2 32.417-10.483 22.885-10.821 33.054c-.31 10.168-.256 24.978 0 26.375.426 2.25.338 11.441 8.271 18.431 7.963 7 23.2 8.265 23.2 8.265s26.063 3.182 31.476 3.5c0 0-4.762-9.536-1.586-29.241s8.895-32.1 22.548-42.906c13.684-10.8 28.926-17.475 53.742-12.7 24.791 4.765 34.623 17.165 41 27.01 8.413 13.032 14.3 44.808 12.719 56.252l328.971-1.598s0-30.19 9.235-45.125c9.207-14.938 23.514-33.049 50.853-34.638s47.679 8.893 58.472 24.471 13.67 35.275 11.447 51.478c0 0 34.009-2.226 51.487-9.213 17.493-6.994 25.754-17.164 27.339-23.839 1.6-6.672 3.499-27.65-2.539-33.056zm-340.1-66.735s-85.839 6.672-90.91 6.672c-5.1 0-77.567 1.911-77.567 1.911 36.886-30.51 88.049-53.715 107.114-60.385 19.094-6.673 76.945-6.988 76.945-6.988zm29.859-.323l8.582-58.467c40.713-.023 65.5 3.812 65.5 3.812 8.926.657 28.389 6.67 28.389 6.67l23.088 46.4zm-154.19 7.765" class="prefix__cls-8" data-name="Trazado 6883" transform="translate(-592.56 -1504.478)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6972" data-name="Grupo 6972" transform="translate(4071.025 -443.03)">
+            <g id="prefix__Grupo_6971" data-name="Grupo 6971">
+                <g id="prefix__Grupo_6970" data-name="Grupo 6970">
+                    <path id="prefix__Trazado_6884" d="M655.984 1710.307l-.411-.024c-5.359-.312-31.23-3.467-31.491-3.5-.144-.012-15.4-1.355-23.331-8.322-6.932-6.108-7.81-13.963-8.186-17.317-.059-.534-.107-.955-.163-1.251-.264-1.443-.309-16.438 0-26.425.358-10.761 5.424-22.294 10.845-33.153 5.884-11.774 39.365-23.056 71.342-32.539 28.615-8.485 99.45-14.885 100.162-14.948 15.618-3.029 29.179-10.258 56.194-24.659 9.816-5.233 20.942-11.164 34.626-18.214 51-26.277 91.756-26.1 165.763-25.79l3.762.016c78.739.329 134.643 20.3 169.844 35.3 31.861 13.581 57.287 20.662 75.853 25.831 3.909 1.088 7.6 2.116 10.88 3.077 16.847 4.938 14.062 28.993 12.873 39.264-.124 1.073-.231 2-.293 2.715-.637 7.411 9.464 21.3 15.177 26.4 6.038 5.41 4.291 26.272 2.607 33.289-1.574 6.634-9.717 16.9-27.481 24-17.313 6.921-51.219 9.206-51.56 9.229l-.292.019.04-.29c2.5-18.233-1.764-37.413-11.407-51.309-11.752-16.961-32.983-25.845-58.262-24.369-27.011 1.57-41.264 19.275-50.663 34.525-9.094 14.707-9.2 44.7-9.2 45v.238h-.239l-329.24 1.6.038-.274c1.524-11.024-4.168-42.9-12.684-56.089-7.318-11.3-17.332-22.386-40.841-26.905-26.508-5.1-41.4 3.072-53.549 12.657-13.014 10.3-19.1 21.891-22.46 42.757-3.125 19.385 1.516 29 1.563 29.1zm353.281-205.726c-60.453 0-97.88 2.307-143.477 25.8-13.682 7.049-24.806 12.979-34.621 18.211-27.058 14.424-40.64 21.664-56.352 24.71-.736.068-71.524 6.463-100.093 14.934-31.879 9.454-65.249 20.684-71.05 32.294-5.4 10.811-10.441 22.286-10.8 32.955-.324 10.617-.242 25.021 0 26.323.058.311.106.741.167 1.284.369 3.3 1.233 11.025 8.026 17.011 7.812 6.861 22.912 8.193 23.065 8.206.263.032 24.974 3.045 31.077 3.472-.812-1.948-4.254-11.578-1.443-29.014 3.337-20.73 9.683-32.8 22.636-43.056 12.237-9.656 27.237-17.885 53.935-12.751 23.685 4.553 33.776 15.723 41.152 27.115 8.5 13.159 14.2 44.81 12.791 56.142l328.453-1.59c.029-2.878.537-30.892 9.269-45.013 9.461-15.348 23.813-33.168 51.043-34.751 25.441-1.483 46.834 7.473 58.683 24.573 9.658 13.918 13.958 33.095 11.527 51.355 3.364-.24 34.735-2.625 51.122-9.175 17.594-7.035 25.645-17.148 27.194-23.672 1.665-6.94 3.43-27.544-2.462-32.822-5.56-4.958-16.013-18.911-15.335-26.8.063-.722.17-1.651.295-2.728 1.176-10.152 3.927-33.926-12.532-38.75-3.276-.96-6.966-1.987-10.874-3.075-18.578-5.173-44.023-12.259-75.913-25.853-73.418-31.274-131.989-35.1-169.659-35.257l-3.762-.017c-7.695-.031-15.036-.062-22.062-.062z" class="prefix__cls-23" data-name="Trazado 6884" transform="translate(-592.186 -1504.102)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6975" data-name="Grupo 6975" transform="translate(4288.844 -435.955)">
+            <g id="prefix__Grupo_6974" data-name="Grupo 6974">
+                <g id="prefix__Grupo_6973" data-name="Grupo 6973">
+                    <path id="prefix__Trazado_6885" d="M933.933 1583.072l.533-.442c39.21-32.431 91.841-55.056 107.187-60.425 18.914-6.61 76.445-7 77.024-7h.312l-.08.3-15.625 58.953-.169.014c-.859.066-85.907 6.672-90.93 6.672-5.038 0-76.837 1.892-77.561 1.911zm184.434-67.388c-4.62.04-58.44.641-76.556 6.972-15.255 5.337-67.407 27.752-106.505 59.9 7.452-.2 72.1-1.893 76.88-1.893 4.9 0 86.429-6.324 90.724-6.658z" class="prefix__cls-23" data-name="Trazado 6885" transform="translate(-933.933 -1515.202)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6978" data-name="Grupo 6978" transform="translate(4487.59 -435.953)">
+            <g id="prefix__Grupo_6977" data-name="Grupo 6977">
+                <g id="prefix__Grupo_6976" data-name="Grupo 6976">
+                    <path id="prefix__Trazado_6886" d="M1245.755 1574.154l.04-.278 8.613-58.671h.567c40.058 0 64.927 3.776 65.175 3.815 8.831.649 28.228 6.617 28.422 6.677l.1.031.045.092 23.256 46.742h-.38zm9.066-58.471l-8.512 57.985 124.9-1.576-22.872-45.969c-1.506-.461-19.765-6.007-28.238-6.63-.266-.041-25.108-3.811-65.121-3.811z" class="prefix__cls-23" data-name="Trazado 6886" transform="translate(-1245.755 -1515.205)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6981" data-name="Grupo 6981" transform="translate(4333.678 -369.482)">
+            <g id="prefix__Grupo_6980" data-name="Grupo 6980">
+                <g id="prefix__Grupo_6979" data-name="Grupo 6979"/>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6984" data-name="Grupo 6984" transform="translate(4145.935 -315.661)">
+            <g id="prefix__Grupo_6983" data-name="Grupo 6983">
+                <g id="prefix__Grupo_6982" data-name="Grupo 6982">
+                    <circle id="prefix__Elipse_895" cx="50.83" cy="50.83" r="50.83" data-name="Elipse 895" style="stroke:#4f80c9;fill:#fff"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6987" data-name="Grupo 6987" transform="translate(4604.551 -315.661)">
+            <g id="prefix__Grupo_6986" data-name="Grupo 6986">
+                <g id="prefix__Grupo_6985" data-name="Grupo 6985">
+                    <circle id="prefix__Elipse_896" cx="50.83" cy="50.83" r="50.83" data-name="Elipse 896" style="stroke:#7a9fd6;fill:#fff"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6990" data-name="Grupo 6990" transform="translate(4622.797 -297.303)">
+            <g id="prefix__Grupo_6989" data-name="Grupo 6989">
+                <g id="prefix__Grupo_6988" data-name="Grupo 6988">
+                    <path id="prefix__Trazado_6888" d="M1490.629 1798.222a32.741 32.741 0 1 1 32.741-32.741 32.778 32.778 0 0 1-32.741 32.741zm0-64.845a32.1 32.1 0 1 0 32.1 32.1 32.14 32.14 0 0 0-32.1-32.1z" class="prefix__cls-18" data-name="Trazado 6888" transform="translate(-1457.888 -1732.74)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_6993" data-name="Grupo 6993" transform="translate(4164.024 -297.571)">
+            <g id="prefix__Grupo_6992" data-name="Grupo 6992">
+                <g id="prefix__Grupo_6991" data-name="Grupo 6991">
+                    <path id="prefix__Trazado_6889" d="M770.838 1797.8a32.741 32.741 0 1 1 32.741-32.741 32.778 32.778 0 0 1-32.741 32.741zm0-64.845a32.1 32.1 0 1 0 32.1 32.1 32.14 32.14 0 0 0-32.1-32.099z" class="prefix__cls-18" data-name="Trazado 6889" transform="translate(-738.097 -1732.319)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7003" data-name="Grupo 7003" transform="translate(4261.231 -435.718)">
+            <g id="prefix__Grupo_6996" data-name="Grupo 6996" transform="translate(17.544 186.079)">
+                <g id="prefix__Grupo_6995" data-name="Grupo 6995">
+                    <g id="prefix__Grupo_6994" data-name="Grupo 6994"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_6999" data-name="Grupo 6999" transform="translate(200.179)">
+                <g id="prefix__Grupo_6998" data-name="Grupo 6998">
+                    <g id="prefix__Grupo_6997" data-name="Grupo 6997">
+                        <path id="prefix__Trazado_6891" d="M1206.8 1698.113c-4.2-46.941-1.377-77.736 1.731-95.3 3.157-17.777 7.068-25.848 7.879-27.388 3.7-35.782 8.987-57.064 9.228-58.019l-.027-1.82.478-.007.027 1.884-.008.031c-.054.206-5.459 21.59-9.229 58.027l-.027.087c-.754 1.422-4.678 9.418-7.853 27.289-3.1 17.539-5.922 48.289-1.726 95.178z" class="prefix__cls-23" data-name="Trazado 6891" transform="translate(-1204.679 -1515.575)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7002" data-name="Grupo 7002" transform="translate(0 56.756)">
+                <g id="prefix__Grupo_7001" data-name="Grupo 7001">
+                    <g id="prefix__Grupo_7000" data-name="Grupo 7000">
+                        <path id="prefix__Trazado_6892" d="M890.609 1735.457v-1.433h.236c.372 0 6.6-.118 16.082-.291-.444-4.458-5.169-53.236-2.437-83.591 2.676-29.976 7.71-32.259 13.538-34.9.506-.227.984-.448 1.492-.7l.214.427c-.514.257-1 .481-1.509.71-5.692 2.581-10.608 4.81-13.26 34.508-2.8 31.11 2.247 81.624 2.464 83.759l.026.258-.259.005c-8.781.16-14.826.271-16.108.292v.475c8.689-.152 233.072-4.163 263.328-5.4 31.259-1.274 44.4-12.214 50.017-16.885 5.343-4.442 38.222-52.568 44.759-62.171l.111-.161c.088-.12.4-.5.89-1.1 10.789-13.168 16.358-21.347 16.552-24.311.261-4.316-8.919-15.281-11.935-18.885-.61-.728-.883-1.055-.959-1.172l.4-.261c.063.1.444.553.924 1.126 3.047 3.64 12.319 14.715 12.046 19.222-.2 3.066-5.807 11.337-16.66 24.583-.48.587-.79.964-.87 1.073l-.105.155c-6.542 9.611-39.457 57.785-44.837 62.26-5.662 4.711-18.894 15.724-50.314 17.005-30.711 1.257-261.392 5.37-263.583 5.407z" class="prefix__cls-23" data-name="Trazado 6892" transform="translate(-890.609 -1604.622)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7007" data-name="Grupo 7007" transform="translate(4457.697 -435.953)">
+            <g id="prefix__Grupo_7006" data-name="Grupo 7006">
+                <g id="prefix__Grupo_7005" data-name="Grupo 7005">
+                    <g id="prefix__Grupo_7004" data-name="Grupo 7004">
+                        <path id="prefix__Trazado_6893" d="M1198.854 1574.476l15.709-59.271h23.32l-.04.274-8.612 58.669h-.2zm16.076-58.793l-15.454 58.308 29.341-.317 8.513-57.992z" class="prefix__cls-23" data-name="Trazado 6893" transform="translate(-1198.854 -1515.205)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7011" data-name="Grupo 7011" transform="translate(4428.843 -349.831)">
+            <g id="prefix__Grupo_7010" data-name="Grupo 7010">
+                <g id="prefix__Grupo_7009" data-name="Grupo 7009">
+                    <g id="prefix__Grupo_7008" data-name="Grupo 7008">
+                        <path id="prefix__Trazado_6894" d="M1165.723 1667.012h-3.8a8.343 8.343 0 0 1 0-16.685h3.8a8.343 8.343 0 1 1 0 16.685zm-3.8-16.207a7.865 7.865 0 0 0 0 15.729h3.8a7.865 7.865 0 1 0 0-15.729z" class="prefix__cls-23" data-name="Trazado 6894" transform="translate(-1153.584 -1650.327)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7015" data-name="Grupo 7015" transform="translate(4577.775 -349.831)">
+            <g id="prefix__Grupo_7014" data-name="Grupo 7014">
+                <g id="prefix__Grupo_7013" data-name="Grupo 7013">
+                    <g id="prefix__Grupo_7012" data-name="Grupo 7012">
+                        <path id="prefix__Trazado_6895" d="M1399.414 1667.012h-3.8a8.343 8.343 0 1 1 0-16.685h3.8a8.343 8.343 0 0 1 0 16.685zm-3.8-16.207a7.865 7.865 0 1 0 0 15.729h3.8a7.865 7.865 0 0 0 0-15.729z" class="prefix__cls-17" data-name="Trazado 6895" transform="translate(-1387.251 -1650.327)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7018" data-name="Grupo 7018" transform="translate(4603.54 -418.803)">
+            <g id="prefix__Grupo_7017" data-name="Grupo 7017">
+                <g id="prefix__Grupo_7016" data-name="Grupo 7016">
+                    <path id="prefix__Trazado_6896" d="M1427.674 1542.113l20.2 35.342 37.735 1.063s-9.039-14.079-57.935-36.405z" class="prefix__cls-1" data-name="Trazado 6896" transform="translate(-1427.674 -1542.113)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7022" data-name="Grupo 7022" transform="translate(4422.543 -344.185)">
+            <g id="prefix__Grupo_7021" data-name="Grupo 7021">
+                <g id="prefix__Grupo_7020" data-name="Grupo 7020">
+                    <g id="prefix__Grupo_7019" data-name="Grupo 7019">
+                        <path id="prefix__Trazado_6897" d="M1144.206 1659.184s-2.55 5.4 3.8 5.716c6.374.317 27.336 0 27.336 0s5.724-4.449 6.034-5.716z" class="prefix__cls-18" data-name="Trazado 6897" transform="translate(-1143.7 -1659.184)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7026" data-name="Grupo 7026" transform="translate(4571.483 -344.185)">
+            <g id="prefix__Grupo_7025" data-name="Grupo 7025">
+                <g id="prefix__Grupo_7024" data-name="Grupo 7024">
+                    <g id="prefix__Grupo_7023" data-name="Grupo 7023">
+                        <path id="prefix__Trazado_6898" d="M1377.875 1659.184s-2.523 5.4 3.823 5.719 27.34 0 27.34 0 5.722-4.452 6.034-5.719z" class="prefix__cls-18" data-name="Trazado 6898" transform="translate(-1377.38 -1659.184)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7030" data-name="Grupo 7030" transform="translate(4599.193 -422.9)">
+            <g id="prefix__Grupo_7029" data-name="Grupo 7029">
+                <g id="prefix__Grupo_7028" data-name="Grupo 7028">
+                    <g id="prefix__Grupo_7027" data-name="Grupo 7027">
+                        <path id="prefix__Trazado_6899" d="M1446.2 1579.993l-.068-.12-25.273-44.187.676.308c30.226 13.8 47.473 24.916 56.62 31.809 9.934 7.487 12.665 11.645 12.777 11.818l.236.369zm-24.188-43.255l24.466 42.777h43.785c-.893-1.182-4.209-5.163-12.448-11.366-9.064-6.824-26.082-17.79-55.808-31.412z" class="prefix__cls-23" data-name="Trazado 6899" transform="translate(-1420.854 -1535.685)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7034" data-name="Grupo 7034" transform="translate(4609.54 -413.068)">
+            <g id="prefix__Grupo_7033" data-name="Grupo 7033">
+                <g id="prefix__Grupo_7032" data-name="Grupo 7032">
+                    <g id="prefix__Grupo_7031" data-name="Grupo 7031">
+                        <path id="prefix__Trazado_6900" d="M1483.511 1580.461h-29.634l-.092-.16-16.7-29.19.9.41c37.7 17.212 44.92 28 45.209 28.45zm-29.264-.637h28.04c-1.861-2.293-11.369-12.459-43.662-27.309z" class="prefix__cls-23" data-name="Trazado 6900" transform="translate(-1437.088 -1551.111)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7038" data-name="Grupo 7038" transform="translate(4589.877 -425.623)">
+            <g id="prefix__Grupo_7037" data-name="Grupo 7037">
+                <g id="prefix__Grupo_7036" data-name="Grupo 7036">
+                    <g id="prefix__Grupo_7035" data-name="Grupo 7035">
+                        <path id="prefix__Trazado_6901" d="M1441.446 1578.443h-11.809l-23.4-47.03 10.054 3.048.047.082zm-11.513-.478h10.689l-24.652-43.1-8.811-2.671z" class="prefix__cls-23" data-name="Trazado 6901" transform="translate(-1406.237 -1531.413)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7042" data-name="Grupo 7042" transform="translate(4127.004 -366.575)">
+            <g id="prefix__Grupo_7041" data-name="Grupo 7041">
+                <g id="prefix__Grupo_7040" data-name="Grupo 7040">
+                    <g id="prefix__Grupo_7039" data-name="Grupo 7039">
+                        <path id="prefix__Trazado_6902" d="M680.057 1656.611l-.042-.476c149.22-14.851 354.169-32.08 501.713-32.08 7.156 0 14.151.04 21.025.124 88.894 1.076 111.038 8.938 111.251 9.017l.156.058v4.016l-.29-.064c-52.19-11.485-221.738-5.6-354.782 1.363-144.165 7.543-277.699 17.938-279.031 18.042zm501.671-32.078c-140.747 0-333.724 15.68-480.729 30.015 43.247-3.213 147.533-10.673 258.063-16.456 132.83-6.951 302.046-12.829 354.62-1.416v-3.085c-2.108-.7-26.063-7.915-111.092-8.936-6.809-.082-13.775-.122-20.862-.122z" class="prefix__cls-23" data-name="Trazado 6902" transform="translate(-680.015 -1624.055)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7046" data-name="Grupo 7046" transform="translate(4253.022 -430.88)">
+            <g id="prefix__Grupo_7045" data-name="Grupo 7045">
+                <g id="prefix__Grupo_7044" data-name="Grupo 7044">
+                    <g id="prefix__Grupo_7043" data-name="Grupo 7043">
+                        <path id="prefix__Trazado_6903" d="M894.2 1584.825a10.408 10.408 0 0 1-1.617-.122 44.991 44.991 0 0 1-14.306-4.525l-.551-.32.625-.122c15.639-3.032 29.192-10.257 56.193-24.651 9.823-5.237 20.957-11.172 34.656-18.227a218.684 218.684 0 0 1 30.343-12.981l2.1-.712-1.9 1.143c-5.1 3.073-11.951 7-19.889 11.543-16.656 9.537-37.386 21.406-55.632 33.252-1.646 1.067-3.452 2.319-5.365 3.643-7.828 5.423-17.439 12.079-24.657 12.079zm-15.1-4.75a46.747 46.747 0 0 0 13.554 4.156c7.158 1.114 17.565-6.088 25.928-11.879 1.916-1.326 3.725-2.579 5.377-3.651 18.257-11.853 38.992-23.726 55.654-33.266 6.947-3.978 13.066-7.481 17.9-10.352a219.436 219.436 0 0 0-28.095 12.2c-13.7 7.054-24.828 12.989-34.649 18.225-26.658 14.214-40.23 21.448-55.663 24.567z" class="prefix__cls-23" data-name="Trazado 6903" transform="translate(-877.731 -1523.165)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7049" data-name="Grupo 7049" transform="translate(4361.841 -412.62)">
+            <g id="prefix__Grupo_7048" data-name="Grupo 7048">
+                <g id="prefix__Grupo_7047" data-name="Grupo 7047"/>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7052" data-name="Grupo 7052" transform="translate(4409.708 -407.232)">
+            <g id="prefix__Grupo_7051" data-name="Grupo 7051">
+                <g id="prefix__Grupo_7050" data-name="Grupo 7050">
+                    <path id="prefix__Trazado_6905" d="M1131.44 1575.549l.723 11.631-8.6 10.135 4.26 1.452s23.083-7.864 24.448-29.06l-.534-9.441z" class="prefix__cls-19" data-name="Trazado 6905" transform="translate(-1123.561 -1560.267)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7055" data-name="Grupo 7055" transform="translate(4422.235 -402.192)">
+            <g id="prefix__Grupo_7054" data-name="Grupo 7054">
+                <g id="prefix__Grupo_7053" data-name="Grupo 7053">
+                    <path id="prefix__Trazado_6906" d="M1159.188 1568.281s6.585-1.35 7.012 5.582l12.877 7.479s28.322 5.543 12.628 25.076l-25.965-3.7-17.475-1.605-5.049-4.565s16.924-10.784 15.972-28.267z" class="prefix__cls-21" data-name="Trazado 6906" transform="translate(-1143.216 -1568.175)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7058" data-name="Grupo 7058" transform="translate(4409.89 -431.731)">
+            <g id="prefix__Grupo_7057" data-name="Grupo 7057">
+                <g id="prefix__Grupo_7056" data-name="Grupo 7056">
+                    <path id="prefix__Trazado_6907" d="M1150.9 1547.739v-.073a3.919 3.919 0 0 0 .637.1c2.476.107 4.583-2.1 4.706-4.93s-1.785-5.211-4.262-5.318a3.942 3.942 0 0 0-.644.046l-.565-14.346-24.881-1.388-.51 8.325.005.28-1.529 24.8c-.262 4.219 2.694 9.761 6.89 10.276a15.587 15.587 0 0 0 1.937.324" class="prefix__cls-19" data-name="Trazado 6907" transform="translate(-1123.847 -1521.83)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7061" data-name="Grupo 7061" transform="translate(4421.091 -415.425)">
+            <g id="prefix__Grupo_7060" data-name="Grupo 7060">
+                <g id="prefix__Grupo_7059" data-name="Grupo 7059">
+                    <path id="prefix__Trazado_6908" d="M1141.844 1548.834l-.423-.142a1.786 1.786 0 0 1 3.426 0l-.423.141a1.355 1.355 0 0 0-1.345-.973 1.385 1.385 0 0 0-1.235.974z" class="prefix__cls-22" data-name="Trazado 6908" transform="translate(-1141.421 -1547.412)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7064" data-name="Grupo 7064" transform="translate(4411.797 -415.76)">
+            <g id="prefix__Grupo_7063" data-name="Grupo 7063">
+                <g id="prefix__Grupo_7062" data-name="Grupo 7062">
+                    <path id="prefix__Trazado_6909" d="M1127.263 1548.278l-.423-.142a1.784 1.784 0 0 1 1.6-1.246 1.75 1.75 0 0 1 1.744 1.247l-.423.14a1.3 1.3 0 0 0-2.494 0z" class="prefix__cls-22" data-name="Trazado 6909" transform="translate(-1126.84 -1546.887)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7067" data-name="Grupo 7067" transform="translate(4421.445 -408.938)">
+            <g id="prefix__Grupo_7066" data-name="Grupo 7066">
+                <g id="prefix__Grupo_7065" data-name="Grupo 7065">
+                    <ellipse id="prefix__Elipse_897" cx="2.211" cy="3.803" class="prefix__cls-28" data-name="Elipse 897" rx="2.211" ry="3.803" transform="rotate(-85.564 2.382 2.204)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7070" data-name="Grupo 7070" transform="translate(4410.334 -410.675)">
+            <g id="prefix__Grupo_7069" data-name="Grupo 7069">
+                <g id="prefix__Grupo_7068" data-name="Grupo 7068">
+                    <path id="prefix__Trazado_6910" d="M1127.284 1557.239a3.048 3.048 0 0 1-2.74 2.432l.314-4.806c1.561.286 2.501 1.411 2.426 2.374z" class="prefix__cls-28" data-name="Trazado 6910" transform="translate(-1124.544 -1554.865)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7073" data-name="Grupo 7073" transform="translate(4421.725 -418.651)">
+            <g id="prefix__Grupo_7072" data-name="Grupo 7072">
+                <g id="prefix__Grupo_7071" data-name="Grupo 7071">
+                    <path id="prefix__Rectángulo_2726" d="M0 0H0.637V3.599H0z" class="prefix__cls-22" data-name="Rectángulo 2726" transform="rotate(-79.184 .378 .313)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7076" data-name="Grupo 7076" transform="translate(4411.649 -418.85)">
+            <g id="prefix__Grupo_7075" data-name="Grupo 7075">
+                <g id="prefix__Grupo_7074" data-name="Grupo 7074">
+                    <path id="prefix__Rectángulo_2727" d="M0 0H2.985V0.638H0z" class="prefix__cls-22" data-name="Rectángulo 2727" transform="rotate(-10.345 2.96 .268)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7079" data-name="Grupo 7079" transform="translate(4410.79 -404.473)">
+            <g id="prefix__Grupo_7078" data-name="Grupo 7078">
+                <g id="prefix__Grupo_7077" data-name="Grupo 7077">
+                    <ellipse id="prefix__Elipse_898" cx="4.186" cy="7.522" class="prefix__cls-29" data-name="Elipse 898" rx="4.186" ry="7.522" transform="rotate(-85.564 4.51 4.173)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7082" data-name="Grupo 7082" transform="translate(4415.539 -402.086)">
+            <g id="prefix__Grupo_7081" data-name="Grupo 7081">
+                <g id="prefix__Grupo_7080" data-name="Grupo 7080">
+                    <path id="prefix__Trazado_6911" d="M1132.71 1568.549s2.441-.1 6.058-.208c0 0-3.043 5.098-6.058.208z" data-name="Trazado 6911" transform="translate(-1132.71 -1568.341)" style="fill:#fdfffc"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7085" data-name="Grupo 7085" transform="translate(4413.733 -414.097)">
+            <g id="prefix__Grupo_7084" data-name="Grupo 7084">
+                <g id="prefix__Grupo_7083" data-name="Grupo 7083">
+                    <path id="prefix__Trazado_6912" d="M1134.276 1559.382c-2.585-.536-4.046-1.461-4.343-2.749-.474-2.062 2.194-4.287 2.618-4.624l.355-2.511.315.045-.372 2.638-.052.04c-.03.023-3.011 2.349-2.553 4.34.266 1.156 1.644 2 4.1 2.509z" class="prefix__cls-20" data-name="Trazado 6912" transform="translate(-1129.877 -1549.497)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7088" data-name="Grupo 7088" transform="translate(4433.027 -425.759)">
+            <g id="prefix__Grupo_7087" data-name="Grupo 7087">
+                <g id="prefix__Grupo_7086" data-name="Grupo 7086">
+                    <path id="prefix__Trazado_6913" d="M1160.981 1532.713a5.337 5.337 0 0 1-.189 3.91 9.428 9.428 0 0 0-.524 1.164c-.335 1.11.127 2.282.326 3.424a7.5 7.5 0 0 1-.07 2.92 6.929 6.929 0 0 0-.307 1.745 1.463 1.463 0 0 0 .91 1.392 1.943 1.943 0 0 1 1.619-1.614c.8-.168 2.993.846 3.791 1.031 1.667-1.469.6-5.036 1.965-7.366.47-.8 1.445-1.448 1.813-2.3.663-1.542-.5-3.217-1.583-4.5-.563-.661-1.263-1.383-2.128-1.316a3.19 3.19 0 0 0-1.311.558 10.8 10.8 0 0 1-4.35 1.428" class="prefix__cls-29" data-name="Trazado 6913" transform="translate(-1160.149 -1531.199)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7091" data-name="Grupo 7091" transform="translate(4407.255 -432.75)">
+            <g id="prefix__Grupo_7090" data-name="Grupo 7090">
+                <g id="prefix__Grupo_7089" data-name="Grupo 7089">
+                    <path id="prefix__Trazado_6914" d="M1124.37 1521.715l-.719 12.072s-2.391-4.122-3.583-5 1-5.861 1-5.861l3.048-2.161.762-.541z" data-name="Trazado 6914" transform="translate(-1119.713 -1520.23)" style="fill:#0c3556"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7094" data-name="Grupo 7094" transform="translate(4436.847 -416.077)">
+            <g id="prefix__Grupo_7093" data-name="Grupo 7093">
+                <g id="prefix__Grupo_7092" data-name="Grupo 7092">
+                    <path id="prefix__Trazado_6915" d="M1169.92 1547.52a3.993 3.993 0 0 0-3.3-1.061l-.48 6.165 1.7 1.53.9-.663 1.168-2.061z" class="prefix__cls-19" data-name="Trazado 6915" transform="translate(-1166.141 -1546.391)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7097" data-name="Grupo 7097" transform="translate(4438.357 -414.88)">
+            <g id="prefix__Grupo_7096" data-name="Grupo 7096">
+                <g id="prefix__Grupo_7095" data-name="Grupo 7095">
+                    <path id="prefix__Trazado_6916" d="M1170.382 1554l-.279-.154a3.86 3.86 0 0 0 .488-3.207 3.982 3.982 0 0 0-2.081-2.08l.117-.3a4.233 4.233 0 0 1 2.263 2.266 4.158 4.158 0 0 1-.508 3.475z" class="prefix__cls-20" data-name="Trazado 6916" transform="translate(-1168.511 -1548.267)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7100" data-name="Grupo 7100" transform="translate(4431.604 -421.249)">
+            <g id="prefix__Grupo_7099" data-name="Grupo 7099">
+                <g id="prefix__Grupo_7098" data-name="Grupo 7098">
+                    <path id="prefix__Trazado_6917" d="M1160.762 1538.836s-1.582-.312-2.845 2.839c0 0 .424-2.7 2.563-3.4z" class="prefix__cls-22" data-name="Trazado 6917" transform="translate(-1157.917 -1538.275)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7103" data-name="Grupo 7103" transform="translate(4436 -352.078)">
+            <g id="prefix__Grupo_7102" data-name="Grupo 7102">
+                <g id="prefix__Grupo_7101" data-name="Grupo 7101">
+                    <path id="prefix__Trazado_6918" d="M1164.838 1646.874c-.011.053-.016.108-.026.162a2.02 2.02 0 0 0 .366-.235z" class="prefix__cls-32" data-name="Trazado 6918" transform="translate(-1164.812 -1646.801)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7106" data-name="Grupo 7106" transform="translate(4412.37 -383.62)">
+            <g id="prefix__Grupo_7105" data-name="Grupo 7105">
+                <g id="prefix__Grupo_7104" data-name="Grupo 7104">
+                    <circle id="prefix__Elipse_899" cx=".708" cy=".708" r=".708" class="prefix__cls-22" data-name="Elipse 899"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7109" data-name="Grupo 7109" transform="translate(4446.537 -395.739)">
+            <g id="prefix__Grupo_7108" data-name="Grupo 7108">
+                <g id="prefix__Grupo_7107" data-name="Grupo 7107">
+                    <path id="prefix__Trazado_6919" d="M1181.344 1578.3l20.668 8.016-2.392 1.976-7.942-1.354-7.065-1.354z" class="prefix__cls-21" data-name="Trazado 6919" transform="translate(-1181.344 -1578.299)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7112" data-name="Grupo 7112" transform="translate(4429.591 -402.257)">
+            <g id="prefix__Grupo_7111" data-name="Grupo 7111">
+                <g id="prefix__Grupo_7110" data-name="Grupo 7110">
+                    <path id="prefix__Trazado_6920" d="M1154.757 1590.111s6.132-4.2 10.42.342c0 0 7.446-13.448 4.578-19.842 0 0-1.585-3.318-6.382-2.368.001.001 1.319 10.599-8.616 21.868z" class="prefix__cls-17" data-name="Trazado 6920" transform="translate(-1154.757 -1568.072)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7115" data-name="Grupo 7115" transform="translate(4438.416 -383.656)">
+            <g id="prefix__Grupo_7114" data-name="Grupo 7114">
+                <g id="prefix__Grupo_7113" data-name="Grupo 7113">
+                    <circle id="prefix__Elipse_900" cx=".743" cy=".743" r=".743" class="prefix__cls-8" data-name="Elipse 900"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7118" data-name="Grupo 7118" transform="translate(4407.415 -390.743)">
+            <g id="prefix__Grupo_7117" data-name="Grupo 7117">
+                <g id="prefix__Grupo_7116" data-name="Grupo 7116">
+                    <path id="prefix__Trazado_6921" d="M1128.85 1598.93s-.369-5.986-8.886-3.1l10.247-9.69.648 10.424z" class="prefix__cls-17" data-name="Trazado 6921" transform="translate(-1119.964 -1586.138)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7123" data-name="Grupo 7123" transform="translate(4417.6 -389.2)">
+            <g id="prefix__Grupo_7120" data-name="Grupo 7120" transform="translate(.159 .011)">
+                <g id="prefix__Grupo_7119" data-name="Grupo 7119">
+                    <path id="prefix__Trazado_6922" d="M1136.192 1588.575s.714 10.4.809 12.57" class="prefix__cls-27" data-name="Trazado 6922" transform="translate(-1136.192 -1588.575)"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7122" data-name="Grupo 7122">
+                <g id="prefix__Grupo_7121" data-name="Grupo 7121">
+                    <path id="prefix__Trazado_6923" d="M1136.752 1601.146c-.094-2.139-.8-12.462-.809-12.566l.318-.022c.008.1.715 10.43.81 12.574z" class="prefix__cls-32" data-name="Trazado 6923" transform="translate(-1135.943 -1588.558)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7126" data-name="Grupo 7126" transform="translate(4409.89 -416.832)">
+            <g id="prefix__Grupo_7125" data-name="Grupo 7125">
+                <g id="prefix__Grupo_7124" data-name="Grupo 7124">
+                    <path id="prefix__Trazado_6924" d="M1147.722 1545.205l-.556 7.092a13.74 13.74 0 0 1-10.382 9.588c-4.947 1.024-11.042 1.2-12.607-3.289l-.3 4.871c-.437 5.359 3.835 11.518 9.1 11.353h2.726a14.647 14.647 0 0 0 12.586-6.911 11.031 11.031 0 0 0 1.69-5.157l1.3-16.724z" class="prefix__cls-29" data-name="Trazado 6924" transform="translate(-1123.847 -1545.205)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7129" data-name="Grupo 7129" transform="translate(4411.301 -384.091)">
+            <g id="prefix__Grupo_7128" data-name="Grupo 7128">
+                <g id="prefix__Grupo_7127" data-name="Grupo 7127">
+                    <circle id="prefix__Elipse_901" cx=".743" cy=".743" r=".743" class="prefix__cls-8" data-name="Elipse 901"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7132" data-name="Grupo 7132" transform="translate(4418.098 -417.035)">
+            <g id="prefix__Grupo_7131" data-name="Grupo 7131">
+                <g id="prefix__Grupo_7130" data-name="Grupo 7130">
+                    <path id="prefix__Trazado_6925" d="M1141.957 1551.959h-.167a5.462 5.462 0 0 1-5.062-5.808 6.078 6.078 0 0 1 .122-1l.054-.264 10.238.345.036.267a5.94 5.94 0 0 1 .054 1.005 5.476 5.476 0 0 1-5.275 5.455zm-4.53-6.418a4.987 4.987 0 0 0-.061.629 4.631 4.631 0 1 0 9.228.312 5.044 5.044 0 0 0-.018-.632z" class="prefix__cls-8" data-name="Trazado 6925" transform="translate(-1136.724 -1544.886)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7135" data-name="Grupo 7135" transform="translate(4406.381 -417.426)">
+            <g id="prefix__Grupo_7134" data-name="Grupo 7134">
+                <g id="prefix__Grupo_7133" data-name="Grupo 7133">
+                    <path id="prefix__Trazado_6926" d="M1123.574 1551.346h-.167a5.462 5.462 0 0 1-5.061-5.808 6.021 6.021 0 0 1 .121-1l.053-.264 10.24.345.035.268a6.027 6.027 0 0 1 .054 1 5.476 5.476 0 0 1-5.275 5.459zm-4.531-6.418a5.211 5.211 0 0 0-.061.629 4.823 4.823 0 0 0 4.445 5.149h.146a4.838 4.838 0 0 0 4.637-4.84 5.2 5.2 0 0 0-.019-.632z" class="prefix__cls-8" data-name="Trazado 6926" transform="translate(-1118.343 -1544.273)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7138" data-name="Grupo 7138" transform="translate(4428.232 -416.699)">
+            <g id="prefix__Grupo_7137" data-name="Grupo 7137">
+                <g id="prefix__Grupo_7136" data-name="Grupo 7136">
+                    <path id="prefix__Rectángulo_2728" d="M0 0H0.637V9.441H0z" class="prefix__cls-8" data-name="Rectángulo 2728" transform="rotate(-89.54 .321 .318)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7141" data-name="Grupo 7141" transform="translate(4418.535 -417.232)">
+            <g id="prefix__Grupo_7140" data-name="Grupo 7140">
+                <g id="prefix__Grupo_7139" data-name="Grupo 7139"/>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7144" data-name="Grupo 7144" transform="translate(4416.418 -417.11)">
+            <g id="prefix__Grupo_7143" data-name="Grupo 7143">
+                <g id="prefix__Grupo_7142" data-name="Grupo 7142">
+                    <path id="prefix__Rectángulo_2729" d="M0 0H0.638V2.106H0z" class="prefix__cls-8" data-name="Rectángulo 2729" transform="rotate(-87.77 .331 .319)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7337" data-name="Grupo 7337" transform="translate(4487.413 -435.947)">
+            <g id="prefix__Grupo_7147" data-name="Grupo 7147" transform="translate(87.084 34.75)">
+                <g id="prefix__Grupo_7146" data-name="Grupo 7146">
+                    <g id="prefix__Grupo_7145" data-name="Grupo 7145">
+                        <path id="prefix__Trazado_6928" d="M1411.213 1579.4l-14.2-2.99s-4.791-4.739-14.9-6.678c0 0 1.347 12.158.806 13.2s1.243 3.449 1.243 3.449l13.821 1.1z" class="prefix__cls-17" data-name="Trazado 6928" transform="translate(-1382.107 -1569.735)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7150" data-name="Grupo 7150" transform="translate(100.489 41.333)">
+                <g id="prefix__Grupo_7149" data-name="Grupo 7149">
+                    <g id="prefix__Grupo_7148" data-name="Grupo 7148">
+                        <path id="prefix__Trazado_6929" d="M1403.388 1586.19l-.249-.2c2.887-3.6 1.388-5.716 1.372-5.737l.255-.191c.07.094 1.673 2.32-1.378 6.128z" class="prefix__cls-18" data-name="Trazado 6929" transform="translate(-1403.139 -1580.063)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7153" data-name="Grupo 7153" transform="translate(86.564 36.985)">
+                <g id="prefix__Grupo_7152" data-name="Grupo 7152">
+                    <g id="prefix__Grupo_7151" data-name="Grupo 7151">
+                        <path id="prefix__Trazado_6930" d="M1395.9 1580.971c-2.249-5.014-14.481-7.394-14.6-7.417l.06-.312a47.517 47.517 0 0 1 6.518 1.83c4.542 1.652 7.341 3.593 8.318 5.769z" class="prefix__cls-18" data-name="Trazado 6930" transform="translate(-1381.291 -1573.242)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7156" data-name="Grupo 7156" transform="translate(86.434 38.623)">
+                <g id="prefix__Grupo_7155" data-name="Grupo 7155">
+                    <g id="prefix__Grupo_7154" data-name="Grupo 7154">
+                        <path id="prefix__Trazado_6931" d="M1395.692 1583.542c-2.249-5.014-14.482-7.394-14.6-7.418l.06-.312a47.708 47.708 0 0 1 6.518 1.83c4.542 1.653 7.341 3.594 8.318 5.77z" class="prefix__cls-18" data-name="Trazado 6931" transform="translate(-1381.087 -1575.812)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7159" data-name="Grupo 7159" transform="translate(8.099 30.106)">
+                <g id="prefix__Grupo_7158" data-name="Grupo 7158">
+                    <g id="prefix__Grupo_7157" data-name="Grupo 7157">
+                        <path id="prefix__Trazado_6932" d="M1307.64 1562.449l-13.436 4.432a16.7 16.7 0 0 0-7.7 5.288l-28.323 4.779 14.994 7.928 19.75 1.813 6.661-1.144 13.911-4.343v-2.345z" class="prefix__cls-17" data-name="Trazado 6932" transform="translate(-1258.184 -1562.449)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7162" data-name="Grupo 7162" transform="translate(35.687 39.413)">
+                <g id="prefix__Grupo_7161" data-name="Grupo 7161">
+                    <g id="prefix__Grupo_7160" data-name="Grupo 7160">
+                        <path id="prefix__Trazado_6933" d="M1309.281 1583.468c-.679-2.861-1.853-4.743-3.49-5.6a4.545 4.545 0 0 0-2.875-.426c1.212.36 3.558 1.62 3.558 5.986h-.319c0-5.541-3.8-5.8-3.961-5.808l-.728-.038.677-.27a4.857 4.857 0 0 1 3.789.27c1.725.9 2.955 2.852 3.657 5.808z" class="prefix__cls-18" data-name="Trazado 6933" transform="translate(-1301.467 -1577.052)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7165" data-name="Grupo 7165" transform="translate(39.886 33.937)">
+                <g id="prefix__Grupo_7164" data-name="Grupo 7164">
+                    <g id="prefix__Grupo_7163" data-name="Grupo 7163">
+                        <path id="prefix__Trazado_6934" d="M1308.361 1574.64l-.3-.094c1.352-4.393 13.886-6.019 14.419-6.087l.039.316c-.132.017-12.866 1.666-14.158 5.865z" class="prefix__cls-18" data-name="Trazado 6934" transform="translate(-1308.056 -1568.459)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7168" data-name="Grupo 7168" transform="translate(41.224 35.07)">
+                <g id="prefix__Grupo_7167" data-name="Grupo 7167">
+                    <g id="prefix__Grupo_7166" data-name="Grupo 7166">
+                        <path id="prefix__Trazado_6935" d="M1310.459 1576.417l-.305-.094c1.352-4.394 13.886-6.019 14.419-6.086l.04.316c-.128.016-12.862 1.666-14.154 5.864z" class="prefix__cls-18" data-name="Trazado 6935" transform="translate(-1310.154 -1570.237)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7171" data-name="Grupo 7171" transform="translate(48.412 59.751)">
+                <g id="prefix__Grupo_7170" data-name="Grupo 7170">
+                    <g id="prefix__Grupo_7169" data-name="Grupo 7169">
+                        <path id="prefix__Trazado_6936" d="M1322.454 1612.138s.73.619 1.022-1.9l-1.46-1.278h-.584z" data-name="Trazado 6936" transform="translate(-1321.432 -1608.961)" style="fill:#919191"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7174" data-name="Grupo 7174" transform="translate(48.412 52.499)">
+                <g id="prefix__Grupo_7173" data-name="Grupo 7173">
+                    <g id="prefix__Grupo_7172" data-name="Grupo 7172">
+                        <path id="prefix__Trazado_6937" d="M1321.432 1606.514s5.61 3.951 14.881 2.78c0 0 6.247-.943 9.566-1.154l6.787.082s2.011-1.683-.444-2.246l5.075.488s.878.1.683-1.172h2.05s1.367-2.049-7.711-3.709l-7.418-4h-12.688l1.367 1.333a36.751 36.751 0 0 1-9.175-1.333z" class="prefix__cls-19" data-name="Trazado 6937" transform="translate(-1321.432 -1597.582)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7177" data-name="Grupo 7177" transform="translate(42.039 50.864)">
+                <g id="prefix__Grupo_7176" data-name="Grupo 7176">
+                    <g id="prefix__Grupo_7175" data-name="Grupo 7175">
+                        <path id="prefix__Trazado_6938" d="M1315.242 1595.017l6.588 1.464s-3.587 3.4-3 10.6l-7.395-.333 1.026-8.764z" class="prefix__cls-35" data-name="Trazado 6938" transform="translate(-1311.434 -1595.017)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7182" data-name="Grupo 7182" transform="translate(0 44.058)">
+                <g id="prefix__Grupo_7179" data-name="Grupo 7179" transform="translate(.127 .129)">
+                    <g id="prefix__Grupo_7178" data-name="Grupo 7178">
+                        <path id="prefix__Trazado_6939" d="M1293.372 1590.036s-5.417 7.448-2.782 13.794h-35.283s-10.62.219-9.556-11.065c0 0 .186-9.639 15.412-8.046z" class="prefix__cls-17" data-name="Trazado 6939" transform="translate(-1245.676 -1584.542)"/>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_7181" data-name="Grupo 7181">
+                    <g id="prefix__Grupo_7180" data-name="Grupo 7180">
+                        <path id="prefix__Trazado_6940" d="M1255.206 1603.885c-.4 0-4.7-.072-7.427-3.012-1.807-1.945-2.556-4.7-2.226-8.193a8.2 8.2 0 0 1 2.789-5.454c2.714-2.4 7.006-3.309 12.763-2.706l32.421 5.351-.121.167c-.054.074-5.344 7.465-2.767 13.671l.073.177h-35.5zm2.628-19.291c-4.066 0-7.193.944-9.32 2.819a7.94 7.94 0 0 0-2.708 5.282c-.323 3.425.4 6.114 2.157 8 2.776 2.989 7.217 2.935 7.269 2.932h35.1c-2.255-5.772 1.982-12.439 2.75-13.575l-32.01-5.283a31.113 31.113 0 0 0-3.239-.175z" class="prefix__cls-18" data-name="Trazado 6940" transform="translate(-1245.476 -1584.339)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7185" data-name="Grupo 7185" transform="translate(71.79 55.075)">
+                <g id="prefix__Grupo_7184" data-name="Grupo 7184">
+                    <g id="prefix__Grupo_7183" data-name="Grupo 7183">
+                        <path id="prefix__Trazado_6941" d="M1358.379 1602.866l-.268-.173c.9-1.4 4.694-1.028 4.854-1.013l-.032.317c-.033-.005-3.755-.367-4.554.869z" class="prefix__cls-36" data-name="Trazado 6941" transform="translate(-1358.111 -1601.625)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7188" data-name="Grupo 7188" transform="translate(.056 51.077)">
+                <g id="prefix__Grupo_7187" data-name="Grupo 7187">
+                    <g id="prefix__Grupo_7186" data-name="Grupo 7186">
+                        <path id="prefix__Trazado_6942" d="M1290.537 1600c-.108-.018-10.844-1.862-21.681-3.133-18.031-2.115-22.46-1.089-23 .146l-.292-.128c2-4.56 43.271 2.5 45.027 2.8z" class="prefix__cls-18" data-name="Trazado 6942" transform="translate(-1245.564 -1595.352)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7191" data-name="Grupo 7191" transform="translate(.264 49.404)">
+                <g id="prefix__Grupo_7190" data-name="Grupo 7190">
+                    <g id="prefix__Grupo_7189" data-name="Grupo 7189">
+                        <path id="prefix__Trazado_6943" d="M1291.065 1597.623c-.108-.02-10.894-1.936-21.782-3.279-18.113-2.233-22.561-1.232-23.1 0l-.292-.128c2-4.563 43.465 2.776 45.23 3.091z" class="prefix__cls-18" data-name="Trazado 6943" transform="translate(-1245.891 -1592.727)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7194" data-name="Grupo 7194" transform="translate(11.443 44.308)">
+                <g id="prefix__Grupo_7193" data-name="Grupo 7193">
+                    <g id="prefix__Grupo_7192" data-name="Grupo 7192">
+                        <path id="prefix__Trazado_6944" d="M1264.869 1603.841c-4.237-11.677 2.216-19.038 2.282-19.11l.236.213c-.064.071-6.388 7.3-2.218 18.789z" class="prefix__cls-18" data-name="Trazado 6944" transform="translate(-1263.429 -1584.731)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7197" data-name="Grupo 7197" transform="translate(7.436 44.081)">
+                <g id="prefix__Grupo_7196" data-name="Grupo 7196">
+                    <g id="prefix__Grupo_7195" data-name="Grupo 7195">
+                        <path id="prefix__Trazado_6945" d="M1258.609 1603.825c-4.312-11.884 2.254-19.375 2.322-19.45l.237.213c-.066.073-6.5 7.431-2.258 19.129z" class="prefix__cls-18" data-name="Trazado 6945" transform="translate(-1257.143 -1584.375)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7200" data-name="Grupo 7200" transform="translate(44.689 60.992)">
+                <g id="prefix__Grupo_7199" data-name="Grupo 7199">
+                    <g id="prefix__Grupo_7198" data-name="Grupo 7198">
+                        <path id="prefix__Trazado_6946" d="M1320.283 1611.917s-.056 1.1.309.987l-4.769-.192-.231-.99a6.825 6.825 0 0 1 .755-.62c.073 0 1.922-.2 1.922-.2l.839.073z" class="prefix__cls-35" data-name="Trazado 6946" transform="translate(-1315.591 -1610.908)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7203" data-name="Grupo 7203" transform="translate(47.539 26.568)">
+                <g id="prefix__Grupo_7202" data-name="Grupo 7202">
+                    <g id="prefix__Grupo_7201" data-name="Grupo 7201">
+                        <path id="prefix__Trazado_6947" d="M1324.046 1557.178c-.768 1.046-.39 2.531-.782 3.768-.243.766-.775 1.41-1.055 2.164-.673 1.812.215 3.9-.334 5.75-.265.892-.846 1.668-1.074 2.57-.342 1.353.159 2.778.047 4.168-.133 1.65-1.12 3.276-.665 4.868a50.446 50.446 0 0 0 7.439-.527 2.1 2.1 0 0 0 .681-.182 2.128 2.128 0 0 0 .641-.621l.966-1.247a2.779 2.779 0 0 0 .628-1.155c.162-.906-.571-1.692-1.138-2.418a17.012 17.012 0 0 1-2.628-6.482 8.179 8.179 0 0 1-.368-2.945c.063-.522.227-1.028.3-1.549a8.934 8.934 0 0 0-.414-3.388c-.323-1.264-.85-2.74-2.117-3.051" class="prefix__cls-22" data-name="Trazado 6947" transform="translate(-1320.063 -1556.898)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7206" data-name="Grupo 7206" transform="translate(63.414 31.836)">
+                <g id="prefix__Grupo_7205" data-name="Grupo 7205">
+                    <g id="prefix__Grupo_7204" data-name="Grupo 7204">
+                        <path id="prefix__Trazado_6948" d="M1359.675 1567.461l-11.614 6.654s-3.092 6.363-3.092 7.217a4.047 4.047 0 0 0 .863 2.86c.78.808 15.975.791 15.975.791l5.253-2.274s.261-4.329.275-5.193-.529-6.821-.529-6.821l-1.329-2.813-4.6-2.717z" data-name="Trazado 6948" transform="translate(-1344.969 -1565.163)" style="fill:#e88872"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7209" data-name="Grupo 7209" transform="translate(46.606 45.792)">
+                <g id="prefix__Grupo_7208" data-name="Grupo 7208">
+                    <g id="prefix__Grupo_7207" data-name="Grupo 7207">
+                        <path id="prefix__Trazado_6949" d="M1318.63 1588.523s-1.3-2.173 12.755-1.223l1.122 2.9-11.8-1.673z" class="prefix__cls-19" data-name="Trazado 6949" transform="translate(-1318.599 -1587.06)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7212" data-name="Grupo 7212" transform="translate(80.978 36.706)">
+                <g id="prefix__Grupo_7211" data-name="Grupo 7211">
+                    <g id="prefix__Grupo_7210" data-name="Grupo 7210">
+                        <circle id="prefix__Elipse_902" cx="1.023" cy="1.023" r="1.023" class="prefix__cls-38" data-name="Elipse 902"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7215" data-name="Grupo 7215" transform="translate(51.001 19.28)">
+                <g id="prefix__Grupo_7214" data-name="Grupo 7214">
+                    <g id="prefix__Grupo_7213" data-name="Grupo 7213">
+                        <path id="prefix__Trazado_6950" d="M1329.335 1545.464s-5.839 9.776-3.118 19.963a10.317 10.317 0 0 0 10.828 7.992c4.673-.4 10.642-2.186 14.224-8.136l2.528-12.724z" class="prefix__cls-19" data-name="Trazado 6950" transform="translate(-1325.494 -1545.464)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7218" data-name="Grupo 7218" transform="translate(76.688 27.637)">
+                <g id="prefix__Grupo_7217" data-name="Grupo 7217">
+                    <g id="prefix__Grupo_7216" data-name="Grupo 7216">
+                        <ellipse id="prefix__Elipse_903" cx="4.761" cy="3.406" data-name="Elipse 903" rx="4.761" ry="3.406" transform="rotate(-70 6.388 4.473)" style="fill:#fcc068"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7223" data-name="Grupo 7223" transform="translate(81.738 29.814)">
+                <g id="prefix__Grupo_7220" data-name="Grupo 7220" transform="translate(.012 .056)">
+                    <g id="prefix__Grupo_7219" data-name="Grupo 7219">
+                        <path id="prefix__Trazado_6951" d="M1373.737 1562.079s3.677.761 1.487 4.846" class="prefix__cls-27" data-name="Trazado 6951" transform="translate(-1373.737 -1562.079)"/>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_7222" data-name="Grupo 7222">
+                    <g id="prefix__Grupo_7221" data-name="Grupo 7221">
+                        <path id="prefix__Trazado_6952" d="M1375.268 1566.92l-.1-.055a3.721 3.721 0 0 0 .473-3.314 2.978 2.978 0 0 0-1.921-1.449l.024-.111a3.091 3.091 0 0 1 2 1.511 3.822 3.822 0 0 1-.476 3.418z" class="prefix__cls-32" data-name="Trazado 6952" transform="translate(-1373.719 -1561.991)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7226" data-name="Grupo 7226" transform="translate(81.015 29.86)" style="opacity:.46">
+                <g id="prefix__Grupo_7225" data-name="Grupo 7225">
+                    <g id="prefix__Grupo_7224" data-name="Grupo 7224">
+                        <path id="prefix__Trazado_6953" d="M1375.586 1564.772a2.492 2.492 0 0 0-2.347-2.709l-.655 5.333s.627-3.834 2.159-3.3a.9.9 0 0 1 .591.986l.161-.231.021-.167c.023.032.046.058.07.088z" class="prefix__cls-32" data-name="Trazado 6953" transform="translate(-1372.584 -1562.063)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7229" data-name="Grupo 7229" transform="translate(64.68 29.132)">
+                <g id="prefix__Grupo_7228" data-name="Grupo 7228">
+                    <g id="prefix__Grupo_7227" data-name="Grupo 7227">
+                        <ellipse id="prefix__Elipse_904" cx="1.521" cy="1.197" class="prefix__cls-41" data-name="Elipse 904" rx="1.521" ry="1.197" transform="rotate(-83.001 1.707 1.51)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7232" data-name="Grupo 7232" transform="translate(53.845 27.051)">
+                <g id="prefix__Grupo_7231" data-name="Grupo 7231">
+                    <g id="prefix__Grupo_7230" data-name="Grupo 7230">
+                        <ellipse id="prefix__Elipse_905" cx="1.521" cy="1.197" class="prefix__cls-41" data-name="Elipse 905" rx="1.521" ry="1.197" transform="rotate(-83.001 1.707 1.51)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7235" class="prefix__cls-42" data-name="Grupo 7235" transform="translate(64.426 34.716)">
+                <g id="prefix__Grupo_7234" data-name="Grupo 7234">
+                    <g id="prefix__Grupo_7233" data-name="Grupo 7233">
+                        <ellipse id="prefix__Elipse_906" cx="2.052" cy="3.262" class="prefix__cls-20" data-name="Elipse 906" rx="2.052" ry="3.262" transform="rotate(-79.808 2.415 2.02)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7238" class="prefix__cls-42" data-name="Grupo 7238" transform="translate(51.001 30.49)">
+                <g id="prefix__Grupo_7237" data-name="Grupo 7237">
+                    <g id="prefix__Grupo_7236" data-name="Grupo 7236">
+                        <path id="prefix__Trazado_6954" d="M1327.615 1565.809c.205-1.14-.411-2.147-1.944-2.758a24.812 24.812 0 0 0-.127 4.523 2.513 2.513 0 0 0 2.071-1.765z" class="prefix__cls-20" data-name="Trazado 6954" transform="translate(-1325.494 -1563.051)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7241" data-name="Grupo 7241" transform="translate(55.703 36.824)">
+                <g id="prefix__Grupo_7240" data-name="Grupo 7240">
+                    <g id="prefix__Grupo_7239" data-name="Grupo 7239">
+                        <path id="prefix__Trazado_6955" d="M1335.2 1574.561a2.482 2.482 0 0 1-.663-.088 2.787 2.787 0 0 1-1.669-1.417l.145-.066a2.667 2.667 0 0 0 1.569 1.33 3.55 3.55 0 0 0 2.919-.78l.09.13a4.318 4.318 0 0 1-2.391.891z" data-name="Trazado 6955" transform="translate(-1332.872 -1572.99)" style="fill:#16377b"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7244" data-name="Grupo 7244" transform="translate(57.858 15.486)">
+                <g id="prefix__Grupo_7243" data-name="Grupo 7243">
+                    <g id="prefix__Grupo_7242" data-name="Grupo 7242">
+                        <path id="prefix__Trazado_6956" d="M1337.171 1540.327a8.068 8.068 0 0 0 2.891 3.078 20.545 20.545 0 0 0 5.6 2.719c1.6.494 3.265.793 4.818 1.42a12.2 12.2 0 0 1 4.767 3.465c.6.714 1.112 1.494 1.683 2.229a12.359 12.359 0 0 0 7.6 4.882 14.783 14.783 0 0 0 0-3.557 8.029 8.029 0 0 0-2.37-5.758 26.2 26.2 0 0 0-2.906-3.233 17.562 17.562 0 0 0-6.728-3.541 52.559 52.559 0 0 0-7.516-1.462l-6.978-1.008c-.65-.094-1.464-.114-1.792.456" class="prefix__cls-41" data-name="Trazado 6956" transform="translate(-1336.253 -1539.511)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7247" data-name="Grupo 7247" transform="translate(73.285 23.682)">
+                <g id="prefix__Grupo_7246" data-name="Grupo 7246">
+                    <g id="prefix__Grupo_7245" data-name="Grupo 7245">
+                        <path id="prefix__Trazado_6957" d="M1363.393 1552.858c1.086.841.83 2.37.271 3.524s-1.348 2.354-1.028 3.586a18.7 18.7 0 0 0 1.064 2.1c1.118 2.768-2.223 5.528-1.789 8.431a17.7 17.7 0 0 0 .523 1.838 7.77 7.77 0 0 1-.932 5.55c-.649 1.227-1.507 2.652-.749 3.848.8 1.262 2.785 1.332 4.309 1.88.643.232 1.233.569 1.888.773a5.053 5.053 0 0 0 5.972-2.733c.906-2.41-.486-5.287.894-7.513a18.348 18.348 0 0 0 1.31-1.853c.75-1.646-.441-3.622.282-5.278a22.644 22.644 0 0 0 1.25-2.115c.4-1.3-.575-2.637-.619-3.989-.035-1.092.541-2.182.239-3.245a4.629 4.629 0 0 0-2.106-2.272 19.088 19.088 0 0 0-5.172-2.546 10.155 10.155 0 0 0-5.815-.08" class="prefix__cls-22" data-name="Trazado 6957" transform="translate(-1360.457 -1552.37)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7250" data-name="Grupo 7250" transform="translate(52.825)">
+                <g id="prefix__Grupo_7249" data-name="Grupo 7249">
+                    <g id="prefix__Grupo_7248" data-name="Grupo 7248">
+                        <path id="prefix__Trazado_6958" d="M1328.356 1531.966a64.9 64.9 0 0 0 8.252-13.19 6.2 6.2 0 0 1 6.038-3.546c6.175.44 17.283 2.567 23.554 11.8a5.906 5.906 0 0 1 .83 4.665c-.938 4.032-3.235 12.058-1.389 17.2 0 .005-32.929-17.248-37.285-16.929z" class="prefix__cls-44" data-name="Trazado 6958" transform="translate(-1328.356 -1515.214)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7253" data-name="Grupo 7253" transform="translate(38.569 13.907)">
+                <g id="prefix__Grupo_7252" data-name="Grupo 7252">
+                    <g id="prefix__Grupo_7251" data-name="Grupo 7251">
+                        <path id="prefix__Trazado_6959" d="M1356.611 1559.573a83.467 83.467 0 0 0-34.622-16.677l-2.746 6.023s-16.792-7.817-12.575-11.191a3.169 3.169 0 0 1 1.714-.641c2.672-.236 12.363-.105 33.546 9.682 0 0 23.233 10.7 29.547 16.826.001-.001.948 1.748-14.864-4.022z" class="prefix__cls-38" data-name="Trazado 6959" transform="translate(-1305.989 -1537.034)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7258" data-name="Grupo 7258" transform="translate(57.516 23.185)">
+                <g id="prefix__Grupo_7255" data-name="Grupo 7255">
+                    <g id="prefix__Grupo_7254" data-name="Grupo 7254">
+                        <ellipse id="prefix__Elipse_907" cx="5.691" cy="4.789" class="prefix__cls-45" data-name="Elipse 907" rx="5.691" ry="4.789" transform="rotate(-79.469 6.732 5.596)"/>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_7257" data-name="Grupo 7257" transform="translate(.606 .487)">
+                    <g id="prefix__Grupo_7256" data-name="Grupo 7256">
+                        <path id="prefix__Trazado_6960" d="M1341.521 1564.321a4.413 4.413 0 0 1-.811-.075 4.722 4.722 0 0 1-3.243-2.414 6.793 6.793 0 0 1 1.546-8.316 4.721 4.721 0 0 1 3.894-1.087c2.768.515 4.528 3.584 3.922 6.842a6.553 6.553 0 0 1-2.225 3.888 4.852 4.852 0 0 1-3.083 1.162zm.579-11.329a4.232 4.232 0 0 0-2.683 1.016 6.158 6.158 0 0 0-1.4 7.51 3.954 3.954 0 0 0 6.178 1.149 5.922 5.922 0 0 0 2-3.513c.541-2.913-.99-5.649-3.413-6.1a3.8 3.8 0 0 0-.682-.062z" class="prefix__cls-17" data-name="Trazado 6960" transform="translate(-1336.667 -1552.354)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7261" data-name="Grupo 7261" transform="translate(65.617 24.296)">
+                <g id="prefix__Grupo_7260" data-name="Grupo 7260">
+                    <g id="prefix__Grupo_7259" data-name="Grupo 7259">
+                        <path id="prefix__Trazado_6961" d="M1348.426 1553.334l4.625 1.595-.241 1.915a2.49 2.49 0 0 0-1.938 2.051s.817-3.995-2.446-5.561z" class="prefix__cls-17" data-name="Trazado 6961" transform="translate(-1348.426 -1553.334)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7264" data-name="Grupo 7264" transform="translate(70.001 25.876)">
+                <g id="prefix__Grupo_7263" data-name="Grupo 7263">
+                    <g id="prefix__Grupo_7262" data-name="Grupo 7262">
+                        <path id="prefix__Trazado_6962" d="M1355.531 1555.812l-.226 1.93 5.706 1.5c.212-.532.311-.566.5-1.043z" class="prefix__cls-17" data-name="Trazado 6962" transform="translate(-1355.305 -1555.812)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7267" data-name="Grupo 7267" transform="translate(57.023 25.168)">
+                <g id="prefix__Grupo_7266" data-name="Grupo 7266">
+                    <g id="prefix__Grupo_7265" data-name="Grupo 7265">
+                        <path id="prefix__Trazado_6963" d="M1334.943 1554.784a2.548 2.548 0 0 1 2.838 1.153l-.665 1.135a1.871 1.871 0 0 0-2.084-1.089z" class="prefix__cls-17" data-name="Trazado 6963" transform="translate(-1334.943 -1554.702)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7270" data-name="Grupo 7270" transform="translate(41.345 46.363)">
+                <g id="prefix__Grupo_7269" data-name="Grupo 7269">
+                    <g id="prefix__Grupo_7268" data-name="Grupo 7268">
+                        <path id="prefix__Trazado_6964" d="M1345.628 1597.325l-3.681.888a11.692 11.692 0 0 1-5.63-.035l-23.775-6.052a1.035 1.035 0 0 1-.779-1v-.6l-1.419-.262.121-.234a2.221 2.221 0 0 1 1.879-1.245l15.473-.823 8.546 1.484 8.226-.3z" class="prefix__cls-19" data-name="Trazado 6964" transform="translate(-1310.345 -1587.955)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7273" data-name="Grupo 7273" transform="translate(74.222 46.033)">
+                <g id="prefix__Grupo_7272" data-name="Grupo 7272">
+                    <g id="prefix__Grupo_7271" data-name="Grupo 7271">
+                        <path id="prefix__Trazado_6965" d="M1367.956 1587.437h-5.344s-2.122 7.979 1.1 10.687h4.245z" class="prefix__cls-35" data-name="Trazado 6965" transform="translate(-1361.926 -1587.437)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7276" data-name="Grupo 7276" transform="translate(42.684 48.191)">
+                <g id="prefix__Grupo_7275" data-name="Grupo 7275">
+                    <g id="prefix__Grupo_7274" data-name="Grupo 7274">
+                        <path id="prefix__Trazado_6966" d="M1322.806 1591.947l-7.337-.883c-.023 0-2.08-.282-2.7.217a.4.4 0 0 0-.163.287l-.159-.014a.559.559 0 0 1 .223-.4c.675-.542 2.735-.263 2.823-.25l7.334.883z" class="prefix__cls-20" data-name="Trazado 6966" transform="translate(-1312.445 -1590.823)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7281" data-name="Grupo 7281" transform="translate(77.445 42.989)">
+                <g id="prefix__Grupo_7278" data-name="Grupo 7278" transform="translate(.132 .131)">
+                    <g id="prefix__Grupo_7277" data-name="Grupo 7277">
+                        <path id="prefix__Trazado_6967" d="M1369.352 1582.867s-3.952 10.891-1.171 14.113l37.684 6.193a8.543 8.543 0 0 0 9.97-8.17q.013-.677-.024-1.423s.6-5.03-5.516-8.077a14.589 14.589 0 0 0-6.029-1.461z" class="prefix__cls-17" data-name="Trazado 6967" transform="translate(-1367.19 -1582.867)"/>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_7280" data-name="Grupo 7280">
+                    <g id="prefix__Grupo_7279" data-name="Grupo 7279">
+                        <path id="prefix__Trazado_6968" d="M1407.195 1603.34a8.786 8.786 0 0 1-1.424-.117l-37.73-6.2-.031-.035c-1.181-1.368-1.345-4.184-.486-8.373a47.512 47.512 0 0 1 1.634-5.866l.031-.087 35.009 1.177a14.637 14.637 0 0 1 6.081 1.475 9.8 9.8 0 0 1 5.114 5.251 6.841 6.841 0 0 1 .472 2.955c.025.468.034.95.025 1.41a8.508 8.508 0 0 1-3.078 6.375 8.77 8.77 0 0 1-5.617 2.035zm-39.021-6.553l37.638 6.185a8.508 8.508 0 0 0 6.837-1.863 8.251 8.251 0 0 0 2.985-6.184c.008-.455 0-.93-.024-1.414a6.74 6.74 0 0 0-.461-2.87 9.556 9.556 0 0 0-4.984-5.1 14.379 14.379 0 0 0-5.977-1.447l-34.822-1.171c-.366 1.031-3.709 10.845-1.193 13.864z" class="prefix__cls-18" data-name="Trazado 6968" transform="translate(-1366.983 -1582.662)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7284" data-name="Grupo 7284" transform="translate(78.109 49.072)">
+                <g id="prefix__Grupo_7283" data-name="Grupo 7283">
+                    <g id="prefix__Grupo_7282" data-name="Grupo 7282">
+                        <path id="prefix__Trazado_6969" d="M1416 1599.731c-1.922-4.432-7.969-4.755-8.03-4.758l-39.941-2.449.02-.319 39.938 2.449a12.8 12.8 0 0 1 3.384.721 8.03 8.03 0 0 1 4.921 4.229z" class="prefix__cls-18" data-name="Trazado 6969" transform="translate(-1368.026 -1592.206)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7287" data-name="Grupo 7287" transform="translate(78.394 47.644)">
+                <g id="prefix__Grupo_7286" data-name="Grupo 7286">
+                    <g id="prefix__Grupo_7285" data-name="Grupo 7285">
+                        <path id="prefix__Trazado_6970" d="M1416.272 1597.489c-1.914-4.432-7.94-4.755-8-4.757l-39.8-2.448.02-.319 39.795 2.448a12.735 12.735 0 0 1 3.373.721 8.011 8.011 0 0 1 4.9 4.23z" class="prefix__cls-18" data-name="Trazado 6970" transform="translate(-1368.473 -1589.965)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7290" data-name="Grupo 7290" transform="translate(107.997 43.964)">
+                <g id="prefix__Grupo_7289" data-name="Grupo 7289">
+                    <g id="prefix__Grupo_7288" data-name="Grupo 7288">
+                        <path id="prefix__Trazado_6971" d="M1415.212 1602.222l-.294-.124c4.284-10.267 2.616-15.52 1.241-17.739l.272-.168c3.279 5.29.643 13.568-1.219 18.031z" class="prefix__cls-18" data-name="Trazado 6971" transform="translate(-1414.918 -1584.192)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7293" data-name="Grupo 7293" transform="translate(42.684 48.377)">
+                <g id="prefix__Grupo_7292" data-name="Grupo 7292">
+                    <g id="prefix__Grupo_7291" data-name="Grupo 7291">
+                        <path id="prefix__Trazado_6972" d="M1313.606 1592.218h-.1a1.5 1.5 0 0 1-.822-.193.539.539 0 0 1-.219-.262.346.346 0 0 1 .068-.359l.113.112a.191.191 0 0 0-.031.194.393.393 0 0 0 .158.184 1.918 1.918 0 0 0 1.252.106.483.483 0 0 0 .315-.323.339.339 0 0 0-.061-.259.335.335 0 0 0-.223-.143l.022-.158a.514.514 0 0 1 .417.593.635.635 0 0 1-.415.44 1.354 1.354 0 0 1-.474.068z" class="prefix__cls-20" data-name="Trazado 6972" transform="translate(-1312.445 -1591.115)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7296" data-name="Grupo 7296" transform="translate(38.33 13.671)">
+                <g id="prefix__Grupo_7295" data-name="Grupo 7295">
+                    <g id="prefix__Grupo_7294" data-name="Grupo 7294">
+                        <path id="prefix__Trazado_6973" d="M1370.682 1563.969c-1.866 0-6.669-1.408-14.331-4.2l.164-.45c11.561 4.22 14 4.274 14.5 4.168-6.429-6.048-29.1-16.527-29.327-16.633-21.263-9.824-30.956-9.877-33.425-9.661a2.933 2.933 0 0 0-1.586.589 1.343 1.343 0 0 0-.579 1.264c.431 3.584 12.979 9.465 13.106 9.524l-.2.433c-.527-.245-12.917-6.054-13.378-9.9a1.808 1.808 0 0 1 .755-1.694 3.415 3.415 0 0 1 1.843-.692c2.5-.217 12.3-.172 33.667 9.7.233.107 23.343 10.791 29.613 16.871l.048.066a.374.374 0 0 1-.066.408 1.113 1.113 0 0 1-.804.207z" class="prefix__cls-46" data-name="Trazado 6973" transform="translate(-1305.614 -1536.664)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7299" data-name="Grupo 7299" transform="translate(51.247 21.377)">
+                <g id="prefix__Grupo_7298" data-name="Grupo 7298">
+                    <g id="prefix__Grupo_7297" data-name="Grupo 7297">
+                        <path id="prefix__Trazado_6974" d="M1328.044 1548.8a.9.9 0 0 0-1.145.716l-1.02 4.029s1.042-4.482 3.9-4.116z" class="prefix__cls-17" data-name="Trazado 6974" transform="translate(-1325.88 -1548.754)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7304" data-name="Grupo 7304" transform="translate(50.239 21.466)">
+                <g id="prefix__Grupo_7301" data-name="Grupo 7301">
+                    <g id="prefix__Grupo_7300" data-name="Grupo 7300">
+                        <ellipse id="prefix__Elipse_908" cx="5.022" cy="2.911" class="prefix__cls-45" data-name="Elipse 908" rx="5.022" ry="2.911" transform="rotate(-78.97 5.983 4.929)"/>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_7303" data-name="Grupo 7303" transform="translate(.48 .206)">
+                    <g id="prefix__Grupo_7302" data-name="Grupo 7302">
+                        <path id="prefix__Trazado_6975" d="M1327.761 1559.777a2.033 2.033 0 0 1-.546-.075c-1.739-.483-2.594-3.144-1.945-6.056a6.282 6.282 0 0 1 2.491-4.052 2.271 2.271 0 0 1 1.806-.3c1.739.484 2.594 3.145 1.946 6.057a6.283 6.283 0 0 1-2.491 4.052 2.451 2.451 0 0 1-1.261.374zm1.257-9.923a1.819 1.819 0 0 0-.931.286 5.743 5.743 0 0 0-2.2 3.644c-.556 2.5.128 4.924 1.494 5.3a1.638 1.638 0 0 0 1.308-.234 5.739 5.739 0 0 0 2.2-3.644c.555-2.5-.13-4.924-1.495-5.3a1.4 1.4 0 0 0-.376-.052z" class="prefix__cls-17" data-name="Trazado 6975" transform="translate(-1325.053 -1549.217)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7309" data-name="Grupo 7309" transform="translate(53.525 27.625)">
+                <g id="prefix__Grupo_7306" data-name="Grupo 7306" transform="translate(.127 .058)">
+                    <g id="prefix__Grupo_7305" data-name="Grupo 7305">
+                        <path id="prefix__Trazado_6976" d="M1331.025 1565.594l-1.226-2.013a1 1 0 0 1 .606-1.47c2.074-.754 3.455-3.463 3.455-3.463" class="prefix__cls-19" data-name="Trazado 6976" transform="translate(-1329.654 -1558.648)"/>
+                    </g>
+                </g>
+                <g id="prefix__Grupo_7308" data-name="Grupo 7308">
+                    <g id="prefix__Grupo_7307" data-name="Grupo 7307">
+                        <path id="prefix__Trazado_6977" d="M1330.844 1565.628l-1.226-2.013a1.057 1.057 0 0 1-.1-.913 1.252 1.252 0 0 1 .775-.744c2-.728 3.372-3.374 3.385-3.4l.227.116c-.057.112-1.428 2.762-3.525 3.524a1 1 0 0 0-.621.589.806.806 0 0 0 .081.7l1.226 2.013z" class="prefix__cls-20" data-name="Trazado 6977" transform="translate(-1329.454 -1558.557)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7312" data-name="Grupo 7312" transform="translate(53.136 19.519)">
+                <g id="prefix__Grupo_7311" data-name="Grupo 7311">
+                    <g id="prefix__Grupo_7310" data-name="Grupo 7310">
+                        <path id="prefix__Trazado_6978" d="M1329.831 1546.826s-1.673-1.166-.663-.963l1.11.225-.365.8z" class="prefix__cls-46" data-name="Trazado 6978" transform="translate(-1328.844 -1545.839)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7315" data-name="Grupo 7315" transform="translate(106.168 43.964)">
+                <g id="prefix__Grupo_7314" data-name="Grupo 7314">
+                    <g id="prefix__Grupo_7313" data-name="Grupo 7313">
+                        <path id="prefix__Trazado_6979" d="M1412.343 1602.222l-.294-.124c4.281-10.26 2.571-15.517 1.17-17.737l.27-.17c3.34 5.295.711 13.57-1.146 18.031z" class="prefix__cls-18" data-name="Trazado 6979" transform="translate(-1412.049 -1584.191)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7318" data-name="Grupo 7318" transform="translate(70.168 60.005)">
+                <g id="prefix__Grupo_7317" data-name="Grupo 7317">
+                    <g id="prefix__Grupo_7316" data-name="Grupo 7316">
+                        <path id="prefix__Trazado_6980" d="M1365.015 1612.49v-.159c.3 0 .562-.436.646-.617a1.27 1.27 0 0 0-.228-1.078 1.145 1.145 0 0 0-.827-.311l-9.04-.809.014-.158 9.028.808a1.265 1.265 0 0 1 .941.36 1.425 1.425 0 0 1 .268 1.221l-.006.022c-.011.031-.331.721-.796.721z" class="prefix__cls-20" data-name="Trazado 6980" transform="translate(-1355.566 -1609.359)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7321" data-name="Grupo 7321" transform="translate(73.963 57.717)">
+                <g id="prefix__Grupo_7320" data-name="Grupo 7320">
+                    <g id="prefix__Grupo_7319" data-name="Grupo 7319">
+                        <path id="prefix__Trazado_6981" d="M1372.032 1609.514l-.078-.138a1.291 1.291 0 0 0 .594-.782 1.094 1.094 0 0 0-.357-.9l-.017-.027c-.016-.013-.695-.7-10.652-1.74l.016-.158c9.491.994 10.632 1.666 10.769 1.818a1.241 1.241 0 0 1 .4 1.033 1.419 1.419 0 0 1-.675.894z" class="prefix__cls-20" data-name="Trazado 6981" transform="translate(-1361.521 -1605.77)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7324" data-name="Grupo 7324" transform="translate(57.688 10.179)">
+                <g id="prefix__Grupo_7323" data-name="Grupo 7323">
+                    <g id="prefix__Grupo_7322" data-name="Grupo 7322">
+                        <path id="prefix__Trazado_6982" d="M1366.431 1544.211a3.234 3.234 0 0 1-1.368-.3 7.715 7.715 0 0 1-2.454-2.212l-.061-.073a6.379 6.379 0 0 0-2.478-2.085 6.9 6.9 0 0 0-2.356-.293 5.775 5.775 0 0 1-2.867-.518 5.923 5.923 0 0 1-1.594-1.547 4.981 4.981 0 0 0-1.664-1.546 5.26 5.26 0 0 0-2.8-.171 3.638 3.638 0 0 1-4.345-1.534 4.891 4.891 0 0 0-1-1.06 5.134 5.134 0 0 0-3.467-.439l-.238.022c-1.859.166-3.085-.184-3.751-1.077l.256-.191c.594.8 1.728 1.106 3.467.95l.237-.022a5.442 5.442 0 0 1 3.68.493 5.226 5.226 0 0 1 1.07 1.126 3.342 3.342 0 0 0 4.059 1.413 5.486 5.486 0 0 1 2.971.2 5.3 5.3 0 0 1 1.778 1.635 5.684 5.684 0 0 0 1.5 1.469 5.465 5.465 0 0 0 2.713.475 7.135 7.135 0 0 1 2.465.314 6.629 6.629 0 0 1 2.611 2.179l.061.073a7.472 7.472 0 0 0 2.345 2.128 2.382 2.382 0 0 0 2.859-.456l.256.189a2.275 2.275 0 0 1-1.885.858z" class="prefix__cls-46" data-name="Trazado 6982" transform="translate(-1335.986 -1531.184)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7327" data-name="Grupo 7327" transform="translate(60.367 27.405)">
+                <g id="prefix__Grupo_7326" data-name="Grupo 7326">
+                    <g id="prefix__Grupo_7325" data-name="Grupo 7325">
+                        <path id="prefix__Rectángulo_2730" d="M0 0H5.849V0.479H0z" class="prefix__cls-8" data-name="Rectángulo 2730" transform="rotate(-37.53 5.24 1.781)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7330" data-name="Grupo 7330" transform="translate(62.459 29.424)">
+                <g id="prefix__Grupo_7329" data-name="Grupo 7329">
+                    <g id="prefix__Grupo_7328" data-name="Grupo 7328">
+                        <path id="prefix__Rectángulo_2731" d="M0 0H2.88V0.479H0z" class="prefix__cls-8" data-name="Rectángulo 2731" transform="rotate(-38.241 2.572 .891)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7333" data-name="Grupo 7333" transform="translate(52.574 25.489)">
+                <g id="prefix__Grupo_7332" data-name="Grupo 7332">
+                    <g id="prefix__Grupo_7331" data-name="Grupo 7331">
+                        <path id="prefix__Rectángulo_2732" d="M0 0H2.881V0.479H0z" class="prefix__cls-8" data-name="Rectángulo 2732" transform="rotate(-38.241 2.572 .891)"/>
+                    </g>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7336" data-name="Grupo 7336" transform="translate(52.779 27.43)">
+                <g id="prefix__Grupo_7335" data-name="Grupo 7335">
+                    <g id="prefix__Grupo_7334" data-name="Grupo 7334">
+                        <path id="prefix__Trazado_6983" d="M1328.578 1559.843l-.295-.376 1.546-1.217.295.376z" class="prefix__cls-8" data-name="Trazado 6983" transform="translate(-1328.283 -1558.25)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7340" data-name="Grupo 7340" transform="translate(4406.198 -441.273)">
+            <g id="prefix__Grupo_7339" data-name="Grupo 7339">
+                <g id="prefix__Grupo_7338" data-name="Grupo 7338">
+                    <path id="prefix__Trazado_6984" d="M1147.145 1526.728a20.1 20.1 0 0 1-9.891.822c-4.39-.951-7.942-4.06-11.332-7.007a6.576 6.576 0 0 0-1.817-1.248 2.252 2.252 0 0 0-2.118.143 2.7 2.7 0 0 0-.891 1.417 7.01 7.01 0 0 0 2.021 7.044c-.057.97-.1 1.577-.159 2.5a12.262 12.262 0 0 1-2.075-1.716 10.183 10.183 0 0 1-2.6-4.884 13.235 13.235 0 0 1 1.294-8.432 32.09 32.09 0 0 1 5.027-7.054 4.879 4.879 0 0 1 1.307-1.159 3.507 3.507 0 0 1 3.476.412 14.478 14.478 0 0 1 2.605 2.576 6.581 6.581 0 0 0 2.938 2.124 7.191 7.191 0 0 0 1.869.2q1.874.026 3.748-.053a11.2 11.2 0 0 1 2.4.058 6.939 6.939 0 0 1 3.886 2.379 20.646 20.646 0 0 1 2.506 3.9l1.713 3.161a.837.837 0 0 1-.188 1.282l-4.238 3.878" class="prefix__cls-29" data-name="Trazado 6984" transform="translate(-1118.055 -1506.859)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7343" data-name="Grupo 7343" transform="translate(4407.847 -431.956)">
+            <g id="prefix__Grupo_7342" data-name="Grupo 7342">
+                <g id="prefix__Grupo_7341" data-name="Grupo 7341">
+                    <path id="prefix__Trazado_6985" d="M1130.96 1529.242s-8.884-6.381-9.16-1.987c0 0-1.249-1.009-1.151-1.252a19.188 19.188 0 0 1 1.985-3.49 8.382 8.382 0 0 0 1.228-1.036s3.968.11 4.3.226 2.177.7 2.177.7l1.029.389a8.983 8.983 0 0 1 2.085 1.141c.146.318 1.582 3.528 1.582 3.528z" class="prefix__cls-29" data-name="Trazado 6985" transform="translate(-1120.643 -1521.476)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7346" data-name="Grupo 7346" transform="translate(4411.982 -441.763)">
+            <g id="prefix__Grupo_7345" data-name="Grupo 7345">
+                <g id="prefix__Grupo_7344" data-name="Grupo 7344">
+                    <path id="prefix__Trazado_6986" d="M1155.056 1522.23a10.8 10.8 0 0 0-3.866-8.793c-3.411-2.6-8.195-2.372-12.1-4.156-1.539-.7-2.922-1.715-4.461-2.419a6.318 6.318 0 0 0-4.915-.446 4.29 4.29 0 0 0-2.516 4.651 6.385 6.385 0 0 0 1.75 3.033c2.4 2.56 5.7 4.063 8.944 5.409 5.174 2.15 10.755 4.1 16.275 3.141" class="prefix__cls-29" data-name="Trazado 6986" transform="translate(-1127.13 -1506.09)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7349" data-name="Grupo 7349" transform="translate(4449.726 -389.036)">
+            <g id="prefix__Grupo_7348" data-name="Grupo 7348">
+                <g id="prefix__Grupo_7347" data-name="Grupo 7347">
+                    <path id="prefix__Trazado_6987" d="M1213.779 1603.711c0 8.227-8.062 17.719-17.228 17.037-11.778-.876-10.123-11.261-10.123-19.488s1.518-12.446 10.709-12.446 16.642 6.67 16.642 14.897z" class="prefix__cls-21" data-name="Trazado 6987" transform="translate(-1186.348 -1588.815)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7352" data-name="Grupo 7352" transform="translate(4454.548 -384.752)">
+            <g id="prefix__Grupo_7351" data-name="Grupo 7351">
+                <g id="prefix__Grupo_7350" data-name="Grupo 7350">
+                    <path id="prefix__Trazado_6988" d="M1214.258 1608.481c-.092-3.887-1.427-6.936-3.971-9.063-5.842-4.884-16.22-3.333-16.325-3.318l-.049-.315c.106-.015 10.623-1.589 16.577 3.389 2.618 2.187 3.993 5.316 4.086 9.3z" class="prefix__cls-22" data-name="Trazado 6988" transform="translate(-1193.913 -1595.537)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7355" data-name="Grupo 7355" transform="translate(4378.586 -384.229)">
+            <g id="prefix__Grupo_7354" data-name="Grupo 7354">
+                <g id="prefix__Grupo_7353" data-name="Grupo 7353">
+                    <path id="prefix__Trazado_6989" d="M1145.76 1598.767l-46.55 12.876-8.329-7.664a20.144 20.144 0 0 1-9.889-7.246.88.88 0 0 0-1.059-.306c-1.547.66-4.755 2.843 1.189 8.318l3.679 3.219-8.829 4.625a2.212 2.212 0 0 0-1.167 1.547 2.859 2.859 0 0 0 1.258 3.179s-2.452 4.752 2.3 5.059c0 0-1.993 4.446 1.992 4.906 0 0-1.992 4.138 3.066 4.292 0 0 9.81-1.073 10.271-1.38s11.149-5.365 11.149-5.365l55.688-5.058s9.5-1.073 8.584-10.578c0 0 0-9.351-8.891-8.891 0 0-11.755 2.759-14.462-1.533z" class="prefix__cls-19" data-name="Trazado 6989" transform="translate(-1074.733 -1596.357)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7450" data-name="Grupo 7450" transform="translate(4381.846 -381.069)">
+            <g id="prefix__Grupo_7449" data-name="Grupo 7449">
+                <g id="prefix__Grupo_7448" data-name="Grupo 7448">
+                    <g id="prefix__Grupo_7357" data-name="Grupo 7357" transform="translate(-.079)">
+                        <g id="prefix__Grupo_7356" data-name="Grupo 7356">
+                            <path id="prefix__Rectángulo_2733" d="M0 0H0.079V8.441H0z" class="prefix__cls-48" data-name="Rectángulo 2733"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7359" data-name="Grupo 7359">
+                        <g id="prefix__Grupo_7358" data-name="Grupo 7358">
+                            <path id="prefix__Rectángulo_2734" d="M0 0H0.198V8.441H0z" class="prefix__cls-48" data-name="Rectángulo 2734"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7361" data-name="Grupo 7361" transform="translate(.198)">
+                        <g id="prefix__Grupo_7360" data-name="Grupo 7360">
+                            <path id="prefix__Rectángulo_2735" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2735" style="fill:#fbbd5b"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7363" data-name="Grupo 7363" transform="translate(.396)">
+                        <g id="prefix__Grupo_7362" data-name="Grupo 7362">
+                            <path id="prefix__Rectángulo_2736" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2736" style="fill:#fbbd5a"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7365" data-name="Grupo 7365" transform="translate(.595)">
+                        <g id="prefix__Grupo_7364" data-name="Grupo 7364">
+                            <path id="prefix__Rectángulo_2737" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2737" style="fill:#fabc59"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7367" data-name="Grupo 7367" transform="translate(.793)">
+                        <g id="prefix__Grupo_7366" data-name="Grupo 7366">
+                            <path id="prefix__Rectángulo_2738" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2738" style="fill:#f9bb59"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7369" data-name="Grupo 7369" transform="translate(.991)">
+                        <g id="prefix__Grupo_7368" data-name="Grupo 7368">
+                            <path id="prefix__Rectángulo_2739" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2739" style="fill:#f9ba58"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7371" data-name="Grupo 7371" transform="translate(1.19)">
+                        <g id="prefix__Grupo_7370" data-name="Grupo 7370">
+                            <path id="prefix__Rectángulo_2740" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2740" style="fill:#f8b958"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7373" data-name="Grupo 7373" transform="translate(1.388)">
+                        <g id="prefix__Grupo_7372" data-name="Grupo 7372">
+                            <path id="prefix__Rectángulo_2741" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2741" style="fill:#f7b857"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7375" data-name="Grupo 7375" transform="translate(1.586)">
+                        <g id="prefix__Grupo_7374" data-name="Grupo 7374">
+                            <path id="prefix__Rectángulo_2742" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2742" style="fill:#f6b756"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7377" data-name="Grupo 7377" transform="translate(1.785)">
+                        <g id="prefix__Grupo_7376" data-name="Grupo 7376">
+                            <path id="prefix__Rectángulo_2743" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2743" style="fill:#f6b656"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7379" data-name="Grupo 7379" transform="translate(1.983)">
+                        <g id="prefix__Grupo_7378" data-name="Grupo 7378">
+                            <path id="prefix__Rectángulo_2744" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2744" style="fill:#f5b555"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7381" data-name="Grupo 7381" transform="translate(2.181)">
+                        <g id="prefix__Grupo_7380" data-name="Grupo 7380">
+                            <path id="prefix__Rectángulo_2745" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2745" style="fill:#f4b454"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7383" data-name="Grupo 7383" transform="translate(2.379)">
+                        <g id="prefix__Grupo_7382" data-name="Grupo 7382">
+                            <path id="prefix__Rectángulo_2746" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2746" style="fill:#f3b354"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7385" data-name="Grupo 7385" transform="translate(2.578)">
+                        <g id="prefix__Grupo_7384" data-name="Grupo 7384">
+                            <path id="prefix__Rectángulo_2747" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2747" style="fill:#f3b253"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7387" data-name="Grupo 7387" transform="translate(2.776)">
+                        <g id="prefix__Grupo_7386" data-name="Grupo 7386">
+                            <path id="prefix__Rectángulo_2748" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2748" style="fill:#f2b152"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7389" data-name="Grupo 7389" transform="translate(2.974)">
+                        <g id="prefix__Grupo_7388" data-name="Grupo 7388">
+                            <path id="prefix__Rectángulo_2749" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2749" style="fill:#f1b052"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7391" data-name="Grupo 7391" transform="translate(3.173)">
+                        <g id="prefix__Grupo_7390" data-name="Grupo 7390">
+                            <path id="prefix__Rectángulo_2750" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2750" style="fill:#f0af51"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7393" data-name="Grupo 7393" transform="translate(3.371)">
+                        <g id="prefix__Grupo_7392" data-name="Grupo 7392">
+                            <path id="prefix__Rectángulo_2751" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2751" style="fill:#efae50"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7395" data-name="Grupo 7395" transform="translate(3.569)">
+                        <g id="prefix__Grupo_7394" data-name="Grupo 7394">
+                            <path id="prefix__Rectángulo_2752" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2752" style="fill:#eead50"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7397" data-name="Grupo 7397" transform="translate(3.767)">
+                        <g id="prefix__Grupo_7396" data-name="Grupo 7396">
+                            <path id="prefix__Rectángulo_2753" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2753" style="fill:#eeac4f"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7399" data-name="Grupo 7399" transform="translate(3.966)">
+                        <g id="prefix__Grupo_7398" data-name="Grupo 7398">
+                            <path id="prefix__Rectángulo_2754" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2754" style="fill:#edab4e"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7401" data-name="Grupo 7401" transform="translate(4.164)">
+                        <g id="prefix__Grupo_7400" data-name="Grupo 7400">
+                            <path id="prefix__Rectángulo_2755" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2755" style="fill:#ecaa4e"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7403" data-name="Grupo 7403" transform="translate(4.362)">
+                        <g id="prefix__Grupo_7402" data-name="Grupo 7402">
+                            <path id="prefix__Rectángulo_2756" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2756" style="fill:#eba94d"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7405" data-name="Grupo 7405" transform="translate(4.561)">
+                        <g id="prefix__Grupo_7404" data-name="Grupo 7404">
+                            <path id="prefix__Rectángulo_2757" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2757" style="fill:#eaa84c"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7407" data-name="Grupo 7407" transform="translate(4.759)">
+                        <g id="prefix__Grupo_7406" data-name="Grupo 7406">
+                            <path id="prefix__Rectángulo_2758" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2758" style="fill:#e9a74b"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7409" data-name="Grupo 7409" transform="translate(4.957)">
+                        <g id="prefix__Grupo_7408" data-name="Grupo 7408">
+                            <path id="prefix__Rectángulo_2759" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2759" style="fill:#e8a64b"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7411" data-name="Grupo 7411" transform="translate(5.155)">
+                        <g id="prefix__Grupo_7410" data-name="Grupo 7410">
+                            <path id="prefix__Rectángulo_2760" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2760" style="fill:#e7a54a"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7413" data-name="Grupo 7413" transform="translate(5.354)">
+                        <g id="prefix__Grupo_7412" data-name="Grupo 7412">
+                            <path id="prefix__Rectángulo_2761" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2761" style="fill:#e7a449"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7415" data-name="Grupo 7415" transform="translate(5.552)">
+                        <g id="prefix__Grupo_7414" data-name="Grupo 7414">
+                            <path id="prefix__Rectángulo_2762" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2762" style="fill:#e6a348"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7417" data-name="Grupo 7417" transform="translate(5.75)">
+                        <g id="prefix__Grupo_7416" data-name="Grupo 7416">
+                            <path id="prefix__Rectángulo_2763" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2763" style="fill:#e5a248"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7419" data-name="Grupo 7419" transform="translate(5.949)">
+                        <g id="prefix__Grupo_7418" data-name="Grupo 7418">
+                            <path id="prefix__Rectángulo_2764" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2764" style="fill:#e4a147"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7421" data-name="Grupo 7421" transform="translate(6.147)">
+                        <g id="prefix__Grupo_7420" data-name="Grupo 7420">
+                            <path id="prefix__Rectángulo_2765" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2765" style="fill:#e39f46"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7423" data-name="Grupo 7423" transform="translate(6.345)">
+                        <g id="prefix__Grupo_7422" data-name="Grupo 7422">
+                            <path id="prefix__Rectángulo_2766" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2766" style="fill:#e29e45"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7425" data-name="Grupo 7425" transform="translate(6.544)">
+                        <g id="prefix__Grupo_7424" data-name="Grupo 7424">
+                            <path id="prefix__Rectángulo_2767" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2767" style="fill:#e19d45"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7427" data-name="Grupo 7427" transform="translate(6.742)">
+                        <g id="prefix__Grupo_7426" data-name="Grupo 7426">
+                            <path id="prefix__Rectángulo_2768" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2768" style="fill:#e09c44"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7429" data-name="Grupo 7429" transform="translate(6.94)">
+                        <g id="prefix__Grupo_7428" data-name="Grupo 7428">
+                            <path id="prefix__Rectángulo_2769" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2769" style="fill:#df9b43"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7431" data-name="Grupo 7431" transform="translate(7.138)">
+                        <g id="prefix__Grupo_7430" data-name="Grupo 7430">
+                            <path id="prefix__Rectángulo_2770" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2770" style="fill:#de9a42"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7433" data-name="Grupo 7433" transform="translate(7.337)">
+                        <g id="prefix__Grupo_7432" data-name="Grupo 7432">
+                            <path id="prefix__Rectángulo_2771" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2771" style="fill:#de9942"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7435" data-name="Grupo 7435" transform="translate(7.535)">
+                        <g id="prefix__Grupo_7434" data-name="Grupo 7434">
+                            <path id="prefix__Rectángulo_2772" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2772" style="fill:#dd9841"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7437" data-name="Grupo 7437" transform="translate(7.733)">
+                        <g id="prefix__Grupo_7436" data-name="Grupo 7436">
+                            <path id="prefix__Rectángulo_2773" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2773" style="fill:#dc9740"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7439" data-name="Grupo 7439" transform="translate(7.932)">
+                        <g id="prefix__Grupo_7438" data-name="Grupo 7438">
+                            <path id="prefix__Rectángulo_2774" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2774" style="fill:#db953f"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7441" data-name="Grupo 7441" transform="translate(8.13)">
+                        <g id="prefix__Grupo_7440" data-name="Grupo 7440">
+                            <path id="prefix__Rectángulo_2775" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2775" style="fill:#da943f"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7443" data-name="Grupo 7443" transform="translate(8.328)">
+                        <g id="prefix__Grupo_7442" data-name="Grupo 7442">
+                            <path id="prefix__Rectángulo_2776" d="M0 0H0.198V8.441H0z" data-name="Rectángulo 2776" style="fill:#d9933e"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7445" data-name="Grupo 7445" transform="translate(8.526)">
+                        <g id="prefix__Grupo_7444" data-name="Grupo 7444">
+                            <path id="prefix__Rectángulo_2777" d="M0 0H0.198V8.441H0z" class="prefix__cls-36" data-name="Rectángulo 2777"/>
+                        </g>
+                    </g>
+                    <g id="prefix__Grupo_7447" data-name="Grupo 7447" transform="translate(8.725)">
+                        <g id="prefix__Grupo_7446" data-name="Grupo 7446">
+                            <path id="prefix__Rectángulo_2778" d="M0 0H0.029V8.441H0z" class="prefix__cls-36" data-name="Rectángulo 2778"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7454" data-name="Grupo 7454" transform="translate(4311.201 -372.273)">
+            <g id="prefix__Grupo_7453" data-name="Grupo 7453">
+                <g id="prefix__Grupo_7452" data-name="Grupo 7452">
+                    <g id="prefix__Grupo_7451" data-name="Grupo 7451">
+                        <path id="prefix__Trazado_6990" d="M974.863 1615.116l-5.724 9.217s-2.182 6.995 11.306 7.942l6.827-17.159z" class="prefix__cls-18" data-name="Trazado 6990" transform="translate(-969.009 -1615.116)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7458" data-name="Grupo 7458" transform="translate(4308.275 -388.511)">
+            <g id="prefix__Grupo_7457" data-name="Grupo 7457">
+                <g id="prefix__Grupo_7456" data-name="Grupo 7456">
+                    <g id="prefix__Grupo_7455" data-name="Grupo 7455">
+                        <path id="prefix__Trazado_6991" d="M988.072 1589.66s-19.122 1.788-22.437 7.19.4 15.49 8.129 17.407c7.708 1.923 17.792-1.789 18.7-9.421.936-7.628-.595-15.656-4.392-15.176z" class="prefix__cls-38" data-name="Trazado 6991" transform="translate(-964.419 -1589.64)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7462" data-name="Grupo 7462" transform="translate(4308.312 -380.063)">
+            <g id="prefix__Grupo_7461" data-name="Grupo 7461">
+                <g id="prefix__Grupo_7460" data-name="Grupo 7460">
+                    <g id="prefix__Grupo_7459" data-name="Grupo 7459">
+                        <path id="prefix__Trazado_6992" d="M992.513 1609.562c-2.267 6.268-11.22 9.186-18.217 7.438-6.348-1.572-9.972-8.639-9.235-14.105-2.1 5.578 1.587 14.337 8.724 16.109 7.708 1.92 17.82-1.792 18.728-9.421z" class="prefix__cls-44" data-name="Trazado 6992" transform="translate(-964.476 -1602.894)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7466" data-name="Grupo 7466" transform="translate(4565.165 -375.151)">
+            <g id="prefix__Grupo_7465" data-name="Grupo 7465">
+                <g id="prefix__Grupo_7464" data-name="Grupo 7464">
+                    <g id="prefix__Grupo_7463" data-name="Grupo 7463">
+                        <path id="prefix__Trazado_6993" d="M1367.761 1610.6a.481.481 0 0 0-.3.467.6.6 0 0 0 .294.523c.53.327 1.135-.031 1.673-.128.081-.015.065-.141-.016-.127-.471.085-.971.383-1.456.21a.511.511 0 0 1-.365-.416.371.371 0 0 1 .214-.411c.077-.028.029-.146-.048-.118z" class="prefix__cls-91" data-name="Trazado 6993" transform="translate(-1367.465 -1610.6)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7470" data-name="Grupo 7470" transform="translate(4570.23 -376.874)">
+            <g id="prefix__Grupo_7469" data-name="Grupo 7469">
+                <g id="prefix__Grupo_7468" data-name="Grupo 7468">
+                    <g id="prefix__Grupo_7467" data-name="Grupo 7467">
+                        <path id="prefix__Trazado_6994" d="M1375.707 1607.921a.934.934 0 0 0-.292.636.541.541 0 0 0 .348.431 1.956 1.956 0 0 0 .707.135 3.25 3.25 0 0 0 .823-.068c.08-.017.064-.143-.016-.127a2.754 2.754 0 0 1-1.347-.014.518.518 0 0 1-.377-.3c-.067-.228.117-.449.252-.611.053-.063-.047-.142-.1-.08z" class="prefix__cls-91" data-name="Trazado 6994" transform="translate(-1375.414 -1607.898)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7474" data-name="Grupo 7474" transform="translate(4571.773 -377.55)">
+            <g id="prefix__Grupo_7473" data-name="Grupo 7473">
+                <g id="prefix__Grupo_7472" data-name="Grupo 7472">
+                    <g id="prefix__Grupo_7471" data-name="Grupo 7471">
+                        <path id="prefix__Trazado_6995" d="M1377.982 1606.85a.416.416 0 0 0-.128.454.6.6 0 0 0 .4.4 2.59 2.59 0 0 0 .732.09l.879.047c.082 0 .1-.122.017-.126l-.714-.038c-.216-.011-.436-.013-.651-.043a.66.66 0 0 1-.483-.24.329.329 0 0 1 .028-.439c.065-.05-.011-.152-.076-.1z" class="prefix__cls-91" data-name="Trazado 6995" transform="translate(-1377.834 -1606.837)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7479" data-name="Grupo 7479" transform="translate(4379.863 -364.099)">
+            <g id="prefix__Grupo_7476" data-name="Grupo 7476" transform="translate(.053 .151)">
+                <g id="prefix__Grupo_7475" data-name="Grupo 7475">
+                    <path id="prefix__Línea_2" d="M0 0.678L1.929 0" class="prefix__cls-27" data-name="Línea 2"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7478" data-name="Grupo 7478">
+                <g id="prefix__Grupo_7477" data-name="Grupo 7477">
+                    <path id="prefix__Rectángulo_2779" d="M0 0H2.045V0.319H0z" class="prefix__cls-32" data-name="Rectángulo 2779" transform="rotate(-19.353 1.988 .339)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7484" data-name="Grupo 7484" transform="translate(4382.04 -358.939)">
+            <g id="prefix__Grupo_7481" data-name="Grupo 7481" transform="translate(.053 .151)">
+                <g id="prefix__Grupo_7480" data-name="Grupo 7480">
+                    <path id="prefix__Línea_3" d="M0 0.678L1.929 0" class="prefix__cls-27" data-name="Línea 3"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7483" data-name="Grupo 7483">
+                <g id="prefix__Grupo_7482" data-name="Grupo 7482">
+                    <path id="prefix__Rectángulo_2780" d="M0 0H2.045V0.319H0z" class="prefix__cls-32" data-name="Rectángulo 2780" transform="rotate(-19.353 1.988 .339)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7489" data-name="Grupo 7489" transform="translate(4384.016 -354.306)">
+            <g id="prefix__Grupo_7486" data-name="Grupo 7486" transform="translate(.053 .15)">
+                <g id="prefix__Grupo_7485" data-name="Grupo 7485">
+                    <path id="prefix__Línea_4" d="M0 0.678L1.929 0" class="prefix__cls-27" data-name="Línea 4"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7488" data-name="Grupo 7488">
+                <g id="prefix__Grupo_7487" data-name="Grupo 7487">
+                    <path id="prefix__Rectángulo_2781" d="M0 0H2.045V0.319H0z" class="prefix__cls-32" data-name="Rectángulo 2781" transform="rotate(-19.353 1.988 .339)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Grupo_7494" data-name="Grupo 7494" transform="translate(4402.97 -369.073)">
+            <g id="prefix__Grupo_7491" data-name="Grupo 7491" transform="translate(.094 .129)">
+                <g id="prefix__Grupo_7490" data-name="Grupo 7490">
+                    <path id="prefix__Trazado_6996" d="M1113.137 1620.34a4.385 4.385 0 0 1 1.416 3.385" class="prefix__cls-27" data-name="Trazado 6996" transform="translate(-1113.137 -1620.34)"/>
+                </g>
+            </g>
+            <g id="prefix__Grupo_7493" data-name="Grupo 7493">
+                <g id="prefix__Grupo_7492" data-name="Grupo 7492">
+                    <path id="prefix__Trazado_6997" d="M1114.34 1623.657a4.29 4.29 0 0 0-1.35-3.262l.186-.258a4.511 4.511 0 0 1 1.483 3.507z" class="prefix__cls-32" data-name="Trazado 6997" transform="translate(-1112.99 -1620.137)"/>
+                </g>
+            </g>
+        </g>
+        <path id="prefix__SVGID-2" d="M0 0H647.036V348.368H0z" class="prefix__cls-1" data-name="SVGID" transform="translate(4052.863 -643.448)"/>
+    </g>
+</svg>

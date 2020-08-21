@@ -1,0 +1,92 @@
+
+.uso-portada{
+    display: block;
+    height: 70vh;
+    background-color: $blanco;
+    background-position: 50% 0px;
+    background-size: cover;
+    
+}
+.como-lo-uso{
+    padding-top: 100px;
+    .span-number{
+        margin-right: 5px;
+        font-family: 'omnes' ;
+        color: #00ADEE;
+        font-weight: 900;
+    }
+}
+.tabs{
+    &__menu{
+        display: flex;
+        justify-content: center;
+        &--item{
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 2px;
+            margin-left: 2px;
+            border-bottom: 3px solid #e1e1e1;
+            background-color: #fafafc;
+            color: #3e3e3e;
+            
+        }
+        &--item.acive{
+            border-bottom-color: $primario;
+            background-color: #e1faf8;
+        }
+    }
+    .tabs-content__panel{
+        margin-top: 5%;
+        margin-bottom: 3%;
+        &--title{
+            color: $gris-1;
+            font-size: 24px;
+        }
+        &--parrafo{
+            font-size: 18px;
+            margin-top: 4%;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .uso-portada{
+        background-color: $primario;
+        background-position: 50% 50%;
+        background-size: cover;
+        background-repeat: repeat;
+        background-attachment: scroll;
+
+    }
+  
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .img-uso-md{
+        margin: auto;
+        width: 70%;
+        display: block;
+    }
+    .uso-portada{
+        &__portada{
+            padding-top: 5%;
+            height: 100%;
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

@@ -1,0 +1,389 @@
+filter {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: Kanit, serif;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.filter-label {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    .filter-icon{
+        width: 13px;
+        height: 13px;
+        display: inline-block;
+        background: url(../../static/media/img/flujo/metodo-pago/icon_noseleccionado.png);
+        background-size: contain;
+        margin-right: 8px;
+    }
+    p{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .igv_aux{
+            padding-left: 40px;
+            width: 100%;
+            text-align: left;
+        } 
+    }
+}
+
+#monthly-radio:checked ~ #filter .monthly,
+#quarterly-radio:checked ~ #filter .quarterly,
+#biannual-radio:checked ~ #filter .biannual,
+#annual-radio:checked ~ #filter .annual {
+    font-size: 44px;
+}
+
+
+
+#monthly-radio:checked ~ #filter .monthly .filter-icon,
+#quarterly-radio:checked ~ #filter .quarterly .filter-icon,
+#annual-radio:checked ~ #filter .annual .filter-icon,
+#biannual-radio:checked ~ #filter .biannual .filter-icon{
+    background: url(../../static/media/img/flujo/metodo-pago/icon_seleccionado.png);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: contain;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+}
+
+.priceInfo {
+    border-radius: 12px 12px 0 0;
+    background-color: #00ADEE1c;
+    padding: 32px 24px;
+    &__detail {
+        position: relative;
+        &--description{
+            font-family: 'omnes' ;
+            font-size: 16px;
+            font-weight: 300;
+            color: #4d4d4d;
+            margin-bottom: 0;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+        &--textSec{
+            font-family: 'omnessemibold';
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1;
+            text-align: center;
+            color: #595D66;
+            margin-bottom: 0;
+        }
+        &--modificaValor{
+            text-align: center;
+            width: 100%;
+            display: inline-block;
+            font-size: 12px;
+            color: #0855C4;
+        }
+    }
+    .valor-comercial{
+        color: #0855C4;
+        font-size: 16px;
+        font-family: 'omnessemibold';
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+    }
+    
+}
+
+.priceHead{
+    &__boxImg{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &--img {
+            padding: 0;
+            text-align: center;
+            margin: 0 auto;
+            width: 165px;
+            width: 125px;
+        }
+    }
+    &__head{
+        &--detail{
+            .pago-mensual{
+                font-size: 32px;
+                color: #595D66;
+                font-family: 'omnessemibold';
+                line-height: 1;
+            }
+            .igv_anual{
+                font-size: 15px
+            }
+            .gps{
+                font-size: 12px;
+                color: #616161;
+            }
+        }
+    }
+    &__content{
+        display: flex;
+        &--total{
+            font-family: 'omnes' ;
+            font-size: 63px;
+            font-weight: 900;
+            color: $primario;
+            margin-bottom: 0;
+            text-align: left;
+            line-height: 1;
+            width: 120px;
+        }        
+    }
+}
+.priceInfo-risk {
+    &__left{
+        display: block;
+        float: left;
+        width: 75%;        
+    }        
+    &__btnBox{
+        &--btn{
+            background-color: transparent;
+            border-radius: 5px;
+            border: 1px solid #0056b3;
+            color: #0056b3 !important;
+            font-size: 15px;
+            margin-top: 20px;
+            text-transform: initial;
+            padding: 12px 15px !important;
+        }
+    }
+}
+
+
+
+
+.price-info-description-top {
+    font-family: 'omnes' ;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4d4d4d;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+
+
+.price-info-divider {
+    border-bottom: solid 3px $secundario-2;
+    height: 2px;
+    opacity: 0.3;
+}
+
+.price-info-value-text {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid $secundario;
+    color: #4d4d4d;
+    font-family: 'omnes' ;
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 5px 5px;
+    position: absolute;
+    right: 13px;
+    top: -41px;
+    width: 260px;
+}
+
+
+
+
+.price-info-risk-right {
+    width: 25%;
+    display: block;
+    float: left;
+}
+
+.price-info-risk-right img {
+    width: 100%;
+}
+
+
+.price-info-slider-result {
+    font-family: 'omnes' ;
+    font-size: 10px;
+    font-weight: 900;
+    color: $secundario-2;
+    line-height: 0.6;
+}
+
+// .progress-container {
+//     padding-top: 0;
+//     &__slider{
+//         width: 100% !important;
+//         margin-bottom: 15px;
+//     }
+//     .slider{
+//         &__handle.round {
+//             border-radius: 50%;
+//             border: 4px solid #FFF;
+//             box-shadow: 1px 1px 0 0 #e1e2e1;
+//         }
+        
+//         &__handle {
+//             top: -3px;
+//             width: 25px;
+//             height: 25px;
+//             background-color: $secundario-2;
+//         }
+        
+//     }
+// }
+.slider-handle.round {
+    border-radius: 50%;
+    border: 4px solid #FFF;
+    box-shadow: 1px 1px 0 0 #e1e2e1;
+}
+.slider-handle {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #7c4dff;
+    background-image: -webkit-linear-gradient(top, #7c4dff 0%, #6e53ff 100%);
+    background-image: -o-linear-gradient(top, #7c4dff 0%, #6e53ff 100%);
+    background-image: linear-gradient(to bottom, #7c4dff 0%, #6e53ff 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2e6da4', GradientType=0);
+    filter: none;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    border: 0px solid transparent;
+}
+#ex1Slider .slider-selection {
+    background: #7c4dff;
+}
+
+// .progress-container div {
+//     font-size: 12px;
+//     color: $secundario-2;
+//     font-weight: bold;
+// }
+
+// .progress-container div:nth-child(1) {
+//     float: left;
+// }
+// .progress-container div:nth-child(2) {
+//     float: right;
+// }
+
+.price-info-risk a {
+    margin-top: 0;
+}
+.slider.slider-horizontal .slider-track {
+    height: 10px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+.filter-label.radio-button{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center
+}
+
+@media screen and (min-width: 992px) {
+    .priceInfo {
+        border-radius: 12px 0 0 12px;
+        &__detail {
+            &--description{
+            }
+            &--textSec{
+                font-size: 33px;
+            }
+            &--modificaValor{
+                font-size: 13px;
+            }
+        }
+        .valor-comercial{
+            font-size: 17px;
+            text-align: left;
+        }
+        
+    }
+    
+    .priceHead{
+        &__boxImg{
+            
+            &--img {
+            }
+        }
+        &__head{
+            &--detail{
+                .pago-mensual{
+                    font-size: 23px;
+                }
+                .igv_anual{
+                    font-size: 13px;
+                }
+                .gps{
+                    font-size: 13px;
+                }
+            }
+        }
+        &__content{
+            flex-direction: column;
+            &--total{
+
+            }        
+        }
+    }
+}
+@media screen and (min-width: 900px) {
+    .priceHead__boxImg--img { width: 165px; }
+    // .progress-container { padding-top: 24px; }
+    .price-info-risk a { margin-top: 20px; }
+}
+.input-radioButon {
+    display: none;
+}
+
+/*RADIO BUTTONS*/
+.radio-button {
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    font-family: 'omnes' ;
+    div {
+        font-size: 15px;
+        font-weight: 500;
+        color: #0855c4;
+        text-align: left;
+        line-height: 18px;
+        .precios{
+            span{
+                text-align: left;
+                &:nth-child(1){      
+                    padding-left: 2px;              
+                    
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+#filter {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: Kanit, serif;
+    font-size: 34px;
+    font-weight: 800;
+    justify-content: flex-start;
+}

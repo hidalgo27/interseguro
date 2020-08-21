@@ -1,0 +1,46 @@
+.cambio{
+  background-color: #00ADEE1a;
+}
+.box-img{
+  display: flex;
+  justify-content: center;
+}
+.cambio-portada{
+  min-height: 43vh;
+  background-color: transparent;
+  // background-image: url(../../static/media/img/Artboard-50-copy-12.svg);
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat, repeat, no-repeat;
+  .img-cambio-md{
+    margin: auto;
+    width: 65%;
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cambio-portada{
+    background-size: contain;
+  }
+  
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cambio-portada {
+    background-color: $blanco;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

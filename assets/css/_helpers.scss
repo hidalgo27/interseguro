@@ -1,0 +1,123 @@
+.non {
+    display: none;
+}
+.d_flex_column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pd-r0{
+    padding-right: 0 !important;
+    transition: all ease-in 0.25s;
+}
+.main-nav{
+    transition: all ease-in 0.25s;
+}
+.pd-t8{
+    padding-top: 8px; 
+}
+.pd-t16{
+    padding-top: 16px; 
+}
+.pd-b16{
+    padding-bottom: 16px; 
+}
+.pd-b32{
+    padding-bottom: 32px; 
+}
+.pd-section{
+    padding: 8% 5% 5%;
+}
+.mg-b0{
+    margin-bottom: 0;
+}
+.mg-t0{
+    margin-bottom: 0;
+}
+.mg-t16{
+    margin-top: 16px;
+}
+.mg-b16{
+    margin-bottom: 16px;
+}
+.menu-icon__box {
+    width: 23px;
+    height: 21px;
+    display: inline-block;
+    position: relative;
+}
+
+.menu-icon {
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+}
+
+.menu-icon__box {
+    width: 23px;
+    height: 21px;
+    display: inline-block;
+    position: relative;
+}
+
+.menu-icon__box--inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.menu-icon__box--inner,
+.menu-icon__box--inner::before,
+.menu-icon__box--inner::after {
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 1px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.menu-icon__box--inner::before,
+.menu-icon__box--inner::after {
+    content: "";
+    display: block;
+}
+
+.menu-icon__box--inner::before {
+    top: -10px;
+}
+
+.menu-icon__box--inner::after {
+    bottom: -10px;
+}
+
+.menu-icon__box--inner {
+    top: auto;
+    bottom: 0;
+    transition-duration: 0.13s;
+    transition-delay: 0.13s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.menu-icon__box--inner::after {
+    top: -20px;
+    transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+    opacity 0.1s linear;
+}
+
+.menu-icon__box--inner::before {
+    transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+    transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}

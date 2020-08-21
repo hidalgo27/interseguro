@@ -1,0 +1,45 @@
+$primario: #00ADEE;
+$secundario: #0BD360;
+$secundario-2:#0BD360;
+$blanco: #fff;
+$gris-1: #535D66;
+$gris-2: #373737;
+$secundario_cyan : #0855c4;
+$secundario_magenta : #ea0c90;
+
+$v2gris_claro: #BAB9B9;
+$v2gris_oscuro: #333;
+$v2color_primario: #0855c4;
+
+.span-primario {
+    color: $primario;
+}
+.span-secundario {
+    color: $secundario;
+}
+.span-primario-alterno{
+    color: #0855C4;
+}
+.span-alterno{
+    color: #002e75;
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+  
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

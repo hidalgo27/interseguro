@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>9E0A54E6-4790-4E81-988E-87162C467FD6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="0.09321 0 31.29295 0 31.29295 31.2 0.09321 31.2"></polygon>
+    </defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Web---Copa-America" transform="translate(-1284.000000, -646.000000)">
+            <g id="Group-22" transform="translate(1105.000000, 646.000000)">
+                <g id="Group-91" transform="translate(179.000000, 0.000000)">
+                    <g id="Group-86">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-85"></g>
+                        <path d="M31.29321,15.6 C31.29321,24.21575 24.30896,31.2 15.69321,31.2 C7.07746,31.2 0.09321,24.21575 0.09321,15.6 C0.09321,6.98425 7.07746,0 15.69321,0 C24.30896,0 31.29321,6.98425 31.29321,15.6" id="Fill-84" fill="#DD005D" mask="url(#mask-2)"></path>
+                    </g>
+                    <path d="M9.337575,9.24443 L22.048975,21.95583" id="Stroke-87" stroke="#FFFFFF" stroke-width="4.0443" stroke-linecap="round"></path>
+                    <path d="M9.337575,21.95557 L22.048975,9.24417" id="Stroke-89" stroke="#FFFFFF" stroke-width="4.0443" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

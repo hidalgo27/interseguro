@@ -1,0 +1,60 @@
+
+@font-face {
+  font-family: 'omneslight';
+  font-display: swap;
+  src: url('./omnes/omnes-light-webfont.woff2') format('woff2'),
+       url('./omnes/omnes-light-webfont.woff') format('woff'),
+       url("./omnes/omnes-light.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'omnesregular';
+  font-display: swap;
+  src: url('./omnes/omnes-regular-webfont.woff2') format('woff2'),
+       url('./omnes/omnes-regular-webfont.woff') format('woff'),
+       url("./omnes/omnes-regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'omnesmedium';
+  font-display: swap;
+  src: url('./omnes/omnes-medium-webfont.woff2') format('woff2'),
+       url('./omnes/omnes-medium-webfont.woff') format('woff'),
+       url("./omnes/omnes-medium.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'omnesbold';
+  font-display: swap;
+  src: url('./omnes/omnes-bold.woff2') format('woff2'),
+       url('./omnes/omnes-bold.woff') format('woff'),
+       url("./omnes/omnes-bold.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'omnessemibold';
+  font-display: swap;
+  src: url('./omnes/omnes-semibold-webfont.woff2') format('woff2'),
+       url('./omnes/omnes-semibold-webfont.woff') format('woff'),
+       url("./omnes/omnes-semibold.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'omnes';
+  font-display: swap;
+  src: url('./omnes/omnes-medium-webfont.woff2') format('woff2'),
+       url('./omnes/omnes-medium-webfont.woff') format('woff'),
+       url("./omnes/omnes-medium.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body{
+  font-family: 'omnes';
+}

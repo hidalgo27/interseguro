@@ -1,0 +1,405 @@
+$primario:#00ADEE;
+$secundario: #0BD360;
+$primario_alt: #7c4dff;
+$white:#FFF;
+$gris-1:#000;
+$gris-2: #212529;
+.main-nav__contact{
+    display: none;
+}
+#main-nav{
+    z-index: 9999;
+    position: relative;
+    
+}
+.main-nav#nav-checkbox {
+    display: none;
+}
+#main-menu{
+    z-index: 9;
+    width: 100vw;
+    height: 100vh!important;
+    background: #0855c4;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+#main-menu input{
+    display: none;
+    border-top: 2px solid #00adee;
+  }
+  .main-nav {
+    background-color: white;
+    position: relative;
+    height: 65px;
+  }
+  .main-nav .menu-item__enlace {
+    color: #5E5E5E;
+  }
+  .menu-icon__box{
+    // background: #364850;
+    border-radius: 25px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .menu-icon__box--inner,
+  .menu-icon__box--inner::before,
+  .menu-icon__box--inner::after {
+    background-color: #0855c4;
+  }
+  .main-nav__menu--item ::after {
+    background-color: #65c2ff;
+  }
+  .main-nav{
+      &__menu{
+        
+        &--item{
+            height: 60px;
+        }
+      }
+  }
+  .main-nav__menu{
+    padding-top: 70px;
+  }
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .campaniatv-home{
+        height: 60px;
+        width: 100%;
+        position: relative;
+        &__texto{
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            margin: auto;
+            display: flex;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        .smarttv_home{
+            position: absolute;
+            right: 10%;
+            top: 0;
+            width: 80px;
+
+        }
+    }
+}
+#capa{
+    background-color: rgba(0, 0, 0, 0.41);
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99 !important;
+}
+.box-cotiza{
+    height: 48px;
+    position: relative;
+    right: 0px;
+    transition: all ease-in 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.ocultoAcctivador.oculto{
+    top: -70px;
+    position: relative;
+    transition: all ease-in 0.25s;
+}
+
+.btn-cotiza{    
+    color: white;
+    font-size: 14px; 
+    top: 0px;   
+    a{
+        background: #0bd360;
+        padding: 6px 8px ;
+        border-radius: 5px;
+        color: white;
+        display: inline-block;
+        min-width: 82px;
+        width: 100%;
+        max-width: 120px;
+        text-transform: uppercase;
+         
+    }
+    &:hover{
+        opacity: 1;
+    }  
+}
+.main-header {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    background: $primario; 
+}
+#nav-checkbox2{
+    display: flex;
+    align-items: center;
+    z-index: 9;
+    img{
+        width: 23px;
+    }
+}
+.main-nav {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: $primario;
+    padding-left: 16px;
+    .btn-hamburguesa{
+        display: flex;
+        align-items: center;
+    }
+    #nav-checkbox {
+        display: none;
+    }
+    &__toggle {
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        cursor: pointer;
+        &:before {
+            content: "";
+            box-shadow: 0px -4px 0px 4px #01a2f3;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    &__logo {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        img {
+            height: 18px;
+            width: auto;
+            cursor: pointer;
+        }
+        &--full {
+            display: none;
+        }
+    }
+    &__contact {
+        margin: 0 1.5rem;
+        &--icon {
+            margin: 0 0.2rem;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+        }
+        &--icon--whatsapp {
+            // background-image: url("http://35.230.21.82:8081/img/contact-icon-whatsapp.svg");
+        }
+        &--icon--call {
+            // background-image: url("http://35.230.21.82:8081/img/contact-icon-call.svg");
+        }
+    }
+    &__menu {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0.5em 0;
+        position: fixed;
+        width: 100%;
+        background-color: white;
+        left: 0;
+        top: 48px;
+        opacity: 0;
+        overflow: hidden;
+        transition: transform, opacity, max-height;
+        transition-duration: 0.2s, 0.4s, 0.18s;
+        transition-timing-function: ease-out, ease, ease-in-out;
+        will-change: max-height;
+        height: 100%;
+        opacity: 1;
+        display: flex;
+        background: #0855c4;
+        top: 0;
+    }
+
+.menu-item{
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+    background-color: #fff;
+    text-align: center;
+    color: $secundario;
+    
+    &:hover {
+        opacity: 0.97;
+        text-decoration: none;
+    }
+    &__enlace{
+        color: #5E5E5E;
+        text-transform: uppercase;
+        font-family: 'omnes' ;
+        letter-spacing: 1.6px;
+        font-size: 14px;
+        padding: calc(0.4rem + 1vh);
+        height: 100%;
+        width: 100%;
+        display: block;
+        text-decoration: none !important;
+        transition: all 0.1s ease-in-out;
+        text-align: left;
+        &:active {
+            text-decoration: none;
+            opacity: 0.8;
+            color: inherit;
+            transform: translateY(2px);
+        }
+        &:visited {
+            color: inherit;
+        }
+        &__enlace{
+            &:focus,&:visited{
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+        img{
+            margin-right: 8px;
+        }
+    }
+    &__action {
+        background-color: $secundario;
+        color: white !important;
+        border-radius: 0.2rem;
+        padding-top: 10px;
+        padding-bottom: 10px; 
+    }
+}
+}
+.main-nav__menu{
+    z-index: 9;
+}
+#nav-checkbox:checked ~ .main-nav__menu {
+    transform: translateY(0vh);
+    height: 100%;
+    opacity: 1;
+    display: flex;
+    background: #0855c4;
+    top: 0;
+}
+#nav-checkbox:checked + .main-nav__toggle .menu-icon__box--inner {
+transform: translate3d(0, -10px, 0) rotate(-45deg);
+transition-delay: 0.22s;
+transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#nav-checkbox:checked + .main-nav__toggle .menu-icon__box--inner::after {
+top: 0;
+opacity: 0;
+transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+opacity 0.1s 0.22s linear;
+}
+
+#nav-checkbox:checked + .main-nav__toggle .menu-icon__box--inner::before {
+top: 0;
+transform: rotate(-90deg);
+transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+a.nuxt-link-exact-active.nuxt-link-active {
+    color: #0855c4 !important;
+    font-family: 'omnesregular';
+    font-size: 15px !important;
+    font-weight: 700 !important;
+}
+.checkbox-aux label input[type="checkbox"]:checked+.checkbox-aux__span {
+background-color: $primario;
+}
+header .box-cotiza{
+    // display: none;
+}
+.btn-cotiza-enlace{
+    display: block;
+    background-color: #0bd360 !important;
+    padding: 10px;
+    a{
+        color: white;
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+}
+@media(max-width: 413px){
+    .liston p{
+        font-size: 11px !important;
+    }
+    .liston .desktop_cotizador_liston{
+        font-size: 11px !important;
+    }
+}
+/******************************************/
+@media (min-width: 768px) {
+    
+    .main-nav{
+        &__contact{
+            display: block;
+        }
+        &__menu{
+            right: 0;
+            left: auto;
+            width: 100%;
+        }
+        &__logo {
+            img {
+                height: 25px;
+            }
+            &--full {
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .btn-cotiza-enlace{
+        display: none
+    }
+    header .box-cotiza{
+        display: flex;
+    }
+    .main-nav{
+        &__menu{
+          
+          &--item{
+              text-align: center;
+          }
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    .box-cotiza{
+        padding-top: 0px;
+    }
+    .main-nav{
+        &__contact{
+        }
+        &__menu{
+            width: 30%;
+        }
+        
+    }
+}

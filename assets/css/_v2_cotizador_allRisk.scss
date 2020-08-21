@@ -1,0 +1,251 @@
+
+.fechaVigenciacotizador-allRisk{
+  display: block;
+  position: relative;
+  flex-direction: column;
+  border: none;
+  .text-inicio{
+      padding-right: 15px;
+      color: #0855c4;
+      margin: 0;
+      text-align: center;
+      font-size: 24px;
+      font-family: 'omnesregular'
+  }
+  
+  #fechaCustom{
+      color: #0855c4;
+      font-size: 16px;
+      padding: 5px;
+      border: 1px solid #0855c4;
+      margin-bottom: 15px;
+      font-weight: 500;
+      box-shadow: none;
+      position: relative;
+      z-index: 9;
+      background: transparent;
+      width: 80%;
+      padding-left: 40px;
+      border-radius: 4px;
+  }
+
+  .vdp-datepicker__calendar {
+      background: #f7fafb;
+      left: 0px;
+      border-radius: 10px;
+      color: #6c757d;
+      border: 1px solid #dde1e2;
+  }
+  .vdp-datepicker__calendar .cell.selected {
+      background: #0055c8;
+      color: white;
+  }
+  .vdp-datepicker__calendar .cell.selected:hover {
+      background: #0055c8;
+      color: white;
+  }
+
+}
+.box-steps-allRisk{
+  padding-top: 18px;
+}
+.page-cotizador-allRisk{
+  font-family: "omnesregular";
+  margin-top: 70px;
+  padding-bottom: 48px;
+  .contenedor-primario{
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;
+    border-radius: 12px;
+    padding: 13px 0;
+    background: #fFF;
+  }
+  .contenedor-secundario{
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;
+    // background: #f5f9fd;
+    background: #fFF;
+    padding: 8px 12px;
+    border-radius: 12px;
+  }
+  
+  p{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $v2gris_oscuro;   
+    display: inline-block;
+    width: 100%; 
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+  }
+  .itemElegido-allRisk{
+    display: none;  
+    border-radius: 16px;
+    color: $v2gris_oscuro;
+    padding: 5px 12px;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 6px;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;
+    span{
+      margin: 0 16px 0 0;
+    }
+    .box-close-allRisk{
+      background: #00000042;
+      padding: 4px;
+      border-radius: 50%;
+      height: 24px;
+      width: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      img{
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+  .listas-allRisk{
+    &--titulo{
+      font-size: 22px;
+      letter-spacing: .75px;
+      color: $v2gris_oscuro;
+      font-weight: 500;
+    }
+  }
+  .box-btn-allRisk{
+    margin: 0px 0 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-weight: 500;
+    padding: 20px 12px 24px;
+  }
+  &__titulo{
+    p{
+      color: $v2color_primario;
+      margin: 24px 0;
+      font-size: 1.2rem;
+    }
+  }
+  
+  .cotizador-allRisk{
+    height: auto;
+    margin-top: 10px;
+    .mail-float{
+      position: absolute;
+      right: -27px;
+      top: -30px;
+      background: #0855c4;
+      width: 149px;
+      height: 42px;
+      font-size: 16px;
+      color: white;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      padding: 0 4px;
+      border-radius: 6px;
+      img{
+        width: 50px;
+        padding: 0 8px;
+      }
+      span{
+        line-height: 1;
+      }
+    }
+    &--vehiculo{
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      padding-top: 41px;
+    }
+    &__monto-mensual{      
+      line-height: 1;
+      vertical-align: bottom;
+      font-size: 1.2rem;
+      &--item{
+        color: #0855c4;
+        span{          
+          font-size: 3.5rem;
+          font-weight: 700;
+        }
+      }
+    }
+    &__monto-anual{
+      &--item{
+        color: $v2gris_claro;
+        font-size: 1.2rem;
+      }
+    }
+    &__suma-asegurada{
+      &--box{
+        display: flex;
+        align-items: center;
+        padding: 8px 12px 0 8px;
+        .monto-minimo, .monto-actual{
+          width: 100px;          
+        }
+        .monto-actual{
+          text-align: right;
+        }
+      }
+      p{
+        color: $v2gris_oscuro;
+        font-size: 1.2rem;
+        margin-top: 12px;
+      }
+    }
+    &__cobertura{
+      margin-top: 12px;
+      p, span{        
+        font-size: 1rem;
+      }
+    }
+  }
+  .lista{
+    .item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ebebeb;
+      height: 55px;
+      color: #484848;
+      font-size: 17px;
+      &:nth-child(3){
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 992px) {
+  .activador-allRisk{
+    display: block !important;
+  }
+  .page-cotizador-allRisk{
+    margin-top: 70px;
+    .cotizador-allRisk{
+      &__monto-mensual{  
+        &--item{
+          span{          
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+    .lista{
+      .item{
+        height: 38px;
+      }
+    }
+  }
+
+  
+}

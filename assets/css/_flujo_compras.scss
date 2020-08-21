@@ -1,0 +1,129 @@
+/*
+************************************************************
+                    BOTONES
+************************************************************
+*/
+.box-btn {
+    text-align: center;    
+    &__button {
+        width: 100%;
+        display: block;
+        border: none;
+        outline: 0;
+        padding: 1rem 1rem;
+        margin: .5rem auto;
+        border-radius: 6px;
+        text-transform: uppercase;
+        font-family: 'omnes' ;
+        font-size: calc(1rem + .2vw);
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: all .2s ease;
+        &:disabled{
+            background-color: #9b9b9b;
+            cursor: auto;
+        }
+        &:focus{        
+            outline: 0;
+        }
+        &:disabled:hover{
+            opacity: 1;
+        }
+        &:hover{
+            opacity: .7;
+        }
+    }
+    &--primary{
+        background-color: $secundario;
+        color: white;
+    }
+    &--back {
+        text-transform: capitalize;
+        font-family: 'omnes' ;
+        letter-spacing: 0;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:before {
+            content: "\f104";
+            font-family: FontAwesome, sans-serif;
+            background-color: #373737;
+            --size: .8rem;
+            font-size: var(--size);
+            margin-right: .5rem;        
+            width: calc(var(--size) * 1.25);
+            height: calc(var(--size) * 1.25);        
+            text-align: center;
+            text-indent: -.5%;
+            line-height: calc(var(--size) * 1.25);
+            border-radius: 50%;
+            color: white;
+            display: inline-block;
+        }
+    }
+    &--secondary {
+        background-color: white;
+        border: 2px solid $primario;
+        color: $secundario;
+    }
+}
+
+.box-btn>.inactive {
+    background-color: #e1e2e1;
+    border: 0px;
+}
+.btn.form-control-continue {
+    padding-top: 6px;
+}
+.box-btn>.back {
+    font-family: 'omnes' ;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 7px;
+}
+.box-btn>.continue {
+    margin-top: 15px;
+    max-width: 280px;
+    margin-bottom: 30px;
+    height: 54px;
+}
+.box-btn__button-download {
+    border: solid 1px $primario;
+    outline: 0;
+    padding: 15px 24px 15px 43px;
+    margin: .5rem auto;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-family: 'omnes' ;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+    color: $secundario;
+    // background: url(../img/download-icon.svg) no-repeat 10px 14px;
+}
+
+.box-btn__button-download:disabled {
+    background-color: #9b9b9b;
+    cursor: auto;
+}
+.box-btn__button-download:disabled:hover {
+    opacity: 1;
+}
+.box-btn__button-download:disabled:hover {
+    outline: 0;
+}
+.box-btn__button-download:hover {
+    opacity: .7;
+}
+.box-btn__button--disabled {
+    background-color: #e1e2e1;
+    color: #8e8e8e;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+/*      FIN DE LOS BOTONES      */

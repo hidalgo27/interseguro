@@ -1,0 +1,351 @@
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+.home-portada{
+  .img-home-md{
+    display: flex !important;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    top: 18vh;
+    max-width: 940px;
+    margin: auto;
+    h3{
+      font-size: 32px;
+      font-family: 'omnessemibold';
+    }
+  }
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .portada1__item{
+    &:nth-child(1){
+    }
+    &:nth-child(2){
+      .form-body{
+        min-width: 365px;
+      }      
+      
+    }
+  }
+  .portada{
+    height: 90vh;
+    
+    &:before{
+      content:"";
+      height: calc(100vh - 27%);
+    }
+    .portada-banner{
+      background-size: 140%;
+    }
+    .portada-contenido{
+      top: 24%;
+      h3{
+        font-size: 38px;
+      }
+    }
+  }
+
+  .services{
+    flex-direction: row;
+  }
+
+  .checkbox-aux{
+    text-align: left;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+
+  .portada1{
+    .checkbox-aux__descripcion {
+      padding-right: 0px !important;
+    }
+    position: relative;
+    height: calc(100vh - 110px);
+    background: #00ADEE;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 8px;
+    .titulo_portada{
+      font-family: 'omnessemibold';
+      font-size: 34px;
+      color: white;
+      top: -40px;
+    }
+    .subtitulo_portada{
+      font-family: omnes;
+      font-size: 24px;
+      color: white;
+    }
+    .portada1__item{
+      &:nth-child(1){
+        flex-grow: 1;
+        display: inline-block;
+        img{
+          height: auto;
+          width: auto;
+        }
+        .img_ediificio{
+          height: auto;
+          width: auto;
+        }
+      }
+      &:nth-child(2){      
+        text-align: center; 
+        height: calc(100% - 75px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-basis: 30%;
+        z-index: 9; 
+        .img-auto{
+          position: relative;          
+          left: auto;
+          width: 70%;
+        }
+      }
+      &:nth-child(3){
+        flex-grow: 1; 
+        display: flex; 
+        justify-content: flex-end;
+        position: relative;
+        width: auto;
+        right: 0;
+        height: 100%;
+        align-items: flex-end;
+        .img_nube{
+          width: auto;
+          height: auto;
+          left: auto;
+          top: 56px;
+          opacity: 1;
+        }
+        .img_ediificio{
+          height: auto;
+          width: auto;
+        }
+      }
+      .img_nube{
+        position: absolute;
+        top: 70px;
+      }
+      input{
+        border-radius: 25px;
+        height: 45px;
+      }
+      
+    }
+  }
+  .section{
+    padding: 5% 5% 5%;
+  }
+  .section-header{    
+    &__title{
+      display: block;
+      width: auto;
+      padding: 0px;
+      font-family: 'omnes';      
+      color: $gris-1;
+      font-size: 48px;
+      line-height: 50px;
+      text-align: center;
+      margin: 0px auto 8px;
+    }
+    &__subtitle{
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: 'omnes' ;
+        color: $gris-1;
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: none;
+    }
+    &__parrafo{
+      width: 70%;
+      margin: 16px auto 4%;
+      padding-bottom: 20px;
+      font-family: 'omnes' ;
+      color: $gris-2;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 300;
+      text-align: center;
+      strong{
+        font-family: 'omnes' ;
+        font-size: 20px;
+        font-weight: 300;
+      }
+    }
+  }
+  .section-body{
+    .list-item {
+      justify-content: flex-start;
+      font-size: 14px;
+    }
+    &__title{
+      font-size: 30px;
+    }
+  }
+
+  /**************************
+  /*      HOME      
+  ***********************/
+  .home-1{
+    .section-body__title{
+      text-align: left;
+    }
+    .section-header__home-1{
+    }
+    .section-header__parrafo{
+    }
+    &__item1{
+      &--boxImg{
+      }
+      .section-body__parrafo{
+        text-align: left;
+      }
+      .span-primario-alterno{
+      }
+    }
+    &__item2{
+      .span-primario-alterno{
+      }
+    }
+  }
+  .home-4{
+    .section-body{
+      width: 80%;
+      margin: auto;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+
+@media (min-width: 1024px) {
+  .main-nav{
+    padding-left: 0;
+    padding: 0 10%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    &__logo{
+      img{
+        height: 25px;
+        width: auto;
+      }
+    }
+    
+  }  
+}
+@media (min-width: 1200px) {
+  /*    HOME    */
+  .home-1{
+    .section-body{
+      .img-body{
+        height: 500px;
+      }
+    }
+  }
+
+
+  .portada1{
+    min-height: 560px;
+    background: red !important;
+    .checkbox-aux{
+      padding-right: 0;
+    }
+    .checkbox-aux__descripcion {
+      padding-right: 0;
+      font-size: 11px;
+      a{
+        font-size: 11px;
+      }
+    }
+    .titulo_portada {      
+      font-size: 37px;
+      position: absolute;
+      width: 392px;
+      height: 40px;
+    }
+    .subtitulo_portada {
+      margin-top: 61px;
+      font-size: 18px;    
+    }
+    .portada1__item{
+      input{
+        height: 45px;
+        font-size: 14px;
+      }
+      &:nth-child(2){  
+        position: relative;
+        .img-auto{
+        }
+      }
+    } 
+    .box-btn__button {
+      font-size: 12px;
+    }
+    
+  }
+}
+@media (min-width: 1366px){
+  .titulo_portada { 
+    left: 0px;
+  }
+  .main-nav .menu-item__enlace {
+      font-size: 15px;
+  }
+  .portada1 .checkbox-aux__descripcion a {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1410px) {
+  .portada1{
+    .checkbox-aux__descripcion {
+      padding-right: 0;
+      font-size: 14px;
+      a{
+        font-size: 14 px;
+      }
+    }
+    .titulo_portada {
+      font-size: 34px;
+      width: 497px;
+      left: -32px;    
+    }
+    .subtitulo_portada {
+      font-size: 22px; 
+      margin-top: 50px;  
+    }
+    .portada1__item{
+      input{
+        height: 45px;
+        font-size: 14px;
+      }
+      &:nth-child(2){  
+        position: relative;
+        .img-auto{
+          bottom: -50px;
+        }
+      }
+    } 
+    .box-btn__button {
+      font-size: 18px;
+    }
+  }
+}

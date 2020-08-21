@@ -1,0 +1,31 @@
+// @import 'bootstrap/dist/css/bootstrap.css';
+// @import 'bootstrap-vue/dist/bootstrap-vue.css';
+@import './../../static/fonts/fonts.css';
+@import "_variables";
+@import "_home";
+@import "_webflow";
+@import "_helpers";
+@import "_main";
+@import "_generales";
+@import "_header";
+@import "_cobertura";
+@import "_como-lo-uso";
+@import "_como-me-cambio";
+@import "_steps";
+@import "_stepsPrice";
+@import "_media";
+@import "v2_renovaciones";
+@import "_v2_cotizador";
+// AllRisk Styles
+@import "_steps_allRisk";
+@import "_v2_cotizador_allRisk";
+@import "v2_renovaciones_allRisk";
+
+#modalcampaniatv,#modalEndoso,#modalgps,#modal1{
+  .modal-dialog{
+    max-height: 430px;
+  }
+  .modal-body {
+    min-height: auto !important;
+  }
+}
