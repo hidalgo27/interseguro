@@ -233,8 +233,8 @@
           <b-row v-bind:class="{activeBox_2: activeBox_2}">
             <b-col cols="12" xl="9" class="bg-shadow  m-auto  pt-5  pb-3">
               <b-row>
-                <b-col cols="4" style="padding-top: 22px;" v-bind:class="{'pt-4': this.nuevoProducto == true}">
-                  <div class="detallePlan">
+                <b-col cols="4"  v-bind:class="{'pt-4': this.nuevoProducto == false}">
+                  <div class="detallePlan" v-bind:class="{'pt-45': this.nuevoProducto == true}">
                     <div class="detallePlan-titulo">
                       <p>
                         selecciona tu plan
@@ -2950,7 +2950,6 @@ a.steps__item.paso1:after{
   border-radius: 24px;
   .borderNone{
     border: none !important;
-    padding-top: .5rem !important;
   }
   .adicional{
     border-radius: 5px;
@@ -3174,7 +3173,13 @@ a.steps__item.paso1:after{
       box-shadow: 0 2px 8px 0 #89adbf;
   }
 }
-.detallePlan{  
+.detallePlan.pt-45{
+    padding-top: 45px;
+}
+
+
+.detallePlan{
+
   .check-planes{
     color: #696969;;
     font-weight: 700;
@@ -3263,7 +3268,6 @@ a.steps__item.paso1:after{
     } 
   }
   .lista-plan0{
-    padding-top: 24px;
     p{
       font-size: 14px;
       font-weight: normal;
