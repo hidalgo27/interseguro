@@ -34,6 +34,26 @@ const getDefaultState = () => {
     pantallaFlujo: 0,
     fechaVigencia: '',
     businessId: 1,
+    objVehiculo : {
+        activePolicy: false,
+        appDiscount: false,
+        brand: "",
+        brandId: 0,
+        category: "",
+        categoryId: 0,
+        client: Object,
+        exists: false,
+        id: 0,
+        model: '',
+        modelId: 0,
+        modelYear: 0,
+        plateNumber: '',
+        remarketingId: 0,
+        serialNumber: 0,
+        useType: 0,
+        useTypeId: 0,
+        vehicleIBK: 0
+    },
     objCliente: {
         address: '',
         birthDate: '',
@@ -166,6 +186,9 @@ const mutations = {
     },
     setObjCliente(state, payload){
         state.objCliente = JSON.parse(JSON.stringify(payload))
+    },
+    setObjVehiculo(state, payload){
+        state.objVehiculo = JSON.parse(JSON.stringify(payload))
     },
     setListaCotizacion(state, payload){
         state.listaCotizacion = payload

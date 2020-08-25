@@ -522,7 +522,9 @@
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
                 this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
-                /* Existe en nuestra base de datos */                
+                /* Existe en nuestra base de datos */
+                this.$store.commit('common/setObjVehiculo', res.data.body)
+                // console.log(this.$store.state.common.objVehiculo)
                 if (respuesta.exists == true) {
                   this.$store.commit('common/setVehicleState', 1)
                   if(respuesta.client.externalId > 0 ){
@@ -547,6 +549,7 @@
                     this.$nuxt.$router.push("/cotiza/cotizacion/")
                   }
                 }else {
+                  console.log("ESTADO")
                   if(respuesta.client.externalId > 0 ){
                     this.$store.commit('common/setOrigenCliente', 2)
                   }else{
@@ -594,6 +597,7 @@
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
         this.$store.commit('common/setBusinessId', 1)
+        // this.$store.commit('common/setObjVehiculo', {})
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
         if (document.location.hostname == "www.interseguro.pe"){
           window.criteo_q = window.criteo_q || [];
