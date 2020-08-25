@@ -4,14 +4,12 @@
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
     
-    <b-container class="contenedor-personalizado"   v-bind:class="{'pt-5-desktop': flagCloseListon == 1  }">
+    <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="10" class="m-auto">
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
-                  <!-- <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item " to="/cotiza/como-pagar"><li></li></router-link> -->
-                  <!-- <router-link v-else class="steps__item " to="/cotiza/cotizacion"   style="cursor: auto;"><li></li></router-link> -->
                   <router-link class="steps__item " to="/cotiza/cotizacion"   style="cursor: auto;"><li></li></router-link>
                 </template>              
                 <template >
@@ -1578,7 +1576,6 @@
         soatActive: 0,
         documento_steps2 : '',
         flagElegirFecha: 0,
-        flagCloseListon: 0,
         monto_pagar_steps3:'',
         mostrarCapa: false,
         /******************************** */
@@ -1603,6 +1600,7 @@
         mostrarListaModelo: false,
         activadorItem: 0,
         ischecked: false,
+
         itemElegido: {
           brandId:'',
           brand:'',
@@ -1837,6 +1835,26 @@
       },
     },
     methods: {
+      getVehicle(){
+        this.$store.dispatch('common/getVehicle', this.item).then((res) =>{
+          setTimeout(() => {
+            if (res.data.code == 0) {
+            this.objectVehicle = res.data.body
+            this.$store.commit('common/setObjVehiculo', res.data.body)
+            this.mostrarCapa = false
+          }else{
+            let errorDetectado = {
+              url : 'getVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.item
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
+          }
+          }, 5000);
+          
+        })
+      },
       hidemodalTerminosCondiciones() {
         this.$refs.modalTerminosCondiciones.hide()
       },
@@ -1972,8 +1990,7 @@
      },
     closeListon(){
       document.getElementById("liston-desktop").style.display = "none"
-      this.$bus.$emit('updatingTest', 0) 
-      localStorage.setItem('flagCloseListon', 0)
+      this.$bus.$emit('updatingTest', 0)
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
           event: "click_close_menu ",
@@ -2096,10 +2113,11 @@
         this.ocultarItemsSeleccionados = false
       },
       seleccionaAnio(item){
+        console.log(item)
         this.mostrarItemAnio = true
         this.objectVehicle.modelYear = item.id
         this.itemElegido.modelYear = item.id
-        this.itemElegido.year = item.name //ver si sirve
+        this.itemElegido.year = item.id
         this.activadorItem = 2
         this.mostrarModelo()
       },
@@ -2300,13 +2318,18 @@
         }
       },
       validateCreateOrUpdateVehicle () {
-        if(this.$store.state.common.vehicleState){          
+        if(this.$store.state.common.vehicleState == 1){   
+          console.log('%cindex.vue line:2300 UPDATE');       
           this.updateVehicle()
+          this.getVehicle()
         }else{
+          console.log('%cindex.vue line:2303 create');
           this.createVehicle()
+          this.getVehicle()
         }
       },
       validateVehicleExist (vehicleExistItem) {
+        console.log('vehicle', vehicleExistItem);
         if (vehicleExistItem.brandId != "" && vehicleExistItem.brandId != null && vehicleExistItem.brandId != undefined) {
           this.itemElegido.brand = vehicleExistItem.brand
           this.itemElegido.brandId = vehicleExistItem.brandId
@@ -2332,31 +2355,8 @@
           this.mostrarMarca()
         }
       },
-      getVehicle(){
-        this.$store.dispatch('common/getVehicle', this.item).then((res) =>{          
-          if (res.data.code == 0) {
-            this.objectVehicle = res.data.body
-            if (this.objectVehicle.exists) {
-              this.PaginaVista(true)
-              this.validateVehicleExist(this.objectVehicle)
-            }else{
-              this.PaginaVista(false)
-              this.mostrarListaMarca = true              
-              this.mostrarMarca()
-            }
-            this.mostrarCapa = false
-          }else{
-            let errorDetectado = {
-              url : 'getVehicle',
-              page : 2,
-              message : res.data.message,
-              objEnviado : this.item
-            }
-            this.$store.dispatch('common/eventoErrores', errorDetectado)
-          }
-        })
-      },
       createVehicle() {
+        console.log('i', this.itemElegido );
         this.$store.dispatch('common/createVehicle', this.itemElegido).then((res)=>{
           if (res.data.code == 0) { 
             this.itemElegido.assignedPrice = null
@@ -2480,8 +2480,7 @@
         this.listCotizacion.policy.startDate = this.fechaVigencia
         this.listCotizacion.paymentMethodId = 3
 
-        this.$store.commit('common/setObjectDigodat', this.cobertura_is)
-        
+        this.$store.commit('common/setObjectDigodat', this.cobertura_is)        
         this.$store.commit('common/setItemElegido', this.itemElegido)
         this.$store.commit('common/setListaCotizacion', this.listCotizacion)
 
@@ -2670,13 +2669,6 @@
               nuevoProducto: this.$store.state.common.nuevoProducto                  
               /******************************************************** */      
               /******************************************************** */
-              // idMarca: this.objectVehicle.brandId,
-              // idModelo: this.objectVehicle.modelId,
-              // idUso: 1,
-              // uso: "particular",    
-              // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
-              // pagoTrimestral: this.listCotizacion.policy.quarterly,
-              // pagoAnual: this.listCotizacion.policy.annual,
 
             },
             datosTitular: {
@@ -2752,13 +2744,6 @@
       }else{
         this.fechaVigencia = this.$store.state.common.fechaVigencia
       }
-
-      if (localStorage.getItem("flagCloseListon") == 1) {
-        this.flagCloseListon = localStorage.getItem("flagCloseListon")
-      }else{
-        this.flagCloseListon = 0
-      }
-
       let objJWT = JSON.parse(localStorage.getItem("jwt"))
       if (objJWT == null || objJWT == undefined) {
         this.$nuxt.$router.push("/")
@@ -2794,8 +2779,17 @@
         }
         /* FIN DE  ENDOSO DE SESION */
         // this.vehicleState = objJWT.common.vehicleState
-        if (this.item.plateNumber !== '') {          
-          this.getVehicle()
+        if (this.$store.state.common.plateNumber !== '') {
+            if (this.$store.state.common.vehicleState == 1) {
+              this.PaginaVista(true)
+              // this.objectVehicle = this.$store.state.common.objVehiculo
+              this.validateVehicleExist(this.$store.state.common.objVehiculo)
+            }else{
+              this.PaginaVista(false)
+              this.mostrarListaMarca = true              
+              this.mostrarMarca()
+            }
+            this.mostrarCapa = false
           this.cotizador_datalayer('detail')
         }else{
         }
