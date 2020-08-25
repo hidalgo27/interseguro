@@ -139,7 +139,7 @@
                   </div>
 
                   <div class="cotizador__suma-asegurada">
-                      <p class="suma-asegurada">SUMA ASEGURADA {{appDiscount}}</p>                      
+                      <p class="suma-asegurada">SUMA ASEGURADA </p>                      
                       <div class="cotizador__suma-asegurada--box">
                         <div class="box-range">             
                           <p> <span class="monto-actual">$ {{this.clonado.vehicle.current}}</span></p>                                   
@@ -234,7 +234,7 @@
             <b-col cols="12" xl="9" class="bg-shadow  m-auto  pt-5  pb-3">
               <b-row>
                 <b-col cols="4"  v-bind:class="{'pt-4': this.nuevoProducto == false}">
-                  <div class="detallePlan" v-bind:class="{'pt-45': this.nuevoProducto == true}">
+                  <div class="detallePlan pt-45" >
                     <div class="detallePlan-titulo">
                       <p>
                         selecciona tu plan
@@ -1817,7 +1817,8 @@
     computed: {
       appDiscount: function(){
         let appDiscount = this.$store.state.common.appDiscount
-        return appDiscount
+        // return appDiscount
+        return false
       },
       placaUppercase: function(){
         let placa = this.item.plateNumber.toUpperCase()

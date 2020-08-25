@@ -2,6 +2,7 @@ const pkg = require('./package')
 require('dotenv').config()
 
 module.exports = {
+
   //Server midleware
   mode: 'universal',
   router: {
