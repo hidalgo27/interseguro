@@ -2114,7 +2114,6 @@
         this.ocultarItemsSeleccionados = false
       },
       seleccionaAnio(item){
-        console.log(item)
         this.mostrarItemAnio = true
         this.objectVehicle.modelYear = item.id
         this.itemElegido.modelYear = item.id
@@ -2320,17 +2319,14 @@
       },
       validateCreateOrUpdateVehicle () {
         if(this.$store.state.common.vehicleState == 1){   
-          console.log('%cindex.vue line:2300 UPDATE');       
           this.updateVehicle()
           this.getVehicle()
         }else{
-          console.log('%cindex.vue line:2303 create');
           this.createVehicle()
           this.getVehicle()
         }
       },
       validateVehicleExist (vehicleExistItem) {
-        console.log('vehicle', vehicleExistItem);
         if (vehicleExistItem.brandId != "" && vehicleExistItem.brandId != null && vehicleExistItem.brandId != undefined) {
           this.itemElegido.brand = vehicleExistItem.brand
           this.itemElegido.brandId = vehicleExistItem.brandId
@@ -2357,7 +2353,6 @@
         }
       },
       createVehicle() {
-        console.log('i', this.itemElegido );
         this.$store.dispatch('common/createVehicle', this.itemElegido).then((res)=>{
           if (res.data.code == 0) { 
             this.itemElegido.assignedPrice = null
@@ -2487,7 +2482,9 @@
 
         if (document.location.hostname == "www.interseguro.pe"){
           fbq('track', 'ViewContent', {
-            content_ID: this.code_sku, 
+            content_type: 'product',
+            product : 'segurovehicular',
+            content_ids: this.code_sku, 
             plan_seleccionado: this.$store.state.common.planSeleccionado,
             endoso: this.endosoSeleccionado.name,
             anio: this.objectVehicle.modelYear,

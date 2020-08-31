@@ -54,12 +54,12 @@
           </h1>
           <p class="subtitulo">Según tu forma de conducir</p>
           <div class="btns-banner  d-none  d-lg-block">
-            <div class="btn-cotizar" @click="showModalNumeroCelular($event)">
+            <div class="btn-cotizar" @click="showModalNumeroCelular('1')">
               <span class="cotizar">COTIZAR EN EL APP</span>
               <span class="accede-dto">Accede al 50% de dscto</span>
             </div>
             <div class="btn-quiero-cotizar" @click="showModalQuieroCotizarIzq($event)">
-              <span>Quiero cotizar ahora</span>
+              <span>QUIERO COTIZAR AHORA</span>
             </div>
           </div>
         </div>
@@ -67,12 +67,12 @@
           <img class="d-none  d-lg-block" src="./../../static/media/img/root/banner.png" alt="">
           <img class="d-block  d-lg-none" src="./../../static/media/img/root/banner_mobile.png" alt="">
           <div class="btns-banner  d-block  d-lg-none">
-            <div class="btn-cotizar" @click="descargarApp($event)">
+            <div class="btn-cotizar" @click="descargarApp('1')">
               <span class="cotizar">COTIZAR</span>
               <span class="accede-dto">Accede al 50% de dscto</span>
             </div>
             <div class="btn-quiero-cotizar" @click="showModalQuieroCotizar($event)">
-              <span>Quiero cotizar ahora</span>
+              <span>QUIERO COTIZAR AHORA</span>
             </div>
           </div>
         </div>
@@ -99,8 +99,8 @@
                 Ahora tú tienes el control.  <br>
                 Comienza de un minuto. </p>
                 
-                <span class="descargar-ahora  d-block  d-lg-none" @click="descargarApp()">Descargar ahora</span>
-                <span class="descargar-ahora  d-none  d-lg-block" @click="showModalNumeroCelular()">Descargar ahora</span>
+                <!-- <span class="descargar-ahora  d-block  d-lg-none" @click="descargarApp()">Descargar ahora</span>
+                <span class="descargar-ahora  d-none  d-lg-block" @click="showModalNumeroCelular()">Descargar ahora</span> -->
             </div>
           </div>
           <div class="pasos__item">
@@ -153,7 +153,7 @@
           
         </div>
         <div class="enlace-home  p-47px">
-          <router-link class="conoce-nuestros-planes" to="/preguntas-frecuentes" @click="sabermas()">Saber más</router-link>    
+          <span class="conoce-nuestros-planes" @click="sabermas()">SABER MÁS</span>    
         </div>
       </div>
       <div class="home-root__der">
@@ -162,15 +162,14 @@
           <span class="d-block d-lg-none ver-video" @click="showModalHomeVideo()">Ver video</span>
         </div>
         <div class="box-btn    d-lg-none">
-          <span @click="descargarApp()" class="btn-descargar" >DESCARGAR APP AHORA</span>
+          <span @click="descargarApp('2')" class="btn-descargar" >DESCARGAR APP AHORA</span>
         </div>
         <div class="enlace-home  p-47px">
-          <router-link class="conoce-nuestros-planes" to="/preguntas-frecuentes">Saber más</router-link>    
+          <span class="conoce-nuestros-planes" @click="sabermas()">SABER MÁS</span>    
+          
         </div>
       </div>
     </div>
-
-    
 
     <div class="home-beneficios2  p-47px">
       <div class="home-beneficios2__titulo">
@@ -629,7 +628,7 @@
                   dataLayer.push({
                       'event': 'home_recibiras_msj_texto',
                       'category': 'UI :: Home',
-                      'action': 'Descargar ahora',
+                      'action': 'Cotizar en el app',
                       'label': 'Popup descargar app'
                   })
                    setTimeout(() => {
@@ -662,7 +661,17 @@
           }
           
         },
-        descargarApp() {
+        descargarApp(param) {
+          console.log(param)
+          if (param == '2') {
+            window.dataLayer = window.dataLayer || [ ];
+              dataLayer.push({
+                  'event': 'home_descargar_app_ahora',
+                  'category': 'UI :: Home',
+                  'action': 'Click boton',
+                  'label': 'Descargar app ahora'
+              })
+          }
           var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
           if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
@@ -682,14 +691,23 @@
           }
         },
         showModalNumeroCelular(param) {
-            if (param = 'btn') {
+            // if (param = 'btn') {
+            //   window.dataLayer = window.dataLayer || [ ];
+            //   dataLayer.push({
+            //       'event': 'home_click_btn_ios_google',
+            //       'category': 'UI :: Home',
+            //       'action': 'Click boton',
+            //       'label': 'iOS / Android'
+            //   })
+            // }
+            if(param == '1') {
               window.dataLayer = window.dataLayer || [ ];
-              dataLayer.push({
-                  'event': 'home_click_btn_ios_google',
-                  'category': 'UI :: Home',
-                  'action': 'Click boton',
-                  'label': 'iOS / Android'
-              })
+                dataLayer.push({
+                    'event': 'home_cotizar_app_ahora',
+                    'category': 'UI :: Home',
+                    'action': 'Click boton',
+                    'label': 'Cotizar en el app'
+                })
             }
             this.$refs.modalNumeroCelular.show();
         },
@@ -698,7 +716,7 @@
           dataLayer.push({
               'event': 'home_cerrar_modal_numero_celular',
               'category': 'Home',
-              'action': 'Click',
+              'action': 'Close',
               'label': 'Popup descargar app'
           })
           this.$refs.modalNumeroCelular.hide();
@@ -750,6 +768,7 @@
               'action': 'Click',
               'label': 'Más información'
           })
+          this.$nuxt.$router.push({path: "/preguntas-frecuentes"})
         },
         showModalHomeVideo() {
           window.dataLayer = window.dataLayer || [ ];
@@ -773,7 +792,7 @@
           window.dataLayer.push({
             event: "pagina_vista",
             "page-url": "/vehicular-app/",
-            "page-title": "nuevoProducto"
+            "page-title": "app"
           });
         },
         onSubmit() {
@@ -1517,10 +1536,10 @@ p, img{
       .btn-quiero-cotizar{
         cursor: pointer;
         border-radius: 3px;
-        border: solid 0.5px #ea0f90;
+        border: solid 0.5px #0854C4;
         width: 303px;
         height: 47px;
-        color: #ea0f90;
+        color: #0854C4;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1601,9 +1620,9 @@ p, img{
         line-height: 1.14;
         letter-spacing: normal;
         text-align: center;
-        color: #ea0f90;
+        color: #0854C4;
         cursor: pointer;
-        border: 1px solid #ea0f90;
+        border: 1px solid #0854C4;
         display: inline-block;
         padding: 15px 34px;
       }
@@ -2948,6 +2967,7 @@ p, img{
       .root-der{
         img{
           max-width: 410px;
+          max-height: 490px;
         }
       }
     }
