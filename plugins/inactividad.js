@@ -34,7 +34,6 @@ function logout() {
                         console.log("-o-o-o-o-o-o");
                     } 
                 } else {}
-                
             }
         }    
     }

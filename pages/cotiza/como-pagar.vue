@@ -680,6 +680,7 @@ import { validationMixin } from 'vuelidate'
                 });
             },
             PaginaVistaNuevoProducto() {
+                console.log("NUEVO PRODUCTO")
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: "pagina_vista",

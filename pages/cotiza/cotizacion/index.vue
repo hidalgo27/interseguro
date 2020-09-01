@@ -1938,19 +1938,29 @@
           }
       },
       /*************************************************************** */
-      PaginaVista(valor) {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "pagina_vista",
-          "page-url": "/vehicular/cotiza/cotizacion",
-          "page-title": "Cotizacion",
-          datos_vehicular_encontrado: valor, // podria ser false
-          ecommerce: {
-            checkout: {
-              actionField: { step: 2 } // esto marca el segubdo paso en el embudo
+      PaginaVista(app, valor) {
+        let url = ""
+        if (this.$store.state.common.nuevoProducto == true) {
+          url = "/vehicular-app/cotiza/cotizacion/"
+          console.log(url)
+        }else if (this.$store.state.common.nuevoProducto == false){
+          url = "/vehicular/cotiza/cotizacion/"
+          console.log(url)
+        }
+          
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "pagina_vista",
+            "page-url": url,
+            "page-title": "Cotizacion",
+            datos_vehicular_encontrado: valor, // podria ser false
+            ecommerce: {
+              checkout: {
+                actionField: { step: 2 } // esto marca el segubdo paso en el embudo
+              }
             }
-          }
-        });
+          });
+        
       },
       cotizador_datalayer(evento){
         window.dataLayer = window.dataLayer || [];
@@ -2779,11 +2789,11 @@
         // this.vehicleState = objJWT.common.vehicleState
         if (this.$store.state.common.plateNumber !== '') {
             if (this.$store.state.common.vehicleState == 1) {
-              this.PaginaVista(true)
+              this.PaginaVista('',true)
               // this.objectVehicle = this.$store.state.common.objVehiculo
               this.validateVehicleExist(this.$store.state.common.objVehiculo)
             }else{
-              this.PaginaVista(false)
+              this.PaginaVista('',false)
               this.mostrarListaMarca = true              
               this.mostrarMarca()
             }

@@ -221,7 +221,15 @@ export default {
   
   computed: {},
   methods: {
-   
+   PaginaVistaNuevoProducto() {
+        console.log("NUEVO PRODUCTO")
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: "pagina_vista",
+            "page-url": "/vehicular-app/cotiza/pago-procesado/",
+            "page-title": "pago procesado",
+        });
+    },
     cotizador_datalayer(evento,step_valor){
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
@@ -265,6 +273,7 @@ export default {
     }
   },
   mounted: function() {
+    
     this.numeroTelefono = this.$store.state.common.numeroTelefono 
     this.cobertura_is = this.$store.state.common.objectDigodat
     this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
@@ -284,8 +293,11 @@ export default {
         { event: "trackTransaction", id: this.listTest.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
       )
     }
-    this.PaginaVista()
-    
+    if(this.$store.state.common.nuevoProducto){
+        this.PaginaVistaNuevoProducto();
+    }else{
+        this.PaginaVista();
+    }
     this.emisionROOT = this.$store.state.common.emisionROOT
 
 

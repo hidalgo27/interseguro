@@ -5,48 +5,38 @@
                 <div class="root--info">
                     <router-link to="/cotiza/ingresa-tu-documento"><img class="volver_atras" src="./../../static/media/img/root/volver_atras.png" alt=""></router-link>
                     
-                    <p class="datos-guardados  d-block  d-lg-none">Ya hemos guardado tus datos personales.</p>
-                    <h3>Ahora descarga el app para continuar con tu cotización y ahorra hasta 50%.</h3>
+                    <h3>Sebastian, ¡Tú también puedes ahorrar hasta 50% con nuestro app</h3>
                     <p class="datos-guardados  d-none  d-lg-block">
-                        Ya hemos guardado tus datos personales. <br>
-                        Descarga el app, maneja y recibe una nueva <br> 
-                        cotizacion personalizada para ti.
+                        <span>Descarga el app, maneja</span> por 3 semanas mientras medimos tu habilidad de manejo y recibe un <span>descuento de hasta 50%</span> si eres un buen conductor.
                     </p>
-                    <p class="mensaje-enviado">
-                        Te hemos enviado un mensaje de texto con el
-                        link de descarga al:
-                    </p>
-                    <div class="contacto">
-                        
-                        <div class="box-input">
-                            <img  v-bind:class="{'editarShow' : editarShow}" class="editar" src="./../../static/media/img/root/edit.png" alt="editar">
-                            <b-form-input @focus="clickEditarInput" @blur="clickFueraInput" class="telefonoEditar" v-model="text" :placeholder="placeholder"></b-form-input>
+                    <div class="btns-banner  d-none  d-lg-block">
+                        <div class="btn-cotizar" @click="showModalNumeroCelular('1')">
+                            <span class="cotizar">DESCARGAR APP</span>                        
                         </div>
-                        <div class="mensaje-exitoso  d-block  d-lg-block" v-bind:class="{mostrarMsjExitoso : mostrarMsjExitoso}">
-                            <img  src="./../../static/media/img/root/check_pantalla_root.png" alt=""> ¡Listo! Ya te enviamos el link de descarga
-                        </div>                     
+                    </div>
+                    <div class="contacto">                    
                         <!-- <span class="telefono">{{}} <img src="" alt="x"></span> -->
                         <img class="root_mobile   d-flex  d-lg-none" src="./../../static/media/img/root/root_desktop.png" alt="">
-                        <div class="box-reenviar-sms">
-                            
-                            <div class="reenviar-sms-base"  v-bind:class="{ocultarMensajeBase : ocultarMensajeBase}">
-                                <span class="no-te-llego-sms  d-none  d-lg-flex">No te llego el SMS</span>
-                                <span class=" d-none  d-lg-flex">
-                                    <span @click="reenviar_link()" class="reenviar-link" >Reenviar el link a este celular</span>
-                                </span>
-                            </div>
+                        <div class="box-reenviar-sms">                            
+                            <span class="no-te-llego-sms  d-none  d-lg-flex">¿Quieres continuar con la compra de tu Seguro Vehicular por US$118 al mes?</span>
                         </div>
-                        <span class="continuar-mobile  d-none  d-lg-flex">
-                            o compra tu seguro vehicular por US${{this.montoMensual}} al mes &nbsp;<router-link @click="continuar_como_pagar()" class="" to="/cotiza/como-pagar">aquí</router-link>
-                        </span>
                     </div>
-                    <div class="box-btn    d-lg-none">
-                        <span class="btn-descargar" @click="descargarApp()" href="">Descargar app ahora</span>
+                    <p class="datos-guardados  d-block  d-lg-none">
+                        <span>Descarga el app, maneja</span> por 3 semanas mientras medimos tu habilidad de manejo y recibe un <span>descuento de hasta 50%</span> 
+                    </p>
+                    <div class="box-btn  mt-4  mb-4  d-lg-none ">
+                        <span class="btn-descargar" @click="descargarApp()" >Descargar app ahora</span>
                     </div>
-                    <div class="continuar  d-lg-none">
-                        <span>
-                            o compra tu seguro vehicular por US${{this.montoMensual}} al mes &nbsp;<router-link @click="continuar_como_pagar()" class="" to="/cotiza/como-pagar">aquí</router-link>
-                        </span>
+                    <div class="contacto">                    
+                        <div class="box-reenviar-sms">                            
+                            <span class="no-te-llego-sms  d-flex  d-lg-none">¿Quieres continuar con la compra de tu Seguro Vehicular por US$118 al mes?</span>
+                        </div>
+                    </div>
+                    <div class="btns-banner">
+                        <div class="btn-continuar" @click="continuar_como_pagar()">
+                            <span class="cotizar">QUIERO CONTINUAR</span>                        
+                        </div>
+
                     </div>
 
 
@@ -58,10 +48,10 @@
                     <img src="./../../static/media/img/root/root_desktop.png" alt="IMAGEN">
                 </div>
                 <div class="botones-app    d-none  d-lg-flex">
-                    <div class="ios"  @click="showModalNumeroCelular()">
+                    <div class="ios"  @click="showModalNumeroCelular('2')">
                         <img width="151" src="./../../static/media/img/root/tienda_ios.png" alt="">
                     </div>
-                    <div class="google"  @click="showModalNumeroCelular()">
+                    <div class="google"  @click="showModalNumeroCelular('2')">
                         <img width="151" src="./../../static/media/img/root/tienda_google.png" alt="">
                     </div>
                 </div>
@@ -338,6 +328,68 @@
         }
         display: flex;
         .root--info{
+            .no-te-llego-sms{
+                text-align: center;
+                justify-content: center;
+                width: 350px;
+                font-size: 20px;
+                color: #454A6C;
+                font-family: 'omnesregular';
+            }
+            .btn-cotizar{
+                cursor: pointer;
+                width: 210px;
+                height: 49px;
+                background-color: #ea0b90;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                span{
+                    color: white;
+                }
+                .cotizar{
+                    font-family: 'omnes';
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.39;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #ffffff;
+                }
+
+            }
+            .btn-continuar{
+                cursor: pointer;
+                width: 210px;
+                height: 49px;
+                background-color: #ffffff;
+                border: 1px solid #ea0b90;
+                color: #ea0b90;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                span{
+                    color: white;
+                }
+                .cotizar{
+                    font-family: 'omnes';
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.39;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #ea0b90;
+                }
+
+            }
             .volver_atras{
                 position: absolute;
                 top: 0;
@@ -352,7 +404,14 @@
                 line-height: 1.5;
                 letter-spacing: normal;
                 text-align: center;
-                color: #454a6c;
+                color: #454A6C;
+                span{
+                    font-weight: bold;
+                    color: #454A6C;
+                }
+            }
+            .btns-banner{
+                margin: 42px 0;
             }
             .mensaje-enviado{
                 font-size: 16px;
@@ -514,6 +573,8 @@
         .root{
             padding: 72px 0;
             .root--info{
+                width: 490px;
+                
                 .volver_atras{
                     position: absolute;
                     top: -30px;
@@ -522,11 +583,11 @@
                 }
                 .datos-guardados{
                     font-family: 'omnesregular';
-                    text-align: left;
+                    text-align: center;
                     font-size: 21px;
                     line-height: 1.43;
                     letter-spacing: normal;
-                    width: 419px;
+                    width: 490px;
                     margin-top: 20px;
                 }
                 .mensaje-enviado{
@@ -537,7 +598,7 @@
                 }
                 h3{
                     width: 490px;
-                    text-align: left;
+                    text-align: center;
                     font-size: 30px;
                 }
                 .box-input{
@@ -551,9 +612,12 @@
                     }
                 }
                 .no-te-llego-sms{
-                    margin-top: 28px;
                     text-align: center;
                     justify-content: center;
+                    width: 350px;
+                    font-size: 20px;
+                    color: #454A6C;
+                    font-family: 'omnesregular';
                 }
                 .continuar-mobile{
                     font-size: 18px;
@@ -723,6 +787,7 @@ export default {
                 'action': 'Click',
                 'label': 'O compra tu seguro vehicular'
             })
+            this.$nuxt.$router.push("/cotiza/como-pagar/")
         },
         descargarApp() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -734,7 +799,7 @@ export default {
             else if( userAgent.match( /Android/i ) )
             {
             window.location.replace("https://play.google.com/store/apps/details?id=pe.interseguro.intersegurovehicular&hl=es_PE");
-            return 'Android';
+                return 'Android';
             }
             else
             {
@@ -742,28 +807,39 @@ export default {
             return 'unknown'; 
             }
         },
-    showModalNumeroCelular() {
-        window.dataLayer = window.dataLayer || [ ];
-        dataLayer.push({
-            'event': 'stopper_click_google_ios',
-            'category': 'UI :: Descarga el app',
-            'action': 'Click boton',
-            'label': 'iOS / Android'
-        })
+    showModalNumeroCelular(param) {
+        if (param == '1') {
+            window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'stopper_descargar_app_ahora',
+                'category': 'UI :: Descarga el app',
+                'action': 'Click',
+                'label': 'Descargar app ahora'
+            })      
+        }
+        if (param == '2') {
+            window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'stopper_click_google_ios',
+                'category': 'UI :: Descarga el app',
+                'action': 'Click boton',
+                'label': 'iOS / Android'
+            })      
+        }
         this.$refs.modalNumeroCelular.show();
     },
 
       hideModalNumeroCelular () {
+          window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'stopper_cerrar_modal_numero_celular',
+                'category': 'UI :: Descarga el app',
+                'action': 'Close',
+                'label': 'Popup descargar app'
+            })
           this.$refs.modalNumeroCelular.hide();
       },
       hidemodalTerminosCondiciones() {
-        window.dataLayer = window.dataLayer || [ ];
-        dataLayer.push({
-            'event': 'stopper_cerrar_modal_numero_celular',
-            'category': 'UI :: Descarga el app',
-            'action': 'Close',
-            'label': 'Popup descargar app'
-        })
         this.$refs.modalTerminosCondiciones.hide()
       },
       showModalTerminosCondiciones() {

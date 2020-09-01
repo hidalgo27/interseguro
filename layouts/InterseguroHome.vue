@@ -5,7 +5,8 @@
         <div>
           <nuxt/>
         </div>
-      <footer-is></footer-is>
+      <footer-is-app v-if="this.nuevoProducto == true"></footer-is-app>
+      <footer-is v-else></footer-is>
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import HeaderIBK from '@/components/headers/HeaderInterbank'
 import Header from '@/components/headers/HeaderInterseguro'
 import HeaderCotizador from '@/components/headers/HeaderInterseguroCotizador'
 import Footer from '@/components/footers/Footer'
+import FooteraApp from '@/components/footers/FooterApp'
 export default {
   data () {
     return {
@@ -25,7 +27,8 @@ export default {
       sizePulse: "45px",
       size: "30px",
       ocultoAcctivador:false,
-      cuentaSueldo: false
+      cuentaSueldo: false,
+      nuevoProducto: false
     }
   },
   methods: {
@@ -35,6 +38,7 @@ export default {
     'header-is-ibk': HeaderIBK,
     'header-is': Header,
     'footer-is': Footer,
+    'footer-is-app': FooteraApp,
     'header-cotizador':HeaderCotizador
   },
   created() {      
@@ -45,6 +49,7 @@ export default {
       }
   },
   mounted() {
+    this.nuevoProducto = this.$store.state.common.nuevoProducto
     setTimeout(() => {
       this.urlLocal = localStorage.getItem("urlLocal")
     }, 0)

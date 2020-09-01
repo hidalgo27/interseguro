@@ -49,14 +49,13 @@
           </div>
 
 
-          <h1>Paga hasta 50% menos
-              en tu Seguro Vehicular
+          <h1><span>Descarga el app</span> y maneja para recibir un descuento de <span>hasta 50%</span> en tu cotización
           </h1>
-          <p class="subtitulo">Según tu forma de conducir</p>
+          <p class="subtitulo"  @click="showModalHomeVideo()"><img src="./../../static/media/img/root/play.png" alt="plan"> ver como funciona</p>
           <div class="btns-banner  d-none  d-lg-block">
             <div class="btn-cotizar" @click="showModalNumeroCelular('1')">
               <span class="cotizar">COTIZAR EN EL APP</span>
-              <span class="accede-dto">Accede al 50% de dscto</span>
+              
             </div>
             <div class="btn-quiero-cotizar" @click="showModalQuieroCotizarIzq($event)">
               <span>QUIERO COTIZAR AHORA</span>
@@ -65,11 +64,13 @@
         </div>
         <div class="root-der">
           <img class="d-none  d-lg-block" src="./../../static/media/img/root/banner.png" alt="">
-          <img class="d-block  d-lg-none" src="./../../static/media/img/root/banner_mobile.png" alt="">
-          <div class="btns-banner  d-block  d-lg-none">
+          <div class="caja-mobile  d-flex  d-lg-none">
+            <img class="" src="./../../static/media/img/root/banner_mobile.png" alt="">
+          </div>
+          <div class="btns-banner mt-3 d-block  d-lg-none">
             <div class="btn-cotizar" @click="descargarApp('1')">
               <span class="cotizar">COTIZAR</span>
-              <span class="accede-dto">Accede al 50% de dscto</span>
+              
             </div>
             <div class="btn-quiero-cotizar" @click="showModalQuieroCotizar($event)">
               <span>QUIERO COTIZAR AHORA</span>
@@ -110,7 +111,7 @@
             <div class="pasos__item--desc">
               <p class="titulo">Maneja tu carro</p>
               <p class="descripcion">
-                Vamos a medir tu habilidad de manejo desde el app.
+                Por 3 semanas vamos a medir tu habilidad de manejo desde el app.
               </p>
             </div>
           </div>
@@ -127,7 +128,7 @@
       </div>
     </div>
 
-    <div class="home-root">
+    <div class="home-root  pt-lg-4">
       <div class="home-root__izq  d-none  d-lg-flex">
         <p class="home-root--titulo">
           Los buenos conductores <br> merecen ahorrar más
@@ -153,7 +154,7 @@
           
         </div>
         <div class="enlace-home  p-47px">
-          <span class="conoce-nuestros-planes" @click="sabermas()">SABER MÁS</span>    
+          <span class="conoce-nuestros-planes" @click="sabermas('dkt')">SABER MÁS</span>    
         </div>
       </div>
       <div class="home-root__der">
@@ -164,9 +165,8 @@
         <div class="box-btn    d-lg-none">
           <span @click="descargarApp('2')" class="btn-descargar" >DESCARGAR APP AHORA</span>
         </div>
-        <div class="enlace-home  p-47px">
-          <span class="conoce-nuestros-planes" @click="sabermas()">SABER MÁS</span>    
-          
+        <div class="enlace-home d-flex  d-lg-none p-47px">
+          <span class="mas-informacion" @click="sabermas('mbl')">Mas información</span>              
         </div>
       </div>
     </div>
@@ -662,7 +662,15 @@
           
         },
         descargarApp(param) {
-          console.log(param)
+          if (param == '1') {
+            window.dataLayer = window.dataLayer || [ ];
+              dataLayer.push({
+                    'event': 'home_cotizar_app_ahora',
+                    'category': 'UI :: Home',
+                    'action': 'Click boton',
+                    'label': 'Cotizar en el app'
+                })
+          }
           if (param == '2') {
             window.dataLayer = window.dataLayer || [ ];
               dataLayer.push({
@@ -691,15 +699,15 @@
           }
         },
         showModalNumeroCelular(param) {
-            // if (param = 'btn') {
-            //   window.dataLayer = window.dataLayer || [ ];
-            //   dataLayer.push({
-            //       'event': 'home_click_btn_ios_google',
-            //       'category': 'UI :: Home',
-            //       'action': 'Click boton',
-            //       'label': 'iOS / Android'
-            //   })
-            // }
+            if (param = 'btn') {
+              window.dataLayer = window.dataLayer || [ ];
+              dataLayer.push({
+                  'event': 'home_click_btn_ios_google',
+                  'category': 'UI :: Home',
+                  'action': 'Click boton',
+                  'label': 'iOS / Android'
+              })
+            }
             if(param == '1') {
               window.dataLayer = window.dataLayer || [ ];
                 dataLayer.push({
@@ -743,6 +751,13 @@
           // this.mostrarModalFake = false
         },
         showModalQuieroCotizar(){
+          window.dataLayer = window.dataLayer || [ ];
+          dataLayer.push({
+              'event': 'home_quiero_cotizar_ahora',
+              'category': 'UI :: Home',
+              'action': 'Click boton',
+              'label': 'Quiero cotizar ahora'
+          });
           this.$refs.modalQuieroCotizar.show()
         },
         hideModalQuieroCotizar(){
@@ -760,14 +775,25 @@
         hidemodalHomeVideo() {
           this.$refs.modalHomeVideo.hide()
         },
-        sabermas(){
-          window.dataLayer = window.dataLayer || [ ];
-          dataLayer.push({
-              'event': 'home_saber_mas',
-              'category': 'UI :: Home',
-              'action': 'Click',
-              'label': 'Más información'
-          })
+        sabermas(param){
+          if (param == 'dkt') {
+            window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'home_saber_mas',
+                'category': 'UI :: Home',
+                'action': 'Click',
+                'label': 'home saber mas'
+            })
+          }else if (param == 'mbl') {
+            window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'home_mas_informacion',
+                'category': 'UI :: Home',
+                'action': 'Click',
+                'label': 'mas informacion'
+            })
+          }
+          
           this.$nuxt.$router.push({path: "/preguntas-frecuentes"})
         },
         showModalHomeVideo() {
@@ -1449,9 +1475,10 @@ p, img{
   }
   .banner-root{
     background: #ebf1fb;
-    padding-bottom: 40px;
     &__body{
-      padding-top: 120px;
+      padding-bottom: 24px;
+      overflow: hidden;
+      padding-top: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1474,20 +1501,22 @@ p, img{
         display: block;
       }
       h1{
-        font-family: 'omnes';
-        font-size: 30px;
+        font-family: 'omnesregular';
+        font-size: 24px;
         font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
         line-height: 1.13;
         letter-spacing: normal;
         text-align: center;
         color: #0854c4;
         max-width: 330px;
+        span{
+          font-family: 'omnes';
+        }
       }
       .subtitulo{
+        cursor: pointer;
         font-family: 'omnesregular';
-        font-size: 28px;
+        font-size: 20px;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -1495,12 +1524,18 @@ p, img{
         letter-spacing: normal;
         text-align: center;
         color: #0854c4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+          width: 16px;
+          margin-right: 12px;
+        }
       }
       .btn-cotizar{
-          margin-top: 52px;
           cursor: pointer;
-          width: 303px;
-          height: 52.2px;
+          width: 210px;
+          height: 52px;
           background-color: #ea0b90;
           display: flex;
           flex-direction: column;
@@ -1533,20 +1568,26 @@ p, img{
           }
 
       }
+      .btns-banner{
+        margin-top: 24px;
+      }
       .btn-quiero-cotizar{
         cursor: pointer;
         border-radius: 3px;
-        border: solid 0.5px #0854C4;
-        width: 303px;
-        height: 47px;
-        color: #0854C4;
+        border: solid 0.5px #ea0b90;
+        width: 205px;
+        height: 51px;
+        color: #ea0b90;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 16px;
       }
     }
     .root-der{
+      .caja-mobile{
+        overflow: hidden;
+        height: 240px;
+      }
       img{
         max-width: 280px;
         margin: auto;
@@ -1623,6 +1664,20 @@ p, img{
         color: #0854C4;
         cursor: pointer;
         border: 1px solid #0854C4;
+        display: inline-block;
+        padding: 15px 34px;
+      }
+      .mas-informacion{
+        color: #EA0F90;
+        font-family: 'omnes';
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        text-align: center;
+        cursor: pointer;
         display: inline-block;
         padding: 15px 34px;
       }
@@ -2617,20 +2672,36 @@ p, img{
   @media (min-width: 1024px) {
     .banner-root{
       &__body{
+        padding-bottom: 0;
+        padding-top: 120px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
         height: 578px;
+        
       }
       .root-izq{
+        padding-right: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 305px;
         h1{
-          font-size: 33px;
-          max-width: 340px
+          text-align: left;
+          font-size: 36px;
+          max-width: 450px
         }
         .subtitulo{
-          font-size: 26px;
-          max-width: 340px
+          max-width: 340px;
+          text-align: left;
+        }
+        .btns-banner{
+          width: 430px;
+          display: flex !important;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
         }
       }
     }
@@ -2948,26 +3019,20 @@ p, img{
         justify-content: center;
       }
       .root-izq{
-        padding-right: 42px;
-        h1{
-          font-size: 44px;
-          max-width: 450px;
-        }
+        padding-right: 12px;
         .subtitulo{
-          font-size: 32px;
           max-width: 450px;
         }
         .btns-banner{
-          display: flex !important;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-end;
         }
       }
       .root-der{
+        min-width: 340px;
         img{
           max-width: 410px;
-          max-height: 490px;
+          max-height: 540px;
+          position: relative;
+          bottom: -30px;
         }
       }
     }
