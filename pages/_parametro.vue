@@ -693,9 +693,9 @@
                   email: this.$store.state.common.email
                 }
                 this.$store.dispatch('common/getVehicle', rmktItem)
-                  .then((ress) => {
-                    if (ress.data.code == 0) {
-                      if (ress.data.body.activePolicy === true) {
+                  .then((res) => {
+                    if (res.data.code == 0) {
+                      if (res.data.body.activePolicy === true) {
                         this.$nuxt.$router.push({path: "/placa-registrada"})
                       } else {
 

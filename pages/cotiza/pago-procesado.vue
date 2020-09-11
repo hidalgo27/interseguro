@@ -222,7 +222,6 @@ export default {
   computed: {},
   methods: {
    PaginaVistaNuevoProducto() {
-        console.log("NUEVO PRODUCTO")
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             event: "pagina_vista",
@@ -329,7 +328,7 @@ export default {
       .then((res) =>{
         this.listTest = res.data.body
 
-        // this.$store.dispatch('common/enviarMailingConfirmacion', this.listTest.policyNumber)
+        this.$store.dispatch('common/enviarMailingConfirmacion', this.listTest.policyNumber)
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "EEtransaction",

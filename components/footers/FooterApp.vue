@@ -184,13 +184,13 @@
                         href="https://app.interseguro.com.pe/LibroReclamaciones/"
                       >Libro de Reclamaciones</a>
                     </li>
-                    <!-- <li class="acordeon-lista">
+                    <li class="acordeon-lista">
                       <a
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
                         href="https://www.interseguro.pe/vehicular/tyc"
-                      >T&C Campañas promocionales</a>
-                    </li> -->
+                      >T&C </a>
+                    </li>
                   </ul>
                 </b-card-text>
               </b-card-body>
@@ -239,10 +239,10 @@
       <div class="footerv2__redesSociales">
         <p>Descargar la App</p>
         <div class="botones-app  mt-3  mb-3">          
-          <div class="ios"  @click="showModalNumeroCelular('btn')">
+          <div class="ios"  @click="showModalNumeroCelular('btn',1)">
               <img width="100" src="./../../static/media/img/root/tienda_ios.png" alt="">
           </div>
-          <div class="google  ml-4"  @click="showModalNumeroCelular('btn')">
+          <div class="google  ml-4"  @click="showModalNumeroCelular('btn',2)">
             <img width="100" src="./../../static/media/img/root/tienda_google.png" alt="">
           </div>
         </div>
@@ -314,10 +314,10 @@
           <div class="medio__redes">
             <p>Descargar la App</p>
             <div class="botones-app  mt-3  mb-3">          
-              <div class="ios"  @click="showModalNumeroCelular('btn')">
+              <div class="ios"  @click="showModalNumeroCelular('btn',1)">
                   <img width="100" src="./../../static/media/img/root/tienda_ios.png" alt="">
               </div>
-              <div class="google  ml-4"  @click="showModalNumeroCelular('btn')">
+              <div class="google  ml-4"  @click="showModalNumeroCelular('btn',2)">
                 <img width="100" src="./../../static/media/img/root/tienda_google.png" alt="">
               </div>
             </div>
@@ -426,9 +426,6 @@
                 >SOAT</a>
               </li>
               <li class="acordeon-lista">
-                <nuxt-link target="_blank" rel="noopener" class="acordeon-enlace" to="/">Vehicular</nuxt-link>
-              </li>
-              <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
@@ -475,23 +472,23 @@
                   href="https://app.interseguro.com.pe/LibroReclamaciones/"
                 >Libro de Reclamaciones</a>
               </li>
-              <!-- <li class="acordeon-lista">
+              <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
                   href="https://www.interseguro.pe/vehicular/tyc"
-                >T&C Campañas promocionales</a>
-              </li> -->
+                >T&C </a>
+              </li>
             </ul>
           </div>
           <div class="inferior__item d-none d-lg-block" style="width: 26%;">
             <div class="medio  pt-0">
               <p class="mb-2">Descargar la App</p>
             <div class="botones-app mb-3">          
-              <div class="ios"  @click="showModalNumeroCelular('btn')">
+              <div class="ios"  @click="showModalNumeroCelular('btn',1)">
                   <img width="110" src="./../../static/media/img/root/tienda_ios.png" alt="">
               </div>
-              <div class="google  ml-4"  @click="showModalNumeroCelular('btn')">
+              <div class="google  ml-4"  @click="showModalNumeroCelular('btn',2)">
                 <img width="110" src="./../../static/media/img/root/tienda_google.png" alt="">
               </div>
             </div>
@@ -651,24 +648,23 @@ export default {
           })
           this.$refs.modalNumeroCelular.hide();
         },
-    showModalNumeroCelular(param) {
-            // if (param = 'btn') {
-            //   window.dataLayer = window.dataLayer || [ ];
-            //   dataLayer.push({
-            //       'event': 'home_click_btn_ios_google',
-            //       'category': 'UI :: Home',
-            //       'action': 'Click boton',
-            //       'label': 'iOS / Android'
-            //   })
-            // }
-            if(param == '1') {
+    showModalNumeroCelular(param, tienda) {
+            if (param == 'btn' && tienda == 1) {
               window.dataLayer = window.dataLayer || [ ];
+              dataLayer.push({
+                  'event': 'footer_click_ios',
+                  'category': 'UI :: Descarga el app',
+                  'action': 'Click boton',
+                  'label': 'iOS'
+            })      
+            }else if(param == 'btn' && tienda == 2) {
+                window.dataLayer = window.dataLayer || [ ];
                 dataLayer.push({
-                    'event': 'home_cotizar_app_ahora',
-                    'category': 'UI :: Home',
+                    'event': 'footer_click_google',
+                    'category': 'UI :: Descarga el app',
                     'action': 'Click boton',
-                    'label': 'Cotizar en el app'
-                })
+                    'label': 'Android'
+                })      
             }
             this.$refs.modalNumeroCelular.show();
         },

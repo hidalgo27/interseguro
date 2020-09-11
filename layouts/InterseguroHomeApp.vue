@@ -1,10 +1,7 @@
 <template>
     <div>      
       
-      <header-is-ibk v-if="this.businessId == 2"></header-is-ibk>
-      <header-app v-else-if="this.appDiscountURL == 1"></header-app>
-      <header-is v-else></header-is>
-
+      <header-app></header-app>
         <div>
           <nuxt/>
         </div>
@@ -14,6 +11,7 @@
 </template>
 
 <script>
+
 import HeaderIBK from '@/components/headers/HeaderInterbank'
 import Header from '@/components/headers/HeaderInterseguro'
 import HeaderApp from '@/components/headers/HeaderApp'

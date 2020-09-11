@@ -1,5 +1,8 @@
 <template>
   <div class="homeRoot">
+    <!-- <div class="qr" >
+      <img width="80" src="./../../static/media/img/root/qr.PNG" alt="qr">
+    </div> -->
     <div class="capa-modal" v-bind:class="{'d-block' : mostrarCapaModal }" @click="hideCapaModal($event)">
       
     </div>
@@ -51,7 +54,7 @@
 
           <h1><span>Descarga el app</span> y maneja para recibir un descuento de <span>hasta 50%</span> en tu cotización
           </h1>
-          <p class="subtitulo"  @click="showModalHomeVideo()"><img src="./../../static/media/img/root/play.png" alt="plan"> ver como funciona</p>
+          
           <div class="btns-banner  d-none  d-lg-block">
             <div class="btn-cotizar" @click="showModalNumeroCelular('1')">
               <span class="cotizar">COTIZAR EN EL APP</span>
@@ -61,6 +64,9 @@
               <span>QUIERO COTIZAR AHORA</span>
             </div>
           </div>
+
+          <p class="subtitulo" @click="showModalHomeVideo()"><span>&#9658;</span>  Ver cómo funciona</p>
+
         </div>
         <div class="root-der">
           <img class="d-none  d-lg-block" src="./../../static/media/img/root/banner.png" alt="">
@@ -80,13 +86,13 @@
       </div>
     </div>
 
-    <div class="home-pasos  p-47px">
+    <div class="home-pasos  p-47px" style="padding-top: 45px;">
       <div class="home-pasos__titulo">
       </div>
 
       <div class="home-pasos__beneficios">
         <div class="home-pasos__planes--titulo">
-          <p class="como-funciona">¡Es fácil! En solo 3 pasos</p>
+          <p class="como-funciona">Es fácil, en solo 3 pasos</p>
         </div>
         
         <div class="home-pasos__cuerpo   pasos">
@@ -128,7 +134,7 @@
       </div>
     </div>
 
-    <div class="home-root  pt-lg-4">
+    <div class="home-root"  style="padding-top: 40px">
       <div class="home-root__izq  d-none  d-lg-flex">
         <p class="home-root--titulo">
           Los buenos conductores <br> merecen ahorrar más
@@ -144,10 +150,10 @@
             Descarga el app e inicia tu prueba gratis.
           </p>
           <div class="botones-app    d-none  d-lg-flex">
-            <div class="ios"  @click="showModalNumeroCelular('btn')">
+            <div class="ios"  @click="showModalNumeroCelular('btn',1)">
                 <img src="./../../static/media/img/root/tienda_ios.png" alt="">
             </div>
-            <div class="google  ml-4"  @click="showModalNumeroCelular('btn')">
+            <div class="google  ml-4"  @click="showModalNumeroCelular('btn',2)">
               <img src="./../../static/media/img/root/tienda_google.png" alt="">
             </div>
           </div>
@@ -592,6 +598,7 @@
     layout: "InterseguroHome",
       data () {
           return {
+            action: '',
             mostrarMensajeEnviado: false,
             inputNumeroCelular: '',
             placeholderNumeroCelular: 'Ingresa tu número de télefono',
@@ -619,23 +626,23 @@
         })
       },
       methods: {
-        enviarNumeroCelular(){
+        enviarNumeroCelular(param){
           if (this.inputNumeroCelular.length == 9) {
-           this.$store.dispatch('common/enviarMsjCelular',this.inputNumeroCelular).then((res)=>{
+            this.$store.dispatch('common/enviarMsjCelular',this.inputNumeroCelular).then((res)=>{
               if (res.data.code == 0) {
-                  this.mostrarMensajeEnviado = true
-                  window.dataLayer = window.dataLayer || [ ];
-                  dataLayer.push({
-                      'event': 'home_recibiras_msj_texto',
-                      'category': 'UI :: Home',
-                      'action': 'Cotizar en el app',
-                      'label': 'Popup descargar app'
-                  })
-                   setTimeout(() => {
-                    this.mostrarMensajeEnviado = false
-                    this.$refs.modalNumeroCelular.hide();
-                    this.inputNumeroCelular = ''
-                  }, 2000);
+                this.mostrarMensajeEnviado = true
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                  'event': 'home_recibiras_msj_texto',
+                  'category': 'UI :: Home',
+                  'action': this.action,
+                  'label': 'Popup descargar app'
+                })
+                setTimeout(() => {
+                  this.mostrarMensajeEnviado = false
+                  this.$refs.modalNumeroCelular.hide();
+                  this.inputNumeroCelular = ''
+                }, 2000);
               }else{
                 this.$swal({
                   title: "Ups!",
@@ -647,7 +654,7 @@
                 })
                 this.inputNumeroCelular = ''
               }
-          })
+            })
           }else{
             this.$swal({
               title: "Ups!",
@@ -658,18 +665,17 @@
               confirmButtonText: "OK"
             })
             this.inputNumeroCelular = ''
-          }
-          
+          }          
         },
         descargarApp(param) {
           if (param == '1') {
             window.dataLayer = window.dataLayer || [ ];
-              dataLayer.push({
-                    'event': 'home_cotizar_app_ahora',
-                    'category': 'UI :: Home',
-                    'action': 'Click boton',
-                    'label': 'Cotizar en el app'
-                })
+            dataLayer.push({
+              'event': 'home_cotizar_app_ahora',
+              'category': 'UI :: Home',
+              'action': 'Click boton',
+              'label': 'Cotizar en el app'
+            })
           }
           if (param == '2') {
             window.dataLayer = window.dataLayer || [ ];
@@ -682,40 +688,45 @@
           }
           var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-          if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
-          {            
+          if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){            
             window.location.replace("https://apps.apple.com/pe/app/interseguro-vehicular/id1517921041?l=en");
             return 'iOS';
-
-          }
-          else if( userAgent.match( /Android/i )){
+          }else if( userAgent.match( /Android/i )){
             window.location.replace("https://play.google.com/store/apps/details?id=pe.interseguro.intersegurovehicular&hl=es_PE");
             return 'Android';
-          }
-          else
-          {
-            
+          }else{            
             return 'unknown'; 
           }
         },
-        showModalNumeroCelular(param) {
-            if (param = 'btn') {
+        showModalNumeroCelular(param, tienda) {
+            if (param == 'btn' && tienda == 1) {
+              this.action = 'Click iOS'
               window.dataLayer = window.dataLayer || [ ];
               dataLayer.push({
-                  'event': 'home_click_btn_ios_google',
+                  'event': 'home_click_btn_ios',
                   'category': 'UI :: Home',
                   'action': 'Click boton',
-                  'label': 'iOS / Android'
+                  'label': 'iOS'
+              })
+            }else if(param == 'btn' && tienda == 2){
+              this.action = 'Click Android'
+              window.dataLayer = window.dataLayer || [ ];
+              dataLayer.push({
+                'event': 'home_click_btn_android',
+                'category': 'UI :: Home',
+                'action': 'Click boton',
+                'label': 'Android'
               })
             }
             if(param == '1') {
+              this.action = 'Cotizar en el app'
               window.dataLayer = window.dataLayer || [ ];
-                dataLayer.push({
-                    'event': 'home_cotizar_app_ahora',
-                    'category': 'UI :: Home',
-                    'action': 'Click boton',
-                    'label': 'Cotizar en el app'
-                })
+              dataLayer.push({
+                  'event': 'home_cotizar_app_ahora',
+                  'category': 'UI :: Home',
+                  'action': 'Click boton',
+                  'label': 'Cotizar en el app'
+              })
             }
             this.$refs.modalNumeroCelular.show();
         },
@@ -782,7 +793,7 @@
                 'event': 'home_saber_mas',
                 'category': 'UI :: Home',
                 'action': 'Click',
-                'label': 'home saber mas'
+                'label': 'saber mas'
             })
           }else if (param == 'mbl') {
             window.dataLayer = window.dataLayer || [ ];
@@ -877,22 +888,41 @@
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
                 this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
-                /* Existe en nuestra base de datos */                
-                if (respuesta.exists == true) {
-                  this.$store.commit('common/setVehicleState', 1)
-                  if(respuesta.client.externalId > 0 ){
-                    this.$store.commit('common/setOrigenCliente', 2)
-                    this.$store.commit('common/setClienteSOAT', respuesta.client)
-                    this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
-                    this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
-                    
+                if (respuesta.appDiscount == true) {
+                  this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                }else{                  
+                  /* Existe en nuestra base de datos */                
+                  if (respuesta.exists == true) {
+                    this.$store.commit('common/setVehicleState', 1)
+                    if(respuesta.client.externalId > 0 ){
+                      this.$store.commit('common/setOrigenCliente', 2)
+                      this.$store.commit('common/setClienteSOAT', respuesta.client)
+                      this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
+                      this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
+                      
+                    }else {
+                      this.$store.commit('common/setOrigenCliente', 1)
+                    }
+                    /* Tiene una poliza activa */
+                    if (respuesta.activePolicy === true) {
+                      this.$nuxt.$router.push({path: "/placa-registrada"})
+                    } else {             
+                      this.loading = false
+                      if (document.location.hostname == "www.interseguro.pe"){
+                        fbq('track', 'CompleteResgistration');
+                      }else{
+                      }
+                      this.$store.commit('common/setPantallaFlujo', 1)
+                      this.$nuxt.$router.push("/cotiza/cotizacion/")
+                    }
                   }else {
-                    this.$store.commit('common/setOrigenCliente', 1)
-                  }
-                  /* Tiene una poliza activa */
-                  if (respuesta.activePolicy === true) {
-                    this.$nuxt.$router.push({path: "/placa-registrada"})
-                  } else {             
+                    if(respuesta.client.externalId > 0 ){
+                      this.$store.commit('common/setOrigenCliente', 2)
+                    }else{
+                      this.$store.commit('common/setOrigenCliente', 1)
+                    }          
+                    this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
+                    this.$store.commit('common/setVehicleState', 0)
                     this.loading = false
                     if (document.location.hostname == "www.interseguro.pe"){
                       fbq('track', 'CompleteResgistration');
@@ -901,21 +931,6 @@
                     this.$store.commit('common/setPantallaFlujo', 1)
                     this.$nuxt.$router.push("/cotiza/cotizacion/")
                   }
-                }else {
-                  if(respuesta.client.externalId > 0 ){
-                    this.$store.commit('common/setOrigenCliente', 2)
-                  }else{
-                    this.$store.commit('common/setOrigenCliente', 1)
-                  }          
-                  this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
-                  this.$store.commit('common/setVehicleState', 0)
-                  this.loading = false
-                  if (document.location.hostname == "www.interseguro.pe"){
-                    fbq('track', 'CompleteResgistration');
-                  }else{
-                  }
-                  this.$store.commit('common/setPantallaFlujo', 1)
-                  this.$nuxt.$router.push("/cotiza/cotizacion/")
                 }
               }else{
 
@@ -1473,6 +1488,21 @@ p, img{
     transition: all .5s;
     position: fixed;
   }
+  .qr{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    border: solid 1px #707070;
+    background-color: #454A6C;
+    transition: all .5s;
+    position: fixed;
+    right: 0;
+    top: 50vh;    
+  }
   .banner-root{
     background: #ebf1fb;
     &__body{
@@ -1514,6 +1544,20 @@ p, img{
         }
       }
       .subtitulo{
+        span{
+          background: #d5dae2;
+          margin-right: 12px;
+          border-radius: 28px;
+          width: 28px;
+          height: 28px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #a2a2a3;
+          font-size: 18px;
+          text-align: center;
+          padding-left: 4px;
+        }
         cursor: pointer;
         font-family: 'omnesregular';
         font-size: 20px;
@@ -1523,7 +1567,7 @@ p, img{
         line-height: 1.25;
         letter-spacing: normal;
         text-align: center;
-        color: #0854c4;
+        color: #6e6d6e;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2670,6 +2714,9 @@ p, img{
     }
   }
   @media (min-width: 1024px) {
+    .qr{
+      display: flex;
+    }
     .banner-root{
       &__body{
         padding-bottom: 0;
@@ -2685,14 +2732,15 @@ p, img{
         padding-right: 12px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;;
         height: 305px;
         h1{
           text-align: left;
-          font-size: 36px;
+          font-size: 48px;
           max-width: 450px
         }
         .subtitulo{
+          justify-content: flex-start;
           max-width: 340px;
           text-align: left;
         }
@@ -2702,6 +2750,8 @@ p, img{
           flex-direction: row;
           justify-content: space-between;
           align-items: flex-start;
+          margin-top: 48px;
+          margin-bottom: 24px;
         }
       }
     }
@@ -3020,10 +3070,13 @@ p, img{
       }
       .root-izq{
         padding-right: 12px;
+        height: 412px;
+        padding-top: 20px;
         .subtitulo{
           max-width: 450px;
         }
-        .btns-banner{
+        h1{
+          max-width: 620px;
         }
       }
       .root-der{
@@ -3035,6 +3088,7 @@ p, img{
           bottom: -30px;
         }
       }
+      
     }
     .home .home-clientes2 .box-total {      
       display: flex;
@@ -3122,7 +3176,7 @@ p, img{
       }
 
       .home-pasos{
-        padding-top: 40px;
+        padding-top: 48px;
         .pasos{
           width: 100%;
           max-width: 1200px;

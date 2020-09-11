@@ -10,111 +10,8 @@
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
-                <div class="nav-contacto  d-flex  d-xl-none">                
-                    
-                        <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
-                            <a style="text-decoration: none;" href="tel:015000000">               
-                                <img src="../../static/media/img/home/telefono-header.png" alt="email">
-                            </a>
-                        </div>
-                        <div class="whatsapp  d-none" v-bind:class="{ oculto: !isOculto }">
-                            <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Tengo%20una%20consulta.%20">
-                                <img src="../../static/media/img/home/wapp.png" alt="email">
-                            </a>
-                        </div>
-                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
-                            <img src="../../static/media/img/home/menu.png" alt="menu">
-                        </div>
-                        <div class="main-nav__menu" id="main-menu">
-                            <div class="main-menu">
-                                <div class="box-logo">
-                                    <img src="../../static/media/interseguroVehicular_v2/logo_blanco.png" alt="logo_blanco">
-                                </div>
-                                <div class="box-close" @click="closeNav($event)">
-                                    <img src="../../static/media/img/home/close.png" alt="close">
-                                </div>
-                            </div>
-                            <ul class="">
-                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/">  Inicio</nuxt-link>
-                                </li>
-                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/cobertura">¿Qué me cubre?</nuxt-link>
-                                </li>        
-                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿Cómo lo uso?</nuxt-link>
-                                </li>
-                                <li class="main-nav__menu--item menu-item"  @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace" v-if="this.nuevoProducto" to="/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                <nuxt-link class="menu-item__enlace" v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                </li>
-                                <div class="nav-contacto">
-                                <div class="footer-menu">
-                                    <p>Síguenos en:</p>
-                                    <div class="footer-menu__redes">
-                                        <span>
-                                            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
-                                        </span>
-                                        <span>
-                                            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
-                                        </span>
-                                        <span>
-                                            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
-                                        </span>
-                                        <span>
-                                            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
-                                        </span>
-                                    </div>
-                                </div>
-                                </div>
-                            </ul>
-                        </div>
-                        
-                </div>
             </div>
             <div class="menu-nav__der">
-
-                <ul>
-                    <li class="" >
-                        <nuxt-link class=""  to="/cobertura/">¿Qué me cubre?</nuxt-link>
-                    </li>        
-                    <li class="" >
-                        <nuxt-link class=""  to="/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
-                    </li>
-                    <li class="" >
-                    <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                <nuxt-link v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                    </li>
-                    <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
-                        <div class="whatsapp  mr-2">
-                            <div class="d-flex  telefono-desktop">
-                                <div class=" telefono-desktop-img">
-                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
-                                </div>
-                                <div>
-                                    <span style="text-align:left; display: flex" class="ml-2">Llámanos<br>(01)500 0000</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="telefono ">
-                            <a target="_blank" style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Estoy%20en%20la%20web%20de%20Seguro%20Vehicular%20y%20tengo%20una%20consulta.%20">                              
-                                
-                                <div class="d-flex  wapp-desktop">
-                                    <div class="wapp-desktop-img">
-                                        <span><img width="28" src="../../static/media/img/home/wapp.png" alt="email"></span>
-                                    </div>
-                                    <div>
-                                        <span  style="text-align:left; display: flex" class="ml-2">Escríbenos<br>977 822 185</span>
-                                    </div>
-                                </div>
-                            </a>
-                           
-                        </div>
-                    </div>
-
-
-                </ul>
                 <div id="capa" style="display: none;"></div>
             </div>
         </div>
@@ -164,7 +61,6 @@ export default {
         }
     },
     mounted(){
-    
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -252,8 +148,8 @@ export default {
     },
     created(){
     setTimeout(()=>{
-    this.nuevoProducto = this.$store.state.common.nuevoProducto
-    },1000)
+        this.nuevoProducto = this.$store.state.common.nuevoProducto
+        },1000)
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -404,6 +300,7 @@ export default {
             display: flex;
             flex-direction: column;
             position: relative;
+            border-bottom: 1px solid #0855c4;
             .nav-contacto{
                 display: flex;
                 .telefono_custom{

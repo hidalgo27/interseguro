@@ -44,7 +44,7 @@ export default {
     };
   },
   mounted() {
-      this.placa = localStorage.getItem('placa');
+      this.placa = this.$store.state.common.plateNumber.toUpperCase()
       this.PaginaVista()
   },
   methods: {

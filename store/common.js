@@ -3,6 +3,7 @@ import { reject } from "lodash"
 const getDefaultState = () => {
     return {
     //GLOBALES
+    appdiscountURL: false,
     appDiscount: false,
     flujoDetectado: 'interseguro',
     codeRmkt: 0,
@@ -103,6 +104,9 @@ const mutations = {
     resetState (state) {
         Object.assign(state, getDefaultState())
     },
+    setAppDiscountURL (state, payload){
+        state.appDiscountURL = payload
+    },
     setAppDiscount (state, payload){
         state.appDiscount = payload
     },
@@ -191,7 +195,7 @@ const mutations = {
         state.objVehiculo = JSON.parse(JSON.stringify(payload))
     },
     setListaCotizacion(state, payload){
-        state.listaCotizacion = payload
+        state.listaCotizacion = JSON.parse(JSON.stringify(payload))
     },
     setItemElegido(state, payload){
         state.itemElegido = payload

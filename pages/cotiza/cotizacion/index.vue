@@ -158,7 +158,7 @@
                     </div>
                   </div> 
                   <p class="tomar-cuenta  mb-3">A TOMAR EN CUENTA</p>
-                  
+                  <pre>PLAN{{this.planSeleccionado}}{{this.objectVehicle}}</pre>
                   <div class="item  pb-2">
                     <span>Fecha de inicio del seguro: </span>
                     <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1; padding-bottom: 4px;" @click="showModalInicioVigencia()">                      
@@ -665,6 +665,7 @@
                             {{this.listaBasica.vehicle.gps == "Y" ? "SI" : "NO" }}                                
                         </span>
                       </a>
+                      
                     </div>
 
                       
@@ -1942,10 +1943,8 @@
         let url = ""
         if (this.$store.state.common.nuevoProducto == true) {
           url = "/vehicular-app/cotiza/cotizacion/"
-          console.log(url)
         }else if (this.$store.state.common.nuevoProducto == false){
           url = "/vehicular/cotiza/cotizacion/"
-          console.log(url)
         }
           
           window.dataLayer = window.dataLayer || [];
@@ -2190,6 +2189,8 @@
               this.code_sku = "sku006"
             }else if(this.itemElegido.model.indexOf("TUCSON") >= 0 ) {
               this.code_sku = "sku007"
+            }else if(this.itemElegido.model.indexOf("SANTA FE") >= 0 ) {
+              this.code_sku = "sku018"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2202,6 +2203,10 @@
               this.code_sku = "sku009"
             }else if(this.itemElegido.model.indexOf("SPORTAGE") >= 0 ) {
               this.code_sku = "sku010"
+            }else if(this.itemElegido.model.indexOf("CARENS") >= 0 ) {
+              this.code_sku = "sku019"
+            }else if(this.itemElegido.model.indexOf("SORENTO") >= 0 ) {
+              this.code_sku = "sku020"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2210,14 +2215,58 @@
           case 62:
             if (this.itemElegido.model.indexOf("YARIS") >= 0 ) {
               this.code_sku = "sku011"
+            }else if(this.itemElegido.model.indexOf("COROLLA") >= 0 ) {
+              this.code_sku = "sku021"
+            }else if(this.itemElegido.model.indexOf("HILUX") >= 0 ) {
+              this.code_sku = "sku022"
+            }else if(this.itemElegido.model.indexOf("AVANZA") >= 0 ) {
+              this.code_sku = "sku023"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
             
             break;
+          case 64:
+            if (this.itemElegido.model.indexOf("XC") >= 0 ) {
+              this.code_sku = "sku026"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }            
+            break;
+          case 30:
+            if (this.itemElegido.model.indexOf("PILOT") >= 0 ) {
+              this.code_sku = "sku027"
+            }else if(this.itemElegido.model.indexOf("WR-V") >= 0 ) {
+              this.code_sku = "sku028"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }            
+            break;
           case 61:
             if (this.itemElegido.model.indexOf("SWIFT") >= 0 ) {
               this.code_sku = "sku012"
+            }else if(this.itemElegido.model.indexOf("SX4") >= 0 ) {
+              this.code_sku = "sku024"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }
+            break;
+          case 63:
+            if (this.itemElegido.model.indexOf("GOL") >= 0 ) {
+              this.code_sku = "sku029"
+            }else if(this.itemElegido.model.indexOf("GOLF") >= 0 ) {
+              this.code_sku = "sku030"
+            }else if(this.itemElegido.model.indexOf("T-CROSS") >= 0 ) {
+              this.code_sku = "sku031"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }
+            break;
+          case 8:
+            if (this.itemElegido.model.indexOf("CS") >= 0 ) {
+              this.code_sku = "sku032"
+            }else if(this.itemElegido.model.indexOf("GRAND VAN") >= 0 ) {
+              this.code_sku = "sku033"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2225,6 +2274,8 @@
           case 49:
             if (this.itemElegido.model.indexOf("ASX") >= 0 ) {
               this.code_sku = "sku013"
+            }else if(this.itemElegido.model.indexOf("OUTLANDER") >= 0 ) {
+              this.code_sku = "sku025"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2238,11 +2289,35 @@
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
             break;
+          case 33:
+            if (this.itemElegido.model.indexOf("S2") >= 0 ) {
+              this.code_sku = "sku035"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }
+            break;
+          case 54:
+            if (this.itemElegido.model.indexOf("SANDERO") >= 0 ) {
+              this.code_sku = "sku036"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }
+            break;
+          case 35:
+            if (this.itemElegido.model.indexOf("KONECT") >= 0 ) {
+              this.code_sku = "sku037"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }
+            break;
+          
           case 50:
             if (this.itemElegido.model.indexOf("TIIDA") >= 0 ) {
               this.code_sku = "sku015"
             } else if(this.itemElegido.model.indexOf("VERSA") >= 0 ) {
               this.code_sku = "sku016"
+            }else if(this.itemElegido.model.indexOf("X-TRAIL") >= 0 ) {
+              this.code_sku = "sku034"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }            
@@ -2250,7 +2325,10 @@
           default:
             this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             break
+
+          
         }
+        console.log("this.code_sku",this.code_sku)
           if (this.$store.state.common.origenCliente == 2) {
             this.objectVehicle.modelId = -1;
             if (this.objectVehicle.modelId == -1) {
@@ -2316,6 +2394,7 @@
         }
       },
       cambioInput(evt) {
+        alert("HOLA")
         if (
           this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum ||
           this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum

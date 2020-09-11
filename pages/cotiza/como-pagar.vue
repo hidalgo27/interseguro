@@ -680,7 +680,6 @@ import { validationMixin } from 'vuelidate'
                 });
             },
             PaginaVistaNuevoProducto() {
-                console.log("NUEVO PRODUCTO")
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: "pagina_vista",
@@ -1211,10 +1210,10 @@ import { validationMixin } from 'vuelidate'
           },
         },
         computed:{
-      appDiscount: function(){
-        let appDiscount = this.$store.state.common.appDiscount
-        return appDiscount
-      },
+            appDiscount: function(){
+                let appDiscount = this.$store.state.common.appDiscount
+                return appDiscount
+            },
             isEnable: function(){
                 return this.cardCompleto;                
             },

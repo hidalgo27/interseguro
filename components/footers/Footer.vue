@@ -184,13 +184,13 @@
                         href="https://app.interseguro.com.pe/LibroReclamaciones/"
                       >Libro de Reclamaciones</a>
                     </li>
-                    <!-- <li class="acordeon-lista">
+                    <li class="acordeon-lista">
                       <a
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
                         href="https://www.interseguro.pe/vehicular/tyc"
-                      >T&C Campañas promocionales</a>
-                    </li> -->
+                      >T&C </a>
+                    </li>
                   </ul>
                 </b-card-text>
               </b-card-body>
@@ -408,9 +408,6 @@
                 >SOAT</a>
               </li>
               <li class="acordeon-lista">
-                <nuxt-link target="_blank" rel="noopener" class="acordeon-enlace" to="/">Vehicular</nuxt-link>
-              </li>
-              <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
@@ -457,13 +454,13 @@
                   href="https://app.interseguro.com.pe/LibroReclamaciones/"
                 >Libro de Reclamaciones</a>
               </li>
-              <!-- <li class="acordeon-lista">
+              <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
                   href="https://www.interseguro.pe/vehicular/tyc"
-                >T&C Campañas promocionales</a>
-              </li> -->
+                >T&C </a>
+              </li>
             </ul>
           </div>
           <div class="inferior__item d-none d-lg-block" style="width: 26%;">

@@ -3,18 +3,17 @@
         <div class="root  row">
             <div class="col-12  col-lg-6  root__izq">
                 <div class="root--info">
-                    <router-link to="/cotiza/ingresa-tu-documento"><img class="volver_atras" src="./../../static/media/img/root/volver_atras.png" alt=""></router-link>
-                    
-                    <h3>Sebastian, ¡Tú también puedes ahorrar hasta 50% con nuestro app</h3>
+                    <router-link to="/cotiza/ingresa-tu-documento"><img class="volver_atras" src="./../../static/media/img/root/volver_atras.png" alt=""></router-link>                    
+                    <h3>{{this.nombrecliente}}, tú también puedes ahorrar hasta 50% con nuestro app</h3>
                     <p class="datos-guardados  d-none  d-lg-block">
-                        <span>Descarga el app, maneja</span> por 3 semanas mientras medimos tu habilidad de manejo y recibe un <span>descuento de hasta 50%</span> si eres un buen conductor.
+                        <span>Descarga </span> el app, <span>maneja</span> por 3 semanas mientras medimos tu habilidad de manejo y <span>recibe</span> un descuento de hasta 50% si eres un buen conductor.
                     </p>
-                    <div class="btns-banner  d-none  d-lg-block">
+                    <div class="btns-banner  btns-banner-descargar-app d-none  d-lg-block">
                         <div class="btn-cotizar" @click="showModalNumeroCelular('1')">
                             <span class="cotizar">DESCARGAR APP</span>                        
                         </div>
                     </div>
-                    <div class="contacto">                    
+                    <div class="contacto  contacto-dkt">                    
                         <!-- <span class="telefono">{{}} <img src="" alt="x"></span> -->
                         <img class="root_mobile   d-flex  d-lg-none" src="./../../static/media/img/root/root_desktop.png" alt="">
                         <div class="box-reenviar-sms">                            
@@ -25,16 +24,16 @@
                         <span>Descarga el app, maneja</span> por 3 semanas mientras medimos tu habilidad de manejo y recibe un <span>descuento de hasta 50%</span> 
                     </p>
                     <div class="box-btn  mt-4  mb-4  d-lg-none ">
-                        <span class="btn-descargar" @click="descargarApp()" >Descargar app ahora</span>
+                        <span class="btn-descargar" @click="descargarApp('1')" >Descargar app ahora</span>
                     </div>
                     <div class="contacto">                    
                         <div class="box-reenviar-sms">                            
                             <span class="no-te-llego-sms  d-flex  d-lg-none">¿Quieres continuar con la compra de tu Seguro Vehicular por US$118 al mes?</span>
                         </div>
                     </div>
-                    <div class="btns-banner">
+                    <div class="btns-banner  btns-banner-quiero-continuar">
                         <div class="btn-continuar" @click="continuar_como_pagar()">
-                            <span class="cotizar">QUIERO CONTINUAR</span>                        
+                            <span class="cotizar">Quiero continuar</span>                        
                         </div>
 
                     </div>
@@ -48,10 +47,10 @@
                     <img src="./../../static/media/img/root/root_desktop.png" alt="IMAGEN">
                 </div>
                 <div class="botones-app    d-none  d-lg-flex">
-                    <div class="ios"  @click="showModalNumeroCelular('2')">
+                    <div class="ios"  @click="showModalNumeroCelular('2',1)">
                         <img width="151" src="./../../static/media/img/root/tienda_ios.png" alt="">
                     </div>
-                    <div class="google"  @click="showModalNumeroCelular('2')">
+                    <div class="google"  @click="showModalNumeroCelular('2',2)">
                         <img width="151" src="./../../static/media/img/root/tienda_google.png" alt="">
                     </div>
                 </div>
@@ -328,13 +327,15 @@
         }
         display: flex;
         .root--info{
-            .no-te-llego-sms{
+            .no-te-llego-sms{                
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.5;
+                letter-spacing: normal;
                 text-align: center;
-                justify-content: center;
-                width: 350px;
-                font-size: 20px;
                 color: #454A6C;
-                font-family: 'omnesregular';
             }
             .btn-cotizar{
                 cursor: pointer;
@@ -410,6 +411,12 @@
                     color: #454A6C;
                 }
             }
+            .btns-banner-quiero-continuar{                
+                margin-top: 8px !important;
+            }
+            .btns-banner-descargar-app{
+                margin-top: 60px !important;
+            }
             .btns-banner{
                 margin: 42px 0;
             }
@@ -433,15 +440,16 @@
                 letter-spacing: normal;
                 text-align: center;
                 color: #0854c4;
-                margin-top: 8px;
+                margin-top: 22px;
             }
         }
         .contacto{
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: center;
             position: relative;
             margin-top: 16px;
+            align-items: center;
             .mensaje-exitoso{
                 position: relative;
                 left: 0;
@@ -573,8 +581,11 @@
         .root{
             padding: 72px 0;
             .root--info{
-                width: 490px;
-                
+                width: 530px;
+                .btn-cotizar{
+                    width: 360px;
+                    letter-spacing: 0.4px;
+                }
                 .volver_atras{
                     position: absolute;
                     top: -30px;
@@ -583,11 +594,11 @@
                 }
                 .datos-guardados{
                     font-family: 'omnesregular';
-                    text-align: center;
+                    text-align: left;
                     font-size: 21px;
                     line-height: 1.43;
                     letter-spacing: normal;
-                    width: 490px;
+                    width: 530px;
                     margin-top: 20px;
                 }
                 .mensaje-enviado{
@@ -597,9 +608,8 @@
                     margin-top: 20px;
                 }
                 h3{
-                    width: 490px;
-                    text-align: center;
-                    font-size: 30px;
+                    text-align: left;
+                    font-size: 40px;
                 }
                 .box-input{
                     margin-top: 28px;
@@ -614,10 +624,12 @@
                 .no-te-llego-sms{
                     text-align: center;
                     justify-content: center;
-                    width: 350px;
+                    width: 530px;
                     font-size: 20px;
                     color: #454A6C;
                     font-family: 'omnesregular';
+                    line-height: 1.43;
+                    padding: 0 48px;
                 }
                 .continuar-mobile{
                     font-size: 18px;
@@ -628,7 +640,11 @@
                     font-family: 'omnesregular';
                     margin-top: 28px;
                 }
+                .contacto-dkt{
+                    margin-top: 60px;
+                }
                 .contacto{
+                    
                     .mensaje-exitoso{
                         font-size: 20px;
                     }
@@ -684,6 +700,8 @@ export default {
     layout: "InterseguroFlujo", 
     data() {
         return {
+            nombrecliente: '',
+            action: '',
             itemElegido:{},
             mostrarMsjExitoso: false,
             mostrarMensajeEnviado: false,
@@ -785,11 +803,20 @@ export default {
                 'event': 'stopper_continuar_compra',
                 'category': 'UI :: Descarga el app',
                 'action': 'Click',
-                'label': 'O compra tu seguro vehicular'
+                'label': 'Quiero continuar'
             })
             this.$nuxt.$router.push("/cotiza/como-pagar/")
         },
-        descargarApp() {
+        descargarApp(param) {
+            if(param == '1'){
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                    'event': 'stopper_descargar_app_ahora',
+                    'category': 'UI :: Descarga el app',
+                    'action': 'Click',
+                    'label': 'Descargar app ahora'
+                })
+            }
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
             {
@@ -807,27 +834,38 @@ export default {
             return 'unknown'; 
             }
         },
-    showModalNumeroCelular(param) {
-        if (param == '1') {
-            window.dataLayer = window.dataLayer || [ ];
-            dataLayer.push({
-                'event': 'stopper_descargar_app_ahora',
-                'category': 'UI :: Descarga el app',
-                'action': 'Click',
-                'label': 'Descargar app ahora'
-            })      
-        }
-        if (param == '2') {
-            window.dataLayer = window.dataLayer || [ ];
-            dataLayer.push({
-                'event': 'stopper_click_google_ios',
-                'category': 'UI :: Descarga el app',
-                'action': 'Click boton',
-                'label': 'iOS / Android'
-            })      
-        }
-        this.$refs.modalNumeroCelular.show();
-    },
+        showModalNumeroCelular(param, tienda) {        
+            if (param == '1') {
+                this.action = 'Descargar ahora'
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                    'event': 'stopper_descargar_app_ahora',
+                    'category': 'UI :: Descarga el app',
+                    'action': 'Click',
+                    'label': 'Descargar app ahora'
+                })      
+            }
+            if (param == '2' && tienda == 1) {
+                this.action = 'Click iOS'
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                    'event': 'stopper_click_ios',
+                    'category': 'UI :: Descarga el app',
+                    'action': 'Click boton',
+                    'label': 'iOS'
+                })      
+            }else if(param == '2' && tienda == 2) {
+                this.action = 'Click Android'
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                    'event': 'stopper_click_android',
+                    'category': 'UI :: Descarga el app',
+                    'action': 'Click boton',
+                    'label': 'Android'
+                })      
+            }
+            this.$refs.modalNumeroCelular.show();
+        },
 
       hideModalNumeroCelular () {
           window.dataLayer = window.dataLayer || [ ];
@@ -854,7 +892,7 @@ export default {
                 dataLayer.push({
                     'event': 'stopper_recibiras_msj_texto',
                     'category': 'UI :: Descarga el app',
-                    'action': 'Click iOS / Click Android',
+                    'action': this.action,
                     'label': 'Popup descargar app'
                 })
                 this.mostrarMensajeEnviado = true
@@ -974,7 +1012,7 @@ export default {
         }
     },
     mounted() {
-        
+        this.nombrecliente = this.$store.state.common.objCliente.firstName
         if(this.$store.state.common.cuentasueldo === "Y"  ){
           this.discountType = "cta-sueldo"
         }else if (this.$store.state.common.tarjetaoh == "Y" ) {

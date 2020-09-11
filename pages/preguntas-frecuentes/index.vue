@@ -381,13 +381,20 @@ export default {
     this.$nuxt.$emit("nro-cotizaciones-flag", { flag: true });
   },
   mounted() {
-
+    this.PaginaVista()
   },
   components: {
     BannerPreguntasFrecuentes
   },
   methods: {
-    
+    PaginaVista(){
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'pagina_vista',
+            'page-url': '/vehicular/preguntas-frecuentes', 
+            'page-title': 'Preguntas frecuentes'
+        });
+    }
   }
 };
 </script>

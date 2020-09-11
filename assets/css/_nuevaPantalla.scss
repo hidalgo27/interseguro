@@ -1,0 +1,207 @@
+body{
+    // background-color: aqua;
+}
+#modalEditarCelular, #modalEditarCorreo, #modalEntidadFinanciera, #modalInicioVigencia{
+    .btn-principal{        
+        background-color: $vehicular_secundario ;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        font-family: 'omnesregular';
+        width: 285px;   
+        text-align: center;     
+    }
+    .box-btns{
+        margin: auto;
+        padding-bottom: 12px;
+        padding-top: 24px;
+        position: relative;
+        text-align: center;
+        width: 100%;        
+    }
+    .modal-close{
+        position: absolute;
+        right: -23px;
+        top: -48px;
+        z-index: 9;
+        width: 48px;
+    }
+    .modal-content{
+        border: none;
+        padding: 28px 0 8px;
+        .modal-titulo{
+            color: $vehicular_primario;
+            font-size: 20px;
+            font-family: 20px;
+            text-align: center;
+        }
+    }
+}
+
+.pago{
+    font-family: 'omnesregular';
+    padding-bottom: 70px;
+    padding-top: 80px;
+    .resumen-tu-seguro,.ingresa-datos{
+        color: $vehicular_primario;
+        font-size: 20px;
+        font-family: 'omnes';
+        text-align: center;
+    }
+    .btn-principal{        
+        background-color: $vehicular_secundario ;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        font-family: 'omnesregular';
+        width: 285px;   
+        text-align: center;     
+    }
+    .box-btns-fixed{
+        bottom: 0;
+        margin: auto;
+        padding-bottom: 12px;
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        z-index: 999;
+    }
+    .box-btns{
+        margin: auto;
+        padding-bottom: 12px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+    .item-titulo{
+        color: $vehicular_primario;
+        font-size: 18px;
+        font-family: 'omnes';
+        padding: 15px 0 10px 0;
+    }
+    .subtitulo{
+        color: $vehicular_subtitulo;
+        font-size: 15px;
+        font-family: 'omnesregular';
+    }
+    .detalle-item{
+        display: flex;
+        align-items: center;
+        span{
+            color: $vehicular_parrafo;
+        }
+        p:first-child{
+            color: $vehicular_parrafo;
+            font-size: 14px;
+            font-family: 'omnesregular';
+            text-align: left;
+            width: 96px;
+        }
+        p:nth-child(2){
+            color: $vehicular_parrafo;
+            font-size: 14px;
+            font-family: 'omnes';
+            position: relative;
+            text-align: left;
+            width: calc(100% - 122px);
+            padding-right: 0;
+            word-break: break-word;
+            display: flex;
+            align-items: center;
+        }
+        .edit_app{            
+            position: relative;
+            right: -4px;
+            top: 0px;
+            width: 15px;
+        }
+    }
+    .c-suma-asegurada{
+        padding-top: 16px;
+        .monto-actual{
+            color: $vehicular_primario;
+            font-size: 20px;
+            text-align: right;
+        }
+        &--box{
+            align-items: center;
+            display: flex;            
+            padding: 0px 12px 0 2px;
+            .monto-minimo, .monto-actual{
+                width: 100px;          
+            }
+            
+        }
+        p{
+            font-size: 1.2rem;
+        }
+        .monto-minimo-maximo{
+            color: $vehicular_parrafo;
+            font-size: 11px;
+            font-family: 'omnesregular';
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .frecuencia-pago{
+        padding: 15px 0;
+    }
+    .monto-fecha{
+        display: flex;
+        padding: 12px 0;
+    }
+    .box-monto-pago{
+        background-color: #EFF1F5;
+        padding: 13px 12px;
+        width: 50%;
+        .antes{
+            text-decoration: line-through;
+            text-decoration-color: #EA0F90;
+        }
+        .monto-frecuencia{
+            align-items: center;
+            border-radius: 3px;
+            color: $vehicular_primario;
+            display: flex;
+            font-size: 15px;
+            padding: 10px 0;
+            font-family: 'omnes';
+            .monto{
+                font-size: 35px;
+            }
+        }
+    }
+    .box-inicio-poliza{
+        padding: 13px 12px;
+        width: 50%;
+    }
+    /*******************************************
+                SEGUNDA PANTALLA
+    *******************************************/
+    .resumen{
+        border-bottom: 1px solid #D1D1D1;
+        display: flex;
+        justify-content: space-between;
+        max-width: 470px;
+        padding-bottom: 24px;        
+        .btn-ver-resumen{
+            background-color: #0855C4;
+            color: #ffffff;
+            font-family: 'omnes';
+            font-size: 14px;
+        }
+    }
+    .datos-tarjeta{
+        max-width: 470px;
+        padding-top: 24px;
+        .box-btns{
+            margin-top: 33px;
+        }
+        .autorizo-envio{
+            margin: 28px 0;
+            text-align: center;
+            color: #696969;
+            font-size: 12px;
+        }
+    }
+}
