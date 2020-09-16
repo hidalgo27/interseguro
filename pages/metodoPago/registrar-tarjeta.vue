@@ -1092,7 +1092,7 @@ input.form-control.text-uppercase.iptGral__input:focus {
   }
 }
 .modal-personal-title {
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
   font-size: 24px;
   font-weight: 900;
   text-align: center;
@@ -1100,7 +1100,7 @@ input.form-control.text-uppercase.iptGral__input:focus {
 }
 .modal-description {
   text-align: left;
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
   font-size: 16px;
   font-weight: 300;
   color: #373737;
@@ -1108,7 +1108,7 @@ input.form-control.text-uppercase.iptGral__input:focus {
   margin-top: 10px;
 }
 .modal-personal-title {
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
   font-size: 24px;
   font-weight: 900;
   text-align: center;
@@ -1121,7 +1121,7 @@ input.form-control.text-uppercase.iptGral__input:focus {
   margin: 0.5rem auto;
   border-radius: 6px;
   text-transform: uppercase;
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 900;

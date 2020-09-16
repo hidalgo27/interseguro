@@ -67,7 +67,7 @@ export default {
   color: #0056b3 !important;
 }
 .on-boarding-thank-message {
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
   font-size: 20px;
   font-weight: 300;
 }
@@ -78,7 +78,7 @@ export default {
   margin: 0.5rem auto;
   border-radius: 6px;
   text-transform: uppercase;
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 900;

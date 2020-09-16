@@ -856,7 +856,7 @@ input:focus {
       display: inline-block;
       color: #484848;
       font-size: 17px;
-      font-family: "omnesregular"
+      font-family: 'Omnes Regular';
     
   }
 }
@@ -1027,7 +1027,7 @@ input:focus {
   .box-ingresaDocumento {
     margin: 0 -15px;
     .titulo-flujo{
-      font-family: 'omnesregular';
+      font-family: 'Omnes Regular';
       font-size: 17px;
       font-stretch: normal;
       font-style: normal;
@@ -1127,7 +1127,7 @@ select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:f
     .modal-lg {
         max-width: 660px;
     }
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -1143,7 +1143,7 @@ select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:f
         color: #454a6c;
     }
     span {
-        font-family: 'omnes';
+        font-family: 'Omnes Medium';
     }
     img {
         margin-top: 30px;
@@ -2183,7 +2183,9 @@ export default {
     document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
   },
   destroyed() {
-    document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+    if (process.browser) {
+      document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+    }
   }
 };
 </script>

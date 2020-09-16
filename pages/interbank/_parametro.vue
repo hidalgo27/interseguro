@@ -127,71 +127,6 @@
       </b-container>
     </section>
 
-    <!-- <section id="cyberInterseguro" class="cyberInterseguro">
-      <b-container>
-        <div class="section-header">
-          <h3 class="title-principal title-section-cyber  text-center">
-            Las mejores ofertas por Verano
-          </h3>          
-        </div>
-        <div class="section-body  row  justify-content-center  d-flex  d-lg-none">
-          <div class="col-sm-6  col-lg-4">
-            <a href="#">
-              <div class="descuentos__item">
-                <img src="../../static/media/interseguroVehicular_v2/cyber_verano.gif" alt="CYBER">
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="section-body row  justify-content-center  d-none  d-lg-flex">
-          <div class="col-lg-3">
-            <a href="#">
-              <div class="descuentos__item">
-                <img src="../../static/media/interseguroVehicular_v2/cyber_1.jpg" alt="CYBER">
-                <div class="descuentos__descripcion">
-                  <p>Compra en cualquier plan y protégete contra los malos conductores</strong></p>
-                </div>
-              </div>
-            </a>
-          </div>
-          
-          <div class="col-lg-3">
-            <a href="#">
-              <div class="descuentos__item">
-                <img src="../../static/media/interseguroVehicular_v2/cyber_2.jpg" alt="CYBER">
-                <div class="descuentos__descripcion">
-                  <p v-if="this.$route.params.parametro == 'tarjetaoh' || this.$route.params.parametro == 'cuentasueldo'"> ¡Aprovecha el <strong>15% de descuento </strong>  en todo Seguro Vehicular!</p>
-                  <p v-else> ¡Aprovecha el <strong>15% DE DESCUENTO </strong>  en todo Seguro Vehicular!</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3">
-            <a href="#">
-              <div class="descuentos__item">
-                <img src="../../static/media/interseguroVehicular_v2/cyber_3.jpg" alt="CYBER">
-                <div class="descuentos__descripcion">
-                  <p>Compra en plan 1 año y participa por <strong>1 año de gasolina gratis</strong></p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3">
-            <a href="#">
-              <div class="descuentos__item">
-                <img src="../../static/media/interseguroVehicular_v2/cyber_4.jpg" alt="CYBER">
-                <div class="descuentos__descripcion">
-                  <p>Compra en plan 2 años</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </b-container>
-    </section> -->
 
     <section id="elegir" class="section elegir" style="background: #f7fafb !important">
       <b-container>
@@ -449,9 +384,6 @@
       },
       components: {},
       created() {
-        this.$bus.$on('updatingTest2',(e)=>{
-          this.flagCloseListon = e
-        })
       },
       methods: {
         PaginaVista() {
@@ -671,15 +603,7 @@
 </script>
 
 <style lang="scss" scoped>
-.banderaSlider{
-  position: absolute;
-  top: 0;
-  right: 10%;
-  background: url('../../static/media/interseguroVehicular_v2/slider_bandera.png');
-  width: 187px;
-  height: 169px;
-  background-size: contain;
-}
+
 .bannerSlider{
   width: 440px;
   display: flex;
@@ -718,11 +642,11 @@
   a{
     text-decoration: none;
     color: #053f8a;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
   }
   .title-section-cyber{
     color: #053f8a;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
     font-size: 36px;
     font-weight: 500;
   }
@@ -733,7 +657,7 @@
     overflow: hidden;
     width: 100%;
     margin: auto;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     
     &__descripcion{
       padding: 12px 12px 0 12px; 
@@ -778,7 +702,7 @@
     align-items: center;
     &__texto{
       width: 45%;
-      font-family: "omnes";
+      font-family: 'Omnes Medium';
       font-size: 16px;
     }
 }
@@ -789,7 +713,7 @@
   .talleres{
     p{
       color: #787878;
-      font-family: "omnesregular";
+      font-family: 'Omnes Medium';
       font-size: 17px;
       padding: 12px 0;
     }

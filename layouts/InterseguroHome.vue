@@ -2,9 +2,7 @@
     <div>      
       
       <header-is-ibk v-if="this.businessId == 2"></header-is-ibk>
-      <header-app v-else-if="this.appDiscountURL == 1"></header-app>
       <header-is v-else></header-is>
-
         <div>
           <nuxt/>
         </div>

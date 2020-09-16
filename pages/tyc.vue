@@ -109,7 +109,7 @@ export default {
     
     p{
       color: #5E5E5E;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 15px;
       font-weight: 400;
       line-height: 24px;

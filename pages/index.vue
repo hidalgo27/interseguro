@@ -273,56 +273,6 @@
         </div>
       </div>
     </div>
-
-<!--     <div class="home-ofertas">
-      <div class="home-ofertas__titulo">
-        <p>
-          ¡Ofertas de verano!
-        </p>
-      </div>
-      <div class="home-ofertas__cuerpo">
-        <div class="home-ofertas__cuerpResueltoo--slider">
-          <div class="box">
-            <div class="section-body  row  justify-content-center  d-flex  d-lg-none">
-              <div class="">
-                <a href="#">
-                  <div class="box__item" style="padding: 12px 5%;">
-                    <img style="width: 100%;" src="./../static/media/interseguroVehicular_v2/cyber_verano.gif" alt="CYBER">
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="section-body row  justify-content-center  d-none  d-lg-flex">
-              <div class="col-lg-3">
-                <a href="#">
-                  <div class="box__item">
-                    <img src="./../static/media/interseguroVehicular_v2/cyber_1.jpg" alt="CYBER">
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-lg-3">
-                <a href="#">
-                  <div class="box__item">
-                    <img src="./../static/media/interseguroVehicular_v2/cyber_2.jpg" alt="CYBER">
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-lg-3">
-                <a href="#">
-                  <div class="box__item">
-                    <img src="./../static/media/interseguroVehicular_v2/cyber_3.jpg" alt="CYBER">
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div> -->
      
     <div class="home-clientes">
       <div class="home-clientes__titulo">
@@ -435,10 +385,6 @@
       },
       components: {},
       created() {
-        
-        this.$bus.$on('updatingTest2',(e)=>{
-          this.flagCloseListon = e
-        })
       },
       methods: {
         pago_datalayer(error_detectado){
@@ -750,6 +696,7 @@
         height: 100%;
         flex-direction: column;
         &__izq{
+          margin-top: 24px;
           padding-top: 68px !important;
           height: 500px;
           display: flex;
@@ -803,7 +750,7 @@
           display: none;
           align-items: center;
           p{
-            font-family: 'omnes';
+            font-family: 'Omnes Medium';
             font-size: 2.8rem;
             font-weight: 500;
             font-stretch: normal;
@@ -860,7 +807,7 @@
       position: relative;
       margin: auto;      
       h1{
-        font-family: 'omnesmedium';
+        font-family: 'Omnes Medium';
         font-size: 1.1rem;
         font-weight: 600;
         font-stretch: normal;
@@ -884,7 +831,7 @@
         box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
         background-color: #0855c4!important;
         color: white !important;
-        font-family: 'omnesmedium';
+        font-family: 'Omnes Medium';
       }
       .box-btn-homeForm{
         button{
@@ -923,7 +870,7 @@
         text-align: center;
         color: #0667ba !important;
         animation: updown 1.5s ease 0s infinite;
-        font-family: 'omnesregular';
+        font-family: 'Omnes Regular';
         cursor: pointer;
         img{
           position: relative;
@@ -944,7 +891,7 @@
         .como-funciona{
           padding: 16px 0;
           font-size: 1.3rem;
-          font-family: 'omnesregular';
+          font-family: 'Omnes Regular';
         }
         span{
           font-size: 22px;
@@ -1116,7 +1063,7 @@
             display: inline-block;
             position: absolute;
             bottom: 16px;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
           }
         }
       }
@@ -1166,70 +1113,6 @@
           transition: all .75s
         }
       }
-    }    
-    .home-ofertas{
-      padding: 24px 0 0;
-      background: white;
-      &__titulo{
-        p{
-          text-shadow: 0 3px 6px rgba(62, 135, 240, 0.08);
-          font-size: 22px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 0.82;
-          letter-spacing: normal;
-          text-align: center;
-          color: #505050;
-        }
-      }
-      &__cuerpo{
-        position: relative;        
-        min-height: 240px;
-        display: flex;
-        justify-content: center;        
-        &--palmeraIzq{
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100px;
-        }
-        &--palmeraDer{
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          width: 100px;
-        }
-        &--slider{
-          .box{
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            width: 65%;
-            &__descripcion{
-              padding: 12px 12px 0 12px; 
-              font-size: 16px;
-              height: 100px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              p{
-                text-align: center;
-              }
-            }
-            &__item{
-              overflow: hidden;
-              box-shadow: 0 8px 22px 0 rgba(35, 45, 65, 0.18);
-              border-radius: 5px;
-              margin: 24px;
-              img{
-                width: 100%;
-              }
-            }
-          }
-        }
-      }
     }
     .home-clientes{
       &__titulo{
@@ -1271,7 +1154,7 @@
                 text-align: center;
                 color: #ffffff;
                 font-weight: 400;
-                font-family: 'omnesregular';
+                font-family: 'Omnes Regular';
               }
             }
           }
@@ -1323,7 +1206,7 @@
                 letter-spacing: normal;
                 text-align: center;
                 color: #696969;    
-                font-family: 'omnesregular';        
+                font-family: 'Omnes Regular';        
               }
             }
           }
@@ -1359,7 +1242,7 @@
             span{
               transition: all 0.5s;
               font-weight: 500;
-              font-family: 'omnes';
+              font-family: 'Omnes Medium';
             }
           }
           .img-box{
@@ -1378,7 +1261,7 @@
             transition: all .75s;
             font-size: 18px;
             font-weight: 400;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
             font-stretch: 400;
             font-style: normal;
             line-height: 0.89;
@@ -1391,7 +1274,7 @@
     }
   }
   #vehicleModelPlate{
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-size: 18.5px;
     color: #495057;
   }
@@ -1428,7 +1311,7 @@
               height: 51px;
             }
             .no-tengo-placa{
-              font-family: 'omnes';
+              font-family: 'Omnes Medium';
               font-size: 1rem;
               font-weight: 500;
               font-stretch: normal;
@@ -1447,7 +1330,7 @@
               letter-spacing: normal;
               text-align: center;
               color: #494a49;
-              font-family: 'omnesregular';
+              font-family: 'Omnes Regular';
             }
           }
           &__der{
@@ -1542,25 +1425,6 @@
     .home{
       .home-banner{
         padding-left: 65px;
-      }
-      .home-portada{
-        .yomequedoencasa{
-          display: block;
-        }
-        &__form{
-          background-image: url(../static/media/interseguroVehicular_v2/autopista_desktop.png);
-          position: relative;          
-          background-size: contain;
-          background-repeat: round;
-          border-radius: 0;
-          display: flex;
-          align-items: flex-start;
-          height: 370px;
-          padding: 14px 0 0 5%;
-          .portada-form{
-            width: 50%;
-          }
-        }
       }
       .home-pasos{
         padding-top: 0;
@@ -1689,38 +1553,6 @@
             letter-spacing: normal;
             text-align: left;
             color: #696969;
-          }
-        }
-      }
-      .home-ofertas{
-        background-image: url(../static/media/img/home/ofertas_auto.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 50%;
-        background-position-y: bottom;
-        &__titulo{
-          p{
-          }
-        }
-        &__cuerpo{
-          min-height: 310px;
-          &--palmeraIzq{
-            width: 180px;
-          }
-          &--palmeraDer{
-            width: 180px;
-          }
-        }
-        .box{
-          width: 65%;
-          margin: auto;
-          &__item{
-            overflow: hidden;
-            box-shadow: 0 8px 22px 0 rgba(35,45,65,.18);
-            border-radius: 5px;
-            img{
-              width: 100%;
-            }
           }
         }
       }
@@ -1872,17 +1704,6 @@
               }
             }
           }
-        }
-      }
-      .home-ofertas{
-        &__titulo{
-          height: 83px;
-          p{
-            font-size: 42px;
-          }
-        }
-        &__cuerpo{
-          min-height: 410px;
         }
       }
     }

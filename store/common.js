@@ -1,9 +1,9 @@
-import { reject } from "lodash"
+// import { reject } from "lodash"
 
 const getDefaultState = () => {
     return {
     //GLOBALES
-    appdiscountURL: false,
+    appDiscountURL: false,
     appDiscount: false,
     flujoDetectado: 'interseguro',
     codeRmkt: 0,
@@ -189,13 +189,16 @@ const mutations = {
         state.planSeleccionado = payload
     },
     setObjCliente(state, payload){
-        state.objCliente = JSON.parse(JSON.stringify(payload))
+        state.objCliente = payload
+        // state.objCliente = JSON.parse(JSON.stringify(payload))
     },
     setObjVehiculo(state, payload){
-        state.objVehiculo = JSON.parse(JSON.stringify(payload))
+        state.objVehiculo = payload
+        // state.objVehiculo = JSON.parse(JSON.stringify(payload))
     },
     setListaCotizacion(state, payload){
-        state.listaCotizacion = JSON.parse(JSON.stringify(payload))
+        state.listaCotizacion = payload
+        // state.listaCotizacion = JSON.parse(JSON.stringify(payload))
     },
     setItemElegido(state, payload){
         state.itemElegido = payload

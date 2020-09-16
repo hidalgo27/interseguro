@@ -88,7 +88,7 @@ export default {
     }
     .subtitle{
         color: #5E5E5E;
-        font-family: 'omnes';
+        font-family: 'Omnes Medium';
         font-size: 20px;
         line-height: 25px;
     }

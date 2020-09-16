@@ -1316,7 +1316,9 @@ import { validationMixin } from 'vuelidate'
             document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
         },
         destroyed() {
-            document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+            if (process.browser) {
+                document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+            }
         }
     }
 </script>
@@ -1384,7 +1386,7 @@ a.steps__item.paso1:after{
     transition: transform 1s;
   }
   p{
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     margin: 0;
     color: #0855c4;
     padding-left: 70px;
@@ -1419,7 +1421,7 @@ a.steps__item.paso1:after{
     transition: transform 1s;
   }
   p{
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     margin: 0;
     color: #0855c4;
   }
@@ -2132,7 +2134,7 @@ a.steps__item.paso1:after{
         }
     }
     .modal-personal-title {
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 24px;
         font-weight: 900;
         text-align: center;
@@ -2140,7 +2142,7 @@ a.steps__item.paso1:after{
     }
     .modal-description {
         text-align: left;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 16px;
         font-weight: 300;
         color: #373737;
@@ -2148,7 +2150,7 @@ a.steps__item.paso1:after{
         margin-top: 10px;
     }
     .modal-personal-title {
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 24px;
         font-weight: 900;
         text-align: center;
@@ -2161,7 +2163,7 @@ a.steps__item.paso1:after{
         margin: .5rem auto;
         border-radius: 6px;
         
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 16px;
         letter-spacing: 1px;
         font-weight: 900;
@@ -2243,7 +2245,7 @@ a.steps__item.paso1:after{
     .modal-lg {
         max-width: 660px;
     }
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -2259,7 +2261,7 @@ a.steps__item.paso1:after{
         color: #454a6c;
     }
     span {
-        font-family: 'omnes';
+        font-family: 'Omnes Medium';
     }
     img {
         margin-top: 30px;

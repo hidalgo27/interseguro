@@ -64,7 +64,7 @@ export default {
     padding-top: 140px;
 }
 .descripcion-bold{
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     font-size: 26px;
     font-weight: bold;
 }
@@ -72,6 +72,6 @@ export default {
     color: #0BD360;
     font-weight: bold;
     font-size: 24px;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
 }
 </style>

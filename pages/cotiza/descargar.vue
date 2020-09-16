@@ -351,7 +351,7 @@
                     color: white;
                 }
                 .cotizar{
-                    font-family: 'omnes';
+                    font-family: 'Omnes Medium';
                     font-size: 18px;
                     font-weight: 500;
                     font-stretch: normal;
@@ -379,7 +379,7 @@
                     color: white;
                 }
                 .cotizar{
-                    font-family: 'omnes';
+                    font-family: 'Omnes Medium';
                     font-size: 18px;
                     font-weight: 500;
                     font-stretch: normal;
@@ -531,7 +531,7 @@
             margin-top: 12px;
             margin-bottom: 32px;
             span{
-                font-family: 'omnesregular';
+                font-family: 'Omnes Regular';
                 font-size: 14px;
                 font-weight: normal;
                 font-stretch: normal;
@@ -593,7 +593,7 @@
                     width: 25px;
                 }
                 .datos-guardados{
-                    font-family: 'omnesregular';
+                    font-family: 'Omnes Regular';
                     text-align: left;
                     font-size: 21px;
                     line-height: 1.43;
@@ -627,7 +627,7 @@
                     width: 530px;
                     font-size: 20px;
                     color: #454A6C;
-                    font-family: 'omnesregular';
+                    font-family: 'Omnes Regular';
                     line-height: 1.43;
                     padding: 0 48px;
                 }
@@ -637,7 +637,7 @@
                     line-height: 1.67;
                     text-align: center;
                     color: #656565;
-                    font-family: 'omnesregular';
+                    font-family: 'Omnes Regular';
                     margin-top: 28px;
                 }
                 .contacto-dkt{
@@ -659,7 +659,7 @@
         .modal-lg {
             max-width: 660px;
         }
-        font-family: 'omnesregular';
+        font-family: 'Omnes Regular';
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -675,7 +675,7 @@
             color: #454a6c;
         }
         span {
-            font-family: 'omnes';
+            font-family: 'Omnes Medium';
         }
         img {
             margin-top: 30px;
@@ -1060,7 +1060,9 @@ export default {
         document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
     },
     destroyed() {
-        document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+        if (process.browser) {
+            document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+        }
     }
 }
 </script>

@@ -1,15 +1,16 @@
 body{
     // background-color: aqua;
 }
-#modalEditarCelular, #modalEditarCorreo, #modalEntidadFinanciera, #modalInicioVigencia{
+#modalEditarCelular, #modalEditarCorreo, #modalEntidadFinanciera, #modalInicioVigencia, #modal-confirmaTusDatos-app{
     .btn-principal{        
         background-color: $vehicular_secundario ;
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        font-family: 'omnesregular';
-        width: 285px;   
-        text-align: center;     
+        font-family: 'Omnes Regular';
+        width: 245px;   
+        text-align: center;
+        height: 45px;
     }
     .box-btns{
         margin: auto;
@@ -39,23 +40,38 @@ body{
 }
 
 .pago{
-    font-family: 'omnesregular';
-    padding-bottom: 70px;
-    padding-top: 80px;
+    font-family: 'Omnes Regular';
+    padding-bottom: 40px;
+    padding-top: 140px;
+    .custom-select{
+        height: 45px;
+        box-shadow: none;
+        border: 1px solid #C7C7C7;
+        border-radius: 5px;
+        font-family: 'Omnes Medium';
+    }
+    .tarjetas-aceptadas{
+        display: flex;
+        justify-content: flex-end;
+    }
     .resumen-tu-seguro,.ingresa-datos{
         color: $vehicular_primario;
-        font-size: 20px;
-        font-family: 'omnes';
+        font-size: 23px;
+        font-family: 'Omnes Medium';
         text-align: center;
+        max-width: 440px;
+        line-height: 33px;
     }
     .btn-principal{        
         background-color: $vehicular_secundario ;
+        border: none;
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        font-family: 'omnesregular';
-        width: 285px;   
-        text-align: center;     
+        font-family: 'Omnes Regular';
+        width: 245px;   
+        text-align: center;
+        height: 45px;
     }
     .box-btns-fixed{
         bottom: 0;
@@ -65,6 +81,7 @@ body{
         text-align: center;
         width: 100%;
         z-index: 999;
+        left: 0;
     }
     .box-btns{
         margin: auto;
@@ -76,13 +93,13 @@ body{
     .item-titulo{
         color: $vehicular_primario;
         font-size: 18px;
-        font-family: 'omnes';
+        font-family: 'Omnes Medium';
         padding: 15px 0 10px 0;
     }
     .subtitulo{
         color: $vehicular_subtitulo;
         font-size: 15px;
-        font-family: 'omnesregular';
+        font-family: 'Omnes Regular';
     }
     .detalle-item{
         display: flex;
@@ -93,14 +110,14 @@ body{
         p:first-child{
             color: $vehicular_parrafo;
             font-size: 14px;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
             text-align: left;
             width: 96px;
         }
         p:nth-child(2){
             color: $vehicular_parrafo;
             font-size: 14px;
-            font-family: 'omnes';
+            font-family: 'Omnes Medium';
             position: relative;
             text-align: left;
             width: calc(100% - 122px);
@@ -138,13 +155,22 @@ body{
         .monto-minimo-maximo{
             color: $vehicular_parrafo;
             font-size: 11px;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
             display: flex;
             justify-content: space-between;
         }
     }
     .frecuencia-pago{
         padding: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 400px;
+        p{
+            font-family: 'Omnes Medium';
+            color: #454A6C;
+            font-size: 16px;
+        }
     }
     .monto-fecha{
         display: flex;
@@ -165,7 +191,7 @@ body{
             display: flex;
             font-size: 15px;
             padding: 10px 0;
-            font-family: 'omnes';
+            font-family: 'Omnes Medium';
             .monto{
                 font-size: 35px;
             }
@@ -174,6 +200,15 @@ body{
     .box-inicio-poliza{
         padding: 13px 12px;
         width: 50%;
+    }
+    .enlaces{
+        a{
+            color: $vehicular_primario;
+            font-family: 'Omnes Medium';
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            text-decoration: underline;
+        }
     }
     /*******************************************
                 SEGUNDA PANTALLA
@@ -185,23 +220,95 @@ body{
         max-width: 470px;
         padding-bottom: 24px;        
         .btn-ver-resumen{
+            border: none;
             background-color: #0855C4;
             color: #ffffff;
-            font-family: 'omnes';
+            font-family: 'Omnes Medium';
             font-size: 14px;
+            border: none;
+            height: 35px;
+        }
+        .resumen-desc{
+            strong{
+                font-family: 'Omnes Medium';
+                font-size: 16px;
+                color: #454A6C;
+            }
         }
     }
     .datos-tarjeta{
+        padding-top: 28px;
         max-width: 470px;
-        padding-top: 24px;
         .box-btns{
-            margin-top: 33px;
+            margin-top: 16px;
         }
         .autorizo-envio{
             margin: 28px 0;
             text-align: center;
             color: #696969;
             font-size: 12px;
+        }
+        .enlace-tyc{
+            text-align: center;
+            color: #454A6C;
+            font-size: 16px;
+            span{
+                cursor: pointer;
+                text-decoration: underline;
+                font-family: 'Omnes Medium';
+                outline-color: transparent;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .pago{
+        padding-top: 174px;
+        .datos-tarjeta{
+            padding-top: 0;
+        }
+        .cotizador__suma-asegurada--box {
+            width: 400px;
+        }
+        .c-suma-asegurada{
+            .monto-minimo-maximo{
+                width: 400px;
+            }
+        }
+        .frecuencia-pago{
+            width: 400px;
+            p{
+                font-size: 18px;
+            }
+        }
+        .resumen-tu-seguro{
+            text-align: left;
+        }
+        .resumen-tu-seguro,.ingresa-datos{
+            font-size: 24.5px;
+            line-height: 33px;
+            text-align: center;
+        }
+        .btn-principal{
+            height: 52px;
+            width: 280px;
+        }
+        .item-titulo{
+            font-size: 19.2px;
+        }
+        .detalle-item{
+            span{
+            }
+            p:first-child{
+                font-size: 16px;
+            }
+            p:nth-child(2){
+                font-size: 16px;
+            }
+        }
+        .box-monto-pago{
+            width: 205px;
         }
     }
 }

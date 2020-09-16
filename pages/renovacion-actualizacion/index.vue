@@ -41,15 +41,7 @@
             </b-container>                
         </div>        
         <div class="renovaciones" v-if="mostrarSegundaPantalla"> 
-            <b-container>
-                <b-row> 
-                    <b-col cols="12">
-                        <div class="card-banner">
-                            <!-- <pre>{{this.objRenovacion}}</pre> -->
-                        </div>
-                    </b-col>
-                </b-row>                
-            </b-container>    
+
             <b-container> 
                 <b-row class="d-flex  justify-content-center">
                     <b-col cols="12" lg="6">

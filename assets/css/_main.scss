@@ -22,10 +22,10 @@
 // }
 @import "preguntas-frecuentes-viajes/dist/preguntasFrecuentesGenerico.css";
 .omnes-medium{
-  font-family: 'omnesregular';
+  font-family: 'Omnes Regular';
 }
 .omnes-semibold{
-  font-family: 'omnes';
+  font-family: 'Omnes Medium';
 }
 .flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):before, .flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):after {
   background-color: transparent;
@@ -49,22 +49,22 @@
 }
 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
   content: 'DIAS';
-  font-family: "omnesregular";
+  font-family: 'Omnes Medium';
   letter-spacing: 1px;
 }
 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
   content: 'HORAS';
-  font-family: "omnesregular";
+  font-family: 'Omnes Medium';
   letter-spacing: 1px;
 }
 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
   content: 'MIN';
-  font-family: "omnesregular";
+  font-family: 'Omnes Medium';
   letter-spacing: 1px;
 }
 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
   content: 'SEG';
-  font-family: "omnesregular";
+  font-family: 'Omnes Medium';
   letter-spacing: 1px;
 }
 .flipdown.flipdown__theme-dark .rotor-group-heading:before {
@@ -282,7 +282,7 @@
     border: none;
     color: white;
     font-size: 21px;
-    font-family: omnesregular;
+    font-family: 'Omnes Regular';
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -382,7 +382,7 @@
     display: block;
     width: auto;
     padding: 20px 0px;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     color: $gris-1;
     font-size: 32px;
     line-height: 32px;
@@ -413,14 +413,14 @@
   &__title {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     color: $gris-1;
     font-size: 24px;
     line-height: 32px;
     font-weight: 700;
   }
   &__title-2 {
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     font-size: 28px;
     font-weight: 700;
     text-align: center;

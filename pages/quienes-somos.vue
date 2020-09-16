@@ -70,7 +70,7 @@ export default {
   text-align: center;
   line-height: 50px;
   color: #ea0c90;
-  font-family: Omnes;
+  font-family: 'Omnes Medium';
   font-size: 19.97px;
   font-weight: 500;
   cursor: pointer;

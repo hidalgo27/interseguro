@@ -372,9 +372,6 @@
           this.loadinggss = false
         }
 
-        this.$bus.$on('updatingTest2',(e)=>{
-          this.flagCloseListon = e
-        })
       },
       methods: {
           resetearPlaca(eve) {
@@ -551,11 +548,11 @@
   a{
     text-decoration: none;
     color: #053f8a;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
   }
   .title-section-cyber{
     color: #053f8a;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
     font-size: 36px;
     font-weight: 500;
   }
@@ -566,7 +563,7 @@
     overflow: hidden;
     width: 100%;
     margin: auto;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     
     &__descripcion{
       padding: 12px 12px 0 12px; 
@@ -612,7 +609,7 @@
     align-items: center;
     &__texto{
       width: 45%;
-      font-family: "omnes";
+      font-family: 'Omnes Medium';
       font-size: 16px;
     }
 }
@@ -623,7 +620,7 @@
   .talleres{
     p{
       color: #787878;
-      font-family: "omnesregular";
+      font-family: 'Omnes Medium';
       font-size: 17px;
       padding: 12px 0;
     }

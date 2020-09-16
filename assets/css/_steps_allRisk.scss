@@ -35,7 +35,7 @@
   }
   &__item {
       text-transform: uppercase;
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       font-size: 10px;
       font-weight: 600;
       color: #9b9b9b;
@@ -174,7 +174,7 @@ a:hover {
       margin: .5rem auto;
       border-radius: 10px;
       text-transform: uppercase;
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       font-size: calc(1rem + .2vw);
       letter-spacing: 1px;
       font-weight: 500;
@@ -205,7 +205,7 @@ a:hover {
   }
   &--back {
       text-transform: capitalize;
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       letter-spacing: 0;
       background-color: transparent;
       display: flex;
@@ -247,7 +247,7 @@ a:hover {
   padding-top: 6px;
 }
 .box-btn-allRisk>.back {
-  font-family: 'omnes' ;
+  font-family: 'Omnes Medium';
   font-size: 16px;
   font-weight: 600;
   margin-left: 7px;
@@ -265,7 +265,7 @@ a:hover {
   margin: .5rem auto;
   border-radius: 6px;
   text-transform: uppercase;
-  font-family: 'omnes' ;
+  font-family: 'Omnes Medium';
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 900;
@@ -414,7 +414,7 @@ a:hover {
   .input-vehicular {
       height: 45px;
       font-weight: normal;
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       font-size: 17px;
       border: 1px solid #ced4da;
       border-radius: .30rem;
@@ -450,12 +450,12 @@ input[type="color"]:focus,
 
 .form-content{
   &__msg {
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       font-size: 16px;
       font-weight: bold;
   }
   &__title {
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       font-size: 17px;
       font-weight: 800;
       h2{
@@ -493,7 +493,7 @@ input[type="color"]:focus,
         color: $secundario;
         font-weight: bold;
         font-size: 17px;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
     }
 }
 
@@ -509,7 +509,7 @@ input[type="color"]:focus,
 .label-completed {
     padding-left: 15px;
     padding-right: 15px;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     font-size: 16px;
     font-weight: 800;
     color: #373737;
@@ -529,7 +529,7 @@ input[type="color"]:focus,
         background-color: white !important;
         background-size: 1.3rem;
         font-weight: normal;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 14px;
         display: inline-block;
         border: 1px solid #ced4da;
@@ -558,7 +558,7 @@ input[type="color"]:focus,
         border-radius: 0;
         border: 0;
         font-weight: normal;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 16px;
         display: inline-block;
         text-align: left;

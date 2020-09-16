@@ -279,69 +279,7 @@
           <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&amp;hl=es&amp;ll=-12.109991959196146%2C-77.03860524421464&amp;z=12">TALLERES AFILIADOS</a>
         </div>
       </div>
-    </div>
-
-<!--     <div class="home-ofertas">
-      <div class="home-ofertas__titulo">
-        <p>
-          ¡Ofertas de verano!
-        </p>
-      </div>
-      <div class="home-ofertas__cuerpo">
-        <img class="home-ofertas__cuerpo--palmeraIzq" src="../static/media/img/home/palmera_izq.png"/>
-        <img class="home-ofertas__cuerpo--palmeraDer" src="../static/media/img/home/palmera_der.png"/>
-        <div class="home-ofertas__cuerpResueltoo--slider">
-          <div class="box">
-            <div class="section-body  row  justify-content-center  d-flex  d-lg-none">
-              <div class="">
-                <a href="#">
-                  <div class="box__item" style="padding: 12px 5%;">
-                    <img style="width: 100%;" src="../static/media/interseguroVehicular_v2/cyber_verano.gif" alt="CYBER">
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="section-body row  justify-content-center  d-none  d-lg-flex">
-              <div class="col-lg-3">
-                <a href="#">
-                  <div class="box__item">
-                    <img src="../static/media/interseguroVehicular_v2/cyber_1.jpg" alt="CYBER">
-                    <div class="box__descripcion">
-                      <p>Este verano protégete contra los malos conductores y <strong>maneja tranquilo</strong></p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-lg-3">
-                <a href="#">
-                  <div class="box__item">
-                    <img src="../static/media/interseguroVehicular_v2/cyber_2.jpg" alt="CYBER">
-                    <div class="box__descripcion">
-                      <p v-if="this.$route.params.parametro == 'tarjetaoh' || this.$route.params.parametro == 'cuentasueldo'"> ¡Aprovecha nuestro <strong>15% de descuento</strong> en todos los planes!</p>
-                      <p v-else> ¡Aprovecha nuestro <strong>15% DE DESCUENTO</strong> en todos los planes!</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-lg-3">
-                <a href="#">
-                  <div class="box__item">
-                    <img src="../static/media/interseguroVehicular_v2/cyber_3.jpg" alt="CYBER">
-                    <div class="box__descripcion">
-                      <p>Compra en plan anual y participa por <strong>1 año de gasolina gratis</strong></p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-     
+    </div>     
     <div class="home-clientes">
       <div class="home-clientes__titulo">
         <p>¿Qué dicen nuestros clientes?</p>
@@ -440,8 +378,6 @@
 <script>
   import moment from "moment/moment.js"
 
-
-
   export default {
     layout: "InterseguroParametro",
       data () {
@@ -462,9 +398,6 @@
           }
       },
       created() {
-        this.$bus.$on('updatingTest2',(e)=>{
-          this.flagCloseListon = e
-        })
       },
       methods: {
         PaginaVista() {
@@ -1097,7 +1030,7 @@
       position: relative;
       margin: auto;      
       h1{
-        font-family: 'omnesmedium';
+        font-family: 'Omnes Medium';
         font-size: 1.1rem;
         font-weight: 600;
         font-stretch: normal;
@@ -1121,7 +1054,7 @@
         box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
         background-color: #0855c4!important;
         color: white !important;
-        font-family: 'omnesmedium';
+        font-family: 'Omnes Medium';
       }
       .box-btn-homeForm{
         button{
@@ -1160,7 +1093,7 @@
         text-align: center;
         color: #0667ba !important;
         animation: updown 1.5s ease 0s infinite;
-        font-family: 'omnesregular';
+        font-family: 'Omnes Regular';
         cursor: pointer;
         img{
           position: relative;
@@ -1181,7 +1114,7 @@
         .como-funciona{
           padding: 16px 0;
           font-size: 1.3rem;
-          font-family: 'omnesregular';
+          font-family: 'Omnes Regular';
         }
         span{
           font-size: 22px;
@@ -1354,7 +1287,7 @@
             display: inline-block;
             position: absolute;
             bottom: 16px;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
           }
         }
       }
@@ -1509,7 +1442,7 @@
                 text-align: center;
                 color: #ffffff;
                 font-weight: 400;
-                font-family: 'omnesregular';
+                font-family: 'Omnes Regular';
               }
             }
           }
@@ -1561,7 +1494,7 @@
                 letter-spacing: normal;
                 text-align: center;
                 color: #696969;    
-                font-family: 'omnesregular';        
+                font-family: 'Omnes Regular';        
               }
             }
           }
@@ -1597,7 +1530,7 @@
             span{
               transition: all 0.5s;
               font-weight: 500;
-              font-family: 'omnes';
+              font-family: 'Omnes Medium';
             }
           }
           .img-box{
@@ -1616,7 +1549,7 @@
             transition: all .75s;
             font-size: 18px;
             font-weight: 400;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
             font-stretch: 400;
             font-style: normal;
             line-height: 0.89;
@@ -1629,7 +1562,7 @@
     }
   }
   #vehicleModelPlate{
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-size: 18.5px;
     color: #495057;
   }
@@ -1683,7 +1616,7 @@
               letter-spacing: normal;
               text-align: center;
               color: #494a49;
-              font-family: 'omnesregular';
+              font-family: 'Omnes Regular';
             }
           }
           &__der{

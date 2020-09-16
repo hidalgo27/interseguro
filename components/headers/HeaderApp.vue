@@ -1,8 +1,8 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-            <p>Llévate un vale de consumo de <strong>S/ 100</strong> por la compra de tu Seguro Vehicular en <strong>plan Black</strong> y con una frecuencia de pago anual.</p>
-            <div class="closeListon" @click="closeListon()">X</div>
+        <div id="liston-felicidades" class="liston-felicidades">
+            <img width="45" src="./../../static/media/img/root/ahorra.png" alt="">
+            <p class="pb-0  pl-2" style="margin-bottom: 0"> <strong>¡Felicidades!</strong> Estás ahorrando un 50%</p>
         </div>
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -97,7 +97,7 @@ export default {
             document.getElementById("liston-desktop").style.display = "none"
             this.flagCloseListon = 0            
             localStorage.setItem("flagCloseListon", 0)
-             this.$bus.$emit('updatingTest2', 0) 
+
         },
         enlaceTest(){
             var div = document.getElementById("capa")
@@ -147,17 +147,11 @@ export default {
         }
     },
     created(){
-    setTimeout(()=>{
-        this.nuevoProducto = this.$store.state.common.nuevoProducto
+        setTimeout(()=>{
+            this.nuevoProducto = this.$store.state.common.nuevoProducto
         },1000)
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
-            document.addEventListener('touchstart', this.handleScroll, {passive: true});
-        }
-    },
-    destroyed(){
-        if (process.browser) {
-            window.removeEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
         }
     }
@@ -165,11 +159,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .closeListon{
-        
+    .closeListon{        
         cursor: pointer;
         position: absolute;
-        right: 20px;
+        right: 4px;
         height: 30px;
         top: 5px;
         background: #ff9200;
@@ -178,31 +171,30 @@ export default {
         line-height: 30px;
         text-align: center;
         color: #fff;
-        border-radius: 20px;
-        border: 1px solid #fff;
         font-size: 18px;
 
     }
-    .liston{
-        background: #ff9200;
+    .liston-felicidades{        
+        background-color: #ff9200;
+        background-image: url('./../../static/media/img/root/bg-felicidades.png');
         width: 100%;
-        height: 40px;
+        height: 46px;
         left: 0;
         justify-content: center;
         align-items: center;
-        padding: 0 51px 0 8px;
         display: flex;
+        background-position: bottom;
+        background-size: contain;
         p{
-            text-align: center;
-            font-size: 14px;;
+            text-align: left;
+            font-size: 14px;
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.3;
             letter-spacing: normal;
-            text-align: center;
             color: #fff;
-            font-family: 'omnesregular';
+            font-family: 'Omnes Regular';
         }        
     }
 .footer-menu{
@@ -422,7 +414,7 @@ export default {
             }
             h2{
                 color: #FFFFFF;
-                font-family: Omnes;
+                font-family: 'Omnes Medium';
                 font-weight: 600;
                 text-align: left;
                 margin-bottom: 0;
@@ -480,6 +472,12 @@ export default {
          }
     }
     @media (min-width: 1200px){
+        .liston-felicidades{
+            height: 64px;    
+            p{
+                font-size: 30px;
+            }        
+        }
         .liston{
           display: flex;
           p{

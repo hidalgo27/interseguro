@@ -13,13 +13,13 @@ color: rgb(155, 155, 165);
 .titulo-seccion{
     padding-bottom: 8px;
     color: #00adee;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 600;
 }
 .renovaciones{
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     padding: 40px 0 0;
     padding-bottom: 24px;
     color: #000000de;
@@ -39,7 +39,7 @@ color: rgb(155, 155, 165);
    
     &__titulo{
         font-size: 2.3rem;
-        font-family: "omnes";
+        font-family: 'Omnes Medium';
         text-transform: uppercase;  
         p{
             color: #0055c8;     
@@ -99,14 +99,14 @@ color: rgb(155, 155, 165);
         flex-direction: column;
         justify-content: flex-start;
         p{
-            font-family: "omnes";
+            font-family: 'Omnes Medium';
             color: #000000de;
             // text-transform: uppercase;
             font-size: 1.2rem;   
             text-align: center;     
         }
         .card-datos--subtitulo{
-            font-family: "omnesregular";
+            font-family: 'Omnes Medium';
             font-size: 1.2rem; 
         }
     }
@@ -211,7 +211,7 @@ color: rgb(155, 155, 165);
         margin: .5rem auto;
         border-radius: 10px;
         text-transform: uppercase;
-        font-family: 'omnes';
+        font-family: 'Omnes Medium';
         font-size: 18px;
         letter-spacing: 1px;
         font-weight: 500;
@@ -223,7 +223,7 @@ color: rgb(155, 155, 165);
 }
 
 .renovacion-exitosa, .renovacion-cancelada{
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     padding: 140px 0 0;
     color: #000000de;
     text-align: center;
@@ -234,7 +234,7 @@ color: rgb(155, 155, 165);
     justify-content: center;
     padding: 56px 0 0px;
     p{
-        font-family: "omnes";
+        font-family: 'Omnes Medium';
         color: rgb(36, 84, 189);
         font-size: 1.2rem;
         text-align: center;

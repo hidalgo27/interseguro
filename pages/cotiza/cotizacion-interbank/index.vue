@@ -1625,14 +1625,15 @@
         // this.vehicleState = objJWT.common.vehicleState
         if (this.item.plateNumber !== '') {          
           this.getVehicle()
-        }else{
         }
         this.objSOAT = this.$store.state.common.clienteSOAT
       }
       document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
     },
     destroyed() {
-      document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+      if (process.browser) {
+        document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+      }
     }
   }
 </script>
@@ -1896,7 +1897,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       border-bottom: 1px solid rgba(0, 0, 0, 0.12);
       padding-left: 8px;
       font-size: 1rem;
-      font-family: "omnesregular";
+      font-family: 'Omnes Medium';
       cursor: pointer;      
       &:hover{
         background: #f7fafb;
@@ -2008,7 +2009,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .campaniatv-textos {
     color: #5fa9fc;
-    font-family: Omnes;
+    font-family: 'Omnes Medium';
     font-size: 16px;
     font-weight: 600;
     line-height: 19px;
@@ -2034,7 +2035,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .box-titulo {
     color: #00adee;
-    font-family: Omnes;
+    font-family: 'Omnes Medium';
     font-size: 21.5px;
     font-weight: 600;
     letter-spacing: -0.31px;
@@ -2067,7 +2068,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
     .box-paso {
       color: #ea0c90;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 15.74px;
       font-weight: 600;
       letter-spacing: -0.16px;
@@ -2080,7 +2081,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 28px;
         font-weight: 600;
         line-height: 43px;
@@ -2088,7 +2089,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .box-descripcion {
       color: #5e5e5e;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 15.74px;
       font-weight: 500;
       line-height: 19px;
@@ -2168,7 +2169,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     padding: 0 12px !important;
     width: 170px !important;
     font-size: 17px !important;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
     &:disabled {
       background: #9b9b9b;
     }
@@ -2195,7 +2196,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     background: #ea0c90;
     color: white;
     font-size: 15px;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
   }
 }
 .box-btn-allRisk__button.box-btn-allRisk--back {
@@ -2504,7 +2505,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .cotizacion-datos_dto {
       color: #818181;
-      font-family: omnes;
+      font-family: 'Omnes Medium';
       font-size: 15px;
       font-weight: 500;
       line-height: 17px;
@@ -2514,7 +2515,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     .priceHead__head--detail {
       .checkbox-aux__descripcion {
         color: #666666;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 10.8px;
         font-weight: 500;
         line-height: 11.7px;
@@ -2524,7 +2525,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .cobertura-enlace {
         color: #5e5e5e;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -2537,7 +2538,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .endoso {
         color: #5e5e5e;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -2579,7 +2580,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .monto-anual {
         color: #5fa9fc;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 16px;
         font-weight: 600;
         line-height: 19px;
@@ -2587,7 +2588,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .monto-mensual {
         font-size: 20px;
-        font-family: "omnes";
+        font-family: 'Omnes Medium';
         font-size: 64px;
         font-weight: 900;
         color: #5fa9fc;
@@ -2657,7 +2658,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       .gps {
         position: relative;
         color: #5e5e5e;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -2676,7 +2677,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: relative;
       display: block;
       color: #666666;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 13px;
       font-weight: 500;
       line-height: 16px;
@@ -2810,7 +2811,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   padding: 12px 0;
   margin-right: 12px !important;
   padding: 0 8px !important;
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
 
   span {
     &:nth-child(1) {
@@ -2823,7 +2824,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     letter-spacing: 1px;
     line-height: 16px;
     text-align: center;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
   }
   &:hover {
     background: white !important;
@@ -2868,7 +2869,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   .modal-close-cotizacion {
-    font-family: "omnessemibold";
+    font-family: 'Omnes Semibold';
     font-size: 30px;
     width: 40px;
     height: 40px;
@@ -2947,7 +2948,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     font-size: 20px;
     font-weight: 600;
     text-align: center;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -3110,7 +3111,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .modal-lg {
     max-width: 660px;
   }
-  font-family: 'omnesregular';
+  font-family: 'Omnes Regular';
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -3126,7 +3127,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     color: #454a6c;
   }
   span {
-    font-family: 'omnes';
+    font-family: 'Omnes Medium';
   }
   img {
     margin-top: 30px;

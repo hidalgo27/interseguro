@@ -285,7 +285,7 @@ export default {
 .closeListon{
         cursor: pointer;
         position: absolute;
-        right: 20px;
+        right: 4px;
         height: 30px;
         top: 5px;
         background: #ff9200;
@@ -294,29 +294,25 @@ export default {
         line-height: 30px;
         text-align: center;
         color: #fff;
-        border-radius: 20px;
-        border: 1px solid #fff;
         font-size: 18px;
 
     }
     .liston{
         background: #ff9200;
         width: 100%;
-        height: 40px;
+        height: 56px;
         left: 0;
         justify-content: center;
         align-items: center;
-        padding: 0 51px 0 8px;
         display: flex;
         p{
-            text-align: center;
-            font-size: 14px;;
+            text-align: left;
+            font-size: 14px;
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.3;
             letter-spacing: normal;
-            text-align: center;
             color: #fff;
         }        
     }
@@ -536,7 +532,7 @@ export default {
             }
             h2{
                 color: #FFFFFF;
-                font-family: Omnes;
+                font-family: 'Omnes Medium';
                 font-weight: 600;
                 text-align: left;
                 margin-bottom: 0;

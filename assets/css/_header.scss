@@ -251,7 +251,7 @@ $gris-2: #212529;
     &__enlace{
         color: #5E5E5E;
         text-transform: uppercase;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         letter-spacing: 1.6px;
         font-size: 14px;
         padding: calc(0.4rem + 1vh);
@@ -321,7 +321,7 @@ transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 a.nuxt-link-exact-active.nuxt-link-active {
     color: #0855c4 !important;
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-size: 15px !important;
     font-weight: 700 !important;
 }
@@ -343,7 +343,8 @@ header .box-cotiza{
 }
 @media(max-width: 413px){
     .liston p{
-        font-size: 11px !important;
+        font-size: 11.5px !important;
+        padding: 0 36px 0 16px;
     }
     .liston .desktop_cotizador_liston{
         font-size: 11px !important;
@@ -390,7 +391,10 @@ header .box-cotiza{
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
+    .liston p{
+        font-family: 'omnes' !important;
+    }
     .box-cotiza{
         padding-top: 0px;
     }

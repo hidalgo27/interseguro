@@ -359,7 +359,9 @@ export default {
     
   },
   destroyed() {
-    this.$store.commit('common/resetState')
+    if (process.browser) {
+      this.$store.commit('common/resetState')
+    }
   }
 };
 </script>

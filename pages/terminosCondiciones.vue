@@ -105,13 +105,13 @@ export default {
         color: #ea0c90;
         font-weight: 600;
         font-size: 23px;
-        font-family: omnessemibold
+        font-family: 'Omnes Semibold'
       }
       p{
         text-align: center;
         color: #5E5E5E;
         font-size: 17px;
-        font-family: omnes;
+        font-family: 'Omnes Medium';
       }
     }
     padding-top: 75px;

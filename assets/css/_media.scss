@@ -12,7 +12,7 @@
     margin: auto;
     h3{
       font-size: 32px;
-      font-family: 'omnessemibold';
+      font-family: 'Omnes Semibold';
     }
   }
 }
@@ -76,13 +76,13 @@
     justify-content: center;
     padding-top: 8px;
     .titulo_portada{
-      font-family: 'omnessemibold';
+      font-family: 'Omnes Semibold';
       font-size: 34px;
       color: white;
       top: -40px;
     }
     .subtitulo_portada{
-      font-family: omnes;
+      font-family: 'Omnes Medium';
       font-size: 24px;
       color: white;
     }
@@ -154,7 +154,7 @@
       display: block;
       width: auto;
       padding: 0px;
-      font-family: 'omnes';      
+      font-family: 'Omnes Medium';      
       color: $gris-1;
       font-size: 48px;
       line-height: 50px;
@@ -167,7 +167,7 @@
         margin-left: auto;
         margin-top: 20px;
         margin-bottom: 10px;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         color: $gris-1;
         font-size: 26px;
         font-weight: 700;
@@ -179,14 +179,14 @@
       width: 70%;
       margin: 16px auto 4%;
       padding-bottom: 20px;
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       color: $gris-2;
       font-size: 20px;
       line-height: 24px;
       font-weight: 300;
       text-align: center;
       strong{
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 20px;
         font-weight: 300;
       }

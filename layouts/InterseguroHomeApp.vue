@@ -1,6 +1,5 @@
 <template>
     <div>      
-      
       <header-app></header-app>
         <div>
           <nuxt/>
@@ -21,6 +20,7 @@ import FooteraApp from '@/components/footers/FooterApp'
 export default {
   data () {
     return {
+      showLoader: true,
       appDiscountURL:'',
       businessId: "",
       cotizadorId: 0,

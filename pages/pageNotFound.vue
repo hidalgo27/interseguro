@@ -18,7 +18,7 @@
             
         </div>
         <div class="container pageNotFound__der">
-            <p class="buenaNoticia">La buena noticia es que todos nuestros planes siguen con 10% DE DESCUENTO.</p>
+            <p class="buenaNoticia">La buena noticia es que todos nuestros planes siguen con 15% DE DESCUENTO.</p>
             <p class="d-lg-none"><span class="ir-al-home">Ir al Home</span></p>
             <p class="otros-enlaces">Aquí tienes otros enlaces que también pueden servirte de ayuda:</p>
 
@@ -198,7 +198,7 @@
                         margin: 0;
                     }
                     .descripcion{
-                        font-family: 'omnesregular';
+                        font-family: 'Omnes Regular';
                         margin: 0;
                         text-align: left;
                         font-size: 2.0rem;

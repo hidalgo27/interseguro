@@ -194,7 +194,6 @@ export default {
     if (process.browser) {
       window.addEventListener("scroll", this.handleScroll);
       document.addEventListener('touchstart', this.handleScroll, {passive: true});
-
     }
   },
   destroyed() {

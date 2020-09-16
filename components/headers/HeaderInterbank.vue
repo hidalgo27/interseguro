@@ -320,7 +320,7 @@ export default {
             }
             h2{
                 color: #FFFFFF;
-                font-family: Omnes;
+                font-family: 'Omnes Medium';
                 font-weight: 600;
                 text-align: left;
                 margin-bottom: 0;

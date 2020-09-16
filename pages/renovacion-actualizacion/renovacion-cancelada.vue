@@ -81,7 +81,7 @@
         p{  
             line-height: 1.2;
             font-size: 24px;
-            font-family: "omnesregular"
+            font-family: 'Omnes Regular';
         }
     }
 </style>

@@ -61,7 +61,7 @@ filter {
     &__detail {
         position: relative;
         &--description{
-            font-family: 'omnes' ;
+            font-family: 'Omnes Medium';
             font-size: 16px;
             font-weight: 300;
             color: #4d4d4d;
@@ -70,7 +70,7 @@ filter {
             margin-top: 10px;
         }
         &--textSec{
-            font-family: 'omnessemibold';
+            font-family: 'Omnes Semibold';
             font-size: 44px;
             font-weight: 900;
             line-height: 1;
@@ -89,7 +89,7 @@ filter {
     .valor-comercial{
         color: #0855C4;
         font-size: 16px;
-        font-family: 'omnessemibold';
+        font-family: 'Omnes Semibold';
         text-align: center;
         display: inline-block;
         width: 100%;
@@ -115,7 +115,7 @@ filter {
             .pago-mensual{
                 font-size: 32px;
                 color: #595D66;
-                font-family: 'omnessemibold';
+                font-family: 'Omnes Semibold';
                 line-height: 1;
             }
             .igv_anual{
@@ -130,7 +130,7 @@ filter {
     &__content{
         display: flex;
         &--total{
-            font-family: 'omnes' ;
+            font-family: 'Omnes Medium';
             font-size: 63px;
             font-weight: 900;
             color: $primario;
@@ -165,7 +165,7 @@ filter {
 
 
 .price-info-description-top {
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     font-size: 14px;
     font-weight: bold;
     color: #4d4d4d;
@@ -186,7 +186,7 @@ filter {
     border-radius: 5px;
     border: 2px solid $secundario;
     color: #4d4d4d;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     font-size: 11px;
     line-height: 1.4;
     padding: 5px 5px;
@@ -211,7 +211,7 @@ filter {
 
 
 .price-info-slider-result {
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     font-size: 10px;
     font-weight: 900;
     color: $secundario-2;
@@ -359,7 +359,7 @@ filter {
     display: inline-block;
     text-align: center;
     height: 50px;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     div {
         font-size: 15px;
         font-weight: 500;

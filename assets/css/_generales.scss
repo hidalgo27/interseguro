@@ -7,7 +7,7 @@
     overflow-x: hidden;
   }
   body{
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
     font-size: 16px;
     box-sizing: border-box;
     padding: 0;
@@ -42,7 +42,7 @@
     align-items: center;
     border-radius: 8px;
     background-color: #ea0c90;
-    font-family: 'omnes' ;
+    font-family: 'Omnes Medium';
     color: $blanco;
     font-size: 16px;
     line-height: auto;
@@ -56,12 +56,12 @@
       display: block;
       width: auto;
       padding: 20px 0px;
-      font-family: 'omnes' ;
+      font-family: 'Omnes Medium';
       color: $gris-1;
       font-size: 28px;
       line-height: 32px;
       text-align: center;
-      font-family: 'omnessemibold';
+      font-family: 'Omnes Semibold';
       
     }
     &__subtitle{
@@ -110,14 +110,14 @@
     &__title {
         margin-top: 0px;
         margin-bottom: 0px;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         color: $gris-1;
         font-size: 24px;
         line-height: 32px;
         font-weight: 700;
     }
     &__title-2 {
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 28px;
         font-weight: 700;
         text-align: center;
@@ -185,7 +185,7 @@
       }  
     }
     .footer-number {
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         color: $gris-1;
         font-size: 20px;
         line-height: 36px;
@@ -205,7 +205,7 @@
         }
     }  
     .footer--txt {
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         color: $gris-1;
         font-size: 16px;
         line-height: 18px;
@@ -221,7 +221,7 @@
         -webkit-align-items: center;
         -ms-flex-align: center;
         align-items: center;
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         color: $gris-1;
         text-decoration: none;
     }
@@ -229,7 +229,7 @@
         margin-bottom: 0px;
     }
     .footer--txt.footer--subtitle {
-        font-family: 'omnes' ;
+        font-family: 'Omnes Medium';
         font-size: 14px;
         font-weight: 800;
         letter-spacing: 1.5px;

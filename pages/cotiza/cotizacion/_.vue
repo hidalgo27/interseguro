@@ -298,7 +298,7 @@
                 </b-col>
                 <b-col cols="8">
                   <div class="box-dto">                  
-                      <span>10% DE DESCUENTO</span>
+                      <span>15% DE DESCUENTO</span>
                   </div> 
                   <b-row  class="justify-content-center">
                     <b-col cols="4"  lg="4"  v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
@@ -515,7 +515,7 @@
                     <b-col cols="12" style="position: relative;">
                       <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
                       <div class="box-dto">
-                        <span>10% DE DESCUENTO</span>
+                        <span>15% DE DESCUENTO</span>
                         <!-- <img src="../../../static/media/interseguroVehicular_v2/dto.png" alt="dto"> -->
                       </div> 
                     </b-col>
@@ -784,7 +784,7 @@
           <b-col cols="12" style="position: relative;">
             <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
             <div class="box-dto">
-              <span>10% DE DESCUENTO</span>
+              <span>15% DE DESCUENTO</span>
               <!-- <img src="../../../static/media/interseguroVehicular_v2/dto.png" alt="dto"> -->
             </div> 
           </b-col>
@@ -2270,7 +2270,9 @@
       document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
     },
     destroyed() {
-      document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+      if (process.browser) {
+        document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+      }
     }
   }
 </script>
@@ -2281,7 +2283,7 @@
   background: #ff9200 !important;
   position: absolute;
   width: 100%;
-  height: 40px;
+  height: 56px;
   top: 0;
   position: fixed;
   z-index: 99;
@@ -2301,7 +2303,7 @@
   .closeListon{
     cursor: pointer;
     position: absolute;
-    right: 8px;
+    right: 4px;
     height: 30px;
     top: 5px;
     border-radius: 45px;
@@ -2309,8 +2311,6 @@
     line-height: 30px;
     text-align: center;
     color: #fff;
-    border-radius: 20px;
-    border: 1px solid #fff;
     font-size: 18px;
   }
 }
@@ -2417,7 +2417,7 @@ a.steps__item.paso1:after{
 }
 .miAuto{
   .placa{
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-weight: 600;
     
   }
@@ -2503,7 +2503,7 @@ a.steps__item.paso1:after{
   padding-left: 8px;
   flex-direction: column;
   p{
-    font-family: 'omnes';
+    font-family: 'Omnes Medium';
     font-size: 18px;
     font-weight: 500;
     font-stretch: normal;
@@ -2544,7 +2544,7 @@ a.steps__item.paso1:after{
     text-align: center;
     width: 130px;
     height: 22px;
-    font-family: 'omnes';
+    font-family: 'Omnes Medium';
     font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
@@ -2566,7 +2566,7 @@ a.steps__item.paso1:after{
 }
 .detallePlan{  
   .check-planes{
-    color: #696969;;
+    color: #696969;
     font-weight: 700;
   }
   .plan-item{     
@@ -2640,7 +2640,7 @@ a.steps__item.paso1:after{
       top: 0;
       height: 24px;
       p{
-        font-family: 'omnes';
+        font-family: 'Omnes Medium';
         font-size: 12px;
         font-weight: 500;
         font-stretch: normal;
@@ -2697,7 +2697,7 @@ a.steps__item.paso1:after{
     background-color: #f0f2f6;
   }
   &__titulo{
-    font-family: 'omnes';
+    font-family: 'Omnes Medium';
     font-size: 32px;
     font-weight: 500;
     font-stretch: normal;
@@ -2706,7 +2706,7 @@ a.steps__item.paso1:after{
     letter-spacing: normal;
     text-align: center;
     .mes{
-      font-family: 'omnes';
+      font-family: 'Omnes Medium';
       font-size: 14px;
       font-weight: normal;
       font-stretch: normal;
@@ -2766,7 +2766,7 @@ a.steps__item.paso1:after{
 }
 .texto-seleccionaPlan{
   padding: 12px 0  4px;
-  font-family: 'omnes';
+  font-family: 'Omnes Medium';
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -2981,7 +2981,7 @@ a.steps__item.paso1:after{
 .datos-vehiculo-mobile{
   padding-top: 14px;
   .mi-carro{
-    font-family: 'omnesregular';
+    font-family: 'Omnes Regular';
     font-size: 22px;
     font-weight: 600;
     font-stretch: normal;
@@ -3231,7 +3231,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       border-bottom: 1px solid rgba(0, 0, 0, 0.12);
       padding-left: 8px;
       font-size: 1rem;
-      font-family: "omnesregular";
+      font-family: 'Omnes Medium';
       cursor: pointer;
       p{
         height: 35px;
@@ -3347,7 +3347,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .campaniatv-textos {
     color: #5fa9fc;
-    font-family: Omnes;
+    font-family: 'Omnes Medium';
     font-size: 16px;
     font-weight: 600;
     line-height: 19px;
@@ -3373,7 +3373,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .box-titulo {
     color: #00adee;
-    font-family: Omnes;
+    font-family: 'Omnes Medium';
     font-size: 21.5px;
     font-weight: 600;
     letter-spacing: -0.31px;
@@ -3406,7 +3406,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
     .box-paso {
       color: #ea0c90;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 15.74px;
       font-weight: 600;
       letter-spacing: -0.16px;
@@ -3419,7 +3419,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 28px;
         font-weight: 600;
         line-height: 43px;
@@ -3427,7 +3427,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .box-descripcion {
       color: #5e5e5e;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 15.74px;
       font-weight: 500;
       line-height: 19px;
@@ -3509,7 +3509,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     padding: 0 12px !important;
     width: 170px !important;
     font-size: 17px !important;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
     &:disabled {
       background: #9b9b9b;
     }
@@ -3536,7 +3536,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     background: #ea0c90;
     color: white;
     font-size: 15px;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
     border-radius: 3px;
   }
 }
@@ -3848,7 +3848,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .cotizacion-datos_dto {
       color: #818181;
-      font-family: omnes;
+      font-family: 'Omnes Medium';
       font-size: 15px;
       font-weight: 500;
       line-height: 17px;
@@ -3858,7 +3858,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     .priceHead__head--detail {
       .checkbox-aux__descripcion {
         color: #666666;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 10.8px;
         font-weight: 500;
         line-height: 11.7px;
@@ -3868,7 +3868,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .cobertura-enlace {
         color: #5e5e5e;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -3881,7 +3881,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .endoso {
         color: #5e5e5e;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -3923,7 +3923,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .monto-anual {
         color: #5fa9fc;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 16px;
         font-weight: 600;
         line-height: 19px;
@@ -3931,7 +3931,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .monto-mensual {
         font-size: 20px;
-        font-family: "omnes";
+        font-family: 'Omnes Medium';
         font-size: 64px;
         font-weight: 900;
         color: #5fa9fc;
@@ -4001,7 +4001,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       .gps {
         position: relative;
         color: #5e5e5e;
-        font-family: Omnes;
+        font-family: 'Omnes Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -4020,7 +4020,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: relative;
       display: block;
       color: #666666;
-      font-family: Omnes;
+      font-family: 'Omnes Medium';
       font-size: 13px;
       font-weight: 500;
       line-height: 16px;
@@ -4154,7 +4154,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   padding: 12px 0;
   margin-right: 12px !important;
   padding: 0 8px !important;
-  font-family: "omnes";
+  font-family: 'Omnes Medium';
 
   span {
     &:nth-child(1) {
@@ -4167,7 +4167,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     letter-spacing: 1px;
     line-height: 16px;
     text-align: center;
-    font-family: "omnes";
+    font-family: 'Omnes Medium';
   }
   &:hover {
     background: white !important;
@@ -4212,7 +4212,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   .modal-close-cotizacion {
-    font-family: "omnessemibold";
+    font-family: 'Omnes Semibold';
     font-size: 30px;
     width: 40px;
     height: 40px;
@@ -4291,7 +4291,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     font-size: 20px;
     font-weight: 600;
     text-align: center;
-    font-family: "omnesregular";
+    font-family: 'Omnes Medium';
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -4595,7 +4595,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .modal-lg {
     max-width: 660px !important;
   }
-  font-family: 'omnesregular';
+  font-family: 'Omnes Regular';
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -4611,7 +4611,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     color: #454a6c;
   }
   span {
-    font-family: 'omnes';
+    font-family: 'Omnes Medium';
   }
   img {
     margin-top: 30px;
