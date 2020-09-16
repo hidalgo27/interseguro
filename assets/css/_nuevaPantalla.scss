@@ -7,7 +7,7 @@ body{
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        font-family: 'Omnes Regular';
+        // font-family: 'Omnes Regular';
         width: 245px;   
         text-align: center;
         height: 45px;
@@ -33,14 +33,14 @@ body{
         .modal-titulo{
             color: $vehicular_primario;
             font-size: 20px;
-            font-family: 20px;
+            // font-family: 20px;
             text-align: center;
         }
     }
 }
 
 .pago{
-    font-family: 'Omnes Regular';
+    // font-family: 'Omnes Regular';
     padding-bottom: 40px;
     padding-top: 140px;
     .custom-select{
@@ -48,7 +48,7 @@ body{
         box-shadow: none;
         border: 1px solid #C7C7C7;
         border-radius: 5px;
-        font-family: 'Omnes Medium';
+        // font-family: 'Omnes Medium';
     }
     .tarjetas-aceptadas{
         display: flex;
@@ -57,7 +57,7 @@ body{
     .resumen-tu-seguro,.ingresa-datos{
         color: $vehicular_primario;
         font-size: 23px;
-        font-family: 'Omnes Medium';
+        // font-family: 'Omnes Medium';
         text-align: center;
         max-width: 440px;
         line-height: 33px;
@@ -68,7 +68,7 @@ body{
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        font-family: 'Omnes Regular';
+        // font-family: 'Omnes Regular';
         width: 245px;   
         text-align: center;
         height: 45px;
@@ -93,13 +93,13 @@ body{
     .item-titulo{
         color: $vehicular_primario;
         font-size: 18px;
-        font-family: 'Omnes Medium';
+        // font-family: 'Omnes Medium';
         padding: 15px 0 10px 0;
     }
     .subtitulo{
         color: $vehicular_subtitulo;
         font-size: 15px;
-        font-family: 'Omnes Regular';
+        // font-family: 'Omnes Regular';
     }
     .detalle-item{
         display: flex;
@@ -110,14 +110,14 @@ body{
         p:first-child{
             color: $vehicular_parrafo;
             font-size: 14px;
-            font-family: 'Omnes Regular';
+            // font-family: 'Omnes Regular';
             text-align: left;
             width: 96px;
         }
         p:nth-child(2){
             color: $vehicular_parrafo;
             font-size: 14px;
-            font-family: 'Omnes Medium';
+            // font-family: 'Omnes Medium';
             position: relative;
             text-align: left;
             width: calc(100% - 122px);
@@ -155,7 +155,7 @@ body{
         .monto-minimo-maximo{
             color: $vehicular_parrafo;
             font-size: 11px;
-            font-family: 'Omnes Regular';
+            // font-family: 'Omnes Regular';
             display: flex;
             justify-content: space-between;
         }
@@ -167,7 +167,7 @@ body{
         justify-content: space-between;
         max-width: 400px;
         p{
-            font-family: 'Omnes Medium';
+            // font-family: 'Omnes Medium';
             color: #454A6C;
             font-size: 16px;
         }
@@ -191,7 +191,7 @@ body{
             display: flex;
             font-size: 15px;
             padding: 10px 0;
-            font-family: 'Omnes Medium';
+            // font-family: 'Omnes Medium';
             .monto{
                 font-size: 35px;
             }
@@ -204,7 +204,7 @@ body{
     .enlaces{
         a{
             color: $vehicular_primario;
-            font-family: 'Omnes Medium';
+            // font-family: 'Omnes Medium';
             font-weight: 500 !important;
             font-size: 18px !important;
             text-decoration: underline;
@@ -223,14 +223,14 @@ body{
             border: none;
             background-color: #0855C4;
             color: #ffffff;
-            font-family: 'Omnes Medium';
+            // font-family: 'Omnes Medium';
             font-size: 14px;
             border: none;
             height: 35px;
         }
         .resumen-desc{
             strong{
-                font-family: 'Omnes Medium';
+                // font-family: 'Omnes Medium';
                 font-size: 16px;
                 color: #454A6C;
             }
@@ -255,7 +255,7 @@ body{
             span{
                 cursor: pointer;
                 text-decoration: underline;
-                font-family: 'Omnes Medium';
+                // font-family: 'Omnes Medium';
                 outline-color: transparent;
             }
         }
