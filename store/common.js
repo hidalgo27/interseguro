@@ -188,17 +188,14 @@ const mutations = {
     setPlanSeleccionado (state, payload) {
         state.planSeleccionado = payload
     },
-    setObjCliente(state, payload){
-        state.objCliente = payload
-        // state.objCliente = JSON.parse(JSON.stringify(payload))
+    setObjCliente(state, payload){        
+        state.objCliente = JSON.parse(JSON.stringify(payload))
     },
     setObjVehiculo(state, payload){
-        state.objVehiculo = payload
-        // state.objVehiculo = JSON.parse(JSON.stringify(payload))
+        state.objVehiculo = JSON.parse(JSON.stringify(payload))
     },
     setListaCotizacion(state, payload){
-        state.listaCotizacion = payload
-        // state.listaCotizacion = JSON.parse(JSON.stringify(payload))
+        state.listaCotizacion = JSON.parse(JSON.stringify(payload))
     },
     setItemElegido(state, payload){
         state.itemElegido = payload

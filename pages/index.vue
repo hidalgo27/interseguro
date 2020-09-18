@@ -526,6 +526,8 @@
           
       },
       mounted () {
+        
+        
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
         this.$store.commit('common/setBusinessId', 1)

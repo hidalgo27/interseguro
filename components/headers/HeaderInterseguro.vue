@@ -1,9 +1,11 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-            <p> ¡Ya llegó el #CyberInterseguro! Aprovecha nuestro 15% de dscto. en la compra de tu Seguro Vehicular hasta el 20 de septiembre</p>
-            <div class="closeListon" @click="closeListon()">X</div>
-        </div>
+        <div>
+            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+                <p> ¡Ya llegó el #CyberInterseguro! Aprovecha nuestro 15% de dscto. en la compra de tu Seguro Vehicular hasta el 20 de septiembre</p>
+                <div class="closeListon" @click="closeListon()">X</div>
+            </div>
+        </div>        
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -164,7 +166,7 @@ export default {
         }
     },
     mounted(){
-    
+        // localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)

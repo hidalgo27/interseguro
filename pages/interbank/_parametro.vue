@@ -696,7 +696,6 @@
     color: white;
     width: 100%;
     z-index: 99;
-    // background: url("../../static/media/interseguroVehicular_v2/banner_mobile_cyber.jpg");
     height: 90px;
     justify-content: flex-end;
     align-items: center;

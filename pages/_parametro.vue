@@ -626,12 +626,12 @@
                   email: this.$store.state.common.email
                 }
                 this.$store.dispatch('common/getVehicle', rmktItem)
-                  .then((res) => {
-                    if (res.data.code == 0) {
-                      if (res.data.body.activePolicy === true) {
+                  .then((ress) => {
+                    if (ress.data.code == 0) {
+                      if (ress.data.body.activePolicy === true) {
                         this.$nuxt.$router.push({path: "/placa-registrada"})
                       } else {
-
+                        
                         if (res.data.detalle.pantalla == 1) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                           this.$nuxt.$router.push("/cotiza/cotizacion/")

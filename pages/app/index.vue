@@ -71,11 +71,11 @@
         <div class="root-der">
           <img class="d-none  d-lg-block" src="./../../static/media/img/root/banner.png" alt="">
           <div class="caja-mobile  d-flex  d-lg-none">
-            <img class="" src="./../../static/media/img/root/banner_mobile.png" alt="">
+            <img style="max-width: 230px" src="./../../static/media/img/root/banner.png" alt="">
           </div>
           <div class="btns-banner mt-3 d-block  d-lg-none">
             <div class="btn-cotizar" @click="descargarApp('1')">
-              <span class="cotizar">COTIZAR</span>
+              <span class="cotizar">COTIZAR EN EL APP</span>
               
             </div>
             <div class="btn-quiero-cotizar" @click="showModalQuieroCotizar($event)">
@@ -172,7 +172,7 @@
           <span @click="descargarApp('2')" class="btn-descargar" >DESCARGAR APP AHORA</span>
         </div>
         <div class="enlace-home d-flex  d-lg-none p-47px">
-          <span class="mas-informacion" @click="sabermas('mbl')">Mas información</span>              
+          <span class="mas-informacion" @click="sabermas('mbl')">Más información</span>              
         </div>
       </div>
     </div>
@@ -1627,7 +1627,7 @@ p, img{
     .root-der{
       .caja-mobile{
         overflow: hidden;
-        height: 240px;
+        height: 284px;
       }
       img{
         max-width: 280px;

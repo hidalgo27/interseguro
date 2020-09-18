@@ -1,6 +1,6 @@
 <template>
     <div class="pago">        
-        <!-- <fade-loader v-if="showLoader"></fade-loader> -->
+        <fade-loader v-if="showLoader"></fade-loader>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col cols="12" lg="6" class="d-none" v-bind:class="{'d-block': primeraPantalla}">
@@ -323,7 +323,7 @@
                     <div>
                         <div id="input-group-3" class="inicioVigencia">                        
                             <div class="fechaCotizador">
-                                <!-- <datepicker class="mt-2" :inline="true"  :disabledDates="state.disabledDates" id="fechaCustom" :full-month-name="true"   :value="state.date" @selected="elegirFecha" ></datepicker> -->
+                                <datepicker class="mt-2" :inline="true"  :disabledDates="state.disabledDates" id="fechaCustom" :full-month-name="true"   :value="state.date" @selected="elegirFecha" ></datepicker>
                             </div>
                         </div>
                         <!-- <div class="btn-inicioVigencia">
@@ -574,8 +574,8 @@ export default {
         }
     },
     components:{
-        // 'fade-loader': FadeLoader,
-        // Datepicker: () => import('vuejs-datepicker/dist/vuejs-datepicker')
+        'fade-loader': FadeLoader,
+        Datepicker: () => import('vuejs-datepicker/dist/vuejs-datepicker')
     },
     computed: {
         isMinimo: function() {
@@ -636,10 +636,8 @@ export default {
     },
     mounted() {
         this.btnpagar = document.getElementById("irapagar").offsetTop
-        console.log(this.btnpagar)
         this.elegirFecha()
         this.primeraPantalla = true
-        console.log("this.$route.params.placa",this.$route.params.placa)
         if (this.$route.params.placa.length == 6){
             this.item.plateNumber = this.$route.params.placa
             this.$store.commit('common/setPlateNumber', this.$route.params.placa)            
@@ -658,7 +656,6 @@ export default {
                            
                            this.usuarioCelular = this.cliente.phoneNumber
                            this.usuarioCorreo = this.cliente.emailAddress
-                           console.log("this.cliente", this.cliente.emailAddress)
                        }
                    })
 
@@ -686,14 +683,11 @@ export default {
     },
     methods: {
         handleScroll(eve) {
-            console.log("SCROLL",window.scrollY)
             if (window.scrollY >= 220) {
-                console.log("btn pagar")
                 this.opacityNone = true        
     
             } else {
                 this.opacityNone = false
-                console.log("NO btn pagar")
             }
         },
         isTrueTerminos(){
@@ -711,7 +705,7 @@ export default {
             }
         },
         desactivar(){
-            console.log("d")
+            console.log("")
         },
         focusMesAnio(){
             this.activeFocus = true
@@ -796,7 +790,6 @@ export default {
             }
         },
         seleccionarFrecuencia(){
-            console.log("SELECTED",this.selected)
             if (this.selected == 1) {
                 this.frecuencia = 'Mensual'
                 if (this.planSeleccionado == 3) {

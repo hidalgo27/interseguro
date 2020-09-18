@@ -6,7 +6,7 @@ module.exports = {
   //Server midleware
   mode: 'universal',
   router: {
-    base: '/testvehicular/'
+    base: '/vehicular/'
   },  
   head: {
     title: 'Seguro Vehicular | Interseguro',
@@ -45,20 +45,21 @@ module.exports = {
     '~/plugins/bootstrap.js',    
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
+    { src: '~/plugins/sentry.js', ssr: false },
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
     { src: '~plugins/vue-carousel.js', sync: false },    
-    { src: '~plugins/clipboard.js', ssr: false },        
+    { src: '~plugins/clipboard.js', ssr: false },
+    { src: '~plugins/hotjar.js', ssr: false },
+    { src: '~plugins/bing.js', ssr: false },
     { src: '~plugins/vue-slide.js', sync: false },
     { src: '~plugins/vue-tabs.js', ssr: false },
     { src: '~plugins/vue-tab.js', ssr: false },    
-    { src: '~plugins/vue-cliploader.js', ssr: false },    
-    { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~plugins/bing.js', ssr: false },
-    { src: '~plugins/zepto.js', ssr: false },
-    { src: '~plugins/ga.js', ssr: false },    
-    { src: '~plugins/hotjar.js', ssr: false },
+    { src: '~plugins/vue-cliploader.js', ssr: false },
+    { src: '~plugins/ga.js', ssr: false },
     { src: '~plugins/chat.js', ssr: false },
+    { src: '~plugins/zepto.js', ssr: false },
+    { src: '~/plugins/localStorage.js', ssr: false }
   ],
   axios: {
     baseURL: process.env.API_BASE_URL,
