@@ -297,7 +297,7 @@
                 </b-col>
                 <b-col cols="8">
                   <div class="box-dto">                  
-                      <span>15% DE DESCUENTO</span>
+                      <span>10% DE DESCUENTO</span>
                   </div> 
                   <b-row  class="justify-content-center">
                     <b-col cols="4"  lg="4"  v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
@@ -514,7 +514,7 @@
                     <b-col cols="12" style="position: relative;">
                       <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
                       <div class="box-dto">
-                        <span>15% DE DESCUENTO</span>
+                        <span>10% DE DESCUENTO</span>
                         <!-- <img src="../../static/media/interseguroVehicular_v2/dto.png" alt="dto"> -->
                       </div> 
                     </b-col>
@@ -783,7 +783,7 @@
           <b-col cols="12" style="position: relative;">
             <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
             <div class="box-dto">
-              <span>15% DE DESCUENTO</span>
+              <span>10% DE DESCUENTO</span>
               <!-- <img src="../../static/media/interseguroVehicular_v2/dto.png" alt="dto"> -->
             </div> 
           </b-col>
