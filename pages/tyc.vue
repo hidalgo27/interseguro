@@ -15,7 +15,7 @@
                   <b>Alcance</b>
                 </p>                
                 <p>
-                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una tarjeta virtual por un valor de S/ 100 Soles, que se regalará a los 70 primeros clientes que efectúen una compra de Seguro Vehicular haciendo uso de la página Web de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro). Para acceder a la promoción, el usuario debe realizar la compra de un Plan BLACK empleando cualquier modalidad de pago (mensual, semestral, anual).
+                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una tarjeta virtual por un valor de S/ 100 Soles, que se regalará a los 100 primeros clientes que efectúen una compra de Seguro Vehicular haciendo uso de la página Web de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro). Para acceder a la promoción, el usuario debe realizar la compra de un Plan BLACK empleando cualquier modalidad de pago (mensual, semestral, anual).
                   Los participantes deben cumplir los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído y conocer en su totalidad. Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones o descuentos. Aplica para vales canjeables a nivel nacional.
                 </p>
               </li>
@@ -73,7 +73,7 @@
                     </ul>
                   </li>
                   <li><p>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe desde las 01:00 horas del 21/09/2020 hasta las 23:59:59 horas del 27/09/2020.</p></li>
-                  <li><p>Stock máximo: 70 vales virtuales</p></li>
+                  <li><p>Stock máximo: 100 vales virtuales</p></li>
                   <li><p>Aplica exclusivamente para personas naturales con documento de identidad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.</p></li>
                   <li><p>Los datos ingresados deben ser correctos y veraces, caso contrario el participante no podrá hacerse acreedor del premio.</p></li>
                   <li><p>La póliza adquirida deberá estar vigente a la fecha y hora de la entrega del premio. </p></li>
