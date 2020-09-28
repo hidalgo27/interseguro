@@ -1,10 +1,10 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <div>
-            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+            <!-- <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <p> ¡Llévate un vale de consumo de S/ 100 por la compra de tu Seguro Vehicular en plan Black! <a style="text-decoration:underline; color: #fff" href="https://www.interseguro.pe/vehicular/tyc/">Ver detalle</a></p>
                 <div class="closeListon" @click="closeListon()">X</div>
-            </div>
+            </div> -->
         </div>        
         <div class="menu-nav">
             <div class="menu-nav__izq">
