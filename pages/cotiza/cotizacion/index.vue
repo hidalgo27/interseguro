@@ -284,7 +284,7 @@
                   </div>
                 </b-col>
                 <b-col cols="8">
-                  <div class="box-dto" v-if="this.nuevoProducto == false && appDiscount == false"><span>15% DE DESCUENTO</span></div>
+                  <div class="box-dto" v-if="this.nuevoProducto == false && appDiscount == false"><span>10% DE DESCUENTO</span></div>
                   <b-row  class="justify-content-center">
                     <b-col cols="4"  lg="4"  class="pt-3" v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
 
@@ -712,7 +712,7 @@
         <b-row>
           <b-col cols="12"  md="9" style="position: relative;">
             <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
-            <div class="box-dto" v-if="this.nuevoProducto == false"><span>15% DE DESCUENTO</span></div>
+            <div class="box-dto" v-if="this.nuevoProducto == false"><span>10% DE DESCUENTO</span></div>
           </b-col>
         </b-row>
         <b-row>
