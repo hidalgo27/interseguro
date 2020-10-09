@@ -2,7 +2,7 @@
     <header class="header-planes" @scroll="handleScroll()" >
         <div id="liston-felicidades" class="liston-felicidades">
             <img width="45" src="./../../static/media/img/root/ahorra.png" alt="">
-            <p class="pb-0  pl-2" style="margin-bottom: 0"> <strong>¡Felicidades!</strong> Estás ahorrando un 50%</p>
+            <p class="pb-0  pl-2" style="margin-bottom: 0"> <strong>¡Felicidades!</strong> Estás ahorrando un xx%</p>
         </div>
         <div class="menu-nav">
             <div class="menu-nav__izq">

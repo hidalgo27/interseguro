@@ -2,11 +2,27 @@ const pkg = require('./package')
 require('dotenv').config()
 
 module.exports = {
+// BASE_URL      =     https://www.interseguro.pe/
+// API_BASE_URL  =     https://www.interseguro.pe/vehicular-api/
+// CULQI_PK      =     pk_live_mrWwATMNEg6JuUVG
+// CULQI_URL     =     https://www.interseguro.pe/vehicular/cotiza/como-pagar
 
+// BASE_URL      =     https://test.interseguro.pe/
+// API_BASE_URL  =     https://test.interseguro.pe/vehicular-api/
+// CULQI_PK      =     pk_test_RrlEyfOK587sZBN0
+// CULQI_URL     =     https://test.interseguro.pe/vehicular/cotiza/como-pagar
+
+// NODE_ENV      =     'test'
+// BASE_URL      =     http://localhost:3000/
+// API_BASE_URL  =     http://35.230.0.222:8080/
+// CULQI_PK      =     pk_test_RrlEyfOK587sZBN0
+// CULQI_URL     =     http://localhost:8080/cotiza/como-pagar
+
+// API_BASE_URL_REMARKETING = http://10.138.0.2:8001/
   //Server midleware
   mode: 'universal',
   router: {
-    base: '/vehicular/'
+    base: '/testvehicular/'
   },  
   head: {
     title: 'Seguro Vehicular | Interseguro',
@@ -45,12 +61,12 @@ module.exports = {
     '~/plugins/bootstrap.js',    
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
-    // { src: '~/plugins/sentry.js', ssr: false },
+    { src: '~/plugins/sentry.js', ssr: false },
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
     { src: '~plugins/vue-carousel.js', sync: false },    
     { src: '~plugins/clipboard.js', ssr: false },
-    // { src: '~plugins/hotjar.js', ssr: false },
+    { src: '~plugins/hotjar.js', ssr: false },
     { src: '~plugins/bing.js', ssr: false },
     { src: '~plugins/vue-slide.js', sync: false },
     { src: '~plugins/vue-tabs.js', ssr: false },

@@ -4,7 +4,7 @@
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col cols="12" lg="6" class="d-none" v-bind:class="{'d-block': primeraPantalla}">
-                        <p class="resumen-tu-seguro" >Resumen de tu seguro vehicular</p>
+                        <p class="resumen-tu-seguro" >Resumen de tu Seguro vehicular</p>
                         <div class="mi-carro">
                             <p class="item-titulo">Mi carro</p>
                             <div class="carro-detalle">
@@ -14,7 +14,7 @@
                                 </div>
                                 <div class="detalle-item">
                                     <p>Modelo:</p>
-                                    <p>{{this.respuestaPlaca.model}}</p>
+                                    <p>{{this.respuestaPlaca.brand }} {{ this.respuestaPlaca.model}}</p>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="monto-fecha">
                             <div class="box-monto-pago">
-                                <p class="subtitulo">Monto de pago</p>
+                                <p class="subtitulo">Monto de pago: </p>
                                 <div class="monto-frecuencia">
                                     <span>US$</span>
                                     <span class="monto">{{this.monto_pagar}}</span>
@@ -119,7 +119,7 @@
                                 <p class="antes">Antes ${{this.monto_antes}}</p>
                             </div>
                             <div class="enlaces  d-none  d-lg-block  pl-4  pr-4" style="width : 50%;">
-                                <router-link to="/cobertura">coberturas</router-link>,&nbsp;
+                                <router-link to="/cobertura">Coberturas</router-link>,&nbsp;
                                 <router-link to="">beneficios</router-link>&nbsp; <br><span style="color: #0855C4">y&nbsp;</span> 
                                 <router-link to="">
                                     exclusiones
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="enlaces  d-flex  d-lg-none">
-                            <router-link to="/cobertura">coberturas</router-link>,&nbsp;
+                            <router-link to="/cobertura">Coberturas</router-link>,&nbsp;
                             <router-link to="">beneficios</router-link>&nbsp;
                             <span style="color: #0855C4">y</span>&nbsp;
                             <router-link to="">exclusiones</router-link>
@@ -167,7 +167,7 @@
                                                     <div class="card-custom__date"  @click="focusMesAnio()" v-bind:class="{'activeFocus':activeFocus}">
                                                         <div class="form-group-custom">                                                            
                                                             <div id="box-mes" class="input-group  iptGral editable">   
-                                                                <input @keyup="keyUpCard()" @blur="activeFocus = !activeFocus" placeholder="MM" id="cardmes" class="form-control text-uppercase iptGral__input ipt-month"  maxlength="2" v-model="card.expiration_month" type="tel" name="name"/>
+                                                                <input @keyup="keyUpMes()" @blur="activeFocus = !activeFocus" placeholder="MM" id="cardmes" class="form-control text-uppercase iptGral__input ipt-month"  maxlength="2" v-model="card.expiration_month" type="tel" name="name"/>
                                                             </div>
                                                             <div id="focusMES" class=" d-none">
                                                                 Fecha de vencimiento de tu tarjeta.
@@ -196,7 +196,11 @@
                                                         <!-- <img height="28" src="./../../static/media/img/root/tarjetas-aceptadas.svg" alt="visa"> -->
                                                     </span>
                                                 </div>
-                                                <br>
+
+                                                <div class="metodo_pago_img"  style=" padding-bottom:10px;">
+                                                    <img width="165" src="./../../static/media/img/root/metodo_pago.png" alt="amex">
+                                                </div>
+
                                                 <div class="enlace-tyc  pt-4  pb-4">
                                                     <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
                                                     He leído y <span  v-b-modal.modal-confirmaTusDatos-app>aceptado las condiciones de la póliza</span>
@@ -935,6 +939,7 @@ export default {
         },
         keyUpCard(){
             let año = document.querySelector("#cardaño").value.length
+            console.log(año)
             if(año == 2){
                 document.getElementById('cardccv').focus()
             }
@@ -1116,6 +1121,12 @@ export default {
 .opacityNone{
     opacity: 1 !important;
 }
+.iptGral.editable .ipt-cardNumber {
+    padding-left: 42px !important;
+}
+.iptGral.editable .ipt-cvv {
+    padding-left: 42px !important;
+}
 /******************************************************************************************************* */
 /******************************************************************************************************* */
 /******************************************************************************************************* */
@@ -1209,15 +1220,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
 
     .iptGral.editable .iptGral__input {
-        padding-left: 45px;
+        padding-left: 30px;
         max-width: 460px;
         height: 48px;
         border: 1px solid #D1D1D1 !important;
         box-shadow: none;
     }
     .iptGral.editable ::placeholder {
-        color: #D1D1D1 !important;
-        padding-left: 18px;
+        color: #D1D1D1 !important;        
     }
     .box-iptCard{
         position: relative;
@@ -1283,7 +1293,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             width: 40px;
             text-align: right !important;
             padding-right: 8px !important;
-            background-image: url("./../../static/media/img/root/tarjeta.svg");
+            background-image: url("./../../static/media/img/root/calendar.png");
             background-repeat: no-repeat;
             background-position-x: 12px;
             background-position-y: 14px;
@@ -1292,7 +1302,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             padding-bottom: 5px;
         }
         .ipt-month:focus {
-            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+            background-image: url("./../../static/media/img/root/calendar.svg");
             box-shadow: none;
         }
         .ipt-year{
@@ -1305,7 +1315,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         .ipt-cvv{
             width: 60px;
             padding: 0 0 0 8px;
-            background-image: url("./../../static/media/img/root/tarjeta.svg");
+            background-image: url("./../../static/media/img/root/ccv.png");
             background-repeat: no-repeat;
             background-position-x: 12px;
             background-position-y: 14px;
@@ -1314,7 +1324,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             padding-bottom: 5px;
         }
         #box-ccv .ipt-cvv:focus {
-            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+            background-image: url("./../../static/media/img/root/cvv_focus.png");
             border: 1.5px solid #0855c4 !important;
             box-shadow: none;
         }
@@ -1330,7 +1340,10 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             font-size: 20px;
         }
     }
-
+    .metodo_pago_img{
+        display: flex;
+        justify-content: flex-end;
+    }
     .card-custom{
         display: flex;
         justify-content: space-between;
@@ -1399,6 +1412,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
                         z-index: 99;
                         font-size: 17px;
                         line-height: 44px;
+                        color: #d3ddef;
                     }
                 }
             }

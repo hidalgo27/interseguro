@@ -1,13 +1,16 @@
 body{
     // background-color: aqua;
 }
+#modalEditarCorreo .modal-dialog{
+    width: 380px;
+}
 #modalEditarCelular, #modalEditarCorreo, #modalEntidadFinanciera, #modalInicioVigencia, #modal-confirmaTusDatos-app{
     .btn-principal{        
         background-color: $vehicular_secundario ;
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        // font-family: 'Omnes Regular';
+        font-family: 'Omnes Regular';
         width: 245px;   
         text-align: center;
         height: 45px;
@@ -39,8 +42,29 @@ body{
     }
 }
 
+.custom-select {
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background: #fff url(./../../static/media/img/root/flecha_abajo.png) no-repeat right .75rem center/8px 10px;
+    background-size: 18px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Omnes Medium';
+    color: #0855c4;
+    font-size: 16px;
+}
 .pago{
-    // font-family: 'Omnes Regular';
+    font-family: 'Omnes Regular';
     padding-bottom: 40px;
     padding-top: 140px;
     .custom-select{
@@ -48,7 +72,7 @@ body{
         box-shadow: none;
         border: 1px solid #C7C7C7;
         border-radius: 5px;
-        // font-family: 'Omnes Medium';
+        font-family: 'Omnes Medium';
     }
     .tarjetas-aceptadas{
         display: flex;
@@ -57,7 +81,7 @@ body{
     .resumen-tu-seguro,.ingresa-datos{
         color: $vehicular_primario;
         font-size: 23px;
-        // font-family: 'Omnes Medium';
+        font-family: 'Omnes Medium';
         text-align: center;
         max-width: 440px;
         line-height: 33px;
@@ -68,7 +92,7 @@ body{
         border-radius: 4px;
         color: white;
         cursor: pointer;
-        // font-family: 'Omnes Regular';
+        font-family: 'Omnes Regular';
         width: 245px;   
         text-align: center;
         height: 45px;
@@ -93,13 +117,13 @@ body{
     .item-titulo{
         color: $vehicular_primario;
         font-size: 18px;
-        // font-family: 'Omnes Medium';
+        font-family: 'Omnes Medium';
         padding: 15px 0 10px 0;
     }
     .subtitulo{
         color: $vehicular_subtitulo;
         font-size: 15px;
-        // font-family: 'Omnes Regular';
+        font-family: 'Omnes Regular';
     }
     .detalle-item{
         display: flex;
@@ -110,14 +134,14 @@ body{
         p:first-child{
             color: $vehicular_parrafo;
             font-size: 14px;
-            // font-family: 'Omnes Regular';
+            font-family: 'Omnes Regular';
             text-align: left;
             width: 96px;
         }
         p:nth-child(2){
             color: $vehicular_parrafo;
             font-size: 14px;
-            // font-family: 'Omnes Medium';
+            font-family: 'Omnes Medium';
             position: relative;
             text-align: left;
             width: calc(100% - 122px);
@@ -131,6 +155,7 @@ body{
             right: -4px;
             top: 0px;
             width: 15px;
+            cursor: pointer;
         }
     }
     .c-suma-asegurada{
@@ -155,7 +180,7 @@ body{
         .monto-minimo-maximo{
             color: $vehicular_parrafo;
             font-size: 11px;
-            // font-family: 'Omnes Regular';
+            font-family: 'Omnes Regular';
             display: flex;
             justify-content: space-between;
         }
@@ -163,13 +188,17 @@ body{
     .frecuencia-pago{
         padding: 15px 0;
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        max-width: 400px;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
         p{
-            // font-family: 'Omnes Medium';
+            font-family: 'Omnes Medium';
             color: #454A6C;
             font-size: 16px;
+        }
+        .select{
+            width: 100%;
         }
     }
     .monto-fecha{
@@ -180,7 +209,12 @@ body{
         background-color: #EFF1F5;
         padding: 13px 12px;
         width: 50%;
+        .subtitulo{
+            font-family: 'Omnes Medium';
+        }
         .antes{
+            font-family: 'Omnes Regular';
+            font-size: 15px;
             text-decoration: line-through;
             text-decoration-color: #EA0F90;
         }
@@ -189,9 +223,9 @@ body{
             border-radius: 3px;
             color: $vehicular_primario;
             display: flex;
-            font-size: 15px;
+            font-size: 16px;
             padding: 10px 0;
-            // font-family: 'Omnes Medium';
+            font-family: 'Omnes Medium';
             .monto{
                 font-size: 35px;
             }
@@ -204,9 +238,9 @@ body{
     .enlaces{
         a{
             color: $vehicular_primario;
-            // font-family: 'Omnes Medium';
+            font-family: 'Omnes Medium';
             font-weight: 500 !important;
-            font-size: 18px !important;
+            font-size: 16px !important;
             text-decoration: underline;
         }
     }
@@ -223,14 +257,14 @@ body{
             border: none;
             background-color: #0855C4;
             color: #ffffff;
-            // font-family: 'Omnes Medium';
+            font-family: 'Omnes Medium';
             font-size: 14px;
             border: none;
             height: 35px;
         }
         .resumen-desc{
             strong{
-                // font-family: 'Omnes Medium';
+                font-family: 'Omnes Medium';
                 font-size: 16px;
                 color: #454A6C;
             }
@@ -251,17 +285,46 @@ body{
         .enlace-tyc{
             text-align: center;
             color: #454A6C;
-            font-size: 16px;
+            font-size: 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            input{
+                margin-right: 8px;
+            }
             span{
+                
                 cursor: pointer;
                 text-decoration: underline;
-                // font-family: 'Omnes Medium';
+                font-family: 'Omnes Medium';
                 outline-color: transparent;
             }
         }
     }
 }
 
+@media (min-width: 1024px) {
+    .pago{
+        .datos-tarjeta{
+            padding-top: 0;
+        }
+        .enlace-tyc{         
+            font-size: 15px;
+        }
+        .detalle-item{
+            span{
+            }
+            p:first-child{
+                width: 144px;
+            }
+        }
+        .enlaces{
+            a{
+                font-size: 18px !important;
+            }
+        }
+    }
+}
 @media (min-width: 1200px) {
     .pago{
         padding-top: 174px;
@@ -277,18 +340,27 @@ body{
             }
         }
         .frecuencia-pago{
+            flex-direction: row;
+            align-items: center;
             width: 400px;
             p{
                 font-size: 18px;
             }
+            .select{
+                width: 212px;                
+            }
+            .custom-select{
+                font-size: 17px;
+            }
         }
-        .resumen-tu-seguro{
-            text-align: left;
-        }
+        
         .resumen-tu-seguro,.ingresa-datos{
             font-size: 24.5px;
             line-height: 33px;
             text-align: center;
+        }
+        .resumen-tu-seguro{
+            text-align: left;
         }
         .btn-principal{
             height: 52px;
@@ -301,6 +373,7 @@ body{
             span{
             }
             p:first-child{
+                font-family: 'Omnes Regular';
                 font-size: 16px;
             }
             p:nth-child(2){
@@ -309,6 +382,16 @@ body{
         }
         .box-monto-pago{
             width: 205px;
+            .antes{
+                font-family: 'Omnes Regular';
+                font-size: 16px;
+            }
+            .monto-frecuencia{
+                font-size: 20px;
+                .monto{
+                    font-size: 42px;
+                }
+            }
         }
     }
 }
