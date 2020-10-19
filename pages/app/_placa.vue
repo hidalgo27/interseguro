@@ -440,6 +440,16 @@ export default {
             activeFocus : false,
             showLoader: true,
             frecuencia: '',
+            planSeleccionado:3,
+            selected: 1,
+            monto_pagar: '',
+            monto_antes: '',
+            options: [
+                { value: null, text: '' },
+                { value: '1', text: 'Mensual (12 cuotas)' },
+                { value: '2', text: 'Trimestral (4 cuotas)' },
+                { value: '3', text: 'Anual (1 cuota)' },
+            ],
             gps: false,
             ischecked: false,
             usuarioCelular: '',
@@ -464,13 +474,7 @@ export default {
                 secondLastName: ""
             },
             primeraPantalla: false,
-            selected: 1,
-            options: [
-                { value: null, text: '' },
-                { value: '1', text: 'Mensual (12 cuotas)' },
-                { value: '2', text: 'Trimestral (4 cuotas)' },
-                { value: '3', text: 'Anual (1 cuota)' },
-            ],
+            
             clonado: {
                 policy: {
                     risk: "",
@@ -523,7 +527,7 @@ export default {
                     monthlyAmount: 0
                 }
             },
-            planSeleccionado:3,
+            
             listaFull:{},
             listaMedia: {},
             item:{
@@ -570,8 +574,7 @@ export default {
             numberValidation:{
                 isValid:''
             },
-            monto_pagar: '',
-            monto_antes: '',
+            
             numberTest: '',
             checkDocs: false,
             baseUrlImage: '',

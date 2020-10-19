@@ -111,7 +111,7 @@
 
         <!-- *************************************************************************************************** -->
         <!-- *******************************  COTIZADOR NUEVO  ***************************************** -->
-        <!-- *************************************************************************************************** 
+        <!-- *************************************************************************************************** -->
 
       <b-container>
         <b-row>
@@ -140,6 +140,39 @@
               </div>
             </div>
           </b-col>
+          <b-col xs="12">
+            <p>
+              Selecciona tu plan
+            </p>
+            <div class="v2-seleccion-planes">
+              <div class="v2-seleccion-planes__item">
+                <p>PLATA</p>
+                <p>US$ {{this.listaBasica.policy.monthly}}</p>
+              </div>
+              <div class="v2-seleccion-planes__item">
+                <p>PLATA</p>
+                <p>US$ {{this.listaMedia.policy.monthly}}</p>
+              </div>
+              <div class="v2-seleccion-planes__item">
+                <p>PLATA</p>
+                <p>US$ {{this.listaFull.policy.monthly}}</p>
+              </div>
+            </div>
+            <div class="v2-dettalle-plan">
+              <div class="v2-dettalle-plan__suma  box-monto-pago">
+                  <p class="subtitulo">Monto de pago: </p>
+                  <div class="monto-frecuencia">
+                      <span>US$</span>
+                      <span class="monto">{{this.lista}}</span>
+                      <span>/{{this.frecuencia}}</span>
+                  </div>
+                  <p class="antes">Antes US${{this.monto_antes}}</p>
+              </div>
+              <div class="v2-detalle-plan__box-frecuencia  select">
+                <b-form-select v-model="selected" :options="options"></b-form-select>
+              </div>
+            </div>
+          </b-col>
         </b-row>
         
         <b-row>
@@ -148,7 +181,7 @@
       </b-container>
 
 
-   *************************************************************************************************** -->
+        <!-- *************************************************************************************************** -->
         <!-- *******************************  COTIZADOR NUEVO  ******************************************* -->
         <!-- *************************************************************************************************** -->
 
@@ -330,7 +363,6 @@
                   <div class="box-dto" v-if="this.nuevoProducto == false && appDiscount == false"><span>15% DE DESCUENTO</span></div>
                   <b-row  class="justify-content-center">
                     <b-col cols="4"  lg="4"  class="pt-3" v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
-
                       <span class="precioRegular" v-if="this.nuevoProducto == false">P.Regular: ${{this.listaBasica.policy.monthlyCalculated}}</span>
                       <div class="planHover  detallePlan  plan4" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                         <div class="detallePlan__titulo plan-item basico-item">
@@ -1596,6 +1628,17 @@
     layout: 'InterseguroHomeCotizacion',
     data() {
       return {
+        frecuencia: '',
+        planSeleccionado:3,
+        selected: 1,
+        monto_pagar: '',
+        monto_antes: '',
+        options: [
+            { value: null, text: '' },
+            { value: '1', text: 'Mensual (12 cuotas)' },
+            { value: '2', text: 'Trimestral (4 cuotas)' },
+            { value: '3', text: 'Anual (1 cuota)' },
+        ],
         // placaUppercase: this.item.plateNumber,
         nuevoProducto: this.$store.state.common.nuevoProducto,
         mostrarMensajeEnviado: false,
@@ -1879,6 +1922,7 @@
       },
     },
     methods: {
+
       getVehicle(){
         this.$store.dispatch('common/getVehicle', this.item).then((res) =>{
           setTimeout(() => {
@@ -3308,7 +3352,6 @@ a.steps__item.paso1:after{
   .plan-item{     
     border-radius: 8px;
     overflow: hidden;
-    background-color: #ffffff;
     &__header{
       height: 34px;
       color: white;
@@ -3316,49 +3359,12 @@ a.steps__item.paso1:after{
       align-items: center;
       justify-content: center;
       position: relative;
-      &:before{
-        content: "";        
-        height: 22px;
-        width: 100%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        bottom: -14px;
-        left: 0;
-        position: absolute;
-      } 
     }
     &__cuerpo{
       display: flex;
       align-items: center;
       justify-content: center;
       height: 55px;
-    }
-  }
-  .basico-item{
-    &__header{
-      background: #b1b1b1;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/plata.png);
-        bottom: -10px;
-      }
-    }
-  }
-  .semifull-item{
-    &__header{
-      background: #e6ac38;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/oro.png);
-        bottom: -6px;
-      }
-    }
-  }
-  .full-item{
-    &__header{
-      background: #27362d;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/black.png);
-        bottom: -6px;
-      }
     }
   }
   &--item{
@@ -3465,7 +3471,7 @@ a.steps__item.paso1:after{
   box-shadow: none;
 }
 .planActivo{
-  box-shadow: 0 3px 6px 0 #15b3ffa3;
+  background: #6B797F !important;
   position: relative;
   &:before{
     content: "";
@@ -3513,75 +3519,41 @@ a.steps__item.paso1:after{
 .panel-planes{
   display: flex;
   width: 100%;
+  
   &__item{
     padding: 4px;
     width: 33%;   
+    
   }
   .item{
     width: 100%;
-    height: 88px;
+    height: 50px;
     border-radius: 8px;
     padding-top: 0;
+    background: #EFF0F3;
   }
   p,span{
     font-size: 11px;
   }
   .plan-item{     
-    border-radius: 8px;
+    border-radius: 3px;
     overflow: hidden;
-    background-color: #ffffff;
     &__header{
-      height: 34px;
+      height: 26px;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      &:before{
-        content: "";        
-        height: 18px;
-        width: 100%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        bottom: -14px;
-        left: 0;
-        position: absolute;
-      } 
     }
     &__cuerpo{
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 55px;
+      height: 16px;
     }
   }
-  .basico-item{
-    &__header{
-      background: #b1b1b1;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/plata.png);
-        bottom: -10px;
-      }
-    }
-  }
-  .semifull-item{
-    &__header{
-      background: #e6ac38;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/oro.png);
-        bottom: -6px;
-      }
-    }
-  }
-  .full-item{
-    &__header{
-      background: #27362d;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/black.png);
-        bottom: -6px;
-      }
-    }
-  }
+
   span{
     font-size: 18px;
   }
