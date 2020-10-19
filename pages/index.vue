@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home"  v-bind:class="{'mt-2': this.$store.state.common.flagCloseListon == 0  }">
     <div class="boxHome-banner">      
-      <div  class="home-banner"  v-bind:class="{'pt-4': flagCloseListon == 1  }">
+      <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <p class="titulo-formulario">
@@ -526,7 +526,7 @@
           
       },
       mounted () {
-        
+        this.$store.commit('common/setFlagCloseListon',1)
         
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
@@ -574,16 +574,16 @@
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
 
         /* RESET DE ESTADOS */        
-        if (localStorage.getItem("flagCloseListon") == 0) {
-            this.flagCloseListon = 0
-            localStorage.setItem("flagCloseListon", 0)
-        }else if  (localStorage.getItem("flagCloseListon") == 1) {           
-            this.flagCloseListon = 1
-            localStorage.setItem("flagCloseListon", 1)
-        }else{
-            localStorage.setItem("flagCloseListon", 1)
-            this.flagCloseListon = 1
-        }
+        // if (localStorage.getItem("flagCloseListon") == 0) {
+        //     this.flagCloseListon = 0
+        //     localStorage.setItem("flagCloseListon", 0)
+        // }else if  (localStorage.getItem("flagCloseListon") == 1) {           
+        //     this.flagCloseListon = 1
+        //     localStorage.setItem("flagCloseListon", 1)
+        // }else{
+        //     localStorage.setItem("flagCloseListon", 1)
+        //     this.flagCloseListon = 1
+        // }
         this.createMail()
         this.$store.commit('common/setLeaveMessage',0) 
       }
@@ -680,6 +680,7 @@
     }
   }
   .home{
+    margin-top: 96px;
     font-size: 16px;
     background-color: #fff;   
     .boxHome-banner{      

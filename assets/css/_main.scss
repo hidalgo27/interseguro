@@ -28,59 +28,59 @@
   font-family: 'Omnes Medium';
 }
 .flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):before, .flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 .flipdown.flipdown__theme-dark .rotor:after {
-  border-top: solid 1px #dfdfdf6e;
+  border-top: solid 1px #dfdfdf6e !important;
 }
 .rotor-group{
-  position: relative;
-  height: 46px;
+  position: relative !important;
+  height: 46px !important;
 }
 .rotor-group-heading {
-  position: absolute;
-  bottom: 0;
-  color: white;
-  width: 45px;
-  z-index: 9999;
+  position: absolute !important;
+  bottom: 0 !important;
+  color: white !important;
+  width: 45px !important;
+  z-index: 9999 !important;
 }
 .flipdown .rotor-group-heading:before {
-  height: 20px;
+  height: 20px !important;
 }
 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
-  content: 'DIAS';
-  font-family: 'Omnes Medium';
-  letter-spacing: 1px;
+  content: 'DIAS' !important;
+  font-family: 'Omnes Medium' !important;
+  letter-spacing: 1px !important;
 }
 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
-  content: 'HORAS';
-  font-family: 'Omnes Medium';
-  letter-spacing: 1px;
+  content: 'HORAS' !important;
+  font-family: 'Omnes Medium' !important;
+  letter-spacing: 1px !important;
 }
 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
-  content: 'MIN';
-  font-family: 'Omnes Medium';
-  letter-spacing: 1px;
+  content: 'MIN' !important;
+  font-family: 'Omnes Medium' !important;
+  letter-spacing: 1px !important;
 }
 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
-  content: 'SEG';
-  font-family: 'Omnes Medium';
-  letter-spacing: 1px;
+  content: 'SEG' !important;
+  font-family: 'Omnes Medium' !important;
+  letter-spacing: 1px !important;
 }
 .flipdown.flipdown__theme-dark .rotor-group-heading:before {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .exampleMobile .flipdown .rotor-group {
-  padding-right: 15px;
+  padding-right: 15px !important;
 
 }
 .exampleMobile{
   .flipdown{
-    width: 100%;
+    width: 100% !important;
   }
 }
 .exampleMobile .flipdown .rotor {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 .exampleMobile .flipdown .rotor, .exampleMobile .flipdown .rotor-leaf, .exampleMobile .flipdown .rotor-leaf-front, .exampleMobile .flipdown .rotor-leaf-rear, .exampleMobile .flipdown .rotor-top, .exampleMobile .flipdown .rotor-bottom, .exampleMobile .flipdown .rotor:after {
   width: 17px !important;
@@ -89,34 +89,35 @@
   width: 18px !important;
 }
 .flipdown.flipdown__theme-dark .rotor, .flipdown.flipdown__theme-dark .rotor-top, .flipdown.flipdown__theme-dark .rotor-leaf-front {
-  color: #04336f;
+  color: #04336f !important;
   background-color: #FFFFFF !important;
 }
 .flipdown.flipdown__theme-light .rotor, .flipdown.flipdown__theme-light .rotor-top, .flipdown.flipdown__theme-light .rotor-leaf-front {
-  color: #222222;
+  color: #222222 !important;
   background-color: #FFFFFF !important;
 }
 .flipdown.flipdown__theme-light .rotor-bottom, .flipdown.flipdown__theme-light .rotor-leaf-rear {
-  color: #333333;
+  color: #333333 !important;
   background-color: #FFFFFF !important;
 }
 .flipdown.flipdown__theme-dark .rotor-bottom, .flipdown.flipdown__theme-dark .rotor-leaf-rear {
-  color: #222222;
+  color: #222222 !important;
   background-color: #FFFFFF !important;
 }
 
 
 .flipdown {  
-  width: 364px;
-  height: 50px;
-  padding: 4px;
-  border-radius: 12px;
-  overflow: hidden;
+  width: 100% !important;
+  height: 50px !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
 }
 
 .flipdown .rotor {
-  font-size: 2.2rem;
-  margin-right: 3px;
+  font-size: 18px !important;
+  margin-right: 3px !important;
+  font-family: 'Omnes Medium';
 }
 
 .flipdown .rotor,
@@ -126,48 +127,48 @@
 .flipdown .rotor-top,
 .flipdown .rotor-bottom,
 .flipdown .rotor:after {
-  width: 30px;
+  width: 22px !important;
 }
 
 .flipdown .rotor-group {
-  padding-right: 20px;
+  padding-right: 8px !important;
 }
 
 .flipdown .rotor-group:last-child {
-  padding-right: 0px;
+  padding-right: 0px !important;
 }
 
 .flipdown .rotor-group-heading:before {
-  font-size: 11px;
-  height: 15px;
-  line-height: 15px;
+  font-size: 11px !important;
+  height: 15px !important;
+  line-height: 15px !important;
 }
 
 .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
 .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-  left: 69px;
+  left: 69px !important;
 }
 
 .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
-  bottom: 13px;
-  height: 5px;
-  width: 8px;
+  bottom: 13px !important;
+  height: 5px !important;
+  width: 8px !important;
 }
 
 .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-  bottom: 29px;
-  height: 5px;
-  width: 8px;
+  bottom: 29px !important;
+  height: 5px !important;
+  width: 8px !important;
 }
 
 .flipdown .rotor-leaf-front,
 .flipdown .rotor-top {
-  line-height: 24px;
+  line-height: 24px !important;
 }
 
 .flipdown .rotor-leaf,
 .flipdown .rotor {
-  height: 24px;
+  height: 24px !important;
 }
 
 .flipdown .rotor-leaf-front,
@@ -175,16 +176,17 @@
 .flipdown .rotor-top,
 .flipdown .rotor-bottom,
 .flipdown .rotor:after {
-  height: 12px;
+  height: 12px !important;
 }
 
 .modal.fade.show{
-  display: flex !important;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #modalEntidadFinanciera.d-block{
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -515,24 +517,24 @@
     padding: 12px;
   }
   .modal-content {
-      height: 290px;
+      height: 320px;
   }
 }
 @media (min-width: 1024px) {
   .rotor-group-heading {
-    width: 65px;
+    width: 65px !important;
   }
   .exampleMobile .flipdown .rotor-group {
-    padding-right: 6px;
+    padding-right: 6px !important;
 
   }
   .exampleMobile{
     .flipdown{
-      width: 100%;
+      width: 100% !important;
     }
   }
   .exampleMobile .flipdown .rotor {
-    font-size: 18px;
+    font-size: 18px !important;
   }
   .exampleMobile .flipdown .rotor, .exampleMobile .flipdown .rotor-leaf, .exampleMobile .flipdown .rotor-leaf-front, .exampleMobile .flipdown .rotor-leaf-rear, .exampleMobile .flipdown .rotor-top, .exampleMobile .flipdown .rotor-bottom, .exampleMobile .flipdown .rotor:after {
     width: 17px !important;
@@ -558,16 +560,16 @@
   }
 
   .flipdown {  
-    width: 364px;
-    height: 50px;
-    padding: 4px;
-    border-radius: 12px;
-    overflow: hidden;
+    width: 364px !important;
+    height: 50px !important;
+    padding: 4px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
   }
 
   .flipdown .rotor {
-    font-size: 24px;
-    margin-right: 3px;
+    font-size: 24px !important;
+    margin-right: 3px !important;
   }
 
   .flipdown .rotor,
@@ -577,48 +579,48 @@
   .flipdown .rotor-top,
   .flipdown .rotor-bottom,
   .flipdown .rotor:after {
-    width: 30px;
+    width: 30px !important;
   }
 
   .flipdown .rotor-group {
-    padding-right: 20px;
+    padding-right: 20px !important;
   }
 
   .flipdown .rotor-group:last-child {
-    padding-right: 0px;
+    padding-right: 0px !important;
   }
 
   .flipdown .rotor-group-heading:before {
-    font-size: 11px;
-    height: 15px;
-    line-height: 15px;
+    font-size: 11px !important;
+    height: 15px !important;
+    line-height: 15px !important;
   }
 
   .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
   .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-    left: 69px;
+    left: 69px !important;
   }
 
   .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
-    bottom: 13px;
-    height: 5px;
-    width: 8px;
+    bottom: 13px !important;
+    height: 5px !important;
+    width: 8px !important;
   }
 
   .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-    bottom: 29px;
-    height: 5px;
-    width: 8px;
+    bottom: 29px !important;
+    height: 5px !important;
+    width: 8px !important;
   }
 
   .flipdown .rotor-leaf-front,
   .flipdown .rotor-top {
-    line-height: 30px;
+    line-height: 30px !important;
   }
 
   .flipdown .rotor-leaf,
   .flipdown .rotor {
-    height: 30px;
+    height: 30px !important;
   }
 
   .flipdown .rotor-leaf-front,
@@ -626,7 +628,7 @@
   .flipdown .rotor-top,
   .flipdown .rotor-bottom,
   .flipdown .rotor:after {
-    height: 15px;
+    height: 15px !important;
   }
     #modalEntidadFinanciera{
       .modal-content{

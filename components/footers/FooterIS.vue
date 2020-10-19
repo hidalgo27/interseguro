@@ -190,7 +190,7 @@
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
                         href="https://www.interseguro.pe/vehicular/tyc"
-                      >T&C </a>
+                      >Promociones </a>
                     </li>
                   </ul>
                 </b-card-text>
@@ -460,7 +460,7 @@
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
                   href="https://www.interseguro.pe/vehicular/tyc"
-                >T&C</a>
+                >Promociones</a>
               </li>
             </ul>
           </div>

@@ -3,6 +3,7 @@
 const getDefaultState = () => {
     return {
     //GLOBALES
+    flagCloseListon: 1,
     appDiscountURL: false,
     appDiscount: false,
     flujoDetectado: 'interseguro',
@@ -106,6 +107,9 @@ const mutations = {
     },
     setAppDiscountURL (state, payload){
         state.appDiscountURL = payload
+    },
+    setFlagCloseListon (state, payload){
+        state.flagCloseListon = payload
     },
     setAppDiscount (state, payload){
         state.appDiscount = payload

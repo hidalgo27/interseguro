@@ -212,7 +212,7 @@
 <script>
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 export default {
-  layout: "InterseguroWeb",
+  layout: "InterseguroHome",
   data() {
     return {
       isdisabled: false,

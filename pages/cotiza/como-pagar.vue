@@ -462,6 +462,30 @@
         </div>
 
         <!-- Modal de abandono -->
+        <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-3" cols="12">
+                        <img src="../../static/media/modal/leave-pago.png" alt="Abandonar Seguro Vehicular">
+                    </b-col>
+                </b-row>
+                <b-row class="text-center">
+                    <b-col cols="12" class="mb-3">
+                        <h2><span>PROMOCION ¡Estás a un paso de asegurar tu <br> {{this.$store.state.common.itemElegido.brand}} por ${{parseDecimal(parseFloat(this.$store.state.common.current)) }}!</span></h2>
+                    </b-col>
+                    <b-col cols="12" class="mb-2">
+                        <h3>Por tan solo ${{this.$store.state.common.listaCotizacion.policy.monthly}} mensuales estás protegiendo tu auto <br> hasta por un monto de ${{parseDecimal(parseFloat(this.$store.state.common.current))}}</h3>
+                    </b-col>
+                </b-row>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePaymentPromocion')">QUIERO TERMINAR MI COMPRA</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
+
+        <!-- Modal de abandono -->
         <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
@@ -505,6 +529,7 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterseguroFlujo',
         data(){
             return {
+                urlLocal:'',
                 cobertura_is:{
                     plan:''
                 },
@@ -748,7 +773,7 @@ import { validationMixin } from 'vuelidate'
                     document.getElementById("msg-valor").style.display = "none"
                 }
             },
-            continuar (evt) {                
+            continuar(evt) {                
                 this.opacidad =true
                 this.isDisabledPayment = false
                 evt.preventDefault();
@@ -1193,15 +1218,19 @@ import { validationMixin } from 'vuelidate'
             this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
               if (res) {
                 this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
-              }
-        
+              }        
             })
           },
           mouseLeave(e) {
               if (this.$store.state.common.leaveMessage == 0) {
                   if (e.clientX < 0 || e.clientY < 0) {
-                        this.$store.commit('common/setLeaveMessage',1) 
-                        this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        this.$store.commit('common/setLeaveMessage',1)
+                        if (this.urlLocal = "/promocion50") {
+                            // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        }else{
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        }
                   }
               }
           },
@@ -1235,6 +1264,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
+            this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
             this.cotizador_datalayer("checkout",3)

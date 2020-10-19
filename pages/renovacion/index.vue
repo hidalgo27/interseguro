@@ -339,7 +339,7 @@ import { validationMixin } from 'vuelidate'
     
 var cardNumber;
 export default {
-    layout: "InterseguroWeb",
+    layout: "InterseguroHome",
     data() {
         return {
             itemElegido: {

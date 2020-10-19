@@ -515,7 +515,7 @@
 import Modal2 from '@/components/modals/modal2'
 import Modal1 from '@/components/modals/modal1'
 export default {
-    layout: 'InterseguroWeb',
+    layout: 'InterseguroHome',
     data: () => ({  
         name: "main",
         ListDanosAtuCarro: [

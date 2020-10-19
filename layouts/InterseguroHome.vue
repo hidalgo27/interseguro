@@ -14,8 +14,6 @@
 <script>
 import HeaderIBK from '@/components/headers/HeaderInterbank'
 import Header from '@/components/headers/HeaderInterseguro'
-import HeaderApp from '@/components/headers/HeaderApp'
-import HeaderCotizador from '@/components/headers/HeaderInterseguroCotizador'
 import Footer from '@/components/footers/Footer'
 import FooteraApp from '@/components/footers/FooterApp'
 export default {
@@ -40,10 +38,8 @@ export default {
   components: {
     'header-is-ibk': HeaderIBK,
     'header-is': Header,
-    'header-app': HeaderApp,
     'footer-is': Footer,
     'footer-is-app': FooteraApp,
-    'header-cotizador':HeaderCotizador
   },
   created() {      
       if(this.$route.name == "pagogss-pagogss"){        

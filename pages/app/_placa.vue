@@ -4,13 +4,14 @@
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col cols="12" lg="6" class="d-none" v-bind:class="{'d-block': primeraPantalla}">
-                        <p class="resumen-tu-seguro" >Resumen de tu Seguro vehicular</p>
+                        <p class="resumen-tu-seguro" >Resumen de tu Seguro Vehicular</p>
                         <div class="mi-carro">
                             <p class="item-titulo">Mi carro</p>
                             <div class="carro-detalle">
                                 <div class="detalle-item">
                                     <p>Placa:</p>
-                                    <p>{{this.respuestaPlaca.plateNumber}}</p>
+                                    
+                                    <p>{{this.placaMayuscula}}</p>
                                 </div>
                                 <div class="detalle-item">
                                     <p>Modelo:</p>
@@ -65,10 +66,10 @@
                                 <p>SI</p>
                             </div>
                             <div class="detalle-item">
-                                <p style="">¿Tienes un crédito?</p>
+                                <p style="width: 208px;">¿Tienes un crédito vehicular?</p>
                                 <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
                                     <template v-if="this.endosoSeleccionado.id == 0">                          
-                                    <a style="display: inline-block; line-height: 1;color: #007bff; cursor: pointer; color:#454A6C"
+                                    <a style="display: inline-block; line-height: 1;color: #007bff; cursor: pointer; color:#454A6C;text-align: left;"
                                         class="endozar-poliza"
                                         href="javascript:void(0);"
                                         @click="clickEnlace('entidad Financiera')"
@@ -91,7 +92,7 @@
                         <div class="c-suma-asegurada">
                             <div class="detalle-item">
                                 <p style="width: 150px;">Suma asegurada:</p>
-                                <p><span class="monto-actual">$ {{this.clonado.vehicle.current}}</span></p>
+                                <p><span class="monto-actual">US$ {{this.clonado.vehicle.current}}</span></p>
                             </div>
                             <div class="cotizador__suma-asegurada--box">
                                 <div class="box-range">
@@ -116,10 +117,10 @@
                                     <span class="monto">{{this.monto_pagar}}</span>
                                     <span>/{{this.frecuencia}}</span>
                                 </div>
-                                <p class="antes">Antes ${{this.monto_antes}}</p>
+                                <p class="antes">Antes US${{this.monto_antes}}</p>
                             </div>
                             <div class="enlaces  d-none  d-lg-block  pl-4  pr-4" style="width : 50%;">
-                                <router-link to="/cobertura">Coberturas</router-link>,&nbsp;
+                                <router-link to="/cobertura">Ver coberturas</router-link>,&nbsp;
                                 <router-link to="">beneficios</router-link>&nbsp; <br><span style="color: #0855C4">y&nbsp;</span> 
                                 <router-link to="">
                                     exclusiones
@@ -127,7 +128,7 @@
                             </div>
                         </div>
                         <div class="enlaces  d-flex  d-lg-none">
-                            <router-link to="/cobertura">Coberturas</router-link>,&nbsp;
+                            <router-link to="/cobertura">Ver coberturas</router-link>,&nbsp;
                             <router-link to="">beneficios</router-link>&nbsp;
                             <span style="color: #0855C4">y</span>&nbsp;
                             <router-link to="">exclusiones</router-link>
@@ -145,7 +146,7 @@
                         <div class="resumen" v-bind:class="{'d-none': primeraPantalla}">
                             <div class="resumen-desc">
                                 <p>Resumen de tu seguro</p>
-                                <p><strong>Placa</strong>: {{this.item.plateNumber}}</p>
+                                <p><strong>Placa</strong>: {{this.placaMayuscula}}</p>
                             </div>
                             <b-button class="btn-ver-resumen" @click="volver()">
                                 VER RESUMEN
@@ -165,6 +166,7 @@
                                                 </div>
                                                 <div class="card-custom">
                                                     <div class="card-custom__date"  @click="focusMesAnio()" v-bind:class="{'activeFocus':activeFocus}">
+                                                        
                                                         <div class="form-group-custom">                                                            
                                                             <div id="box-mes" class="input-group  iptGral editable">   
                                                                 <input @keyup="keyUpMes()" @blur="activeFocus = !activeFocus" placeholder="MM" id="cardmes" class="form-control text-uppercase iptGral__input ipt-month"  maxlength="2" v-model="card.expiration_month" type="tel" name="name"/>
@@ -175,10 +177,12 @@
                                                         </div>
                                                         <div class="form-group-custom  text-right-custom">
                                                             <div class="input-group  iptGral editable" >
-                                                                <input @keyup="keyUpCard()"  id="cardaño" placeholder="AA" class="form-control text-uppercase iptGral__input ipt-year"   maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+                                                                <input @keyup="keyUpCard()" @blur="activeFocus = !activeFocus" id="cardaño" placeholder="AA" class="form-control text-uppercase iptGral__input ipt-year"   maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
 
                                                             </div>
                                                         </div>
+                                                        <img v-if="activeFocus" class="img-activefocus" src="./../../static/media/img/root/calendar.svg" alt="">
+                                                        <img v-else class="img-activefocus" src="./../../static/media/img/root/calendar.png" alt="">
                                                     </div>
                                                     <div class="card-custom__cvv">
                                                         <div class="form-group-custom">
@@ -210,7 +214,7 @@
                                                     <button class="btn btn-principal" 
                                                         :disabled='this.isDisabledPayment'
                                                         @click="continuar">
-                                                        <span>PAGAR ${{this.monto_pagar}}</span>
+                                                        <span>PAGAR US${{this.monto_pagar}}</span>
                                                     </button>
                                                 </div>
                                                 <p class="autorizo-envio">
@@ -226,6 +230,9 @@
             </b-container>
             <div id="irapagar">
 
+            </div>
+            <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
+                <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
             </div>
 
             <b-modal id="modal-confirmaTusDatos-app" title="Bootstrap-Vue" hide-footer hide-header ref="modalgps" size="lg">
@@ -368,7 +375,7 @@
                             </div>
                         </div>
                         <div class="box-btns">
-                            <button class="btn  btn-principal" @click="guardarCliente()">GUARDAR</button>
+                            <button class="btn  btn-principal" @click="guardarClienteEmail()">GUARDAR</button>
                         </div>
                     </div>
                     </div>
@@ -396,11 +403,11 @@
                     <div class="modal-body">
                         <div id="input-group-3">                        
                             <div class="fechaCotizador">
-                                <b-form-input id="input-small"  v-model="cliente.phoneNumber"></b-form-input>
+                                <b-form-input id="input-small"  maxlength="9" v-model="cliente.phoneNumber"></b-form-input>
                             </div>
                         </div>
                         <div class="box-btns">
-                            <button class="btn  btn-principal  " @click="guardarCliente()">GUARDAR</button>
+                            <button class="btn  btn-principal  " @click="guardarClienteCelular()">GUARDAR</button>
                         </div>
                     </div>
                 </div>
@@ -427,6 +434,7 @@ export default {
     layout: "InterseguroHomeApp",
     data() {
         return {
+            opacidad : false,
             btnpagar: 0,
             opacityNone: false,
             activeFocus : false,
@@ -582,6 +590,11 @@ export default {
         Datepicker: () => import('vuejs-datepicker/dist/vuejs-datepicker')
     },
     computed: {
+        placaMayuscula: function () {
+            if (this.respuestaPlaca.plateNumber) {
+                return this.respuestaPlaca.plateNumber.toUpperCase()
+            }            
+        },
         isMinimo: function() {
             let decimal = this.clonado.vehicle.minimum / 100
             let minimo = Math.ceil(decimal) * 100;
@@ -648,44 +661,77 @@ export default {
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) => {                
                 if(res.data.code == 0){
-                    this.respuestaPlaca = res.data.body
-                    this.$store.commit('common/setDocumentoLocal', this.respuestaPlaca.client.documentNumber)
-                    /*
-                        LLAMADO A CLIENTE
-                    */
-                   this.$store.dispatch('common/getClient', {documentoLocal: this.respuestaPlaca.client.documentNumber, discountType: ''}).then((res)=>{
-                       if(res.data.code == 0){
-                           
-                           this.cliente = res.data.body
-                           
-                           this.usuarioCelular = this.cliente.phoneNumber
-                           this.usuarioCorreo = this.cliente.emailAddress
-                       }
-                   })
+                    if (res.data.body.appDiscount == true) {
+                        this.respuestaPlaca = res.data.body
+                        this.$store.commit('common/setDocumentoLocal', this.respuestaPlaca.client.documentNumber)
+                            /*
+                                LLAMADO A CLIENTE
+                            */
+                        this.$store.dispatch('common/getClient', {documentoLocal: this.respuestaPlaca.client.documentNumber, discountType: ''}).then((res)=>{
+                            if(res.data.code == 0){
+                                
+                                this.cliente = res.data.body
+                                
+                                this.usuarioCelular = this.cliente.phoneNumber
+                                this.usuarioCorreo = this.cliente.emailAddress
+                            }
+                        })
 
-                    this.itemElegido.modelYear =  this.respuestaPlaca.modelYear,
-                    this.itemElegido.remarketingId = this.respuestaPlaca.remarketingId,
-                    this.itemElegido.year = this.respuestaPlaca.modelYear
+                        this.itemElegido.modelYear =  this.respuestaPlaca.modelYear,
+                        this.itemElegido.remarketingId = this.respuestaPlaca.remarketingId,
+                        this.itemElegido.year = this.respuestaPlaca.modelYear
+                        
+                        this.$store.dispatch('common/getCotizacion', this.itemElegido)
+                        .then((res) => {
+                            if(res.data.code == 0){                            
+                                this.$store.commit('common/setListaCotizacion', Object.assign({},res.data.body.allRisk))
+                                this.listaMedia = res.data.body.medium
+                                this.listaFull = res.data.body.allRisk
+                                this.listCotizacion = res.data.body.allRisk
+                                this.gps = res.data.body.allRisk.vehicle.gps
+                                this.clonado = Object.assign({}, this.listCotizacion)
+                                this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
+                                this.seleccionarFrecuencia()
+                                this.showLoader = false
+                            }
+                        })
+                    }else{
+                        this.$nuxt.$router.push({path: '/app/'})
+                    }
                     
-                    this.$store.dispatch('common/getCotizacion', this.itemElegido)
-                    .then((res) => {
-                        if(res.data.code == 0){                            
-                            this.$store.commit('common/setListaCotizacion', Object.assign({},res.data.body.allRisk))
-                            this.listaMedia = res.data.body.medium
-                            this.listaFull = res.data.body.allRisk
-                            this.listCotizacion = res.data.body.allRisk
-                            this.gps = res.data.body.allRisk.vehicle.gps
-                            this.clonado = Object.assign({}, this.listCotizacion)
-                            this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
-                            this.seleccionarFrecuencia()
-                            this.showLoader = false
-                        }
-                    })
                 }
             })
         }
     },
     methods: {
+        validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        },
+        validate() {
+            let email_local = this.cliente.emailAddress;
+            if (this.validateEmail(email_local)) {
+                return true
+            } else {
+                return false
+            }
+        },
+        validarEmail(){
+            if(this.validate()){
+                this.msgErrorEmail = false
+            }else{
+            this.$swal({
+                title: "Oops...",
+                text: "Por favor ingresa un email válido",
+                type: "warning",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK"
+            })
+            this.isDisableButton = true
+            this.msgErrorEmail = true
+            }
+        },
         handleScroll(eve) {
             if (window.scrollY >= 220) {
                 this.opacityNone = true        
@@ -709,7 +755,6 @@ export default {
             }
         },
         desactivar(){
-            console.log("")
         },
         focusMesAnio(){
             this.activeFocus = true
@@ -735,16 +780,52 @@ export default {
         hideModalgps(){
             this.$refs.modalgps.hide();
         },
-        guardarCliente() {
-            this.hideModalEditarCelular()
-            this.hideModalEditarCorreo()
-            this.cliente.emailAddress = this.cliente.emailAddress
-            this.cliente.phoneNumber = this.cliente.phoneNumber
-            this.$store.dispatch('common/updateClient', this.cliente).then((res)=>{
-                if (res.data.code == 0) {
-                } else {
-                }
-            })
+        guardarClienteEmail() {
+            if(this.validate()){
+                this.hideModalEditarCelular()
+                this.hideModalEditarCorreo()
+                this.cliente.emailAddress = this.cliente.emailAddress
+                this.cliente.phoneNumber = this.cliente.phoneNumber
+                this.$store.dispatch('common/updateClient', this.cliente).then((res)=>{
+                    if (res.data.code == 0) {
+                    } else {
+                    }
+                })
+            }else{
+                this.$swal({
+                    title: "Oops...",
+                    text: "Por favor ingresa un email válido",
+                    type: "warning",
+                    showCancelButton: false,
+                    confirmButtonColor: "#2177CC",
+                    confirmButtonText: "OK"
+                })
+            }
+            
+
+        },
+        guardarClienteCelular() {
+            if(this.cliente.phoneNumber.charAt(0)==9 && this.cliente.phoneNumber.length == 9){
+                this.hideModalEditarCelular()
+                this.hideModalEditarCorreo()
+                this.cliente.emailAddress = this.cliente.emailAddress
+                this.cliente.phoneNumber = this.cliente.phoneNumber
+                this.$store.dispatch('common/updateClient', this.cliente).then((res)=>{
+                    if (res.data.code == 0) {
+                    } else {
+                    }
+                })       
+            }else{
+                this.$swal({
+                    title: "Oops...",
+                    text: "Por favor ingresa un número de celular válido",
+                    type: "warning",
+                    showCancelButton: false,
+                    confirmButtonColor: "#2177CC",
+                    confirmButtonText: "OK"
+                })
+            }
+            
 
         },
         elegirFecha(date) {
@@ -834,7 +915,9 @@ export default {
             }else{}
         },
         pagar_ahora(){
+            
             this.primeraPantalla = false
+            window.scrollTo(0,0)
         },
         getCotizacion() {
             this.$store.dispatch('common/getCotizacion', this.itemElegido)
@@ -911,6 +994,7 @@ export default {
                     }
                 }
                 if (process.client) {
+                    this.activeFocus = true
                     document.getElementById('cardmes').focus()
                 }
                 
@@ -922,7 +1006,9 @@ export default {
         keyUpMes(){
             let mes = document.querySelector("#cardmes").value.length
             if(mes == 2){
+                
                 document.getElementById('cardaño').focus()
+                this.activeFocus = true
                 if(this.cardValitor){
                     let mes = document.querySelector("#cardmes").value.length
                     let año = document.querySelector("#cardaño").value.length
@@ -939,9 +1025,9 @@ export default {
         },
         keyUpCard(){
             let año = document.querySelector("#cardaño").value.length
-            console.log(año)
-            if(año == 2){
+            if(año == 2){                
                 document.getElementById('cardccv').focus()
+                this.activeFocus = false
             }
             if(this.cardValitor){
                 let mes = document.querySelector("#cardmes").value.length
@@ -1080,7 +1166,6 @@ export default {
                 }).catch((res)=>{
                     this.opacidad =false
                     // let status = res.response.status
-                    console.log(res)
                     let errorDetectado = {
                         url : 'https://secure.culqi.com/v2/tokens',
                         page : 4,
@@ -1111,6 +1196,35 @@ export default {
 }
 </script>
 <style lang="scss">
+.opacidad{        
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+}
+.capadecarga{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 999;
+    background: #cae1f9f0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s linear;        
+    img{
+        max-width: 500px;
+        width: 100%;
+    }
+}
+.opacidad{        
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
 .spinner-sq {
     top: 0 !important;
 }
@@ -1225,6 +1339,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         height: 48px;
         border: 1px solid #D1D1D1 !important;
         box-shadow: none;
+        line-height: 48px;
     }
     .iptGral.editable ::placeholder {
         color: #D1D1D1 !important;        
@@ -1291,20 +1406,29 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         }
         .ipt-month{
             width: 40px;
-            text-align: right !important;
             padding-right: 8px !important;
-            background-image: url("./../../static/media/img/root/calendar.png");
+            // background-image: url("./../../static/media/img/root/calendar.png");
             background-repeat: no-repeat;
             background-position-x: 12px;
             background-position-y: 14px;
             background-size: 35px;
             padding-top: 4px;
             padding-bottom: 5px;
+            text-align: left !important;
+            padding-left: 41px !important;
         }
         .ipt-month:focus {
-            background-image: url("./../../static/media/img/root/calendar.svg");
+            // background-image: url("./../../static/media/img/root/calendar.svg");
             box-shadow: none;
         }
+        
+        .img-activefocus{
+            position: absolute;
+            z-index: 9;
+            width: 20px;
+            left: 29px;
+        }
+        
         .ipt-year{
             width: 65px;
             padding: 0 5px 0 0;
@@ -1343,6 +1467,11 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     .metodo_pago_img{
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+        img{
+            height: 22px;
+            width: auto;
+        }
     }
     .card-custom{
         display: flex;
@@ -1380,10 +1509,10 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             display: inline-flex;
             .form-group-custom{
                 &:nth-child(1){
-                    width: 50%;
+                    width: 92px;
                 }
                 &:nth-child(2){
-                    width: 50%;
+                    width: 70%;
                 }
                 &:nth-child(4){
                     width: 50%;
@@ -1418,9 +1547,30 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             }
         }
     }
+    .card-custom__date{
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 94px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
     @media (min-width: 1200px) {
         .card-interseguro{
             width: 440px;
+        }
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 94px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
         }
     }
 </style>

@@ -22,7 +22,7 @@ module.exports = {
   //Server midleware
   mode: 'universal',
   router: {
-    base: '/testvehicular/'
+    base: '/vehicular/'
   },  
   head: {
     title: 'Seguro Vehicular | Interseguro',
@@ -61,7 +61,7 @@ module.exports = {
     '~/plugins/bootstrap.js',    
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
-    { src: '~/plugins/sentry.js', ssr: false },
+    // { src: '~/plugins/sentry.js', ssr: false },
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
     { src: '~plugins/vue-carousel.js', sync: false },    

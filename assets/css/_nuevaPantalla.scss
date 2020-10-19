@@ -29,6 +29,7 @@ body{
         top: -48px;
         z-index: 9;
         width: 48px;
+        cursor: pointer;
     }
     .modal-content{
         border: none;
@@ -41,7 +42,9 @@ body{
         }
     }
 }
-
+#modalInicioVigencia .modal-content {
+    padding: 16px 0 0px;
+}
 .custom-select {
     display: inline-block;
     width: 100%;
@@ -128,6 +131,7 @@ body{
     .detalle-item{
         display: flex;
         align-items: center;
+        height: 25px;
         span{
             color: $vehicular_parrafo;
         }

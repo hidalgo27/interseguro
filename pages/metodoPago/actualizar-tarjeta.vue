@@ -247,7 +247,7 @@
 
     let cardNumber;
     export default {
-        layout: "InterseguroWeb",
+        layout: "InterseguroHome",
         data() {
             return {
                 currency: "USD",

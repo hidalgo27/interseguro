@@ -91,7 +91,7 @@
 
 <script>
     export default {
-        layout: 'InterseguroWeb',
+        layout: 'InterseguroHome',
         data () {
             return {   
                 inputActive: true,         

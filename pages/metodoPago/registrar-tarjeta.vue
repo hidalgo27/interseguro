@@ -256,7 +256,7 @@ import { validationMixin } from "vuelidate";
 import ClipLoader from "vue-spinner/src/ClipLoader.vue";
 let cardNumber;
 export default {
-  layout: "InterseguroWeb",
+  layout: "InterseguroHome",
   data() {
     return {
       numberValidation:{

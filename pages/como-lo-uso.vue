@@ -105,7 +105,7 @@
 </template>
 <script>
 export default {
-    layout: 'InterseguroWeb',
+    layout: 'InterseguroHome',
     props: [''],
     data () {
         return {

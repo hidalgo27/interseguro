@@ -1,11 +1,29 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <div>
-            <!-- <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <p> ¡Llévate un vale de consumo de S/ 100 por la compra de tu Seguro Vehicular en plan Black! <a style="text-decoration:underline; color: #fff" href="https://www.interseguro.pe/vehicular/tyc/">Ver detalle</a></p>
+            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+                <div class="box-texto-img">
+                    <div class="box-img-liston">
+                        <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
+                    </div> 
+                    <div class="d-md-none">
+                        <p>¡Solo por pocos días! Aprovecha el 15% de <br> dscto. en la compra de tu Seguro Vehicular</p>
+                        <div  class="example">            
+                            <div id="contadorCyber" class="flipdown  flipdownMobile">                        
+                            </div>
+                        </div>
+                    </div>
+                    <p class="d-none d-md-block"> ¡Solo por pocos días! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                </div>
+                
+                <div  class="example  d-none  d-md-block">            
+                    <div id="contadorCyber2" class="flipdown">
+                        
+                    </div>
+                </div>
                 <div class="closeListon" @click="closeListon()">X</div>
-            </div> -->
-        </div>        
+            </div>
+        </div>  
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -119,6 +137,7 @@
                 </ul>
                 <div id="capa" style="display: none;"></div>
             </div>
+            
         </div>
 
         <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
@@ -148,6 +167,7 @@
 </template>
 
 <script>
+// import { FlipDown } from './../../node_modules/flipdown/dist/flipdown';
 export default {
     name: "navbar",
     props: [""],
@@ -166,7 +186,9 @@ export default {
         }
     },
     mounted(){
-        // localStorage.setItem('flagCloseListon',1)
+        this.contador()
+        
+        localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -199,10 +221,20 @@ export default {
     },
     computed: {},
     methods:{
+        contador(){
+
+                // Set up FlipDown
+                var flipdown2 = new FlipDown(1603515599, 'contadorCyber2').start()
+                var flipdown = new FlipDown(1603515599, 'contadorCyber').start()
+
+        },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
             this.flagCloseListon = 0            
             localStorage.setItem("flagCloseListon", 0)
+            this.$bus.$emit('updatingTest', 0)
+            this.$store.commit('common/setFlagCloseListon',0)
+        
         },
         enlaceTest(){
             var div = document.getElementById("capa")
@@ -277,7 +309,6 @@ export default {
         right: 4px;
         height: 30px;
         top: 5px;
-        background: #ff9200;
         border-radius: 45px;
         width: 30px;
         line-height: 30px;
@@ -286,14 +317,30 @@ export default {
         font-size: 18px;
 
     }
-    .liston{
-        background: #ff9200;
+    .liston{        
+        flex-direction: column;
+        background: #0855c4;
         width: 100%;
-        height: 56px;
+        height: 100px;
         left: 0;
         justify-content: center;
-        align-items: center;
+            padding-left: 16px;
         display: flex;
+        .box-texto-img{
+                display: flex;
+                height: 45px;
+               align-items: center;
+
+        }
+        .box-img-liston{
+            width: 84px;
+            .img-liston{                
+               width: 50px;
+               animation: zoom 1.7s infinite ease-in-out;
+            //    animation: zoom 12s infinite;
+            }
+        }
+        
         p{
             text-align: left;
             font-size: 14px;
@@ -350,6 +397,20 @@ export default {
         text-transform: uppercase;
         font-size: 1.4rem;
     }
+}
+@keyframes zoom {
+    0%{
+    transform: scale(1) rotate(0deg);
+    }
+    50%{
+    transform: scale(1.5) rotate(0.1deg);
+
+    }
+    100%{
+    transform: scale(1) rotate(0.1deg);
+
+    }
+
 }
 @keyframes shadow-pulse {
     0% {
@@ -571,6 +632,13 @@ export default {
          }
     }
     @media (min-width: 1024px){
+        .liston {
+    flex-direction: row;
+    height: 56px;
+}
+        .liston .box-texto-img {
+    height: 56px;
+}
          .header-planes{
             .menu-nav{
                 &__izq{
@@ -580,13 +648,17 @@ export default {
          }
     }
     @media (min-width: 1200px){
-        .liston{
-          display: flex;
+        .liston{       
+            height: 56px;     
+            flex-direction: row;
+            justify-content: space-between;
+            display: flex;
+            padding-left: 65px;
           p{
-              font-size: 18px;
+              font-size: 16px;
           }
-          .closeListon{
-                right: 9rem;
+            .closeListon{
+                right: 0;
             }
         }
         
@@ -656,6 +728,20 @@ export default {
         }
     }
     @media (min-width: 1366px){
+        .example{
+                padding-top: 5px;
+        }
+        .liston{
+            height: 64px;
+            padding-right: 102px;
+            padding-left: 128px;
+            .box-texto-img{
+                height: 62px;
+            }
+            .closeListon{
+                right: 20px;
+             }
+        }
         .header-planes{
             .campaniatv-home{
                 .campania-lado-izq{
@@ -669,6 +755,9 @@ export default {
         }
     }
     @media (min-width: 1440px){
+        .liston p {
+            font-size:16px;
+        }
         .header-planes{
             .menu-nav{
                 &__izq{

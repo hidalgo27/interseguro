@@ -2920,6 +2920,6 @@
 </style>
 <script>
 export default {
-  layout: "InterseguroWeb"
+  layout: "InterseguroHome"
 };
 </script>

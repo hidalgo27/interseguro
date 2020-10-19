@@ -109,6 +109,49 @@
           </b-row>
         </b-container>
 
+        <!-- *************************************************************************************************** -->
+        <!-- *******************************  COTIZADOR NUEVO  ***************************************** -->
+        <!-- *************************************************************************************************** 
+
+      <b-container>
+        <b-row>
+          <b-col xs="12" md="3">
+            <div class="v2-suma-asegurada">
+              <p class="elige-suma-asegurada">
+                Elige tu suma asegurada
+                <span>?</span>
+              </p>
+              <div class="v2-valor-comercial">
+                <div class="minimoImg"><span><i @click="minimoImg" class="fa fa-minus-circle" aria-hidden="true"></i></span></div>
+                <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
+                <div class="maximoImg"><span><i @click="maximoImg" class="fa fa-plus-circle" aria-hidden="true"></i></span></div>
+              </div>
+            </div>
+          </b-col>
+          <b-col xs="12"  md="3">
+            <div class="v2-datos-carro">
+              <p class="v2-datos-mi-carro">
+                Datos de mi carro
+                <span class="v2-editar">EDITAR</span>
+              </p>
+              <div class="v2-datos-carro__detalle">
+                <p><span>Mi placa</span>{{}}</p>
+                <p><span>Mi modelo</span>{{}}</p>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        
+        <b-row>
+
+        </b-row>
+      </b-container>
+
+
+   *************************************************************************************************** -->
+        <!-- *******************************  COTIZADOR NUEVO  ******************************************* -->
+        <!-- *************************************************************************************************** -->
+
         <b-container class="d-none  d-md-block">
           <b-row v-bind:class="{activeBox_2: activeBox_2}"  >
             <b-col cols="12" xl="9" class="m-auto  bg-shadow  pb-3" >
@@ -284,7 +327,7 @@
                   </div>
                 </b-col>
                 <b-col cols="8">
-                  <div class="box-dto" v-if="this.nuevoProducto == false && appDiscount == false"><span>10% DE DESCUENTO</span></div>
+                  <div class="box-dto" v-if="this.nuevoProducto == false && appDiscount == false"><span>15% DE DESCUENTO</span></div>
                   <b-row  class="justify-content-center">
                     <b-col cols="4"  lg="4"  class="pt-3" v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
 
@@ -712,7 +755,7 @@
         <b-row>
           <b-col cols="12"  md="9" style="position: relative;">
             <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
-            <div class="box-dto" v-if="this.nuevoProducto == false"><span>10% DE DESCUENTO</span></div>
+            <div class="box-dto" v-if="this.nuevoProducto == false"><span>15% DE DESCUENTO</span></div>
           </b-col>
         </b-row>
         <b-row>
@@ -2327,7 +2370,6 @@
 
           
         }
-        console.log("this.code_sku",this.code_sku)
           if (this.$store.state.common.origenCliente == 2) {
             this.objectVehicle.modelId = -1;
             if (this.objectVehicle.modelId == -1) {

@@ -34,7 +34,7 @@
 
 <script>
 export default {
-    layout: 'InterseguroWeb',
+    layout: 'InterseguroHome',
     data: () => ({
         exclusiones :['Producidos cuando el Vehículo no sea de uso particular a menos que otro uso hubiera sido específicamente incluido al contratarse el seguro.' , 
                         'Causados por personas, animales u objetos cargados, trasladados, descargados o remolcados con el Vehículo o durante estas acciones, así como los que causen a terceros independientemente de que ocurra un Accidente o Incendio',

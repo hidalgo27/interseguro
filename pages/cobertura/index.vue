@@ -1603,7 +1603,7 @@
 <script>
 import Modal2 from '@/components/modals/modal2'
 export default {
-    layout: 'InterseguroWeb',
+    layout: 'InterseguroHome',
     data() {
         return {
             isVisibleRC: false,
