@@ -324,7 +324,7 @@ export default {
         height: 100px;
         left: 0;
         justify-content: center;
-            padding-left: 16px;
+        padding-left: 16px;
         display: flex;
         .box-texto-img{
                 display: flex;
@@ -350,7 +350,7 @@ export default {
             line-height: 1.3;
             letter-spacing: normal;
             color: #fff;
-            font-family: 'Omnes Regular';
+            font-family: 'Omnes Regular' !important;
         }        
     }
 .footer-menu{
@@ -633,12 +633,12 @@ export default {
     }
     @media (min-width: 1024px){
         .liston {
-    flex-direction: row;
-    height: 56px;
-}
+            flex-direction: row;
+            height: 56px;
+        }
         .liston .box-texto-img {
-    height: 56px;
-}
+            height: 56px;
+        }
          .header-planes{
             .menu-nav{
                 &__izq{
@@ -654,9 +654,10 @@ export default {
             justify-content: space-between;
             display: flex;
             padding-left: 65px;
-          p{
-              font-size: 16px;
-          }
+            p{
+                font-size: 16px;
+                font-family: 'Omnes Regular' !important;
+            }
             .closeListon{
                 right: 0;
             }
