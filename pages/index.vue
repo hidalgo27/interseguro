@@ -1,5 +1,5 @@
 <template>
-  <div class="home"  v-bind:class="{'mt-2': this.$store.state.common.flagCloseListon == 0  }">
+  <div class="home"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -680,7 +680,7 @@
     }
   }
   .home{
-    margin-top: 96px;
+    margin-top: 134px;
     font-size: 16px;
     background-color: #fff;   
     .boxHome-banner{      
@@ -698,9 +698,8 @@
         align-items: center;
         height: 100%;
         flex-direction: column;
-        &__izq{
-          margin-top: 24px;
-          padding-top: 68px !important;
+        &__izq{          
+          padding-top: 53px !important;
           height: 500px;
           display: flex;
           align-items: flex-start;
@@ -1293,10 +1292,11 @@
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          min-height: 580px;
+          min-height: 445px;
           &__izq{
-            padding-top: 68px !important;
-            height: calc(85vh);
+            margin-top: 0;
+            padding-top: 0px !important;
+            height: auto;
             display: flex;
             align-items: center;
             width: auto;            
@@ -1337,8 +1337,8 @@
             }
           }
           &__der{
-            padding-top: 68px !important;
-            height: calc(85vh);
+            padding-top: 0px !important;
+            height: auto;
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
@@ -1793,14 +1793,14 @@
     .home{
         .boxHome-banner{
           .home-banner{
-            &__izq{
-              height: calc(100vh - 290px);
-              min-height: 580px;
-            }
-            &__der{
-              height: calc(100vh - 290px);
-              min-height: 580px;
-            }
+            // &__izq{
+            //   height: calc(100vh - 290px);
+            //   min-height: 580px;
+            // }
+            // &__der{
+            //   height: calc(100vh - 290px);
+            //   min-height: 580px;
+            // }
           }
         }
     }
