@@ -1,8 +1,8 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <div class="box-texto-img">
+              <div class="box-texto-img">
                     <div class="box-img-liston">
                         <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
                     </div> 
@@ -23,7 +23,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  
+        </div>   -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -224,8 +224,8 @@ export default {
         contador(){
 
                 // Set up FlipDown
-                var flipdown2 = new FlipDown(1603688399, 'contadorCyber2').start()
-                var flipdown = new FlipDown(1603688399, 'contadorCyber').start()
+                // var flipdown2 = new FlipDown(1603688399, 'contadorCyber2').start()
+                // var flipdown = new FlipDown(1603688399, 'contadorCyber').start()
 
         },
         closeListon(){
