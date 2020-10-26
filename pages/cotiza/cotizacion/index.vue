@@ -123,7 +123,7 @@
               </div>
               <div class="v2-datos-carro__detalle">
                 <p><span>Mi placa: </span>{{this.placaUppercase}}</p>
-                <p><span>Mi modelo: </span>{{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }}</p>
+                <p><span>Mi modelo: </span><span class="mi-modelo-descripcion">{{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }}</span></p>
               </div>
             </div>
           </b-col>
@@ -171,7 +171,7 @@
                     </div>
                   </div>
                   <div class="mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
-                    <p>Enviar cotización</p>
+                    Enviar cotización
                     <div class="mail"   @click="enviarCorreo">                          
                       <img src="../../../static/v2_icon/email.png" alt="email">
                     </div>
@@ -182,223 +182,247 @@
               <div class="v2-planes-desktop  row  d-none  d-lg-flex">
                 
                 <div class="col-4">
-                  <div class="plan-item  plan-plata">
-                    PLAN PLATA
-                  </div>
-                  <div class="v2-detalle-plan" >
+                  <div style="height: 40px;" class="plan-recomendado">
                     
-                    <div class="box-monto-frecuencia">
-                      <div class="v2-detalle-plan__suma  box-monto-pago">
-                          <div class="monto-frecuencia">
-                              <span>US$</span>
-                              <span class="monto">{{this.monto_pagar}}</span>
-                          </div>
-                          <p class="antes">Antes US${{this.monto_antes}}</p>
+                  </div>
+                  <div class="v2-plan-item  plan4  plata  "  @click="seleccionarPLanDesktop(4)" v-bind:class="{planActivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-plata">
+                      PLAN PLATA
+                    </div>
+                    <div class="v2-detalle-plan" >
+                      
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
                       </div>
-                      <div class="v2-detalle-plan__box-frecuencia  select">
-                        <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                      <div class="box-importante" style="height: 40px;">
                       </div>
-                    </div>
-                    <div class="que-me-cubre">
-                      <p class="titulo">
-                        ¿Qué me cubre?
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Responsabilidad Civil
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Robo total
-                      </p>
-                    </div>
-                    <div class="descargar-detalle">
-                      <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
-                      <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
-                    </div>
-                    <div class="box-btn">
-                      <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                      <div class="que-me-cubre">
+                        <p class="titulo">
+                          ¿Qué me cubre?
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-4">
-                  <div class="plan-item  plan-oro">
-                    PLAN ORO
+                  <div style="height: 40px;" class="plan-recomendado">
+                    
                   </div>
-                  <div class="v2-detalle-plan"> 
-                    <div class="box-monto-frecuencia">
-                      <div class="v2-detalle-plan__suma  box-monto-pago">
-                          <div class="monto-frecuencia">
-                              <span>US$</span>
-                              <span class="monto">{{this.monto_pagar}}</span>
-                          </div>
-                          <p class="antes">Antes US${{this.monto_antes}}</p>
+                  <div class="v2-plan-item  plan6  oro   "  @click="seleccionarPLanDesktop(6)" v-bind:class="{planActivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-oro">
+                      PLAN ORO
+                    </div>
+                    <div class="v2-detalle-plan"> 
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
                       </div>
-                      <div class="v2-detalle-plan__box-frecuencia  select">
-                        <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-                    </div>
-                    <div class="box-importante">
-                      <p class="titulo">Importante</p>
-                      <ul>
-                        <li class="detalle-item">
-                          <div class="item    pb-3">
-                              <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
-                                <span class="mb-0 gps requiere-gps"  >
-                                  <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
-                                </span>
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="detalle-item" v-if="this.gps == true">
-                            <p>GPS:</p>
-                            <p>SI</p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="que-me-cubre">
-                      <p class="titulo">
-                        ¿Qué me cubre?
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Responsabilidad Civil
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Robo total
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Pérdida parcial por Accidentes de tránsito
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Accidentes de ocupantes
-                      </p>
-                    </div>
-                    <div class="descargar-detalle">
-                      <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
-                      <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
-                    </div>
-                    <div class="box-btn">
-                      <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                      <div class="que-me-cubre">
+                        <p class="titulo">
+                          ¿Qué me cubre?
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida parcial por Accidentes de tránsito
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accidentes de ocupantes
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-4">
-                  <div class="plan-item  plan-black">
-                    PLAN BLACK
+                  <div style="height: 40px; " class="plan-recomendado">
+                    <span>&#9733;	</span> RECOMENDADO
                   </div>
-                  <div class="v2-detalle-plan" > 
-                    <div class="box-monto-frecuencia">
-                      <div class="v2-detalle-plan__suma  box-monto-pago">
-                          <div class="monto-frecuencia">
-                              <span>US$</span>
-                              <span class="monto">{{this.monto_pagar}}</span>
-                          </div>
-                          <p class="antes">Antes US${{this.monto_antes}}</p>
-                      </div>
-                      <div class="v2-detalle-plan__box-frecuencia  select">
-                        <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
-                      </div>
+                  <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planActivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-black">
+                      PLAN BLACK
                     </div>
-                    <div class="box-importante">
-                      <p class="titulo">Importante</p>
-                      <ul>
-                        <li>
-                          <div class="detalle-item">
-                            <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
-                            <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
-                                <template v-if="this.endosoSeleccionado.id == 0">                          
-                                  <span style="display: inline-block; cursor: pointer; text-align: left;"
-                                    class="detalle-enlace"
-                                    v-b-modal.modalEntidadFinanciera
-                                    @click="clickEnlace('entidad Financiera')"
-                                    >Aquí
-                                    </span>  
-                                </template>
-                                <template v-else>                         
-                                  <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
-                                  class="detalle-enlace"
-                                      href="javascript:void(0);"
+                    <div class="v2-detalle-plan" > 
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
+                      </div>
+                      <div class="box-importante">
+                        <p class="titulo">Importante</p>
+                        <ul>
+                          <li>
+                            <div class="detalle-item">
+                              <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
+                              <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
+                                  <template v-if="this.endosoSeleccionado.id == 0">                          
+                                    <span style="display: inline-block; cursor: pointer; text-align: left;"
+                                      class="detalle-enlace"
                                       v-b-modal.modalEntidadFinanciera
                                       @click="clickEnlace('entidad Financiera')"
-                                  > {{this.endosoSeleccionado.name}}</span>   
-                                </template>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="detalle-item">
-                          <div class="item    pb-3">
-                              <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
-                                <span class="mb-0 gps requiere-gps"  >
-                                  <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
-                                </span>
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="detalle-item" v-if="this.gps == true">
-                            <p>GPS:</p>
-                            <p>SI</p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="que-me-cubre">
-                      <p class="titulo">
-                        ¿Qué me cubre?
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Responsabilidad Civil
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Robo total
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Pérdida parcial por Accidentes de tránsito
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Accidentes de ocupantes
-                      </p>
-                      <p class="que-me-cubre__item" >
-                        Pérdida total por Accidentes de tránsito
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Accesorios musicales
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Roturas de lunas
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Riesgos de la naturaleza, vandalismo, incendios.
-                      </p>
-                      <p class="que-me-cubre__item">
-                        Ausencia de control*
-                      </p>
-                    </div>
-                    <div class="descargar-detalle">
-                      <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
-                      <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
-                    </div>
-                    <div class="box-btn">
-                      <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                                      >Aquí
+                                      </span>  
+                                  </template>
+                                  <template v-else>                         
+                                    <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
+                                    class="detalle-enlace"
+                                        href="javascript:void(0);"
+                                        v-b-modal.modalEntidadFinanciera
+                                        @click="clickEnlace('entidad Financiera')"
+                                    > {{this.endosoSeleccionado.name}}</span>   
+                                  </template>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="que-me-cubre">
+                        <p class="titulo">
+                          ¿Qué me cubre?
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Pérdida parcial por Accidentes de tránsito
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida total por Accidentes de tránsito
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Roturas de lunas
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Riesgos de la naturaleza, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Ausencia de control*
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="v2-seleccion-planes  d-md-none">
-                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
+                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planActivoDesktop: planInactivo}">
                   <p>PLATA</p>
                   <p>US$ {{this.listaBasica.policy.monthly}}</p>
-                </div>
-                <div class="v2-seleccion-planes__item  plan3  black" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
-                  <p>BLACK</p>
-                  <p>US$ {{this.listaFull.policy.monthly}}</p>
                 </div>
                 <div class="v2-seleccion-planes__item  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
                   <p>ORO</p>
                   <p>US$ {{this.listaMedia.policy.monthly}}</p>
                 </div>
+                <div class="v2-seleccion-planes__item  plan3  black" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>BLACK</p>
+                  <p>US$ {{this.listaFull.policy.monthly}}</p>
+                </div>
+                
               </div>
 
               <div class="v2-detalle-plan  d-md-none" :class="classPlan"> 
@@ -519,7 +543,7 @@
               </div>
 
               <div class="v2-comparar-planes  d-lg-none">
-                <img src="../../../static/media/img/comparar-planes.png" alt="B"><a target="_blank" rel="noopener" >COMPARAR PLANES</a>
+                <img src="../../../static/media/img/comparar-planes.png" class="mr-2" alt="B"><a target="_blank" rel="noopener" >COMPARAR PLANES</a>
               </div>
 
               <div class="box-btn  d-lg-none">
@@ -2054,6 +2078,7 @@
         this.ocultarItemsSeleccionados = false
         this.mostrarItemModelo = false
         this.seleccionarPLan(3)
+        this.seleccionarPLanDesktop(3)
       },
       seleccionarPLan(id){
         console.log("ID", id)
@@ -2067,6 +2092,24 @@
           console.log(arreglo)
           for (let i = 0; i < arreglo.length; i++) {
             arreglo[i].classList.add("planActivo")
+          }
+          this.seleccionarFrecuencia()
+        }, 250);
+        this.$store.commit('common/setPlanSeleccionado',id)
+        this.planSeleccionado = id
+        this.detectarPLanSeleccionado()
+      },
+      seleccionarPLanDesktop(id){
+        this.planInactivo = true
+        let elemento1 = document.querySelectorAll(".v2-plan-item")
+        for (let index = 0; index < elemento1.length; index++) {
+          elemento1[index].classList.remove("planActivoDesktop")      
+        }
+        setTimeout(() => {
+          let arreglo = document.querySelectorAll(".plan"+id)
+          console.log(arreglo)
+          for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i].classList.add("planActivoDesktop ")
           }
           this.seleccionarFrecuencia()
         }, 250);
@@ -2856,10 +2899,12 @@
           this.planSeleccionado = 3
           this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)
           this.cobertura_is.variant = "black $"+this.listCotizacion.policy.monthly+"/mes"
-          this.seleccionarPLan(this.planSeleccionado)          
+          this.seleccionarPLan(this.planSeleccionado)
+          this.seleccionarPLanDesktop(this.planSeleccionado)
         }else{
           this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)          
           this.seleccionarPLan(this.planSeleccionado)
+          this.seleccionarPLanDesktop(this.planSeleccionado)
         }
         /* FIN DE PLAN SELECCIONADO */
 
@@ -2903,6 +2948,18 @@
 </script>
 
 <style lang="scss" scoped>
+.planActivoDesktop.plata{
+  background-color: #fff !important;
+  border: 1px solid #333;
+}
+.planActivoDesktop.oro{
+  background-color: #fff !important;
+  border: 1px solid #333;
+}
+.planActivoDesktop.black{
+  background-color: #fff !important;
+  border: 1px solid #333;
+}
 .planActivo.plata{
   background-color: #b1b1b1 !important;
   &:before{    
@@ -3056,15 +3113,21 @@
   }
   &__detalle{    
     margin-bottom: 24px;
+    .mi-modelo-descripcion{
+      width: auto;
+      display: inline-block;
+    }
     p{
       font-family: 'Omnes Medium';
       color: #454A6C;
       font-size: 14px;
+      display: flex;
     }
     span{
       display: inline-block;
-      width: 80px;
+      width: 78px;
       font-family: 'Omnes Regular';
+      min-width: 78px;
     }
   }
 }
@@ -3850,18 +3913,28 @@ a.steps__item.paso1:after{
       text-decoration: underline;
     }
   }
-.mail-cotizador{
-  
-  display: flex;
-    -webkit-box-align: center;
+  .item-inferior{
+    position: absolute;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    color: #0855c4;
-    border-radius: 4px;
-    width: 240px;
-    height: 46px;
-    border: 1px solid #0855c4;
-    margin: auto;
-    margin-top: 24px;
+    width: 100%;
+    left: 0;
+  }
+.mail-cotizador{
+  justify-content: center;
+  display: flex;
+-webkit-box-align: center;
+  align-items: center;
+  color: #0855c4;
+  border-radius: 4px;
+  width: 240px;
+  height: 46px;
+  border: 1px solid #0855c4;
+  margin: auto;
+  margin-top: 24px;
   cursor: pointer;
 
     
@@ -5489,6 +5562,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .v2-detalle-plan{
     padding: 0px 24px 32px;
     margin-top: 0;
+    height: 700px;
   }
   .v2-datos-carro{
     margin-top: 42px;
