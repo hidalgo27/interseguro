@@ -132,7 +132,7 @@
             <div class="v2-suma-asegurada">
               <p class="v2-suma-asegurada--titulo">
                 Elige tu suma asegurada
-                <span>?</span>
+                <span @click="showSumaAsegurada" class="tooltip-sumaAsegurada">?</span>
               </p>
               <div class="v2-valor-comercial">
                 
@@ -423,7 +423,7 @@
                           <p>
                               <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" @click="showModalInicioVigencia()">                      
                                   <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" @click="showModalInicioVigencia()">
-                                      hoy
+                                      {{this.fechaVigencia}}
                                   </span>
                                   <span style="cursor: pointer;" v-else >
                                       Cambiar
@@ -512,14 +512,14 @@
                   <div class="mail-cotizador"  @click="showModalEnviarEmail()">                  
                         <p>Enviar cotización</p>
                         <div class="mail"   @click="enviarCorreo">                          
-                          <img src="../../../static/v2_icon/email.png" alt="email">
+                          <img src="./../../../static/v2_icon/email.png" alt="email">
                     </div>
                   </div> 
                 </div>
               </div>
 
               <div class="v2-comparar-planes  d-lg-none">
-                <img src="" alt="B"><a target="_blank" rel="noopener" >COMPARAR PLANES</a>
+                <img src="../../../static/media/img/comparar-planes.png" alt="B"><a target="_blank" rel="noopener" >COMPARAR PLANES</a>
               </div>
 
               <div class="box-btn  d-lg-none">
@@ -1085,7 +1085,7 @@
               <p  class="titulo">Ahorra</p>
               <p class="desc">
                 Recibe tu cotización, 
-                elige tu plan y ¡estás protegido!
+                elige tu plan y ¡estás protegido! 
               </p>
               <span class="disclaimer-porcentaje d-none  d-lg-block">
               * Solo aplica a los planes Oro y Black .
@@ -1766,6 +1766,9 @@
       },
     },
     methods: {
+      showSumaAsegurada() {
+        this.$refs.modalInicioVigencia.show();
+      },
       showModalInicioVigencia() {
         this.$refs.modalInicioVigencia.show();
       },
@@ -2974,6 +2977,15 @@
   }
 }
 .v2-suma-asegurada{
+  .tooltip-sumaAsegurada{
+    background: #D0D6E0;
+    color: white;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+  }
   &--titulo{
     color: #0855C4;
     font-size: 25px;
@@ -2985,6 +2997,8 @@
     color: #454A6C;
     font-size: 11px;
     text-align: center;
+    font-family: 'Omnes regular';
+    margin-top: 8px;
   }
   .v2-valor-comercial{
     display: flex;
@@ -3036,6 +3050,8 @@
       font-size: 14px;
       font-family: "Omnes Semibold";
       cursor: pointer;
+      border: 1px solid #1251C4;
+      padding: 2px 10px;
     }
   }
   &__detalle{    
