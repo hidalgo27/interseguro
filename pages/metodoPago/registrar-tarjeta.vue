@@ -396,7 +396,6 @@ export default {
           });
       });
     },
-
     getCard() {
       return new Promise((resolve, reject) => {
         this.$axios

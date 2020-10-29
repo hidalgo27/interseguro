@@ -46,6 +46,7 @@ const state = () => ({
         state.plateNumber = payload
       },
   }
+
   
   const actions = {
     getTokenCulqi ({ commit }, item) {
