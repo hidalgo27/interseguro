@@ -680,7 +680,7 @@
     }
   }
   .home{
-    margin-top: 134px;
+    margin-top: 64px;
     font-size: 16px;
     background-color: #fff;   
     .boxHome-banner{      
