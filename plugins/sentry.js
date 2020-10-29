@@ -4,7 +4,7 @@ import { Vue as VueIntegration } from "@sentry/integrations";
 import { Integrations } from "@sentry/tracing";
 
 Sentry.init({
-  dsn: "https://a5b642cd267d4d1093e685e79369113b@o449106.ingest.sentry.io/5431501",
+  dsn: "https://c5b74a07811346bd86266ef3885a71c1@o462227.ingest.sentry.io/5477682",
   integrations: [
     new VueIntegration({
       Vue,

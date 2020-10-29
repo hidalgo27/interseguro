@@ -274,9 +274,9 @@
                         <ul>
                           <li class="detalle-item">
                             <div class="item    pb-3">
-                                <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
                                   <span class="mb-0 gps requiere-gps"  >
-                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
                                   </span>
                               </span>
                             </div>
@@ -370,7 +370,7 @@
                             <div class="item    pb-3">
                                 <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
                                   <span class="mb-0 gps requiere-gps"  >
-                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
                                   </span>
                               </span>
                             </div>
@@ -487,7 +487,7 @@
                       <div class="item    pb-3">
                           <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
                             <span class="mb-0 gps requiere-gps"  >
-                              <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                              <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
                             </span>
                         </span>
                       </div>
@@ -566,7 +566,7 @@
               </div>
 
               <div class="box-btn  d-lg-none">
-                <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                <span class="continuar" @click="continuar($event, planSeleccionado)">CONTINUAR</span>
               </div>
             </div>
             
@@ -1003,75 +1003,6 @@
             </div>
         </div>
     </b-modal>
-<!-- 
-    <b-modal
-      id="modalgps"
-      title="Bootstrap-Vue"
-      hide-footer
-      hide-header
-      ref="modalGPS"
-      size="lg"
-    >
-      <div class="modal-content modal-gps">
-        <b-btn
-          class="mt-3 modal-close"
-          @click="hideModalGPS()"
-          style="background: white; border: none;"
-        >
-          <img
-            src="./../../../static/media/img/root/close.png"
-            width="40"
-            alt="icon close"
-            class="image-9"
-          />
-        </b-btn>
-        <div class="modal-head">
-          <div class="box-titulo">
-            <h2 class>PASOS PARA CONSEGUIR MI GPS</h2>
-          </div>
-          <div class="modal-divider"></div>
-        </div>
-        <div class="modal-body">
-          <div class="modal-body__item">
-            <div class="box-img">
-              <img src="../../../static/media/img/flujo/cotizacion/paso1_gps.svg" alt="pasos gps" />
-            </div>
-            <div class="box-paso">
-              <p>1</p>
-            </div>
-            <div class="box-descripcion">
-              <p>Protemax te contactará para programar el día y hora de la instalación del GPS.</p>
-            </div>
-          </div>
-          <div class="modal-body__item">
-            <div class="box-img">
-              <img src="../../../static/media/img/flujo/cotizacion/paso2_gps.svg" alt="pasos gps" />
-            </div>
-            <div class="box-paso">
-              <p>2</p>
-            </div>
-            <div class="box-descripcion">
-              <p>Irán a tu casa o al lugar coordinado para instalar el dispositivo en tu carro.</p>
-            </div>
-          </div>
-          <div class="modal-body__item">
-            <div class="box-img">
-              <img src="../../../static/media/img/flujo/cotizacion/paso3_gps.svg" alt="pasos gps" />
-            </div>
-            <div class="box-paso">
-              <p>3</p>
-            </div>
-            <div class="box-descripcion">
-              <p>
-                Contamos con una oferta por lanzamiento donde
-                <strong>te regalamos $50</strong> para la compra de tu GPS (precio regular $200, precio con nosotros $150). Podrás hacer el pago ahí mismo con efectivo o tarjeta.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row"></div>
-      </div>
-    </b-modal> -->
 
 
     <b-modal
@@ -1362,28 +1293,103 @@
 
 
     <b-modal
-      id="modalGPS"
+      id="v2modalGPS"
       title="Bootstrap-Vue"
       hide-footer
       hide-header
-      ref="modalGPS"
+      ref="v2modalGPS"
     >
     <img
       src="./../../../static/media/img/root/close.png"
       width="30"
       alt="icon close"
       class="modal-close"
-      @click="hidemodalEntidadFinanciera()"
+      @click="hideModalGPS()"
     />
-      <div class="v2-modalGPS">
-        <div class="v2-modalGPS__header">
+      <div class="v2modalGPS">
+        <div class="v2modalGPS__header">
           <img src="./../../../static/media/interseguroVehicular_v2/auto-gps.png" alt="">
           <div class="texto-header">
-            <p>Tu Mazda necesita un GPS, te ayudamos a contratarlo</p>
-            <span>
+            <p class="titulo">Tu Mazda necesita un GPS, te ayudamos a contratarlo</p>
+            <span class="descripcion">
               Por ser de Interseguro, podrás acceder a los mejores precios:
             </span>
           </div>
+        </div>
+        <div class="v2modalGPS__body">
+          <div class="box-empresas">
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+          </div>
+          <p class="finalizar-compra">
+            Al finalizar la compra de tu Seguro Vehicular te ayudaremos con la compra de tu GPS.
+          </p>
+          <p class="tienes-gps">
+            ¿Ya tienes un GPS activo?
+          </p>
+          <p class="certificado">
+             Luego de la compra, envíanos el certificado.
+          </p>
+        </div>
+        <div class="v2modalGPS__footer">
+          <p>Tendrás 5 días para contratar tu GPS luego <br> de la compra del Seguro Vehicular, si no perderás la cobertura de Robo Total.</p>
         </div>
       </div>
 
@@ -2002,6 +2008,7 @@
         this.detectarPLanSeleccionado()
       },
       continuar(e,id) {
+        console.log(id)
         event.stopPropagation();
         this.seleccionarPLanDesktop(id)
         this.$store.commit('common/setFrecuenciaPago', this.selected)
@@ -2737,10 +2744,10 @@
         this.$refs.modalInicioVigencia.hide();
       },
       showModalGPS() {
-        this.$refs.modalGPS.show();
+        this.$refs.v2modalGPS.show();
       },
       hideModalGPS() {
-        this.$refs.modalGPS.hide();
+        this.$refs.v2modalGPS.hide();
       },
       showModalCompararPlanes() {
         console.log("PLANES")
@@ -3009,9 +3016,11 @@
           this.seleccionarPLan(this.planSeleccionado)
           this.seleccionarPLanDesktop(this.planSeleccionado)
         }else{
+          this.seleccionarPLan(this.planSeleccionado)
           this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)          
           this.seleccionarPLan(this.planSeleccionado)
           this.seleccionarPLanDesktop(this.planSeleccionado)
+          console.log(this.planSeleccionado)
         }
         /* FIN DE PLAN SELECCIONADO */
 
@@ -3055,15 +3064,111 @@
 </script>
 
 <style lang="scss" scoped>
-.v2-modalGPS{
+.v2modalGPS{
   &__header{
     display: flex;
     background: #0855c4;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    .texto-header{
+      padding-left: 8px;
+    }
     img{
       width: 79px;
     }
+    .titulo{
+      font-family: 'Omnes Medium';
+      font-size: 18px;
+      color: #ffffff; 
+      margin-bottom: 8px;
+    }
+    .descripcion{
+      font-family: 'Omnes Regular';
+      font-size: 14px;
+      color: #ffffff; 
+    }
+  }
+  &__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .box-empresas{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     p{
-      color: #ffffff;
+      text-align: center;
+    }
+    .certificado{
+      color: #454A6C;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    .tienes-gps{
+      color: #0855C4;
+      font-family: 'Omnes Medium';
+      font-size: 23px;
+      margin-top: 36px;
+    }
+    .finalizar-compra{
+      color: #EA0F90;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      margin-top: 24px;
+    }
+    .empresa-item{
+      display: inline-flex;
+      border: 1px solid #D5D5D5;
+      border-radius: 3px;
+      align-items: flex-start;
+      padding-top: 16px;
+      padding-left: 22px;
+      padding-right: 22px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      width: 296px;
+      margin-top: 24px;
+      img{
+        width: 28px;
+        height: auto;
+        padding-top: 8px;
+      }
+      span{
+        font-size: 11px;
+        color: #454A6C;
+        font-family: 'Omnes Regular';
+      }
+      p{
+        font-size: 18px;
+        color: #454A6C;
+        font-family: 'Omnes Medium';
+        text-align: left;
+      }
+      &__der{
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+      }
+      &__izq{
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+      }
+    }
+  }
+  &__footer{
+    background: #EFF0F3;
+    padding: 16px;
+    p{
+      color: #454A6C;
+      font-size: 13px;
+      font-family: 'Omnes Regular';
+      text-align: center;
     }
   }
 }
@@ -3389,11 +3494,11 @@
     .monto-frecuencia{
       color: #454A6C;
       font-family: "Omnes Medium";
-      font-size: 38px;
+      font-size: 30px;
     }
     .antes{
       font-family: "Omnes Regular";
-      font-size: 20px;
+      font-size: 18px;
       margin-top: 12px;
       text-decoration: line-through;
       -webkit-text-decoration-color: #ea0f90;
@@ -5618,6 +5723,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
 
 @media screen and (max-width: 992px) {
+  
   .planActivo.plata{
     background-color: #b1b1b1 !important;
     &:before{    
@@ -5656,7 +5762,31 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 @media screen and (min-width: 992px) {
-
+.v2modalGPS{
+    &__header{
+      .titulo{
+        font-size: 22px;
+      }
+      .descripcion{
+        font-size: 18px;
+      }
+    }
+    &__body{
+      .box-empresas{
+        flex-direction: row;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .empresa-item{
+        margin: 8px;
+      }
+      .finalizar-compra{
+        font-size: 18px;
+      }
+    }
+  }
 .planActivoDesktop.plata{
   // background-color: #fff !important;
   border: 1px solid #b1b1b1;

@@ -32,6 +32,7 @@
   .modal-close{
     height: 45px;
     width: 45px;
+    cursor: pointer;
   }
   .modal-titulo{
     color: #0855C4;
@@ -88,6 +89,14 @@
     display: flex;
     width: 338px;
     height: 305px;
+  }
+}
+#v2modalGPS{
+  .modal-body{
+    padding: 0;
+  }
+  .modal-dialog{
+
   }
 }
 @import "preguntas-frecuentes-viajes/dist/preguntasFrecuentesGenerico.css";
@@ -588,6 +597,23 @@
   }
   .modal-content {
       height: 320px;
+  }
+}
+#v2modalGPS.modal.fade.show {
+  align-items: flex-start !important;
+}
+@media (min-width: 992px) {
+  #v2modalGPS{
+    .modal-body{
+      padding: 0;
+    }
+    .modal-dialog{
+      max-width: 880px;
+      width: 880px;
+    }
+  }
+  #v2modalGPS.modal.fade.show {
+    align-items: center !important;
   }
 }
 @media (min-width: 1024px) {
