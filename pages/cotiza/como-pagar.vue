@@ -41,10 +41,9 @@
             <b-row class="justify-content-center">
                 <b-col cols="12" md="8">
                     <div class="metodo-pago">
-                        <b-row>                                
-                            <b-col cols="12"  lg="5" class="metodo-pago__comoPagar" style="background: #FFF">
+                        <b-row class="justify-content-center">                                
+                            <!-- <b-col cols="12"  lg="5" class="metodo-pago__comoPagar" style="background: #FFF">
                                 <div class="panel-custom">
-                                    <!-- <div class="boxtitulo" style="height: 24px;" v-if="listCotizacion.discount !== undefined"> -->
                                     <div class="boxtitulo" style="height: 24px;" v-if="listCotizacion.discount !== undefined" >
                                         <p class="boxtitulo__principal">FRECUENCIA DE PAGO</p> 
                                         <img v-if="listCotizacion.discount.intercorp == 5" class="boxtitulo__dto5" width="60" src="../../static/media/img/flujo/como-pagar/dto_5.svg" alt="calendar"> 
@@ -144,7 +143,6 @@
                                                                     <div class="precios" v-else>
                                                                         <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
                                                                         <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span>   
-                                                                        <!-- <span><br> + GiftCard S/ 150 Oechsle</span>-->
                                                                     </div>
                                                                     <span class="radio-buttons__text-price">Anual </span><span> (1 cuota)</span>
                                                                 </div>
@@ -193,7 +191,7 @@
                                         </b-card>
                                     </b-row>
                                 </div>
-                            </b-col>
+                            </b-col> -->
 
                             <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta">
                                 <div class="panel-custom">

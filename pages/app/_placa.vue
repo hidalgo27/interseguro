@@ -284,6 +284,10 @@
                     alt="icon close"
                     class="modal-close"
                 />
+                <div class="modalEntidadFinanciera" style="padding: 0 12px;" v-bind:class="{}">
+                    <img src="./../../static/media/img/root/close.png" alt="">
+                    <p class="modal-titulo">Tu póliza se ha endosado correctamente</p>
+                </div>
                 <div class="modalEntidadFinanciera" style="padding: 0 12px;">
                     <div class="modal-head">
                         <p class="modal-titulo">¿Dónde pediste tu crédito vehicular?</p>
@@ -308,7 +312,6 @@
                             <button class="btn btn-principal" @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
                         </div>
                     </div>
-                    <div class="row"></div>
                 </div>
             </b-modal>
 
@@ -863,7 +866,10 @@ export default {
             }      
         },
         hidemodalEntidadFinanciera() {
-            this.$refs.hidemodalEntidadFinanciera.hide();
+
+            setTimeout(() => {
+                this.$refs.hidemodalEntidadFinanciera.hide();
+            }, 5000)            
         },
         clickEnlace(enlace){
             let entidadFinanciera = JSON.parse(localStorage.getItem("financialInstitution"))

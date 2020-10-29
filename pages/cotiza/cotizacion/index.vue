@@ -3,8 +3,10 @@
     <div class="capaOculta" v-bind:class="{mostrarCapa: mostrarCapa}">
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
+    <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
+    </div>
     
-    <!-- <b-container class="contenedor-personalizado" >
+    <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="10" class="m-auto">
             <div class="box-steps">
@@ -24,7 +26,7 @@
             </div> 
         </b-col>  
       </b-row>  
-    </b-container> -->
+    </b-container>
 
     <b-container class="contenedor-personalizado">
       <b-row class="justify-content-center" style="position: relative;">
@@ -130,15 +132,33 @@
 
           <b-col xs="12" md="6" lg="6" class="order-md-1">
             <div class="v2-suma-asegurada">
-              <p class="v2-suma-asegurada--titulo">
+              <p class="v2-suma-asegurada--titulo" >
                 Elige tu suma asegurada
-                <span @click="showSumaAsegurada" class="tooltip-sumaAsegurada">?</span>
+                <span @click="showSumaAsegurada" class="tooltip-icon">?</span>
               </p>
               <div class="v2-valor-comercial">
                 
-                <div class="minimoImg" @click="minimoImg"><span>-</span></div>
+                <!-- <div class="minimoImg" @click="minimoImg"><span>-</span></div> -->
+                <button class="minimoImg" @click="minimoImg"  v-bind:class="{minimoImgDisabled : minimoImgDisabled}" :disabled="minimoImgDisabled">
+                  <span>-</span>
+                </button>
                   <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
-                <div class="maximoImg" @click="maximoImg"><span>+</span></div>
+                <button class="maximoImg" @click="maximoImg"  v-bind:class="{maximoImgDisabled : maximoImgDisabled}" :disabled="maximoImgDisabled">
+                  <span>+</span>
+                </button>
+                <!-- <div class="maximoImg" @click="maximoImg"  v-bind:class="{maximoImgDisabled : maximoImgDisabled}"><span>+</span></div> -->
+                <div class="tooltip-suma-asegurada" v-bind:class="{'d-flex' : activarTooltip}">
+                  <div class="item">
+                    <p class="tooltip-titulo">¿Qué es suma segurada?</p>
+                      <p class="tooltip-descripcion">
+                        Es el monto a pagar por el asegurado en caso de tener un daño en el auto. 
+                        <strong>
+                          Ej: Si tu auto choca y la reparación cuesta US$20.000 y tu suma asegurada
+                          es de US$7.000, solo pagaras $7.000 y nosotros cubrimos los $13.000 restantes.
+                        </strong>
+                      </p>
+                  </div>
+                </div>
               </div>
               <div class="v2-valores-minimo-maximo">
                 Mín: US$ {{listCotizacion.vehicle.minimum}}. / Máx: US$ {{listCotizacion.vehicle.maximum}}
@@ -158,10 +178,10 @@
                 </div>
                 <div class="col-lg-6  d-none  d-lg-flex  align-items-center  justify-content-end">
                   <div class="fecha">                    
-                    <div>
+                    <div @click="showModalInicioVigencia()">
                       Fecha de inicio:
-                        <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" @click="showModalInicioVigencia()">                      
-                            <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" @click="showModalInicioVigencia()">
+                        <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
+                            <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
                                 {{this.fechaVigencia}}
                             </span>
                             <span style="cursor: pointer;" v-else >
@@ -170,11 +190,10 @@
                         </span>
                     </div>
                   </div>
-                  <div class="mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
-                    Enviar cotización
-                    <div class="mail"   @click="enviarCorreo">                          
-                      <img src="../../../static/v2_icon/email.png" alt="email">
-                    </div>
+                  <div class="mail-fecha  mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
+                    <span>Enviar cotización</span>                                     
+                    <img src="../../../static/media/interseguroVehicular_v2/mail-cotizador.svg" alt="email">
+                   
                   </div> 
                 </div>
               </div>
@@ -185,7 +204,7 @@
                   <div style="height: 40px;" class="plan-recomendado">
                     
                   </div>
-                  <div class="v2-plan-item  plan4  plata  "  @click="seleccionarPLanDesktop(4)" v-bind:class="{planActivoDesktop: planInactivo}">
+                  <div class="v2-plan-item  plan4  plata  "  @click="seleccionarPLanDesktop(4)" v-bind:class="{planInactivoDesktop: planInactivo}">
                     <div class="plan-item  plan-plata">
                       PLAN PLATA
                     </div>
@@ -195,9 +214,9 @@
                         <div class="v2-detalle-plan__suma  box-monto-pago">
                             <div class="monto-frecuencia">
                                 <span>US$</span>
-                                <span class="monto">{{this.monto_pagar}}</span>
+                                <span class="monto">{{this.monto_pagar_plata}}</span>
                             </div>
-                            <p class="antes">Antes US${{this.monto_antes}}</p>
+                            <p class="antes">Antes US${{this.monto_antes_plata}}</p>
                         </div>
                         <div class="v2-detalle-plan__box-frecuencia  select">
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
@@ -222,7 +241,7 @@
                           <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
                         </div>
                         <div class="box-btn">
-                          <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                          <span class="continuar" @click="continuar($event,4)">CONTINUAR</span>
                         </div>
                       </div>
                     </div>
@@ -233,7 +252,7 @@
                   <div style="height: 40px;" class="plan-recomendado">
                     
                   </div>
-                  <div class="v2-plan-item  plan6  oro   "  @click="seleccionarPLanDesktop(6)" v-bind:class="{planActivoDesktop: planInactivo}">
+                  <div class="v2-plan-item  plan6  oro   "  @click="seleccionarPLanDesktop(6)" v-bind:class="{planInactivoDesktop: planInactivo}">
                     <div class="plan-item  plan-oro">
                       PLAN ORO
                     </div>
@@ -242,9 +261,9 @@
                         <div class="v2-detalle-plan__suma  box-monto-pago">
                             <div class="monto-frecuencia">
                                 <span>US$</span>
-                                <span class="monto">{{this.monto_pagar}}</span>
+                                <span class="monto">{{this.monto_pagar_oro}}</span>
                             </div>
-                            <p class="antes">Antes US${{this.monto_antes}}</p>
+                            <p class="antes">Antes US${{this.monto_antes_oro}}</p>
                         </div>
                         <div class="v2-detalle-plan__box-frecuencia  select">
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
@@ -293,7 +312,7 @@
                           <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
                         </div>
                         <div class="box-btn">
-                          <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                          <span class="continuar" @click="continuar($event,6)">CONTINUAR</span>
                         </div>
                       </div>
                     </div>
@@ -304,7 +323,7 @@
                   <div style="height: 40px; " class="plan-recomendado">
                     <span>&#9733;	</span> RECOMENDADO
                   </div>
-                  <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planActivoDesktop: planInactivo}">
+                  <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planInactivoDesktop: planInactivo}">
                     <div class="plan-item  plan-black">
                       PLAN BLACK
                     </div>
@@ -313,9 +332,9 @@
                         <div class="v2-detalle-plan__suma  box-monto-pago">
                             <div class="monto-frecuencia">
                                 <span>US$</span>
-                                <span class="monto">{{this.monto_pagar}}</span>
+                                <span class="monto">{{this.monto_pagar_black}}</span>
                             </div>
-                            <p class="antes">Antes US${{this.monto_antes}}</p>
+                            <p class="antes">Antes US${{this.monto_antes_black}}</p>
                         </div>
                         <div class="v2-detalle-plan__box-frecuencia  select">
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
@@ -331,7 +350,7 @@
                                   <template v-if="this.endosoSeleccionado.id == 0">                          
                                     <span style="display: inline-block; cursor: pointer; text-align: left;"
                                       class="detalle-enlace"
-                                      v-b-modal.modalEntidadFinanciera
+                                      v-b-modal.modalEntidadFinanciera2
                                       @click="clickEnlace('entidad Financiera')"
                                       >Aquí
                                       </span>  
@@ -340,7 +359,7 @@
                                     <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
                                     class="detalle-enlace"
                                         href="javascript:void(0);"
-                                        v-b-modal.modalEntidadFinanciera
+                                        v-b-modal.modalEntidadFinanciera2
                                         @click="clickEnlace('entidad Financiera')"
                                     > {{this.endosoSeleccionado.name}}</span>   
                                   </template>
@@ -398,23 +417,23 @@
                       </div>
                       <div class="item-inferior">
                         <div class="descargar-detalle">
-                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
                           <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
                         </div>
                         <div class="box-btn">
-                          <span class="continuar" @click="continuar($event)">CONTINUAR</span>
+                          <span class="continuar" @click="continuar($event,3)">CONTINUAR</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="v2-seleccion-planes  d-md-none">
-                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planActivoDesktop: planInactivo}">
+                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                   <p>PLATA</p>
                   <p>US$ {{this.listaBasica.policy.monthly}}</p>
                 </div>
-                <div class="v2-seleccion-planes__item  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
+                <div class="v2-seleccion-planes__item planorito  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
                   <p>ORO</p>
                   <p>US$ {{this.listaMedia.policy.monthly}}</p>
                 </div>
@@ -443,27 +462,12 @@
                   <ul>
                     <li>
                       <div class="detalle-item">
-                          <p><span class="symbol-point">&#11044;</span> Fecha de inicio:</p>
-                          <p>
-                              <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" @click="showModalInicioVigencia()">                      
-                                  <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" @click="showModalInicioVigencia()">
-                                      {{this.fechaVigencia}}
-                                  </span>
-                                  <span style="cursor: pointer;" v-else >
-                                      Cambiar
-                                  </span>                                        
-                              </span>
-                          </p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="detalle-item">
                         <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
                         <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
                             <template v-if="this.endosoSeleccionado.id == 0">                          
                               <span style="display: inline-block; cursor: pointer; text-align: left;"
                                 class="detalle-enlace"
-                                v-b-modal.modalEntidadFinanciera
+                                v-b-modal.modalEntidadFinanciera2
                                 @click="clickEnlace('entidad Financiera')"
                                 >Aquí
                                 </span>  
@@ -472,7 +476,7 @@
                               <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
                               class="detalle-enlace"
                                   href="javascript:void(0);"
-                                  v-b-modal.modalEntidadFinanciera
+                                  v-b-modal.modalEntidadFinanciera2
                                   @click="clickEnlace('entidad Financiera')"
                               > {{this.endosoSeleccionado.name}}</span>   
                             </template>
@@ -533,17 +537,32 @@
                   <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
                 </div>
                 <div class="d-flex   d-lg-none">
-                  <div class="mail-cotizador"  @click="showModalEnviarEmail()">                  
-                        <p>Enviar cotización</p>
-                        <div class="mail"   @click="enviarCorreo">                          
-                          <img src="./../../../static/v2_icon/email.png" alt="email">
+                  <div class="mail-fecha  mail-cotizador"  @click="showModalEnviarEmail()">                  
+                    <span>Enviar cotización</span>                                     
+                      <img src="../../../static/media/interseguroVehicular_v2/mail-cotizador.svg" alt="email">
+                    </div> 
+                </div>
+                <div class="d-flex   d-lg-none">
+                  <div class="mail-fecha"  @click="showModalInicioVigencia()">                  
+                      <div class="detalle-item">
+                        <p> Fecha de inicio:</p>
+                        <p>
+                            <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
+                                <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
+                                    {{this.fechaVigencia}}
+                                </span>
+                                <span style="cursor: pointer;" v-else >
+                                    Cambiar
+                                </span>                                        
+                            </span>
+                        </p>
                     </div>
                   </div> 
                 </div>
               </div>
 
               <div class="v2-comparar-planes  d-lg-none">
-                <img src="../../../static/media/img/comparar-planes.png" class="mr-2" alt="B"><a target="_blank" rel="noopener" >COMPARAR PLANES</a>
+                <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span> 
               </div>
 
               <div class="box-btn  d-lg-none">
@@ -854,19 +873,19 @@
             alt="icon close"
             class="modal-close"
         />
-        <div class="modal-custom">
-            <div class="modal-head">
-                <p class="modal-titulo">Recibe tu cotización en tu correo</p>
+         <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
+            <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
+            <p class="modal-titulo">¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras</p>
+          </div>
+
+        <div class="modalEnviarEmail">
+            <p class="modal-titulo">Recibe tu cotización en tu correo</p>
+            
+            <div class="fechaCotizador">
+                <b-form-input id="input-small" placeholder="Ejem. lperez@gmail.com"  v-model="email"></b-form-input>
             </div>
-            <div class="modal-body">
-                <div id="input-group-3">                        
-                    <div class="fechaCotizador">
-                        <b-form-input id="input-small" placeholder="Ejem. lperez@gmail.com"  maxlength="9" v-model="email"></b-form-input>
-                    </div>
-                </div>
-                <div class="box-btns">
-                    <button class="btn  btn-principal  " @click="enviarMail()">ENVIAR</button>
-                </div>
+            <div class="box-btns">
+                <button class="btn  btn-principal  " @click="enviarMail()">ENVIAR</button>
             </div>
         </div>
     </b-modal>
@@ -879,16 +898,14 @@
           hide-header
           ref="modalCompararPlanes"
           id="modalCompararPlanes">
-        <div class="modal-content modal-root">
-            <img class="img-close-modal" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalCompararPlanes()">
+        <div class="modal-content modalCompararPlanes">
+            <img class="img-close-modal" width="40" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalCompararPlanes()">
             <div class="modal-body">
+              <p class="mb-4">COMPARAR PLANES</p>
               <table class="table-planes">
                 <tbody>
                   <tr>
                     <td class="w180px" style="display: inline;">
-                      <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">
-                        <img class="descargar_cobertura  mt-3" src="../../../static/media/interseguroVehicular_v2/descargar_cobertura.png" alt="descargar_cobertura">
-                      </a>
                       </td>
                     <td class="table-planes__titulo  table-planes__robo"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
                       <span class="plan-tab  plata">PLATA</span></td>
@@ -899,56 +916,55 @@
                     <td class="w180px">Responsabilidad Civil</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">&#x2714;	</td>
                     <td class="check-table">&#x2714;	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                   <tr>
                     <td class="w180px">Robo Total</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">&#x2714;	</td>
                     <td class="check-table">&#x2714;	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table"  style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                   <tr>
                     <td class="w180px">Pérdida Parcial <br> por Choque</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">&#x2714;	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                   <tr>
                     <td class="w180px">Accidente de <br> Ocupantes</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">&#x2714;	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                   <tr>
-                    <td class="w180px">Pérdida Total <br> por Choque</td>
+                    <td class="w180px">Pérdida total por  <br> Accidentes de tránsito</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td class="w180px">Accesorios Adicionales</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">	</td>
-                    <td class="check-table">&#x2714;	</td>
-                  </tr>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr> -->
                   <tr>
                     <td class="w180px">Rotura de Lunas</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                   <tr>
                     <td class="w180px">Riesgos de naturaleza, vandalismo, incendios</td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                   <tr>
                     <td class="w180px">Ausencia de Control <br>
-                    <span class="ausencia-control"><img width="16" src="../../../static/media/img/exclamacion.png" alt="exclamacion">   Solo aplica en caso quieras endosar tu póliza a una entidad financiera</span> </td>
                     <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
                     <td class="check-table">	</td>
-                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
                   </tr>
                 </tbody>
               </table>
@@ -966,6 +982,7 @@
         <div class="modal-content modal-root">
             <img class="img-close-modal" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
             <div class="modal-body">
+              
               <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
                 <img class="check-enviado" src="./../../../static/media/img/root/check.png" alt="">
                 <p>¡Listo! En breve recibirás el link de descarga al <span>{{this.inputNumeroCelular}}</span></p>
@@ -986,7 +1003,7 @@
             </div>
         </div>
     </b-modal>
-
+<!-- 
     <b-modal
       id="modalgps"
       title="Bootstrap-Vue"
@@ -1054,7 +1071,7 @@
         </div>
         <div class="row"></div>
       </div>
-    </b-modal>
+    </b-modal> -->
 
 
     <b-modal
@@ -1318,95 +1335,100 @@
       hide-footer
       hide-header
       ref="modalInicioVigencia"
-      id="modalInicioVigencia"
+      id="modalInicioVigencia2"
     >
-      <div class="modal-content fechaVigenciaCotizador">
-        <b-btn
-          class="mt-3 modal-close"
-          @click="hideModalInicioVigencia()"
-          style="background: transparent; border: none;"
-        >
-          <img
+      <img
             src="./../../../static/media/img/root/close.png"
             width="30"
             alt="icon close"
-            class="image-9"
+            class="modal-close"
+            @click="hideModalInicioVigencia()"
           />
-        </b-btn>
-        <div class="modal-head">
-          <div class="box-titulo">
-            <p class="text-inicio">¿Cuándo inicia tu Seguro?</p>
-            <span class="center"></span>
-          </div>
-          <div class="modal-divider"></div>
-        </div>
-        <div class="modal-body">
-          <div>
-            <div id="input-group-3" class="inicioVigencia">
-              
-              <div class="fechaCotizador">                
-                <datepicker class="mt-2" :inline="true"  :disabledDates="state.disabledDates" id="fechaCustom" :full-month-name="true"   :value="state.date" @selected="elegirFecha" ></datepicker>
-              </div>
-            </div>
-            <div class="btn-inicioVigencia">
-              <button class="btn-confirmar" @click="hideModalInicioVigencia()">Confirmar</button>
+
+      <div class="modal-content fechaVigenciaCotizador">
+        <p class="modal-titulo">¿Cuándo inicia tu Seguro?</p>
+
+          <div id="input-group-3" class="inicioVigencia">
+            
+            <div class="fechaCotizador">                
+              <datepicker class="mt-2" :inline="true"  :disabledDates="state.disabledDates" id="fechaCustom" :full-month-name="true"   :value="state.date" @selected="elegirFecha" ></datepicker>
             </div>
           </div>
-        </div>
-        <div class="row"></div>
+          <div class="box-btns">
+            <button class="btn  btn-principal  " @click="hideModalInicioVigencia()">CONFIRMAR</button>
+          </div>
       </div>
     </b-modal>
 
+
     <b-modal
-      id="modalEntidadFinanciera"
+      id="modalGPS"
       title="Bootstrap-Vue"
       hide-footer
       hide-header
-      ref="hidemodalEntidadFinanciera"
+      ref="modalGPS"
     >
-      <div class="modal-content modalEntidadFinanciera">
-        <b-btn
-          class="mt-3 modal-close"
-          @click="hidemodalEntidadFinanciera()"
-          style="background: transparent; border: none;"
-        >
-          <img
-            src="./../../../static/media/img/root/close.png"
-            width="30"
-            alt="icon close"
-            class="image-9"
-          />
-        </b-btn>
-        <div class="modal-head">
-          <div class="box-titulo">
-            <p class="endosar-titulo">¿Dónde pediste tu crédito vehicular?</p>
-            <span class="center"></span>
-          </div>
-          <div class="modal-divider"></div>
-        </div>
-        <div class="modal-body">
-          <div>
-            <div id="boxEndosoSesion" class="endosoSesion">
-              <div v-for="(item, index) in listaNuevaDeEndoso" :key="index">
-                <div v-on:click="setearEntidadFinanciera(item)">
-                  <div id="endosoSesionItem" class="endosoItem">
-                    <span
-                      name="parent"
-                      v-bind:id="'entidad-' + item.id"
-                      class="endosoUncheck"
-                      v-bind:class="{ 'checked': ischecked }"
-                    ></span>
-                    <span>{{item.name}}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box-btnEndosoSesion">
-              <button @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
-            </div>
+    <img
+      src="./../../../static/media/img/root/close.png"
+      width="30"
+      alt="icon close"
+      class="modal-close"
+      @click="hidemodalEntidadFinanciera()"
+    />
+      <div class="v2-modalGPS">
+        <div class="v2-modalGPS__header">
+          <img src="./../../../static/media/interseguroVehicular_v2/auto-gps.png" alt="">
+          <div class="texto-header">
+            <p>Tu Mazda necesita un GPS, te ayudamos a contratarlo</p>
+            <span>
+              Por ser de Interseguro, podrás acceder a los mejores precios:
+            </span>
           </div>
         </div>
-        <div class="row"></div>
+      </div>
+
+    </b-modal>
+
+
+    <b-modal
+      id="modalEntidadFinanciera2"
+      title="Bootstrap-Vue"
+      hide-footer
+      hide-header
+      ref="modalEntidadFinanciera2"
+    >
+    <img
+      src="./../../../static/media/img/root/close.png"
+      width="30"
+      alt="icon close"
+      class="modal-close"
+      @click="hidemodalEntidadFinanciera()"
+    />
+    <div class="box-mensajeEnviadoEndosar" v-bind:class="{mostrarMensajeEnviadoEndosar : mostrarMensajeEnviadoEndosar}">
+        <div class="endosar-item">
+          <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
+          <p class="modal-titulo">Tu póliza se ha endosado correctamente</p>
+        </div>
+    </div>
+
+     <p class="modal-titulo">¿Dónde pediste tu crédito vehicular?</p>
+      <div id="boxEndosoSesion"  class="modalEntidadFinanciera  endosoSesion">
+        <div v-for="(item, index) in listaNuevaDeEndoso" :key="index">
+          <div v-on:click="setearEntidadFinanciera(item)">
+            <div id="endosoSesionItem" class="endosoItem">
+              <span
+                name="parent"
+                v-bind:id="'entidad-' + item.id"
+                class="endosoUncheck"
+                v-bind:class="{ 'checked': ischecked }"
+              ></span>
+              <span>{{item.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-btns">
+        <button class="btn  btn-principal  " @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
       </div>
     </b-modal>
 
@@ -1491,6 +1513,20 @@
     layout: 'InterseguroHomeCotizacion',
     data() {
       return {
+        mostrarMensajeEnviadoEndosar: false,
+        mostrarMensajeEnviadoCotizacion: false,
+        maximoImgDisabled: false,
+        minimoImgDisabled: false,
+        monto_pagar_plata :'',
+        monto_antes_plata :'',
+            
+        monto_pagar_oro :'',
+        monto_antes_oro :'',
+
+        monto_pagar_black :'',
+        monto_antes_black :'',
+        valorSeleccionado: false,
+        activarTooltip: false,
         gps:'',
         frecuencia: '',
         planSeleccionado:3,
@@ -1528,6 +1564,7 @@
         flagElegirFecha: 0,
         monto_pagar_steps3:'',
         mostrarCapa: false,
+        mostrarCapaGris: false,
         /******************************** */
         Condicionado_Particular:'',
         item: {
@@ -1790,8 +1827,17 @@
       },
     },
     methods: {
+      clickCapaGris(){
+        this.mostrarCapaGris = false
+        this.activarTooltip = false
+      },
       showSumaAsegurada() {
-        this.$refs.modalInicioVigencia.show();
+        this.mostrarCapaGris = true
+        this.activarTooltip = true
+        console.log(this.mostrarCapaGris)
+      },
+      hideSumaAsegurada() {
+        
       },
       showModalInicioVigencia() {
         this.$refs.modalInicioVigencia.show();
@@ -1800,6 +1846,7 @@
         this.$refs.modalInicioVigencia.hide();
       },
       showModalEnviarEmail(){
+        this.mostrarMensajeEnviadoCotizacion = false
         this.$refs.modalEnviarEmail.show();
       },
       hideModalEnviarEmail(){
@@ -1807,23 +1854,44 @@
       },
       seleccionarFrecuencia(){
         if (this.selected == 1) {
-            // this.frecuencia = 'Mensual'
+            this.monto_pagar_plata = this.listaBasica.policy.monthly
+            this.monto_antes_plata = this.listaBasica.policy.monthlyCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.monthly
+            this.monto_antes_oro = this.listaMedia.policy.monthlyCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.monthly
+            this.monto_antes_black = this.listaFull.policy.monthlyCalculated
+
             if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
                 this.monto_pagar = this.listaFull.policy.monthly
-                this.monto_antes = this.listaFull.policy.monthlyCalculated
+                this.monto_antes = this.listaFull.policy.monthlyCalculated                
             }else if(this.planSeleccionado == 6){
                 this.monto_pagar = this.listaMedia.policy.monthly
                 this.monto_antes = this.listaMedia.policy.monthlyCalculated
             }else if(this.planSeleccionado == 4){
                 this.monto_pagar = this.listaBasica.policy.monthly
                 this.monto_antes = this.listaBasica.policy.monthlyCalculated
-            }else{}
+            }else{
+
+            }
             
         }else if(this.selected == 2){
-            // this.frecuencia = 'Trimestral'
+            this.monto_pagar_plata = this.listaBasica.policy.quarterly
+            this.monto_antes_plata = this.listaBasica.policy.quarterlyCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.quarterly
+            this.monto_antes_oro = this.listaMedia.policy.quarterlyCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.quarterly
+            this.monto_antes_black = this.listaFull.policy.quarterlyCalculated
+
             if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
                 this.monto_pagar = this.listaFull.policy.quarterly
                 this.monto_antes = this.listaFull.policy.quarterlyCalculated
+
+                this.monto_pagar_mensual = this.listaFull.policy.quarterly
+                this.monto_antes_mensual = this.listaFull.policy.quarterlyCalculated
             }else if(this.planSeleccionado == 6){
                 this.monto_pagar = this.listaMedia.policy.quarterly
                 this.monto_antes = this.listaMedia.policy.quarterlyCalculated
@@ -1832,6 +1900,15 @@
                 this.monto_antes = this.listaBasica.policy.quarterlyCalculated
             }else{}
         }else if(this.selected == 3){
+            this.monto_pagar_plata = this.listaBasica.policy.annual
+            this.monto_antes_plata = this.listaBasica.policy.annualCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.annual
+            this.monto_antes_oro = this.listaMedia.policy.annualCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.annual
+            this.monto_antes_black = this.listaFull.policy.annualCalculated
+            
             // this.frecuencia = 'Anual'
             if (this.planSeleccionado == 3) {
                 this.monto_pagar = this.listaFull.policy.annual
@@ -1856,6 +1933,105 @@
                 this.monto_antes = this.listaBasica.policy.twoYearsCalculated
             }else{}
         }else{}
+      },
+      
+      seleccionarPLanDesktop(id){
+        this.planInactivo = true
+
+        if (this.planSeleccionado == id && this.valorSeleccionado) {
+          console.log(id)
+        }else{
+          this.valorSeleccionado = true
+          let elemento1 = document.querySelectorAll(".v2-plan-item")
+          for (let index = 0; index < elemento1.length; index++) {
+            elemento1[index].classList.remove("planActivoDesktop")      
+          }
+          setTimeout(() => {
+            let arreglo = document.querySelectorAll(".plan"+id)
+            console.log(arreglo)
+            for (let i = 0; i < arreglo.length; i++) {
+              arreglo[i].classList.add("planActivoDesktop")
+            }
+            this.seleccionarFrecuencia()
+          }, 250);
+          this.$store.commit('common/setPlanSeleccionado',id)
+          this.planSeleccionado = id
+          this.detectarPLanSeleccionado()
+        }
+        
+      },
+      devolverMonto(lista){
+         
+      },
+      detectarPLanSeleccionado(){
+        if(this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10){        
+          this.listCotizacion = this.listaFull
+          this.devolverMonto(this.listaFull)
+          if(this.endosoSeleccionado.id != 0){        
+            this.$store.commit('common/setPlanSeleccionado',10)
+          }
+          this.cobertura_is.variant = "black $"+this.listCotizacion.policy.monthly+"/mes"
+        }else if(this.$store.state.common.planSeleccionado == 6){            
+            this.listCotizacion = this.listaMedia
+            this.cobertura_is.variant = "oro $"+this.listCotizacion.policy.monthly+"/mes"
+            this.endosoSeleccionado = {id:0, name: ''}
+            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
+        }else if(this.$store.state.common.planSeleccionado == 4){
+            this.listCotizacion = this.listaBasica
+            this.endosoSeleccionado = {id:0, name: ''}
+            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
+            this.cobertura_is.variant = "plata $"+this.listCotizacion.policy.monthly+"/mes"
+        }else{}
+      },
+      seleccionarPLan(id){
+        this.planInactivo = true
+        let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
+        for (let index = 0; index < elemento1.length; index++) {
+          elemento1[index].classList.remove("planActivo")      
+        }
+        setTimeout(() => {
+          let arreglo = document.querySelectorAll(".plan"+id)
+          console.log(arreglo)
+          for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i].classList.add("planActivo")
+          }
+          this.seleccionarFrecuencia()
+        }, 250);
+        this.$store.commit('common/setPlanSeleccionado',id)
+        this.planSeleccionado = id
+        this.detectarPLanSeleccionado()
+      },
+      continuar(e,id) {
+        event.stopPropagation();
+        this.seleccionarPLanDesktop(id)
+        this.$store.commit('common/setFrecuenciaPago', this.selected)
+        this.cobertura_is.credit = this.endosoSeleccionado.name
+        this.cobertura_is.price = this.listCotizacion.policy.annual
+        this.cobertura_is.ammount = this.listCotizacion.vehicle.current
+        this.cobertura_is.quota = this.listCotizacion.policy.monthly
+
+        this.listCotizacion.policy.startDate = this.fechaVigencia
+        this.listCotizacion.paymentMethodId = this.selected
+
+        this.$store.commit('common/setObjectDigodat', this.cobertura_is)        
+        this.$store.commit('common/setItemElegido', this.itemElegido)
+        this.$store.commit('common/setListaCotizacion', this.listCotizacion)
+
+        if (document.location.hostname == "www.interseguro.pe"){
+          fbq('track', 'ViewContent', {
+            content_type: 'product',
+            product : 'segurovehicular',
+            content_ids: this.code_sku, 
+            plan_seleccionado: this.$store.state.common.planSeleccionado,
+            endoso: this.endosoSeleccionado.name,
+            anio: this.objectVehicle.modelYear,
+            suma_asegurada: this.$store.state.common.current,
+          });
+        }else{
+        }
+        this.cotizador_datalayer('addToCart')
+        this.$nuxt.$router.push('/cotiza/ingresa-tu-documento')
+
       },
       getVehicle(){
         this.$store.dispatch('common/getVehicle', this.item).then((res) =>{
@@ -2080,66 +2256,8 @@
         this.seleccionarPLan(3)
         this.seleccionarPLanDesktop(3)
       },
-      seleccionarPLan(id){
-        console.log("ID", id)
-        this.planInactivo = true
-        let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
-        for (let index = 0; index < elemento1.length; index++) {
-          elemento1[index].classList.remove("planActivo")      
-        }
-        setTimeout(() => {
-          let arreglo = document.querySelectorAll(".plan"+id)
-          console.log(arreglo)
-          for (let i = 0; i < arreglo.length; i++) {
-            arreglo[i].classList.add("planActivo")
-          }
-          this.seleccionarFrecuencia()
-        }, 250);
-        this.$store.commit('common/setPlanSeleccionado',id)
-        this.planSeleccionado = id
-        this.detectarPLanSeleccionado()
-      },
-      seleccionarPLanDesktop(id){
-        this.planInactivo = true
-        let elemento1 = document.querySelectorAll(".v2-plan-item")
-        for (let index = 0; index < elemento1.length; index++) {
-          elemento1[index].classList.remove("planActivoDesktop")      
-        }
-        setTimeout(() => {
-          let arreglo = document.querySelectorAll(".plan"+id)
-          console.log(arreglo)
-          for (let i = 0; i < arreglo.length; i++) {
-            arreglo[i].classList.add("planActivoDesktop ")
-          }
-          this.seleccionarFrecuencia()
-        }, 250);
-        this.$store.commit('common/setPlanSeleccionado',id)
-        this.planSeleccionado = id
-        this.detectarPLanSeleccionado()
-      },
-      devolverMonto(lista){
-         
-      },
-      detectarPLanSeleccionado(){
-        if(this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10){        
-          this.listCotizacion = this.listaFull
-          this.devolverMonto(this.listaFull)
-          if(this.endosoSeleccionado.id != 0){        
-            this.$store.commit('common/setPlanSeleccionado',10)
-          }
-          this.cobertura_is.variant = "black $"+this.listCotizacion.policy.monthly+"/mes"
-        }else if(this.$store.state.common.planSeleccionado == 6){            
-            this.listCotizacion = this.listaMedia
-            this.cobertura_is.variant = "oro $"+this.listCotizacion.policy.monthly+"/mes"
-            this.endosoSeleccionado = {id:0, name: ''}
-            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
-        }else if(this.$store.state.common.planSeleccionado == 4){
-            this.listCotizacion = this.listaBasica
-            this.endosoSeleccionado = {id:0, name: ''}
-            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
-            this.cobertura_is.variant = "plata $"+this.listCotizacion.policy.monthly+"/mes"
-        }else{}
-      },
+      
+
       mostrarMarca(){
         this.mostrarListaMarca = true
         this.mostrarListaAnio = false
@@ -2424,18 +2542,25 @@
       },
       maximoImg() {
         if (this.clonado.vehicle.maximum > this.listCotizacion.vehicle.current) {
+          this.maximoImgDisabled = false
+          this.minimoImgDisabled = false
           this.listCotizacion.vehicle.current =
             this.listCotizacion.vehicle.current + 100;
           this.cambioInput();
         } else {
+          this.maximoImgDisabled = true
+          console.log("MAYOR")
         }
       },
       minimoImg() {
         if (this.clonado.vehicle.minimum < this.listCotizacion.vehicle.current) {
+          this.minimoImgDisabled = false
+          this.maximoImgDisabled = false
           this.listCotizacion.vehicle.current =
             this.listCotizacion.vehicle.current - 100;
           this.cambioInput();
         } else {
+          this.minimoImgDisabled = true
         }
       },
       cambioInput(evt) {
@@ -2443,6 +2568,7 @@
           this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum ||
           this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum
         ) {
+          
         } else {
           this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
           this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
@@ -2600,36 +2726,7 @@
           }
         })
       },
-      continuar() {
-        
-        this.cobertura_is.credit = this.endosoSeleccionado.name
-        this.cobertura_is.price = this.listCotizacion.policy.annual
-        this.cobertura_is.ammount = this.listCotizacion.vehicle.current
-        this.cobertura_is.quota = this.listCotizacion.policy.monthly
-
-        this.listCotizacion.policy.startDate = this.fechaVigencia
-        this.listCotizacion.paymentMethodId = 3
-
-        this.$store.commit('common/setObjectDigodat', this.cobertura_is)        
-        this.$store.commit('common/setItemElegido', this.itemElegido)
-        this.$store.commit('common/setListaCotizacion', this.listCotizacion)
-
-        if (document.location.hostname == "www.interseguro.pe"){
-          fbq('track', 'ViewContent', {
-            content_type: 'product',
-            product : 'segurovehicular',
-            content_ids: this.code_sku, 
-            plan_seleccionado: this.$store.state.common.planSeleccionado,
-            endoso: this.endosoSeleccionado.name,
-            anio: this.objectVehicle.modelYear,
-            suma_asegurada: this.$store.state.common.current,
-          });
-        }else{
-        }
-        this.cotizador_datalayer('addToCart')
-        this.$nuxt.$router.push('/cotiza/ingresa-tu-documento')
-
-      },
+      
       /* ******************************************* */
       //MODALES
       /* ******************************************* */
@@ -2646,10 +2743,11 @@
         this.$refs.modalGPS.hide();
       },
       showModalCompararPlanes() {
-        this.$refs.ModalCompararPlanes.show();
+        console.log("PLANES")
+        this.$refs.modalCompararPlanes.show();
       },
       hideModalCompararPlanes() {
-        this.$refs.ModalCompararPlanes.hide();
+        this.$refs.modalCompararPlanes.hide();
       },
       
       showModalRootCotizador(){
@@ -2662,7 +2760,12 @@
         this.$refs.hideModalEndoso.hide();
       },
       hidemodalEntidadFinanciera() {
-        this.$refs.hidemodalEntidadFinanciera.hide();
+        this.mostrarMensajeEnviadoEndosar = true
+        setTimeout(() => {
+          this.$refs.modalEntidadFinanciera2.hide();
+          this.mostrarMensajeEnviadoEndosar = false
+        }, 5000);
+        
       },
       hideModal() {
         this.showModal = false;
@@ -2724,7 +2827,7 @@
                       ENVIAR MAIL
       ****************************************************/
       enviarMail() {
-        this.showModalEnviarEmail()
+        this.mostrarMensajeEnviadoCotizacion = true
         if (this.email !== "") {
           this.isDisabledEnviarCorreo = true
           
@@ -2749,9 +2852,9 @@
             }
           }
           this.remarketingv2(this.email.trim().replace(/ /g, ""), 2)
-          setTimeout(() => {
-            this.enviarMailing()
-          }, 2000);
+            setTimeout(() => {
+              this.enviarMailing()
+            }, 2000);
         }
       },
       remarketingv2(parametroEmail, parametroEnviarMail) {
@@ -2837,30 +2940,34 @@
         
       })
     },
-    enviarMailing() {
-      this.$store.commit('common/setEmail', this.email)
-        this.$store.dispatch('common/enviarMailing').then((res) => {
-          this.$nuxt.$router.push("/cotiza/ingresa-tu-documento")
-        })        
+      enviarMailing() {
+        this.$store.commit('common/setEmail', this.email)
+          this.$store.dispatch('common/enviarMailing').then((res) => {
+            this.mostrarMensajeEnviadoCotizacion = false
+            this.$nuxt.$router.push("/cotiza/ingresa-tu-documento")
+          }).catch(()=>{
+            this.mostrarMensajeEnviadoCotizacion = false
+          })
       },
-    mouseLeave(e) {
-      if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-        if (this.$store.state.common.leaveMessage == 0) {
-          if (e.clientX < 0 || e.clientY < 0) {
-            this.$store.commit('common/setLeaveMessage',1)
-            let num = this.$store.state.common.plateNumber.slice(-1)
-            if (num % 2 == 0) {
-              this.$nuxt.$emit('bv::show::modal','leaveQuote2')
-            } else {
-              this.$nuxt.$emit('bv::show::modal','leaveQuote')
+      mouseLeave(e) {
+        if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
+          if (this.$store.state.common.leaveMessage == 0) {
+            if (e.clientX < 0 || e.clientY < 0) {
+              this.$store.commit('common/setLeaveMessage',1)
+              let num = this.$store.state.common.plateNumber.slice(-1)
+              if (num % 2 == 0) {
+                this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+              } else {
+                this.$nuxt.$emit('bv::show::modal','leaveQuote')
+              }
             }
           }
         }
-      }
-    },
-    },
-    mounted: function () {
-      
+      },
+  },
+
+  mounted: function () {      
+      this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
       this.itemElegido.discountType = this.$store.state.common.discountType
       
@@ -2948,54 +3055,67 @@
 </script>
 
 <style lang="scss" scoped>
-.planActivoDesktop.plata{
-  background-color: #fff !important;
-  border: 1px solid #333;
-}
-.planActivoDesktop.oro{
-  background-color: #fff !important;
-  border: 1px solid #333;
-}
-.planActivoDesktop.black{
-  background-color: #fff !important;
-  border: 1px solid #333;
-}
-.planActivo.plata{
-  background-color: #b1b1b1 !important;
-  &:before{    
-    border-right: 10px solid transparent;
-    border-top: 10px solid #b1b1b1;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
-  p{
-    color: white !important;
+.v2-modalGPS{
+  &__header{
+    display: flex;
+    background: #0855c4;
+    img{
+      width: 79px;
+    }
+    p{
+      color: #ffffff;
+    }
   }
 }
-.planActivo.oro{
-  background-color: #e6ac38 !important;
-  &:before{    
-    border-right: 10px solid transparent;
-    border-top: 10px solid #e6ac38;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
-  p{
-    color: white !important;
+.box-mensajeEnviadoCotizacion, .box-mensajeEnviadoEndosar{
+  position: absolute;
+  background: white;
+  width: 100%;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+  height: 240px;
+}
+.box-mensajeEnviadoEndosar{
+  height: 290px;
+  .endosar-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .modal-titulo{
+      padding-top: 36px;
+    }
   }
 }
-.planActivo.black{
-  background-color: #27362d !important;
-  &:before{    
-    border-right: 10px solid transparent;
-    border-top: 10px solid #27362d;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
-  p{
-    color: white !important;
-  }
+.mostrarMensajeEnviadoEndosar{
+  display: flex;
 }
+.mostrarMensajeEnviadoCotizacion{
+  display: flex;
+}
+.maximoImgDisabled {
+    cursor: not-allowed !important;
+}
+.minimoImgDisabled {
+    cursor: not-allowed !important;
+}
+.maximoImgDisabled{
+  background: #9DA3B5 !important;
+}
+.minimoImgDisabled{
+  background: #9DA3B5 !important;
+}
+.plan-recomendado{
+    height: 40px;
+    color: #EA0F8F;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+}
+
 .v2-detalle-plan.planBlack{
   border-top: 5px solid #27362d;
 }
@@ -3034,7 +3154,7 @@
   }
 }
 .v2-suma-asegurada{
-  .tooltip-sumaAsegurada{
+  .tooltip-icon{
     background: #D0D6E0;
     color: white;
     font-size: 14px;
@@ -3061,6 +3181,53 @@
     display: flex;
     justify-content: center;
     position: relative;
+    align-items: center;
+    .tooltip-suma-asegurada{
+      &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        left: calc(50% - 18px);
+        z-index: 999;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-right: 18px solid transparent;
+        border-top: 24px solid rgba(39,54,45,0);
+        border-left: 18px solid transparent;
+        border-bottom: 39px solid white;
+        top: -28px;
+      }
+      position: absolute;
+      width: 100%;
+      height: 280px;
+      top: 60px;
+      left: 0;
+      z-index: 999;
+      padding: 32px;
+      margin: auto;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      
+      .item{
+        max-width: 310px;
+        height: 280px;
+        background: white;
+        padding: 24px;
+      }
+      .tooltip-titulo{
+
+      }
+      .tooltip-descripcion{
+        
+      }
+    }
     .e-range{
       text-align: center;
       width: 170px;
@@ -3071,9 +3238,9 @@
       font-size: 20px;
     }
     .minimoImg, .maximoImg{
-      background: #9DA3B5;
-      width: 45px;
-      height: 45px;
+      background: #0855C4;
+      width: 35px;
+      height: 35px;
       border-radius: 45px;
       display: flex;
       align-items: center;
@@ -3222,11 +3389,12 @@
     .monto-frecuencia{
       color: #454A6C;
       font-family: "Omnes Medium";
-      font-size: 30px;
+      font-size: 38px;
     }
     .antes{
       font-family: "Omnes Regular";
-      font-size: 15px;
+      font-size: 20px;
+      margin-top: 12px;
       text-decoration: line-through;
       -webkit-text-decoration-color: #ea0f90;
       text-decoration-color: #ea0f90;
@@ -3476,7 +3644,7 @@ a.steps__item.paso1:after{
   min-width: 200px;
   padding-left: 8px;
   padding-right: 4px;
-
+  font-size: 14px;
 }
 .table-planes{
   .check-table{
@@ -3890,6 +4058,19 @@ a.steps__item.paso1:after{
 
   }
 }
+.capaOcultaGris{
+    background: rgba(37, 39, 51, 0.74902);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    top: 0;
+}
+.mostrarCapaGris{
+  display: block;
+}
 .mostrarCapa{
     display: block;
   }
@@ -3923,10 +4104,15 @@ a.steps__item.paso1:after{
     width: 100%;
     left: 0;
   }
-.mail-cotizador{
+  .mail-cotizador{
+    &:hover{
+    background: #0855c4;
+    color: #ffffff;
+  }
+  }
+.mail-fecha{
   justify-content: center;
   display: flex;
--webkit-box-align: center;
   align-items: center;
   color: #0855c4;
   border-radius: 4px;
@@ -3935,11 +4121,13 @@ a.steps__item.paso1:after{
   border: 1px solid #0855c4;
   margin: auto;
   margin-top: 24px;
-  cursor: pointer;
-
-    
+  
+  .detalle-item{
+    width: 100%;
+  }
+  cursor: pointer;    
     img{
-      width: 26px;
+      width: 36px;
       height: auto;
     }
     p{
@@ -4247,7 +4435,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   div {
     height: 38px;
-    border-bottom: 1px solid #6c6c6c29;
     cursor: pointer;
     &:hover {
       background: #f7f7f7;
@@ -4318,6 +4505,22 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   font-family: "Omnes regular";
   &:hover {
     cursor: pointer;
+  }
+}
+.modalCompararPlanes{
+   .img-close-modal{
+    position: absolute;
+    top: -38px;
+    right: -38px;
+    cursor: pointer;
+  }
+  p{
+    font-size: 24px;
+    color: #454A6C;
+    text-align: center;
+  }
+  .modal-content{
+    border: none;
   }
 }
 .modal-rootCotizador{
@@ -5412,7 +5615,66 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         width: 32px;
     }
 }
+
+
+@media screen and (max-width: 992px) {
+  .planActivo.plata{
+    background-color: #b1b1b1 !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #b1b1b1;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+  .planActivo.oro{
+    background-color: #e6ac38 !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #e6ac38;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+  .planActivo.black{
+    background-color: #27362d !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #27362d;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+}
 @media screen and (min-width: 992px) {
+
+.planActivoDesktop.plata{
+  // background-color: #fff !important;
+  border: 1px solid #b1b1b1;
+}
+.planActivoDesktop.oro{
+  // background-color: #fff !important;
+  border: 1px solid #e6ac38;
+}
+.planActivoDesktop.black{
+  // background-color: #27362d !important;
+  border: 1px solid #333;
+}
+.planActivo.oro,.planActivo.plata,.planActivo.black{
+  background: white !important;
+    p{
+      color: #333 !important
+    }
+}
 .mail-cotizador{
   .mail{
     right: -16px;
@@ -5557,6 +5819,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       align-items: center;
       color: #0854c4;
       border-radius: 4px;
+      cursor: pointer;
     }
   }
   .v2-detalle-plan{

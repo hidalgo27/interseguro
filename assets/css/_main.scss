@@ -20,6 +20,76 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #ebf1fb;
 // }
+.modal.fade.show {
+  display: flex !important;
+}
+.modal{
+  .modal-body{
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+  
+  .modal-close{
+    height: 45px;
+    width: 45px;
+  }
+  .modal-titulo{
+    color: #0855C4;
+    font-size: 23px;
+    font-family: 'Omnes medium';
+    text-align: center;
+    width: 220px;
+    margin: auto;
+    margin-bottom: 24px;
+  }
+  .box-btns{
+    width: 100%;
+    margin: auto;
+    margin-top: 24px;
+    text-align: center;
+    .btn-principal{
+      width: 170px;
+      background: #EA0C90;
+      color: white;
+      font-size: 16px;
+      font-family: 'Omnes Semibold';
+      height: 50px;
+    }
+  }
+  .modal-content{
+    display: flex;
+    min-width: 338px;
+    min-height: 305px;
+  }
+}
+.modalEnviarEmail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  input{
+    border: 1px solid #C6C6C6;
+    height: 44px;
+  }
+  .fechaCotizador{
+    width: 85%;
+  }
+}
+#modalEntidadFinanciera2{
+  .box-btns{
+    .btn-principal{
+      width: 240px;
+    }
+  }
+}
+#modalEnviarEmail{
+  .modal-content{
+    display: flex;
+    width: 338px;
+    height: 305px;
+  }
+}
 @import "preguntas-frecuentes-viajes/dist/preguntasFrecuentesGenerico.css";
 .omnes-medium{
   font-family: 'Omnes Regular';

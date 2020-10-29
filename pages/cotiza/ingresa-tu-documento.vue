@@ -1509,7 +1509,7 @@ export default {
     */
     continuar(evt) {
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia
-      this.$store.state.common.listaCotizacion.paymentMethodId = 3
+      // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true
       evt.preventDefault()
       this.detectar_documento()
