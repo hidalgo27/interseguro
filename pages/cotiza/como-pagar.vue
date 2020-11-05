@@ -484,7 +484,7 @@
         </b-modal>
 
         <!-- Modal de abandono -->
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -502,6 +502,36 @@
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-4" cols="12">
                         <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')">QUIERO TERMINAR MI COMPRA</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal> -->
+        <b-modal id="leavePayment" class="modal-agora" size="lg"  static centered hide-footer hide-header>
+            <b-container>
+                
+                <b-row class="text-center">
+                    <b-col cols="12" class="mb-3">
+                        <h2><strong>¡POR TIEMPO LIMITADO!</strong></h2>
+                    </b-col>
+                </b-row>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-3" cols="12">
+                        <img width="254" src="../../static/media/interseguroVehicular_v2/agora.png" alt="Abandonar Seguro Vehicular">
+                    </b-col>
+                </b-row>
+                <b-row>                    
+                    <b-col cols="12" class="mb-2">
+                        <h3><strong>VANIA</strong>, <br> Te regalamos un <strong>vale de S/100 en Agora <br></strong> por comprar tu Seguro Vehicular</h3>
+                    </b-col>
+                </b-row>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')">IR A PAGAR</b-button>
+                    </b-col>
+                </b-row>
+                <b-row>                    
+                    <b-col cols="12" class="mb-2">
+                        <p>Agora es el nuevo medio de pago de Intercorp, lo podrás <br> usar para pagar Spotify, Plaza Vea y más.</p>
                     </b-col>
                 </b-row>
             </b-container>
@@ -1262,6 +1292,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
+            this.$nuxt.$emit('bv::show::modal','leavePayment')
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
@@ -2199,7 +2230,98 @@ a.steps__item.paso1:after{
         cursor: pointer;
         color: #0BD360;
     }
+    .leaveModal {
+    .modal-lg {
+        max-width: 660px;
+    }
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    h2 {
+        font-size: 32px;
+        color: #0854c4;
+    }
+    h3 {
+        font-size: 20px;
+        color: #454a6c;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    img {
+        margin-top: 30px;
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+}
+.modal-agora{
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .modal-lg {
+        max-width: 660px;
+    }    
+    h2 {
+        font-size: 18px;
+        color: #114FFF;
+        font-family: 'Omnes SemiBold';
+    }
+    h3 {
+        font-size: 17px;
+        color: #10B0FF;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    img {
+        margin-top: 0px;
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #454A6C;
+        font-size: 12px;
+    }
+}
     @media (min-width: 992px) {
+        .modal-agora{
+    h3 {
+        font-size: 23px;
+    }
+    p{
+        font-size: 15px;
+    }
+}
         .metodo-pago{
             
             &__comoPagar{                
@@ -2269,44 +2391,6 @@ a.steps__item.paso1:after{
 //     width: 320px;
 //     }
 // }
-.leaveModal {
-    .modal-lg {
-        max-width: 660px;
-    }
-    font-family: 'Omnes Regular';
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: center;
-    h2 {
-        font-size: 32px;
-        color: #0854c4;
-    }
-    h3 {
-        font-size: 20px;
-        color: #454a6c;
-    }
-    span {
-        font-family: 'Omnes Medium';
-    }
-    img {
-        margin-top: 30px;
-    }
-    .btn{
-        background-color: #ea0c90;
-        color: white;
-        height: 50px;
-        width: 300px;
-        line-height: 0.5;
-        font-size: 16px;
-        border-radius: 3px;
-        border: none;
-        &:hover{
-            opacity: .7;
-        }
-    }
-}
+
 </style>
 
