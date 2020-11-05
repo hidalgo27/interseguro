@@ -506,6 +506,14 @@
 }
 
 #modalEntidadFinanciera{
+  .modal-close{
+    position: absolute;
+  right: -13px !important;
+  top: -69px !important;
+  z-index: 9;
+  width: 48px;
+  cursor: pointer;
+  }
   .modal-content{
     width: 96%;
     margin: auto;

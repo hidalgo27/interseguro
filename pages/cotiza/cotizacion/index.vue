@@ -1477,7 +1477,7 @@
         >
           <img
             src="./../../../static/media/img/root/close.png"
-            width="30"
+            width="40"
             alt="icon close"
             class="image-9"
           />
@@ -3997,6 +3997,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 .endosoSesion {
   height: 145px;
   overflow-y: scroll;
+    padding: 0 24px;
   .endosoItem {
     display: flex;
     align-items: center;
