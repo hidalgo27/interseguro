@@ -120,29 +120,57 @@
           <b-col xs="12"  md="6" lg="6"  class="order-md-2 d-lg-flex  justify-content-lg-end"  >
             <div class="v2-datos-carro">
               <div class="v2-carro-editar">
-                <span class="v2-datos-editar">Datos de mi carro</span>
-                <span class="v2-editar" @click="resetearVehiculo()">EDITAR</span>
+                <span class="v2-datos-editar">Datos de mi carro</span>                
               </div>
               <div class="v2-datos-carro__detalle">
-                <p><span>Mi placa: </span>{{this.placaUppercase}}</p>
-                <p><span>Mi modelo: </span><span class="mi-modelo-descripcion">{{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }}</span></p>
+                <img class="v2-editar" @click="resetearVehiculo()" src="./../../../static/media/interseguroVehicular_v2/editar.png" alt=""> 
+                <div class="v2-datos-carro__detalle--placa">
+                  <p>Mi placa: </p>
+                  <p class="campo">{{this.placaUppercase}}</p>
+                </div>
+                <div class="v2-datos-carro__detalle--modelo">
+                  <p>Mi modelo: </p>
+                  <p class="mi-modelo-descripcion  campo">
+                    {{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }} 
+                    
+                  </p>
+                </div>
               </div>
             </div>
           </b-col>
 
           <b-col xs="12" md="6" lg="6" class="order-md-1">
             <div class="v2-suma-asegurada">
-              <p class="v2-suma-asegurada--titulo" >
-                Elige tu suma asegurada
-                <span @click="showSumaAsegurada" class="tooltip-icon">?</span>
-              </p>
+              <div class="d-flex align-items-center      justify-content-center  justify-content-lg-start" style="padding: 42px 0 28px;">
+               <span class="v2-suma-asegurada--titulo  mr-2"> Elige tu suma asegurada</span>
+                <span @click="showSumaAseguradaMobile" class="tooltip-icon  d-md-none">?</span>
+                <span @click="showSumaAseguradaDesktop" class="tooltip-icon  d-none  d-md-inline-flex">
+                  ?
+                  <div class="tooltip-suma-aseguradaDesktop" v-bind:class="{'d-flex' : activarTooltipDesktop}">
+                    <div class="item">
+                      <p class="tooltip-titulo">¿Qué es suma segurada?</p>
+                        <p class="tooltip-descripcion">
+                          Es el límite máximo de indemnización que te pagaremos en caso tengas un siniestro.
+                           Generalmente este monto es el mismo o es muy cercano al valor comercial de tu carro. 
+
+                          <strong>
+                            ¡Ajústalo y mira cómo cambia el precio!
+                          </strong>
+                        </p>
+                    </div>
+                  </div>
+                </span>
+              </div>
               <div class="v2-valor-comercial">
                 
                 <!-- <div class="minimoImg" @click="minimoImg"><span>-</span></div> -->
                 <button class="minimoImg" @click="minimoImg"  v-bind:class="{minimoImgDisabled : minimoImgDisabled}" :disabled="minimoImgDisabled">
                   <span>-</span>
                 </button>
-                  <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
+                  <div class="box-input">
+                    <div class="flotante-moneda">US$</div>
+                    <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
+                  </div>
                 <button class="maximoImg" @click="maximoImg"  v-bind:class="{maximoImgDisabled : maximoImgDisabled}" :disabled="maximoImgDisabled">
                   <span>+</span>
                 </button>
@@ -151,11 +179,12 @@
                   <div class="item">
                     <p class="tooltip-titulo">¿Qué es suma segurada?</p>
                       <p class="tooltip-descripcion">
-                        Es el monto a pagar por el asegurado en caso de tener un daño en el auto. 
-                        <strong>
-                          Ej: Si tu auto choca y la reparación cuesta US$20.000 y tu suma asegurada
-                          es de US$7.000, solo pagaras $7.000 y nosotros cubrimos los $13.000 restantes.
-                        </strong>
+                        Es el límite máximo de indemnización que te pagaremos en caso tengas un siniestro.
+                           Generalmente este monto es el mismo o es muy cercano al valor comercial de tu carro. 
+
+                          <strong>
+                            ¡Ajústalo y mira cómo cambia el precio!
+                          </strong>
                       </p>
                   </div>
                 </div>
@@ -191,9 +220,8 @@
                     </div>
                   </div>
                   <div class="mail-fecha  mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
-                    <span>Enviar cotización</span>                                     
-                    <img src="../../../static/media/interseguroVehicular_v2/mail-cotizador.svg" alt="email">
-                   
+                    <span class="enviar-cotizacion">Enviar cotización</span>
+                                  
                   </div> 
                 </div>
               </div>
@@ -226,13 +254,43 @@
                       </div>
                       <div class="que-me-cubre">
                         <p class="titulo">
-                          ¿Qué me cubre?
+                          Este plan incluye:
                         </p>
                         <p class="que-me-cubre__item">
+                          Beneficios Interseguro
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
                           Responsabilidad Civil
                         </p>
                         <p class="que-me-cubre__item" >
                           Robo total
+                        </p>
+                        <p class="titulo  mt-3  mb-3   no-incluye-titulo">
+                          Este plan no incluye:
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Daños al vehículo por accidente
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Ausencia de control*
                         </p>
                       </div>
                       <div class="item-inferior">
@@ -291,19 +349,43 @@
                       </div>
                       <div class="que-me-cubre">
                         <p class="titulo">
-                          ¿Qué me cubre?
+                          Este plan incluye:
                         </p>
                         <p class="que-me-cubre__item">
+                          Beneficios Interseguro
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
                           Responsabilidad Civil
                         </p>
                         <p class="que-me-cubre__item" >
                           Robo total
                         </p>
                         <p class="que-me-cubre__item" >
-                          Pérdida parcial por Accidentes de tránsito
+                          Daños al vehículo por accidente
                         </p>
                         <p class="que-me-cubre__item" >
                           Accidentes de ocupantes
+                        </p>
+                        <p class="titulo  mt-3  mb-3  no-incluye-titulo">
+                          Este plan no incluye:
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Ausencia de control*
                         </p>
                       </div>
                       <div class="item-inferior">
@@ -346,9 +428,9 @@
                           <li>
                             <div class="detalle-item">
                               <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
-                              <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
+                              <p class="endozar-poliza  text-right"   style="width: auto;">
                                   <template v-if="this.endosoSeleccionado.id == 0">                          
-                                    <span style="display: inline-block; cursor: pointer; text-align: left;"
+                                    <span style="display: inline-block; cursor:outline: none;  pointer; text-align: left;"
                                       class="detalle-enlace"
                                       v-b-modal.modalEntidadFinanciera2
                                       @click="clickEnlace('entidad Financiera')"
@@ -358,7 +440,7 @@
                                   <template v-else>                         
                                     <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
                                     class="detalle-enlace"
-                                        href="javascript:void(0);"
+                                        
                                         v-b-modal.modalEntidadFinanciera2
                                         @click="clickEnlace('entidad Financiera')"
                                     > {{this.endosoSeleccionado.name}}</span>   
@@ -385,33 +467,39 @@
                       </div>
                       <div class="que-me-cubre">
                         <p class="titulo">
-                          ¿Qué me cubre?
+                          Este plan incluye:
                         </p>
                         <p class="que-me-cubre__item">
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
                           Responsabilidad Civil
                         </p>
                         <p class="que-me-cubre__item" >
                           Robo total
                         </p>
-                        <p class="que-me-cubre__item">
-                          Pérdida parcial por Accidentes de tránsito
+                        <p class="que-me-cubre__item" >
+                          Daños al vehículo por accidente
                         </p>
                         <p class="que-me-cubre__item" >
                           Accidentes de ocupantes
                         </p>
                         <p class="que-me-cubre__item" >
-                          Pérdida total por Accidentes de tránsito
+                         Accidentes personales
                         </p>
-                        <p class="que-me-cubre__item">
+                        <p class="que-me-cubre__item" >
                           Accesorios musicales
                         </p>
-                        <p class="que-me-cubre__item">
-                          Roturas de lunas
+                        <p class="que-me-cubre__item" >
+                          Rotura de lunas
                         </p>
-                        <p class="que-me-cubre__item">
-                          Riesgos de la naturaleza, vandalismo, incendios.
+                        <p class="que-me-cubre__item" >
+                          Desastres naturales, vandalismo, incendios.
                         </p>
-                        <p class="que-me-cubre__item">
+                        <p class="que-me-cubre__item" >
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item" >
                           Ausencia de control*
                         </p>
                       </div>
@@ -463,9 +551,9 @@
                     <li>
                       <div class="detalle-item">
                         <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
-                        <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
+                        <p class="endozar-poliza  text-right"   style="width: auto;">
                             <template v-if="this.endosoSeleccionado.id == 0">                          
-                              <span style="display: inline-block; cursor: pointer; text-align: left;"
+                              <span style="display: inline-block; outline: none;  cursor: pointer; text-align: left;"
                                 class="detalle-enlace"
                                 v-b-modal.modalEntidadFinanciera2
                                 @click="clickEnlace('entidad Financiera')"
@@ -474,10 +562,9 @@
                             </template>
                             <template v-else>                         
                               <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
-                              class="detalle-enlace"
-                                  href="javascript:void(0);"
-                                  v-b-modal.modalEntidadFinanciera2
-                                  @click="clickEnlace('entidad Financiera')"
+                                class="detalle-enlace"
+                                v-b-modal.modalEntidadFinanciera2
+                                @click="clickEnlace('entidad Financiera')"
                               > {{this.endosoSeleccionado.name}}</span>   
                             </template>
                         </p>
@@ -502,7 +589,7 @@
                 </div>
                 <div class="que-me-cubre">
                   <p class="titulo">
-                    ¿Qué me cubre?
+                    Este plan incluye:
                   </p>
                   <p class="que-me-cubre__item">
                     Responsabilidad Civil
@@ -538,12 +625,11 @@
                 </div>
                 <div class="d-flex   d-lg-none">
                   <div class="mail-fecha  mail-cotizador"  @click="showModalEnviarEmail()">                  
-                    <span>Enviar cotización</span>                                     
-                      <img src="../../../static/media/interseguroVehicular_v2/mail-cotizador.svg" alt="email">
-                    </div> 
+                    <span class="enviar-cotizacion">Enviar cotización</span>                                     
+                  </div> 
                 </div>
                 <div class="d-flex   d-lg-none">
-                  <div class="mail-fecha"  @click="showModalInicioVigencia()">                  
+                  <div class="mail-fecha  boton-fecha"  @click="showModalInicioVigencia()">                  
                       <div class="detalle-item">
                         <p> Fecha de inicio:</p>
                         <p>
@@ -673,7 +759,7 @@
           <b-card no-body class="card-cobertura  mt-2">                      
             <b-card-header header-tag="header" role="tab">
               <b-button block href="#" v-b-toggle.accordion-9 variant="info">
-                ¿Qué me cubre?
+                Este plan incluye:
                 <div class="flecha_cobertura">
                 
                 </div>
@@ -874,8 +960,8 @@
             class="modal-close"
         />
          <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
-            <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
-            <p class="modal-titulo">¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras</p>
+            <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mail.png" alt="">
+            <p class="modal-titulo  modal-titulo-enviado">¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras</p>
           </div>
 
         <div class="modalEnviarEmail">
@@ -1337,7 +1423,7 @@
               <div class="empresa-item__der">
                 <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
                 <span>Empresa:</span>
-                <p>Protemax</p>
+                <p>Satellital Patrol</p>
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
@@ -1352,7 +1438,7 @@
               <div class="empresa-item__der">
                 <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
                 <span>Empresa:</span>
-                <p>Protemax</p>
+                <p>Tracklink Motor link</p>
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
@@ -1367,7 +1453,7 @@
               <div class="empresa-item__der">
                 <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
                 <span>Empresa:</span>
-                <p>Protemax</p>
+                <p>Protesegur</p>
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
@@ -1413,7 +1499,7 @@
     <div class="box-mensajeEnviadoEndosar" v-bind:class="{mostrarMensajeEnviadoEndosar : mostrarMensajeEnviadoEndosar}">
         <div class="endosar-item">
           <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
-          <p class="modal-titulo">Tu póliza se ha endosado correctamente</p>
+          <p class="modal-titulo-endoso">Tu póliza se ha endosado correctamente</p>
         </div>
     </div>
 
@@ -1434,7 +1520,7 @@
         </div>
       </div>
       <div class="box-btns">
-        <button class="btn  btn-principal  " @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
+        <button class="btn  btn-principal  " @click="seleccionarEntidadFinanciera()">CONFIRMAR Y ENDOSAR</button>
       </div>
     </b-modal>
 
@@ -1533,6 +1619,7 @@
         monto_antes_black :'',
         valorSeleccionado: false,
         activarTooltip: false,
+        activarTooltipDesktop: false,
         gps:'',
         frecuencia: '',
         planSeleccionado:3,
@@ -1835,11 +1922,17 @@
     methods: {
       clickCapaGris(){
         this.mostrarCapaGris = false
+        this.activarTooltipDesktop = false
         this.activarTooltip = false
       },
-      showSumaAsegurada() {
+      showSumaAseguradaMobile(){
         this.mostrarCapaGris = true
         this.activarTooltip = true
+        console.log(this.mostrarCapaGris)
+      },
+      showSumaAseguradaDesktop() {     
+        this.mostrarCapaGris = true   
+        this.activarTooltipDesktop = true
         console.log(this.mostrarCapaGris)
       },
       hideSumaAsegurada() {
@@ -2593,6 +2686,7 @@
         }
       },
       validateVehicleExist (vehicleExistItem) {
+        console.log("data", vehicleExistItem)
         if (vehicleExistItem.brandId != "" && vehicleExistItem.brandId != null && vehicleExistItem.brandId != undefined) {
           this.itemElegido.brand = vehicleExistItem.brand
           this.itemElegido.brandId = vehicleExistItem.brandId
@@ -2767,6 +2861,11 @@
         this.$refs.hideModalEndoso.hide();
       },
       hidemodalEntidadFinanciera() {
+          this.$refs.modalEntidadFinanciera2.hide();
+          this.mostrarMensajeEnviadoEndosar = false
+        
+      },
+      seleccionarEntidadFinanciera() {
         this.mostrarMensajeEnviadoEndosar = true
         setTimeout(() => {
           this.$refs.modalEntidadFinanciera2.hide();
@@ -2887,7 +2986,7 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },
@@ -2973,7 +3072,8 @@
       },
   },
 
-  mounted: function () {      
+  mounted: function () {    
+    console.log("INGRESA TU DOCUMENTO")  
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
       this.itemElegido.discountType = this.$store.state.common.discountType
@@ -3016,9 +3116,9 @@
           this.seleccionarPLan(this.planSeleccionado)
           this.seleccionarPLanDesktop(this.planSeleccionado)
         }else{
+          console.log("OBKT COMMO")
           this.seleccionarPLan(this.planSeleccionado)
           this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)          
-          this.seleccionarPLan(this.planSeleccionado)
           this.seleccionarPLanDesktop(this.planSeleccionado)
           console.log(this.planSeleccionado)
         }
@@ -3039,10 +3139,12 @@
         // this.vehicleState = objJWT.common.vehicleState
         if (this.$store.state.common.plateNumber !== '') {
             if (this.$store.state.common.vehicleState == 1) {
+              console.log("IF")
               this.PaginaVista('',true)
               // this.objectVehicle = this.$store.state.common.objVehiculo
               this.validateVehicleExist(this.$store.state.common.objVehiculo)
             }else{
+              console.log("MARCA")
               this.PaginaVista('',false)
               this.mostrarListaMarca = true              
               this.mostrarMarca()
@@ -3064,6 +3166,10 @@
 </script>
 
 <style lang="scss" scoped>
+
+button:focus{
+  outline: none;
+}
 .v2modalGPS{
   &__header{
     display: flex;
@@ -3182,16 +3288,31 @@
   flex-direction: column;
   display: none;
   height: 240px;
+  .modal-titulo-enviado{
+    color: #454A6C;
+    font-family: 20px;
+    font-family: 'Omnes Medium';
+    width: 370px;
+    margin: auto;
+  }
 }
 .box-mensajeEnviadoEndosar{
-  height: 290px;
+  height: 346px;
   .endosar-item{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .modal-titulo{
-      padding-top: 36px;
+    .modal-titulo-endoso{
+      color: #0855C4;
+      font-size: 32px;
+      font-family: 'Omnes medium';
+      text-align: center;
+      width: 360px;
+      margin: auto;
+      margin-bottom: 24px;
+      line-height: 35px;
+      margin-top: 32px;
     }
   }
 }
@@ -3231,7 +3352,7 @@
   border-top: 5px solid #b1b1b1;
 }
 .v2-planes{
-  margin-top: 24px;
+  margin-top: 12px;
   .box-btn{
     display: flex;
     justify-content: center;
@@ -3259,6 +3380,57 @@
   }
 }
 .v2-suma-asegurada{
+  .tooltip-suma-aseguradaDesktop{
+    p{
+      color: white;
+    }
+      &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        left: -36px;
+        z-index: 0;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-right: 45px solid #44496b;
+        border-top: 20px solid rgba(39, 54, 45, 0);
+        border-left: 24px solid transparent;
+        border-bottom: 20px solid transparent;
+        top: 74px;
+      }
+      position: absolute;
+      width: 100%;
+      height: 280px;
+      top: -40px;
+      left: 312px;
+      z-index: 999;
+      padding: 32px;
+      margin: auto;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      
+      .item{
+        max-width: 310px;
+        height: 280px;
+        background: #44496B;
+        padding: 24px;
+      }
+      .tooltip-titulo{
+        font-size: 23px;
+      }
+      .tooltip-descripcion{
+        font-size: 16px;
+        font-family: 'Omnes Regular';
+        margin-top: 12px;
+      }
+    }
   .tooltip-icon{
     background: #D0D6E0;
     color: white;
@@ -3267,13 +3439,14 @@
     height: 20px;
     display: inline-block;
     border-radius: 50%;
+    text-align: center;
+    justify-content: center;
   }
   &--titulo{
     color: #0855C4;
     font-size: 25px;
     font-family: "Omnes Medium";
     text-align: center;
-    padding: 42px 0 28px;
   }
   .v2-valores-minimo-maximo{
     color: #454A6C;
@@ -3335,12 +3508,25 @@
     }
     .e-range{
       text-align: center;
-      width: 170px;
+      width: 250px;
       margin: 0 12px;
       border: 1px solid #D5D5D5;
       height: 46px;
       color: #454A6C;
-      font-size: 20px;
+      font-size: 24px;
+    }
+    .box-input{
+      position: relative;
+      .flotante-moneda{
+        height: 45px;
+        width: 55px;
+        position: absolute;
+        font-size: 24px;
+        line-height: 45px;
+        left: 24px;
+        color: #454A6C;
+        font-family: 'Omnes Medium';
+      }
     }
     .minimoImg, .maximoImg{
       background: #0855C4;
@@ -3353,6 +3539,7 @@
       color: white;
       font-size: 28px;
       cursor: pointer;
+      border: none;
     }
 
   }
@@ -3360,12 +3547,22 @@
 .v2-datos-carro{
   font-family: 'Omnes Regular';
   border: 1px solid #D5D5D5;
-  padding: 14px 14px 0;
+  padding: 14px 24px 0;
   .v2-carro-editar{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      z-index: 0;
+      bottom: 14px;
+      right: 0;
+      background: #D9D9D9;
+    }
     span{
       &:nth-child(1){
         color: #454A6C;
@@ -3375,31 +3572,71 @@
       }
     }
     .v2-editar{
-      color: #0855C4;
+      color: #0f67e6;
       font-size: 14px;
       font-family: "Omnes Semibold";
+      
       cursor: pointer;
-      border: 1px solid #1251C4;
-      padding: 2px 10px;
+      border: 1px solid #0f67e6;
+      padding: 1px 6px;
+      border-radius: 3px;
+      letter-spacing: 0;
     }
   }
   &__detalle{    
     margin-bottom: 24px;
+    display: flex;
+    position: relative;
+    &--modelo{
+      padding-left: 24px;
+      font-family: 'Omnes Regular';
+      position: relative;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        background: #D9D9D9;
+      }
+    }
+    &--placa{
+      min-width: 80px;
+      font-family: 'Omnes Regular';
+      position: relative;
+      
+    }
     .mi-modelo-descripcion{
       width: auto;
       display: inline-block;
+      color: #454A6C;
+      font-size: 16px;
+      position: relative;
     }
     p{
-      font-family: 'Omnes Medium';
+      
       color: #454A6C;
-      font-size: 14px;
+      font-size: 16px;
       display: flex;
     }
     span{
       display: inline-block;
-      width: 78px;
-      font-family: 'Omnes Regular';
+      width: 78px;      
       min-width: 78px;
+
+    }
+    .v2-editar{
+      cursor: pointer;
+      position: absolute;
+      width: 20px;
+      min-width: 20px;
+      right: -22px;
+      top: 20px;
+    }
+    .campo{
+      font-family: 'Omnes Medium';
     }
   }
 }
@@ -3432,12 +3669,20 @@
       color: #EA0F90;
       font-size: 8px;
       margin-right: 8px;
+      height: 16px;
+      display: inline-block;
+      line-height: 15px;
+      vertical-align: middle;
+
     }
     .detalle-enlace{
       color: #0855c4;
       text-decoration: underline;
       font-size: 16px;
       font-family: 'Omnes medium';
+      :focus{
+        outline: none;
+      }
     }
   }
   .box-monto-frecuencia{
@@ -3451,15 +3696,16 @@
       font-family: "Omnes Medium";
       color: #454A6C;
     }
+    
     &__item{
-      margin: 6px 0;
+      margin: 1px 0;
       color: #454A6C;
       font-size: 16px;
       font-family: "Omnes regular";
       padding-left: 20px;
-      position: relative;
+      position: relative;      
       &:before{
-        content: "";
+        content: "";        
         background: url("https://www.interseguro.pe/vehicular/resources/campania2020/check.png");
         background-size: contain;
         height: 11px;
@@ -3469,6 +3715,23 @@
         top: 6px;
       }
     }
+    .no-incluye-titulo{
+      color: #7F839F;
+    }
+    .no-incluye{
+      color: #7F839F;
+      &:before{
+        content: "x";
+        background: transparent;      
+        background-size: contain;
+        height: 11px;
+        width: 11px;
+        position: absolute;
+        left: 4px;
+        top: 0px;
+      }
+    }
+    
   }
   .box-importante{
     padding: 14px 0;
@@ -4174,7 +4437,7 @@ a.steps__item.paso1:after{
     top: 0;
 }
 .mostrarCapaGris{
-  display: block;
+  display: block !important;
 }
 .mostrarCapa{
     display: block;
@@ -4215,6 +4478,16 @@ a.steps__item.paso1:after{
     color: #ffffff;
   }
   }
+  .boton-fecha{
+    background-image: none !important;
+    background-position-x: 0 !important;
+    .detalle-item{
+      justify-content: center;
+    }
+    p{
+      width: auto;
+    }
+  }
 .mail-fecha{
   justify-content: center;
   display: flex;
@@ -4226,24 +4499,42 @@ a.steps__item.paso1:after{
   border: 1px solid #0855c4;
   margin: auto;
   margin-top: 24px;
-  
+  background-image: url(../../../static/media/interseguroVehicular_v2/mail-cotizador.svg);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: right;
+  background-position-x: 170px !important;
+  transition: .5s;
+  &:hover{
+    background-color: #0855c4;
+    background-image: url(./../../../static/v2_icon/email.png);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: right;
+    background-position-x: 170px;
+    transition: .5s
+  }
+  .enviar-cotizacion{
+    position: relative;
+    left: -15px;
+  }
   .detalle-item{
     width: 100%;
   }
-  cursor: pointer;    
-    img{
-      width: 36px;
-      height: auto;
-    }
-    p{
-      font-family: "Omnes Medium";
-      line-height: 1;  
-      color: #0855c4;
-      font-size: 14px;  
-      padding-top: 4px;
-      font-size: 16px;
-      padding-left: 4px;  
-    }
+  img{
+    width: 36px;
+    height: auto;
+  }
+  p{
+    font-family: "Omnes Medium";
+    line-height: 1;  
+    color: #0855c4;
+    font-size: 14px;  
+    padding-top: 4px;
+    font-size: 16px;
+    padding-left: 4px;  
+  }
   
 }
 .dto-cotizador{
@@ -4353,7 +4644,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   height: $height;
   overflow: hidden;
   cursor: pointer;
-  
+  background: #EFF0F3;
+  border: none !important;
   &:focus {
     outline: none;
   }
@@ -4378,7 +4670,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   margin-top: (-$thumb-height/2);
   box-shadow: webkit-slider-thumb-shadow();
   transition: background-color 150ms;
-  border: 3px solid white;
 }
 
 // Firefox
@@ -4934,7 +5225,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
 /**************************************************/
 .box-input {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   background: transparent;
   .input-vehicular {
     border: none;
@@ -5762,6 +6053,16 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 @media screen and (min-width: 992px) {
+.capaOcultaGris{
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    top: 0;
+}
 .v2modalGPS{
     &__header{
       .titulo{
@@ -5937,6 +6238,9 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
   }
   .v2-planes{
+    margin-top: 32px;
+    border-top: 1px solid #D5D5D5;
+    padding-top: 20px;
     &--titulo{
       text-align: left;
     }
@@ -5950,6 +6254,9 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       color: #0854c4;
       border-radius: 4px;
       cursor: pointer;
+      span{
+        color: #0854c4;
+      }
     }
   }
   .v2-detalle-plan{
@@ -5959,7 +6266,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .v2-datos-carro{
     margin-top: 42px;
-    width: 400px;
+    width: 505px;
   }
   .v2-planes-desktop{
     .plan-item{
@@ -5986,7 +6293,13 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
 
 
-
+.v2-datos-carro{
+    &__detalle{
+      .v2-editar{
+        right: -20px;
+      }
+    }
+  }
   .contenedor-personalizado{
     background: transparent;
     

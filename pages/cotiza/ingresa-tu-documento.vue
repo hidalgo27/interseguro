@@ -2043,7 +2043,7 @@ export default {
           "pantalla": this.pantalla,
           "enviarCorreo":0,
           "datosCorreo":{
-            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
             "plantilla": this.objPlantilla,
             "utm": this.objUtm
           },

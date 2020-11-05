@@ -512,7 +512,7 @@
               </div>
             </div>
             <div class="box-btn-allRiskEndosoSesion">
-              <button @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
+              <button @click="hidemodalEntidadFinanciera()">CONFIRMAR Y ENDOSAR</button>
             </div>
           </div>
         </div>
@@ -1474,7 +1474,7 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },

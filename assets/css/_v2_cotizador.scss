@@ -12,7 +12,10 @@
       font-size: 24px;
       font-family: 'Omnes Regular';
   }
-  
+  .vdp-datepicker__calendar header .next:after {
+    border-left: 10px solid #b9b8b8;
+    margin-left: 5px;
+}
   #fechaCustom{
       color: #0855c4;
       font-size: 16px;

@@ -1,28 +1,18 @@
 <template>
-  <section class="page-cotizador" style="background: #f7f4fc;" @click="clickIngresaLetra($event)" >
-    <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }" >
-      <div class="desktop_cotizador_liston"  @click="showModalInicioVigencia()">
-        <div v-if="this.flagElegirFecha == 0" @click="clickEnlace('Inicio Vigencia')" style="text-align: center">
-        #QuédateEnCasa y prepárate para volver a manejar tranquilo. <strong style="text-decoration: underline; cursor:pointer">Elige la fecha</strong> para activar tu cobertura.
-        </div>
-        <div v-else >
-        Has elegido el <strong> {{this.fechaVigencia}} </strong> para activar tu cobertura
-        </div>
-      </div>
-      <div class="closeListon" @click="closeListon()">X</div>
-    </div>
+  <section class="page-cotizador"  @click="clickIngresaLetra($event)" >
     <div class="capaOculta" v-bind:class="{mostrarCapa: mostrarCapa}">
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
+    <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
+    </div>
     
-    <b-container class="contenedor-personalizado"   v-bind:class="{'pt-5-desktop': flagCloseListon == 1  }">
+    <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="10" class="m-auto">
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
-                  <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item " to="/cotiza/como-pagar"><li></li></router-link>
-                  <router-link v-else class="steps__item " to="/cotiza/cotizacion"   style="cursor: auto;"><li></li></router-link>
+                  <router-link class="steps__item " to="/cotiza/cotizacion"   style="cursor: auto;"><li></li></router-link>
                 </template>              
                 <template >
                   <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
@@ -121,736 +111,572 @@
           </b-row>
         </b-container>
 
-        <b-container class="d-none  d-md-block">
-          <b-row v-bind:class="{activeBox_2: activeBox_2}"  >
-            <b-col cols="12" xl="9" class="m-auto  bg-shadow  pb-3" >
-              <b-row>
-                <div class="miAuto  w-100  pt-3">
-                  <p class="pl-3 pb-2 placa">MI CARRO </p>
-                  <span class="pl-3  item">Placa: <strong>{{this.item.plateNumber }}</strong></span>
-                </div>
+        <!-- *************************************************************************************************** -->
+        <!-- *******************************  COTIZADOR NUEVO  ***************************************** -->
+        <!-- *************************************************************************************************** -->
+
+      <b-container  v-bind:class="{activeBox_2: activeBox_2}" >
+        <b-row class="justify-content-center  justify-content-md-start">
+          <b-col xs="12"  md="6" lg="6"  class="order-md-2 d-lg-flex  justify-content-lg-end"  >
+            <div class="v2-datos-carro">
+              <div class="v2-carro-editar">
+                <span class="v2-datos-editar">Datos de mi carro</span>
+                <span class="v2-editar" @click="resetearVehiculo()">EDITAR</span>
+              </div>
+              <div class="v2-datos-carro__detalle">
+                <p><span>Mi placa: </span>{{this.placaUppercase}}</p>
+                <p><span>Mi modelo: </span><span class="mi-modelo-descripcion">{{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }}</span></p>
+              </div>
+            </div>
+          </b-col>
+
+          <b-col xs="12" md="6" lg="6" class="order-md-1">
+            <div class="v2-suma-asegurada">
+              <div class="d-flex align-items-center" >
+               <span class="v2-suma-asegurada--titulo"> Elige tu suma asegurada</span>
+                <span @click="showSumaAseguradaMobile" class="tooltip-icon  d-md-none">?</span>
+                <span @click="showSumaAseguradaDesktop" class="tooltip-icon  d-none  d-md-inline-flex">
+                  ?
+                  <div class="tooltip-suma-aseguradaDesktop" v-bind:class="{'d-flex' : activarTooltipDesktop}">
+                    <div class="item">
+                      <p class="tooltip-titulo">¿Qué es suma segurada?</p>
+                        <p class="tooltip-descripcion">
+                          Es el monto a pagar por el asegurado en caso de tener un daño en el auto. 
+                          <strong>
+                            Ej: Si tu auto choca y la reparación cuesta US$20.000 y tu suma asegurada
+                            es de US$7.000, solo pagaras $7.000 y nosotros cubrimos los $13.000 restantes.
+                          </strong>
+                        </p>
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <div class="v2-valor-comercial">
                 
-                <b-col cols="7" style="border-right: 3px solid #f8fafb">
-                  <div class="activador  d-none  d-lg-block"  >
-                    <div class="itemElegido" v-bind:class="{mostrarItemMarca: mostrarItemMarca}">
-                      <span>{{this.itemElegido.brand }}</span>
-                      <div class="box-close" @click="closeMarca()"><img src="../../../static/v2_icon/close_bold.png" alt="x"></div>
-                    </div>
-                    <div class="itemElegido" v-bind:class="{mostrarItemAnio: mostrarItemAnio}">
-                      <span>{{this.itemElegido.year }}</span>
-                      <div class="box-close" @click="closeAnio()" ><img src="../../../static/v2_icon/close_bold.png" alt="x"></div>
-                    </div>
-                    <div class="itemElegido" v-bind:class="{mostrarItemModelo: mostrarItemModelo}">
-                      <span>{{this.itemElegido.model }}</span>
-                      <div class="box-close" @click="closeModelo()"><img  src="../../../static/v2_icon/close_bold.png" alt="x"></div>
-                    </div>
-                    
-                    
+                <!-- <div class="minimoImg" @click="minimoImg"><span>-</span></div> -->
+                <button class="minimoImg" @click="minimoImg"  v-bind:class="{minimoImgDisabled : minimoImgDisabled}" :disabled="minimoImgDisabled">
+                  <span>-</span>
+                </button>
+                  <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
+                <button class="maximoImg" @click="maximoImg"  v-bind:class="{maximoImgDisabled : maximoImgDisabled}" :disabled="maximoImgDisabled">
+                  <span>+</span>
+                </button>
+                <!-- <div class="maximoImg" @click="maximoImg"  v-bind:class="{maximoImgDisabled : maximoImgDisabled}"><span>+</span></div> -->
+                <div class="tooltip-suma-asegurada" v-bind:class="{'d-flex' : activarTooltip}">
+                  <div class="item">
+                    <p class="tooltip-titulo">¿Qué es suma segurada?</p>
+                      <p class="tooltip-descripcion">
+                        Es el monto a pagar por el asegurado en caso de tener un daño en el auto. 
+                        <strong>
+                          Ej: Si tu auto choca y la reparación cuesta US$20.000 y tu suma asegurada
+                          es de US$7.000, solo pagaras $7.000 y nosotros cubrimos los $13.000 restantes.
+                        </strong>
+                      </p>
                   </div>
+                </div>
+              </div>
+              <div class="v2-valores-minimo-maximo">
+                Mín: US$ {{listCotizacion.vehicle.minimum}}. / Máx: US$ {{listCotizacion.vehicle.maximum}}
+              </div>
+            </div>
+          </b-col>
 
-                  <div class="cotizador__suma-asegurada">
-                      <p class="suma-asegurada">SUMA ASEGURADA</p>                      
-                      <div class="cotizador__suma-asegurada--box">
-                        <div class="box-range">             
-                          <p> <span class="monto-actual">$ {{this.clonado.vehicle.current}}</span></p>                                   
-                          <div class="minimoImg"><span><i @click="minimoImg" class="fa fa-minus-circle" aria-hidden="true"></i></span></div>
-                          <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="range" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
-                          <div class="maximoImg"><span><i @click="maximoImg" class="fa fa-plus-circle" aria-hidden="true"></i></span></div>
-                        </div>                      
-                      </div>                   
-                  </div>                        
-                </b-col>
-                <b-col cols="5">
-                  <div class="mail-cotizador" @click="showModal = showModal != undefined ? true : true">                          
-                    <div class="mail">                          
-                        <img src="../../../static/v2_icon/email.png" alt="email">                         
-                      <div>
-                        <p>Enviar</p>
-                      </div>
+          
+
+          <b-col xs="12" md="6" lg="12" class="order-md-3">
+            <div class="v2-planes">
+              <div class="row  mb-4">
+                <div class="col-12  col-lg-6">
+                  <p class="v2-planes--titulo">
+                    Selecciona tu plan
+                  </p>
+                </div>
+                <div class="col-lg-6  d-none  d-lg-flex  align-items-center  justify-content-end">
+                  <div class="fecha">                    
+                    <div @click="showModalInicioVigencia()">
+                      Fecha de inicio:
+                        <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
+                            <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
+                                {{this.fechaVigencia}}
+                            </span>
+                            <span style="cursor: pointer;" v-else >
+                                Cambiar
+                            </span>                                        
+                        </span>
                     </div>
+                  </div>
+                  <div class="mail-fecha  mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
+                    <span>Enviar cotización</span>
+                                  
                   </div> 
-                  <p class="tomar-cuenta  mb-3">A TOMAR EN CUENTA</p>
-                  
-                  <div class="item  pb-2">
-                    <span>Fecha de inicio del seguro: </span>
-                    <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1; padding-bottom: 4px;" @click="showModalInicioVigencia()">                      
-                      <span style="cursor: pointer;" v-if="this.fechaVigencia != ''" @click="clickEnlace('Inicio Vigencia')">
-                        {{this.fechaVigencia}}
-                      </span>
-                      <span style="cursor: pointer;" v-else >
-                        Cambiar
-                      </span>
-                    </span>
-                  </div>
+                </div>
+              </div>
 
-                  <template v-if="this.planSeleccionado == 3  || this.planSeleccionado == 10">
-                    <div class="item  credito-vehicular  pb-2" v-if="this.objectVehicle.modelYear>2013" style="position: relative;">
-                      <div class="entidad_float" >
-                        <div style="display: flex;align-items: center;" v-bind:class="{'d-none': objIBK == 0}">
-                          <img width="12" src="./../../../static/media/flecha_endoso.png" alt="flecha_endoso">
-                          <span>
-                            Elige la entidad financiera <br>
-                            a la cual quieres endosar tu póliza
-                          </span>
+              <div class="v2-planes-desktop  row  d-none  d-lg-flex">
+                
+                <div class="col-4">
+                  <div style="height: 40px;" class="plan-recomendado">
+                    
+                  </div>
+                  <div class="v2-plan-item  plan4  plata  "  @click="seleccionarPLanDesktop(4)" v-bind:class="{planInactivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-plata">
+                      PLAN PLATA
+                    </div>
+                    <div class="v2-detalle-plan" >
+                      
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar_plata}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes_plata}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
-                      <span style="display: inline-block; line-height: 1; padding-bottom: 4px;">¿Tienes un crédito vehicular? </span>
-                      <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
-                        <template v-if="this.endosoSeleccionado.id == 0">                          
-                          <a style="display: inline-block; line-height: 1;color: #007bff; cursor: pointer;"
-                            class="endozar-poliza"
-                              href="javascript:void(0);"
-                              @click="clickEnlace('entidad Financiera')"
-                              v-b-modal.modalEntidadFinanciera
-                            >Endosa aquí</a>  
-                        </template>
-                        <template v-else>                         
-                          <span  style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
-                          class="endozar-poliza"
-                            href="javascript:void(0);"
-                            v-b-modal.modalEntidadFinanciera
-                            @click="clickEnlace('entidad Financiera')"
-                          > {{this.endosoSeleccionado.name}}</span>   
-                        </template>                            
-                      </p>
-                    </div>
-                  </template>
-                  <template v-else>
-                    <div class="pb-3    pb-2" v-if="this.objectVehicle.modelYear>2013 && this.planSeleccionado != 3">
-                      Recuerda que debes seleccionar el Plan Black si deseas endosar tu póliza
-                    </div>
-                  </template>
-                            
-                  <div class="item    pb-3">
-                    <span> 
-                      <a href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
-                        <span class="mb-0 gps requiere-gps"  >
-                          Requiere GPS: {{this.listaBasica.vehicle.gps == "Y" ? "SI" : "NO" }}                                
-                        </span>
-                      </a>
-                    </span>
-                  </div>
-
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-        </b-container>
-
-        
-
-        <b-container class="mt-4  d-none  d-md-block" >
-          <b-row v-bind:class="{activeBox_2: activeBox_2}">
-            <b-col cols="12" xl="9" class="bg-shadow  m-auto  pt-3  pb-3">
-              <b-row>
-                <b-col cols="4" style="padding-top: 25px;">
-                  <div class="detallePlan">
-                    <div class="detallePlan-titulo">
-                      <p>
-                        selecciona tu plan
-                        <br>
-                        
-                      </p>
-                      <p><a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">
-                        <img class="descargar_cobertura  mt-3" src="../../../static/media/interseguroVehicular_v2/descargar_cobertura.png" alt="descargar_cobertura">
-                        </a></p>
-                    </div>
-                    <div class="detallePlan--lista  lista-plan0" style="">
-                      <div class="detallePlan--item" style="height: 25px;">
-                        <p class="descripcion"></p>
+                      <div class="box-importante" style="height: 40px;">
                       </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Responsabilidad Civil</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Robo Total</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Pérdida Parcial por Accidentes de Tránsito</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Accidente de Ocupantes</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Pérdida Total por Accidentes de Tránsito</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Accesorios Adicionales</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Rotura de Lunas</p>
-                      </div>
-                      <div class="detallePlan--item">
-                        <p class="descripcion">Riesgos de naturaleza, vandalismo, incendios</p>
-                      </div>
-                      <div class="detallePlan--item  ausencia-controlBox" style="height: 60px">
-                        <p class="descripcion ausencia-desktop">
-                          <span>Ausencia de Control</span>
-                          <span class="ausencia-control">
-                            <img width="14" src="../../../static/media/img/exclamacion.png" alt="exclamacion">
-                              Solo aplica en caso quieras endosar tu póliza a una entidad financiera
-                            </span> 
+                      <div class="que-me-cubre">
+                        <p class="titulo">
+                          ¿Qué me cubre?
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
                         </p>
                       </div>
-                      
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event,4)">CONTINUAR</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </b-col>
-                <b-col cols="8">
-                  <div class="box-dto">                  
-                      <span>15% DE DESCUENTO</span>
-                  </div> 
-                  <b-row  class="justify-content-center">
-                    <b-col cols="4"  lg="4"  v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
-                      <span class="precioRegular">P.Regular: ${{this.listaBasica.policy.monthlyCalculated}}</span>
-                      
-                      <div class="planHover  detallePlan  plan4" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
-                        <div class="detallePlan__titulo plan-item basico-item">
-                          <div class="plan-item__header  basico-item__header">
-                            <span>PLATA</span>
-                          </div>
-                          <div class="plan-item__cuerpo">
-                            <span class="cuota">${{this.listaBasica.policy.monthly}}</span>/MES
-                          </div>
-                        </div>                      
-                        <div class="detallePlan__lista">
-                          <div class="detallePlan--item" style="height: 25px;">
-                            <p class="check-planes"></p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item"><p class="check-planes">&#x2714;	</p></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                        </div>
-                      </div>
-                    </b-col>
-                    <b-col cols="4"  lg="4">
-                      <span class="precioRegular">P.Regular: ${{this.listaMedia.policy.monthlyCalculated}}</span>
-                      <div class="planHover  detallePlan  plan6" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
-                        
-                        <div class="detallePlan__titulo plan-item semifull-item">
-                          <div class="plan-item__header  semifull-item__header">
-                            <span>ORO</span>
-                          </div>
-                          <div class="plan-item__cuerpo">
-                            <span class="cuota">${{this.listaMedia.policy.monthly}}</span>/MES
-                          </div>
-                        </div>
+                </div>
 
-                        <div class="detallePlan__lista">
-                          <div class="detallePlan--item" style="height: 25px;">
-                            <p class="check-planes"></p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item"><p class="check-planes">&#x2714;	</p></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                          <div class="detallePlan--item"></div>
-                        </div>
-                      </div>
-                    </b-col>
-                    <b-col cols="4"  lg="4">
-                      <span class="precioRegular">P.Regular: ${{this.listaFull.policy.monthlyCalculated}}</span>
-                      <div class="planHover  detallePlan plan3"  @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
-
-                        <div class="detallePlan__titulo plan-item full-item">
-                          <div class="plan-item__header  full-item__header">
-                            <span>BLACK</span>
-                          </div>
-                          <div class="plan-item__cuerpo">
-                            <span class="cuota">${{this.listaFull.policy.monthly}}</span>/MES
-                          </div>
-                        </div>
-
-                        <div class="detallePlan__lista  lista-plan3">
-                          <!-- <div class="planRecomendado">
-                            <p>Plan recomendado </p>
-                          </div> -->
-                          <div class="detallePlan--item" style="height: 25px;">
-                            <p class="check-planes"></p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                          <div class="detallePlan--item">
-                            <p class="check-planes">&#x2714;	</p>
-                          </div>
-                        </div>
-                      </div>
-                    </b-col>                    
-                  </b-row>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-          <b-row style="position: fixed;
-                        left: 0;
-                        width: 100vw;
-                        background: #fff;
-                        z-index: 999;
-                        bottom: 0;
-                        -webkit-box-shadow: 0 -2px 4px 0 rgba(71,71,71,.1);
-                        box-shadow: 0 -2px 4px 0 rgba(71,71,71,.1);"   v-bind:class="{activeBox_2: activeBox_2}">
-            <b-col class="m-auto" cols="10" style="max-width: 1140px;">
-              <div class="box-btn  d-flex  justify-content-end  box-btn-cotizador">
-                <p class="frase-cotizacion"> ¡Estás a dos pasos de asegurar tu <strong>{{this.itemElegido.brand}}</strong>!</p>
-                <button
-                    type="submit"
-                    :disabled="isDisabled"
-                    @click="continuar($event)"
-                    class="btn box-btn__button"
-                  >continuar</button>
-              </div>
-            </b-col>
-          </b-row>
-        </b-container>
-
-        <b-container class="d-block  d-md-none" >
-          <b-row class="d-flex justify-content-center cotizador" v-bind:class="{activeBox_2: activeBox_2}">
-            <b-col cols="11" lg="6" >
-              <b-row>
-                <b-col cols="12" class="b-white">
-                  <b-row  class="contenedor-primario">
-                    <b-col cols="12">
-                      <div class="datos-vehiculo-mobile d-block  d-lg-none">
-                        <div>
-                          <p class="mi-carro">MI CARRO</p>
-                        </div>
-                        <div>
-                          <p class="item">
-                            {{this.item.plateNumber }}
-                            <span @click="resetearVehiculo()" class="editar-vehiculo">Editar 
-                              <img class="flecha_edicion" src="../../../static/media/interseguroVehicular_v2/flecha_edicion.png" alt="flecha_edicion">
-                              </span> 
-                             </p>
-                        </div>
-                        <div>
-                          <p class="item">{{this.itemElegido.brand }} {{this.itemElegido.year }} </p>
-                        </div>                        
-                        <div>
-                          <p class="item">{{this.itemElegido.model }}</p>
-                        </div>
-                        <div class="mail-cotizador" @click="showModal = showModal != undefined ? true : true">                          
-                          <div class="mail">                          
-                              <img src="../../../static/v2_icon/email.png" alt="email">                         
-                            <div>
-                              <p>Enviar</p>
-                            </div>
-                          </div>
-                        </div> 
-                        
-                      </div>
-                    </b-col>
+                <div class="col-4">
+                  <div style="height: 40px;" class="plan-recomendado">
                     
-                    <b-col cols="12" lg="8">
-                      <div class="cotizador__suma-asegurada">
-                          <p class="suma-asegurada">SUMA ASEGURADA</p>                      
-                          <div class="cotizador__suma-asegurada--box">
-                            <div class="box-range">             
-                              <p> <span class="monto-actual">$ {{this.listCotizacion.vehicle.current}}</span></p>                                   
-                              <div class="minimoImg"><span><i @click="minimoImg" class="fa fa-minus-circle" aria-hidden="true"></i></span></div>
-                              <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="range" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
-                              <div class="maximoImg"><span><i @click="maximoImg" class="fa fa-plus-circle" aria-hidden="true"></i></span></div>
-                            </div>                      
-                          </div>                   
-                      </div> 
-                      
-                    </b-col>
-
-                    <b-col cols="4" class="d-none  d-lg-flex  pr-0  pl-0">
-                      <div class="mail-cotizador" @click="showModal = showModal != undefined ? true : true">                        
-                        <div class="mail">                          
-                            <img src="../../../static/v2_icon/email.png" alt="email">                         
-                          <div>
-                            <p>Enviar</p>
-                          </div>
-                        </div>
-                      </div> 
-                    </b-col>
-                  </b-row>
-                </b-col>
-
-                <br>
-                
-                <b-col class="d-none" cols="12">
-                  <b-row>
-                    <b-col cols="12" style="position: relative;">
-                      <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
-                      <div class="box-dto">
-                        <span>15% DE DESCUENTO</span>
-                        <!-- <img src="../../../static/media/interseguroVehicular_v2/dto.png" alt="dto"> -->
-                      </div> 
-                    </b-col>
-                  </b-row>
-                  <b-row>
-                    <div class="panel-planes">
-                      <div class="panel-planes__item"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
-                        <p><span class="precioRegular">P.Regular: ${{this.listaBasica.policy.monthlyCalculated}}</span></p>
-                          <div class="item  basico  planHover  detallePlan  plan4" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
-                            <div class="plan-item  basico-item">
-                              <div class="plan-item__header  basico-item__header">
-                                <span>PLATA</span>
-                              </div>
-                              <div class="plan-item__cuerpo">
-                                <span class="cuota">${{this.listaBasica.policy.monthly}}</span>/MES
-                              </div>
-                            </div>
-                            <!-- <div class="basico__monto-mensual">                              
-                              <p class="basico__monto-mensual--item" v-if="this.listaBasica != null">$ 
-                                <span class="cuota">${{this.listaBasica.policy.monthly}}</span>
-                                 /MES</p>
-                              <span class="basico__monto-anual--item  subtitulo">ROBO TOTAL</span>
-                            </div> -->
-                          </div>
-                      </div>
-                      <div class="panel-planes__item">
-                        <p><span class="precioRegular">P.Regular: ${{this.listaMedia.policy.monthlyCalculated}}</span></p>
-                        <div class="item  semifull  planHover  detallePlan  plan6"  @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
-                            <div class="plan-item  semifull-item">
-                              <div class="plan-item__header  semifull-item__header">
-                                <span>ORO</span>
-                              </div>
-                              <div class="plan-item__cuerpo">
-                                <span class="cuota">${{this.listaMedia.policy.monthly}}</span>/MES
-                              </div>
-                            </div>
-
-                            <!-- <div class="semifull__monto-mensual">
-                              <p class="semifull__monto-mensual--item" v-if="this.listaMedia != undefined">$ 
-                                <span class="cuota">${{this.listaMedia.policy.monthly}}</span>
-                                 /MES</p>
-                              <span class="semifull__monto-anual--item  subtitulo">SEMI - FULL</span>
-                            </div> -->
-                        </div>
-                      </div>
-                      <div class="panel-planes__item" >
-                        <p><span class="precioRegular">P.Regular: ${{this.listaFull.policy.monthlyCalculated}}</span></p>
-                        <div class="item  full  planHover  detallePlan plan10 plan3" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
-                            <div class="plan-item  full-item">
-                              <div class="plan-item__header  full-item__header">
-                                <span>BLACK</span>
-                              </div>
-                              <div class="plan-item__cuerpo">
-                                <span class="cuota">${{this.listaFull.policy.monthly}}</span>/MES
-                              </div>
-                            </div>
-
-                            <!-- <div class="full__monto-mensual" >
-                              <p class="full__monto-mensual--item" v-if="this.listaFull != undefined">$ 
-                                <span class="cuota">${{this.listaFull.policy.monthly}}</span>
-                                 /MES</p>
-                              <span class="full__monto-anual--item  subtitulo">FULL</span>
-                              <img src="../../../static/media/interseguroVehicular_v2/recomendado.svg" alt="recomendado">
-                            </div> -->
-                        </div>
-                      </div>
+                  </div>
+                  <div class="v2-plan-item  plan6  oro   "  @click="seleccionarPLanDesktop(6)" v-bind:class="{planInactivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-oro">
+                      PLAN ORO
                     </div>
-                  </b-row>
-                </b-col>
-
-                <b-col  class="d-none">
-                  <b-row>              
-                    <b-card no-body class="card-cobertura  mt-2">                      
-                      <b-card-header header-tag="header" role="tab">
-                        <b-button block href="#" v-b-toggle.accordion-9 variant="info">
-                          <!-- <img class="escudo_cobertura" src="../../../static/media/interseguroVehicular_v2/escudo_cobertura.png" alt="escudo_cobertura"> -->
+                    <div class="v2-detalle-plan"> 
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar_oro}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes_oro}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
+                      </div>
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="que-me-cubre">
+                        <p class="titulo">
                           ¿Qué me cubre?
-                          <div class="flecha_cobertura">
-                          
-                          </div>
-
-                          
-                          
-                        </b-button>
-                      </b-card-header>
-                      <b-collapse id="accordion-9" accordion="my-accordion" role="tabpanel">
-                        <b-card-body>
-                          <table class="table-planes">
-                            <tbody>
-                              <tr>
-                                <td class="w180px" style="display: inline;">
-                                  <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">
-                                    <img class="descargar_cobertura  mt-3" src="../../../static/media/interseguroVehicular_v2/descargar_cobertura.png" alt="descargar_cobertura">
-                                  </a>
-                                  </td>
-                                <td class="table-planes__titulo  table-planes__robo"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
-                                  <span class="plan-tab  plata">PLATA</span></td>
-                                <td class="table-planes__titulo  table-planes__semifull"><span class="plan-tab  oro">ORO</span></td>
-                                <td class="table-planes__titulo  table-planes__full"><span class="plan-tab  black">BLACK</span></td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Responsabilidad Civil</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">&#x2714;	</td>
-                                <td class="check-table">&#x2714;	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Robo Total</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">&#x2714;	</td>
-                                <td class="check-table">&#x2714;	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Pérdida Parcial <br> por Choque</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Accidente de <br> Ocupantes</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Pérdida Total <br> por Choque</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Accesorios Adicionales</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Rotura de Lunas</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Riesgos de naturaleza, vandalismo, incendios</td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                              <tr>
-                                <td class="w180px">Ausencia de Control <br>
-                                <span class="ausencia-control"><img width="16" src="../../../static/media/img/exclamacion.png" alt="exclamacion">   Solo aplica en caso quieras endosar tu póliza a una entidad financiera</span> </td>
-                                <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
-                                <td class="check-table">	</td>
-                                <td class="check-table">&#x2714;	</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </b-card-body>
-                      </b-collapse>
-                    </b-card>
-                  </b-row>
-                </b-col>
-
-                <b-col  cols="12" class="contenedor-secundario  mt-2  d-none">
-                  <div class="lista">
-                    <div class="item">
-                      <span>Fecha de inicio del seguro: </span>
-                      <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1; padding-bottom: 4px;" @click="showModalInicioVigencia()">
-                        
-                        <span style="cursor: pointer;" v-if="this.fechaVigencia != ''" @click="clickEnlace('Inicio Vigencia')">
-                          {{this.fechaVigencia}}
-                        </span>
-                        <span style="cursor: pointer;" v-else >
-                          Cambiar
-                        </span>
-                      </span>
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida parcial por Accidentes de tránsito
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accidentes de ocupantes
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event,6)">CONTINUAR</span>
+                        </div>
+                      </div>
                     </div>
-                    <template v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10">
-                      <div class="item" v-if="this.objectVehicle.modelYear>2013">
-                      <span style="display: inline-block; width: 66%; line-height: 1; padding-bottom: 4px;">¿Tienes un crédito vehicular? </span>
-                      <p class="endozar-poliza  text-right" onclick="ga('send', 'event', 'suscripcion', 'clic', 'blog', 0);" href="javascript:void(0);" >
-                        <template v-if="this.endosoSeleccionado.id == 0">                          
-                          <a style="display: inline-block; line-height: 1;color: #007bff; cursor: pointer;"
-                            class="endozar-poliza"
-                              href="javascript:void(0);"
-                              @click="clickEnlace('entidad Financiera')"
-                              v-b-modal.modalEntidadFinanciera
-                            >Endosa aquí</a>  
-                        </template>
-                        <template v-else>                         
-                          <span  style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
-                          class="endozar-poliza"
-                            href="javascript:void(0);"
-                            v-b-modal.modalEntidadFinanciera
-                            @click="clickEnlace('entidad Financiera')"
-                          > {{this.endosoSeleccionado.name}}</span>   
-                        </template>                            
-                      </p>
-                    </div>
-                    </template>
-                    <template v-else>
-                    <div class="pb-3    pb-2" v-if="this.objectVehicle.modelYear>2013 && this.planSeleccionado != 3">
-                      <div class="item">
-                        Recuerda que debes seleccionar el Plan Black si deseas endosar tu póliza
-                      </div>                      
-                    </div>
-                  </template>
-                    
-
-                    <div class="item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
-                      <span>Requiere GPS:</span>
-                      <a href="javascript:void(0);"  @click="showModalGPS()"> 
-                        <span class="mb-0 gps requiere-gps"  >
-                            {{this.listaBasica.vehicle.gps == "Y" ? "SI" : "NO" }}                                
-                        </span>
-                      </a>
-                    </div>
-
-                      
                   </div>
-                </b-col>
+                </div>
 
-                <b-col cols="12 pr-0 "  class="d-none">
-                  <div class="box-btn">
-                    <span
-                      class="backcotizacion d-none d-lg-block"
-                      @click="resetearVehiculo($event)"
-                    >
-                      <img
-                        width="35"
-                        src="../../../static/media/img/flujo/cotizacion/back.svg"
-                        alt
-                      />
-                    </span>
-                    <span
-                      class="backcotizacion d-md-block d-lg-none"
-                      @click="resetearVehiculo($event)"
-                    >
-                      <!-- <img
-                        width="35"
-                        src="../../../static/media/img/flujo/cotizacion/back.svg"
-                        alt
-                      /> -->
-                    </span>
-
-                    <button   v-bind:class="{activeBox_2: activeBox_2}"
-                      type="submit"
-                      :disabled="isDisabled"
-                      @click="continuar($event)"
-                      class="btn box-btn__button "
-                    >continuar</button>
+                <div class="col-4">
+                  <div style="height: 40px; " class="plan-recomendado">
+                    <span>&#9733;	</span> RECOMENDADO
                   </div>
-                </b-col>
+                  <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planInactivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-black">
+                      PLAN BLACK
+                    </div>
+                    <div class="v2-detalle-plan" > 
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar_black}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes_black}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
+                      </div>
+                      <div class="box-importante">
+                        <p class="titulo">Importante</p>
+                        <ul>
+                          <li>
+                            <div class="detalle-item">
+                              <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
+                              <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
+                                  <template v-if="this.endosoSeleccionado.id == 0">                          
+                                    <span style="display: inline-block; cursor: pointer; text-align: left;"
+                                      class="detalle-enlace"
+                                      v-b-modal.modalEntidadFinanciera2
+                                      @click="clickEnlace('entidad Financiera')"
+                                      >Aquí
+                                      </span>  
+                                  </template>
+                                  <template v-else>                         
+                                    <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
+                                    class="detalle-enlace"
+                                        href="javascript:void(0);"
+                                        v-b-modal.modalEntidadFinanciera2
+                                        @click="clickEnlace('entidad Financiera')"
+                                    > {{this.endosoSeleccionado.name}}</span>   
+                                  </template>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="que-me-cubre">
+                        <p class="titulo">
+                          ¿Qué me cubre?
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Pérdida parcial por Accidentes de tránsito
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida total por Accidentes de tránsito
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Roturas de lunas
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Riesgos de la naturaleza, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Ausencia de control*
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event,3)">CONTINUAR</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              </b-row>
-            </b-col>
-          </b-row>
-        </b-container>
+              <div class="v2-seleccion-planes  d-md-none">
+                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>PLATA</p>
+                  <p>US$ {{this.listaBasica.policy.monthly}}</p>
+                </div>
+                <div class="v2-seleccion-planes__item planorito  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>ORO</p>
+                  <p>US$ {{this.listaMedia.policy.monthly}}</p>
+                </div>
+                <div class="v2-seleccion-planes__item  plan3  black" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>BLACK</p>
+                  <p>US$ {{this.listaFull.policy.monthly}}</p>
+                </div>
+                
+              </div>
+
+              <div class="v2-detalle-plan  d-md-none" :class="classPlan"> 
+                <div class="box-monto-frecuencia">
+                  <div class="v2-detalle-plan__suma  box-monto-pago">
+                      <div class="monto-frecuencia">
+                          <span>US$</span>
+                          <span class="monto">{{this.monto_pagar}}</span>
+                      </div>
+                      <p class="antes">Antes US${{this.monto_antes}}</p>
+                  </div>
+                  <div class="v2-detalle-plan__box-frecuencia  select">
+                    <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                  </div>
+                </div>
+                <div class="box-importante">
+                  <p class="titulo">Importante</p>
+                  <ul>
+                    <li>
+                      <div class="detalle-item">
+                        <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
+                        <p class="endozar-poliza  text-right"  href="javascript:void(0);" style="width: auto;">
+                            <template v-if="this.endosoSeleccionado.id == 0">                          
+                              <span style="display: inline-block; cursor: pointer; text-align: left;"
+                                class="detalle-enlace"
+                                v-b-modal.modalEntidadFinanciera2
+                                @click="clickEnlace('entidad Financiera')"
+                                >Aquí
+                                </span>  
+                            </template>
+                            <template v-else>                         
+                              <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
+                              class="detalle-enlace"
+                                  href="javascript:void(0);"
+                                  v-b-modal.modalEntidadFinanciera2
+                                  @click="clickEnlace('entidad Financiera')"
+                              > {{this.endosoSeleccionado.name}}</span>   
+                            </template>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="detalle-item">
+                      <div class="item    pb-3">
+                          <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                            <span class="mb-0 gps requiere-gps"  >
+                              <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                            </span>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detalle-item" v-if="this.gps == true">
+                        <p>GPS:</p>
+                        <p>SI</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="que-me-cubre">
+                  <p class="titulo">
+                    ¿Qué me cubre?
+                  </p>
+                  <p class="que-me-cubre__item">
+                    Responsabilidad Civil
+                  </p>
+                  <p class="que-me-cubre__item" >
+                    Robo total
+                  </p>
+                  <p class="que-me-cubre__item"  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 6 || this.planSeleccionado == 10">
+                    Pérdida parcial por Accidentes de tránsito
+                  </p>
+                  <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 6 || this.planSeleccionado == 10">
+                    Accidentes de ocupantes
+                  </p>
+                  <p class="que-me-cubre__item"  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                    Pérdida total por Accidentes de tránsito
+                  </p>
+                  <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                    Accesorios musicales
+                  </p>
+                  <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                    Roturas de lunas
+                  </p>
+                  <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                    Riesgos de la naturaleza, vandalismo, incendios.
+                  </p>
+                  <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                    Ausencia de control*
+                  </p>
+                </div>
+                <div class="descargar-detalle">
+                  <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                  <a target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                </div>
+                <div class="d-flex   d-lg-none">
+                  <div class="mail-fecha  mail-cotizador"  @click="showModalEnviarEmail()">                  
+                    <span>Enviar cotización</span>                                     
+                    </div> 
+                </div>
+                <div class="d-flex   d-lg-none">
+                  <div class="mail-fecha"  @click="showModalInicioVigencia()">                  
+                      <div class="detalle-item">
+                        <p> Fecha de inicio:</p>
+                        <p>
+                            <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
+                                <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
+                                    {{this.fechaVigencia}}
+                                </span>
+                                <span style="cursor: pointer;" v-else >
+                                    Cambiar
+                                </span>                                        
+                            </span>
+                        </p>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+
+              <div class="v2-comparar-planes  d-lg-none">
+                <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span> 
+              </div>
+
+              <div class="box-btn  d-lg-none">
+                <span class="continuar" @click="continuar($event, planSeleccionado)">CONTINUAR</span>
+              </div>
+            </div>
+            
+
+
+          </b-col>
+        </b-row>
+        
+        <b-row>
+
+        </b-row>
+      </b-container>
+
+
+        <!-- *************************************************************************************************** -->
+        <!-- *******************************  COTIZADOR NUEVO  ******************************************* -->
+        <!-- *************************************************************************************************** -->
 
       </b-row>
     </b-container>
 
+    <!--
     <div class="conatenedor-personalizado  contenedor-1    d-lg-none" v-bind:class="{activeBox_2: activeBox_2}">
-      <b-col cols="12" >
+      <b-col cols="12">
+
         <b-row>
-          <b-col cols="12" style="position: relative;">
+          <b-col cols="12"  md="9" style="position: relative;">
             <p class="texto-seleccionaPlan">SELECCIONA TU PLAN</p>
-            <div class="box-dto">
-              <span>15% DE DESCUENTO</span>
-              <!-- <img src="../../../static/media/interseguroVehicular_v2/dto.png" alt="dto"> -->
-            </div> 
+            <div class="box-dto" v-if="this.nuevoProducto == false"><span>15% DE DESCUENTO</span></div>
           </b-col>
         </b-row>
         <b-row>
-          <div class="panel-planes">
-            <div class="panel-planes__item"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
-              <p><span class="precioRegular">P.Regular: ${{this.listaBasica.policy.monthlyCalculated}}</span></p>
+          <div class="panel-planes  mobile  mt-4">
+            <div class="panel-planes__item  mt-2"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
+                <p  v-if="this.nuevoProducto == false"><span class="precioRegular">P.Regular: ${{this.listaBasica.policy.monthlyCalculated}}</span></p>
                 <div class="item  basico  planHover  detallePlan  plan4" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                   <div class="plan-item  basico-item">
                     <div class="plan-item__header  basico-item__header">
                       <span>PLATA</span>
                     </div>
-                    <div class="plan-item__cuerpo">
+                    <div class="plan-item__cuerpo" v-if="appDiscount == true">
+                      <span  class="cuota">${{this.listaBasica.policy.monthlyDiscount}}</span>/MES
+                    </div>
+                    <div class="plan-item__cuerpo" v-else-if="this.nuevoProducto == true">
+                      <span  class="cuota">${{this.listaBasica.policy.monthlyCalculated}}</span>/MES
+                    </div>
+                    <div class="plan-item__cuerpo" v-else >
                       <span class="cuota">${{this.listaBasica.policy.monthly}}</span>/MES
                     </div>
                   </div>
-                  <!-- <div class="basico__monto-mensual">                              
-                    <p class="basico__monto-mensual--item" v-if="this.listaBasica != null">$ 
-                      <span class="cuota">${{this.listaBasica.policy.monthly}}</span>
-                        /MES</p>
-                    <span class="basico__monto-anual--item  subtitulo">ROBO TOTAL</span>
-                  </div> -->
                 </div>
             </div>
-            <div class="panel-planes__item">
-              <p><span class="precioRegular">P.Regular: ${{this.listaMedia.policy.monthlyCalculated}}</span></p>
-              <div class="item  semifull  planHover  detallePlan  plan6"  @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
-                  <div class="plan-item  semifull-item">
-                    <div class="plan-item__header  semifull-item__header">
-                      <span>ORO</span>
+            <div class="adicionalMobile  pt-2  pb-2"  v-bind:class="{'borderNone': this.$store.state.common.nuevoProducto  == false}">
+              <div class="adicionalMobile__box" v-if="this.$store.state.common.nuevoProducto == true"   @click="showModalRootCotizador()">
+                <span class="pr-3">Ahorra hasta 50% adicional </span>
+                <img src="../../../static/media/img/root/flecha_siguiente_cotizador.png" alt="">
+              </div>
+              <div class="panel-planes__item">
+                <p  v-if="this.nuevoProducto == false"><span class="precioRegular">P.Regular: ${{this.listaMedia.policy.monthlyCalculated}}</span></p>
+                <div class="item  semifull  planHover  detallePlan  plan6"  @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
+                    <div class="plan-item  semifull-item">
+                      <div class="plan-item__header  semifull-item__header">
+                        <span>ORO</span>
+                      </div>
+                      <div class="plan-item__cuerpo" v-if="appDiscount == true">
+                        <span  class="cuota">${{this.listaMedia.policy.monthlyDiscount}}</span>/MES
+                      </div>
+                      <div class="plan-item__cuerpo" v-else-if="this.nuevoProducto == true">
+                        <span  class="cuota">${{this.listaMedia.policy.monthlyCalculated}}</span>/MES
+                      </div>
+                      <div class="plan-item__cuerpo" v-else >
+                        <span class="cuota">${{this.listaMedia.policy.monthly}}</span>/MES
+                      </div>
                     </div>
-                    <div class="plan-item__cuerpo">
-                      <span class="cuota">${{this.listaMedia.policy.monthly}}</span>/MES
+                </div>
+              </div>
+              <div class="panel-planes__item" >
+                <p  v-if="this.nuevoProducto == false"><span class="precioRegular">P.Regular: ${{this.listaFull.policy.monthlyCalculated}}</span></p>
+                <div class="item  full  planHover  detallePlan plan10 plan3" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
+                    <div class="plan-item  full-item">
+                      <div class="plan-item__header  full-item__header">
+                        <span>BLACK</span>
+                      </div>
+                      <div class="plan-item__cuerpo" v-if="appDiscount == true">
+                        <span  class="cuota">${{this.listaFull.policy.monthlyDiscount}}</span>/MES
+                      </div>
+                      <div class="plan-item__cuerpo" v-else-if="this.nuevoProducto == true">
+                        <span  class="cuota">${{this.listaFull.policy.monthlyCalculated}}</span>/MES
+                      </div>
+                      <div class="plan-item__cuerpo" v-else >
+                        <span class="cuota">${{this.listaFull.policy.monthly}}</span>/MES                        
+                      </div>
                     </div>
-                  </div>
-
-                  <!-- <div class="semifull__monto-mensual">
-                    <p class="semifull__monto-mensual--item" v-if="this.listaMedia != undefined">$ 
-                      <span class="cuota">${{this.listaMedia.policy.monthly}}</span>
-                        /MES</p>
-                    <span class="semifull__monto-anual--item  subtitulo">SEMI - FULL</span>
-                  </div> -->
+                </div>
               </div>
             </div>
-            <div class="panel-planes__item" >
-              <p><span class="precioRegular">P.Regular: ${{this.listaFull.policy.monthlyCalculated}}</span></p>
-              <div class="item  full  planHover  detallePlan plan10 plan3" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
-                  <div class="plan-item  full-item">
-                    <div class="plan-item__header  full-item__header">
-                      <span>BLACK</span>
-                    </div>
-                    <div class="plan-item__cuerpo">
-                      <span class="cuota">${{this.listaFull.policy.monthly}}</span>/MES
-                    </div>
-                  </div>
-
-                  <!-- <div class="full__monto-mensual" >
-                    <p class="full__monto-mensual--item" v-if="this.listaFull != undefined">$ 
-                      <span class="cuota">${{this.listaFull.policy.monthly}}</span>
-                        /MES</p>
-                    <span class="full__monto-anual--item  subtitulo">FULL</span>
-                    <img src="../../../static/media/interseguroVehicular_v2/recomendado.svg" alt="recomendado">
-                  </div> -->
-              </div>
-            </div>
+            
           </div>
         </b-row>
       </b-col>
@@ -860,7 +686,6 @@
           <b-card no-body class="card-cobertura  mt-2">                      
             <b-card-header header-tag="header" role="tab">
               <b-button block href="#" v-b-toggle.accordion-9 variant="info">
-                <!-- <img class="escudo_cobertura" src="../../../static/media/interseguroVehicular_v2/escudo_cobertura.png" alt="escudo_cobertura"> -->
                 ¿Qué me cubre?
                 <div class="flecha_cobertura">
                 
@@ -955,6 +780,7 @@
           </b-card>
         </b-row>
       </b-col>
+
     </div>
 
     <div class="container    contenedor-personalizado  contenedor-2  d-lg-none">
@@ -1035,7 +861,7 @@
           >
           </span>
 
-          <button   v-bind:class="{activeBox_2: activeBox_2}"
+          <button   v-bind:class="{'d-none': activeBox_2}"
             type="submit"
             :disabled="isDisabled"
             @click="continuar($event)"
@@ -1044,119 +870,407 @@
         </div>
       </b-col>
     </div>
-
-
-    <div>
-      <div v-if="showModal">
-        <transition name="modal">
-          <div class="modal-mask">
-            <div class="modal-wrapper">
-              <div class="modal-container modal-container__custom">
-                <span class="modal-close  modal-close-cotizacion" @click="hideModal">
-                  x
-                </span>
-                <div class="modal-body modal-body__custom">
-                  <p
-                    class="text-modalEnviarMail"
-                  >Recibe la cotización a tu correo personal.</p>
-                </div>
-
-                <div class="modal-footer footer-custom">
-                  <div class="footer-custom__box">
-                    <b-form-group
-                      id="grupo-enviar"
-                      label-for="enviar-modal"
-                      class="grupo-enviar"
-                    >
-                      <b-form-input
-                        id="enviar-modal"
-                        type="text"
-                        required
-                        v-model="email"
-                        placeholder="Ejem. lperez@gmail.com"
-                      ></b-form-input>
-                    </b-form-group>
-                    <!-- <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader> -->
-                    <button
-                      :disabled="isDisabledEnviarCorreo" 
-                      class="modal-default-button btn-enviarModal"
-                      @click="enviarMail()"
-                    >ENVIAR</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
-      </div>
-    </div>
+    -->
 
     <b-modal
-      id="modalgps"
+        title="Bootstrap-Vue"
+        hide-footer
+        hide-header
+        ref="modalEnviarEmail"
+        id="modalEnviarEmail"
+        >
+        <img
+            @click="hideModalEnviarEmail()"
+            src="./../../../static/media/img/root/close.png"
+            width="30"
+            alt="icon close"
+            class="modal-close"
+        />
+         <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
+            <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
+            <p class="modal-titulo">¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras</p>
+          </div>
+
+        <div class="modalEnviarEmail">
+            <p class="modal-titulo">Recibe tu cotización en tu correo</p>
+            
+            <div class="fechaCotizador">
+                <b-form-input id="input-small" placeholder="Ejem. lperez@gmail.com"  v-model="email"></b-form-input>
+            </div>
+            <div class="box-btns">
+                <button class="btn  btn-principal  " @click="enviarMail()">ENVIAR</button>
+            </div>
+        </div>
+    </b-modal>
+    
+
+
+    
+      <b-modal title="Bootstrap-Vue"
+          hide-footer
+          hide-header
+          ref="modalCompararPlanes"
+          id="modalCompararPlanes">
+        <div class="modal-content modalCompararPlanes">
+            <img class="img-close-modal" width="40" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalCompararPlanes()">
+            <div class="modal-body">
+              <p class="mb-4">COMPARAR PLANES</p>
+              <table class="table-planes">
+                <tbody>
+                  <tr>
+                    <td class="w180px" style="display: inline;">
+                      </td>
+                    <td class="table-planes__titulo  table-planes__robo"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">
+                      <span class="plan-tab  plata">PLATA</span></td>
+                    <td class="table-planes__titulo  table-planes__semifull"><span class="plan-tab  oro">ORO</span></td>
+                    <td class="table-planes__titulo  table-planes__full"><span class="plan-tab  black">BLACK</span></td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Responsabilidad Civil</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">&#x2714;	</td>
+                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Robo Total</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">&#x2714;	</td>
+                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table"  style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Pérdida Parcial <br> por Choque</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Accidente de <br> Ocupantes</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">&#x2714;	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Pérdida total por  <br> Accidentes de tránsito</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <!-- <tr>
+                    <td class="w180px">Accesorios Adicionales</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr> -->
+                  <tr>
+                    <td class="w180px">Rotura de Lunas</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Riesgos de naturaleza, vandalismo, incendios</td>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                  <tr>
+                    <td class="w180px">Ausencia de Control <br>
+                    <td class="check-table"   v-bind:class="{'d-none': this.clonado.vehicle.current > 35000}">	</td>
+                    <td class="check-table">	</td>
+                    <td class="check-table" style="color:#EA0F90">&#x2714;	</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </b-modal>
+
+
+
+   <b-modal title="Bootstrap-Vue"
+          hide-footer
+          hide-header
+          ref="modalNumeroCelular"
+          id="modalNumeroCelular">
+        <div class="modal-content modal-root">
+            <img class="img-close-modal" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
+            <div class="modal-body">
+              
+              <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
+                <img class="check-enviado" src="./../../../static/media/img/root/check.png" alt="">
+                <p>¡Listo! En breve recibirás el link de descarga al <span>{{this.inputNumeroCelular}}</span></p>
+              </div>                
+                <div class="box-img">
+                  <img width="100" src="./../../../static/media/img/root/descarga_modal.png" alt="">
+                </div>
+                <div class="box-titulo">
+                  <p class="titulo">Recibe el link de descarga a tu celular</p>
+                </div>
+                <div class="box-input">
+                  <b-form-input class="telefono" type="tel" maxlength="9" v-model="inputNumeroCelular" :placeholder="placeholderNumeroCelular"></b-form-input>
+                  <span class="enviar" @click="enviarNumeroCelular()">Enviar</span>
+                </div>
+                <div class="condiciones">
+                  <span>Al continuar acepto las <span class="enlaceTerminosCondiciones" @click="showModalTerminosCondiciones()">Condiciones de Uso y Política de Privacidad.</span></span>
+                </div>
+            </div>
+        </div>
+    </b-modal>
+
+
+    <b-modal
+      id="modalRootCotizador"
       title="Bootstrap-Vue"
       hide-footer
       hide-header
-      ref="modalGPS"
-      size="lg"
+      ref="modalRootCotizador"
+      size="xl"
     >
-      <div class="modal-content modal-gps">
-        <b-btn
-          class="mt-3 modal-close"
-          @click="hideModalGPS()"
-          style="background: white; border: none;"
-        >
+      <div class="modal-content modal-rootCotizador">
           <img
-            src="../../../static/media/img/flujo/cotizacion/modal-close.svg"
-            width="40"
+            @click="hideModalRootCotizador()"
+            src="./../../../static/media/img/root/close.png"
+            width="50"
             alt="icon close"
-            class="image-9"
+            class="img-close-modal "
           />
-        </b-btn>
         <div class="modal-head">
           <div class="box-titulo">
-            <h2 class>PASOS PARA CONSEGUIR MI GPS</h2>
+            <p class>Paga hasta 50% menos <br> en tu Seguro Vehicular</p>
+            <span>Según tu forma de conducir</span>
           </div>
           <div class="modal-divider"></div>
         </div>
         <div class="modal-body">
           <div class="modal-body__item">
             <div class="box-img">
-              <img src="../../../static/media/img/flujo/cotizacion/paso1_gps.svg" alt="pasos gps" />
-            </div>
-            <div class="box-paso">
-              <p>1</p>
+              <img src="./../../../static/media/img/root/descarga.png" alt="pasos gps" />
             </div>
             <div class="box-descripcion">
-              <p>Protemax te contactará para programar el día y hora de la instalación del GPS.</p>
+              <p class="titulo">Descarga el app</p>
+              <p class="desc"> Ahora tú tienes el control. 
+                  Comienza en un minuto. </p>
             </div>
           </div>
           <div class="modal-body__item">
             <div class="box-img">
-              <img src="../../../static/media/img/flujo/cotizacion/paso2_gps.svg" alt="pasos gps" />
-            </div>
-            <div class="box-paso">
-              <p>2</p>
+              <img src="./../../../static/media/img/root/maneja.png" alt="pasos gps" />
             </div>
             <div class="box-descripcion">
-              <p>Irán a tu casa o al lugar coordinado para instalar el dispositivo en tu carro.</p>
+              <p  class="titulo">Manejo tu carro</p>
+              <p class="desc">Vamos a medir tu habilidad 
+                de manejo desde el app. </p>
             </div>
           </div>
-          <div class="modal-body__item">
+          <div class="modal-body__item ">
             <div class="box-img">
-              <img src="../../../static/media/img/flujo/cotizacion/paso3_gps.svg" alt="pasos gps" />
-            </div>
-            <div class="box-paso">
-              <p>3</p>
+              <img src="./../../../static/media/img/root/ahorra.png" alt="pasos gps" />
             </div>
             <div class="box-descripcion">
-              <p>
-                Contamos con una oferta por lanzamiento donde
-                <strong>te regalamos $50</strong> para la compra de tu GPS (precio regular $200, precio con nosotros $150). Podrás hacer el pago ahí mismo con efectivo o tarjeta.
+              <p  class="titulo">Ahorra</p>
+              <p class="desc">
+                Recibe tu cotización, 
+                elige tu plan y ¡estás protegido! 
               </p>
+              <span class="disclaimer-porcentaje d-none  d-lg-block">
+              * Solo aplica a los planes Oro y Black .
+            </span>
             </div>
+            
           </div>
+          <span class="disclaimer-porcentaje  d-lg-none">
+              * Solo aplica a los planes Oro y Black .
+            </span>
+        </div>
+        <div class="modal-footer" style="justify-content: center;">
+          <div class="box-btn  d-flex  justify-content-end  box-btn-cotizador">
+              <button
+                  type="submit"
+                  :disabled="isDisabled"
+                  @click="descargarApp($event)"
+                  class="btn box-btn__button   d-block d-xl-none"
+                  style="animation: none"
+                >DESCARGAR APP AHORA</button>
+                <button
+                  type="submit"
+                  :disabled="isDisabled"
+                  @click="showModalNumeroCelular($event)"
+                  class="btn box-btn__button  d-none d-xl-block"
+                  style="animation: none"
+                >DESCARGAR APP AHORA</button>
+            </div>
         </div>
         <div class="row"></div>
+      </div>
+    </b-modal>
+
+    <b-modal
+      id="modalTerminosCondiciones"
+      ref="modalTerminosCondiciones"
+      title="Bootstrap-Vue"
+      hide-footer
+      hide-header
+      size="lg"
+    >
+    
+      <div class="modal-content modalTerminosCondiciones">
+        <img class="close-modal" src="./../../../static/media/img/root/close.png" alt="" @click="hidemodalTerminosCondiciones()">
+        <div class="modal-head">
+          <div class="modal-divider"></div>
+        </div>
+
+        <div class="modal-description">
+          <br>
+          <h4 class="text-center">CONDICIONES DE USO Y POLÍTICA DE PRIVACIDAD</h4>
+          <p
+            style="border: 1px solid #666; padding: 12px;"
+          >RECOMENDAMOS ENFÁTICAMENTE LEER ÍNTEGRAMENTE ESTE DOCUMENTO ANTES DE ACEPTARLO.</p>
+          <span>Con este documento manifiesta usted que ha sido informado por INTERSEGURO COMPAÑÍA DE SEGUROS S.A respecto a lo siguiente:
+            <br>
+          </span>
+          <br>1. Finalidad del tratamiento de sus datos personales.
+          <br>2. Quiénes son o pueden ser los destinatarios de sus datos personales.
+          <br>3. Existencia del banco de datos en que se almacenarán, así como la identidad y domicilio de su titular.
+          <br>4. De ser el caso, del o de los encargados del tratamiento de sus datos personales.
+          <br>5. El carácter obligatorio o facultativo de sus respuestas al formulario que se le proponga, en especial en cuanto a los datos sensibles.
+          <br>6. La transferencia de sus datos personales.
+          <br>7. Las consecuencias de proporcionar sus datos personales y de su negativa a hacerlo.
+          <br>8. El tiempo durante el cual se conservan sus datos personales.
+          <br>9. La posibilidad de ejercer los derechos que la ley le concede y los medios previstos para ello.
+          <br>
+          <br>
+          <p class="text-center">QUÉ SON LAS CONDICIONES DE USO Y POLÍTICA DE PRIVACIDAD</p>
+
+          <br>Las Condiciones de Uso y Política de Privacidad constituyen un contrato entre INTERSEGURO COMPAÑÍA DE SEGUROS S.A (En adelante “INTERSEGURO”) y el USUARIO.
+          <br>
+          <br>Las Condiciones de Uso y Política de Privacidad (en adelante, el “CONTRATO”) regulan las condiciones en que INTERSEGURO brindará información, enviará publicidad y orientará al USUARIO, de manera general, sobre sus productos y servicios actuales y futuros; y los productos y servicios actuales y futuros de las empresas de su grupo económico.
+          <br>
+          <br>El CONTRATO parte de la premisa de que usted, como USUARIO, se encuentra interesado en conocer y recibir información de los productos y servicios de INTERSEGURO y de las empresas de su grupo. Este interés se entenderá existente y manifestado por usted cuando acepte el CONTRATO y se comunique con nosotros a través de los formularios disponibles en los enlaces para los cuales resulta aplicable el CONTRATO. Por lo tanto, la aceptación de estas Condiciones de Uso y Política de Privacidad significará para todo efecto la formalización del CONTRATO entre el USUARIO e INTERSEGURO en los términos y alcances en que en este documento se describen.
+          <br>
+          <br>El CONTRATO es a título gratuito. INTERSEGURO no cobrará ni recibirá ninguna suma de dinero ni contraprestación material.
+          <br>
+          <br>El CONTRATO es un contrato de adhesión. Sus términos no son negociables. Pero el USUARIO tiene plena e irrestricta libertad de aceptarlo o rechazarlo en su integridad.
+          <br>
+          <br>El CONTRATO no obliga a contratar un producto o servicio por parte del USUARIO.
+          <br>La POLÍTICA DE PRIVACIDAD que se encuentra en el apartado IV del CONTRATO y que forma parte integrante del CONTRATO establece los alcances y límites del tratamiento de datos personales que INTERSEGURO necesita realizar para ejecutar el CONTRATO y con posterioridad a su vigencia. Por lo tanto, dicho tratamiento de datos personales resulta esencial para tal ejecución. Al aceptar el CONTRATO, el USUARIO consentirá la realización de dicho tratamiento.
+          <br>
+          <br>
+          <h4
+            class="text-center"
+          >REQUISITOS ESENCIALES PARA PODER ACEPTAR LAS CONDICIONES DE USO Y POLÍTICA DE PRIVACIDAD.</h4>
+          <br>
+          <span>Es requisito esencial para aceptar este CONTRATO que el USUARIO cumpla con los siguientes requisitos, debiendo abstenerse de aceptarlos si es que no reúne cualquiera o todos ellos:</span>
+          <br>
+          <br>1. Es mayor de edad, de acuerdo con la LEY o tiene capacidad civil suficiente conforme a la LEY, para emitir una manifestación y declaración de voluntad sin vicio que afecte su razonamiento y entendimiento.
+          <br>2. Es hábil en el idioma español.
+          <br>3. Ha leído íntegramente los T&C.
+          <br>4. En caso de actuar como representante de un tercero, actúa y declara contando con legitimidad y facultades suficientes conforme a LEY.
+          <br>
+          <br>
+          <br>INTERSEGURO, actuando con buena fe, parte de la premisa y presunción de que el USUARIO cumple con todas estas exigencias. Si no fuese así, el USUARIO será único, exclusivo y total responsable de cualquier riesgo o perjuicio que se cause a INTERSEGURO, al GRUPO o a terceros derivados del incumplimiento de estos requisitos, o actuando en ausencia de cualquiera de ellos.
+          <br>
+          <br>
+          <h4 class="text-center">I. GLOSARIO</h4>Los siguientes términos, sea en plural o singular, tendrán el siguiente significado en el CONTRATO:
+          <br>
+
+          <br>1. BANCO DE DATO: Alude al banco de datos personales USUARIOS DE LA PAGINA WEB de titularidad de Interseguro que se encuentra debidamente registrado en el Registro Nacional de Datos Personales del Ministerio de Justicia, en donde se almacenará los DATOS PERSONALES.
+          <br>2. CONTRATO: Significa el acuerdo de voluntades celebrada entre el USUARIO e INTERSEGURO y formalizado a través de la aceptación de las Condiciones de Uso y Política de Privacidad.
+          <br>3. DATOS PERSONALES: Son los siguientes: a) Nombres y apellidos; b) N° DNI; c) Dirección del domicilio; d) Teléfono; e) Dirección de correo electrónico; f) Carné de Extranjería; g) Estado Civil; h) Fecha de Nacimiento; i) Número de tarjeta; j) Fecha de Vencimiento; k) CVV.
+          <br>4. GRUPO: Se refiere, conjuntamente a todas las empresas del grupo económico INTERCORP, que son: Interbank, Interfondos, Intercorp Financial Services, Financiera Oh!, Inteligo SAB y las que se encuentren en el siguiente enlace http://www.intercorp.com.pe/empresas.html, cuyo número podría variar a futuro.
+          <br>5. INTERSEGURO: Significa INTERSEGURO COMPAÑÍA DE SEGUROS S.A., identificado con R.U.C. N° 20382748566, con domicilio para todos los efectos legales en Avenida Javier Prado Este Nro 492, Interior 2601, Distrito San Isidro, Provincia Lima y Departamento de Lima, inscrita en la Partida Electrónica N° 11020565 del Registro de Personas Jurídicas de la Oficina Registral de Lima y Callao.
+          <br>6. LEY: Ordenamiento jurídico de la República del Perú.
+          <br>7. LPDP: Significa, conjuntamente, la Ley 29733, Ley de Protección de Datos Personales, su reglamento, el Decreto Supremo 003-2013-JUS, las disposiciones normativas que de cuando en cuando las modifiquen y cualquier disposición normativa del ordenamiento jurídico peruano que regule la materia de tratamiento de datos personales en la República del Perú.
+          8. PARTES: Se refiere conjuntamente a INTERSEGURO y al USUARIO.
+          <br>9. POLÍTICA DE PRIVACIDAD: Apartado IV del presente documento, que representa la forma en que INTERSEGURO realiza el tratamiento de sus DATOS PERSONALES.
+          <br>10. PRODUCTOS Y SERVICIOS: Cualquier y todos los productos y/o servicios ofrecidos o comercializados por INTERSEGURO y/o por las empresas que conforman el GRUPO. Con fines meramente enunciativos, los PRODUCTOS Y SERVICIOS de INTERSEGURO comprenden el Seguro Obligatorio de Accidentes de Tránsito, Pólizas de Vida Individual, Pólizas de Rentas Vitalicias, Pólizas de Seguro Vehicular, Pólizas de Seguro de Viaje, entre otros.
+          <br>11. USUARIO: Persona natural que accede, hace uso o se comunica con INTERSEGURO a través de cualquiera de los URL a las que hace referencia el término WEB.
+          <br>12. WEB: Alude de modo general a la página web principal de INTERSEGURO https://www.interseguro.pe y a todas las páginas relacionadas a ésta, como subdominios o relacionadas al dominio principal. No incluye el Libro de Reclamaciones virtual de INTERSEGURO.
+          <br>
+          <br>
+          <br>
+          <H4 class="text-center">II. FINALIDAD DEL CONTRATO</H4>El CONTRATO tiene como finalidades:
+          <br>
+
+          <br>1. Facilitar el intercambio de comunicaciones entre INTERSEGURO y el USUARIO para recibir y/o brindar información, orientación, asesoría y publicidad sobre los PRODUCTOS Y SERVICIOS de INTERSEGURO y los de productos y servicios del GRUPO, tanto los actuales como los que se creen u ofrezcan a futuro.
+          <br>2. Regular los derechos y compromisos de cada una de las PARTES en la ejecución del CONTRATO.
+          <br>3. Establecer los alcances y límites del tratamiento de los DATOS PERSONALES necesarios para la ejecución de la presente relación contractual.
+          <br>
+          <br>
+          <H4>III. SOBRE LAS COMUNICACIONES CON OCASIÓN DEL CONTRATO</H4>
+          <br>Con miras a ejecutar las finalidades del CONTRATO, INTERSEGURO podrá y se encuentra autorizado, en relación a todas las WEB, para:
+          <br>
+
+          <br>1. Brindar información, asesoría y orientación al USUARIO sobre los PRODUCTOS Y SERVICIOS, tanto actuales como futuros.
+          <br>2. Gestionar y coordinar visitas o reuniones entre el USUARIO y funcionarios, colaboradores, promotores, comercializadores y fuerza de ventas de INTERSEGURO y del GRUPO, así como para cursar invitaciones para eventos.
+          <br>3. Facilitar al USUARIO y/o recibir del USUARIO los documentos que conforman la contratación de pólizas de seguros, tanto para fines orientativos como para la propia contratación de seguros (solicitudes de seguros, solicitudes-certificados, condiciones generales, condiciones particulares, condiciones especiales, cláusulas adicionales, endosos, convenios de pago de prima, pólizas virtuales, entre otros).
+          <br>4. Permitir el intercambio y envío de información sobre los PRODUCTOS Y SERVICIOS del GRUPO, sea por parte de cualquiera de las empresas del GRUPO como por INTERSEGURO y por terceros a los cuales INTERSEGURO o el GRUPO contraten.
+          <br>5. Enviar promociones y publicidad de los PRODUCTOS Y SERVICIOS de INTERSEGURO y de los del GRUPO, sea por parte de cualquiera de las empresas del GRUPO como por INTERSEGURO y por terceros a los cuales INTERSEGURO o el GRUPO contraten.
+          <br>6. Contactar con el USUARIO a través de correos electrónicos, llamadas telefónicas, SMS, comunicaciones escritas, redes sociales, aplicaciones de chat para teléfonos, como el WhatsApp, sistemas de comunicación masiva (tales como Call Centers, E-mailing, y SMS masivos para las finalidades indicadas en los numerales anteriores).
+          <br>
+          <br>
+          <br>INTERSEGURO se encuentra facultado más no obligado a brindar información sobre PRODUCTOS Y SERVICIOS del GRUPO.
+          <br>
+          <br>El USUARIO podrá, se encuentra facultado y permite:
+          <br>
+          <br>1. Solicitar a INTERSEGURO información y asesoría sobre los PRODUCTOS Y SERVICIOS.
+          <br>2. Enviar información o documentos a INTERSEGURO
+          <br>3. Solicitar cotizaciones de PRODUCTOS Y SERVICIOS y, eventualmente, contratarlos, en tanto lo permitan las exigencias normativas sectoriales.
+          <br>
+          <br>
+          <h4 class="text-center">IV. POLÍTICA DE PRIVACIDAD</h4>
+          <br>
+          <br>Para poder cumplir con las finalidades señaladas en el apartado II anterior y en general con las acciones necesarias para ejecutar el CONTRATO, INTERSEGURO requiere realizar el tratamiento de los DATOS PERSONALES del USUARIO. La presente sección contiene los lineamientos que regulan el tratamiento de los DATOS PERSONALES (en adelante, la “POLÍTICA DE PRIVACIDAD”), la misma que se aplica en estricto cumplimiento de la LEY y, particularmente, de la LPDP, con la finalidad de asegurar un tratamiento de DATOS PERSONALES legítimo, arreglado a derecho, confidencial y seguro.
+          <br>
+
+          <br>INTERSEGURO se encuentra firmemente comprometido con realizar los mayores esfuerzos de gestión, administrativos, legales y tecnológicos para garantizar el tratamiento confidencial y seguro de los DATOS PERSONALES.
+          <br>
+
+          <br>Los alcances del tratamiento de los DATOS PERSONALES para ejecutar el CONTRATO son los siguientes:
+          <br>
+
+          <br>1. Los DATOS PERSONALES recopilados a través de cualquiera de los enlaces que conforman la web se almacenarán en el Banco de Datos USUARIOS DE LA PAGINA WEB de titularidad de INTERSEGURO.
+          <br>2. Los DATOS PERSONALES serán tratados con la finalidad de ejecutar las prestaciones y obligaciones y derechos atribuidos tanto al USUARIO como a INTERSEGURO contenidos en el CONTRATO. Como se ha señalado en el numeral II del CONTRATO, entre estas finalidades se encuentra la de mantener informado, asesorar y ofrecer al USUARIO los PRODUCTOS Y SERVICIOS tanto actuales como futuros.
+          <br>3. Como consecuencia de las finalidades descritas y en tanto progresivamente INTERSEGURO y el GRUPO podrán ir diseñando y ofreciendo nuevos PRODUCTOS Y SERVICIOS, los DATOS PERSONALES se almacenarán y tratarán hasta el momento en que el USUARIO revoque formalmente el consentimiento que nos otorgó para su tratamiento, conforme la LPDP se lo permite e INTERSEGURO garantiza.
+          <br>4. INTERSEGURO ha implementado las medidas administrativas, legales y tecnológicas con la intención de ejecutar un tratamiento seguro y confidencial de los DATOS PERSONALES. No obstante, INTERSEGURO no puede garantizar que los DATOS PERSONALES se encuentren completamente libre de accesos y tratamientos no autorizados e ilícitos cometidos por terceros ajenos a INTERSEGURO, debido a riesgos naturales y los propios del entorno virtual. En tal sentido, debe entenderse para todo efecto que la implementación de estas medidas administrativas, legales y tecnológicas constituyen deberes de medios y no de resultados. Como consecuencia de ello, INTERSEGURO no se responsabiliza en caso de que se materialicen dichos riesgos y se genere algún tipo de daño o perjuicio al USUARIO. En dicho caso, la responsabilidad de INTERSEGURO se encuentra sujeta y limitada a los límites contenidos en el presente documento.
+          <br>5. Para efectos del intercambio de comunicaciones y envío de comunicaciones con ocasión de la ejecución del CONTRATO, descrito en los numerales II y III del CONTRATO, INTERSEGURO podrá usar sistemas de comunicación masiva, tales como centrales de llamadas (Call Centers), centrales o sistemas de envíos de mails masivos (mailing) o SMS masivos. En caso de que INTERSEGURO decida valerse de terceros para estos fines, se realizará transferencia de DATOS PERSONALES a través de los encargos de tratamiento que correspondan, garantizando el tratamiento de los DATOS PERSONALES por parte de estos terceros conforme a los alcances y limitaciones del consentimiento brindado por el USUARIO a través del CONTRATO y cumpliendo con las exigencias de la LPDP.
+          <br>6. La POLÍTICA DE PRIVACIDAD podrá ser modificada de cuando en cuando (a todas ellas, en adelante, las “MODIFICACIONES”). En tales casos, INTERSEGURO le enviará un mensaje a través del correo que nos ha facilitado. A través de dicho mensaje usted podrá acceder y conocer íntegramente las MODIFICACIONES. Recomendamos que revise detenidamente y cuidadosamente las MODIFICACIONES. Usted es libre de aceptarlas o no aceptarlas. Sin embargo, en caso de que no aceptación, INTERSEGURO podría verse impedido de ejecutar el CONTRATO, si es que las MODIFICACIONES fueran necesarias para continuar con su ejecución. En tal caso, INTERSEGURO no asumirá ninguna responsabilidad derivada de la falta de asesoría o información.
+          <br>7. Al usar la WEB o inclusive al sólo acceder a la página central de INTERSEGURO (www.interseguro.pe) usted acepta que se podrán instalar cookies en su ordenador o dispositivo. Estas pueden ser necesarias para recopilar información relevante para la ejecución del CONTRATO. Las cookies ya no continuarán con su finalidad al vencer el plazo por el cual INTERSEGURO almacenará sus DATOS PERSONALES. Sin embargo, en dicho momento, las cookies no se desinstalarán automáticamente, siendo usted el USUARIO el único y exclusivo responsable y encargado de la desinstalación.
+          <br>8. La siguiente lista muestra las cookies de terceros que se podrían instalar, los fines para los que se utilizan y los enlaces a páginas web donde se puede encontrar más información sobre las mismas:
+          <br>
+          <br>
+          <table class="tabla_modal" style="width: 100%;">
+            <tbody>
+              <tr>
+                <td>Tipo de Cookie</td>
+                <td>Proveedor o Titular</td>
+                <td>Para qué se utiliza</td>
+                <td>Enlace de Referencia</td>
+              </tr>
+              <tr>
+                <td>Terceros</td>
+                <td>Google Analytics</td>
+                <td
+                  rowspan="2"
+                >Se utiliza para almacenar información de navegación (tiempo de conexión, sesiones con ID, tipo de dispositivo, navegador, sistema operativo, etc.).</td>
+                <td>https://analytics.google.com/</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Facebook Pixel</td>
+
+                <td>https://facebook.com</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>9. INTERSEGURO no gestiona cookies de terceros ni es responsable de ellas ni del tratamiento de datos personales que realizan. Al aceptar los T&C, usted acepta la instalación de las cookies de terceros. Recomendamos enfáticamente revisar con detenimiento y cuidado los enlaces incluidos en el cuadro anterior, antes de aceptar el CONTRATO.
+          <br>10. INTERSEGURO garantiza el respeto de los derechos de los titulares de los DATOS PERSONALES consagrados en la LPDP, con la finalidad de que puedan ser ejercidos de la manera más amplia y sin costo alguno. Para tal fin, el USUARIO deberá enviar una comunicación al correo servicios@interseguro.com.pe o en la dirección Av. Paseo de la Republica Nro. 3071, San Isidro que deberá incluir todo lo siguiente: a) Nombres y apellidos, documento de identidad y sexo del USUARIO (Si se actúa a través de un representante legal, deberá acreditarse los documentos que acrediten dicha representación); b) Pedido concreto; c) Domicilio o dirección electrónica a donde se deberá responder; d) Fecha y firma de quien envía la solicitud; e) Documentos que sustenten la petición, de ser el caso.
+          <br>11. INTERSEGURO no realiza tratamiento de DATOS PERSONALES de menores de edad. Si el USUARIO es menor de edad, deberá obtener la autorización previa de su padre, madre, tutor o representante legal y enviarla previamente a INTERSEGURO de forma física para acreditar la existencia del consentimiento previo.
+          <br>12. Resultan aplicables a esta POLÍTICA DE PRIVACIDAD, de manera supletoria y complementaria, las disposiciones de la LPDP.
+          <br>
+          <br>Última actualización de las Condiciones de Uso y Política de Privacidad:
+          22 de Mayo de 2019
+          <br>
+        </div>
       </div>
     </b-modal>
 
@@ -1165,97 +1279,175 @@
       hide-footer
       hide-header
       ref="modalInicioVigencia"
-      id="modalInicioVigencia"
+      id="modalInicioVigencia2"
     >
-      <div class="modal-content fechaVigenciaCotizador">
-        <b-btn
-          class="mt-3 modal-close"
-          @click="hideModalInicioVigencia()"
-          style="background: transparent; border: none;"
-        >
-          <img
-            src="../../../static/media/img/flujo/cotizacion/modal-close.svg"
+      <img
+            src="./../../../static/media/img/root/close.png"
             width="30"
             alt="icon close"
-            class="image-9"
+            class="modal-close"
+            @click="hideModalInicioVigencia()"
           />
-        </b-btn>
-        <div class="modal-head">
-          <div class="box-titulo">
-            <p class="text-inicio">¿Cuándo inicia tu Seguro?</p>
-            <span class="center"></span>
-          </div>
-          <div class="modal-divider"></div>
-        </div>
-        <div class="modal-body">
-          <div>
-            <div id="input-group-3" class="inicioVigencia">
-              
-              <div class="fechaCotizador">                
-                <datepicker class="mt-2" :inline="true"  :disabledDates="state.disabledDates" id="fechaCustom" :full-month-name="true"   :value="state.date" @selected="elegirFecha" ></datepicker>
-              </div>
-            </div>
-            <div class="btn-inicioVigencia">
-              <button class="btn-confirmar" @click="hideModalInicioVigencia()">Confirmar</button>
+
+      <div class="modal-content fechaVigenciaCotizador">
+        <p class="modal-titulo">¿Cuándo inicia tu Seguro?</p>
+
+          <div id="input-group-3" class="inicioVigencia">
+            
+            <div class="fechaCotizador">                
+              <datepicker class="mt-2" :inline="true"  :disabledDates="state.disabledDates" id="fechaCustom" :full-month-name="true"   :value="state.date" @selected="elegirFecha" ></datepicker>
             </div>
           </div>
-        </div>
-        <div class="row"></div>
+          <div class="box-btns">
+            <button class="btn  btn-principal  " @click="hideModalInicioVigencia()">CONFIRMAR</button>
+          </div>
       </div>
     </b-modal>
 
+
     <b-modal
-      id="modalEntidadFinanciera"
+      id="v2modalGPS"
       title="Bootstrap-Vue"
       hide-footer
       hide-header
-      ref="hidemodalEntidadFinanciera"
+      ref="v2modalGPS"
     >
-      <div class="modal-content modalEntidadFinanciera">
-        <b-btn
-          class="mt-3 modal-close"
-          @click="hidemodalEntidadFinanciera()"
-          style="background: transparent; border: none;"
-        >
-          <img
-            src="../../../static/media/img/flujo/cotizacion/modal-close.svg"
-            width="30"
-            alt="icon close"
-            class="image-9"
-          />
-        </b-btn>
-        <div class="modal-head">
-          <div class="box-titulo">
-            <p class="endosar-titulo">¿Dónde pediste tu crédito vehicular?</p>
-            <span class="center"></span>
+    <img
+      src="./../../../static/media/img/root/close.png"
+      width="30"
+      alt="icon close"
+      class="modal-close"
+      @click="hideModalGPS()"
+    />
+      <div class="v2modalGPS">
+        <div class="v2modalGPS__header">
+          <img src="./../../../static/media/interseguroVehicular_v2/auto-gps.png" alt="">
+          <div class="texto-header">
+            <p class="titulo">Tu Mazda necesita un GPS, te ayudamos a contratarlo</p>
+            <span class="descripcion">
+              Por ser de Interseguro, podrás acceder a los mejores precios:
+            </span>
           </div>
-          <div class="modal-divider"></div>
         </div>
-        <div class="modal-body">
-          <div>
-            <div id="boxEndosoSesion" class="endosoSesion">
-              <div v-for="(item, index) in listaNuevaDeEndoso" :key="index">
-                <div v-on:click="setearEntidadFinanciera(item)">
-                  <div id="endosoSesionItem" class="endosoItem">
-                    <span
-                      name="parent"
-                      v-bind:id="'entidad-' + item.id"
-                      class="endosoUncheck"
-                      v-bind:class="{ 'checked': ischecked }"
-                    ></span>
-                    <span>{{item.name}}</span>
-                  </div>
-                  <!-- <input :id="item.id" type="checkbox" name="endoso" :value="item.id"> 
-                  <span>{{item.name}}</span>-->
-                </div>
+        <div class="v2modalGPS__body">
+          <div class="box-empresas">
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
               </div>
             </div>
-            <div class="box-btnEndosoSesion">
-              <button @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
+
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+
+            <div class="empresa-item">
+              <div class="empresa-item__der">
+                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <span>Empresa:</span>
+                <p>Protemax</p>
+              </div>
+              <div class="empresa-item__izq">
+                <span>Precio:</span>
+                <p>US$200</p>
+                <span class="precio-antes">250</span>
+                <span>Contacto:</span>
+                <p>(01 365 4554</p>
+              </div>
+            </div>
+          </div>
+          <p class="finalizar-compra">
+            Al finalizar la compra de tu Seguro Vehicular te ayudaremos con la compra de tu GPS.
+          </p>
+          <p class="tienes-gps">
+            ¿Ya tienes un GPS activo?
+          </p>
+          <p class="certificado">
+             Luego de la compra, envíanos el certificado.
+          </p>
+        </div>
+        <div class="v2modalGPS__footer">
+          <p>Tendrás 5 días para contratar tu GPS luego <br> de la compra del Seguro Vehicular, si no perderás la cobertura de Robo Total.</p>
+        </div>
+      </div>
+
+    </b-modal>
+
+
+    <b-modal
+      id="modalEntidadFinanciera2"
+      title="Bootstrap-Vue"
+      hide-footer
+      hide-header
+      ref="modalEntidadFinanciera2"
+    >
+    <img
+      src="./../../../static/media/img/root/close.png"
+      width="30"
+      alt="icon close"
+      class="modal-close"
+      @click="hidemodalEntidadFinanciera()"
+    />
+    <div class="box-mensajeEnviadoEndosar" v-bind:class="{mostrarMensajeEnviadoEndosar : mostrarMensajeEnviadoEndosar}">
+        <div class="endosar-item">
+          <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
+          <p class="modal-titulo">Tu póliza se ha endosado correctamente</p>
+        </div>
+    </div>
+
+     <p class="modal-titulo">¿Dónde pediste tu crédito vehicular?</p>
+      <div id="boxEndosoSesion"  class="modalEntidadFinanciera  endosoSesion">
+        <div v-for="(item, index) in listaNuevaDeEndoso" :key="index">
+          <div v-on:click="setearEntidadFinanciera(item)">
+            <div id="endosoSesionItem" class="endosoItem">
+              <span
+                name="parent"
+                v-bind:id="'entidad-' + item.id"
+                class="endosoUncheck"
+                v-bind:class="{ 'checked': ischecked }"
+              ></span>
+              <span>{{item.name}}</span>
             </div>
           </div>
         </div>
-        <div class="row"></div>
+      </div>
+      <div class="box-btns">
+        <button class="btn  btn-principal  " @click="hidemodalEntidadFinanciera()">CONFIRMAR Y ENDOSAR</button>
       </div>
     </b-modal>
 
@@ -1272,7 +1464,9 @@
             <h2><span>¿Aún lo estás pensando?</span></h2>
           </b-col>
           <b-col cols="12" class="mb-3">
-            <h3>Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthly}}. </h3>
+            <h3 v-if="appDiscount == true">Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthlyDiscount}}. </h3>
+            <h3 v-else-if="this.nuevoProducto == true">Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthlyCalculated}}. </h3>
+            <h3 v-else>Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthly}}. </h3>
           </b-col>
           <b-col cols="12" class="mb-2">
             <h3>Retoma tu cotización en cualquier momento</h3>
@@ -1303,7 +1497,9 @@
             <h2><span>¿Lo vas a dejar pasar?</span></h2>
           </b-col>
           <b-col cols="12" class="mb-3">
-            <h3>Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthly}} y maneja seguro</h3>
+            <h3 v-if="appDiscount == true">Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthlyDiscount}} y maneja seguro</h3>
+            <h3 v-else-if="this.nuevoProducto == true">Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthlyCalculated}} y maneja seguro</h3>
+            <h3 v-else>Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthly}} y maneja seguro</h3>
           </b-col>
           <b-col cols="12" class="mb-2">
             <h3>Personaliza tu cotización en el siguiente paso</h3>
@@ -1319,7 +1515,6 @@
 
   </section>
 </template>
-
 <script>
   import moment from "moment/moment.js"
 
@@ -1335,14 +1530,60 @@
   export default {
     layout: 'InterseguroHomeCotizacion',
     data() {
-      return {
+       return {
+        mostrarMensajeEnviadoEndosar: false,
+        mostrarMensajeEnviadoCotizacion: false,
+        maximoImgDisabled: false,
+        minimoImgDisabled: false,
+        monto_pagar_plata :'',
+        monto_antes_plata :'',
+            
+        monto_pagar_oro :'',
+        monto_antes_oro :'',
+
+        monto_pagar_black :'',
+        monto_antes_black :'',
+        valorSeleccionado: false,
+        activarTooltip: false,
+        activarTooltipDesktop: false,
+        gps:'',
+        frecuencia: '',
+        planSeleccionado:3,
+        selected: 1,
+        monto_pagar: '',
+        monto_antes: '',
+        options: [
+            { value: null, text: '' },
+            { value: '1', text: 'Mensual' },
+            { value: '2', text: 'Trimestral' },
+            { value: '3', text: 'Anual' },
+        ],
+        // placaUppercase: this.item.plateNumber,
+        nuevoProducto: this.$store.state.common.nuevoProducto,
+        mostrarMensajeEnviado: false,
+        inputNumeroCelular: '',
+        placeholderNumeroCelular: 'Ingresa tu número de télefono',
+        code_sku: '',
+        auto_0k: false,
+        cobertura_is: {
+          'name': '',
+          'price': '',
+          'category': 'Seguro',
+          'brand': 'Vehicular',
+          'variant': '',
+          'ammount': '',
+          'quota': '',
+          'discount': '',
+          'startDate': '',
+          'credit' : ''
+        },
         /***********************EVALUAR ********************** */
         soatActive: 0,
         documento_steps2 : '',
         flagElegirFecha: 0,
-        flagCloseListon: 0,
         monto_pagar_steps3:'',
         mostrarCapa: false,
+        mostrarCapaGris: false,
         /******************************** */
         Condicionado_Particular:'',
         item: {
@@ -1365,6 +1606,7 @@
         mostrarListaModelo: false,
         activadorItem: 0,
         ischecked: false,
+
         itemElegido: {
           brandId:'',
           brand:'',
@@ -1555,9 +1797,7 @@
               fechaInicioSeguro: ""
             }
           }
-        },
-        /* ********************** SOAT *********************/
-        itemSoat:{}
+        }
       }
     },
     created() {
@@ -1579,6 +1819,19 @@
       Datepicker: () => import('vuejs-datepicker/dist/vuejs-datepicker')
     },
     computed: {
+      classPlan: function(){
+        return this.planSeleccionado == 4 ? 'planPlata' : this.planSeleccionado == 3 ? 'planBlack' : this.planSeleccionado == 6 ? 'planOro' : 'planNoSeleccionado'
+        // return "uno"
+      },
+      appDiscount: function(){
+        let appDiscount = this.$store.state.common.appDiscount
+        // return appDiscount
+        return false
+      },
+      placaUppercase: function(){
+        let placa = this.item.plateNumber.toUpperCase()
+        return placa
+      },
       isMinimo: function() {
         let decimal = this.clonado.vehicle.minimum / 100
         let minimo = Math.ceil(decimal) * 100;
@@ -1593,6 +1846,188 @@
       },
     },
     methods: {
+      clickCapaGris(){
+        this.mostrarCapaGris = false
+        this.activarTooltipDesktop = false
+        this.activarTooltip = false
+      },
+      showSumaAseguradaMobile(){
+        this.mostrarCapaGris = true
+        this.activarTooltip = true
+        console.log(this.mostrarCapaGris)
+      },
+      showSumaAseguradaDesktop() {     
+        this.mostrarCapaGris = true   
+        this.activarTooltipDesktop = true
+        console.log(this.mostrarCapaGris)
+      },
+      hideSumaAsegurada() {
+        
+      },
+      showModalInicioVigencia() {
+        this.$refs.modalInicioVigencia.show();
+      },
+      hideModalInicioVigencia() {
+        this.$refs.modalInicioVigencia.hide();
+      },
+      showModalEnviarEmail(){
+        this.mostrarMensajeEnviadoCotizacion = false
+        this.$refs.modalEnviarEmail.show();
+      },
+      hideModalEnviarEmail(){
+        this.$refs.modalEnviarEmail.hide();
+      },
+      seleccionarFrecuencia(){
+        if (this.selected == 1) {
+            this.monto_pagar_plata = this.listaBasica.policy.monthly
+            this.monto_antes_plata = this.listaBasica.policy.monthlyCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.monthly
+            this.monto_antes_oro = this.listaMedia.policy.monthlyCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.monthly
+            this.monto_antes_black = this.listaFull.policy.monthlyCalculated
+
+            if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
+                this.monto_pagar = this.listaFull.policy.monthly
+                this.monto_antes = this.listaFull.policy.monthlyCalculated                
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.monthly
+                this.monto_antes = this.listaMedia.policy.monthlyCalculated
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.monthly
+                this.monto_antes = this.listaBasica.policy.monthlyCalculated
+            }else{
+
+            }
+            
+        }else if(this.selected == 2){
+            this.monto_pagar_plata = this.listaBasica.policy.quarterly
+            this.monto_antes_plata = this.listaBasica.policy.quarterlyCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.quarterly
+            this.monto_antes_oro = this.listaMedia.policy.quarterlyCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.quarterly
+            this.monto_antes_black = this.listaFull.policy.quarterlyCalculated
+
+            if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
+                this.monto_pagar = this.listaFull.policy.quarterly
+                this.monto_antes = this.listaFull.policy.quarterlyCalculated
+
+                this.monto_pagar_mensual = this.listaFull.policy.quarterly
+                this.monto_antes_mensual = this.listaFull.policy.quarterlyCalculated
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.quarterly
+                this.monto_antes = this.listaMedia.policy.quarterlyCalculated
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.quarterly
+                this.monto_antes = this.listaBasica.policy.quarterlyCalculated
+            }else{}
+        }else if(this.selected == 3){
+            this.monto_pagar_plata = this.listaBasica.policy.annual
+            this.monto_antes_plata = this.listaBasica.policy.annualCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.annual
+            this.monto_antes_oro = this.listaMedia.policy.annualCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.annual
+            this.monto_antes_black = this.listaFull.policy.annualCalculated
+            
+            // this.frecuencia = 'Anual'
+            if (this.planSeleccionado == 3) {
+                this.monto_pagar = this.listaFull.policy.annual
+                this.monto_antes = this.listaFull.policy.annualCalculated
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.annual
+                this.monto_antes = this.listaMedia.policy.annualCalculated
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.annual
+                this.monto_antes = this.listaBasica.policy.annualCalculated
+            }else{}
+        }else if(this.selected == 4){
+            this.frecuencia = 'Bianual'
+            if (this.planSeleccionado == 3) {
+                this.monto_pagar = this.listaFull.policy.twoYears
+                this.monto_antes = this.listaMedia.policy.twoYearsCalculated
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.twoYears
+                this.monto_antes = this.listaMedia.policy.twoYearsCalculated
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.twoYears
+                this.monto_antes = this.listaBasica.policy.twoYearsCalculated
+            }else{}
+        }else{}
+      },
+      
+      seleccionarPLanDesktop(id){
+        this.planInactivo = true
+
+        if (this.planSeleccionado == id && this.valorSeleccionado) {
+          console.log("ID => ",id)
+          this.detectarPLanSeleccionado()
+           this.seleccionarFrecuencia()
+        }else{
+          this.valorSeleccionado = true
+          let elemento1 = document.querySelectorAll(".v2-plan-item")
+          for (let index = 0; index < elemento1.length; index++) {
+            elemento1[index].classList.remove("planActivoDesktop")      
+          }
+          setTimeout(() => {
+            let arreglo = document.querySelectorAll(".plan"+id)
+            console.log("arreglo",arreglo)
+            for (let i = 0; i < arreglo.length; i++) {
+              arreglo[i].classList.add("planActivoDesktop")
+            }
+            this.seleccionarFrecuencia()
+          }, 250);
+          this.$store.commit('common/setPlanSeleccionado',id)
+          this.planSeleccionado = id
+          this.detectarPLanSeleccionado()
+        }
+        
+      },
+      devolverMonto(lista){
+         
+      },
+      detectarPLanSeleccionado(){
+        if(this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10){        
+          this.listCotizacion = this.listaFull
+          this.devolverMonto(this.listaFull)
+          if(this.endosoSeleccionado.id != 0){        
+            this.$store.commit('common/setPlanSeleccionado',10)
+          }
+          this.cobertura_is.variant = "black $"+this.listCotizacion.policy.monthly+"/mes"
+        }else if(this.$store.state.common.planSeleccionado == 6){            
+            this.listCotizacion = this.listaMedia
+            this.cobertura_is.variant = "oro $"+this.listCotizacion.policy.monthly+"/mes"
+            this.endosoSeleccionado = {id:0, name: ''}
+            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
+        }else if(this.$store.state.common.planSeleccionado == 4){
+            this.listCotizacion = this.listaBasica
+            this.endosoSeleccionado = {id:0, name: ''}
+            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
+            this.cobertura_is.variant = "plata $"+this.listCotizacion.policy.monthly+"/mes"
+        }else{}
+      },
+      seleccionarPLan(id){
+        this.planInactivo = true
+        let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
+        for (let index = 0; index < elemento1.length; index++) {
+          elemento1[index].classList.remove("planActivo")      
+        }
+        setTimeout(() => {
+          let arreglo = document.querySelectorAll(".plan"+id)
+          console.log("ARREGLO",arreglo)
+          for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i].classList.add("planActivo")
+          }
+          this.seleccionarFrecuencia()
+        }, 250);
+        this.$store.commit('common/setPlanSeleccionado',id)
+        this.planSeleccionado = id
+        this.detectarPLanSeleccionado()
+      },
       /*************************************************************** */
         PaginaVista(valor) {
           window.dataLayer = window.dataLayer || [];
@@ -1686,36 +2121,6 @@
         this.ocultarItemsSeleccionados = false
         this.mostrarItemModelo = false
         this.seleccionarPLan(3)
-      },
-      seleccionarPLan(id){
-        this.planInactivo = true
-        let elemento1 = document.querySelectorAll(".detallePlan")
-        for (let index = 0; index < elemento1.length; index++) {
-          elemento1[index].classList.remove("planActivo")      
-        }
-        setTimeout(() => {
-          let arreglo = document.querySelectorAll(".plan"+id)
-          for (let i = 0; i < arreglo.length; i++) {
-            arreglo[i].classList.add("planActivo")
-          }
-        }, 250);
-        this.$store.commit('common/setPlanSeleccionado',id)
-        this.planSeleccionado = id
-        this.detectarPLanSeleccionado()
-      },
-      detectarPLanSeleccionado(){
-        if(this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10){        
-          this.listCotizacion = this.listaFull          
-          if(this.endosoSeleccionado.id != 0){        
-            this.$store.commit('common/setPlanSeleccionado',10)
-          }
-        }else if(this.$store.state.common.planSeleccionado == 6){            
-            this.listCotizacion = this.listaMedia
-            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
-        }else if(this.$store.state.common.planSeleccionado == 4){
-            this.listCotizacion = this.listaBasica
-            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
-        }else{}
       },
       mostrarMarca(){
         this.mostrarListaMarca = true
@@ -1915,6 +2320,7 @@
         this.$store.dispatch('common/createVehicle', this.itemElegido).then((res)=>{
           this.itemElegido.assignedPrice = null
           this.clonado.vehicle.current  = null
+          this.$store.commit('common/setVehicleState', 1)
           this.getCotizacion()
         })
       },
@@ -1922,11 +2328,14 @@
         this.$store.dispatch('common/updateVehicle', this.itemElegido).then((res)=>{
           this.itemElegido.assignedPrice = null
           this.clonado.vehicle.current  = null
+          this.$store.commit('common/setVehicleState', 1)
           this.getCotizacion()
         })
       },
       getCotizacion() {
           this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+
+
             this.listCotizacionTotal = res.data.body
             this.listaBasica = res.data.body.basic
             this.listaMedia = res.data.body.medium
@@ -1935,6 +2344,8 @@
             this.clonado = Object.assign({}, this.listCotizacion)
             this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
             this.remarketingv2(this.$store.state.common.email, 1)
+            this.segundaPantalla()
+            this.seleccionarFrecuencia()
           })
         // }
         this.segundaPantalla()
@@ -1952,6 +2363,7 @@
         this.listCotizacion.paymentMethodId = 3
 
         this.$store.commit('common/setListaCotizacion', this.listCotizacion)
+        this.$store.commit('common/setVehicleState', 1)
         this.$nuxt.$router.push('/cotiza/ingresa-tu-documento')
 
       },
@@ -2086,7 +2498,7 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },
@@ -2190,6 +2602,7 @@
     },
     },
     mounted: function () {
+      this.selected = this.$store.state.common.frecuenciaPago
       if(this.fechaVigencia == null || this.fechaVigencia == 'null' || this.fechaVigencia == ''){
         let fecha = new Date()
         let dia = fecha.getDate()
@@ -2215,17 +2628,25 @@
         this.$store.commit('common/setFlujoDetectado', 'soat')
         let objJWT = JSON.parse(localStorage.getItem("jwt"))
         if (objJWT == null || objJWT == undefined) {
+          
           this.$nuxt.$router.push("/")
         }else{
+          
           /* DETECTAMOS SI PLA SELECCIONADO ESTA EN EL OBJ LOCAL */
           this.planSeleccionado = objJWT.common.planSeleccionado
+          console.log("PLAAAAAAAAAAAN SELECCIONADO", this.planSeleccionado)
           if (objJWT.common.planSeleccionado == undefined || objJWT.common.planSeleccionado == null) {
             this.planSeleccionado = 3
             this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)
-            this.seleccionarPLan(this.planSeleccionado)          
+            this.cobertura_is.variant = "black $"+this.listCotizacion.policy.monthly+"/mes"
+            this.seleccionarPLan(this.planSeleccionado)
+            this.seleccionarPLanDesktop(this.planSeleccionado)
           }else{
+            this.seleccionarPLan(this.planSeleccionado)
             this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)          
             this.seleccionarPLan(this.planSeleccionado)
+            this.seleccionarPLanDesktop(this.planSeleccionado)
+            console.log(this.planSeleccionado)
           }
         }
         /* FIN DE PLAN SELECCIONADO */
@@ -2245,13 +2666,18 @@
               email : res.data.body.email
             }).then((res) =>{
               this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
+              this.$store.commit('common/setObjVehiculo', res.data.body)
               if (res.data.code == 0) {
                 this.objectVehicle = res.data.body
+
+                
                   if (this.objectVehicle.exists) {
+                    console.log("true")
                     this.PaginaVista(true)
                     this.validateVehicleExist(this.objectVehicle)
                     
                   }else{
+                    console.log("false")
                     this.PaginaVista(false)
                     this.mostrarListaMarca = true              
                     this.mostrarMarca()
@@ -2278,7 +2704,531 @@
 </script>
 
 <style lang="scss" scoped>
+button:focus{
+  outline: none;
+}
+.v2modalGPS{
+  &__header{
+    display: flex;
+    background: #0855c4;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    .texto-header{
+      padding-left: 8px;
+    }
+    img{
+      width: 79px;
+    }
+    .titulo{
+      font-family: 'Omnes Medium';
+      font-size: 18px;
+      color: #ffffff; 
+      margin-bottom: 8px;
+    }
+    .descripcion{
+      font-family: 'Omnes Regular';
+      font-size: 14px;
+      color: #ffffff; 
+    }
+  }
+  &__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .box-empresas{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    p{
+      text-align: center;
+    }
+    .certificado{
+      color: #454A6C;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    .tienes-gps{
+      color: #0855C4;
+      font-family: 'Omnes Medium';
+      font-size: 23px;
+      margin-top: 36px;
+    }
+    .finalizar-compra{
+      color: #EA0F90;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      margin-top: 24px;
+    }
+    .empresa-item{
+      display: inline-flex;
+      border: 1px solid #D5D5D5;
+      border-radius: 3px;
+      align-items: flex-start;
+      padding-top: 16px;
+      padding-left: 22px;
+      padding-right: 22px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      width: 296px;
+      margin-top: 24px;
+      img{
+        width: 28px;
+        height: auto;
+        padding-top: 8px;
+      }
+      span{
+        font-size: 11px;
+        color: #454A6C;
+        font-family: 'Omnes Regular';
+      }
+      p{
+        font-size: 18px;
+        color: #454A6C;
+        font-family: 'Omnes Medium';
+        text-align: left;
+      }
+      &__der{
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+      }
+      &__izq{
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+      }
+    }
+  }
+  &__footer{
+    background: #EFF0F3;
+    padding: 16px;
+    p{
+      color: #454A6C;
+      font-size: 13px;
+      font-family: 'Omnes Regular';
+      text-align: center;
+    }
+  }
+}
+.box-mensajeEnviadoCotizacion, .box-mensajeEnviadoEndosar{
+  position: absolute;
+  background: white;
+  width: 100%;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+  height: 240px;
+}
+.box-mensajeEnviadoEndosar{
+  height: 290px;
+  .endosar-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .modal-titulo{
+      padding-top: 36px;
+    }
+  }
+}
+.mostrarMensajeEnviadoEndosar{
+  display: flex;
+}
+.mostrarMensajeEnviadoCotizacion{
+  display: flex;
+}
+.maximoImgDisabled {
+    cursor: not-allowed !important;
+}
+.minimoImgDisabled {
+    cursor: not-allowed !important;
+}
+.maximoImgDisabled{
+  background: #9DA3B5 !important;
+}
+.minimoImgDisabled{
+  background: #9DA3B5 !important;
+}
+.plan-recomendado{
+    height: 40px;
+    color: #EA0F8F;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+}
 
+.v2-detalle-plan.planBlack{
+  border-top: 5px solid #27362d;
+}
+.v2-detalle-plan.planOro{
+  border-top: 5px solid #e6ac38;
+}
+.v2-detalle-plan.planPlata{
+  border-top: 5px solid #b1b1b1;
+}
+.v2-planes{
+  margin-top: 24px;
+  .box-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      background: #ea0c90;
+      color: #ffffff;
+      height: 50px;
+      width: 270px;
+      display: inline-block;
+      border-radius: 4px;
+      font-size: 24px;
+      font-family: 'Omnes regular';
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  }
+  &--titulo{
+    color: #0855C4;
+    font-size: 25px;
+    font-family: "Omnes Medium";
+    text-align: center;
+    padding: 24px 0;
+  }
+}
+.v2-suma-asegurada{
+  .tooltip-suma-aseguradaDesktop{
+    p{
+      color: white;
+    }
+      &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        left: -36px;
+        z-index: 999;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-right: 45px solid #44496b;
+        border-top: 20px solid rgba(39, 54, 45, 0);
+        border-left: 24px solid transparent;
+        border-bottom: 20px solid transparent;
+        top: 74px;
+      }
+      position: absolute;
+      width: 100%;
+      height: 280px;
+      top: -40px;
+      left: 312px;
+      z-index: 999;
+      padding: 32px;
+      margin: auto;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      
+      .item{
+        max-width: 310px;
+        height: 280px;
+        background: #44496B;
+        padding: 24px;
+      }
+      .tooltip-titulo{
+        font-size: 23px;
+      }
+      .tooltip-descripcion{
+        font-size: 16px;
+        font-family: 'Omnes Regular';
+        margin-top: 12px;
+      }
+    }
+  .tooltip-icon{
+    background: #D0D6E0;
+    color: white;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+  }
+  &--titulo{
+    color: #0855C4;
+    font-size: 25px;
+    font-family: "Omnes Medium";
+    text-align: center;
+    padding: 42px 0 28px;
+  }
+  .v2-valores-minimo-maximo{
+    color: #454A6C;
+    font-size: 11px;
+    text-align: center;
+    font-family: 'Omnes regular';
+    margin-top: 8px;
+  }
+  .v2-valor-comercial{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    .tooltip-suma-asegurada{
+      &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        left: calc(50% - 18px);
+        z-index: 999;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-right: 18px solid transparent;
+        border-top: 24px solid rgba(39,54,45,0);
+        border-left: 18px solid transparent;
+        border-bottom: 39px solid white;
+        top: -28px;
+      }
+      position: absolute;
+      width: 100%;
+      height: 280px;
+      top: 60px;
+      left: 0;
+      z-index: 999;
+      padding: 32px;
+      margin: auto;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      
+      .item{
+        max-width: 310px;
+        height: 280px;
+        background: white;
+        padding: 24px;
+      }
+      .tooltip-titulo{
+
+      }
+      .tooltip-descripcion{
+        
+      }
+    }
+    .e-range{
+      text-align: center;
+      width: 170px;
+      margin: 0 12px;
+      border: 1px solid #D5D5D5;
+      height: 46px;
+      color: #454A6C;
+      font-size: 20px;
+    }
+    .minimoImg, .maximoImg{
+      background: #0855C4;
+      width: 35px;
+      height: 35px;
+      border-radius: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+  }
+}
+.v2-datos-carro{
+  font-family: 'Omnes Regular';
+  border: 1px solid #D5D5D5;
+  padding: 14px 14px 0;
+  .v2-carro-editar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    span{
+      &:nth-child(1){
+        color: #454A6C;
+        font-size: 18px;
+        font-family: 'Omnes Medium';
+        margin-bottom: 24px
+      }
+    }
+    .v2-editar{
+      color: #0855C4;
+      font-size: 14px;
+      font-family: "Omnes Semibold";
+      cursor: pointer;
+      border: 1px solid #1251C4;
+      padding: 2px 10px;
+    }
+  }
+  &__detalle{    
+    margin-bottom: 24px;
+    .mi-modelo-descripcion{
+      width: auto;
+      display: inline-block;
+    }
+    p{
+      font-family: 'Omnes Medium';
+      color: #454A6C;
+      font-size: 14px;
+      display: flex;
+    }
+    span{
+      display: inline-block;
+      width: 78px;
+      font-family: 'Omnes Regular';
+      min-width: 78px;
+    }
+  }
+}
+
+.v2-seleccion-planes{
+  display: flex;
+  justify-content: space-between;
+  
+  &__item{
+    background: #EFF0F3;
+    color: #B1B1B1;
+    width: 100px;
+    padding: 3px 0;
+    p{
+      font-size: 15px;
+      color: #B1B1B1;
+      text-align: center;
+    }
+  }
+}
+.v2-detalle-plan{
+  margin-top: 12px;
+  border-radius: 3px;
+  border: 1px solid #D5D5D5;
+  padding: 35px;
+  .detalle-item{
+    display: flex;
+    align-items: center;
+    .symbol-point{
+      color: #EA0F90;
+      font-size: 8px;
+      margin-right: 8px;
+    }
+    .detalle-enlace{
+      color: #0855c4;
+      text-decoration: underline;
+      font-size: 16px;
+      font-family: 'Omnes medium';
+    }
+  }
+  .box-monto-frecuencia{
+    display: flex;
+    padding-top: 24px;
+  }
+  .que-me-cubre{
+    .titulo{
+      margin-bottom: 24px;
+      font-size: 20px;
+      font-family: "Omnes Medium";
+      color: #454A6C;
+    }
+    &__item{
+      margin: 2px 0;
+      color: #454A6C;
+      font-size: 16px;
+      font-family: "Omnes regular";
+      padding-left: 20px;
+      position: relative;
+      &:before{
+        content: "";
+        background: url("https://www.interseguro.pe/vehicular/resources/campania2020/check.png");
+        background-size: contain;
+        height: 11px;
+        width: 11px;
+        position: absolute;
+        left: 0;
+        top: 6px;
+      }
+    }
+  }
+  .box-importante{
+    padding: 14px 0;
+    .titulo{
+      font-size: 20px;
+      font-family: "Omnes Medium";
+      color: #454A6C;
+      margin-bottom: 16px;
+    }
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      p{
+        color: #454A6C;
+        font-size: 16px;
+        font-family: "Omnes regular";
+      }
+    }
+  }
+  &__suma{
+    width: 50%;
+    .monto-frecuencia{
+      color: #454A6C;
+      font-family: "Omnes Medium";
+      font-size: 30px;
+    }
+    .antes{
+      font-family: "Omnes Regular";
+      font-size: 18px;
+      margin-top: 12px;
+      text-decoration: line-through;
+      -webkit-text-decoration-color: #ea0f90;
+      text-decoration-color: #ea0f90;
+    }
+  }
+  &__box-frecuencia{
+    width: 50%;
+    .custom-select{
+      height: 45px;
+      color: #454A6C;
+      font-family: 'Omnes medium';
+      font-size: 20px;
+      width: 150px;
+      cursor: pointer;
+    }
+  }
+  
+}
+.v2-comparar-planes{
+  margin: 36px 0;
+  text-align: center;
+  a{
+    color: #454A6C;
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: "Omnes medium";
+  }
+}
+
+.enlaceTerminosCondiciones{
+  color: #0854c4;
+  cursor: pointer;
+}
 .liston{
   background: #ff9200 !important;
   position: absolute;
@@ -2317,9 +3267,6 @@
 
 .desktop_cotizador_mobile{
   display:  block;
-}
-.page-cotizador{
-  // padding-top:  110px;
 }
 .entidad_float{
   display: none;
@@ -2371,25 +3318,6 @@ a.steps__item.paso1:after{
   height: 60px !important;
   align-items: flex-start !important;
 }
-@keyframes shadow-pulse {
-    0% {
-        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.11);
-    }
-
-    100% {
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.11);
-    }
-}
-
-@keyframes shadow-pulse-big {
-    0% {
-        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.11);
-    }
-
-    100% {
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.11);
-    }
-}
 
 .box-btn__button {
   margin-top: 16px;
@@ -2411,6 +3339,78 @@ a.steps__item.paso1:after{
   box-shadow: 0 2px 10px 0 rgba(0,40,80,0.07);
   background: white;
   border-radius: 24px;
+  .borderNone{
+    border: none !important;
+  }
+  .adicional{
+    border-radius: 5px;
+    border: 1px solid #15b3ff;
+    position: relative;
+    cursor: pointer;
+    &__box{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      background: #15b3ff;
+      left: 0;
+      top: -28px;
+      width: 100%;
+      height: 32px;
+      border-radius: 4px 4px 0 0;
+      text-align: center;
+      span{
+        margin-right: 8px;
+        font-family: 'Omnes Regular';
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+  }
+}
+.borderNone{
+  border: none !important;
+}
+.adicionalMobile{
+  border-radius: 5px;
+  border: 1px solid #15b3ff;
+  position: relative;
+  width: 66%;
+  cursor: pointer;
+  .panel-planes__item{
+    width: 50%;
+    display: inline-block;
+    margin-right: -4px;
+  }
+  &__box{
+    position: absolute;
+    background: #15b3ff;
+    left: 0;
+    top: -28px;
+    width: 100%;
+    height: 32px;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+    
+    span{
+      
+      font-family: 'Omnes Regular';
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      font-size: 16px !important;
+      line-height: 30px;
+    }
+  }
 }
 .descargar_cobertura{
   max-width: 131px;
@@ -2435,6 +3435,7 @@ a.steps__item.paso1:after{
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 .card-cobertura .card-header a[data-v-614db64e]:not(:disabled):not(.disabled):active, .card-cobertura .card-header a:not(:disabled):not(.disabled).active[data-v-614db64e], .card-cobertura .card-header .show > a.dropdown-toggle[data-v-614db64e] {
     color: #fff;
@@ -2444,7 +3445,7 @@ a.steps__item.paso1:after{
   min-width: 200px;
   padding-left: 8px;
   padding-right: 4px;
-
+  font-size: 14px;
 }
 .table-planes{
   .check-table{
@@ -2564,7 +3565,13 @@ a.steps__item.paso1:after{
       box-shadow: 0 2px 8px 0 #89adbf;
   }
 }
-.detallePlan{  
+.detallePlan.pt-45{
+    padding-top: 45px;
+}
+
+
+.detallePlan{
+
   .check-planes{
     color: #696969;
     font-weight: 700;
@@ -2572,7 +3579,6 @@ a.steps__item.paso1:after{
   .plan-item{     
     border-radius: 8px;
     overflow: hidden;
-    background-color: #ffffff;
     &__header{
       height: 34px;
       color: white;
@@ -2580,49 +3586,12 @@ a.steps__item.paso1:after{
       align-items: center;
       justify-content: center;
       position: relative;
-      &:before{
-        content: "";        
-        height: 22px;
-        width: 100%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        bottom: -14px;
-        left: 0;
-        position: absolute;
-      } 
     }
     &__cuerpo{
       display: flex;
       align-items: center;
       justify-content: center;
       height: 55px;
-    }
-  }
-  .basico-item{
-    &__header{
-      background: #b1b1b1;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/plata.png);
-        bottom: -10px;
-      }
-    }
-  }
-  .semifull-item{
-    &__header{
-      background: #e6ac38;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/oro.png);
-        bottom: -6px;
-      }
-    }
-  }
-  .full-item{
-    &__header{
-      background: #27362d;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/black.png);
-        bottom: -6px;
-      }
     }
   }
   &--item{
@@ -2653,7 +3622,6 @@ a.steps__item.paso1:after{
     } 
   }
   .lista-plan0{
-    padding-top: 24px;
     p{
       font-size: 14px;
       font-weight: normal;
@@ -2730,17 +3698,15 @@ a.steps__item.paso1:after{
   box-shadow: none;
 }
 .planActivo{
-  box-shadow: 0 3px 6px 0 #15b3ffa3;
+  background: #6B797F !important;
   position: relative;
   &:before{
     content: "";
-    background-image: url(../../../static/media/img/root/check_planes_cotizador.png);
     position: absolute;
-    width: 32px;
-    height: 24px;
-    right: -10px;
-    top: -10px;
-    border-radius: 50%;
+    width: 20px;
+    height: 10px;
+    left: 39px;
+    bottom: -19px;
     z-index: 9;
     text-align: center;
     align-items: center;
@@ -2778,75 +3744,41 @@ a.steps__item.paso1:after{
 .panel-planes{
   display: flex;
   width: 100%;
+  
   &__item{
     padding: 4px;
     width: 33%;   
+    
   }
   .item{
     width: 100%;
-    height: 88px;
+    height: 50px;
     border-radius: 8px;
     padding-top: 0;
+    background: #EFF0F3;
   }
   p,span{
     font-size: 11px;
   }
   .plan-item{     
-    border-radius: 8px;
+    border-radius: 3px;
     overflow: hidden;
-    background-color: #ffffff;
     &__header{
-      height: 34px;
+      height: 26px;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      &:before{
-        content: "";        
-        height: 18px;
-        width: 100%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        bottom: -14px;
-        left: 0;
-        position: absolute;
-      } 
     }
     &__cuerpo{
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 55px;
+      height: 16px;
     }
   }
-  .basico-item{
-    &__header{
-      background: #b1b1b1;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/plata.png);
-        bottom: -10px;
-      }
-    }
-  }
-  .semifull-item{
-    &__header{
-      background: #e6ac38;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/oro.png);
-        bottom: -6px;
-      }
-    }
-  }
-  .full-item{
-    &__header{
-      background: #27362d;
-      &:before{
-        background-image: url(../../../static/media/img/cotizacion/black.png);
-        bottom: -6px;
-      }
-    }
-  }
+
   span{
     font-size: 18px;
   }
@@ -2927,6 +3859,19 @@ a.steps__item.paso1:after{
 
   }
 }
+.capaOcultaGris{
+    background: rgba(37, 39, 51, 0.74902);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    top: 0;
+}
+.mostrarCapaGris{
+  display: block !important;
+}
 .mostrarCapa{
     display: block;
   }
@@ -2939,32 +3884,81 @@ a.steps__item.paso1:after{
     letter-spacing: 0.35px;
     color: #565656;
   }
-.mail-cotizador{
-  box-shadow: 0 2px 10px 0 rgba(0,40,80,0.07);
-  cursor: pointer;
-  .mail{
-    background: #0855c4;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    position: absolute;
-    right: -12px;
-    top: -24px;
-    color: white;
-    padding: 3px 12px;
-    border-radius: 4px;
-    img{
-      width: 26px;
-      height: auto;
-    }
-    p{
-      line-height: 1;  
-      color: white;
-      font-size: 14px;  
-      padding-top: 4px;
-      padding-left: 4px;  
+  .descargar-detalle{
+    margin: 24px 0;
+    text-align: center;
+    a{
+      cursor: pointer;
+      color: #454A6C;
+      font-size: 16px;
+      font-family: "Omnes medium";
+      text-decoration: underline;
     }
   }
+  .item-inferior{
+    position: absolute;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    left: 0;
+  }
+  .mail-cotizador{
+    &:hover{
+    background: #0855c4;
+    color: #ffffff;
+  }
+  }
+.mail-fecha{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: #0855c4;
+  border-radius: 4px;
+  width: 240px;
+  height: 46px;
+  border: 1px solid #0855c4;
+  margin: auto;
+  margin-top: 24px;
+  background-image: url(../../../static/media/interseguroVehicular_v2/mail-cotizador.svg);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: right;
+  background-position-x: 170px;
+  transition: .5s;
+  &:hover{
+    background-color: #0855c4;
+    background-image: url(./../../../static/v2_icon/email.png);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: right;
+    background-position-x: 170px;
+    transition: .5s
+  }
+  span{
+    position: relative;
+    left: -15px;
+  }
+  .detalle-item{
+    width: 100%;
+  }
+  img{
+    width: 36px;
+    height: auto;
+  }
+  p{
+    font-family: "Omnes Medium";
+    line-height: 1;  
+    color: #0855c4;
+    font-size: 14px;  
+    padding-top: 4px;
+    font-size: 16px;
+    padding-left: 4px;  
+  }
+  
 }
 .dto-cotizador{
   position: absolute;
@@ -3031,35 +4025,6 @@ a.steps__item.paso1:after{
       padding-top: 0;
   }
 }
-    .box-min-max{
-        display: flex;
-        justify-content: space-between;
-        position: relative;        
-        color: #002e75;
-        font-size: 14px;
-        font-weight: 600; 
-        width: 84%;
-    }
-    .minimoImg{
-        position: absolute;
-        top: 2px;
-        left: -7px;
-        z-index: 99;
-        i{
-            color: #002e75;
-            font-size: 24px;
-        }
-    }
-    .maximoImg{
-        position: absolute;
-        top: 2px;
-        right: -7px;
-        z-index: 99;
-        i{
-            color: #002e75;
-            font-size: 24px;
-        }
-    }
 
 
 /******************************************************************************************************* */
@@ -3289,7 +4254,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   div {
     height: 38px;
-    border-bottom: 1px solid #6c6c6c29;
     cursor: pointer;
     &:hover {
       background: #f7f7f7;
@@ -3355,8 +4319,133 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 .requiere-gps {
+  color: #454A6C;
+  font-size: 16px;
+  font-family: "Omnes regular";
   &:hover {
     cursor: pointer;
+  }
+}
+.modalCompararPlanes{
+   .img-close-modal{
+    position: absolute;
+    top: -38px;
+    right: -38px;
+    cursor: pointer;
+  }
+  p{
+    font-size: 24px;
+    color: #454A6C;
+    text-align: center;
+  }
+  .modal-content{
+    border: none;
+  }
+}
+.modal-rootCotizador{
+  border: none;
+  .img-close-modal{
+    position: absolute;
+    top: -38px;
+    right: -38px;
+    cursor: pointer;
+  }
+  .modal-head{
+    // padding-top: 32px;
+  }
+  .modal-content{
+    border: none;
+  }
+  .modal-body{
+    display: flex;
+    flex-direction: column;
+    &__item{
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    // .tercer-item{
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+  }
+  .box-titulo{
+    p{
+      text-shadow: 0 3px 6px rgba(8, 84, 196, 0.02);
+      font-family: 'Omnes Medium';
+      font-size: 24px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+    }
+    span{
+      text-shadow: 0 3px 6px rgba(8, 84, 196, 0.02);
+      display: inline-block;
+      font-family: 'Omnes Regular';
+      font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+      width: 100%;
+    }
+  }
+  .box-descripcion{
+    padding-left: 12px;
+    .titulo{
+      font-family: 'Omnes Regular';
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 0.89;
+      letter-spacing: normal;
+      text-align: left;
+      color: #14aded;
+    }
+    .desc{
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      text-align: left;
+      color: #454a6c;
+    }
+    
+  }
+  .disclaimer-porcentaje{
+    font-family: 'Omnes Regular';
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.07;
+    letter-spacing: normal;
+    text-align: left;
+    color: #454a6c;
+    margin-top: 24px;
+  }
+  .box-img{
+    img{
+      height: 90px;
+      width: auto;
+      max-width: initial;
+    }
+  }
+  .box-btn{
+     button{
+       width: 260px;
+     }    
   }
 }
 .modal-gps,
@@ -3383,7 +4472,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     display: flex;
     justify-content: center;
     position: relative;
-
     h2 {
       border: 2px solid #00adee;
       display: inline-block;
@@ -3763,58 +4851,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         box-shadow: none;
       }
     }
-    .minimoImg {
-      position: absolute;
-      top: 4px;
-      left: 0;
-      z-index: 99;
-      display: flex;
-      align-items: center;
-      background: transparent;
-      border-radius: 2px;
-      height: 28px;
-      align-items: center;
-      padding: 2px;
-      &__text {
-        color: #fff;
-        font-size: 16px;
-        line-height: 14px;
-      }
-      span {
-        display: flex;
-        justify-content: center;
-      }
-      &__monto {
-        font-size: 13px;
-        color: red;
-      }
-    }
-    .maximoImg {
-      position: absolute;
-      top: 4px;
-      right: 0;
-      z-index: 99;
-      display: flex;
-      align-items: center;
-      background: transparent;
-      color: red;
-      height: 28px;
-      border-radius: 2px;
-      padding: 2px;
-      &__text {
-        color: #ffff;
-        font-size: 16px;
-        line-height: 14px;
-      }
-      span {
-        display: flex;
-        justify-content: center;
-      }
-      &__monto {
-        font-size: 13px;
-        color: red;
-      }
-    }
   }
 
 
@@ -4132,6 +5168,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   transition: opacity 0s ease-out;
   opacity: 0;
   position: absolute;
+  display: none;
 }
 
 .detalle-marca {
@@ -4397,7 +5434,101 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         width: 32px;
     }
 }
+
+
+@media screen and (max-width: 992px) {
+  
+  .planActivo.plata{
+    background-color: #b1b1b1 !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #b1b1b1;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+  .planActivo.oro{
+    background-color: #e6ac38 !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #e6ac38;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+  .planActivo.black{
+    background-color: #27362d !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #27362d;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+}
 @media screen and (min-width: 992px) {
+.capaOcultaGris{
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    top: 0;
+}
+.v2modalGPS{
+    &__header{
+      .titulo{
+        font-size: 22px;
+      }
+      .descripcion{
+        font-size: 18px;
+      }
+    }
+    &__body{
+      .box-empresas{
+        flex-direction: row;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .empresa-item{
+        margin: 8px;
+      }
+      .finalizar-compra{
+        font-size: 18px;
+      }
+    }
+  }
+.planActivoDesktop.plata{
+  // background-color: #fff !important;
+  border: 1px solid #b1b1b1;
+}
+.planActivoDesktop.oro{
+  // background-color: #fff !important;
+  border: 1px solid #e6ac38;
+}
+.planActivoDesktop.black{
+  // background-color: #27362d !important;
+  border: 1px solid #333;
+}
+.planActivo.oro,.planActivo.plata,.planActivo.black{
+  background: white !important;
+    p{
+      color: #333 !important
+    }
+}
 .mail-cotizador{
   .mail{
     right: -16px;
@@ -4496,22 +5627,10 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 
   .panel-planes{
-    &__item{ 
-    }
-    .item{
-    }
     p,span{
       color: white;
     }
-    .basico{      
-        
-    }
-    .semifull{
-    }
-    .full{
-    }
-    span{
-    }
+
     .subtitulo{
       font-size: 15px;
     }
@@ -4519,9 +5638,82 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       font-size: 32px;
     } 
   }
-}
 
-@media (min-width: 1024px) {
+
+
+
+  .page-cotizador{
+    background: white;
+  }
+  .v2-suma-asegurada{
+    &--titulo{
+      text-align: left;
+    }
+    .v2-valor-comercial{
+      justify-content: flex-start;
+      width: 340px;
+      .e-range{
+        width: 220px;
+      }
+    }
+    .v2-valores-minimo-maximo{
+       width: 340px;
+    }
+  }
+  .v2-planes{
+    &--titulo{
+      text-align: left;
+    }
+    .fecha{
+      height: 45px;
+      border: 1px solid #0854c4;
+      width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0854c4;
+      border-radius: 4px;
+      cursor: pointer;
+      span{
+        color: #0854c4;
+      }
+    }
+  }
+  .v2-detalle-plan{
+    padding: 0px 24px 32px;
+    margin-top: 0;
+    height: 635px;
+  }
+  .v2-datos-carro{
+    margin-top: 42px;
+    width: 400px;
+  }
+  .v2-planes-desktop{
+    .plan-item{
+      height: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-family: 'Omnes regular';
+      font-size: 20px;
+    }
+    .plan-black{
+      background: #27362d;
+    }
+    .plan-oro{
+      background: #e6ac38;
+    }
+    .plan-plata{
+      background: #b1b1b1;
+    }
+  }
+
+
+
+
+
   .contenedor-personalizado{
     background: transparent;
     
@@ -4554,6 +5746,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 
+
+
 @media (min-width: 1200px){
   .pt-5-desktop{
     padding-top: 50px !important;
@@ -4577,7 +5771,58 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .entidad_float{
     display: block;
   }
-  
+  .modal-rootCotizador{
+    .img-close-modal{
+    }
+    .modal-head{
+    }
+    .modal-content{
+    }
+    .modal-body{
+      flex-direction: row;      
+      margin-bottom: 0;
+      &__item{
+        display: flex;
+        align-items: flex-start;
+        width: 33%;
+      }
+    }
+    .box-titulo{
+      p{
+        font-size: 38px;
+      }
+      span{
+        font-size: 28px;
+      }
+    }
+    .box-descripcion{
+      .titulo{
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .desc{
+      }
+      
+    }
+    .disclaimer-porcentaje{
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #808080;
+    }
+    .box-img{
+      img{
+      }
+    }
+    .box-btn{
+      button{
+      }    
+    }
+  }
 }
 @media (min-width: 1366px){
   .desktop_cotizador_liston{

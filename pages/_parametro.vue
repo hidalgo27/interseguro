@@ -628,6 +628,13 @@
                 this.$store.dispatch('common/getVehicle', rmktItem)
                   .then((ress) => {
                     if (ress.data.code == 0) {
+                      if (ress.data.body.exists == true) {
+                        this.$store.commit('common/setVehicleState', 1)
+                        this.$store.commit('common/setObjVehiculo', ress.data.body)
+                      }else{
+                        this.$store.commit('common/setVehicleState', 0)
+                        this.$store.commit('common/setObjVehiculo', ress.data.body)
+                      }
                       if (ress.data.body.activePolicy === true) {
                         this.$nuxt.$router.push({path: "/placa-registrada"})
                       } else {

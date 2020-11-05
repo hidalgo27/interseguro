@@ -309,7 +309,7 @@
                         </div>
                         </div>
                         <div class="box-btns  box-btnEndosoSesion">
-                            <button class="btn btn-principal" @click="hidemodalEntidadFinanciera()">Confirmar y endosar póliza</button>
+                            <button class="btn btn-principal" @click="hidemodalEntidadFinanciera()">CONFIRMAR Y ENDOSAR</button>
                         </div>
                     </div>
                 </div>

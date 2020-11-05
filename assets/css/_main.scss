@@ -53,7 +53,7 @@
       background: #EA0C90;
       color: white;
       font-size: 16px;
-      font-family: 'Omnes Semibold';
+      font-family: 'Omnes Regular';
       height: 50px;
     }
   }
@@ -78,9 +78,21 @@
   }
 }
 #modalEntidadFinanciera2{
+  .modal-titulo{
+    color: #0855C4;
+    font-size: 32px;
+    font-family: 'Omnes medium';
+    text-align: center;
+    width: 280px;
+    margin: auto;
+    margin-bottom: 24px;
+    line-height: 33px;
+  }
   .box-btns{
+    margin-top: 36px;
     .btn-principal{
-      width: 240px;
+      width: 280px;
+      font-size: 22px;
     }
   }
 }
@@ -603,6 +615,19 @@
   align-items: flex-start !important;
 }
 @media (min-width: 992px) {
+  #modalEntidadFinanciera2{
+    .modal-content {
+      display: flex;
+      min-width: 472px;
+      min-height: 442px;
+    }
+    .modal-body{
+      padding: 48px;
+    }
+    .endosoSession{
+      margin: 44px 0px;
+    }
+  }
   #v2modalGPS{
     .modal-body{
       padding: 0;
@@ -615,6 +640,14 @@
   #v2modalGPS.modal.fade.show {
     align-items: center !important;
   }
+  #modalEnviarEmail{
+    .modal-content{
+      display: flex;
+      width: 420px;
+      height: 305px;
+    }
+  }
+  
 }
 @media (min-width: 1024px) {
   .rotor-group-heading {
@@ -748,7 +781,13 @@
       }
     }
 
-    
+    .modal{
+      .box-btns{
+        .btn-principal{
+          font-size: 22px;
+        }
+      }
+    }
 }
 
 .modalContinuarSinPlaca{

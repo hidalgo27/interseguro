@@ -1154,14 +1154,14 @@ import { validationMixin } from 'vuelidate'
                     "pantalla": 3,
                     "enviarCorreo":0,
                     "datosCorreo":{
-                        "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+                        "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
                         "plantilla": this.objPlantilla,
                         "utm": this.objUtm
                     },
                     "datosProducto": {
                         marca : this.$store.state.common.itemElegido.brand,
                         modelo : this.$store.state.common.itemElegido.model,
-                        planSeleccionado : this.planSeleccionado+'',
+                        planSeleccionado : this.$store.state.common.planSeleccionado,
                         valorComercial : this.$store.state.common.current,
                         pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
                         // desde : localStorage.getItem("monthly") == null
