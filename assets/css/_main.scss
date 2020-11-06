@@ -80,19 +80,19 @@
 #modalEntidadFinanciera2{
   .modal-titulo{
     color: #0855C4;
-    font-size: 32px;
+    font-size: 23px;
     font-family: 'Omnes medium';
     text-align: center;
     width: 280px;
     margin: auto;
     margin-bottom: 24px;
-    line-height: 33px;
+    line-height: 25px;
   }
   .box-btns{
     margin-top: 36px;
     .btn-principal{
       width: 280px;
-      font-size: 22px;
+      font-size: 18px;
     }
   }
 }
@@ -350,8 +350,16 @@
     border: none;
   }
 }
+#modalInicioVigencia2{
+  .modal-titulo{
+    width: 100%;
+  }
+}
 #modalInicioVigencia{
   border: none;
+  .modal-titulo{
+    width: 100%;
+  }
   .modal-body{
     min-height: 100% !important;
     margin: 0;
@@ -595,7 +603,24 @@
   align-items: center;
   justify-content: center;
 }
-
+#modalCompararPlanes{
+  .modal-content{
+    padding: 0;
+  }
+  .modal-body {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .modal-titulo {
+    color: #0855C4;
+    font-size: 23px;
+    font-family: 'Omnes Medium';
+    text-align: center;
+    /* width: 220px; */
+    margin: auto;
+    margin-bottom: 24px;
+  }
+}
 #modalEntidadFinanciera{
   .modal-content{
     width: 96%;
@@ -616,6 +641,10 @@
 }
 @media (min-width: 992px) {
   #modalEntidadFinanciera2{
+    .modal-titulo{
+      font-size: 32px;
+      line-height: 33px;
+    }
     .modal-content {
       display: flex;
       min-width: 472px;
@@ -626,6 +655,11 @@
     }
     .endosoSession{
       margin: 44px 0px;
+    }
+    .box-btns{
+      .btn-principal{
+        font-size: 22px;
+      }
     }
   }
   #v2modalGPS{

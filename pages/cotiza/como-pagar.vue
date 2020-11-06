@@ -38,8 +38,16 @@
       </b-row>  
     </b-container>  
         <b-container class="contenedor-custom  mb-4">
-            <b-row class="justify-content-center">
+            
+            <b-row class="justify-content-center" style="position: relative;">
+                <div class="liston-agora" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">
+                    <div>
+                        <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
+                    </div>
+                    <p class="subtitulo">Vale S/ 100 de Agora</P>
+                </div>
                 <b-col cols="12" md="8">
+                    
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">                                
                             <!-- <b-col cols="12"  lg="5" class="metodo-pago__comoPagar" style="background: #FFF">
@@ -194,6 +202,7 @@
                             </b-col> -->
 
                             <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta">
+                                
                                 <div class="panel-custom">
                                     <b-row>
                                         <b-col cols="12" md="12">
@@ -484,7 +493,7 @@
         </b-modal>
 
         <!-- Modal de abandono -->
-        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -505,8 +514,8 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
-        <b-modal id="leavePayment" class="modal-agora" size="lg"  static centered hide-footer hide-header>
+        </b-modal>
+        <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 
                 <b-row class="text-center">
@@ -521,12 +530,12 @@
                 </b-row>
                 <b-row>                    
                     <b-col cols="12" class="mb-2">
-                        <h3><strong>VANIA</strong>, <br> Te regalamos un <strong>vale de S/100 en Agora <br></strong> por comprar tu Seguro Vehicular</h3>
+                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, <br> Te regalamos un <strong>vale de S/100 en Agora <br></strong> por comprar tu Seguro Vehicular</h3>
                     </b-col>
                 </b-row>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-4" cols="12">
-                        <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')">IR A PAGAR</b-button>
+                        <b-button @click="enviarParametroAgora()">IR A PAGAR</b-button>
                     </b-col>
                 </b-row>
                 <b-row>                    
@@ -557,6 +566,7 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterseguroFlujo',
         data(){
             return {
+                valeAgora: false,
                 urlLocal:'',
                 cobertura_is:{
                     plan:''
@@ -709,6 +719,13 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            enviarParametroAgora(){
+                this.valeAgora = true,
+                setTimeout(() => {
+                    this.remarketingv2()
+                }, 0);
+                $nuxt.$emit('bv::hide::modal', 'leavePaymentAgora')
+            },
             cotizador_datalayer(evento,step_valor){
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
@@ -1189,6 +1206,7 @@ import { validationMixin } from 'vuelidate'
                         "utm": this.objUtm
                     },
                     "datosProducto": {
+                        valeAgora: this.valeAgora,
                         marca : this.$store.state.common.itemElegido.brand,
                         modelo : this.$store.state.common.itemElegido.model,
                         planSeleccionado : this.$store.state.common.planSeleccionado,
@@ -1253,9 +1271,14 @@ import { validationMixin } from 'vuelidate'
               if (this.$store.state.common.leaveMessage == 0) {
                   if (e.clientX < 0 || e.clientY < 0) {
                         this.$store.commit('common/setLeaveMessage',1)
-                        if (this.urlLocal = "/promocion50") {
-                            // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        // if (this.urlLocal = "/promocion50") {
+                        //     // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
+                        //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        // }else{
+                        //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        // }
+                        if (this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10) {
+                            this.$nuxt.$emit('bv::show::modal','leavePaymentAgora')
                         }else{
                             this.$nuxt.$emit('bv::show::modal','leavePayment')
                         }
@@ -1292,7 +1315,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            this.$nuxt.$emit('bv::show::modal','leavePayment')
+            // this.$nuxt.$emit('bv::show::modal','leavePaymentAgora')
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
@@ -1383,6 +1406,34 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss">
+        .liston-agora{
+            display: none;
+            position: absolute;
+            left: 0;
+            width: 282px;
+            padding: 12px 4px;
+            background: #fff;
+            top: 16px;
+            border-radius: 4px;
+            padding-left: 12px;
+            .titulo{
+                font-size: 18px;
+                color: #0855c4;
+                font-family: 'Omnes Medium';
+                margin-right: 8px;
+            }
+            .subtitulo{
+                color: #454A6C;
+                font-size: 18px;
+                font-family: 'Omnes Medium';
+            }
+            .para-ti{
+                background: #EA0F90;
+                color: #ffffff;
+                border-radius: 4px;
+                padding: 4px;
+            }
+        }
 a.steps__item.paso3:after{
   content: "3" !important;
   background: #0754c4 !important;
@@ -1730,6 +1781,7 @@ a.steps__item.paso1:after{
         border-radius: 20px;
         margin: 0 16px;
         margin-bottom: 24px;
+        
         .imgs{
             display: flex;
             align-items: center;
@@ -2369,6 +2421,9 @@ a.steps__item.paso1:after{
         }
     }
     @media (min-width: 1024px){
+        .liston-agora{
+            display: block;
+        }
         .metodo-pago__ingresatarjeta{
             background: white;
         }

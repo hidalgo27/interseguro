@@ -984,10 +984,10 @@
           hide-header
           ref="modalCompararPlanes"
           id="modalCompararPlanes">
-        <div class="modal-content modalCompararPlanes">
-            <img class="img-close-modal" width="40" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalCompararPlanes()">
+        <div class="modalCompararPlanes">
+            <img class="modal-close" width="40" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalCompararPlanes()">
             <div class="modal-body">
-              <p class="mb-4">COMPARAR PLANES</p>
+              <p class="mb-4  modal-titulo">COMPARAR PLANES</p>
               <table class="table-planes">
                 <tbody>
                   <tr>
@@ -2035,6 +2035,7 @@
       },
       
       seleccionarPLanDesktop(id){
+        id = id+""
         this.planInactivo = true
 
         if (this.planSeleccionado == id && this.valorSeleccionado) {
@@ -2083,6 +2084,7 @@
         }else{}
       },
       seleccionarPLan(id){
+        id = id+""
         this.planInactivo = true
         let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
         for (let index = 0; index < elemento1.length; index++) {
@@ -4009,10 +4011,10 @@ a.steps__item.paso1:after{
     background-color: #0754c4;
 }
 .w180px{
-  min-width: 200px;
+  min-width: 150px;
   padding-left: 8px;
   padding-right: 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .table-planes{
   .check-table{
