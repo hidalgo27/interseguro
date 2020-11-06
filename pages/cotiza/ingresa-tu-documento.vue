@@ -2114,6 +2114,7 @@ export default {
     },
   },
   mounted: function() {
+    
     this.fechaVigencia = this.$store.state.common.fechaVigencia
     this.cobertura_is = this.$store.state.common.objectDigodat
     this.cotizador_datalayer("checkout",1)

@@ -1315,6 +1315,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
+            
             // this.$nuxt.$emit('bv::show::modal','leavePaymentAgora')
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1341,32 +1342,33 @@ import { validationMixin } from 'vuelidate'
                         this.listCotizacion = this.$store.state.common.listaCotizacion
 
                         this.planSeleccionado = objJWT.common.planSeleccionado
-                // this.vehicleState = objJWT.common.vehicleState                
-                
-                this.payment = objJWT.common.frecuenciaPago
-                this.businessId = this.$store.state.common.businessId
-                if (this.payment > 0 ) {
-                    if(this.payment == 1){
-                        this.monto_pagar = this.listCotizacion.policy.monthlyDiscount > 0 ? this.listCotizacion.policy.monthlyDiscount : this.listCotizacion.policy.monthly                                
-                    }else if(this.payment == 2){
-                        this.monto_pagar =  this.listCotizacion.policy.quarterlyDiscount > 0 ? this.listCotizacion.policy.quarterlyDiscount : this.listCotizacion.policy.quarterly                             
-                    }else if(this.payment == 3){
-                        this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
-                    }else if(this.payment == 4){
-                        this.monto_pagar = this.listCotizacion.policy.twoYears > 0 ? this.listCotizacion.policy.twoYears : this.listCotizacion.policy.twoYears
-                        localStorage.setItem("monto_pagar",this.payment)
-                    }else{
-                        this.isDisableButton = true
-                    } 
-                }
+                        // this.vehicleState = objJWT.common.vehicleState                
+                        
+                        this.payment = objJWT.common.frecuenciaPago
+                        this.businessId = this.$store.state.common.businessId
+                        if (this.payment > 0 ) {
+                            if(this.payment == 1){
+                                this.monto_pagar = this.listCotizacion.policy.monthlyDiscount > 0 ? this.listCotizacion.policy.monthlyDiscount : this.listCotizacion.policy.monthly                                
+                            }else if(this.payment == 2){
+                                this.monto_pagar =  this.listCotizacion.policy.quarterlyDiscount > 0 ? this.listCotizacion.policy.quarterlyDiscount : this.listCotizacion.policy.quarterly                             
+                            }else if(this.payment == 3){
+                                this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
+                            }else if(this.payment == 4){
+                                this.monto_pagar = this.listCotizacion.policy.twoYears > 0 ? this.listCotizacion.policy.twoYears : this.listCotizacion.policy.twoYears
+                                localStorage.setItem("monto_pagar",this.payment)
+                            }else{
+                                this.isDisableButton = true
+                            } 
+                        }
 
-                if(this.$store.state.common.cuentasueldo == "Y"  ){
-                    this.discountType = "cta-sueldo"
-                }else if (this.$store.state.common.tarjetaoh == "Y" ) {
-                    this.discountType = "tarjeta-oh"
-                }else{
-                    this.discountType = ""
-                }
+                        if(this.$store.state.common.cuentasueldo == "Y"  ){
+                            this.discountType = "cta-sueldo"
+                        }else if (this.$store.state.common.tarjetaoh == "Y" ) {
+                            this.discountType = "tarjeta-oh"
+                        }else{
+                            this.discountType = ""
+                        }
+                        this.$store.state.common.listaCotizacion.paymentMethodId = this.$store.state.common.frecuenciaPago
                     }
                 })
                 

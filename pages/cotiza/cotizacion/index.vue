@@ -2114,7 +2114,7 @@
 
         this.listCotizacion.policy.startDate = this.fechaVigencia
         this.listCotizacion.paymentMethodId = this.selected
-
+        this.$store.state.common.listaCotizacion.paymentMethodId = this.selected
         this.$store.commit('common/setObjectDigodat', this.cobertura_is)        
         this.$store.commit('common/setItemElegido', this.itemElegido)
         this.$store.commit('common/setListaCotizacion', this.listCotizacion)
