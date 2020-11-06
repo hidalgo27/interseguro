@@ -46,7 +46,7 @@ export default {
         },
         {
           title: "¿Qué pasa con el seguro cuando vendo mi carro?",
-          respuesta: ["<p class='parrafo omnes-medium  pb-2'>Si vendes tu carro y tienes que cancelar tu seguro, escríbenos al 977 822 185 o llámanos al 500 000. Si compras un carro nuevo, ya sabes dónde encontrarnos.</p>"],
+          respuesta: ["<p class='parrafo omnes-medium  pb-2'>Si vendes tu carro y tienes que cancelar tu seguro, llámanos al 500 000. Si compras un carro nuevo, ya sabes dónde encontrarnos.</p>"],
           id: "pregunta6.3",
           identificador: "pregunta6.3"
         },
@@ -58,7 +58,7 @@ export default {
         },
         {
           title: "¿Qué pasa si tengo más preguntas, a dónde llamo?",
-          respuesta: ["<p class='parrafo omnes-medium  pb-2'>WhatsApp: 977 822 185 Teléfono: 500 0000 </p>"],
+          respuesta: ["<p class='parrafo omnes-medium  pb-2'>Teléfono: 500 0000 </p>"],
           id: "pregunta6.5",
           identificador: "pregunta6.5"
         },
@@ -70,7 +70,7 @@ export default {
         },
         {
           title: "¿Qué pasa si quiero anular mi póliza?",
-          respuesta: ["<p class='parrafo omnes-medium  pb-2'>Escríbenos o llámanos a: WhatsApp: 977 822 185 Teléfono: 500 0000 <br>Recuerda que, bajo la cláusula de derecho de arrepentimiento, si decides anular tu póliza luego de los primeros 15 días calendario de haber hecho la compra, tienes derecho a la devolución del total de la prima pagada. <br> En caso la anulación se de después de dicho tiempo, la devolución de prima será únicamente sobre los días de seguro contratados pero no gozados. <br>La devolución se realizará como máximo en 30 días calendario desde la solicitud. </p>"],
+          respuesta: ["<p class='parrafo omnes-medium  pb-2'>Escríbenos o llámanos a: Teléfono: 500 0000 <br>Recuerda que, bajo la cláusula de derecho de arrepentimiento, si decides anular tu póliza luego de los primeros 15 días calendario de haber hecho la compra, tienes derecho a la devolución del total de la prima pagada. <br> En caso la anulación se de después de dicho tiempo, la devolución de prima será únicamente sobre los días de seguro contratados pero no gozados. <br>La devolución se realizará como máximo en 30 días calendario desde la solicitud. </p>"],
           id: "pregunta6.7",
           identificador: "pregunta6.7"
         }

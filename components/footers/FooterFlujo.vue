@@ -36,14 +36,8 @@
           <div class="col-12  col-sm-3">
             <p class="footer--txt footer--subtitle">¿Necesitas usar tu seguro o hacer una consulta?</p>
             
-            <div class="footer-whatsapp">              
-              <p class="mg-b0">Escríbenos por Whatsapp:</p>
-              <div class="footer-number">
-                <img src="../../static/media/img/contact-icon-whatsapp-white.svg" height="35" alt="icon-whatsapp" class="image-20">
-                <a style="color: white" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener"> 977 822 185</a>
-              </div>
-            </div>
-            <div class="footer-telefono">              
+
+            <div class="footer-telefono  mt-2">              
               <p class="pd-t16  mg-b0">LLámanos al:</p>
               <div class="footer-number">
                 <img src="../../static/media/img/contact-icon-call-white.svg" height="35" alt="icon-phone" class="image-20">

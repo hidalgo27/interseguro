@@ -34,7 +34,7 @@ export default {
       preguntas:  [
           {
             title: "¿Dónde puedo reportar un siniestro?",
-            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Puedes escribirnos por WhatsApp al 977 822 185 o llamarnos al 500 0000.</p>"],
+            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Puedes llamarnos al (01) 500 0000.</p>"],
             id: "pregunta7.1",
             identificador: "pregunta7.1"
           },
@@ -64,7 +64,7 @@ export default {
           },
           {
             title: "¿Dónde averiguo el estado de mi siniestro?",
-            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Escríbenos por WhatsApp al 977822185.</p>"],
+            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Llámanos (01)500 0000.</p>"],
             id: "pregunta7.6",
             identificador: "pregunta7.6"
           }

@@ -25,11 +25,6 @@
                                 <img src="../../static/media/img/home/telefono-header.png" alt="email">
                             </a>
                         </div>
-                        <div class="whatsapp  d-none" v-bind:class="{ oculto: !isOculto }">
-                            <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Tengo%20una%20consulta.%20">
-                                <img src="../../static/media/img/home/wapp.png" alt="email">
-                            </a>
-                        </div>
                         <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div>
@@ -94,7 +89,7 @@
                                 <nuxt-link v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
                     </li>
                     <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
-                        <div class="whatsapp  mr-2">
+                        <div class="telefono  mr-2">
                             <div class="d-flex  telefono-desktop">
                                 <div class=" telefono-desktop-img">
                                     <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
@@ -104,20 +99,6 @@
                                 </div>
                             </div>
                             
-                        </div>
-                        <div class="telefono ">
-                            <a target="_blank" style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Estoy%20en%20la%20web%20de%20Seguro%20Vehicular%20y%20tengo%20una%20consulta.%20">                              
-                                
-                                <div class="d-flex  wapp-desktop">
-                                    <div class="wapp-desktop-img">
-                                        <span><img width="28" src="../../static/media/img/home/wapp.png" alt="email"></span>
-                                    </div>
-                                    <div>
-                                        <span  style="text-align:left; display: flex" class="ml-2">Escríbenos<br>977 822 185</span>
-                                    </div>
-                                </div>
-                            </a>
-                           
                         </div>
                     </div>
 
@@ -636,7 +617,7 @@ export default {
                 justify-content: space-between;
                 .nav-contacto{
                     .telefono{
-                        width: 120px;
+                        width: 132px;
                     }
                     .whatsapp{
                         width: 120px;

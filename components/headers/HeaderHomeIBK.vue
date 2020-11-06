@@ -48,15 +48,6 @@
           </li>
 
           <div class="nav-contacto">
-            <div class="whatsapp">
-              <span>
-                <img src="../../static/media/interseguroVehicular_v2/nav_wapp_azul.svg" alt="email">
-              </span>
-              <span>
-                Whatsapp Vehicular
-                <br>977 822 185
-              </span>
-            </div>
             <div class="llamanos">
               <span>
                 <img src="../../static/media/interseguroVehicular_v2/nav_telefono_azul.svg" alt="email">

@@ -26,11 +26,6 @@
               </li>
               <li>
                 <div>
-                  <p><img width="30" src="../static/media/img/contact-icon-whatsapp-green.svg" alt="Whatsapp Interseguro Vehicular"><span class="tag-1">977 822 185</span></p>
-                </div>
-              </li>
-              <li>
-                <div>
                   <p><img width="30" src="../static/media/img/email_verde.svg" alt="email Interseguro Vehicular"><span class="tag-1">segurovehicular@interseguro.com.pe</span></p>
                 </div>
               </li>

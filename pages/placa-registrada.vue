@@ -22,7 +22,7 @@
 
                                     <div class="form-group row">
                                         <div class="col-10 offset-1 col-md-8 offset-md-2 on-boarding">
-                                            <div class="text-center step-message">Si tienes alguna duda sobre cómo usar tu seguro, no dudes en escribirnos por Whatsapp al <a data-action="share/whatsapp/share" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola%20shielDev,%20quiero%20agendar%20una%20reunión." target="_black">977 822 185.</a></div>
+                                            <div class="text-center step-message">Si tienes alguna duda sobre cómo usar tu seguro, no dudes llamarnos al (01)500 0000 </div>
                                         </div>
                                     </div>
 

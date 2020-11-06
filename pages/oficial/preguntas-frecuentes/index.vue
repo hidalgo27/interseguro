@@ -186,7 +186,7 @@ export default {
           body: [
             {
               preg: "¿Dónde puedo reportar un siniestro?",
-              resp: "Puedes escribirnos por WhatsApp al 977 822 185 o llamarnos al 500 0000.",
+              resp: "Llamarnos al (01) 500 0000.",
               id: "pregunta5.1"
             },
             {
@@ -201,7 +201,7 @@ export default {
             },
             {
               preg: "¿Dónde averiguo el estado de mi siniestro?",
-              resp: "Escríbenos por WhatsApp al 977 822 185.",
+              resp: "llámanos al 500 000.",
               id: "pregunta5.4"
             }
           ],
@@ -224,7 +224,7 @@ export default {
             },
             {
               preg: "¿Qué pasa con el seguro cuando vendo mi carro?",
-              resp: "Si vendes tu carro y tienes que cancelar tu seguro, escríbenos al 977 822 185 o llámanos al 500 000. Si compras un carro nuevo, ya sabes dónde encontrarnos.",
+              resp: "Si vendes tu carro y tienes que cancelar tu seguro, llámanos al 500 000. Si compras un carro nuevo, ya sabes dónde encontrarnos.",
               id: "pregunta6.3"
             },
             {
@@ -234,7 +234,7 @@ export default {
             },
             {
               preg: "¿Qué pasa si tengo más preguntas, a dónde llamo?",
-              resp: "WhatsApp: 977 822 185 Teléfono: 500 0000",
+              resp: "Teléfono: 500 0000",
               id: "pregunta6.5"
             },
             {
@@ -244,7 +244,7 @@ export default {
             },
             {
               preg: "¿Qué pasa si quiero anular mi póliza?",
-              resp: "Escríbenos o llámanos a: WhatsApp: 977 822 185 Teléfono: 500 0000",
+              resp: "Escríbenos o llámanos a: Teléfono: 500 0000",
               id: "pregunta6.4"
             }
           ],

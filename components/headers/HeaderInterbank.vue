@@ -13,11 +13,6 @@
                             <img src="../../static/media/img/home/telefono.png" alt="email">
                         </a>
                     </div>
-                    <div class="whatsapp">
-                        <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Tengo%20una%20consulta%20">
-                            <img src="../../static/media/img/home/whatsapp.png" alt="email">
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="menu-nav__der">
@@ -33,25 +28,13 @@
                         <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
                     </li>
                     <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
-                        <div class="whatsapp">
+                        <div class="telefono">
                             <span><img src="../../static/media/img/home/telefono.png" alt="email"></span>
                             <span class="ml-2">Llámanos<br>(01)500 0000</span>
-                        </div>
-                        <div class="telefono  ml-4">
-                            <span><img src="../../static/media/img/home/whatsapp.png" alt="email"></span>
-                            <span class="ml-2">Escríbenos<br>977 822 185</span>
                         </div>
                     </div>
 
                     <div id="btn-cotizaHead"  class="box-cotiza  oculto"  v-bind:class="{ ocultoAcctivador: isOculto }">
-                        <!-- <div class="btn-cotiza">
-                            <a
-                              href="/interbank"
-                              class="text-center"
-                              @click="cotizarTop($event)"
-                              style="cursor: pointer; width: 180px; height: 44px;"
-                            >COTIZAR</a>
-                        </div> -->
                     </div>
 
                 </ul>
@@ -350,10 +333,10 @@ export default {
                 justify-content: space-between;
                 .nav-contacto{
                     .telefono{
-                        width: 120px;
+                        width: 132px;
                     }
                     .whatsapp{
-                        width: 120px;
+                        width: 132px;
                     }
                 }
                 &__izq{

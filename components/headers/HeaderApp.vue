@@ -471,7 +471,7 @@ export default {
                 justify-content: space-between;
                 .nav-contacto{
                     .telefono{
-                        width: 120px;
+                        width: 132px;
                     }
                     .whatsapp{
                         width: 120px;

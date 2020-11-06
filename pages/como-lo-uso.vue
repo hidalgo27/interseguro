@@ -19,7 +19,7 @@
                                 <span class="span-number">
                                 1.
                                 </span>Asegúrate de estar en un lugar seguro.<br>‍<br><span class="span-number">
-                                2.</span> Mándanos un mensaje por Whatsapp al 977822185 contando lo sucedido.<br>‍<br>
+                                2.</span> Llámanos al (01) 500 0000 .<br>‍<br>
                                 <span class="span-number">
                                 3.</span> Te indicaremos qué pasos debes seguir según tu caso. <br>‍<br><span class="span-number">4.</span>
                                 No siempre será necesario que alguien vaya al lugar del incidente,  pero si lo necesitas alguien del equipo estará
@@ -34,8 +34,7 @@
                         <div>
                             <h2 class="tabs-content__panel--title  text-center"><strong>Chocaste y hay heridos</strong></h2>
                             <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Tranquilo, asegúrate de estar a
-                            salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 o mándanos un mensaje por Whatsapp
-                            al 977822185 contando lo sucedido<br>‍<br><span class="span-number">3.</span> Si el otro carro involucrado
+                            salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 contando lo sucedido<br>‍<br><span class="span-number">3.</span> Si el otro carro involucrado
                             tiene seguro, tendrá que llamarlos.<br>‍<br><span class="span-number">4.</span> Una persona del equipo
                          irá al lugar del accidente, espérala ahí a menos que te indiquemos lo contrario.<br>‍<br><span class="span-number">5.</span>
                             Te acompañaremos a realizar los trámites de la comisaría; como la Denuncia Policial, el dosaje etílico, entre
@@ -50,12 +49,10 @@
                         <div>
                             <h2 class="tabs-content__panel--title  text-center"><strong>Me robaron el carro</strong></h2>
                             <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Tranquilo, asegúrate de estar a
-                                salvo.<br>‍<br><span class="span-number">2.</span> Mándanos un mensaje por Whatsapp al 977822185 contando
-                                lo sucedido.<br>‍<br><span class="span-number">3.</span> Llámanos al (01) 500 0000 o mándanos un mensaje
-                                por Whatsapp al 977822185 contando lo sucedido.<br>‍<br><span class="span-number">4.</span> Una persona del
-                                equipo llegará a ayudarte inmediatamente.<br>‍<br><span class="span-number">5.</span> Te ayudamos
+                                salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 <span class="span-number">3.</span> Una persona del
+                                equipo llegará a ayudarte inmediatamente.<br>‍<br><span class="span-number">4.</span> Te ayudamos
                                 a presentar una denuncia policial en la comisaría que corresponda y a pasar el dosaje etílico de ser necesario.
-                                <br>‍<br><span class="span-number">6.</span> Si pasan 30 días de haber presentado la denuncia y tu carro
+                                <br>‍<br><span class="span-number">5.</span> Si pasan 30 días de haber presentado la denuncia y tu carro
                                 aparece, te ayudamos a recuperarlo en la comisaría que corresponda y llevamos tu carro al taller.<br>‍<br><span
                                 class="rem text-span-15"> Recuerda que con nosotros tienes vehículos de reemplazo que puedes usar hasta por 30 días.</span></p>
                         </div>
@@ -63,8 +60,7 @@
                     <tab name="Asistencia mecánica y otros servicios" >
                         <div>
                             <h2 class="tabs-content__panel--title  text-center"><strong>Asistencia mecánica y otros servicios</strong></h2>
-                            <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Mándanos un mensaje por Whatsapp
-                                al 977822185.
+                            <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Llámanos al (01) 500 0000 
                                 <br>‍<br><span class="span-number">2.</span> Cuéntanos lo que necesitas, y envíanos tu ubicación por Whatsapp.<br>‍<br><span
                                 class="span-number">3.</span> Te guiamos por el proceso. <br>‍</p>
                         </div>
@@ -85,16 +81,10 @@
                     <h3 class="section-header__title ">¿Necesitas más <span class="span-primario">ayuda?</span></h3>
                     <h3 class="section-header__subtitle  pd-b16">Aquí te damos algunas respuestas</h3>
                     <h3 class="section-header__parrafo  pd-t16">
-                    <strong class="bold-text-6">Estas son las consultas más frecuentes que recibimos. Si tienes alguna otra, escríbenos
-                        por  </strong>                        
-                    <span class="text-span-16">
-                        <strong class="span-primario">Whatsapp al 
-                            <a href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener"> 977 822 185</a>
-                        </strong>  o<strong class="span-primario"> llámanos al <a href="tel:015000000" class="span-primario">500 0000</a></strong>
-                        <!-- <strong  class="span-primario" ><a target="_black" class="main-nav__contact--icon main-nav__contact--icon--whatsapp" data-action="share/whatsapp/share" href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola%20Interseguro,%20quiero%20agendar%20una%20reunión.">977822185</a></strong> -->
-                        </span><strong class="bold-text-6">.
-
-                        </strong>
+                    <strong class="bold-text-6">Estas son las consultas más frecuentes que recibimos. Si tienes alguna otra,  </strong>                        
+                    <span class="text-span-16"> 
+                        <strong class="span-primario"> llámanos al <a href="tel:015000000" class="span-primario">500 0000</a></strong>
+                        </span>
                     </h3>
                 </div>
                 <nuxt-link class="button"  to="/oficial/preguntas-frecuentes">ver Preguntas frecuentes</nuxt-link>

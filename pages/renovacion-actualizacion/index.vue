@@ -81,8 +81,8 @@
                             
                         </div>
                         <div class="card-pago__contacto  mt-3">
-                            <p>¿Tienes dudas? Escríbenos por
-                                <a href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener"> whatsapp</a>
+                            <p>¿Tienes dudas? 
+                                <span>no dudes llamarnos al (01)500 0000</span>
                             </p>
                         </div>
                         <div class="card-btn">

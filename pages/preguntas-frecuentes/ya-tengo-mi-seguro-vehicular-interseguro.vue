@@ -40,13 +40,13 @@ export default {
           },
           {
             title: "¿Que pasa con mi Seguro Vehicuilar si vendo mi carro?",
-            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Si vendes tu carro y tienes que cancelar tu Seguro Vehicular, escríbenos al 977822185 o llámanos al 500 0000. Si compras un carro nuevo , ya sabes donde encontrarnos.</p>"],
+            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Si vendes tu carro y tienes que cancelar tu Seguro Vehicular, llámanos al (01) 500 0000. Si compras un carro nuevo , ya sabes donde encontrarnos.</p>"],
             id: "pregunta3.2",
             identificador: "pregunta3.2"
           },
           {
             title: "¿Cómo cancelo la póliza de mi Seguro Vehicular?",
-            respuesta: ["<p class='parrafo omnes-medium  pb-2'>Escríbenos por WhatsApp al 977822185 o llámanos al 500 0000. Nuestros asesores te guiarán para que puedas cancelar tu Seguro Vehicular sin inconvenientes.</p>"],
+            respuesta: ["<p class='parrafo omnes-medium  pb-2'>llámanos al (01) 500 0000. Nuestros asesores te guiarán para que puedas cancelar tu Seguro Vehicular sin inconvenientes.</p>"],
             id: "pregunta3.3",
             identificador: "pregunta3.3"
           }

@@ -351,43 +351,6 @@
                     
                 </b-col>            
             </b-row>
-            <b-row v-if="this.registrogss" class=" justify-content-center">
-                <b-col cols="10" sm="10" md="8" class="content text-center" >
-                    <div class="pt-3">
-                        <p class="comparte-link">COPIAR O COMPARTIR LINK PARA CLIENTE:</p>                        
-                        <p class="box-copiar-enlace">
-                        <input  type="text" class="copiar-enlace" v-model="urlCompartir">
-
-                        <button class="btn-copy" 
-                            style="background: transparent; border: none;" 
-                            type="button"
-                            v-clipboard:copy="urlCompartir"
-                            v-clipboard:success="onCopy"
-                            >
-                            <span class="msg-copy" v-bind:class="{dnone:isEnableURL}">Texto Copiado</span>
-                            <img class="ml-2"                
-                            src="../../static/media/interseguroVehicular_v2/copiar-url.svg"
-                            alt="enlace"
-                            ></button>
-                                <a target="_blank" :href="urlCompartirWhatsApp" data-action="share/whatsapp/share">
-                                <img
-                                width="30"
-                                src="../../static/media/img/flujo/pago-procesado/whatsapp.png"
-                                alt="whatsapp"
-                                >
-                            </a>
-                        </p> 
-                    </div>
-
-                    <!-- <div class="btn-social">
-                        <div class="btn-social__item">
-                        
-                        </div>
-                    </div> -->
-
-                </b-col>
-            </b-row>
-
         </b-container>
         <b-container>        
             <div>

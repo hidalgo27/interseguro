@@ -135,12 +135,12 @@
                       <span>Facebook</span>
                     </a>
                   </div>
-                  <div class="redes__item">
+                  <!-- <div class="redes__item">
                     <a class="enlace_item"  target="_blank" :href="urlCompartirWhatsApp" >
                       <img src="../../static/media/interseguroVehicular_v2/wapp_pago.png" width="25" alt="wapp_pago">
                       <span>Whatsapp</span>
                     </a>
-                  </div>
+                  </div> -->
                   <div class="redes__item">
                     <a class="enlace_item"  target="_blank" :href="urlCompartirTwitter" >
                       <img src="../../static/media/interseguroVehicular_v2/tweet_pago.png" width="25" alt="tweet_pago">

@@ -208,12 +208,12 @@ export default {
             },
             {
               preg: "¿Que pasa con mi Seguro Vehicuilar si vendo mi carro?",
-              resp:  "Si vendes tu carro y tienes que cancelar tu Seguro Vehicular, escríbenos al 977822185 o llámanos al 500 0000. Si compras un carro nuevo , ya sabes donde encontrarnos.",
+              resp:  "Si vendes tu carro y tienes que cancelar tu Seguro Vehicular, llámanos al (01) 500 0000. Si compras un carro nuevo , ya sabes donde encontrarnos.",
               id: "pregunta3.2"
             },
             {
               preg: "¿Cómo cancelo la póliza de mi Seguro Vehicular?",
-              resp: "Escríbenos por WhatsApp al 977822185 o llámanos al 500 0000. Nuestros asesores te guiarán para que puedas cancelar tu Seguro Vehicular sin inconvenientes.",
+              resp: "llámanos al (01) 500 0000. Nuestros asesores te guiarán para que puedas cancelar tu Seguro Vehicular sin inconvenientes.",
               id: "pregunta3.3"
             }
           ],
@@ -341,7 +341,7 @@ export default {
           body: [
             {
               preg: "¿Dónde puedo reportar un siniestro?",
-              resp:"Puedes escribirnos por WhatsApp al 977 822 185 o llamarnos al 500 0000.",
+              resp:"Puedes llamarnos al (01) 500 0000.",
               id: "pregunta7.1"
             },
             {
@@ -366,7 +366,7 @@ export default {
             },
             {
               preg: "¿Dónde averiguo el estado de mi siniestro?",
-              resp: "Escríbenos por WhatsApp al 977822185.",
+              resp: "Llámanos (01)500 0000.",
               id: "pregunta7.6"
             }
           ],
