@@ -206,14 +206,13 @@
           </span>
           <span>segurovehicular@interseguro.com.pe</span>
         </div>
-        <div class="acordeonContacto__item whatsapp">
 
+        <!-- <div class="acordeonContacto__item whatsapp">
           <span>
             <a href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener">
               <img src="../../static/media/interseguroVehicular_v2/wapp.png" alt="email">
             </a>                
           </span>
-
           <span>
             <span>
               <a href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener">
@@ -221,9 +220,9 @@
                 <br>977 822 185
               </a> 
             </span>
-          </span>
-          
-        </div>
+          </span>          
+        </div> -->
+
         <div class="acordeonContacto__item telefono">
           <span>
             <img src="../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
@@ -288,7 +287,8 @@
         </div>
         <div class="medio d-flex d-lg-none">
           <div class="medio__contacto">
-            <div class="whatsapp">              
+
+            <!-- <div class="whatsapp">              
               <span>
                 <a href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener">
                   <img src="../../static/media/interseguroVehicular_v2/wapp.png" alt="email">
@@ -300,7 +300,8 @@
                   <br>977 822 185
                 </a> 
               </span>
-            </div>
+            </div> -->
+
             <div class="llamanos">
               <span>
                 <img src="../../static/media/interseguroVehicular_v2/llamanos.png" alt="email">
@@ -510,7 +511,8 @@
                 </div>
               </div>
               <div class="medio__contacto">
-                <div class="whatsapp">                  
+
+                <!-- <div class="whatsapp">                  
                   <span>
                     <a href="https://api.whatsapp.com/send?phone=51977822185&amp;text=Hola!%20Como%20te%20puedo%20ayudar?" target="_blank" rel="noopener">
                       Whatsapp Vehicular
@@ -522,7 +524,8 @@
                       <img src="../../static/media/interseguroVehicular_v2/wapp.png" alt="email">
                     </a>                
                   </span>                  
-                </div>
+                </div> -->
+
                 <div class="llamanos">
                   <span>
                     Llámanos

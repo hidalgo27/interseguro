@@ -6104,9 +6104,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 }
 .planActivo.oro,.planActivo.plata,.planActivo.black{
   background: white !important;
-    p{
-      color: #333 !important
-    }
 }
 .mail-cotizador{
   .mail{

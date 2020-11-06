@@ -582,6 +582,13 @@
 .modalHomeVideo{
   border: none;
 }
+#modalHomeVideo{
+  .modal-content{
+    background: transparent !important;
+    border: none !important;
+  }
+  
+}
 #modalHomeVideo .modal-dialog{
   max-width: 740px;
 }

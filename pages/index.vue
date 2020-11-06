@@ -45,6 +45,7 @@
                 </p>
               </div>
             </b-form>
+            
           </div>
         </div>
         <div class="home-banner__der">
@@ -52,6 +53,9 @@
             <p class="title-banner">
               Manejar tranquilo <br> ahora es más fácil
             </p>
+            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
+                <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span> 
+              </p>
           </div>
         </div>
       </div>
@@ -102,13 +106,12 @@
           </div>
         </div>
         
-        <p v-b-modal.modalHomeVideo class="parrafo-video  pt-4  pb-2">
+        <!-- <p v-b-modal.modalHomeVideo class="parrafo-video  pt-4  pb-2">
           <img width="26" src="./../static/media/img/home/play.png" alt="play">
           Mira el video
-        </p>
+        </p> -->
         <div class="home-pasos__planes--titulo   pt-2   d-block">
-          <p class="nuevos-planes">¡Nuevo! Tenemos 3 planes </p>
-          
+          <p class="nuevos-planes">¡Elige tu plan! </p>
         </div>
 
         <div class="home-pasos__planes  planes">
@@ -832,13 +835,6 @@
           text-align: center;          
           position: relative;
           &:after{
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            width: 100%;
-            height: 28px;
-            background-size: contain;
-            background-repeat: no-repeat;
           }
           &:before{
             content: "";
@@ -960,6 +956,11 @@
           height: auto;
           display: none;
           align-items: center;
+          .efecto-enlace{
+            &:hover{
+              text-decoration: underline;
+            }
+          }
           p{
             font-family: 'Omnes Medium';
             font-size: 2.8rem;
@@ -1647,7 +1648,7 @@
             padding-bottom: 0;
             &--flecha{
               position: absolute;
-              right: 0;
+              right: -24px;
             }
             &--desc{
               .titulo{
@@ -1760,7 +1761,6 @@
             justify-content: center;
             &--flecha{
               position: absolute;
-              right: 0;
             }
           }
           
