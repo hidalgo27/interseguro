@@ -1,6 +1,5 @@
 <template>
     <section class="steps-box">
-        <!-- <pulse-loader ref="PulseLoader"  :loading="loadingPulse" :color="color" :size="sizePulse"></pulse-loader> -->
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -40,7 +39,7 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <div class="liston-agora" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">
+                <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
                     </div>
@@ -49,160 +48,8 @@
                 <b-col cols="12" md="8">
                     
                     <div class="metodo-pago">
-                        <b-row class="justify-content-center">                                
-                            <!-- <b-col cols="12"  lg="5" class="metodo-pago__comoPagar" style="background: #FFF">
-                                <div class="panel-custom">
-                                    <div class="boxtitulo" style="height: 24px;" v-if="listCotizacion.discount !== undefined" >
-                                        <p class="boxtitulo__principal">FRECUENCIA DE PAGO</p> 
-                                        <img v-if="listCotizacion.discount.intercorp == 5" class="boxtitulo__dto5" width="60" src="../../static/media/img/flujo/como-pagar/dto_5.svg" alt="calendar"> 
-                                        <img v-else>                                           
-                                    </div>
-                                </div>
-                                <div class="panel-custom  pt-2  pb-3" >
-                                    <input type="radio" id="monthly-radio" class="input-radioButon" v-model="payment" name="priceInformation.model.paymentMethodId" value="1">  
-                                    <input type="radio" id="quarterly-radio" class="input-radioButon" v-model="payment" name="priceInformation.model.paymentMethodId" value="2">                                        
-                                    <input type="radio" id="annual-radio"  class="input-radioButon" v-model="payment" name="priceInformation.model.paymentMethodId"  value="3">                                      
-                                    <input type="radio" id="biannual-radio"  class="input-radioButon" v-model="payment" name="priceInformation.model.paymentMethodId"  value="4"> 
-                                    <b-row id="filter" style="padding-left: 12px;" class="filter" v-if="listCotizacion.discount !== undefined">
-                                        <b-card no-body>                                            
-                                            <b-tabs v-model="tabIndex" pills card class="planes-tabs">                                                
-                                                <b-tab title="Plan 1 año" class="plan-uno  pt-0">
-                                                    <b-col cols="12">
-                                                        <label for="monthly-radio" class="filter-label monthly radio-button" @click="radioComoPagar($event)">                                                    
-                                                            <div class="d-flex align-items-center">
-                                                                <span class="filter-icon"></span>
-                                                                <div>
-                                                                    <div class="precios"  v-if="appDiscount == true">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.monthlyDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.monthlyCalculated}}</span> 
-                                                                    </div>
-                                                                    <div class="precios"  v-else-if="listCotizacion.discount.intercorp == 5">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.monthlyDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.monthlyCalculated}}</span> 
-                                                                    </div>
-                                                                    <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 10">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.monthly}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.monthlyCalculated}}</span>                                                             
-                                                                    </div>                                                            
-                                                                    <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 15">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.monthly}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.monthlyCalculated}}</span>                                                             
-                                                                    </div>
-                                                                    <div class="precios" v-else>
-                                                                        <span>$&nbsp;{{listCotizacion.policy.monthly}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.monthlyCalculated}}</span>                                                           
-                                                                    </div>
-                                                                    <span class="radio-buttons__text-price">Mensual</span><span> (12 cuotas)</span>
-                                                                </div>
-                                                            </div>
-                                                        </label>                                            
-                                                    </b-col>
-                                                    <b-col cols="12">
-                                                        <label for="quarterly-radio" class="filter-label quarterly radio-button"  @click="radioComoPagar($event)">                                                    
-                                                            <div class="d-flex align-items-center">
-                                                                <span class="filter-icon"></span>
-                                                                <div>
-                                                                    <div class="precios"  v-if="appDiscount == true">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.quarterlyDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.quarterlyCalculated}}</span> 
-                                                                    </div>
-                                                                    <div class="precios"  v-else-if="listCotizacion.discount.intercorp == 5">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.quarterlyDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.quarterlyCalculated}}</span> 
-                                                                    </div>
-                                                                    <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 10">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.quarterly}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.quarterlyCalculated}}</span>                                                             
-                                                                    </div>                                                            
-                                                                    <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 15">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.quarterly}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.quarterlyCalculated}}</span>                                                             
-                                                                    </div>
-                                                                    <div class="precios" v-else>
-                                                                        <span>$&nbsp;{{listCotizacion.policy.quarterly}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.quarterlyCalculated}}</span>                                                           
-                                                                    </div>
-                                                                    <span class="radio-buttons__text-price">Trimestral</span><span> (4 cuotas)</span>
-                                                                </div>                                                                 
-                                                            </div>
-                                                        </label>
-                                                    </b-col>
-                                                    <b-col cols="12">
-                                                        <label for="annual-radio" class="filter-label annual radio-button"  @click="radioComoPagar($event)">                                                    
-                                                            <div class="d-flex align-items-center">
-                                                                <span class="filter-icon"></span>
-                                                                <div>
-                                                                    <div class="precios"  v-if="appDiscount == true">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.annualDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span> 
-                                                                    </div>  
-                                                                    <div class="precios"  v-else-if="listCotizacion.discount.intercorp == 5">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.annualDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span>                                                                        
-                                                                    </div>
-                                                                    <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 10">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span>                                                                        
-                                                                    </div>                                                            
-                                                                    <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 15">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span>
-                                                                    </div>
-                                                                    <div class="precios" v-else>
-                                                                        <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span>   
-                                                                    </div>
-                                                                    <span class="radio-buttons__text-price">Anual </span><span> (1 cuota)</span>
-                                                                </div>
-                                                            </div>                                                        
-                                                        </label>
-                                                    </b-col>
-                                                </b-tab>
-                                                <b-tab title="Plan 2 años" class="plan-dos">                                                        
-                                                    <b-col cols="12">
-                                                        <label for="biannual-radio" class="filter-label biannual radio-button"  @click="radioComoPagar($event)">                                                    
-                                                            <div class="label-bianual">
-                                                                <div class="d-flex align-items-center">
-                                                                    <span class="filter-icon"></span>
-                                                                    <div>
-                                                                        <div class="precios"  v-if="appDiscount == true">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.twoYearsDiscount}}</span>
-                                                                        <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.twoYearsCalculated}}</span> 
-                                                                    </div> 
-                                                                        <div class="precios"  v-else-if="listCotizacion.discount.intercorp == 5">
-                                                                            <span>$&nbsp;{{listCotizacion.policy.twoYearsDiscount}}</span>
-                                                                            <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.twoYearsCalculated}} </span><br> 
-                                                                            
-                                                                        </div>
-                                                                        <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 10">
-                                                                            <span>$&nbsp;{{listCotizacion.policy.twoYears}}</span>
-                                                                            <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.twoYearsCalculated}}</span>  <br>  
-                                                                            
-                                                                        </div>                                                            
-                                                                        <div class="precios" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 15">
-                                                                            <span>$&nbsp;{{listCotizacion.policy.twoYears}}</span>
-                                                                            <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.twoYearsCalculated}}</span><br>     
-                                                                            
-                                                                        </div>
-                                                                        <div class="precios" v-else>
-                                                                            <span>$&nbsp;{{listCotizacion.policy.twoYears}}</span>
-                                                                            <span v-if="this.businessId == 1" class="montoTachado" >$&nbsp;{{listCotizacion.policy.twoYearsCalculated}}</span>   <br>                                                                            
-                                                                        </div>
-                                                                        <span class="radio-buttons__text-price">Plan 2 años&nbsp;(1 cuota)</span>
-                                                                    </div> 
-                                                                </div>                                                       
-                                                            </div>
-                                                        </label>
-                                                    </b-col>
-                                                </b-tab>
-                                            </b-tabs>
-                                        </b-card>
-                                    </b-row>
-                                </div>
-                            </b-col> -->
-
+                        <b-row class="justify-content-center">
                             <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta">
-                                
                                 <div class="panel-custom">
                                     <b-row>
                                         <b-col cols="12" md="12">
@@ -333,9 +180,7 @@
                                                     
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
                                                         :disabled='this.isDisabledPayment'>
-                                                        <span>PAGAR ${{this.monto_pagar}}</span>
-                                                        <!-- <span class="pago_seguro">Pago online 100% seguro</span> -->
-                                                        
+                                                        <span>PAGAR ${{this.monto_pagar}}</span>                                                        
                                                     </button>
 
 
@@ -385,13 +230,6 @@
                             </a>
                         </p> 
                     </div>
-
-                    <!-- <div class="btn-social">
-                        <div class="btn-social__item">
-                        
-                        </div>
-                    </div> -->
-
                 </b-col>
             </b-row>
 
@@ -468,7 +306,6 @@
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
 
-        <!-- Modal de abandono -->
         <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
@@ -492,7 +329,6 @@
             </b-container>
         </b-modal>
 
-        <!-- Modal de abandono -->
         <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
@@ -721,6 +557,7 @@ import { validationMixin } from 'vuelidate'
         methods: {
             enviarParametroAgora(){
                 this.valeAgora = true,
+                localStorage.setItem('activoAgora', true)
                 setTimeout(() => {
                     this.remarketingv2()
                 }, 0);
@@ -1268,6 +1105,7 @@ import { validationMixin } from 'vuelidate'
             })
           },
           mouseLeave(e) {
+              console.log("ENTRAMOS AL MODAL")
               if (this.$store.state.common.leaveMessage == 0) {
                   if (e.clientX < 0 || e.clientY < 0) {
                         this.$store.commit('common/setLeaveMessage',1)
@@ -1277,7 +1115,7 @@ import { validationMixin } from 'vuelidate'
                         // }else{
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
                         // }
-                        if (this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10) {
+                        if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
                             this.$nuxt.$emit('bv::show::modal','leavePaymentAgora')
                         }else{
                             this.$nuxt.$emit('bv::show::modal','leavePayment')
@@ -1315,8 +1153,11 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            
-            // this.$nuxt.$emit('bv::show::modal','leavePaymentAgora')
+            console.log(this.valeAgora)
+            if(localStorage.getItem('activoAgora')){
+                this.valeAgora = true
+                console.log(this.valeAgora)
+            }
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
@@ -1355,7 +1196,7 @@ import { validationMixin } from 'vuelidate'
                                 this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
                             }else if(this.payment == 4){
                                 this.monto_pagar = this.listCotizacion.policy.twoYears > 0 ? this.listCotizacion.policy.twoYears : this.listCotizacion.policy.twoYears
-                                localStorage.setItem("monto_pagar",this.payment)
+                                localStorage.setItem().setItem("monto_pagar",this.payment)
                             }else{
                                 this.isDisableButton = true
                             } 

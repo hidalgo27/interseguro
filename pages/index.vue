@@ -106,10 +106,6 @@
           </div>
         </div>
         
-        <!-- <p v-b-modal.modalHomeVideo class="parrafo-video  pt-4  pb-2">
-          <img width="26" src="./../static/media/img/home/play.png" alt="play">
-          Mira el video
-        </p> -->
         <div class="home-pasos__planes--titulo   pt-2   d-block">
           <p class="nuevos-planes">¡Elige tu plan! </p>
         </div>

@@ -272,7 +272,7 @@ export default {
     }
   },
   mounted: function() {
-    
+    localStorage.setItem('activoAgora', false)
     this.numeroTelefono = this.$store.state.common.numeroTelefono 
     this.cobertura_is = this.$store.state.common.objectDigodat
     this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
