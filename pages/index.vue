@@ -45,6 +45,7 @@
                 </p>
               </div>
             </b-form>
+            
           </div>
         </div>
         <div class="home-banner__der">
@@ -52,19 +53,21 @@
             <p class="title-banner">
               Manejar tranquilo <br> ahora es más fácil
             </p>
+            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
+                <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span> 
+              </p>
           </div>
         </div>
       </div>
     </div>
 
-
-    <div class="home-pasos">
+    <div class="home-pasos" >
       <div class="home-pasos__titulo">
       </div>
 
       <div class="home-pasos__beneficios">
         <div class="home-pasos__planes--titulo">
-          <p class="como-funciona">¿Cómo funciona? </p>
+          <p class="como-funciona">Es fácil, en solo 3 pasos</p>
         </div>
         
         <div class="home-pasos__cuerpo   pasos">
@@ -92,7 +95,7 @@
               <img src="./../static/media/img/home/flecha_der.png" alt="flecha der">
             </div>
           </div>
-          <div class="pasos__item">
+          <div class="pasos__item  pb-0">
             <div class="pasos__item--img">
               <img src="./../static/media/img/home/candado.png" alt="candado">            
             </div>
@@ -102,161 +105,119 @@
             </div>          
           </div>
         </div>
-        <p v-b-modal.modalHomeVideo class="parrafo-video" @click="pago_datalayer('CLICK_VIDEO')">
-            <img width="26" src="./../static/media/img/home/play.png" alt="mira el video">
-            Mira el video
-          </p>
-          <div class="home-pasos__planes--titulo   pt-lg-3 d-block">
-          <p>¡Nuevo! Tenemos 3 planes </p>
-          
+        
+        <div class="home-pasos__planes--titulo   pt-2   d-block">
+          <p class="nuevos-planes">¡Elige tu plan! </p>
         </div>
-      </div>
 
-      <div class="home-pasos__planes  planes">
-        <div class="planes__item">
-          <div class="plata  plan">
-            <div class="plan--cabecera">
-              <p>PLATA</p>
-            </div>
-            <div class="plan--cuerpo">
-              <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
-              <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>      
-            </div>
-          </div>
-        </div>
-        <div class="planes__item">
-          <div class="oro  plan">
-            <div class="plan--cabecera">
-              <p>ORO</p>
-            </div>
-            <div class="plan--cuerpo">
-              <p class="incluye"><span>&#43;</span> Incluye PLAN PLATA</p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Pérdida parcial en caso choques hasta por el 75% del valor de tu carro</span></p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Accidente de Ocupantes</span></p>
-              <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
+        <div class="home-pasos__planes  planes">
+          <div class="planes__item">
+            <div class="plata  plan">
+              <div class="plan--cabecera">
+                <p>PLATA</p>
+              </div>
+              <div class="plan--cuerpo">
+                <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>      
+              </div>
             </div>
           </div>
-        </div>
-        <div class="planes__item">
-          <div class="black  plan">
-            <div class="plan--cabecera">
-              <p>BLACK</p>
+          <div class="planes__item">
+            <div class="oro  plan">
+              <div class="plan--cabecera">
+                <p>ORO</p>
+              </div>
+              <div class="plan--cuerpo">
+                <p class="incluye"><span>&#43;</span> Incluye PLAN PLATA</p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Pérdida parcial en caso choques hasta por el 75% del valor de tu carro</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Accidente de Ocupantes</span></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
+              </div>
             </div>
-            <div class="plan--cuerpo">
-              <p class="incluye"><span>&#43;</span> Incluye PLAN ORO</p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Pérdida total en caso choques por el valor total de tu carro</span> </p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Accesorios adicionales hasta por $1,500</span></p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Protección frente a riegos de naturaleza, incendios y huelgas</span></p>
-              <br>
-              <p><span class="check">&#10004;</span> <span>Hasta 5 choferes de reemplazo al año</span></p>
-              <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
+          </div>
+          <div class="planes__item">
+            <div class="black  plan">
+              <div class="plan--cabecera">
+                <p>BLACK</p>
+              </div>
+              <div class="plan--cuerpo">
+                <p class="incluye"><span>&#43;</span> Incluye PLAN ORO</p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Pérdida total en caso choques por el valor total de tu carro</span> </p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Accesorios adicionales hasta por $1,500</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Protección frente a riegos de naturaleza, incendios y huelgas</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Hasta 5 choferes de reemplazo al año</span></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="home-beneficios2">
+    
+
+    <div class="home-beneficios2  p-47px">
       <div class="home-beneficios2__titulo">
-        <p>Estamos para lo que necesites</p>
+        <p>Disfruta de nuestros increíbles beneficios </p>
       </div>
-      <div class="home-beneficios2__cuerpo  beneficios  d-none  d-lg-flex">
-        <div class="beneficios__item">
+      <div class="home-beneficios2__cuerpo  beneficios2 d-lg-flex">
+        <div class="beneficios2__item">
           <div class="img-box">
-            <img src="./../static/media/img/home/choferes.png" alt="choferes">
+            <img src="./../static/media/img/root/inspeccion.png" alt="choferes">
           </div>
-          <br>
-          <p  class="">Hasta <span>5 choferes <br> de reemplazo</span> al año </p>
-        </div>
-        <div class="beneficios__item">
-          <div class="img-box">
-            <img src="./../static/media/img/home/gruas.png" alt="gruas">
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">Inspección Digital </p>
+        
+            <p  class="">Desde tu celular <br> y en solo 5 minutos <span></span></p>
           </div>
-          <br>
-          <p  class="">Vamos a rescatarte <br> donde estés <span>hasta 2 veces <br> al mes</span> </p>
-        </div>
-        <div class="beneficios__item">
-          <div class="img-box">
-            <img src="./../static/media/img/home/mecanico.png" alt="mecanico">
-          </div>
-          <br>          
-          <p  class=""><span>Te auxiliamos rápido,</span> <br> fallas eléctricas y mecánicas </p>
-        </div>
-        <div class="beneficios__item">
-          <div class="img-box">
-            <img src="./../static/media/img/home/dcto.png" alt="dcto">
-          </div>
-          <br>
           
-          <p  class=""><span>Descuentos increíbles</span> </p>
         </div>
-      </div>
-
-      <div class="home-beneficios2__cuerpoMobile    d-block  d-lg-none">
-        <b-carousel
-          id="carousel-fade"
-          class="carousel-beneficios"
-          v-model="slideBeneficios"
-          :interval="4000"
-          controls
-          indicators
-          he
-          background="transparent"
-          style="text-shadow: 1px 1px 2px #333; color: red;"
-        >
-
-          <b-carousel-slide class="carousel-beneficios__item" img-blank-color='transparent'>
-            <div>
-              <div class="img-box">
-                <img src="./../static/media/img/home/choferes.png" alt="choferes">
-              </div>
-              <br>
-              <p><strong class="item">Hasta 5 choferes de reemplazo al año</strong> </p>
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-beneficios__item" img-blank-color='transparent'>
-            <div>
-              <div class="img-box" >
-                <img src="./../static/media/img/home/gruas.png" alt="gruas">
-              </div>
-              <br>
-              <p><strong>Vamos a rescatarte <br> donde estés hasta 2 veces <br> al mes</strong> </p>   
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-beneficios__item" img-blank-color='transparent'>
-            <div>
-              <div class="img-box">
-                <img src="./../static/media/img/home/mecanico.png" alt="mecanico">
-              </div>
-              <br>
-              <p><strong>Te auxiliamos rápido, <br> fallas eléctricas y mecánicas</strong></p>
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-beneficios__item" img-blank-color='transparent'>
-            <div>
-              <div class="img-box">
-                <img src="./../static/media/img/home/dcto.png" alt="dcto">
-              </div>
-              <br>
-              <p><strong>Descuentos increíbles</strong></p>
-              
-            </div>
-          </b-carousel-slide> 
-        </b-carousel>
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../static/media/img/root/chofer.png" alt="gruas">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">
+              Chofer de reemplazo
+            </p>
+            <p  class="">Hasta 5 choferes <br> de reemplazo al año  <span></span> </p>
+          </div>
+          
+        </div>
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../static/media/img/root/auxilio.png" alt="mecanico">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">
+              Auxilio mecánico
+            </p>    
+            <p  class=""><span></span> Te ayudamos en donde estés <br>hasta 2 veces al mes  </p>
+          </div>
+        </div>
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../static/media/img/root/vivemas.png" alt="">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">
+              Programa de beneficios 
+            </p>     
+            <p  class=""><span></span> Descuentos en miles <br> de establecimientos </p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="home-talleres">
+    <div class="home-talleres  mt-lg-4">
       <div class="home-talleresBox">
         <div class="home-talleres__desc">
           <p class="d-block  d-md-none"><strong> Repara tu auto </strong> <br> en nuestra red de talleres</p>
@@ -273,16 +234,43 @@
         </div>
       </div>
     </div>
-     
+
+      <div class="home-clientes2 p-47px d-none  d-lg-flex">
+        <div class="box-titulo">
+          <p class="titulo-clientes">¿Qué dicen nuestros clientes?</p>
+        </div>
+
+        <div class="box-total">
+          <div class="box-slider">
+            <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+            <p class="cliente">Manuel Augusto</p>
+            <!-- <p class="ahorro">---</p> -->
+            <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
+          </div>
+          <div class="box-slider">
+            <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+            <p class="cliente">Carolina Chavez</p>
+            <!-- <p class="ahorro">---</p> -->
+            <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
+          </div>
+          <div class="box-slider">
+            <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+            <p class="cliente">Enrique Quispe</p>
+            <!-- <p class="ahorro">---</p> -->
+            <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
+          </div>
+        </div>
+    </div>
+
     <div class="home-clientes">
-      <div class="home-clientes__titulo">
-        <p>¿Qué dicen nuestros clientes?</p>
-      </div>
-      <div class="home-clientes__cuerpo">
+       <div class="clientes-slider    d-block  d-lg-none">
+        <div class="box-titulo">
+          <p>¿Qué dicen nuestros clientes?</p>
+        </div>
         <b-carousel
           id="carousel-fade"
           class="carousel-clientes"
-          v-model="slide"
+          v-model="slideBeneficios"
           :interval="4000"
           controls
           indicators
@@ -290,52 +278,44 @@
           background="transparent"
           style="text-shadow: 1px 1px 2px #333; color: red;"
         >
+
           <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
             <div>
-              "Fue facilísimo contratar el seguro, en comparación con la gestión tradicional."
-              <br><br>Manuel Augusto
+              <div class="box-slider">
+                <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+                <p class="cliente">Manuel Augusto</p>
+                <!-- <p class="ahorro">---</p> -->
+                <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
+              </div>
             </div>
           </b-carousel-slide>
 
           <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
             <div>
-              "Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido."
-              <br><br>Carolina Chavez
+              <div class="box-slider">
+                <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+                <p class="cliente">Carolina Chavez</p>
+                <!-- <p class="ahorro">---</p> -->
+                <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
+              </div>
             </div>
           </b-carousel-slide>
 
           <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
             <div>
-              "La info que me enviaron sobre la cobertura era concisa y simple de entender!"
-              <br><br>Enrique Quispe
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "Muy fácil tomar el seguro: realizar la cotización es rápido y claro."
-              <br><br>Jorge Castillo
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "La comunicación es por WhatsApp y la inspección la hice al toque."
-              <br><br>Claudia Portocarrero
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "La atención ha sido rápida y efectiva, asegure mi carro en unos minutos y sin salir de mi casa."
-              <br><br>Katherine Reategui
+              <div class="box-slider">
+                <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+                <p class="cliente">Enrique Quispe</p>
+                <!-- <p class="ahorro">---</p> -->
+                <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
+              </div>
             </div>
           </b-carousel-slide>
 
         </b-carousel>
-       
       </div>
-    </div>
+     </div>
+
 
     <b-modal
       id="modalHomeVideo"
@@ -680,188 +660,13 @@
     }
   }
   .home{
-    margin-top: 64px;
+    margin-top: 72px;
     font-size: 16px;
-    background-color: #fff;   
-    .boxHome-banner{      
-      background-color:  rgba(8,85,196,.1);
-      position: relative;
-      height: 296px;
-      
-      .home-banner{
-        margin: auto;
-        background-repeat: no-repeat;
-        background-size: 700px;
-        background-position-y: bottom;
-        background-position-x: right;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        flex-direction: column;
-        &__izq{          
-          padding-top: 53px !important;
-          height: 500px;
-          display: flex;
-          align-items: flex-start;
-          width: 90%;
-          border-bottom: 1px solid white !important;
-          input{
-            max-width: 360px;
-            width: 100%;
-            height: 51px;
-            margin: 0 auto!important;
-            text-align: center;
-          }
-          button{
-            color: white !important;
-            border-color: #ea0c90 !important;
-            background-color: #ea0c90 !important;
-            width: 360px;
-            height: 51px;
-          }
-          .no-tengo-placa{
-            font-size: 1rem;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.25;
-            letter-spacing: normal;
-            text-align: center;
-            color: #0854c4;
-            margin: 10px 0;
-            cursor: pointer;
-          }
-          .respaldo-intercorp{
-            font-size: .938rem;
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.33;
-            letter-spacing: normal;
-            text-align: center;
-            color: #494a49;
-            span{
-              top: 2px;
-              position: relative;
-            }
-          }
-        }
-        &__der{
-          padding-top: 68px !important;
-          height: auto;
-          display: none;
-          align-items: center;
-          p{
-            font-family: 'Omnes Medium';
-            font-size: 2.8rem;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.25;
-            letter-spacing: -1px;
-            text-align: left;
-            color: #0855c4;
-          }
-        }
-      }
-    }
-    .box-formCotizador{
-      width: 100%;
-      padding: 0;      
-      .titulo-formulario{
-        font-size: 1.5rem;
-        font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.25;
-        letter-spacing: normal;
-        text-align: center;
-        color: #003aad;
-        margin-top: 25px;
-        padding: 0;
-        margin: auto;
-        padding-top: 18px;
-        padding-bottom: 28px;
-        position: relative;
-        max-width: 438px;
-        width: 100%;
-        .img-form{
-          position: absolute;
-          bottom: -32px;
-          left: 7px;
-          z-index: 0;
-          height: 82px;
-          display: none;
-          img{
-            height: 82px;
-          }
-        }
-      }
-    }
-    .formCotizador{
-      padding:2rem 1.5rem;
-      max-width: 438px;
-      width: 100%;
-      height: 314px;
-      border-radius: 3rem 0 3rem 0;
-      background: #fff;
-      box-shadow: -3px 4px 12px -1px #ccc;
-      position: relative;
-      margin: auto;      
-      h1{
-        font-family: 'Omnes Medium';
-        font-size: 1.1rem;
-        font-weight: 600;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.25;
-        letter-spacing: normal;
-        text-align: center;
-        color: #003aad;
-        margin-top: 25px;
-        margin: 0;
-        padding: 0;
-        padding-top: 8px;
-        padding-bottom: 18px;
-      }
-      &__msg{
-        padding: 7px 14px;
-        position: absolute;
-        right: -1rem;
-        top: -1rem;
-        border-radius: 8px 0 8px 0;
-        box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-        background-color: #0855c4!important;
-        color: white !important;
-        font-family: 'Omnes Medium';
-      }
-      .box-btn-homeForm{
-        button{
-          border-color: #ea0c90!important;
-          background-color: #ea0c90!important;
-          max-width: 360px;
-          width: 100%;
-          height: 51px;
-          margin: 0 auto!important;
-          position: relative;
-        }
-      }
-    }
-    .cliploader{
-      width: 100%;
-      right: 0;
-      height: 51px;
-      top: 0px;
-    }
-    .carousel-indicators li {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    
+    background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 230px;
+      padding-top: 170px;
+      padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
         font-weight: normal;
@@ -888,12 +693,27 @@
           font-style: normal;
           letter-spacing: -0.21px;
           text-align: center;
-          color: #454a6c!important;          
         }
         .como-funciona{
-          padding: 16px 0;
+          font-family: 'Omnes Medium';
+          padding-bottom: 16px;
           font-size: 1.3rem;
-          font-family: 'Omnes Regular';
+          font-size: 26px;
+          line-height: 1.27;
+          text-align: center;
+          color: #0854c4;
+          max-width: 300px;
+          margin: auto;
+          padding-bottom: 42px;          
+        }
+        .nuevos-planes{
+          font-family: 'Omnes Medium';
+          font-size: 1.3rem;
+          font-size: 26px;
+          line-height: 1.27;
+          text-align: center;
+          color: #0854c4;
+          margin: auto;
         }
         span{
           font-size: 22px;
@@ -1011,13 +831,6 @@
           text-align: center;          
           position: relative;
           &:after{
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            width: 100%;
-            height: 28px;
-            background-size: contain;
-            background-repeat: no-repeat;
           }
           &:before{
             content: "";
@@ -1069,10 +882,194 @@
           }
         }
       }
+    }  
+    .boxHome-banner{      
+      background-color:  rgba(8,85,196,.1);
+      position: relative;
+      height: 296px;
+      
+      .home-banner{
+        margin: auto;
+        background-repeat: no-repeat;
+        background-size: 700px;
+        background-position-y: bottom;
+        background-position-x: right;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+        &__izq{
+          // margin-top: 24px;
+          // padding-top: 68px !important;
+          height: 500px;
+          display: flex;
+          align-items: flex-start;
+          width: 90%;
+          border-bottom: 1px solid white !important;
+          input{
+            max-width: 360px;
+            width: 100%;
+            height: 51px;
+            margin: 0 auto!important;
+            text-align: center;
+          }
+          button{
+            color: white !important;
+            border-color: #ea0c90 !important;
+            background-color: #ea0c90 !important;
+            width: 360px;
+            height: 51px;
+          }
+          .no-tengo-placa{
+            font-size: 1rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: #0854c4;
+            margin: 10px 0;
+            cursor: pointer;
+          }
+          .respaldo-intercorp{
+            font-size: .938rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            text-align: center;
+            color: #494a49;
+            span{
+              top: 2px;
+              position: relative;
+            }
+          }
+        }
+        &__der{
+          padding-top: 68px !important;
+          height: auto;
+          display: none;
+          align-items: center;
+          .efecto-enlace{
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+          p{
+            font-family: 'Omnes Medium';
+            font-size: 2.8rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: -1px;
+            text-align: left;
+            color: #0855c4;
+          }
+        }
+      }
     }
+    .box-formCotizador{
+      width: 100%;
+      padding: 0;      
+      .titulo-formulario{
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        color: #003aad;
+        margin-top: 25px;
+        padding: 0;
+        margin: auto;
+        padding-top: 18px;
+        padding-bottom: 28px;
+        position: relative;
+        max-width: 438px;
+        width: 100%;
+        .img-form{
+          position: absolute;
+          bottom: -32px;
+          left: 7px;
+          z-index: 0;
+          height: 82px;
+          display: none;
+          img{
+            height: 82px;
+          }
+        }
+      }
+    }
+    .formCotizador{
+      padding:2rem 1.5rem;
+      max-width: 438px;
+      width: 100%;
+      height: 314px;
+      border-radius: 3rem 0 3rem 0;
+      background: #fff;
+      box-shadow: -3px 4px 12px -1px #ccc;
+      position: relative;
+      margin: auto;      
+      h1{
+        font-family: 'Omnes Medium';
+        font-size: 1.1rem;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        color: #003aad;
+        margin-top: 25px;
+        margin: 0;
+        padding: 0;
+        padding-top: 8px;
+        padding-bottom: 18px;
+      }
+      &__msg{
+        padding: 7px 14px;
+        position: absolute;
+        right: -1rem;
+        top: -1rem;
+        border-radius: 8px 0 8px 0;
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
+        background-color: #0855c4!important;
+        color: white !important;
+        font-family: 'Omnes Medium';
+      }
+      .box-btn-homeForm{
+        button{
+          border-color: #ea0c90!important;
+          background-color: #ea0c90!important;
+          max-width: 360px;
+          width: 100%;
+          height: 51px;
+          margin: 0 auto!important;
+          position: relative;
+        }
+      }
+    }
+    .cliploader{
+      width: 100%;
+      right: 0;
+      height: 51px;
+      top: 0px;
+    }
+    .carousel-indicators li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    
     .home-talleres{
       background-color: #f1f7ff;
-      padding-top: 18px;
+      padding-top: 42px;
+      padding-bottom: 42px;
       .home-talleresBox{
         background-color: #f1f7ff;
         width: 100%;
@@ -1116,66 +1113,209 @@
         }
       }
     }
-    .home-clientes{
-      &__titulo{
-        height: 60px;
+    .home-clientes2{
+      max-width: 80%;
+      margin: auto;
+      flex-direction: column;
+      .box-titulo{
+        margin-bottom: 48px;
+      }
+      .titulo-clientes{
+        font-size: 36px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 0.89;
+        letter-spacing: normal;
+        text-align: center;
+        color: #0854c4;
+      }
+      .box-total{
+        margin-top: 32px;
         display: flex;
-        align-items: center;
+        justify-content: space-around;
+      }
+      .box-slider{
+        padding: 0 30px;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        width: 300px;
+        height: 240px;
+        border-radius: 12px;
+        border: solid 0.8px #0854c4;
+        flex-direction: column;
         justify-content: center;
-        p{
-          height: 25px;
-          font-size: 20px;
+        .escudo-cliente{
+          position: absolute;
+          top: -12px;
+          width: 24px;
+          left: calc(159px - 28px);
+        }
+        .cliente{
+          font-family: 'Omnes Medium';
+          font-size: 18px;
           font-weight: 500;
           font-stretch: normal;
           font-style: normal;
-          line-height: 1.6;
+          line-height: 1.11;
+          letter-spacing: normal;
+          text-align: left;
+          color: #555555;
+        }
+        .ahorro{
+          margin-top: 4px;
+          height: 18px;
+          font-family: 'Omnes Medium';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          text-align: left;
+          color: #0854c4;
+        }
+        .descripcion{
+          margin-top: 8px;
+          font-family: 'Omnes Medium';
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: left;
+          color: #555555;
+        }
+      }
+    }
+    .home-clientes{
+      padding-top: 24px;
+      .box-slider{
+        padding: 0 30px;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        width: 300px;
+        height: 240px;
+        border-radius: 12px;
+        border: solid 0.8px #0854c4;
+        flex-direction: column;
+        justify-content: center;
+        .escudo-cliente{
+          position: absolute;
+          top: -12px;
+          width: 24px;
+          left: calc(159px - 12px);
+        }
+        .cliente{
+          font-family: 'Omnes Medium';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          text-align: left;
+          color: #555555;
+        }
+        .ahorro{
+          margin-top: 4px;
+          height: 18px;
+          font-family: 'Omnes Medium';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          text-align: left;
+          color: #0854c4;
+        }
+        .descripcion{
+          margin-top: 8px;
+          font-family: 'Omnes Medium';
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: left;
+          color: #555555;
+        }
+      }
+      .box-titulo{
+        p{
+          font-family: 'Omnes Medium';
+          font-size: 26px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.23;
           letter-spacing: normal;
           text-align: center;
-          color: #00adee;
-
+          color: #0854c4;
         }
       }
-      &__cuerpo{
-        background-image: linear-gradient(118deg, #00adee 1%, #1faca6 100%);
-        height: 300px;
-        .carousel-clientes{
-          height: 300px !important;
-          &__item{
-            height: 300px !important;
-            .carousel-caption {
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              div{
-                font-size: 18px;
-                font-stretch: normal;
-                font-style: italic;
-                line-height: 1;
-                letter-spacing: normal;
-                text-align: center;
-                color: #ffffff;
-                font-weight: 400;
-                font-family: 'Omnes Regular';
-              }
-            }
+      .carousel-clientes{
+        height: 300px !important;
+        margin-top: 24px;
+        .box-slider{
+          padding: 0 30px;
+          position: relative;
+          display: flex;
+          align-items: flex-start;
+          width: 308px;
+          height: 240px;
+          border-radius: 12px;
+          border: solid 0.8px #0854c4;
+          flex-direction: column;
+          justify-content: center;
+          .escudo-cliente{
+            position: absolute;
+            top: -12px;
+            width: 24px;
+            left: calc(159px - 12px);
+          }
+          .cliente{
+            font-family: 'Omnes Medium';
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.11;
+            letter-spacing: normal;
+            text-align: left;
+            color: #555555;
+          }
+          .ahorro{
+            margin-top: 4px;
+            height: 18px;
+            font-family: 'Omnes Medium';
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.11;
+            letter-spacing: normal;
+            text-align: left;
+            color: #0854c4;
+          }
+          .descripcion{
+            margin-top: 8px;
+            font-family: 'Omnes Medium';
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: left;
+            color: #555555;
           }
         }
-      }
-    }
-    .home-talleres{
-      &__img{
-        img{
-          height: 100%;
-          width: 100%;
-        }
-      }
-    }
-    .home-beneficios2{
-      padding: 18px 0 36px 0;
-      background: white;
-      .carousel-beneficios{
-        height: 300px !important;
         &__item{
           height: 300px !important;          
           .carousel-caption {
@@ -1185,16 +1325,6 @@
             justify-content: center;
             text-shadow: none !important;
             div{
-              .img-box{
-                width: 148px;
-                height: 148px;
-                background-color: rgba(126,179,255,0.1);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: auto;
-              }
               img{
                 width: 110px;
               }
@@ -1214,32 +1344,89 @@
           }
         }
       }
+    }
+    .home-talleres{
+      &__img{
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    .home-beneficios2{
+      background-color: #f7fbff;
+      padding-top: 42px;
       &__titulo{
+        margin-bottom: 40px;
+      }
+      .box-titulo{
         p{
-          font-size: 22px;
+          font-family: 'Omnes Medium';
+          font-size: 26px;
           font-weight: 500;
           font-stretch: normal;
           font-style: normal;
-          line-height: 1.59;
+          line-height: 1.23;
           letter-spacing: normal;
-          text-align: center;
-          color: #696969;
+          text-align: left;
+          color: #0854c4;
         }
       }
-      .beneficios{
+      
+      &__titulo{
+        p{
+          font-family: 'Omnes Medium';
+          font-size: 26px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1;
+          letter-spacing: normal;
+          text-align: center;
+          color: #0854c4;
+        }
+      }
+      .beneficios2{
         display: flex;
         justify-content: center;
-        padding: 0 12%;
         margin: auto;
+        flex-direction: column;
+        align-items: center;
         &__item{
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
-          width: 25%;
+          width: 100%;
+          max-width: 320px;
+          margin: auto;
+          margin-bottom: 32px;
+          .img-box {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 80px;
+              img{
+                width: 100%;
+                padding: 0 10px;
+              }
+          }
+          .beneficios-desc{
+            width: 240px;
+            margin-top: 12px;
+          }
+          .beneficios-titulo{
+            font-size: 20px;
+            font-family: 'Omnes Medium';
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            color: #454A6C;
+          }
           &:hover{
             img{
               transition: all 0.5s;
-              transform: scale(1.2);
             }
             span{
               transition: all 0.5s;
@@ -1247,17 +1434,8 @@
               font-family: 'Omnes Medium';
             }
           }
-          .img-box{
-            width: 148px;
-            height: 148px;
-            background-color: rgba(126,179,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
           img{
-            width: 125px;
+            width: 100px;
           }
           p{
             transition: all .75s;
@@ -1266,10 +1444,10 @@
             font-family: 'Omnes Regular';
             font-stretch: 400;
             font-style: normal;
-            line-height: 0.89;
+            line-height: 1.2;
             letter-spacing: normal;
-            text-align: center;
-            color: #696969;            
+            text-align: left;
+            color: #454A6C;            
           }
         }
       }      
@@ -1286,6 +1464,21 @@
   }
   @media (min-width: 992px) {
     .home{
+      .home-beneficios2{
+        &__titulo{
+          p{
+            font-size: 36px;
+            color: #0854c4;
+          }
+        }
+        .beneficios2{
+          flex-direction: row;
+          flex-wrap: wrap;
+          &__item{
+            width: 50%;
+          }
+        }
+      }
       .boxHome-banner{      
         background-color:  rgba(8,85,196,.1);
         height: auto;
@@ -1294,9 +1487,8 @@
           padding-left: 45px;
           min-height: 445px;
           &__izq{
-            margin-top: 0;
-            padding-top: 0px !important;
-            height: auto;
+            // padding-top: 68px !important;
+            height: calc(85vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1422,6 +1614,117 @@
         }
 
       }
+
+      .home-pasos{
+        padding-top: 42px;
+        .nuevos-planes{
+          padding: 28px 0 40px;
+        }
+        &__beneficios{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .pasos{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          width: 80%;
+          margin: auto;
+          align-items: flex-start;
+          &__item{
+            margin: initial;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 33%;
+            padding-left: 0;
+            justify-content: center;
+            max-width: 314px !important;
+            padding-bottom: 0;
+            &--flecha{
+              position: absolute;
+              right: -24px;
+            }
+            &--desc{
+              .titulo{
+                text-align: left;
+                font-size: 25px;
+              }
+              .descripcion{
+                text-align: left;
+                font-size: 18px;
+                margin-top: 8px;
+                max-width: 260px;
+              }
+              .descargar-ahora{
+                text-align: left;
+              }
+            }
+          }
+          
+        }
+        .planes{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0 5%;
+          justify-content: space-around;
+          align-items: flex-end;
+          &__item{
+            max-width: 270px;
+            .black{
+              .plan--cuerpo{
+               padding-top: 8px; 
+              }
+            }
+            .oro{
+              .plan--cuerpo{
+                padding-top: 8px;
+              }
+            }
+          }
+        }        
+        .plan--cuerpo{
+          p{
+            height: auto;
+            width: 74%;
+            span{
+              font-size: 15px;
+            }
+            .check{
+              font-weight: 600;
+              color: #696969 !important;
+            }
+          }
+          .incluye{
+            font-size: 19px;
+            span{
+              color: #00adee;
+              font-size: 26px;
+              font-weight: 600;
+              padding-right: 3px;
+            }
+          }
+        }
+        &__planes{
+          &--titulo{
+            p{
+              text-align: left;
+              font-size: 2.4rem;
+            }
+          }
+        }
+        .plata{
+          min-height: 330px;
+        }
+        .oro{
+          min-height: 360px;
+        }
+        .black{
+          min-height: 390px;
+        }
+      }
     }
   }
   @media (min-width: 1024px) {
@@ -1429,8 +1732,11 @@
       .home-banner{
         padding-left: 65px;
       }
+      .home-beneficios2{
+          padding-top: 48px;
+          padding-bottom: 48px;
+      }
       .home-pasos{
-        padding-top: 0;
         &__beneficios{
           display: flex;
           flex-direction: column;
@@ -1451,7 +1757,6 @@
             justify-content: center;
             &--flecha{
               position: absolute;
-              right: 0;
             }
           }
           
@@ -1544,20 +1849,9 @@
           width: 220px;
         }
       }
-      .home-clientes{
-        &__titulo{
-          height: 70px;
-          p{
-            font-size: 32px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 0.76;
-            letter-spacing: normal;
-            text-align: left;
-            color: #696969;
-          }
-        }
+      .home-clientes2{
+        padding-top: 48px;
+        padding-bottom: 48px;
       }
       .home-pasos .plan--cabecera:after {
         bottom: -15px !important;
@@ -1604,18 +1898,23 @@
       }
 
       .home-pasos{
-        padding-top: 0;        
         .pasos{
           width: 100%;
           max-width: 1200px;
+          justify-content: space-between;
           &__item{
-            padding-bottom: 10px;
+            max-width: 360px !important;
           }
         }
         &__planes{
           &--titulo{
             .como-funciona{
-              padding: 18px 0;
+              font-size: 36px;
+              max-width: 100%;
+            }
+            .nuevos-planes{
+              font-size: 36px;
+              max-width: 100%;
             }
             span{
               font-size: 44px;
@@ -1626,8 +1925,9 @@
           }
         }
         .planes{
-          margin-top: 20px;
-          padding: 0 10%;
+          padding: 0 !important;
+          width: 94%;
+          max-width: 1200px;
           &__item{
             max-width: 310px !important;
           }
@@ -1691,20 +1991,31 @@
         }
       }
       .home-beneficios2{
-        &__titulo{
-          height: 83px;
-          p{
-            font-size: 42px;
-          }
-        }
-        .carousel-beneficios{
+          padding-top: 48px;
+          padding-bottom: 48px;
+        .beneficios2{
+          max-width: 1200px;
+          flex-direction: row;
+          padding: 0;
+          margin-top: 20px;
           &__item{
-            .carousel-caption{
-              div{
-                img{
-                  width: 84px;
-                }
-              }
+            margin-bottom: 0;
+            width: 25%;
+            flex-direction: column;
+            .beneficios-titulo{
+              font-size: 25px;
+              margin: 8px 0;
+            }
+            .img-box{
+              width: initial;
+              height: 110px;
+            }
+            
+          }
+          .beneficios-desc{
+            width: initial;
+            p{
+              text-align: center;
             }
           }
         }
@@ -1733,9 +2044,11 @@
   @media (min-width: 1366px) {
     .home{
       .home-pasos{
-        padding-top: 0;
+        padding-top: 42px;
         .planes{
-          padding: 0 10%;
+          padding: 0 !important;
+          width: 100%;
+          max-width: 1200px;
         }
       }
       .home-talleres{

@@ -20,6 +20,97 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #ebf1fb;
 // }
+.modal.fade.show {
+  display: flex !important;
+}
+.modal{
+  .modal-body{
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+  
+  .modal-close{
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+  }
+  .modal-titulo{
+    color: #0855C4;
+    font-size: 23px;
+    font-family: 'Omnes medium';
+    text-align: center;
+    width: 220px;
+    margin: auto;
+    margin-bottom: 24px;
+  }
+  .box-btns{
+    width: 100%;
+    margin: auto;
+    margin-top: 24px;
+    text-align: center;
+    .btn-principal{
+      width: 170px;
+      background: #EA0C90;
+      color: white;
+      font-size: 16px;
+      font-family: 'Omnes Regular';
+      height: 50px;
+    }
+  }
+  .modal-content{
+    display: flex;
+    min-width: 338px;
+    min-height: 305px;
+  }
+}
+.modalEnviarEmail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  input{
+    border: 1px solid #C6C6C6;
+    height: 44px;
+  }
+  .fechaCotizador{
+    width: 85%;
+  }
+}
+#modalEntidadFinanciera2{
+  .modal-titulo{
+    color: #0855C4;
+    font-size: 23px;
+    font-family: 'Omnes medium';
+    text-align: center;
+    width: 280px;
+    margin: auto;
+    margin-bottom: 24px;
+    line-height: 25px;
+  }
+  .box-btns{
+    margin-top: 36px;
+    .btn-principal{
+      width: 280px;
+      font-size: 18px;
+    }
+  }
+}
+#modalEnviarEmail{
+  .modal-content{
+    display: flex;
+    width: 338px;
+    height: 305px;
+  }
+}
+#v2modalGPS{
+  .modal-body{
+    padding: 0;
+  }
+  .modal-dialog{
+
+  }
+}
 @import "preguntas-frecuentes-viajes/dist/preguntasFrecuentesGenerico.css";
 .omnes-medium{
   font-family: 'Omnes Regular';
@@ -259,8 +350,16 @@
     border: none;
   }
 }
+#modalInicioVigencia2{
+  .modal-titulo{
+    width: 100%;
+  }
+}
 #modalInicioVigencia{
   border: none;
+  .modal-titulo{
+    width: 100%;
+  }
   .modal-body{
     min-height: 100% !important;
     margin: 0;
@@ -483,6 +582,13 @@
 .modalHomeVideo{
   border: none;
 }
+#modalHomeVideo{
+  .modal-content{
+    background: transparent !important;
+    border: none !important;
+  }
+  
+}
 #modalHomeVideo .modal-dialog{
   max-width: 740px;
 }
@@ -504,7 +610,24 @@
   align-items: center;
   justify-content: center;
 }
-
+#modalCompararPlanes{
+  .modal-content{
+    padding: 0;
+  }
+  .modal-body {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .modal-titulo {
+    color: #0855C4;
+    font-size: 23px;
+    font-family: 'Omnes Medium';
+    text-align: center;
+    /* width: 220px; */
+    margin: auto;
+    margin-bottom: 24px;
+  }
+}
 #modalEntidadFinanciera{
   .modal-close{
     position: absolute;
@@ -527,6 +650,53 @@
   .modal-content {
       height: 320px;
   }
+}
+#v2modalGPS.modal.fade.show {
+  align-items: flex-start !important;
+}
+@media (min-width: 992px) {
+  #modalEntidadFinanciera2{
+    .modal-titulo{
+      font-size: 32px;
+      line-height: 33px;
+    }
+    .modal-content {
+      display: flex;
+      min-width: 472px;
+      min-height: 442px;
+    }
+    .modal-body{
+      padding: 48px;
+    }
+    .endosoSession{
+      margin: 44px 0px;
+    }
+    .box-btns{
+      .btn-principal{
+        font-size: 22px;
+      }
+    }
+  }
+  #v2modalGPS{
+    .modal-body{
+      padding: 0;
+    }
+    .modal-dialog{
+      max-width: 880px;
+      width: 880px;
+    }
+  }
+  #v2modalGPS.modal.fade.show {
+    align-items: center !important;
+  }
+  #modalEnviarEmail{
+    .modal-content{
+      display: flex;
+      width: 420px;
+      height: 305px;
+    }
+  }
+  
 }
 @media (min-width: 1024px) {
   .rotor-group-heading {
@@ -660,7 +830,13 @@
       }
     }
 
-    
+    .modal{
+      .box-btns{
+        .btn-principal{
+          font-size: 22px;
+        }
+      }
+    }
 }
 
 .modalContinuarSinPlaca{

@@ -107,7 +107,7 @@
             Mira el video
           </p>
           <div class="home-pasos__planes--titulo   pt-lg-3 d-block">
-          <p>¡Nuevo! Tenemos 3 planes </p>
+          <p>Tenemos 3 planes </p>
           
         </div>
       </div>

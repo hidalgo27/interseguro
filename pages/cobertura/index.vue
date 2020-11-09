@@ -75,11 +75,11 @@
                             </b-card-body>
                         </b-collapse>
                     </b-card>
-                    <!-- Perdida parcial por choque  -->
+                    <!-- Pérdida parcial por choque  -->
                     <b-card no-body class="accordion-tab__blue">
                         <b-card-header header-tag="header" class="p-0" role="tab">
                             <b-button block href="#" v-b-toggle.accordion-3 class="d-flex">
-                                <p>Perdida parcial por choque</p>
+                                <p>Pérdida parcial por choque</p>
                                 <img v-if="isVisiblePP" aria-hidden="true" class="ml-auto" src="../../static/media/img/cobertura/arrow-top.png"/>
                                 <img v-else aria-hidden="true" class="ml-auto" src="../../static/media/img/cobertura/arrow-down.png"/>
                             </b-button>
@@ -405,7 +405,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
                             <tr style="background-color: #ebf4ff;">
-                                <td class="texto-izq">Perdida parcial por choques</td>
+                                <td class="texto-izq">Pérdida parcial por choques</td>
                                 
                                 <td><p><strong>Si tu carro sufre daños por un choque o<br>accidente involuntario.</strong><br><span>Hasta 75% del valor asegurado del carro.</span></p></td>
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
@@ -473,7 +473,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
                             <tr style="background-color: #ebf4ff;">
-                                <td class="texto-izq">Perdida total por choques</td>
+                                <td class="texto-izq">Pérdida total por choques</td>
                                 <td><p><strong>Si tu carro sufre daños irreparables<br>por un choque o accidente involuntario.</strong><br><span>Cubrimos hasta: Valor total asegurado del carro</span></p></td>
                                 <td align="center"><p><span>-</span></p></td>
                                 <td align="center"><p><span>-</span></p></td>

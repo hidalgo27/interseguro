@@ -13,11 +13,11 @@
             <div class="felicitaciones">
               <p class="titulo">¡Felicitaciones!</p>
               <p>Tu carro ya está protegido</p>
-              <p>Nro. de póliza <strong>{{this.listTest.policyNumber}}</strong></p>
+              <p>Nro. de póliza <strong>{{this.listaTransaccion.policyNumber}}</strong></p>
             </div>
             <div class="poliza-card__prima">
               <span>Prima Total</span> <br>
-              <span>${{this.listTest.policyAmount||""}}</span>
+              <span>${{this.listaTransaccion.policyAmount||""}}</span>
             </div>
           </div>
         </b-col>
@@ -34,15 +34,15 @@
                 <span class="titulo">Datos del Auto</span><br>
                 <div class="item  marca  mt-2">
                   <span class="subtitulo">Marca/modelo</span><br>
-                  <span>{{this.listTest.brand||""}} / {{this.listTest.model||""}} </span>
+                  <span>{{this.listaTransaccion.brand||""}} / {{this.listaTransaccion.model||""}} </span>
                 </div>
                 <div class="item  placa  mt-2">
                   <span class="subtitulo">Placa</span><br>
-                  <span>{{this.listTest.plateNumber||""}}</span>
+                  <span>{{this.listaTransaccion.plateNumber||""}}</span>
                 </div>
                 <div class="item  anio  mt-2">
                   <span class="subtitulo">Año</span><br>
-                  <span>{{this.listTest.modelYear||""}}</span>
+                  <span>{{this.listaTransaccion.modelYear||""}}</span>
                 </div>
               </div>
 
@@ -50,11 +50,11 @@
                 <span class="titulo">Resumen del seguro</span><br>
                 <div class="item  inicio">
                   <span class="subtitulo">Inicio</span><br>
-                  <span>{{this.listTest.fromDate||""}}</span>
+                  <span>{{this.listaTransaccion.fromDate||""}}</span>
                 </div>
                 <div class="item  fin">
                   <span class="subtitulo">Fin</span><br>
-                  <span>{{this.listTest.toDate||""}}</span>
+                  <span>{{this.listaTransaccion.toDate||""}}</span>
                 </div>
 
                 <div class="item  plan  d-none  d-md-inline-block">
@@ -202,7 +202,7 @@ export default {
       },
       objPagoProcesado: {},
       documentoLocal: "",
-      listTest: {
+      listaTransaccion: {
         policyNumber: "",
         firstName: "",
         brand: "",
@@ -272,7 +272,7 @@ export default {
     }
   },
   mounted: function() {
-    
+    localStorage.setItem('activoAgora', false)
     this.numeroTelefono = this.$store.state.common.numeroTelefono 
     this.cobertura_is = this.$store.state.common.objectDigodat
     this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
@@ -289,7 +289,7 @@ export default {
         { event: "setAccount", account: 64802}, // You should never update this line
         { event: "setEmail", email: localStorage.getItem("email") }, // Can be an empty string 
         { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
-        { event: "trackTransaction", id: this.listTest.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
+        { event: "trackTransaction", id: this.listaTransaccion.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
       )
     }
     if(this.$store.state.common.nuevoProducto){
@@ -326,9 +326,9 @@ export default {
     this.cotizador_datalayer('transaction',this.$store.state.common.policy_id)
     this.$store.dispatch('common/getPagoProcesado')
       .then((res) =>{
-        this.listTest = res.data.body
+        this.listaTransaccion = res.data.body
 
-        this.$store.dispatch('common/enviarMailingConfirmacion', this.listTest.policyNumber)
+        this.$store.dispatch('common/enviarMailingConfirmacion', this.listaTransaccion.policyNumber)
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "EEtransaction",
@@ -342,10 +342,10 @@ export default {
                 {
                   id: "SV001", // ID del Producto
                   name: "Seguro Vehicular", // nombre de producto
-                  price: this.listTest.policyAmount, // precio final
-                  brand: this.listTest.brand, // marca de vehiculo
+                  price: this.listaTransaccion.policyAmount, // precio final
+                  brand: this.listaTransaccion.brand, // marca de vehiculo
                   category: this.$store.state.common.listaCotizacion.policy.risk, // Reisgo del Vehiculo
-                  variant: this.listTest.model, // modelo del vehiculo
+                  variant: this.listaTransaccion.model, // modelo del vehiculo
                   quantity: 1
                 }
               ]

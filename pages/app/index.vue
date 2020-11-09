@@ -2076,6 +2076,7 @@ p, img{
         }
       }
     }
+    
     .home-talleres{
       background-color: #f1f7ff;
       padding-top: 18px;

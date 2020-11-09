@@ -1509,7 +1509,7 @@ export default {
     */
     continuar(evt) {
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia
-      this.$store.state.common.listaCotizacion.paymentMethodId = 3
+      // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true
       evt.preventDefault()
       this.detectar_documento()
@@ -2043,7 +2043,7 @@ export default {
           "pantalla": this.pantalla,
           "enviarCorreo":0,
           "datosCorreo":{
-            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
             "plantilla": this.objPlantilla,
             "utm": this.objUtm
           },
@@ -2114,6 +2114,7 @@ export default {
     },
   },
   mounted: function() {
+    
     this.fechaVigencia = this.$store.state.common.fechaVigencia
     this.cobertura_is = this.$store.state.common.objectDigodat
     this.cotizador_datalayer("checkout",1)
