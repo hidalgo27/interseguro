@@ -125,11 +125,11 @@
               <div class="v2-datos-carro__detalle">
                 
                 <div class="v2-datos-carro__detalle--placa">
-                  <p>Mi placa: </p>
+                  <p>Mi placa </p>
                   <p class="campo">{{this.placaUppercase}}</p>
                 </div>
                 <div class="v2-datos-carro__detalle--modelo">
-                  <p style="position: relative;">Mi modelo: <img class="v2-editar" @click="resetearVehiculo()" src="./../../../static/media/interseguroVehicular_v2/editar.png" alt=""> </p>
+                  <p style="position: relative;">Mi modelo <img class="v2-editar" @click="resetearVehiculo()" src="./../../../static/media/interseguroVehicular_v2/editar.png" alt=""> </p>
                   <p class="mi-modelo-descripcion  campo">
                     {{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }} 
                     
@@ -404,7 +404,7 @@
 
                 <div class="col-4">
                   <div style="height: 40px; " class="plan-recomendado">
-                    <span>&#9733;	</span> RECOMENDADO
+                    <span>&#9733;	</span> MÁS VENDIDO
                   </div>
                   <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planInactivoDesktop: planInactivo}">
                     <div class="plan-item  plan-black">
@@ -1176,10 +1176,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$150</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 618 1900</p>
               </div>
             </div>
 
@@ -1191,10 +1191,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$177</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 620 1111</p>
               </div>
             </div>
 
@@ -1206,10 +1206,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$165</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 630 7575</p>
               </div>
             </div>
 
@@ -1217,14 +1217,14 @@
               <div class="empresa-item__der">
                 <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
                 <span>Empresa:</span>
-                <p>Protesegur</p>
+                <p>Prosegur</p>
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$199</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 513 8686</p>
               </div>
             </div>
           </div>
@@ -1693,12 +1693,10 @@
       showSumaAseguradaMobile(){
         this.mostrarCapaGris = true
         this.activarTooltip = true
-        console.log(this.mostrarCapaGris)
       },
       showSumaAseguradaDesktop() {     
         this.mostrarCapaGris = true   
         this.activarTooltipDesktop = true
-        console.log(this.mostrarCapaGris)
       },
       hideSumaAsegurada() {
         
@@ -1813,7 +1811,6 @@
           }
           setTimeout(() => {
             let arreglo = document.querySelectorAll(".plan"+id)
-            console.log(arreglo)
             for (let i = 0; i < arreglo.length; i++) {
               arreglo[i].classList.add("planActivoDesktop")
             }
@@ -1857,7 +1854,6 @@
         }
         setTimeout(() => {
           let arreglo = document.querySelectorAll(".plan"+id)
-          console.log(arreglo)
           for (let i = 0; i < arreglo.length; i++) {
             arreglo[i].classList.add("planActivo")
           }
@@ -2416,7 +2412,6 @@
           this.cambioInput();
         } else {
           this.maximoImgDisabled = true
-          console.log("MAYOR")
         }
       },
       minimoImg() {
@@ -2434,10 +2429,8 @@
         
         if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum) {
           this.listCotizacion.vehicle.current = this.clonado.vehicle.maximum
-          console.log("FUERAAA",this.listCotizacion.vehicle.current, this.clonado.vehicle.maximum)
         }else if(this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum){
           this.listCotizacion.vehicle.current = this.clonado.vehicle.minimum
-          console.log("FUERAAA",this.listCotizacion.vehicle.current, this.clonado.vehicle.minimum)
         } else {
           this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
           this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
@@ -2613,7 +2606,6 @@
         this.$refs.v2modalGPS.hide();
       },
       showModalCompararPlanes() {
-        console.log("PLANES")
         this.$refs.modalCompararPlanes.show();
       },
       hideModalCompararPlanes() {
@@ -2755,7 +2747,7 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },
@@ -2843,7 +2835,6 @@
 
   mounted: function () {
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
-    console.log("INGRESA TU DOCUMENTO")  
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
       this.itemElegido.discountType = this.$store.state.common.discountType
@@ -2886,11 +2877,9 @@
           this.seleccionarPLan(this.planSeleccionado)
           this.seleccionarPLanDesktop(this.planSeleccionado)
         }else{
-          console.log("OBKT COMMO")
           this.seleccionarPLan(this.planSeleccionado)
           this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)          
           this.seleccionarPLanDesktop(this.planSeleccionado)
-          console.log(this.planSeleccionado)
         }
         /* FIN DE PLAN SELECCIONADO */
 
@@ -2909,12 +2898,10 @@
         // this.vehicleState = objJWT.common.vehicleState
         if (this.$store.state.common.plateNumber !== '') {
             if (this.$store.state.common.vehicleState == 1) {
-              console.log("IF")
               this.PaginaVista('',true)
               // this.objectVehicle = this.$store.state.common.objVehiculo
               this.validateVehicleExist(this.$store.state.common.objVehiculo)
             }else{
-              console.log("MARCA")
               this.PaginaVista('',false)
               this.mostrarListaMarca = true              
               this.mostrarMarca()
@@ -3399,9 +3386,11 @@ button:focus{
     .v2-editar{
       position: relative;
       cursor: pointer;
-      width: 20px;
-      min-width: 20px;
+      width: 14px;
+      min-width: 14px;
       left: 12px;
+      height: 15px;
+      top: 2px;
     }
     .campo{
       font-family: 'Omnes Medium';

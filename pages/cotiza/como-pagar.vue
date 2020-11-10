@@ -770,38 +770,7 @@ import { validationMixin } from 'vuelidate'
                 evt.preventDefault();
                 this.$nuxt.$router.push("/cotiza/ingresa-tu-documento");              
             },
-            radioComoPagar(event){
-                var self = this
-                setTimeout(function(){ 
-                    if(self.payment == 1){
-                        self.monto_pagar = self.listCotizacion.policy.monthlyDiscount > 0 ? self.listCotizacion.policy.monthlyDiscount : self.listCotizacion.policy.monthly
-
-                        self.$store.commit('common/setFrecuenciaPago', 1)
-                    }else if(self.payment == 2){
-                        self.monto_pagar =  self.listCotizacion.policy.quarterlyDiscount > 0 ? self.listCotizacion.policy.quarterlyDiscount : self.listCotizacion.policy.quarterly
-
-                        self.$store.commit('common/setFrecuenciaPago', 2)
-                    }else if(self.payment == 3){
-                        self.monto_pagar = self.listCotizacion.policy.annualDiscount > 0 ? self.listCotizacion.policy.annualDiscount : self.listCotizacion.policy.annual
-
-                        self.$store.commit('common/setFrecuenciaPago', 3)
-                    }else if(self.payment == 4){
-                        if(self.listCotizacion.discount.intercorp == 5){
-                            self.monto_pagar = self.listCotizacion.policy.twoYearsDiscount > 0 ? self.listCotizacion.policy.twoYearsDiscount : self.listCotizacion.policy.twoYearsDiscount
-    
-                            self.$store.commit('common/setFrecuenciaPago',5)
-                        }else{
-                            self.monto_pagar = self.listCotizacion.policy.twoYears > 0 ? self.listCotizacion.policy.twoYears : self.listCotizacion.policy.twoYears
-    
-                            self.$store.commit('common/setFrecuenciaPago', 4)
-                        }
-                        
-                    }else{
-                        self.isDisableButton = true
-                    }
-                }, 0);
-
-            },
+            
             comoPagarDatalayer(){
                 if(this.frecuenciaPago == 1){
                     this.frecuenciaPago_datalayer ='mensual'
@@ -1008,7 +977,7 @@ import { validationMixin } from 'vuelidate'
                     "pantalla": 3,
                     "enviarCorreo":0,
                     "datosCorreo":{
-                        "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
+                        "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
                         "plantilla": this.objPlantilla,
                         "utm": this.objUtm
                     },
@@ -1075,7 +1044,6 @@ import { validationMixin } from 'vuelidate'
             })
           },
           mouseLeave(e) {
-              console.log("ENTRAMOS AL MODAL")
               if (this.$store.state.common.leaveMessage == 0) {
                   if (e.clientX < 0 || e.clientY < 0) {
                         this.$store.commit('common/setLeaveMessage',1)
@@ -1123,10 +1091,8 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            console.log(this.valeAgora)
             if(localStorage.getItem('activoAgora')){
                 this.valeAgora = true
-                console.log(this.valeAgora)
             }
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1164,9 +1130,6 @@ import { validationMixin } from 'vuelidate'
                                 this.monto_pagar =  this.listCotizacion.policy.quarterlyDiscount > 0 ? this.listCotizacion.policy.quarterlyDiscount : this.listCotizacion.policy.quarterly                             
                             }else if(this.payment == 3){
                                 this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
-                            }else if(this.payment == 4){
-                                this.monto_pagar = this.listCotizacion.policy.twoYears > 0 ? this.listCotizacion.policy.twoYears : this.listCotizacion.policy.twoYears
-                                localStorage.setItem().setItem("monto_pagar",this.payment)
                             }else{
                                 this.isDisableButton = true
                             } 

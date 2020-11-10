@@ -125,11 +125,11 @@
               <div class="v2-datos-carro__detalle">
                 
                 <div class="v2-datos-carro__detalle--placa">
-                  <p>Mi placa: </p>
+                  <p>Mi placa </p>
                   <p class="campo">{{this.placaUppercase}}</p>
                 </div>
                 <div class="v2-datos-carro__detalle--modelo">
-                  <p style="position: relative;">Mi modelo: <img class="v2-editar" @click="resetearVehiculo()" src="./../../../static/media/interseguroVehicular_v2/editar.png" alt=""> </p>
+                  <p style="position: relative;">Mi modelo <img class="v2-editar" @click="resetearVehiculo()" src="./../../../static/media/interseguroVehicular_v2/editar.png" alt=""> </p>
                   <p class="mi-modelo-descripcion  campo">
                     {{this.itemElegido.brand }} {{this.itemElegido.model }} {{this.itemElegido.year }} 
                     
@@ -404,7 +404,7 @@
 
                 <div class="col-4">
                   <div style="height: 40px; " class="plan-recomendado">
-                    <span>&#9733;	</span> RECOMENDADO
+                    <span>&#9733;	</span> MÁS VENDIDO
                   </div>
                   <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planInactivoDesktop: planInactivo}">
                     <div class="plan-item  plan-black">
@@ -1217,7 +1217,7 @@
               <div class="empresa-item__der">
                 <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
                 <span>Empresa:</span>
-                <p>Protesegur</p>
+                <p>Prosegur</p>
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
@@ -1691,12 +1691,10 @@
       showSumaAseguradaMobile(){
         this.mostrarCapaGris = true
         this.activarTooltip = true
-        console.log(this.mostrarCapaGris)
       },
       showSumaAseguradaDesktop() {     
         this.mostrarCapaGris = true   
         this.activarTooltipDesktop = true
-        console.log(this.mostrarCapaGris)
       },
       hideSumaAsegurada() {
         
@@ -1801,7 +1799,6 @@
         this.planInactivo = true
 
         if (this.planSeleccionado == id && this.valorSeleccionado) {
-          console.log("ID => ",id)
           this.detectarPLanSeleccionado()
            this.seleccionarFrecuencia()
         }else{
@@ -1812,7 +1809,6 @@
           }
           setTimeout(() => {
             let arreglo = document.querySelectorAll(".plan"+id)
-            console.log("arreglo",arreglo)
             for (let i = 0; i < arreglo.length; i++) {
               arreglo[i].classList.add("planActivoDesktop")
             }
@@ -1855,7 +1851,6 @@
         }
         setTimeout(() => {
           let arreglo = document.querySelectorAll(".plan"+id)
-          console.log("ARREGLO",arreglo)
           for (let i = 0; i < arreglo.length; i++) {
             arreglo[i].classList.add("planActivo")
           }
@@ -2089,10 +2084,8 @@
         
         if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum) {
           this.listCotizacion.vehicle.current = this.clonado.vehicle.maximum
-          console.log("FUERAAA",this.listCotizacion.vehicle.current, this.clonado.vehicle.maximum)
         }else if(this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum){
           this.listCotizacion.vehicle.current = this.clonado.vehicle.minimum
-          console.log("FUERAAA",this.listCotizacion.vehicle.current, this.clonado.vehicle.minimum)
         } else {
           this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
           this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
@@ -2334,7 +2327,7 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "testvehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },
@@ -2470,7 +2463,6 @@
           
           /* DETECTAMOS SI PLA SELECCIONADO ESTA EN EL OBJ LOCAL */
           this.planSeleccionado = objJWT.common.planSeleccionado
-          console.log("PLAAAAAAAAAAAN SELECCIONADO", this.planSeleccionado)
           if (objJWT.common.planSeleccionado == undefined || objJWT.common.planSeleccionado == null) {
             this.planSeleccionado = 3
             this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)
@@ -2482,7 +2474,6 @@
             this.$store.commit('common/setPlanSeleccionado',this.planSeleccionado)          
             this.seleccionarPLan(this.planSeleccionado)
             this.seleccionarPLanDesktop(this.planSeleccionado)
-            console.log(this.planSeleccionado)
           }
         }
         /* FIN DE PLAN SELECCIONADO */
@@ -2508,12 +2499,10 @@
 
                 
                   if (this.objectVehicle.exists) {
-                    console.log("true")
                     this.PaginaVista(true)
                     this.validateVehicleExist(this.objectVehicle)
                     
                   }else{
-                    console.log("false")
                     this.PaginaVista(false)
                     this.mostrarListaMarca = true              
                     this.mostrarMarca()

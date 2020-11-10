@@ -541,7 +541,7 @@
           )
         }
         var url = window.location.pathname
-        if(url == "/vehicular/" || url == "/vehicular" || url == "/testvehicular/" || url == "/testvehicular"){
+        if(url == "/vehicular/" || url == "/vehicular" || url == "/vehicular/" || url == "/vehicular"){
           setTimeout(() => {
             localStorage.setItem("urlLocal", "/")
           }, 150);
