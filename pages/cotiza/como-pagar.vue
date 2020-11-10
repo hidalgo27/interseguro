@@ -46,7 +46,8 @@
                     <p class="subtitulo">Vale S/ 100 de Agora</P>
                 </div>
                 <b-col cols="12" md="8">
-                    
+                    <!-- <img v-if="listCotizacion.discount.intercorp == 5" class="boxtitulo__dto5" width="60" src="./../../static/media/img/flujo/como-pagar/dto_5.svg" alt="calendar"> 
+                    <img v-else> -->
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">
                             <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta">
