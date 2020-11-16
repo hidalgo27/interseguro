@@ -95,12 +95,15 @@
 }
 .beneficios {
   padding-top: 46px;
+  .titulo-ibk{
+    color: #333333;
+    font-family: 'Omnes Regular';
+    font-size: 26px;
+  }
   .beneficios-ibk{
     position: relative;
-    top: -75px;
     background: white;
     padding: 20px;
-    border-radius: 20px 20px 0 0;
     z-index: 999;
   }
   .section-header {
@@ -114,13 +117,17 @@
   align-items: center;
   .beneficios-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    border: 1px solid #E3E3E3;
+    border-radius: 15px 0 15px 0;
+    padding: 12px 24px;
+    margin-bottom: 24px;
+    width: 100%;
     img{
       width: auto;
-      height: 80px;
+      height: 60px;
     }
     &__titulo {
       justify-content: center;
@@ -128,19 +135,16 @@
       flex-direction: column;
       align-items: center;
       h4 {
-        color: #0855C4;
-        font-size: 17px;
+        font-family: 'Omnes Medium';
+        color: #0033A1;
         font-weight: 500;
         margin-bottom: 0;
+        font-size: 18px;
       }
-    }
-    &__texto {
-      p {
-        color: #787878;
-        font-size: 15px;
-        text-align: center;
-        font-weight: 400;
+      p{
         font-family: 'Omnes Regular';
+        color: #333333;
+        font-size: 16px;
       }
     }
   }
@@ -353,8 +357,7 @@
 
 .portada2 {
   z-index: 88;
-  min-height: 530px;
-  height: calc(100vh - 200px);
+  min-height: 460px;
   display: flex;
   position: relative;
   background-image: url(../../static/media/interseguroVehicular_v2/autopista_desktop.png);
@@ -492,26 +495,40 @@
   }
 }
 
-.portada2_ibk {
-  background-image: url(../../static/media/interseguroVehicular_v2/portada_ibk.png);
-  .form-cotizador__msg{
-    background: #00c450;
-    color: white;
-  }
-}
 
-@media(max-width: 450px){
+
+  .portada2_ibk {
+    background-image: url('./../../static/media/interseguroVehicular_v2/portada_ibk_mobile.png');
+    background-position: bottom;
+    .form-cotizador__msg{
+      background: #0033A1;
+      color: white;
+    }
+    
+  }
   .clasePadreIbk{
-    background-image: none;
+    
+    .form-group{
+      margin-bottom: 24px;
+    }
     .form-cotizador{
-      background-color: #2f4a9f;
-      box-shadow: -3px 4px 12px -1px #000;
+      background-color: #ffffff;
+      border: 1px solid red;
       border: none;
+      padding-top: 0;
+      padding-bottom: 0;
       .compra-online{
-        color: #fff !important; 
+        color: #333333 !important;
+        padding: 0;
+        margin: 0;
+        padding-top: 64px;
+        padding-bottom: 24px;
       }
       .no-placa{
-        color: #fff !important;
+        display: inline-block;
+        color: #333333 !important;
+        padding-top: 26px;
+        padding-bottom: 32px;
       }
       .seguro-vehicular-ibk {
         background-image: url(../../static/media/interseguroVehicular_v2/seguro-vehicular-white.png);
@@ -522,9 +539,77 @@
         }
       }
     }
+    .box-btn{
+      &--primary{
+        background: #00C450;
+        height: 36px;
+        line-height: 36px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .elegir{
+    h3{
+      font-family: 'Omnes Regular';
+      font-size: 26px;
+      color: #333333;
+    }
+    h4{
+      color: #0033A1;
+      font-family: 'Omnes Medium';
+    }
+  }
+  .home-elegir{
+    &__item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 44px;
+      img{
+        height: 64px;
+      }      
+      h4,p{
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      h4{
+        margin-bottom: 16px;
+        margin-top: 16px;
+      }
+    }
+  }
+.talleres-ibk{
+  background:#00C450;
+  padding: 65px 0;
+  h3{
+    font-family: 'Omnes Regular';
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+  p{
+    font-family: 'Omnes Regular';
+    font-size: 18px;
+    text-align: center;
+    color: white;
+  }
+  .box-btn{    
+    margin: auto;
+  }
+  button{
+    margin-top: 30px;
+    background: #ffffff;
+    color: #00c450;
+    font-family: 'Omnes Medium';
+    font-size: 16px;
+    height: 52px;
+    border: none;
+    box-shadow: none;
+    display: inline-block;
   }
 }
-
 @media (min-width: 768px) {
   .portada2{
     height: calc(100vh - 290px);  

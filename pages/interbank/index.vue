@@ -9,9 +9,6 @@
           <div class="form-cotizador__msg">
             Desde US$ 36 x mes
           </div>
-          <div class="seguro-vehicular seguro-vehicular-ibk">
-            <img src="../../static/media/interseguroVehicular_v2/seguro-vehicular.svg" alt="seguro-vehicular">         
-          </div>
           <b-form-group>
             <p class="compra-online">Compra 100% online al mejor precio</p>
             <b-form-input
@@ -58,7 +55,7 @@
     <section id="beneficios" class="beneficios">
       <b-container class="beneficios-ibk" style="z-index: 99;">
         <div class="section-header">
-          <h3 class="title-principal title-section-home text-center">
+          <h3 class="titulo-ibk text-center">
             Beneficios Únicos
           </h3>
         </div>
@@ -66,12 +63,10 @@
           <div class="home-beneficios">
             <div class="home-beneficios__item beneficios-item ">
               <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/choferes.png" alt="icon">
+                <img src="./../../static/media/interbank/choferes.png" alt="icon">
               </div>
               <div class="beneficios-item__titulo">
                 <h4>Hasta 5 choferes</h4>
-              </div>
-              <div class="beneficios-item__texto">
                 <p>
                   de reemplazo al año ¡Gratis!
                 </p>
@@ -79,48 +74,35 @@
             </div>
             <div class="home-beneficios__item beneficios-item">
               <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/gruas.png" alt="icon">
+                <img src="./../../static/media/interbank/rescatarte.png" alt="icon">
               </div>
               
                 <div class="beneficios-item__titulo">
                   <h4>Vamos a rescatarte</h4>
-                </div>
-                <div class="beneficios-item__texto">
                   <p>donde estés hasta 2 veces al mes.</p>
-                </div>
-              
+                </div>              
             </div>
             <div class="home-beneficios__item beneficios-item">
               <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/asistencia.png" alt="icon">
+                <img src="./../../static/media/interbank/tu_carro.png" alt="icon">
               </div>
               
                 <div class="beneficios-item__titulo">
                   <h4>¿Tu carro falló?</h4>
-                </div>
-                <div class="beneficios-item__texto">
                   <p>Te auxiliamos rápido, fallas eléctricas y mecánicas.</p>
                 </div>
-              
             </div>
             <div class="home-beneficios__item beneficios-item">
               <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/descuentos.png" alt="icon">
+                <img src="./../../static/media/interbank/dscto.png" alt="icon">
               </div>
               
                 <div class="beneficios-item__titulo">
                   <h4>Accede a descuentos</h4>
-                </div>
-                <div class="beneficios-item__texto">
                   <p>increíbles con nuestro programa Vive+.</p>
                 </div>
-              
             </div>
           </div>
-        </div>
-        <div class="row d-flex  justify-content-center">
-          <router-link to="/cobertura/" class="btn-beneficios"> Quiero ver más</router-link>
-          
         </div>
       </b-container>
     </section>
@@ -129,49 +111,49 @@
     <section id="elegir" class="section elegir" style="background: #f7fafb !important">
       <b-container>
         <div class="section-header">
-          <h3 class="title-principal title-section-home">
+          <h3 class="">
             ¿Por qué elegirnos?            
           </h3>          
         </div>
         <div class="section-body">
-          <div class="home-beneficios">
-            <div class="home-beneficios__item beneficios-item ">              
+          <div class="home-elegir">
+            <div class="home-elegir__item beneficios-item ">              
               <div class="beneficios-item__titulo">
-                <img src="../../static/media/interseguroVehicular_v2/icon_respaldo_intercorp.png" alt="somos intercorp">
-                <h4>Somos Intercorp</h4>
+                <img src="./../../static/media/interbank/intercorp.png" alt="somos intercorp">                
               </div>
               <div class="beneficios-item__texto">
+                <h4>Somos Intercorp</h4>
                 <p>
                  El grupo económico más grande del país.
                 </p>
               </div>
             </div>
-            <div class="home-beneficios__item beneficios-item">              
+            <div class="home-elegir__item beneficios-item">              
                 <div class="beneficios-item__titulo">
-                  <img src="../../static/media/interseguroVehicular_v2/despidete_papeleo.png" alt="despidete del papeleo">
-                  <h4>Despídete del papeleo</h4>
+                  <img src="./../../static/media/interbank/papeleo.png" alt="despidete del papeleo">                  
                 </div>
                 <div class="beneficios-item__texto">
+                  <h4>Despídete del papeleo</h4>
                   <p>Compra tu póliza 100% online y en 3 minutos.</p>
                 </div>
               
             </div>
-            <div class="home-beneficios__item beneficios-item">
+            <div class="home-elegir__item beneficios-item">
                 <div class="beneficios-item__titulo">
-                  <img src="../../static/media/interseguroVehicular_v2/disponible_24_7.png" alt="disponibles 24 a 7">
-                  <h4>Disponibles 24/7</h4>
+                  <img src="./../../static/media/interbank/24x7.png" alt="disponibles 24 a 7">                 
                 </div>
                 <div class="beneficios-item__texto">
+                  <h4>Disponibles 24/7</h4>
                   <p>WhatsApp o teléfono siempre disponibles.</p>
                 </div>
               
             </div>
-            <div class="home-beneficios__item beneficios-item">
+            <div class="home-elegir__item beneficios-item">
                 <div class="beneficios-item__titulo">
-                  <img src="../../static/media/interseguroVehicular_v2/precio_accesible.png" alt="precio accesible">
-                  <h4>Precio accesible</h4>
+                  <img src="./../../static/media/interbank/precio.png" alt="precio accesible">                  
                 </div>
                 <div class="beneficios-item__texto">
+                  <h4>Precio accesible</h4>
                   <p>Tarifas competitivas para proteger lo que más valoras.</p>
                 </div>
               
@@ -181,100 +163,19 @@
       </b-container>
     </section>
 
-   
 
-    <div class="home-clientes">
-      <div class="home-clientes__titulo">
-        <p>¿Qué dicen nuestros clientes?</p>
-      </div>
-      <div class="home-clientes__cuerpo">
-        <b-carousel
-          id="carousel-fade"
-          class="carousel-clientes"
-          v-model="slide"
-          :interval="4000"
-          controls
-          indicators
-          he
-          background="transparent"
-          style="text-shadow: 1px 1px 2px #333; color: red;"
-        >
-          
-          <!-- Slides with custom text -->
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "Fue facilísimo contratar el seguro, en comparación con la gestión tradicional."
-              <br><br>Manuel Augusto
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido."
-              <br><br>Carolina Chavez
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "La info que me enviaron sobre la cobertura era concisa y simple de entender!"
-              <br><br>Enrique Quispe
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "Muy fácil tomar el seguro: realizar la cotización es rápido y claro."
-              <br><br>Jorge Castillo
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "La comunicación es por WhatsApp y la inspección la hice al toque."
-              <br><br>Claudia Portocarrero
-            </div>
-          </b-carousel-slide>
-
-          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
-            <div>
-              "La atención ha sido rápida y efectiva, asegure mi carro en unos minutos y sin salir de mi casa."
-              <br><br>Katherine Reategui
-            </div>
-          </b-carousel-slide>
-
-        </b-carousel>
-       
-      </div>
-    </div>
-
-    <section id="talleres" class="talleres" style="background: #f7fafb !important">
+    <section class="talleres-ibk">
       <b-container fluid class="container-talleres">
-        <div class="section-header  d-sm-none">
-          <h3 class="title-principal title-section-home">
+        <div >
+          <h3>
             Talleres Afiliados
           </h3>
           <p>Encuentra la relación y ubicación de <br> nuestros talleres afiliados</p>
         </div>
-        <div class="section-body">
-          <div class="mapa d-none  d-sm-flex">
-            <img   src="../../static/media/interseguroVehicular_v2/talleres.png" alt="talleres">
-
-          </div>
-          <div class="contenido">
-            <div class="section-header d-none d-sm-block">
-              <h3 class="title-principal title-section-home">
-                Talleres Afiliados
-              </h3>
-              <p>Encuentra la relación y ubicación de <br> nuestros talleres afiliados</p>
-            </div>
-            <div class="box-btns">
-              <b-button class="talleres-cercanos">
-                <a target="_black" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&hl=es&ll=-12.109991959196146%2C-77.03860524421464&z=12">Ver talleres más cercanos</a>
-              </b-button>
-            </div>
-            
-          </div>
+        <div class="box-btn">
+          <b-button class="talleres-ibk__btn">
+              <a target="_black" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&hl=es&ll=-12.109991959196146%2C-77.03860524421464&z=12">Ver talleres más cercanos</a>
+            </b-button>
         </div>
       </b-container>
     </section>   
@@ -616,14 +517,7 @@
   display: flex;
   justify-content: flex-end;
 }
-  .talleres{
-    p{
-      color: #787878;
-      font-family: 'Omnes Medium';
-      font-size: 17px;
-      padding: 12px 0;
-    }
-  }
+
   .respaldo-intercorp{
     color: gray;
     font-size: 12px;
@@ -766,6 +660,6 @@ a:active {
 }
 
 .portada2 {
-    margin-top: 70px !important
+    margin-top: 92px !important
 }
 </style>

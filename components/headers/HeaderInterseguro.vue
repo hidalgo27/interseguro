@@ -7,13 +7,13 @@
                         <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
                     </div> 
                     <div class="d-md-none">
-                        <p>¡Extendimos el cyber! Aprovecha <br> el 15% de dscto. en la compra de tu Seguro Vehicular hasta el 28 de octubre</p>
+                        <p>¡Volvió el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
                         <div  class="example">            
                             <div id="contadorCyber" class="flipdown  flipdownMobile">                        
                             </div>
                         </div>
                     </div>
-                    <p class="d-none d-md-block">¡Extendimos el cyber! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular hasta el 28 de octubre</p>
+                    <p class="d-none d-md-block">¡Volvió el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
                 </div>
                 
                 <div  class="example  d-none  d-md-block">            
@@ -202,10 +202,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-
-                // Set up FlipDown
-                // var flipdown2 = new FlipDown(1603947599, 'contadorCyber2').start()
-                // var flipdown = new FlipDown(1603947599, 'contadorCyber').start()
+            // var flipdown2 = new FlipDown(1605502799, 'contadorCyber2').start()
+            // var flipdown = new FlipDown(1605502799, 'contadorCyber').start()
 
         },
         closeListon(){

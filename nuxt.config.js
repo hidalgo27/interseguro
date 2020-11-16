@@ -22,7 +22,7 @@ module.exports = {
   //Server midleware
   mode: 'universal',
   router: {
-    base: '/testvehicular/'
+    base: '/vehicular/'
   },  
   head: {
     title: 'Seguro Vehicular | Interseguro',

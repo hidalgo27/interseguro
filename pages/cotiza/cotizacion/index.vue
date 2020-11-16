@@ -250,12 +250,17 @@
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
                       <div class="box-importante" style="height: 40px;">
                       </div>
                       <div class="que-me-cubre">
-                        <p class="titulo">
+                        <div class="titulo">
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -328,6 +333,11 @@
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
                       <div class="box-importante">
                         <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
                         <ul>
@@ -349,9 +359,9 @@
                         </ul>
                       </div>
                       <div class="que-me-cubre">
-                        <p class="titulo">
+                        <div class="titulo">
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -423,6 +433,11 @@
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
                       <div class="box-importante">
                         <p class="titulo">Importante</p>
                         <ul>
@@ -467,9 +482,9 @@
                         </ul>
                       </div>
                       <div class="que-me-cubre">
-                        <p class="titulo">
+                        <div class="titulo">
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -546,6 +561,11 @@
                     <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                   </div>
                 </div>
+                <div class="dto-cotizador">
+                  <div class="flotante-dcto">
+                    10%
+                  </div>
+                </div>
                 <div class="box-importante">
                   <p class="titulo">Importante</p>
                   <ul>
@@ -589,9 +609,9 @@
                   </ul>
                 </div>
                 <div class="que-me-cubre">
-                  <p class="titulo">
+                        <div class="titulo">                          
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -725,7 +745,7 @@
         />
          <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
             <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mail.png" alt="">
-            <p class="modal-titulo  modal-titulo-enviado">¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras</p>
+            <p class="modal-titulo  modal-titulo-enviado"><strong>Hemos enviado tu cotización a tu correo. </strong> <br> No lo dudes y compra hoy al precio más bajo. </p>
           </div>
 
         <div class="modalEnviarEmail">
@@ -1263,7 +1283,7 @@
     <div class="box-mensajeEnviadoEndosar" v-bind:class="{mostrarMensajeEnviadoEndosar : mostrarMensajeEnviadoEndosar}">
         <div class="endosar-item">
           <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
-          <p class="modal-titulo-endoso">Tu póliza se ha endosado correctamente</p>
+          <p class="modal-titulo-endoso">Tu Seguro Vehicular se ha endosado correctamente al {{this.endosoSeleccionado.name}}</p>
         </div>
     </div>
 
@@ -1727,13 +1747,16 @@
 
             if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
                 this.monto_pagar = this.listaFull.policy.monthly
-                this.monto_antes = this.listaFull.policy.monthlyCalculated                
+                this.monto_antes = this.listaFull.policy.monthlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else if(this.planSeleccionado == 6){
                 this.monto_pagar = this.listaMedia.policy.monthly
                 this.monto_antes = this.listaMedia.policy.monthlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else if(this.planSeleccionado == 4){
                 this.monto_pagar = this.listaBasica.policy.monthly
                 this.monto_antes = this.listaBasica.policy.monthlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else{
 
             }
@@ -1754,12 +1777,15 @@
 
                 this.monto_pagar_mensual = this.listaFull.policy.quarterly
                 this.monto_antes_mensual = this.listaFull.policy.quarterlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else if(this.planSeleccionado == 6){
                 this.monto_pagar = this.listaMedia.policy.quarterly
                 this.monto_antes = this.listaMedia.policy.quarterlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else if(this.planSeleccionado == 4){
                 this.monto_pagar = this.listaBasica.policy.quarterly
                 this.monto_antes = this.listaBasica.policy.quarterlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else{}
         }else if(this.selected == 3){
             this.monto_pagar_plata = this.listaBasica.policy.annual
@@ -1775,24 +1801,15 @@
             if (this.planSeleccionado == 3) {
                 this.monto_pagar = this.listaFull.policy.annual
                 this.monto_antes = this.listaFull.policy.annualCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else if(this.planSeleccionado == 6){
                 this.monto_pagar = this.listaMedia.policy.annual
                 this.monto_antes = this.listaMedia.policy.annualCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else if(this.planSeleccionado == 4){
                 this.monto_pagar = this.listaBasica.policy.annual
                 this.monto_antes = this.listaBasica.policy.annualCalculated
-            }else{}
-        }else if(this.selected == 4){
-            this.frecuencia = 'Bianual'
-            if (this.planSeleccionado == 3) {
-                this.monto_pagar = this.listaFull.policy.twoYears
-                this.monto_antes = this.listaMedia.policy.twoYearsCalculated
-            }else if(this.planSeleccionado == 6){
-                this.monto_pagar = this.listaMedia.policy.twoYears
-                this.monto_antes = this.listaMedia.policy.twoYearsCalculated
-            }else if(this.planSeleccionado == 4){
-                this.monto_pagar = this.listaBasica.policy.twoYears
-                this.monto_antes = this.listaBasica.policy.twoYearsCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
             }else{}
         }else{}
       },
@@ -3047,7 +3064,7 @@ button:focus{
   height: 240px;
   .modal-titulo-enviado{
     color: #454A6C;
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Omnes Medium';
     margin: auto;
     width: 92%;
@@ -3419,6 +3436,20 @@ button:focus{
   border-radius: 3px;
   border: 1px solid #D5D5D5;
   padding: 35px;
+  .dto-cotizador{
+    position: relative;
+    .flotante-dcto{
+      background: #EA0F90;
+      color: #ffffff;
+      font-family: "Omnes Regular";
+      font-size: 25px;
+      padding: 12px;
+      position: absolute;
+      right: -35px;
+      top: 0px;
+      border-radius: 4px 0 0 4px;
+    }
+  }
   .detalle-item{
     display: flex;
     align-items: center;
@@ -3446,12 +3477,15 @@ button:focus{
     display: flex;
     padding-top: 24px;
   }
+  
   .que-me-cubre{
     .titulo{
       margin-bottom: 24px;
       font-size: 20px;
       font-family: "Omnes Medium";
       color: #454A6C;
+      position: relative;
+      
     }
     
     &__item{
@@ -4295,15 +4329,7 @@ a.steps__item.paso1:after{
   }
   
 }
-.dto-cotizador{
-  position: absolute;
-  right: 0;
-  top: 20px;
-  background: #00adee;
-  padding: 5px;
-  border-radius: 4px 0 0 4px;
-  color: white;
-}
+
 .ocultarItemsSeleccionados{
   display: none !important;
 }
@@ -5814,7 +5840,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 @media screen and (min-width: 992px) {
   .box-mensajeEnviadoCotizacion{
     .modal-titulo-enviado{
-      font-size: 26px;
+      font-size: 21px;
       line-height: 28px;
     }
   }
@@ -6039,6 +6065,11 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     padding: 0px 24px 32px;
     margin-top: 0;
     height: 700px;
+    .dto-cotizador{
+      .flotante-dcto{
+        right: -24px;
+      }
+    }
   }
   .v2-datos-carro{
     margin-top: 42px;

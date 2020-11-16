@@ -39,18 +39,21 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
+                <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
                     </div>
                     <p class="subtitulo">Vale S/ 100 de Agora</P>
-                </div>
+                </div> -->
                 <b-col cols="12" md="8">
-                    <!-- <img v-if="listCotizacion.discount.intercorp == 5" class="boxtitulo__dto5" width="60" src="./../../static/media/img/flujo/como-pagar/dto_5.svg" alt="calendar"> 
-                    <img v-else> -->
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">
-                            <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta">
+                            <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta" style="position: relative;">
+                                <div v-if="listCotizacion.discount !== undefined" >
+                                    <span class="boxtitulo-intercorp"  v-if="listCotizacion.discount.intercorp == 5">
+                                        ¡Felicitaciones! Hemos aplicado 5% de descuento por pertenecer al Club Intercorp
+                                    </span>
+                                </div>
                                 <div class="panel-custom">
                                     <b-row>
                                         <b-col cols="12" md="12">
@@ -84,7 +87,12 @@
                                                     </div>
                                                     <div class="input-group  iptGral editable  box-iptCard">
                                                         <img src="../../static/media/img/flujo/como-pagar/icon-tarjeta.png" class="icon-tarjeta"/>
-                                                        <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" id="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" maxlength="19" type="tel" class="form-control iptGral__input  ipt-cartNumber"/>                                            
+                                                        <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
+                                                        id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
+                                                        aria-label="Número de tarjeta" autocomplete="cc-number"
+                                                        aria-describedby="numberDocumentFeedback"
+                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cartNumber"/>
+                                                        
                                                         <img width="30" :src="creditCardImage" >
                                                         <span class="error-card">error momentaneo</span>
                                                     </div>
@@ -94,7 +102,9 @@
                                                         <div class="form-group-custom">                                                            
                                                             <div id="box-mes" class="input-group  iptGral editable">   
                                                                 <img src="../../static/media/img/flujo/como-pagar/icon-mes.png" class="icon-mes"/>
-                                                                <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2" v-model="card.expiration_month" type="tel" name="name"/>
+                                                                <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
+                                                                 class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
+                                                                  v-model="card.expiration_month" type="tel" name="cardmes"/>
                                                             </div>
                                                             <div id="focusMES">
                                                                 Fecha de vencimiento de tu tarjeta.
@@ -102,7 +112,7 @@
                                                         </div>
                                                         <div class="form-group-custom  text-right-custom">
                                                             <div class="input-group  iptGral editable">
-                                                                <input id="cardaño" placeholder="AA" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+                                                                <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
 
                                                             </div>
                                                         </div>
@@ -111,7 +121,10 @@
                                                         <div class="form-group-custom">
                                                             <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
                                                                 <img src="../../static/media/img/flujo/como-pagar/icon-ccv.png" class="icon-ccv"/>                                   
-                                                                <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom" id="cardccv" class="form-control text-uppercase iptGral__input ipt-cvv" :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="name"/>
+                                                                <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
+                                                                id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
+                                                                aria-describedby="numberFeedback"
+                                                                 :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
                                                             </div>
                                                         </div>     
                                                     </div>  
@@ -322,7 +335,7 @@
                 </b-row>
             </b-container>
         </b-modal>
-        <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 
                 <b-row class="text-center">
@@ -351,7 +364,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
          
     </section>
 </template>
@@ -526,14 +539,14 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
-            enviarParametroAgora(){
-                this.valeAgora = true,
-                localStorage.setItem('activoAgora', true)
-                setTimeout(() => {
-                    this.remarketingv2()
-                }, 0);
-                $nuxt.$emit('bv::hide::modal', 'leavePaymentAgora')
-            },
+            // enviarParametroAgora(){
+            //     this.valeAgora = true,
+            //     localStorage.setItem('activoAgora', true)
+            //     setTimeout(() => {
+            //         this.remarketingv2()
+            //     }, 0);
+            //     $nuxt.$emit('bv::hide::modal', 'leavePaymentAgora')
+            // },
             cotizador_datalayer(evento,step_valor){
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
@@ -983,7 +996,7 @@ import { validationMixin } from 'vuelidate'
                         "utm": this.objUtm
                     },
                     "datosProducto": {
-                        valeAgora: this.valeAgora,
+                        // valeAgora: this.valeAgora,
                         marca : this.$store.state.common.itemElegido.brand,
                         modelo : this.$store.state.common.itemElegido.model,
                         planSeleccionado : this.$store.state.common.planSeleccionado,
@@ -1048,17 +1061,17 @@ import { validationMixin } from 'vuelidate'
               if (this.$store.state.common.leaveMessage == 0) {
                   if (e.clientX < 0 || e.clientY < 0) {
                         this.$store.commit('common/setLeaveMessage',1)
-                        // if (this.urlLocal = "/promocion50") {
-                        //     // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
+                        if (this.urlLocal = "/promocion50") {
+                            // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        }else{
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        }
+                        // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
                         // }else{
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
                         // }
-                        if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
-                            this.$nuxt.$emit('bv::show::modal','leavePaymentAgora')
-                        }else{
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
-                        }
                   }
               }
           },
@@ -1092,9 +1105,9 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            if(localStorage.getItem('activoAgora')){
-                this.valeAgora = true
-            }
+            // if(localStorage.getItem('activoAgora')){
+            //     this.valeAgora = true
+            // }
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
@@ -1248,6 +1261,7 @@ a.steps__item.paso1:after{
     padding-top: 100px;
     background: #f7f4fc;
     .steps-plan{
+        margin-bottom: 26px;
         background: white;
     }
 }
@@ -1520,6 +1534,18 @@ a.steps__item.paso1:after{
                 background: #777777;
             }
         }
+    }
+    .boxtitulo-intercorp{
+        position: absolute;
+        height: 36px;
+        background: #0754c4;
+        color: white;
+        font-size: 12px;
+        left: 0;
+        top: -20px;
+        line-height: 32px;
+        text-align: center;
+        width: 100%;
     }
     .boxtitulo{
         width: 100%;
@@ -2143,16 +2169,20 @@ a.steps__item.paso1:after{
     }
 }
     @media (min-width: 992px) {
+        .steps-box{
+            .steps-plan{
+                margin-bottom: 12px;
+            }
+        }
         .modal-agora{
-    h3 {
-        font-size: 23px;
-    }
-    p{
-        font-size: 15px;
-    }
-}
-        .metodo-pago{
-            
+            h3 {
+                font-size: 23px;
+            }
+            p{
+                font-size: 15px;
+            }
+        }
+        .metodo-pago{            
             &__comoPagar{                
                 border-radius: 5px 5px 0 0;
             }  

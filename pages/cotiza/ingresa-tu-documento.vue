@@ -609,7 +609,7 @@
               <h2 v-if="this.planSeleccionado == 3  || this.planSeleccionado == 10"><span>¡Buena elección!</span> <br> Has elegido el plan que te <br> protege contra Todo Riesgo</h2>
             </b-col>
             <b-col cols="12" class="mb-3">
-              <h3>No lo dejes pasar, protege tu {{this.$store.state.common.itemElegido.brand}} <br> hoy por solo ${{this.$store.state.common.listaCotizacion.policy.monthly}}. </h3>
+              <h3>No lo dejes pasar, protege tu {{this.$store.state.common.itemElegido.brand}} <br> hoy por solo ${{this.$store.state.common.montoPagar}}. </h3>
             </b-col>
             <b-col cols="12" class="mb-2">
               <h3>Continúa tu cotización en el siguiente paso.</h3>

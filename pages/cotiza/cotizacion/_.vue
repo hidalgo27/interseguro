@@ -250,12 +250,17 @@
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
                       <div class="box-importante" style="height: 40px;">
                       </div>
                       <div class="que-me-cubre">
-                        <p class="titulo">
+                        <div class="titulo">
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -328,6 +333,11 @@
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
                       <div class="box-importante">
                         <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
                         <ul>
@@ -349,9 +359,9 @@
                         </ul>
                       </div>
                       <div class="que-me-cubre">
-                        <p class="titulo">
+                        <div class="titulo">
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -423,6 +433,11 @@
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
                       <div class="box-importante">
                         <p class="titulo">Importante</p>
                         <ul>
@@ -467,9 +482,9 @@
                         </ul>
                       </div>
                       <div class="que-me-cubre">
-                        <p class="titulo">
+                        <div class="titulo">
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -546,6 +561,11 @@
                     <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                   </div>
                 </div>
+                <div class="dto-cotizador">
+                  <div class="flotante-dcto">
+                    10%
+                  </div>
+                </div>
                 <div class="box-importante">
                   <p class="titulo">Importante</p>
                   <ul>
@@ -589,9 +609,9 @@
                   </ul>
                 </div>
                 <div class="que-me-cubre">
-                  <p class="titulo">
+                        <div class="titulo">                          
                           Este plan incluye:
-                        </p>
+                        </div>
                         <p class="que-me-cubre__item">
                           Beneficios Interseguro
                         </p>
@@ -725,7 +745,7 @@
         />
          <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
             <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mail.png" alt="">
-            <p class="modal-titulo  modal-titulo-enviado">¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras</p>
+            <p class="modal-titulo  modal-titulo-enviado"><strong>Hemos enviado tu cotización a tu correo. </strong> <br> No lo dudes y compra hoy al precio más bajo. </p>
           </div>
 
         <div class="modalEnviarEmail">
@@ -1176,10 +1196,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$150</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 618 1900</p>
               </div>
             </div>
 
@@ -1191,10 +1211,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$177</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 620 1111</p>
               </div>
             </div>
 
@@ -1206,10 +1226,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$165</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 630 7575</p>
               </div>
             </div>
 
@@ -1221,10 +1241,10 @@
               </div>
               <div class="empresa-item__izq">
                 <span>Precio:</span>
-                <p>US$200</p>
-                <span class="precio-antes">250</span>
+                <p>US$199</p>
+                <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 365 4554</p>
+                <p>(01 513 8686</p>
               </div>
             </div>
           </div>
@@ -1263,7 +1283,7 @@
     <div class="box-mensajeEnviadoEndosar" v-bind:class="{mostrarMensajeEnviadoEndosar : mostrarMensajeEnviadoEndosar}">
         <div class="endosar-item">
           <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
-          <p class="modal-titulo-endoso">Tu póliza se ha endosado correctamente</p>
+          <p class="modal-titulo-endoso">Tu Seguro Vehicular se ha endosado correctamente al {{this.endosoSeleccionado.name}}</p>
         </div>
     </div>
 
@@ -2527,7 +2547,6 @@
     }
   }
 </script>
-
 <style lang="scss" scoped>
 
 button:focus{
@@ -2653,7 +2672,7 @@ button:focus{
   height: 240px;
   .modal-titulo-enviado{
     color: #454A6C;
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Omnes Medium';
     margin: auto;
     width: 92%;
@@ -2992,9 +3011,11 @@ button:focus{
     .v2-editar{
       position: relative;
       cursor: pointer;
-      width: 20px;
-      min-width: 20px;
+      width: 14px;
+      min-width: 14px;
       left: 12px;
+      height: 15px;
+      top: 2px;
     }
     .campo{
       font-family: 'Omnes Medium';
@@ -3023,6 +3044,20 @@ button:focus{
   border-radius: 3px;
   border: 1px solid #D5D5D5;
   padding: 35px;
+  .dto-cotizador{
+    position: relative;
+    .flotante-dcto{
+      background: #EA0F90;
+      color: #ffffff;
+      font-family: "Omnes Regular";
+      font-size: 25px;
+      padding: 12px;
+      position: absolute;
+      right: -35px;
+      top: 0px;
+      border-radius: 4px 0 0 4px;
+    }
+  }
   .detalle-item{
     display: flex;
     align-items: center;
@@ -3050,12 +3085,15 @@ button:focus{
     display: flex;
     padding-top: 24px;
   }
+  
   .que-me-cubre{
     .titulo{
       margin-bottom: 24px;
       font-size: 20px;
       font-family: "Omnes Medium";
       color: #454A6C;
+      position: relative;
+      
     }
     
     &__item{
@@ -3899,15 +3937,7 @@ a.steps__item.paso1:after{
   }
   
 }
-.dto-cotizador{
-  position: absolute;
-  right: 0;
-  top: 20px;
-  background: #00adee;
-  padding: 5px;
-  border-radius: 4px 0 0 4px;
-  color: white;
-}
+
 .ocultarItemsSeleccionados{
   display: none !important;
 }
@@ -4166,6 +4196,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 .endosoSesion {
   height: 145px;
   overflow-y: scroll;
+    padding: 0 24px;
   .endosoItem {
     display: flex;
     align-items: center;
@@ -5417,7 +5448,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 @media screen and (min-width: 992px) {
   .box-mensajeEnviadoCotizacion{
     .modal-titulo-enviado{
-      font-size: 26px;
+      font-size: 21px;
       line-height: 28px;
     }
   }
@@ -5642,6 +5673,11 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     padding: 0px 24px 32px;
     margin-top: 0;
     height: 700px;
+    .dto-cotizador{
+      .flotante-dcto{
+        right: -24px;
+      }
+    }
   }
   .v2-datos-carro{
     margin-top: 42px;
