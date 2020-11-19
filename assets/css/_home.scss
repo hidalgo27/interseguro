@@ -644,7 +644,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     .beneficios-item {
-      width: 50%;
       padding: 24px;
       padding-bottom: 0;
       &__titulo {
@@ -730,7 +729,7 @@
   }
 
 }
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .testimonios{
     .section-header {
       h3 {
@@ -738,10 +737,27 @@
       }
     }
   }
+  .beneficios , .elegir{
+    .section-header{
+      h3{
+        font-size: 40px;
+        font-family: 'Omnes Semibold';
+      }
+    }
+  }
+
   .home-beneficios {
     align-items: flex-start;
+    justify-content: space-between;
+    
     .beneficios-item {
-      width: 25%;
+      width: 23%;
+      height: 305px;
+      display: flex;
+      flex-direction: column;
+      img{        
+        height: 120px;
+      }
       &__titulo {
         h4 {
           text-align: center;
@@ -769,16 +785,9 @@
     }
   }
   .home-elegir {
-    .elegir-item {
-      &__titulo {
-        h4 {
-        }
-      }
-      &__texto {
-        p {
-        }
-      }
-    }
+    height: 305px;
+    flex-direction: row;
+    justify-content: space-between;
     .despidete-papeleo{
       background-position-x: right;
       .elegir-item__img{
@@ -799,13 +808,17 @@
     }
     .precio-accesible{
       background-position-x: right;
-      .elegir-item__img{
-      }
-      .beneficios-item{
-        &__contenido{
+    }
+    .beneficios-item{
+      &__texto{
+        p {
+          max-width: 198px;
+          text-align: center;
+          margin: auto;
         }
       }
     }
+
   }
   #talleres{
     padding: 0;
