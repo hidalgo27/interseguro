@@ -116,7 +116,7 @@
                   <img src="../../static/media/interseguroVehicular_v2/descargar.png" alt="descargar">
                   <span>Resumen de <br> Cobertura</span>
                 </a>
-                <a target="_blank" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&amp;hl=es&amp;ll=-12.109991959196146%2C-77.03860524421464&amp;z=12" class="talleres">Talleres afiliados</a>
+                <a target="_blank" href="https://www.google.com/maps/d/u/1/viewer?hl=es&mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-12.085995199999997%2C-76.99657716000002&z=16" class="talleres">Talleres afiliados</a>
               </div>
 
               <div class="comunicanos">
