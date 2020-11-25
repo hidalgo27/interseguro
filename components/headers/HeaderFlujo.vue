@@ -1,5 +1,29 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
+        <div>
+            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+                <div class="box-texto-img">
+                    <div class="box-img-liston">
+                        <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
+                    </div> 
+                    <div class="d-md-none">
+                        <p>¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                        <div  class="example">            
+                            <div id="contadorCyber" class="flipdown  flipdownMobile">                        
+                            </div>
+                        </div>
+                    </div>
+                    <p class="d-none d-md-block">¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                </div>
+                
+                <div  class="example  d-none  d-md-block">            
+                    <div id="contadorCyber2" class="flipdown">
+                        
+                    </div>
+                </div>
+                <div class="closeListon" @click="closeListon()">X</div>
+            </div>
+        </div>  
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -178,6 +202,10 @@ export default {
     },
     computed: {},
     methods:{
+        contador(){
+            var flipdown2 = new FlipDown(1606366799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1606366799, 'contadorCyber').start()
+        },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
             this.flagCloseListon = 0            
@@ -247,12 +275,12 @@ export default {
 
 <style lang="scss" scoped>
     .closeListon{
+        
         cursor: pointer;
         position: absolute;
         right: 4px;
         height: 30px;
         top: 5px;
-        background: #ff9200;
         border-radius: 45px;
         width: 30px;
         line-height: 30px;
@@ -261,14 +289,30 @@ export default {
         font-size: 18px;
 
     }
-    .liston{
-        background: #ff9200;
+    .liston{        
+        flex-direction: column;
+        background: #0855c4;
         width: 100%;
-        height: 56px;
+        height: 100px;
         left: 0;
         justify-content: center;
-        align-items: center;
+        padding-left: 16px;
         display: flex;
+        .box-texto-img{
+                display: flex;
+                height: 45px;
+               align-items: center;
+
+        }
+        .box-img-liston{
+            width: 84px;
+            .img-liston{                
+               width: 50px;
+               animation: zoom 1.7s infinite ease-in-out;
+            //    animation: zoom 12s infinite;
+            }
+        }
+        
         p{
             text-align: left;
             font-size: 14px;
@@ -278,6 +322,7 @@ export default {
             line-height: 1.3;
             letter-spacing: normal;
             color: #fff;
+            font-family: 'Omnes Regular' !important;
         }        
     }
 .footer-menu{
@@ -554,13 +599,18 @@ export default {
          }
     }
     @media (min-width: 1200px){
-        .liston{
-          display: flex;
-          p{
-              font-size: 18px;
-          }
-          .closeListon{
-                right: 9rem;
+        .liston{       
+            height: 56px;     
+            flex-direction: row;
+            justify-content: space-between;
+            display: flex;
+            padding-left: 65px;
+            p{
+                font-size: 16px;
+                font-family: 'Omnes Regular' !important;
+            }
+            .closeListon{
+                right: 0;
             }
         }
         
@@ -630,6 +680,17 @@ export default {
         }
     }
     @media (min-width: 1366px){
+        .liston{
+            height: 64px;
+            padding-right: 102px;
+            padding-left: 128px;
+            .box-texto-img{
+                height: 62px;
+            }
+            .closeListon{
+                right: 20px;
+             }
+        }
         .header-planes{
             .campaniatv-home{
                 .campania-lado-izq{

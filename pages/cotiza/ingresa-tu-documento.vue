@@ -10,8 +10,6 @@
           
             <ul class="steps" style="display: inline-flex">
               <template>
-                <!-- <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  paso3" to="/cotiza/como-pagar"><li></li></router-link>
-                <router-link v-else class="steps__item " to="/cotiza/ingresa-tu-documento"  style="cursor: auto;"><li></li></router-link> -->
                 <router-link  class="steps__item " to="/cotiza/ingresa-tu-documento"  style="cursor: auto;"><li></li></router-link>
               </template>              
               <template >

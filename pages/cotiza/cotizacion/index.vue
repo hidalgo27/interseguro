@@ -1388,7 +1388,7 @@
   }
 
   export default {
-    layout: 'InterseguroHomeCotizacion',
+    layout: 'InterseguroFlujo',
     data() {
       return {
         opacityNone: false,
