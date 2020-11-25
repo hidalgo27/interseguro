@@ -197,7 +197,7 @@
 
           
 
-          <b-col xs="12" md="6" lg="12" class="order-md-3">
+          <b-col xs="12" md="8" lg="12" class="order-md-3">
             <div class="v2-planes">
               <div class="row  mb-4">
                 <div class="col-12  col-lg-6">
@@ -252,7 +252,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -335,7 +335,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -435,7 +435,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -532,7 +532,7 @@
                 </div>
               </div>
 
-              <div class="v2-seleccion-planes  d-md-none">
+              <div class="v2-seleccion-planes  d-lg-none">
                 <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                   <p>PLATA</p>
                   <p>US$ {{this.listaBasica.policy.monthly}}</p>
@@ -548,7 +548,7 @@
                 
               </div>
 
-              <div class="v2-detalle-plan  d-md-none" :class="classPlan"> 
+              <div class="v2-detalle-plan  d-lg-none" :class="classPlan"> 
                 <div class="box-monto-frecuencia">
                   <div class="v2-detalle-plan__suma  box-monto-pago">
                       <div class="monto-frecuencia">
@@ -563,7 +563,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                    15%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -705,9 +705,11 @@
               <div class="v2-comparar-planes  d-lg-none">
                 <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span> 
               </div>
-
-              <div class="box-btn  d-lg-none">
-                <span class="continuar" @click="continuar($event, planSeleccionado)">CONTINUAR</span>
+              <div id="btnirapagar" class="box-btn " v-bind:class="{'opacityNone': opacityNone}">
+                  <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+              </div>
+              <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
+                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>
             
@@ -1199,7 +1201,7 @@
                 <p>US$150</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 618 1900</p>
+                <p>(01) 618 1900</p>
               </div>
             </div>
 
@@ -1214,7 +1216,7 @@
                 <p>US$177</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 620 1111</p>
+                <p>(01) 620 1111</p>
               </div>
             </div>
 
@@ -1229,7 +1231,7 @@
                 <p>US$165</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 630 7575</p>
+                <p>(01) 630 7575</p>
               </div>
             </div>
 
@@ -1244,7 +1246,7 @@
                 <p>US$199</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 513 8686</p>
+                <p>(01) 513 8686</p>
               </div>
             </div>
           </div>
@@ -1389,6 +1391,7 @@
     layout: 'InterseguroHomeCotizacion',
     data() {
       return {
+        opacityNone: false,
         urlpdf:'',
         mostrarMensajeEnviadoEndosar: false,
         mostrarMensajeEnviadoCotizacion: false,
@@ -1660,7 +1663,10 @@
       }
     },
     created() {
-    
+      if (process.browser) {
+        window.addEventListener("scroll", this.handleScroll);
+        document.addEventListener('touchstart', this.handleScroll, {passive: true});
+      }
       this.$store.dispatch('common/getBrand').then((res)=>{
         this.listBrands = res.data.body
       })      
@@ -1705,6 +1711,18 @@
       },
     },
     methods: {
+      handleScroll(eve) {
+        if (window.scrollY >= 750) {
+            this.opacityNone = true        
+
+        } else {
+            this.opacityNone = false
+        }
+      },
+      pagar_ahora(){            
+        this.primeraPantalla = false
+        window.scrollTo(0,0)
+      },
       clickCapaGris(){
         this.mostrarCapaGris = false
         this.activarTooltipDesktop = false
@@ -2940,7 +2958,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+.opacityNone{
+    opacity: 1 !important;
+}
 button:focus{
   outline: none;
 }
@@ -4979,7 +4999,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   button {
     display: inline-block;
     margin: 0;
-    width: 100%;
+    width: 80%;
+    left: 10%;
     height: 45px;
     line-height: 45px;
     padding: 0;
@@ -5797,6 +5818,16 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
 }
 
+.box-btns-fixed{
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 12px;
+  position: fixed;
+  text-align: center;
+  width: 80%;
+  z-index: 999;
+  left: 10%;
+}
 
 @media screen and (max-width: 992px) {
   

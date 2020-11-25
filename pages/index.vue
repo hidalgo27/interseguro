@@ -660,8 +660,8 @@
     }
   }
   .home{
-    margin-top: 70px;
-    // margin-top: 170px;
+    // margin-top: 70px;
+    margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
@@ -1463,10 +1463,11 @@
     border-color: #0855c4 !important;
     border-width: 1.5px !important;
   }
+  
   @media (min-width: 992px) {
     .home{
-      margin-top: 0px;
-      // margin-top: 72px;
+      // margin-top: 0px;
+      margin-top: 72px;
       .home-beneficios2{
         &__titulo{
           p{

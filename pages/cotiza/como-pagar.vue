@@ -235,19 +235,15 @@
                             <div class="modal-divider"></div>
                         </div>
                         <p class="modal-description">
-                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares, Especiales y Cláusulas
-                            Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros.
+                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares, Especiales y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros.
+                            <br><br>
+                            A su vez, manifiesto que el automóvil asegurado bajo la presente póliza es de uso particular y que, de verificarse su uso comercial, Interseguro podrá proceder con la anulación de la póliza, por declaración inexacta; o el rechazo de la cobertura de siniestro, al configurarse una causal de exclusión.
                             <br><br>
                             Asimismo, autorizo a que se realicen - de acuerdo a la periodicidad escogida - cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
                             <br><br>
-                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan
-                            a la realidad y de no serlo, cualquier declaración falsa hecha por el Contratante, voluntaria o
-                            involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio
-                            a
-                            Interseguro Compañía de Seguros, quedando el seguro emitido en virtud de esta solicitud nulo y sin
-                            efecto.
+                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa hecha por el Contratante, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro Compañía de Seguros, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
                             <br><br>
-                            El Contratante otorga su consentimiento para que su Póliza de seguro electrónica, endosos futuros, cartas y/u otra documentación, sean enviados vía correo electrónico desde el dominio @interseguro. Todas aquellos documentos y comunicaciones se entenderán por recibidos en la casilla de correo electrónica declarada por el Contratante, a través de la confirmación del servidor de destino. La póliza contendrá una firma digital y una contraseña de acceso para visualizar el documento, ello garantizará la autenticidad e integridad del documento, de acuerdo con lo estipulado en la Ley N° 27269 - Ley de Firmas y Certificados Digitales. Asimismo, declara conocer las medidas de seguridad que debe adoptar para la recepción de los citados documentos, las ventajas y riesgos asociados a esta modalidad de envío, garantiza haber suministrado un correo electrónico válido en la Solicitud de Seguro, el cual mantendrá activo y con espacio suficiente para recibir la Póliza y se comprometen a informar su nuevo correo electrónico, en caso sea dado de baja o desee modificar la cuenta de correo declarada. 
+                            El Contratante otorga su consentimiento para que su Póliza de seguro electrónica, endosos futuros, cartas y/u otra documentación, sean enviados vía correo electrónico desde el dominio @interseguro. Todas aquellos documentos y comunicaciones se entenderán por recibidos en la casilla de correo electrónica declarada por el Contratante, a través de la confirmación del servidor de destino. La póliza contendrá una firma digital y una contraseña de acceso para visualizar el documento, ello garantizará la autenticidad e integridad del documento, de acuerdo con lo estipulado en la Ley N° 27269 - Ley de Firmas y Certificados Digitales. Asimismo, declara conocer las medidas de seguridad que debe adoptar para la recepción de los citados documentos, las ventajas y riesgos asociados a esta modalidad de envío, garantiza haber suministrado un correo electrónico válido en la Solicitud de Seguro, el cual mantendrá activo y con espacio suficiente para recibir la Póliza y se compromete a informar su nuevo correo electrónico, en caso sea dado de baja o desee modificar la cuenta de correo declarada.
                         </p>
                         <div class="row">
                         
