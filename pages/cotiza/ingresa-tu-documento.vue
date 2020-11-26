@@ -1,5 +1,5 @@
 <template >
-  <section class="steps-box">    
+  <section class="steps-box"  v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">    
     <b-container  class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -414,7 +414,23 @@
       </b-row>
 
     
-
+      <b-modal id="leaveBlackWeek" class="modal-blackWeek"  static centered hide-footer hide-header>
+            <b-container  style="height: 100%;">
+                <b-row class="align-items-center" style="height: 100%;">
+                    <b-col cols="12">
+                        <div class="banner-modal">
+                            <img src="./../../static/media/modalBlackWeek/banner-modal.svg" alt="">
+                        </div>
+                    </b-col>                  
+                    <b-col cols="12" class="mb-2">
+                        <p>Aprovecha esta oferta y participa en el  <br> sorteo de <strong>una TV Samsung de 65"</strong></p>
+                    </b-col>
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
       <b-modal
             id="modal1"
             ref="ingresaTuPlaca"
@@ -626,6 +642,58 @@
 </template>
 
 <style lang="scss" scoped>
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
 a.steps__item.paso2:after{
   content: "2" !important;
   background: #0754c4 !important;
@@ -641,7 +709,7 @@ a.steps__item.paso1:after{
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 100px;
+  padding-top: 170px;
   .steps-plan{
     background: white;
   }
@@ -1019,6 +1087,14 @@ input:focus {
   }
 }
 @media (min-width: 992px) {
+  .modal-blackWeek{
+    h3{
+        font-size: 30px;
+    }
+    p{
+        font-size: 20px;
+    }
+  }
   .box_aceptoTerminos{
     margin-top: 16px;
   }
@@ -1071,9 +1147,6 @@ input:focus {
     .box-btn{
       padding-right: 16px;
     }
-  }
-  .steps-box {
-    padding-top: 100px;
   }
 }
 @media (min-width: 1024px){
@@ -1315,6 +1388,9 @@ export default {
   },
   methods: {
     /* ************************************************************** */
+    hideModalBlackWeek(){
+      $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+    },
     PaginaVista() {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
@@ -2106,7 +2182,7 @@ export default {
       if (this.$store.state.common.leaveMessage == 0) {
         if (e.clientX < 0 || e.clientY < 0) {
           this.$store.commit('common/setLeaveMessage',1) 
-          this.$nuxt.$emit('bv::show::modal','leaveDocument')
+          this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
         }
       }
     },

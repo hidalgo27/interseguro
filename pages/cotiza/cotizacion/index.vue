@@ -1,5 +1,5 @@
 <template>
-  <section class="page-cotizador"  @click="clickIngresaLetra($event)" >
+  <section class="page-cotizador"  @click="clickIngresaLetra($event)"  v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
     <div class="capaOculta" v-bind:class="{mostrarCapa: mostrarCapa}">
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
@@ -730,7 +730,23 @@
 
       </b-row>
     </b-container>
-
+    <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+            <b-container  style="height: 100%;">
+                <b-row class="align-items-center" style="height: 100%;">
+                    <b-col cols="12">
+                        <div class="banner-modal">
+                            <img src="./../../../static/media/modalBlackWeek/banner-modal.svg" alt="">
+                        </div>
+                    </b-col>                  
+                    <b-col cols="12" class="mb-2">
+                        <p>Aprovecha esta oferta y participa en el  <br> sorteo de <strong>una TV Samsung de 65"</strong></p>
+                    </b-col>
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
     <b-modal
         title="Bootstrap-Vue"
         hide-footer
@@ -1711,6 +1727,9 @@
       },
     },
     methods: {
+      hideModalBlackWeek(){
+          $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+      },
       handleScroll(eve) {
         if (window.scrollY >= 750) {
             this.opacityNone = true        
@@ -2858,9 +2877,9 @@
               this.$store.commit('common/setLeaveMessage',1)
               let num = this.$store.state.common.plateNumber.slice(-1)
               if (num % 2 == 0) {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+                this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
               } else {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote')
+                this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
               }
             }
           }
@@ -2958,6 +2977,62 @@
 </script>
 
 <style lang="scss" scoped>
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
+.page-cotizador{
+  background: white;
+  padding-top: 150px;
+}
 .opacityNone{
     opacity: 1 !important;
 }
@@ -5869,6 +5944,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 @media screen and (min-width: 992px) {
+  .modal-blackWeek{
+    h3{
+        font-size: 30px;
+    }
+    p{
+        font-size: 20px;
+    }
+}
   .box-mensajeEnviadoCotizacion{
     .modal-titulo-enviado{
       font-size: 21px;
@@ -6044,9 +6127,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
 
 
-  .page-cotizador{
-    background: white;
-  }
+  
   .v2-suma-asegurada .v2-valor-comercial .box-input .flotante-moneda{
     left: 34px;
   }

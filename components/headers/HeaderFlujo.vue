@@ -2,24 +2,21 @@
     <header class="header-planes" @scroll="handleScroll()" >
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <div class="box-texto-img">
-                    <div class="box-img-liston">
-                        <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
-                    </div> 
-                    <div class="d-md-none">
-                        <p>¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
-                        <div  class="example">            
-                            <div id="contadorCyber" class="flipdown  flipdownMobile">                        
-                            </div>
-                        </div>
+                <div class="d-md-none  liston-black">
+                    <img class="img-liston" src="../../static/media/modalBlackWeek/logo-franja.svg" alt="">
+                    <div  class="example">            
+                        <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
                     </div>
-                    <p class="d-none d-md-block">¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                    
                 </div>
                 
-                <div  class="example  d-none  d-md-block">            
-                    <div id="contadorCyber2" class="flipdown">
-                        
+                <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
+                    <div class="d-flex align-items-center logo-franja">
+                        <img  src="./../../static/media/modalBlackWeek/logo-franja.svg" alt="">          
+                        <p >Aprovecha esta oferta y participa en el sorteo de una TV Samsung de 65"</p>
                     </div>
+                    <div id="contadorCyber2" class="flipdown"></div>
+                    
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
@@ -172,6 +169,7 @@ export default {
         }
     },
     mounted(){
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -202,14 +200,14 @@ export default {
     },
     computed: {},
     methods:{
+        
         contador(){
-            var flipdown2 = new FlipDown(1606366799, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1606366799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
-            this.flagCloseListon = 0            
-            localStorage.setItem("flagCloseListon", 0)
+            this.$store.commit('common/setFlagCloseListon', 0)
         },
         enlaceTest(){
             var div = document.getElementById("capa")
@@ -274,6 +272,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    
+    
     .closeListon{
         
         cursor: pointer;
@@ -291,13 +291,23 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        background: #0855c4;
+        background-image: url('./../../static/media/modalBlackWeek/fondo-liston-mobile.jpg');
+        background-size: cover;
         width: 100%;
         height: 100px;
         left: 0;
         justify-content: center;
         padding-left: 16px;
         display: flex;
+        .liston-black{
+            display: flex;
+            justify-content: space-between;
+            img{
+                position: relative;
+                width: 130px;
+                left: -4px;
+            }
+        }
         .box-texto-img{
                 display: flex;
                 height: 45px;
@@ -323,7 +333,15 @@ export default {
             letter-spacing: normal;
             color: #fff;
             font-family: 'Omnes Regular' !important;
-        }        
+        }
+        .example{
+            width: 100%;
+        }
+        .logo-franja{
+            img{
+                width: 150px;
+            }
+        }
     }
 .footer-menu{
     flex-direction: column;
@@ -565,6 +583,11 @@ export default {
         }
     }
     @media (min-width: 992px){
+        .logo-franja{
+            img{
+                width: 180px !important;
+            }
+        }
         .footer-menu{
             width: 25%;
             &__redes{
@@ -590,6 +613,12 @@ export default {
          }
     }
     @media (min-width: 1024px){
+        .liston{
+            height: 70px;
+            .contadorCyber2{
+                margin-left: 30px;
+            }
+        }
          .header-planes{
             .menu-nav{
                 &__izq{
@@ -606,7 +635,8 @@ export default {
             display: flex;
             padding-left: 65px;
             p{
-                font-size: 16px;
+                padding-left: 18px;
+                font-size: 20px;
                 font-family: 'Omnes Regular' !important;
             }
             .closeListon{

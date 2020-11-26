@@ -20,6 +20,62 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #ebf1fb;
 // }
+.modal-blackWeek{
+  max-width: 472px;
+  width: 100%;
+  height: 509px;
+  font-family: 'Omnes Regular';
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  .banner-modal{
+      img{
+          width: 100%;
+      }
+  }
+  h3 {
+      font-size: 24px;
+      color: #ffffff;
+  }
+  span {
+      font-family: 'Omnes Medium';
+  }
+  .btn{
+      background-color: #ea0c90;
+      color: white;
+      height: 50px;
+      width: 300px;
+      line-height: 0.5;
+      font-size: 16px;
+      border-radius: 3px;
+      border: none;
+      &:hover{
+          opacity: .7;
+      }
+  }
+  p{
+      color: #ffffff;
+      font-size: 16px;
+  }
+  .modal-dialog{
+      max-width: 472px;
+      width: 100%;
+      height: 509px;
+  }
+  .modal-content{
+      max-width: 472px;
+      width: 100%;
+      height: 509px;
+      background: url('./../../static/media/modalBlackWeek/fondo-modal-lg.svg');
+      background-size: cover !important;
+  } 
+}
+.pt-sinBlack{
+  padding-top: 100px !important;
+}
 .modal.fade.show {
   display: flex !important;
 }
@@ -251,7 +307,11 @@
   height: 5px !important;
   width: 8px !important;
 }
-
+#contadorCyber{
+  .rotor-group {
+      padding-right: 4px !important;
+  }  
+}
 .flipdown .rotor-leaf-front,
 .flipdown .rotor-top {
   line-height: 24px !important;
