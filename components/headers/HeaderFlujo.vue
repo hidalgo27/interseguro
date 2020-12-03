@@ -3,19 +3,19 @@
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
-                    <img class="img-liston" src="../../static/media/modalBlackWeek/logo-franja.svg" alt="">
-                    <div  class="example">            
+                    <img  class="img-liston" src="../../static/media/modalBlackWeek/logo-franja.svg" alt="">
+                    <!-- <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
-                    </div>
-                    
+                    </div> -->
+                    <p>Sorteo de 2 Smart TV 50" y 3 Nintendo Switch + 2 juegos</p>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img  src="./../../static/media/modalBlackWeek/logo-franja.svg" alt="">          
-                        <p >Aprovecha esta oferta y participa en el sorteo de una TV Samsung de 65"</p>
+                        <img   src="./../../static/media/modalBlackWeek/logo-franja.svg" alt="">          
+                        <p >Participa en el sorteo de 2 Smart TV Smart TV 50" y 3 Nintendo Switch + 2 juegos</p>
                     </div>
-                    <div id="contadorCyber2" class="flipdown"></div>
+                    <!-- <div id="contadorCyber2" class="flipdown"></div> -->
                     
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
@@ -169,7 +169,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        // this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -202,8 +202,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
+            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -291,8 +291,8 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        background-image: url('./../../static/media/modalBlackWeek/fondo-liston-mobile.jpg');
-        background-size: cover;
+        background-image: url('./../../static/media/modalBlackWeek/fondo-liston-mobile.png');
+        background-size: contain;
         width: 100%;
         height: 100px;
         left: 0;
@@ -302,9 +302,11 @@ export default {
         .liston-black{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             img{
                 position: relative;
                 width: 130px;
+                height: auto;
                 left: -4px;
             }
         }
@@ -325,7 +327,7 @@ export default {
         
         p{
             text-align: left;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
@@ -585,7 +587,7 @@ export default {
     @media (min-width: 992px){
         .logo-franja{
             img{
-                width: 180px !important;
+                width: 135px !important;
             }
         }
         .footer-menu{
@@ -640,7 +642,7 @@ export default {
                 font-family: 'Omnes Regular' !important;
             }
             .closeListon{
-                right: 0;
+                right: 70px;
             }
         }
         

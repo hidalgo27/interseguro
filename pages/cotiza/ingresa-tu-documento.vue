@@ -380,7 +380,7 @@
                   <div class="checkbox-aux font-nunito check-ip  mb-0" >
                     <label class="col box-checkbox text-center">
                       <span class="checkbox-aux__descripcion pr-0">
-                        Al continuar <a href="javascript:void(0);" v-b-modal.modal1>acepto las Condiciones de Uso y Política de Privacidad</a>.
+                        Al continuar <a href="javascript:void(0);"  @click="eventoModalTerminosCondiciones()">acepto las Condiciones de Uso y Política de Privacidad</a>.
                       </span>
                     </label>
                   </div>
@@ -413,17 +413,17 @@
         </b-col>
       </b-row>
 
-    
+      
       <b-modal id="leaveBlackWeek" class="modal-blackWeek"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
                         <div class="banner-modal">
-                            <img src="./../../static/media/modalBlackWeek/banner-modal.svg" alt="">
+                            <img src="./../../static/media/modalBlackWeek/modal.svg" alt="">
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
-                        <p>Aprovecha esta oferta y participa en el  <br> sorteo de <strong>una TV Samsung de 65"</strong></p>
+                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
                     </b-col>
                     <b-col class="text-center mb-4" cols="12">
                         <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
@@ -449,11 +449,8 @@
               class="image-9"
             >
           </b-btn>
-          <div class="modal-head">
-            <div class="modal-divider"></div>
-          </div>
-
-          <div class="modal-description">
+          <modalTerminosCondiciones></modalTerminosCondiciones>
+          <!-- <div class="modal-description">
             <br>
             <h4 class="text-center">CONDICIONES DE USO Y POLÍTICA DE PRIVACIDAD</h4>
             <p
@@ -604,7 +601,7 @@
             <br>Última actualización de las Condiciones de Uso y Política de Privacidad:
             22 de Mayo de 2019
             <br>
-          </div>
+          </div> -->
         </div>
       </b-modal>
 
@@ -1237,6 +1234,7 @@ select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:f
 
 
 <script>
+import modalTerminosCondiciones from "./../../components/modals/CondicionesUsoPoliticaPrivacidad"
 export default {
   layout: "InterseguroFlujo",  
   data() {
@@ -1387,6 +1385,9 @@ export default {
     };
   },
   methods: {
+    eventoModalTerminosCondiciones(){
+     this.$refs.ingresaTuPlaca.show()
+    },
     /* ************************************************************** */
     hideModalBlackWeek(){
       $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -2186,6 +2187,9 @@ export default {
         }
       }
     },
+  },
+  components:{
+    modalTerminosCondiciones
   },
   mounted: function() {
     

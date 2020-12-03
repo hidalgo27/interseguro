@@ -5,7 +5,7 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <p class="titulo-formulario">
-                <img  src="./../static/media/modalBlackWeek/text-mobile.svg" alt="banner">
+                <img width="100%" src="./../static/media/modalBlackWeek/banner-mobile.svg" alt="banner">
               
             </p>
             <b-form class="formCotizador">                         
@@ -49,13 +49,13 @@
           </div>
         </div>
         <div class="home-banner__der    d-none  d-lg-flex">
-          <img src="./../static/media/modalBlackWeek/banner-modal.svg" alt="">
+          <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
           <div class="box-contador" style="padding-left: 32px;">
             <div  class="example  d-none  d-md-flex">
               <!-- <p>Del 25 al 30 de Noviembre</p> -->
-                <div id="contadorCyber2" class="flipdown">
+                <!-- <div id="contadorCyber2" class="flipdown">
                     
-                </div>
+                </div> -->
             </div>
           </div>
         </div>
@@ -897,12 +897,11 @@
       height: 296px;
       background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
-        background: url('./../static/media/modalBlackWeek/fondo-home-mobile.jpg');
+        background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
-        background-size: 100%;
-        background-position-y: top;
-        background-position-x: left;
+        background-size: cover;
+        background-position: right;
         display: flex;
         align-items: center;
         height: 100%;
