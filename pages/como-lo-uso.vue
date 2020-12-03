@@ -91,6 +91,80 @@
                 
             </b-container>
         </section>
+
+        <div class="section">
+            <b-container>
+                <div class="section-header pd-b32">
+                <h3 class="section-header__title">
+                    ¿INTERESADO EN CAMBIARTE
+                    <br>
+                    <span class="span-primario">PERO YA TIENES SEGURO?</span>
+                </h3>
+                <P class="text-center">Si tus pagos son mensuales, ¡puedes cambiarte!</P>
+                </div>
+                <div class="section-body pd-t16">
+                <b-row>
+                    <b-col cols="12" lg="6" class="step01 pd-b16">
+                    <div class="box-img img-step1 pd-b16">
+                        <img
+                        src="@/static/media/img/step01.svg"
+                        alt="Cambiar Seguro Vehicular"
+                        name="Cambiar-Seguro-Vehicular"
+                        width="50"
+                        class="image-29"
+                        >
+                        <h2 class="heading-7">Ten a la mano la siguiente información:</h2>
+                    </div>
+
+                    <div class="descripcion">
+                        <ul class="steplist w-list-unstyled">
+                        <li class="list-item">
+                            <img src="@/static/media/img/bullet.svg" alt="Cámbiate Seguro Vehicular">
+                            <div class="text-block-8">Tu número de DNI o CE</div>
+                        </li>
+                        <li class="list-item">
+                            <img src="@/static/media/img/bullet.svg" alt="Cambiarme Seguro Vehicular">
+                            <div class="text-block-8">Número de póliza de tu seguro actual</div>
+                        </li>
+                        </ul>
+                        <p class="paragraph-7">
+                        Normalmente, el número de póliza está en la parte superior de la primera página de
+                        tu póliza.
+                        </p>
+                    </div>
+                    </b-col>
+
+                    <b-col cols="12" lg="6" class="step02 pd-b16">
+                    <div class="box-img img-step2 pd-b16">
+                        <img src="@/static/media/img/step02.svg" width="50" alt="icon step 2">
+                        <h2 class="heading-7">Envía un correo a tu aseguradora o corredor</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="steptxt col-12">
+                        <p class="paragraph-7 descripcion pd-b16">
+                            Puedes descargar esta plantilla, llenarla con tus datos y enviarla para anular tu
+                            póliza:
+                        </p>
+                        </div>
+                    </div>
+                    </b-col>
+                    <b-col class="pd-t16">
+                    <a v-bind:href="urlpdf" target="_blank" rel="noopener" class="button">Descargar plantilla</a>
+                    </b-col>
+                </b-row>
+                </div>
+            </b-container>
+            </div>
+            <div class="section cambio">
+            <b-container>
+                <h3 class="section-header__subtitle text-center">¡Y listo!</h3>
+                <p class="section-header__parrafo listo text-center pd-b16">
+                Luego de enviar el correo, no sigas con los pagos mensuales,
+                de forma que la póliza se anulará automáticamente. Al recibir confirmación de la aseguradora, ya estás listo para comprar tu seguro con nosotros.
+                </p>
+            </b-container>
+            </div>
     </div>
 </template>
 <script>

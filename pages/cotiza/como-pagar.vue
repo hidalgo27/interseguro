@@ -1,5 +1,5 @@
 <template>
-    <section class="steps-box">
+    <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -331,6 +331,26 @@
                 </b-row>
             </b-container>
         </b-modal>
+
+        <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+            <b-container  style="height: 100%;">
+                <b-row class="align-items-center" style="height: 100%;">
+                    <b-col cols="12">
+                        <div class="banner-modal">
+                            <img src="./../../static/media/modalBlackWeek/modal.svg" alt="">
+                        </div>
+                    </b-col>                  
+                    <b-col cols="12" class="mb-2">
+                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, </h3> 
+                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
+                    </b-col>
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
+
         <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 
@@ -535,7 +555,10 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
-            // enviarParametroAgora(){
+            hideModalBlackWeek(){
+                $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+            },
+            // hideModalBlackWeek(){
             //     this.valeAgora = true,
             //     localStorage.setItem('activoAgora', true)
             //     setTimeout(() => {
@@ -1059,9 +1082,9 @@ import { validationMixin } from 'vuelidate'
                         this.$store.commit('common/setLeaveMessage',1)
                         if (this.urlLocal = "/promocion50") {
                             // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
                         }else{
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
                         }
                         // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
@@ -1192,6 +1215,7 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss">
+    
         .liston-agora{
             display: none;
             position: absolute;
@@ -1254,7 +1278,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 100px;
+    padding-top: 170px;;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
@@ -2120,6 +2144,58 @@ a.steps__item.paso1:after{
         }
     }
 }
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
 .modal-agora{
     font-family: 'Omnes Regular';
     font-weight: normal;
@@ -2224,6 +2300,14 @@ a.steps__item.paso1:after{
         }
     }
     @media (min-width: 1024px){
+        .modal-blackWeek{
+            h3{
+                font-size: 30px;
+            }
+            p{
+                font-size: 20px;
+            }
+        }
         .liston-agora{
             display: block;
         }
@@ -2234,8 +2318,7 @@ a.steps__item.paso1:after{
             padding-top: 0;
             margin-top: 90px;
         }
-        .steps-box{    
-            padding-top: 50px;        
+        .steps-box{      
             .steps-plan{
                 background: transparent;
             }
