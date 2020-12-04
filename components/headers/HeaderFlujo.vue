@@ -13,7 +13,7 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                         <img   src="./../../static/media/modalBlackWeek/logo-franja.svg" alt="">          
-                        <p >Participa en el sorteo de 2 Smart TV Smart TV 50" y 3 Nintendo Switch + 2 juegos</p>
+                        <p >Participa en el sorteo de 2 Smart TV 50" y 3 Nintendo Switch + 2 juegos</p>
                     </div>
                     <!-- <div id="contadorCyber2" class="flipdown"></div> -->
                     
