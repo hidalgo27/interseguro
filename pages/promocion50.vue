@@ -263,13 +263,13 @@
           <p class="d-none  d-md-block"><strong> Repara tu auto </strong> <br> en nuestra red <br> de talleres</p>
         </div>
         <div class="home-talleres__boxBtn  d-block  d-lg-none">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?hl=es&mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-12.085995199999997%2C-76.99657716000002&z=16">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
         </div>
         <div class="home-talleres__img">
           <img src="./../static/media/img/home/talleres.png" alt="talleres">
         </div>
         <div class="home-talleres__btn  d-none  d-lg-block">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?hl=es&mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-12.085995199999997%2C-76.99657716000002&z=16">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
         </div>
       </div>
     </div>
