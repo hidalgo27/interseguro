@@ -116,7 +116,7 @@
                   <img src="../../static/media/interseguroVehicular_v2/descargar.png" alt="descargar">
                   <span>Resumen de <br> Cobertura</span>
                 </a>
-                <a target="_blank" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&amp;hl=es&amp;ll=-12.109991959196146%2C-77.03860524421464&amp;z=12" class="talleres">Talleres afiliados</a>
+                <a target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6" class="talleres">Talleres afiliados</a>
               </div>
 
               <div class="comunicanos">
@@ -369,7 +369,7 @@ export default {
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
-    padding-top: 80px;
+    padding-top: 170px;
   }
   .card-btnPago{
     display: flex;

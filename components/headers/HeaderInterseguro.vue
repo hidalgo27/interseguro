@@ -7,13 +7,13 @@
                         <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
                     </div> 
                     <div class="d-md-none">
-                        <p>¡Volvió el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                        <p>¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
                         <div  class="example">            
                             <div id="contadorCyber" class="flipdown  flipdownMobile">                        
                             </div>
                         </div>
                     </div>
-                    <p class="d-none d-md-block">¡Volvió el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                    <p class="d-none d-md-block">¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
                 </div>
                 
                 <div  class="example  d-none  d-md-block">            
@@ -147,7 +147,7 @@
 </template>
 
 <script>
-// import { FlipDown } from './../../node_modules/flipdown/dist/flipdown';
+
 export default {
     name: "navbar",
     props: [""],
@@ -202,9 +202,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            // var flipdown2 = new FlipDown(1605502799, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1605502799, 'contadorCyber').start()
-
+            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
+            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

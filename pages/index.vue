@@ -5,14 +5,14 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <p class="titulo-formulario">
-                <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
-              Manejar tranquilo <br> ahora es más fácil</p>
-            <b-form class="formCotizador">
-                         
+                <img width="100%" src="./../static/media/modalBlackWeek/banner-mobile.svg" alt="banner">
+              
+            </p>
+            <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
               </div>
-              <h1 class="">Cotiza tu seguro vehicular ahora</h1>
+              <h1>Cotiza tu seguro vehicular ahora</h1>
               <b-form-group label-for="placa">
                   <b-form-input
                     id="vehicleModelPlate"
@@ -48,14 +48,15 @@
             
           </div>
         </div>
-        <div class="home-banner__der">
-          <div class="box-titulo">
-            <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
-            </p>
-            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
-                <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span> 
-              </p>
+        <div class="home-banner__der    d-none  d-lg-flex">
+          <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
+          <div class="box-contador" style="padding-left: 32px;">
+            <div  class="example  d-none  d-md-flex">
+              <!-- <p>Del 25 al 30 de Noviembre</p> -->
+                <!-- <div id="contadorCyber2" class="flipdown">
+                    
+                </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -224,13 +225,13 @@
           <p class="d-none  d-md-block"><strong> Repara tu auto </strong> <br> en nuestra red <br> de talleres</p>
         </div>
         <div class="home-talleres__boxBtn  d-block  d-lg-none">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&amp;hl=es&amp;ll=-12.109991959196146%2C-77.03860524421464&amp;z=12">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
         </div>
         <div class="home-talleres__img">
           <img src="./../static/media/img/home/talleres.png" alt="talleres">
         </div>
         <div class="home-talleres__btn  d-none  d-lg-block">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&amp;hl=es&amp;ll=-12.109991959196146%2C-77.03860524421464&amp;z=12">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
         </div>
       </div>
     </div>
@@ -367,6 +368,10 @@
       created() {
       },
       methods: {
+        contador(){
+            var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
+            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+        },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
@@ -506,7 +511,10 @@
           
       },
       mounted () {
-        this.$store.commit('common/setFlagCloseListon',1)
+        setTimeout(() => {
+          this.contador()
+        }, 750);
+        this.$store.commit('common/setFlagCloseListon', 1)
         
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
@@ -661,11 +669,12 @@
   }
   .home{
     margin-top: 70px;
+    // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 170px;
+      padding-top: 206px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -883,17 +892,16 @@
         }
       }
     }  
-    .boxHome-banner{      
-      background-color:  rgba(8,85,196,.1);
+    .boxHome-banner{
       position: relative;
       height: 296px;
-      
+      background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
+        background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
-        background-size: 700px;
-        background-position-y: bottom;
-        background-position-x: right;
+        background-size: cover;
+        background-position: right;
         display: flex;
         align-items: center;
         height: 100%;
@@ -951,7 +959,21 @@
           padding-top: 68px !important;
           height: auto;
           display: none;
-          align-items: center;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          .box-contador{
+            .example{
+              display: flex;
+              align-items: center;
+              margin-top: 32px;
+            }
+            p{
+              color: #ffffff;
+              font-size: 20px;
+              padding-right: 24px;
+            }
+          }
           .efecto-enlace{
             &:hover{
               text-decoration: underline;
@@ -1462,9 +1484,11 @@
     border-color: #0855c4 !important;
     border-width: 1.5px !important;
   }
+  
   @media (min-width: 992px) {
     .home{
-      margin-top: 0px;
+      // margin-top: 0px;
+      margin-top: 72px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1480,16 +1504,14 @@
           }
         }
       }
-      .boxHome-banner{      
-        background-color:  rgba(8,85,196,.1);
+      .boxHome-banner{
         height: auto;
         .home-banner{
           flex-direction: row;
-          padding-left: 45px;
           min-height: 445px;
           &__izq{
             // padding-top: 68px !important;
-            height: calc(85vh);
+            height: calc(62vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1531,16 +1553,7 @@
           }
           &__der{
             padding-top: 0px !important;
-            height: auto;
-            display: flex;
-            -webkit-box-align: center;
-            background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
-            background-repeat: no-repeat;
-            background-position-y: bottom;
-            background-position-x: right;
-            width: 100%;
-            align-items: flex-start;
+            padding-left: 32px;
             .box-titulo{
               padding-top: 150px;
               padding-left: 24px;
@@ -1873,9 +1886,13 @@
       }
     }
     .home{
-      .boxHome-banner{        
+      .boxHome-banner{  
+        background-image: url('./../static/media/modalBlackWeek/fondo-modal-lg.svg');
+        background-position-x: 0;
+        background-position-y: 0;
+        background-size: cover;    
         .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          background: transparent;
           background-size: 50%;
           padding: 0 1.5rem;
           padding-left: 65px;
@@ -1883,7 +1900,10 @@
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
-            align-items: center;
+            img{
+              width: 749px;
+              padding-left: 32px;
+            }
             p{
               font-size: 2.6rem;
             }
@@ -1893,6 +1913,7 @@
           }
         }
       }
+      
       .formCotizador{
         height: 360px;
         margin-top: 40px;
@@ -2068,7 +2089,6 @@
     .home{
       .boxHome-banner{              
         .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
           background-size: 50%;
           padding-left: 128px;
           max-width: 1440px;

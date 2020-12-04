@@ -1,5 +1,5 @@
 <template>
-  <section class="page-cotizador"  @click="clickIngresaLetra($event)" >
+  <section class="page-cotizador"  @click="clickIngresaLetra($event)"  v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
     <div class="capaOculta" v-bind:class="{mostrarCapa: mostrarCapa}">
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
@@ -197,7 +197,7 @@
 
           
 
-          <b-col xs="12" md="6" lg="12" class="order-md-3">
+          <b-col xs="12" md="8" lg="12" class="order-md-3">
             <div class="v2-planes">
               <div class="row  mb-4">
                 <div class="col-12  col-lg-6">
@@ -532,7 +532,7 @@
                 </div>
               </div>
 
-              <div class="v2-seleccion-planes  d-md-none">
+              <div class="v2-seleccion-planes  d-lg-none">
                 <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                   <p>PLATA</p>
                   <p>US$ {{this.listaBasica.policy.monthly}}</p>
@@ -548,7 +548,7 @@
                 
               </div>
 
-              <div class="v2-detalle-plan  d-md-none" :class="classPlan"> 
+              <div class="v2-detalle-plan  d-lg-none" :class="classPlan"> 
                 <div class="box-monto-frecuencia">
                   <div class="v2-detalle-plan__suma  box-monto-pago">
                       <div class="monto-frecuencia">
@@ -705,9 +705,11 @@
               <div class="v2-comparar-planes  d-lg-none">
                 <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span> 
               </div>
-
-              <div class="box-btn  d-lg-none">
-                <span class="continuar" @click="continuar($event, planSeleccionado)">CONTINUAR</span>
+              <div id="btnirapagar" class="box-btn " v-bind:class="{'opacityNone': opacityNone}">
+                  <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+              </div>
+              <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
+                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>
             
@@ -728,7 +730,23 @@
 
       </b-row>
     </b-container>
-
+    <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+            <b-container  style="height: 100%;">
+                <b-row class="align-items-center" style="height: 100%;">
+                    <b-col cols="12">
+                        <div class="banner-modal">
+                            <img src="./../../../static/media/modalBlackWeek/modal.svg" alt="">
+                        </div>
+                    </b-col>                  
+                    <b-col cols="12" class="mb-2">
+                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
+                    </b-col>
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
     <b-modal
         title="Bootstrap-Vue"
         hide-footer
@@ -1199,7 +1217,7 @@
                 <p>US$150</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 618 1900</p>
+                <p>(01) 618 1900</p>
               </div>
             </div>
 
@@ -1214,7 +1232,7 @@
                 <p>US$177</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 620 1111</p>
+                <p>(01) 620 1111</p>
               </div>
             </div>
 
@@ -1229,7 +1247,7 @@
                 <p>US$165</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 630 7575</p>
+                <p>(01) 630 7575</p>
               </div>
             </div>
 
@@ -1244,7 +1262,7 @@
                 <p>US$199</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 513 8686</p>
+                <p>(01) 513 8686</p>
               </div>
             </div>
           </div>
@@ -1386,9 +1404,10 @@
   }
 
   export default {
-    layout: 'InterseguroHomeCotizacion',
+    layout: 'InterseguroFlujo',
     data() {
       return {
+        opacityNone: false,
         urlpdf:'',
         mostrarMensajeEnviadoEndosar: false,
         mostrarMensajeEnviadoCotizacion: false,
@@ -1660,7 +1679,10 @@
       }
     },
     created() {
-    
+      if (process.browser) {
+        window.addEventListener("scroll", this.handleScroll);
+        document.addEventListener('touchstart', this.handleScroll, {passive: true});
+      }
       this.$store.dispatch('common/getBrand').then((res)=>{
         this.listBrands = res.data.body
       })      
@@ -1705,6 +1727,21 @@
       },
     },
     methods: {
+      hideModalBlackWeek(){
+          $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+      },
+      handleScroll(eve) {
+        if (window.scrollY >= 750) {
+            this.opacityNone = true        
+
+        } else {
+            this.opacityNone = false
+        }
+      },
+      pagar_ahora(){            
+        this.primeraPantalla = false
+        window.scrollTo(0,0)
+      },
       clickCapaGris(){
         this.mostrarCapaGris = false
         this.activarTooltipDesktop = false
@@ -2218,6 +2255,29 @@
       segundaPantalla() {
         this.objectVehicle = this.$store.state.common.objVehiculo
         switch (this.itemElegido.brandId) {
+          case 11:
+            if (this.itemElegido.model.indexOf("AVEO") >= 0 ) {
+              this.code_sku = "sku039"
+            } else if(this.itemElegido.model.indexOf("CAPTIVA") >= 0 ) {
+              this.code_sku = "sku040"
+            }else if(this.itemElegido.model.indexOf("COBALT") >= 0 ) {
+              this.code_sku = "sku041"
+            }else if(this.itemElegido.model.indexOf("CRUZE") >= 0 ) {
+              this.code_sku = "sku042"
+            }else if(this.itemElegido.model.indexOf("EQUINOX") >= 0 ) {
+              this.code_sku = "sku043"
+            }else if(this.itemElegido.model.indexOf("SAIL") >= 0 ) {
+              this.code_sku = "sku044"
+            }else if(this.itemElegido.model.indexOf("SONIC") >= 0 ) {
+              this.code_sku = "sku045"
+            }else if(this.itemElegido.model.indexOf("SPARK") >= 0 ) {
+              this.code_sku = "sku046"
+            }else if(this.itemElegido.model.indexOf("PRISMA") >= 0 ) {
+              this.code_sku = "sku047"
+            }else{
+              this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
+            }
+            break;
           case 32:
             if (this.itemElegido.model.indexOf("ACCEN") >= 0 ) {
               this.code_sku = "sku001"
@@ -2235,6 +2295,38 @@
               this.code_sku = "sku007"
             }else if(this.itemElegido.model.indexOf("SANTA FE") >= 0 ) {
               this.code_sku = "sku018"
+            }else if(this.itemElegido.model.indexOf("ATOS") >= 0 ) {
+              this.code_sku = "sku070"
+            }else if(this.itemElegido.model.indexOf("AVANTE") >= 0 ) {
+              this.code_sku = "sku071"
+            }else if(this.itemElegido.model.indexOf("AZERA") >= 0 ) {
+              this.code_sku = "sku072"
+            }else if(this.itemElegido.model.indexOf("COUPE") >= 0 ) {
+              this.code_sku = "sku073"
+            }else if(this.itemElegido.model.indexOf("EON") >= 0 ) {
+              this.code_sku = "sku074"
+            }else if(this.itemElegido.model.indexOf("EQUUS") >= 0 ) {
+              this.code_sku = "sku075"
+            }else if(this.itemElegido.model.indexOf("H-1") >= 0 ) {
+              this.code_sku = "sku076"
+            }else if(this.itemElegido.model.indexOf("H-100") >= 0 ) {
+              this.code_sku = "sku077"
+            }else if(this.itemElegido.model.indexOf("I10") >= 0 ) {
+              this.code_sku = "sku078"
+            }else if(this.itemElegido.model.indexOf("I30") >= 0 ) {
+              this.code_sku = "sku079"
+            }else if(this.itemElegido.model.indexOf("I40") >= 0 ) {
+              this.code_sku = "sku080"
+            }else if(this.itemElegido.model.indexOf("SONATA") >= 0 ) {
+              this.code_sku = "sku081"
+            }else if(this.itemElegido.model.indexOf("VELOSTER") >= 0 ) {
+              this.code_sku = "sku082"
+            }else if(this.itemElegido.model.indexOf("VENUE") >= 0 ) {
+              this.code_sku = "sku083"
+            }else if(this.itemElegido.model.indexOf("VERACRUZ") >= 0 ) {
+              this.code_sku = "sku084"
+            }else if(this.itemElegido.model.indexOf("VERNA") >= 0 ) {
+              this.code_sku = "sku05"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2251,6 +2343,32 @@
               this.code_sku = "sku019"
             }else if(this.itemElegido.model.indexOf("SORENTO") >= 0 ) {
               this.code_sku = "sku020"
+            }else if(this.itemElegido.model.indexOf("CADENZA") >= 0 ) {
+              this.code_sku = "sku086"
+            }else if(this.itemElegido.model.indexOf("CARNIVAL") >= 0 ) {
+              this.code_sku = "sku087"
+            }else if(this.itemElegido.model.indexOf("CERATO") >= 0 ) {
+              this.code_sku = "sku088"
+            }else if(this.itemElegido.model.indexOf("FORTE") >= 0 ) {
+              this.code_sku = "sku089"
+            }else if(this.itemElegido.model.indexOf("GRAND CARNIVAL") >= 0 ) {
+              this.code_sku = "sku090"
+            }else if(this.itemElegido.model.indexOf("K2") >= 0 ) {
+              this.code_sku = "sku091"
+            }else if(this.itemElegido.model.indexOf("K5") >= 0 ) {
+              this.code_sku = "sku092"
+            }else if(this.itemElegido.model.indexOf("MOHAVE") >= 0 ) {
+              this.code_sku = "sku093"
+            }else if(this.itemElegido.model.indexOf("OPTIMA") >= 0 ) {
+              this.code_sku = "sku094"
+            }else if(this.itemElegido.model.indexOf("QUORIS") >= 0 ) {
+              this.code_sku = "sku095"
+            }else if(this.itemElegido.model.indexOf("SELTOS") >= 0 ) {
+              this.code_sku = "sku096"
+            }else if(this.itemElegido.model.indexOf("SOLUTO") >= 0 ) {
+              this.code_sku = "sku097"
+            }else if(this.itemElegido.model.indexOf("SOUL") >= 0 ) {
+              this.code_sku = "sku098"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2265,6 +2383,42 @@
               this.code_sku = "sku022"
             }else if(this.itemElegido.model.indexOf("AVANZA") >= 0 ) {
               this.code_sku = "sku023"
+            }else if(this.itemElegido.model.indexOf("4RUNNER") >= 0 ) {
+              this.code_sku = "sku048"
+            }else if(this.itemElegido.model.indexOf("AURIS") >= 0 ) {
+              this.code_sku = "sku049"
+            }else if(this.itemElegido.model.indexOf("AVENSIS") >= 0 ) {
+              this.code_sku = "sku050"
+            }else if(this.itemElegido.model.indexOf("CAMRY") >= 0 ) {
+              this.code_sku = "sku051"
+            }else if(this.itemElegido.model.indexOf("FJ CRUISER") >= 0 ) {
+              this.code_sku = "sku052"
+            }else if(this.itemElegido.model.indexOf("RAV4") >= 0 ) {
+              this.code_sku = "sku053"
+            }else if(this.itemElegido.model.indexOf("PRIUS") >= 0 ) {
+              this.code_sku = "sku054"
+            }else if(this.itemElegido.model.indexOf("RUSH") >= 0 ) {
+              this.code_sku = "sku055"
+            }else if(this.itemElegido.model.indexOf("86 GT") >= 0 ) {
+              this.code_sku = "sku061"
+            }else if(this.itemElegido.model.indexOf("AGYA") >= 0 ) {
+              this.code_sku = "sku062"
+            }else if(this.itemElegido.model.indexOf("ETIOS") >= 0 ) {
+              this.code_sku = "sku063"
+            }else if(this.itemElegido.model.indexOf("FORTUNER") >= 0 ) {
+              this.code_sku = "sku064"
+            }else if(this.itemElegido.model.indexOf("HIACE COMMUTER") >= 0 ) {
+              this.code_sku = "sku065"
+            }else if(this.itemElegido.model.indexOf("HIACE PANEL") >= 0 ) {
+              this.code_sku = "sku065"
+            }else if(this.itemElegido.model.indexOf("HIGHLANDER") >= 0 ) {
+              this.code_sku = "sku066"
+            }else if(this.itemElegido.model.indexOf("LAND CRUISER") >= 0 ) {
+              this.code_sku = "sku067"
+            }else if(this.itemElegido.model.indexOf("URBAN CRUISER 1.3") >= 0 ) {
+              this.code_sku = "sku068"
+            }else if(this.itemElegido.model.indexOf("ZELAS") >= 0 ) {
+              this.code_sku = "sku069"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2362,7 +2516,17 @@
               this.code_sku = "sku016"
             }else if(this.itemElegido.model.indexOf("X-TRAIL") >= 0 ) {
               this.code_sku = "sku034"
-            }else{
+            }else if(this.itemElegido.model.indexOf("FRONTIER") >= 0 ) {
+              this.code_sku = "sku056"
+            }else if(this.itemElegido.model.indexOf("NAVARA") >= 0 ) {
+              this.code_sku = "sku057"
+            }else if(this.itemElegido.model.indexOf("PATROL") >= 0 ) {
+              this.code_sku = "sku058"
+            }else if(this.itemElegido.model.indexOf("QASHQAI") >= 0 ) {
+              this.code_sku = "sku059"
+            }else if(this.itemElegido.model.indexOf("SENTRA") >= 0 ) {
+              this.code_sku = "sku060"
+            } else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }            
             break;
@@ -2840,9 +3004,9 @@
               this.$store.commit('common/setLeaveMessage',1)
               let num = this.$store.state.common.plateNumber.slice(-1)
               if (num % 2 == 0) {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+                this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
               } else {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote')
+                this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
               }
             }
           }
@@ -2940,7 +3104,65 @@
 </script>
 
 <style lang="scss" scoped>
-
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
+.page-cotizador{
+  background: white;
+  padding-top: 150px;
+}
+.opacityNone{
+    opacity: 1 !important;
+}
 button:focus{
   outline: none;
 }
@@ -4979,7 +5201,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   button {
     display: inline-block;
     margin: 0;
-    width: 100%;
+    width: 80%;
+    left: 10%;
     height: 45px;
     line-height: 45px;
     padding: 0;
@@ -5797,6 +6020,16 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
 }
 
+.box-btns-fixed{
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 12px;
+  position: fixed;
+  text-align: center;
+  width: 80%;
+  z-index: 999;
+  left: 10%;
+}
 
 @media screen and (max-width: 992px) {
   
@@ -5838,6 +6071,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 @media screen and (min-width: 992px) {
+  .modal-blackWeek{
+    h3{
+        font-size: 30px;
+    }
+    p{
+        font-size: 20px;
+    }
+}
   .box-mensajeEnviadoCotizacion{
     .modal-titulo-enviado{
       font-size: 21px;
@@ -6013,9 +6254,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
 
 
-  .page-cotizador{
-    background: white;
-  }
+  
   .v2-suma-asegurada .v2-valor-comercial .box-input .flotante-moneda{
     left: 34px;
   }

@@ -923,8 +923,7 @@ export default {
                 }
             }else{}
         },
-        pagar_ahora(){
-            
+        pagar_ahora(){            
             this.primeraPantalla = false
             window.scrollTo(0,0)
         },

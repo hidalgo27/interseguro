@@ -52,8 +52,9 @@
           </div>
 
 
-          <h1><span>Descarga el app</span> y maneja para recibir un descuento de <span>hasta 50%</span> en tu cotización
-          </h1>
+          <h1><span>hasta 50% menos <br> en tu cotización</span></h1>
+          <p class="subtitulo-root">
+                    Llegó el app: descárgala y maneja para recibir un <br>descuento en tu cotización sin afectar la cobertura</p>
           
           <div class="btns-banner  d-none  d-lg-block">
             <div class="btn-cotizar" @click="showModalNumeroCelular('1')">
@@ -1513,6 +1514,12 @@ p, img{
     }
     .root-izq{
       position: relative;
+      .subtitulo-root{
+        color: #436fb8;
+        font-size: 14px;
+        line-height: 26px;
+        margin-bottom: 24px;
+      }
       .box-modal-fake{
         position: absolute;
         display: none;
@@ -2732,6 +2739,9 @@ p, img{
         flex-direction: column;
         justify-content: flex-start;
         height: 305px;
+        .subtitulo-root{
+          font-size: 22px;
+        }
         h1{
           text-align: left;
           font-size: 48px;

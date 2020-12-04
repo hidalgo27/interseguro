@@ -1,5 +1,5 @@
 <template>
-    <section class="steps-box">
+    <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -235,19 +235,15 @@
                             <div class="modal-divider"></div>
                         </div>
                         <p class="modal-description">
-                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares, Especiales y Cláusulas
-                            Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros.
+                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares, Especiales y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros.
+                            <br><br>
+                            A su vez, manifiesto que el automóvil asegurado bajo la presente póliza es de uso particular y que, de verificarse su uso comercial, Interseguro podrá proceder con la anulación de la póliza, por declaración inexacta; o el rechazo de la cobertura de siniestro, al configurarse una causal de exclusión.
                             <br><br>
                             Asimismo, autorizo a que se realicen - de acuerdo a la periodicidad escogida - cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
                             <br><br>
-                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan
-                            a la realidad y de no serlo, cualquier declaración falsa hecha por el Contratante, voluntaria o
-                            involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio
-                            a
-                            Interseguro Compañía de Seguros, quedando el seguro emitido en virtud de esta solicitud nulo y sin
-                            efecto.
+                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa hecha por el Contratante, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro Compañía de Seguros, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
                             <br><br>
-                            El Contratante otorga su consentimiento para que su Póliza de seguro electrónica, endosos futuros, cartas y/u otra documentación, sean enviados vía correo electrónico desde el dominio @interseguro. Todas aquellos documentos y comunicaciones se entenderán por recibidos en la casilla de correo electrónica declarada por el Contratante, a través de la confirmación del servidor de destino. La póliza contendrá una firma digital y una contraseña de acceso para visualizar el documento, ello garantizará la autenticidad e integridad del documento, de acuerdo con lo estipulado en la Ley N° 27269 - Ley de Firmas y Certificados Digitales. Asimismo, declara conocer las medidas de seguridad que debe adoptar para la recepción de los citados documentos, las ventajas y riesgos asociados a esta modalidad de envío, garantiza haber suministrado un correo electrónico válido en la Solicitud de Seguro, el cual mantendrá activo y con espacio suficiente para recibir la Póliza y se comprometen a informar su nuevo correo electrónico, en caso sea dado de baja o desee modificar la cuenta de correo declarada. 
+                            El Contratante otorga su consentimiento para que su Póliza de seguro electrónica, endosos futuros, cartas y/u otra documentación, sean enviados vía correo electrónico desde el dominio @interseguro. Todas aquellos documentos y comunicaciones se entenderán por recibidos en la casilla de correo electrónica declarada por el Contratante, a través de la confirmación del servidor de destino. La póliza contendrá una firma digital y una contraseña de acceso para visualizar el documento, ello garantizará la autenticidad e integridad del documento, de acuerdo con lo estipulado en la Ley N° 27269 - Ley de Firmas y Certificados Digitales. Asimismo, declara conocer las medidas de seguridad que debe adoptar para la recepción de los citados documentos, las ventajas y riesgos asociados a esta modalidad de envío, garantiza haber suministrado un correo electrónico válido en la Solicitud de Seguro, el cual mantendrá activo y con espacio suficiente para recibir la Póliza y se compromete a informar su nuevo correo electrónico, en caso sea dado de baja o desee modificar la cuenta de correo declarada.
                         </p>
                         <div class="row">
                         
@@ -335,6 +331,26 @@
                 </b-row>
             </b-container>
         </b-modal>
+
+        <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+            <b-container  style="height: 100%;">
+                <b-row class="align-items-center" style="height: 100%;">
+                    <b-col cols="12">
+                        <div class="banner-modal">
+                            <img src="./../../static/media/modalBlackWeek/modal.svg" alt="">
+                        </div>
+                    </b-col>                  
+                    <b-col cols="12" class="mb-2">
+                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, </h3> 
+                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
+                    </b-col>
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
+
         <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 
@@ -539,7 +555,10 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
-            // enviarParametroAgora(){
+            hideModalBlackWeek(){
+                $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+            },
+            // hideModalBlackWeek(){
             //     this.valeAgora = true,
             //     localStorage.setItem('activoAgora', true)
             //     setTimeout(() => {
@@ -1063,9 +1082,9 @@ import { validationMixin } from 'vuelidate'
                         this.$store.commit('common/setLeaveMessage',1)
                         if (this.urlLocal = "/promocion50") {
                             // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
                         }else{
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
                         }
                         // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
@@ -1196,6 +1215,7 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss">
+    
         .liston-agora{
             display: none;
             position: absolute;
@@ -1258,7 +1278,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 100px;
+    padding-top: 170px;;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
@@ -2124,6 +2144,58 @@ a.steps__item.paso1:after{
         }
     }
 }
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
 .modal-agora{
     font-family: 'Omnes Regular';
     font-weight: normal;
@@ -2228,6 +2300,14 @@ a.steps__item.paso1:after{
         }
     }
     @media (min-width: 1024px){
+        .modal-blackWeek{
+            h3{
+                font-size: 30px;
+            }
+            p{
+                font-size: 20px;
+            }
+        }
         .liston-agora{
             display: block;
         }
@@ -2238,8 +2318,7 @@ a.steps__item.paso1:after{
             padding-top: 0;
             margin-top: 90px;
         }
-        .steps-box{    
-            padding-top: 50px;        
+        .steps-box{      
             .steps-plan{
                 background: transparent;
             }
