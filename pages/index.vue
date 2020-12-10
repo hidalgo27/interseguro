@@ -369,7 +369,7 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
+            //var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
             // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
@@ -512,7 +512,7 @@
       },
       mounted () {
         setTimeout(() => {
-          this.contador()
+          //this.contador()
         }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
         

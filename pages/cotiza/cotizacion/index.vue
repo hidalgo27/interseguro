@@ -739,7 +739,7 @@
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
-                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
+                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
                     </b-col>
                     <b-col class="text-center mb-4" cols="12">
                         <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
@@ -2574,6 +2574,7 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "enviar_datos",
+            content_ids: this.code_sku,
             "0km": this.auto_0k, // true / false
             make:
               this.itemElegido.brand != undefined
