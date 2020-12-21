@@ -1082,9 +1082,9 @@ import { validationMixin } from 'vuelidate'
                         this.$store.commit('common/setLeaveMessage',1)
                         if (this.urlLocal = "/promocion50") {
                             // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
-                            this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
                         }else{
-                            this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
                         }
                         // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
@@ -1278,7 +1278,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 170px;;
+    padding-top: 70px;;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;

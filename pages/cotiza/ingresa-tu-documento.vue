@@ -706,7 +706,7 @@ a.steps__item.paso1:after{
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 170px;
+  padding-top: 70px;
   .steps-plan{
     background: white;
   }
@@ -2183,7 +2183,7 @@ export default {
       if (this.$store.state.common.leaveMessage == 0) {
         if (e.clientX < 0 || e.clientY < 0) {
           this.$store.commit('common/setLeaveMessage',1) 
-          this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
+          this.$nuxt.$emit('bv::show::modal','leaveDocument')
         }
       }
     },

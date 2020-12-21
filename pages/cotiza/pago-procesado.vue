@@ -658,6 +658,7 @@ export default {
   @media (min-width: 1024px) {
     .pago-procesado{
     padding-top: 65px;
+    // padding-top: 125px;
   }
   }
   @media (min-width: 1200px) {

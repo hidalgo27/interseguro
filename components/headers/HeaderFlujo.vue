@@ -1,26 +1,26 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <div class="d-md-none  liston-black">
-                    <img  class="img-liston" src="../../static/media/modalBlackWeek/logo-franja.svg" alt="">
+                <div class="d-md-none  liston-black"> -->
+                    <!-- <img  class="img-liston" src="../../static/media/modalBlackWeek/logo-franja.svg" alt=""> -->
                     <!-- <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
                     </div> -->
-                    <p>Sorteo de 2 Smart TV 50" y 3 Nintendo Switch + 2 juegos</p>
-                </div>
+                    <!-- <p>¡Últimos días! Compra hoy con 10% de dscto.</p>
+                </div> -->
                 
-                <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
-                    <div class="d-flex align-items-center logo-franja">
-                        <img   src="./../../static/media/modalBlackWeek/logo-franja.svg" alt="">          
-                        <p >Participa en el sorteo de 2 Smart TV 50" y 3 Nintendo Switch + 2 juegos</p>
-                    </div>
+                <!-- <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
+                    <div class="d-flex align-items-center logo-franja"> -->
+                        <!-- <img   src="./../../static/media/modalBlackWeek/logo-franja.svg" alt="">           -->
+                        <!-- <p >¡Últimos días! Compra hoy con 10% de dscto.</p>
+                    </div> -->
                     <!-- <div id="contadorCyber2" class="flipdown"></div> -->
                     
-                </div>
+                <!-- </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  
+        </div>   -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">

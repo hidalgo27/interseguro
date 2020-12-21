@@ -5,8 +5,8 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <p class="titulo-formulario">
-                <img width="100%" src="./../static/media/modalBlackWeek/banner-mobile.svg" alt="banner">
-              
+                <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
+                Manejar tranquilo <br> ahora es más fácil
             </p>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
@@ -48,16 +48,23 @@
             
           </div>
         </div>
-        <div class="home-banner__der    d-none  d-lg-flex">
-          <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
+        <div class="home-banner__der">
+          <div class="box-titulo">
+            <p class="title-banner">
+              Manejar tranquilo <br> ahora es más fácil
+            </p>
+            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
+              <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
+            </p>
+          </div>
+          <!-- <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
           <div class="box-contador" style="padding-left: 32px;">
             <div  class="example  d-none  d-md-flex">
-              <!-- <p>Del 25 al 30 de Noviembre</p> -->
-                <!-- <div id="contadorCyber2" class="flipdown">
+                <div id="contadorCyber2" class="flipdown">
                     
-                </div> -->
+                </div> 
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -369,7 +376,7 @@
       },
       methods: {
         contador(){
-            //var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
+            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
             // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
@@ -674,7 +681,7 @@
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 206px;
+      padding-top: 170px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -895,13 +902,16 @@
     .boxHome-banner{
       position: relative;
       height: 296px;
-      background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
+      background-color:  rgba(8,85,196,.1);
+      // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
-        background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
+        // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: right;
+        background-size: 700px;
+        background-position-y: bottom;
+        background-position-x: right;
+        // background-position: right;
         display: flex;
         align-items: center;
         height: 100%;
@@ -959,9 +969,9 @@
           padding-top: 68px !important;
           height: auto;
           display: none;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
+          // display: flex;
+          // flex-direction: column;
+          align-items: center;
           .box-contador{
             .example{
               display: flex;
@@ -1487,8 +1497,8 @@
   
   @media (min-width: 992px) {
     .home{
-      // margin-top: 0px;
-      margin-top: 72px;
+      margin-top: 0px;
+      // margin-top: 72px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1505,13 +1515,15 @@
         }
       }
       .boxHome-banner{
+        background-color:  rgba(8,85,196,.1);
         height: auto;
         .home-banner{
           flex-direction: row;
+          padding-left: 45px;
           min-height: 445px;
           &__izq{
             // padding-top: 68px !important;
-            height: calc(62vh);
+            height: calc(85vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1553,7 +1565,17 @@
           }
           &__der{
             padding-top: 0px !important;
-            padding-left: 32px;
+            height: auto;
+            display: flex;
+            -webkit-box-align: center;
+            background-size: 90%;
+            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            background-repeat: no-repeat;
+            background-position-y: bottom;
+            background-position-x: right;
+            width: 100%;
+            align-items: flex-start;
+            // padding-left: 32px;
             .box-titulo{
               padding-top: 150px;
               padding-left: 24px;
@@ -1887,12 +1909,13 @@
     }
     .home{
       .boxHome-banner{  
-        background-image: url('./../static/media/modalBlackWeek/fondo-modal-lg.svg');
-        background-position-x: 0;
-        background-position-y: 0;
-        background-size: cover;    
+        // background-image: url('./../static/media/modalBlackWeek/fondo-modal-lg.svg');
+        // background-position-x: 0;
+        // background-position-y: 0;
+        // background-size: cover;    
         .home-banner{
-          background: transparent;
+          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          // background: transparent;
           background-size: 50%;
           padding: 0 1.5rem;
           padding-left: 65px;
@@ -1900,10 +1923,11 @@
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
-            img{
-              width: 749px;
-              padding-left: 32px;
-            }
+            align-items: center;
+            // img{
+            //   width: 749px;
+            //   padding-left: 32px;
+            // }
             p{
               font-size: 2.6rem;
             }
@@ -2089,6 +2113,7 @@
     .home{
       .boxHome-banner{              
         .home-banner{
+          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
           background-size: 50%;
           padding-left: 128px;
           max-width: 1440px;
