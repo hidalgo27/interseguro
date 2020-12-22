@@ -1163,7 +1163,7 @@
 }
 .v2_cobertura{
     background: #f7f4fc;
-    padding-top: 52px;
+    padding-top: 100px;
     p,div{
         margin: 0;
     }

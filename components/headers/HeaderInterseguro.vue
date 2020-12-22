@@ -1,29 +1,21 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <div class="box-texto-img">
-                    <div class="box-img-liston">
-                        <img class="img-liston" src="../../static/media/img/cyber_interseguro.svg" alt="">
-                    </div> 
-                    <div class="d-md-none">
-                        <p>¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
-                        <div  class="example">            
-                            <div id="contadorCyber" class="flipdown  flipdownMobile">                        
-                            </div>
-                        </div>
-                    </div>
-                    <p class="d-none d-md-block">¡Comenzó el Cyber Interseguro! Aprovecha el 15% de dscto. en la compra de tu Seguro Vehicular</p>
+                <div class="d-md-none  liston-black">
+                    <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
+                    <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
                 </div>
                 
-                <div  class="example  d-none  d-md-block">            
-                    <div id="contadorCyber2" class="flipdown">
-                        
-                    </div>
+                <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
+                    <div class="d-flex align-items-center logo-franja">
+                        <img src="./../../static/media/modal/logo-franja-10.svg" alt="">          
+                        <p >Compra con 10% de dscto. en todos nuestros planes</p>
+                    </div>                    
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>   -->
+        </div>  
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -298,11 +290,23 @@ export default {
         flex-direction: column;
         background: #0855c4;
         width: 100%;
-        height: 100px;
+        height: 46px;
         left: 0;
         justify-content: center;
         padding-left: 16px;
         display: flex;
+        .liston-black{
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            img{
+                position: relative;
+                width: 31px;
+                height: auto;
+                left: -8px;
+            }
+        }
         .box-texto-img{
                 display: flex;
                 height: 45px;
@@ -313,7 +317,7 @@ export default {
             width: 84px;
             .img-liston{                
                width: 50px;
-               animation: zoom 1.7s infinite ease-in-out;
+            //    animation: zoom 1.7s infinite ease-in-out;
             //    animation: zoom 12s infinite;
             }
         }
@@ -328,7 +332,17 @@ export default {
             letter-spacing: normal;
             color: #fff;
             font-family: 'Omnes Regular' !important;
-        }        
+        }
+        .example{
+            width: 100%;
+        }
+        .logo-franja{
+            margin-left: auto;
+            margin-right: auto;
+            img{
+                width: 31px;
+            }
+        }
     }
 .footer-menu{
     flex-direction: column;
@@ -610,12 +624,12 @@ export default {
     }
     @media (min-width: 1024px){
         .liston {
-            flex-direction: row;
-            height: 56px;
+            // flex-direction: row;
+            height: 42px;
         }
-        .liston .box-texto-img {
-            height: 56px;
-        }
+        // .liston .box-texto-img {
+        //     height: 56px;
+        // }
          .header-planes{
             .menu-nav{
                 &__izq{
@@ -626,17 +640,18 @@ export default {
     }
     @media (min-width: 1200px){
         .liston{       
-            height: 56px;     
+            height: 42px;     
             flex-direction: row;
             justify-content: space-between;
             display: flex;
             padding-left: 65px;
             p{
-                font-size: 16px;
+                padding-left: 18px;
+                font-size: 18px;
                 font-family: 'Omnes Regular' !important;
             }
             .closeListon{
-                right: 0;
+                right: 70px;
             }
         }
         
@@ -706,11 +721,11 @@ export default {
         }
     }
     @media (min-width: 1366px){
-        .example{
-                padding-top: 5px;
-        }
+        // .example{
+        //         padding-top: 5px;
+        // }
         .liston{
-            height: 64px;
+            height: 42px;
             padding-right: 102px;
             padding-left: 128px;
             .box-texto-img{

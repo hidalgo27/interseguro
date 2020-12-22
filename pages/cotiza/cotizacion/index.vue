@@ -3159,7 +3159,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px; 
+  padding-top: 120px; 
 }
 .opacityNone{
     opacity: 1 !important;

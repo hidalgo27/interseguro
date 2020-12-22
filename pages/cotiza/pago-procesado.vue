@@ -369,7 +369,7 @@ export default {
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
-    padding-top: 170px;
+    padding-top: 110px;
   }
   .card-btnPago{
     display: flex;
@@ -657,8 +657,8 @@ export default {
 
   @media (min-width: 1024px) {
     .pago-procesado{
-    padding-top: 65px;
-    // padding-top: 125px;
+    // padding-top: 65px;
+    padding-top: 110px;
   }
   }
   @media (min-width: 1200px) {

@@ -799,6 +799,7 @@
               }); */
             })
         }else{
+          this.showLoader = false
           if (this.$route.params.parametro == 'cuentasueldo/' || this.$route.params.parametro == 'cuentasueldo') {
             this.$store.commit('common/setCuentasueldo', 'Y')
             this.$store.commit('common/setTarjetaoh', 'N')

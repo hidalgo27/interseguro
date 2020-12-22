@@ -518,9 +518,9 @@
           
       },
       mounted () {
-        setTimeout(() => {
-          //this.contador()
-        }, 750);
+        // setTimeout(() => {
+        //   this.contador()
+        // }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
         
         // this.$store.commit('common/resetState')
@@ -675,7 +675,7 @@
     }
   }
   .home{
-    margin-top: 70px;
+    margin-top: 120px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    

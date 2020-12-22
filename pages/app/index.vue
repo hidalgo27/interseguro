@@ -1506,7 +1506,7 @@ p, img{
     &__body{
       padding-bottom: 24px;
       overflow: hidden;
-      padding-top: 100px;
+      padding-top: 130px;
       display: flex;
       align-items: center;
       justify-content: center;

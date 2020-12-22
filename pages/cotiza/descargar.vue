@@ -312,7 +312,7 @@
 </template>
 <style lang="scss" scoope>
     .main{
-        padding-top: 70px;
+        padding-top: 120px;
         span{
             display: inline-block;
         }
