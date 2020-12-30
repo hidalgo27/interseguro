@@ -3005,9 +3005,9 @@
               this.$store.commit('common/setLeaveMessage',1)
               let num = this.$store.state.common.plateNumber.slice(-1)
               if (num % 2 == 0) {
-                this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
+                this.$nuxt.$emit('bv::show::modal','leaveQuote2')
               } else {
-                this.$nuxt.$emit('bv::show::modal','leaveBlackWeek')
+                this.$nuxt.$emit('bv::show::modal','leaveQuote')
               }
             }
           }
@@ -3159,7 +3159,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 150px;
+  padding-top: 120px; 
 }
 .opacityNone{
     opacity: 1 !important;

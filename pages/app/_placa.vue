@@ -1068,7 +1068,8 @@ export default {
                 this.opacidad =true
                 this.isDisabledPayment = false
                 this.card.expiration_year = '20'+this.expiration_year
-                this.card.email = this.$store.state.common.email
+                // this.card.email = this.$store.state.common.email
+                this.card.email = this.cliente.emailAddress
                 this.$store.dispatch('payment/getTokenCulqi', this.card)
                 .then((res) =>{
                     if (res.object === 'error') {

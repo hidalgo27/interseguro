@@ -213,6 +213,7 @@ export default {
 <style lang="scss">
 .como-lo-uso{
     padding-bottom: 0; 
+    padding-top: 120px;
 }
 .tabs-content__panel--parrafo{
     padding-top: 24px;

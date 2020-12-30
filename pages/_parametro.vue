@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  v-bind:class="{'pt-4': flagCloseListon == 1  }">
         <div class="home-banner__izq">
@@ -377,11 +378,13 @@
 
 <script>
   import moment from "moment/moment.js"
-
+  import FadeLoader from '@/components/loaders/FadeLoader'
+  
   export default {
     layout: "InterseguroParametro",
       data () {
           return {
+            showLoader: true,
             loading: false,
             color: "#00ADEE",
             sizePulse: "45px",
@@ -396,6 +399,9 @@
             saveVehicle:{},
             saveCliente:{}
           }
+      },
+      components:{
+        'fade-loader': FadeLoader
       },
       created() {
       },
@@ -793,6 +799,7 @@
               }); */
             })
         }else{
+          this.showLoader = false
           if (this.$route.params.parametro == 'cuentasueldo/' || this.$route.params.parametro == 'cuentasueldo') {
             this.$store.commit('common/setCuentasueldo', 'Y')
             this.$store.commit('common/setTarjetaoh', 'N')
