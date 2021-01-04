@@ -1759,7 +1759,7 @@ export default {
       }
     },
     validarCelular() {
-      console.log(this.objClients.phoneNumber);
+      
       if (this.objClients.phoneNumber)
         if (
           this.objClients.phoneNumber.charAt(0) == 9 &&
@@ -1923,6 +1923,9 @@ export default {
       this.mostrarPrimerBox = !this.mostrarPrimerBox;
       this.mostrarSegundoBox = !this.mostrarSegundoBox;
       this.mostrarDatosPersonales = !this.mostrarDatosPersonales;
+      
+      this.tamaño = this.objClients.documentNumber.length;
+      
     },
     /*OBS CLICK ACAY SI NOO ES CUENTA SUELDO MODAL
     http://localhost:3000/vehicular/vehicular/cuentasueldo
@@ -2278,6 +2281,7 @@ export default {
                 .replace(/[_\s]/g, "")
             : "";
         if (this.validarClient()) {
+          
           this.msgCompletaDatos = false;
           if (this.checkPoliticasPrivacidad == true) {
             this.isDisableButton = false;

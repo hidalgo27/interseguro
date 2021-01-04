@@ -26,7 +26,7 @@
             </div> 
         </b-col>  
       </b-row>  
-      <div id="imagePhone"  style="visibility:false">
+      <!-- <div id="imagePhone"  style="visibility:false">
         <div class="phoneContent">
             <div class="phoneS">
               <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
@@ -38,7 +38,7 @@
                  <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>
                  y te ayudamos a seguir con la cotización.`,
 
-        </div>
+        </div> -->
 
     </b-container>
 
@@ -2747,20 +2747,22 @@
               this.$nuxt.$router.push({path: "/"})
               
               
-            }else if(res.data.code === 200){
+            }
+            // else if(res.data.code === 200){
               
-              const imagePhone = document.getElementById('imagePhone');
-              console.log(imagePhone)
-              this.$swal({
-                title: "Oops...",
-                html: imagePhone,
-                // type: "warning",
-                showCancelButton: false,
-                confirmButtonColor: "#2177CC",
-                confirmButtonText: "OK"
-              });
+            //   const imagePhone = document.getElementById('imagePhone');
+            //   console.log(imagePhone)
+            //   this.$swal({
+            //     title: "Oops...",
+            //     html: imagePhone,
+            //     // type: "warning",
+            //     showCancelButton: false,
+            //     confirmButtonColor: "#2177CC",
+            //     confirmButtonText: "OK"
+            //   });
 
-            } else {
+            // } 
+            else {
               let errorDetectado = {
                 url : 'getcotizacion',
                 page : 2,
