@@ -394,8 +394,8 @@
                               ref="celular"
                               name="phone"
                               @keyup.native="
-                                validacionInput($event);
                                 validarCelular();
+                                validacionInput($event);
                               "
                               v-on:focus.native="
                                 isIconPhoneNumber = !isIconPhoneNumber
@@ -497,8 +497,8 @@
                               id="celularEmpresa"
                               ref="celularEmpresa"
                               @keyup.native="
-                                validacionInput($event);
                                 validarCelular();
+                                validacionInput($event);
                               "
                               v-on:focus.native="
                                 isIconPhoneNumber = !isIconPhoneNumber
@@ -1006,7 +1006,7 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   padding-top: 120px;
-  .steps-plan{
+  .steps-plan {
     background: white;
   }
 }
@@ -1759,6 +1759,7 @@ export default {
       }
     },
     validarCelular() {
+      console.log(this.objClients.phoneNumber);
       if (this.objClients.phoneNumber)
         if (
           this.objClients.phoneNumber.charAt(0) == 9 &&
@@ -2594,8 +2595,8 @@ export default {
     mouseLeave(e) {
       if (this.$store.state.common.leaveMessage == 0) {
         if (e.clientX < 0 || e.clientY < 0) {
-          this.$store.commit('common/setLeaveMessage',1) 
-          this.$nuxt.$emit('bv::show::modal','leaveDocument')
+          this.$store.commit("common/setLeaveMessage", 1);
+          this.$nuxt.$emit("bv::show::modal", "leaveDocument");
         }
       }
     },

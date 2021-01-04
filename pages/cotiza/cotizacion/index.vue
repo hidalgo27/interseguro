@@ -26,6 +26,20 @@
             </div> 
         </b-col>  
       </b-row>  
+      <div id="imagePhone"  style="visibility:false">
+        <div class="phoneContent">
+            <div class="phoneS">
+              <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
+          </div>
+          </div>
+      
+                Tenemos problemas para cotizar tu placa. Por favor 
+                 ponte en contacto con nosotros llamando al   
+                 <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>
+                 y te ayudamos a seguir con la cotización.`,
+
+        </div>
+
     </b-container>
 
     <b-container class="contenedor-personalizado">
@@ -2694,6 +2708,7 @@
       },
       getCotizacion() {
           this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+            console.log(res.data.code , 'alva')
             if (res.data.code == 0) { 
               
               this.listCotizacionTotal = res.data.body
@@ -2732,6 +2747,19 @@
               this.$nuxt.$router.push({path: "/"})
               
               
+            }else if(res.data.code === 200){
+              
+              const imagePhone = document.getElementById('imagePhone');
+              console.log(imagePhone)
+              this.$swal({
+                title: "Oops...",
+                html: imagePhone,
+                // type: "warning",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK"
+              });
+
             } else {
               let errorDetectado = {
                 url : 'getcotizacion',
@@ -2984,6 +3012,7 @@
         }
       this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
         if (res) {
+          console.log('1')
           this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
         }
         
@@ -3105,6 +3134,24 @@
 </script>
 
 <style lang="scss" scoped>
+
+.phoneContent{
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 20px 0px;
+
+    .phoneS{
+    width: 100px;
+      height: 100px;
+      background: #0055c8;
+      display: flex;
+      justify-content: center;
+      border-radius: 50px;
+    }
+    
+}
 .modal-blackWeek{
     max-width: 472px;
     width: 100%;
@@ -3540,6 +3587,7 @@ button:focus{
 
   }
 }
+ 
 .v2-datos-carro{
   font-family: 'Omnes Regular';
   border: 1px solid #D5D5D5;

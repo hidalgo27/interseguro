@@ -507,8 +507,17 @@
                 }
                 
                 
-              }else{
-
+              }else if(res.data.code === 307){
+                  this.loading = false;
+                  this.$swal({
+                  title: "Oops...",
+                  text: `Lo sentimos, lamentablemente no podemos asegurar la placa ${this.item.plateNumber}. 
+                  Para mayor información contáctanos al (01)500-0000."`,
+                  type: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#2177CC",
+                  confirmButtonText: "OK",
+                });
               }
             })
 
