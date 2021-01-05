@@ -784,14 +784,14 @@
 
       <div id="imagePhone" style="display:none" >
         <div class="phoneContent">
-                 <a class="phoneS" style="color : #5b85c5" href="tel:+51015000000">
+                 <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
                   <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
                  </a>
           </div>
       
                 Tenemos problemas para cotizar tu placa. Por favor 
                  ponte en contacto con nosotros llamando al   
-                 <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>
+                 <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>
                  y te ayudamos a seguir con la cotización.`,
 
         </div>

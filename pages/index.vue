@@ -457,28 +457,33 @@
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
               const respuesta = res.data.body;
-            
+              console.log(res)
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
-                const useType = respuesta.useType.toString().toLowerCase();
-
-                if(useType === 'particular' || useType === 'escolar'){
-                 this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+              
+                if(respuesta.useType){
+                   const useType = respuesta.useType.toString().toLowerCase();
+                    if(useType === 'particular' || useType === 'escolar'){
+                      this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+                    }else{
+                      this.loading = false;
+                      this.$swal({
+                        // title: "Oops...",
+                        html: `Lo sentimos, por el momento solo aseguramos autos 
+                        de Uso Particular. La placa ${this.item.plateNumber} se encuentra registrada en APESEG 
+                        con Uso ${useType}. Para mayor información contáctanos al 
+                        <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>"`,
+                        type: "warning",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                      });
+                      return;
+                    };
                 }else{
-                  this.loading = false;
-                  this.$swal({
-                    // title: "Oops...",
-                    html: `Lo sentimos, por el momento solo aseguramos autos 
-                    de Uso Particular. La placa ${this.item.plateNumber} se encuentra registrada en APESEG 
-                    con Uso ${useType}. Para mayor información contáctanos al 
-                    <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>"`,
-                    type: "warning",
-                    showCancelButton: false,
-                    confirmButtonColor: "#2177CC",
-                    confirmButtonText: "OK",
-                  });
-                  return;
-                };
+                      this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+                }
+               
 
                 if (respuesta.appDiscount == true) {
                   this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
@@ -533,7 +538,7 @@
                   this.$swal({
                   // title: "Oops...",
                   html: `Lo sentimos, lamentablemente no podemos asegurar la placa ${this.item.plateNumber}. 
-                  Para mayor información contáctanos al <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>"`,
+                  Para mayor información contáctanos al <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>"`,
                   type: "warning",
                   showCancelButton: false,
                   confirmButtonColor: "#2177CC",
