@@ -26,19 +26,8 @@
             </div> 
         </b-col>  
       </b-row>  
-      <!-- <div id="imagePhone"  style="visibility:false">
-        <div class="phoneContent">
-            <div class="phoneS">
-              <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
-          </div>
-          </div>
-      
-                Tenemos problemas para cotizar tu placa. Por favor 
-                 ponte en contacto con nosotros llamando al   
-                 <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>
-                 y te ayudamos a seguir con la cotización.`,
 
-        </div> -->
+     
 
     </b-container>
 
@@ -793,7 +782,19 @@
     </b-modal>
     
 
+      <div id="imagePhone" style="display:none" >
+        <div class="phoneContent">
+                 <a class="phoneS" style="color : #5b85c5" href="tel:+51015000000">
+                  <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
+                 </a>
+          </div>
+      
+                Tenemos problemas para cotizar tu placa. Por favor 
+                 ponte en contacto con nosotros llamando al   
+                 <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>
+                 y te ayudamos a seguir con la cotización.`,
 
+        </div>
     
       <b-modal title="Bootstrap-Vue"
           hide-footer
@@ -1645,6 +1646,7 @@
         isDisabledEnviarCorreo: false,
         email: '',
         objUtm:'',
+        htmlModal : '',
         /* ********************** REMARKETING *********************/
         objRemarketing: {
           codigoRemarketing: "",
@@ -1693,6 +1695,7 @@
       }
     },
     created() {
+  
       if (process.browser) {
         window.addEventListener("scroll", this.handleScroll);
         document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -2708,7 +2711,6 @@
       },
       getCotizacion() {
           this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-            console.log(res.data.code , 'alva')
             if (res.data.code == 0) { 
               
               this.listCotizacionTotal = res.data.body
@@ -2748,20 +2750,24 @@
               
               
             }
-            // else if(res.data.code === 200){
-              
-            //   const imagePhone = document.getElementById('imagePhone');
-            //   console.log(imagePhone)
-            //   this.$swal({
-            //     title: "Oops...",
-            //     html: imagePhone,
-            //     // type: "warning",
-            //     showCancelButton: false,
-            //     confirmButtonColor: "#2177CC",
-            //     confirmButtonText: "OK"
-            //   });
+            else if(res.data.code === 200){
+              if(!this.htmlModal){
+                this.htmlModal = document.getElementById('imagePhone');
+                this.htmlModal.style.display = "";
+              }
 
-            // } 
+              // imagePhone.style.display = '';
+              this.$swal({
+                // title: "Oops...",
+                html: this.htmlModal,
+                // type: "warning",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK",
+                
+              });
+
+            } 
             else {
               let errorDetectado = {
                 url : 'getcotizacion',
