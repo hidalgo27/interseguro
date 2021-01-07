@@ -245,6 +245,10 @@
                   <br>
               </ol>
           </b-col>
+          <b-col cols="12">
+            <p>Fecha de última actualización: 25 de setiembre de 2020.</p>
+            <br>
+          </b-col>
         </b-row>
       </b-container>
 
