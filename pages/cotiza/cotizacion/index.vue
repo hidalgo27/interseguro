@@ -1212,7 +1212,7 @@
         <div class="v2modalGPS__header">
           <img src="./../../../static/media/interseguroVehicular_v2/auto-gps.png" alt="">
           <div class="texto-header">
-            <p class="titulo">Tu Mazda necesita un GPS, te ayudamos a contratarlo</p>
+            <p class="titulo">Tu {{this.itemElegido.brand }} necesita un GPS, te ayudamos a contratarlo</p>
             <span class="descripcion">
               Por ser de Interseguro, podrás acceder a los mejores precios:
             </span>
