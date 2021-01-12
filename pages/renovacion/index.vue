@@ -355,15 +355,7 @@ export default {
                 assignedPrice: null,
                 
             },
-            objCard:{
-                policyId:'',
-                customer_id:'',
-                bin: "",
-                card_brand: "",
-                card_category: "",
-                card_type: "",
-                id:''
-            },
+            
             opacidad: false,
             monto_pagar:"",
             mostrarPrimeraPantalla: true,
@@ -453,6 +445,15 @@ export default {
             /*************************************/
             numberTest:'',
             isEnableURL: true,
+            objCard:{
+                policyId:'',
+                customer_id:'',
+                bin: "",
+                card_brand: "",
+                card_category: "",
+                card_type: "",
+                id:''
+            },
             objCardNumber:{
                 number: ''
             },                

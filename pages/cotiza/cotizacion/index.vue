@@ -3426,7 +3426,7 @@ button:focus{
         font-family: 'Omnes Regular';
         margin-top: 12px;
       }
-    }
+  }
   .tooltip-icon{
     background: #D0D6E0;
     color: white;
