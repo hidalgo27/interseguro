@@ -454,10 +454,12 @@
             this.$store.commit('common/setEmail', mailGenerado)
           },
           getVehicle () {
+            this.item.plateNumber = this.item.plateNumber.toUpperCase();
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
+              
+
               const respuesta = res.data.body;
-              console.log(res)
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
               
@@ -469,10 +471,10 @@
                       this.loading = false;
                       this.$swal({
                         // title: "Oops...",
-                        html: `Lo sentimos, por el momento solo aseguramos autos 
-                        de Uso Particular. La placa ${this.item.plateNumber} se encuentra registrada en APESEG 
-                        con Uso ${useType}. Para mayor información contáctanos al 
-                        <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>"`,
+                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
+                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                         ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
+                        <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                         type: "warning",
                         showCancelButton: false,
                         confirmButtonColor: "#2177CC",
@@ -533,12 +535,13 @@
                 
                 
               }
+              
               else if(res.data.code === 307){
                   this.loading = false;
                   this.$swal({
                   // title: "Oops...",
-                  html: `Lo sentimos, lamentablemente no podemos asegurar la placa ${this.item.plateNumber}. 
-                  Para mayor información contáctanos al <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>"`,
+                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+                  Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                   type: "warning",
                   showCancelButton: false,
                   confirmButtonColor: "#2177CC",

@@ -792,7 +792,7 @@
                 Tenemos problemas para cotizar tu placa. Por favor 
                  ponte en contacto con nosotros llamando al   
                  <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>
-                 y te ayudamos a seguir con la cotización.`,
+                 y te ayudamos a seguir con la cotización.
 
         </div>
     
@@ -2756,6 +2756,8 @@
                 this.htmlModal.style.display = "";
               }
 
+              const goToVehicular = () => this.$nuxt.$router.back();
+
               // imagePhone.style.display = '';
               this.$swal({
                 // title: "Oops...",
@@ -2765,7 +2767,10 @@
                 confirmButtonColor: "#2177CC",
                 confirmButtonText: "OK",
                 
+              }).then(function () {
+                goToVehicular();
               });
+        
 
             } 
             else {
