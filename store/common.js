@@ -361,6 +361,32 @@ const actions = {
             })
         })
     },
+    getComentarios ({ commit, state }, item) {
+        return new Promise((resolve, reject) => {
+          let url =  "provider/v1/vehicle/feedback"
+          this.$axios
+            .post(url,
+              {
+                "plateNumber": state.plateNumber,
+                "documentNumber":item.documentoLocal,
+                "stars": item.estrellas,
+                "comment": item.comentario
+              }
+            )
+            .then(res => {
+              if (res.data.code == 0) {
+                resolve(res)
+              } else if (res.data.code == 213) {
+                resolve(res)
+              } else {
+                resolve(res)
+              }
+            })
+            .catch(err => {              
+              reject(err);
+            });
+        });
+    },
     getCotizacionSP ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
           let url =  "provider/v2/policy/price-plans-by-model/"

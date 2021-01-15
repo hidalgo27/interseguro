@@ -181,7 +181,7 @@
                 <button class="minimoImg" @click="minimoImg"  v-bind:class="{minimoImgDisabled : minimoImgDisabled}" :disabled="minimoImgDisabled">
                   <span>-</span>
                 </button>
-                  <div class="box-input">
+                  <div class="box-input" v-if="listCotizacion">
                     <div class="flotante-moneda">US$</div>
                     <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
                   </div>
@@ -3475,7 +3475,7 @@ button:focus{
         font-family: 'Omnes Regular';
         margin-top: 12px;
       }
-    }
+  }
   .tooltip-icon{
     background: #D0D6E0;
     color: white;
