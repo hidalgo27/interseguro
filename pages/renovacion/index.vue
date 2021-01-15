@@ -827,13 +827,11 @@ export default {
 
             this.objComentario.documentoLocal = this.objRenovacion.client.documentNumber
             this.objComentario.comentario = this.textNorenovar
-            console.log("COMENTARIO",this.objComentario)
             this.$store.dispatch('common/getComentarios', this.objComentario).then((res) => {                
                 this.comentariosEnviados = true
                 setTimeout(() => {
                     this.hideModalNoRenovar()
                 }, 3000);
-                console.log(res)
             })
         },
         selectNoRenovar(){
@@ -884,12 +882,9 @@ export default {
             } else {
                 this.ocultarSumaAsegurada = true
                 if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum || this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum) {   
-                    console.log("TRUE")
                 } else {
-                    console.log("FALSE")
                     this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
                     this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-                        console.log("GET COTIZACION")
                         // this.msgMontos = "";
                         // this.msgMontosActive = false;
                         //REVISAR DESPUES EL CALL
@@ -1086,7 +1081,6 @@ export default {
             }
         },
         obtenerMonto(){
-            console.log("Obtener Monto")
             var self = this
             setTimeout(() => {
                self.payment = self.objRenovacion.policy.frequencyId
@@ -1107,14 +1101,12 @@ export default {
         },
 
         obtenerDatos(){
-            console.log("Obtener Datoa")
             this.$store.commit('common/setPlateNumber', this.placa)
             this.$store.dispatch('common/obtenerDatos', this.placa).then((res) =>{          
                 if (res.data.code == 0) {
                     this.objRenovacion = res.data.body
                     this.$store.commit('common/setFechaVigenciaRenovacion', this.objRenovacion.policy.fromDate)
                     if (this.objRenovacion.policy.renew == "Y") {
-                            console.log("Obtener Datos Y")
                             this.$store.commit('common/setPlacaNoRenovar', '')
                             this.$store.commit('payment/setNumeroPoliza',this.objRenovacion.policy.policyNumber)
                             this.itemElegido.year = this.objRenovacion.vehicle.modelYear
@@ -1128,14 +1120,12 @@ export default {
                                 this.obtenerMonto()   
                                 }
                             ).catch((res) =>{
-                                console.log("SE CAE",res)
                             })
                     }else if (this.objRenovacion.policy.renew == "N") {
-                        console.log("Obtener Datos N")
                         this.$store.commit('common/setPlacaNoRenovar', this.placa)
                         this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
                     } else {
-                        console.log("Obtener Datos ELSE")
+                        console.log("Obtener Datos No entontrados")
                     }
                 } 
             })
@@ -1244,23 +1234,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
   }
   @return $val;
-}
-.e-range {
-    background: transparent;
-    display: block;
-    appearance: none;
-    width: 117px !important;
-    margin: 0;
-    height: $height;
-    overflow: hidden;
-    border: none;
-    height: 36px;
-    cursor: pointer;
-    z-index: 99;
-    position: relative;
-    &:focus {
-        outline: none;
-    }
 }
 
 #modalCambiarFrecuencia{
@@ -1726,9 +1699,177 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
     .renovacion2021{
         color: #454A6C;
-        /*  ************************************************************************************ */
-        /*  ************************************************************************************ */
-        /*  ************************************************************************************ */
+        
+/***************************************************************************************************
+*******************************************
+************************************************************************************************** */
+    .box-range{
+        width: 65%;
+        position: relative;
+        z-index: 5;
+        input{
+            margin: 0px !important;        
+            padding-top: 0;
+        }
+    }
+    .box-min-max{
+        display: flex;
+        justify-content: space-between;
+        position: relative;        
+        color: #002e75;
+        font-size: 14px;
+        font-weight: 600; 
+        width: 84%;
+    }
+    .minimoImg{
+        position: absolute;
+        top: 2px;
+        left: -7px;
+        z-index: 99;
+        i{
+            color: #002e75;
+            font-size: 24px;
+        }
+    }
+    .maximoImg{
+        position: absolute;
+        top: 2px;
+        right: -7px;
+        z-index: 99;
+        i{
+            color: #002e75;
+            font-size: 24px;
+        }
+    }
+
+    .inputSumaAsegurada{
+        background: red;
+    }
+
+    .inputSumaAsegurada{
+        border: 1px solid #0855C4;
+        background: #ffffff;
+        width: 145px;
+        height: 36px;
+    }
+
+    .e-range {
+        background: transparent;
+        display: block;
+        appearance: none;
+        width: 117px !important;
+        margin: 0;
+        height: $height;
+        overflow: hidden;
+        border: none;
+        height: 36px;
+        cursor: pointer;
+        z-index: 99;
+        position: relative;
+        &:focus {
+            outline: none;
+        }
+    }
+
+// Webkit
+.e-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: $height;
+  background: $lower-background;
+}
+
+.e-range::-webkit-slider-thumb {
+  position: relative;
+  appearance: none;
+  height: $thumb-height;
+  width: $thumb-height;
+  background: $thumb-color;
+  border-radius: 100%;
+  border: 0;
+  top: 50%;
+  margin-top: (-$thumb-height/2);
+  box-shadow: webkit-slider-thumb-shadow();
+  transition: background-color 150ms;
+}
+
+// Firefox
+.e-range::-webkit-range-track,
+.e-range::-webkit-range-progress {
+  width: 100%;
+  height: $height;
+  background: $upper-background;
+}
+.e-range::-moz-range-track,
+.e-range::-moz-range-progress {
+  width: 100%;
+  height: $height;
+  background: $upper-background;
+}
+
+.e-range::-moz-range-progress {
+  background: $lower-background;
+}
+
+.e-range::-moz-range-thumb {
+  appearance: none;
+  margin: 0;
+  height: $thumb-height;
+  width: $thumb-height;
+  background: $thumb-color;
+  border-radius: 100%;
+  border: 0;
+  transition: background-color 150ms;
+}
+
+// Internet Exploder
+.e-range::-ms-track {
+  width: 100%;
+  height: $height;
+  border: 0;
+  // color needed to hide track marks
+  color: transparent;
+  background: transparent;
+}
+
+.e-range::-ms-fill-lower {
+  background: $lower-background;
+}
+
+.e-range::-ms-fill-upper {
+  background: $upper-background;
+}
+
+.e-range::-ms-thumb {
+  appearance: none;
+  height: $thumb-height;
+  width: $thumb-height;
+  background: $thumb-color;
+  border-radius: 100%;
+  border: 0;
+  transition: background-color 150ms;
+  // IE Edge thinks it can support -webkit prefixes
+  top: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.e-range:hover,
+.e-range:focus {
+
+  &::-webkit-slider-thumb {
+    background-color: $thumb-hover-color;
+  }
+  &::-moz-range-thumb {
+    background-color: $thumb-hover-color;
+  }
+  &::-ms-thumb {
+    background-color: $thumb-hover-color;
+  }
+}
+
+/******************************************************************************************************* */
+/******************************************************************************************************* */
+/******************************************************************************************************* */
         button{
             &:focus{
                 outline: none;
@@ -2269,6 +2410,11 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         }
 
         .renovacion2021{
+            .e-range{
+                width: 85% !important;
+                font-size: 16px;
+                font-family: 'Omnes Semibold';
+            }
             .renovacion-info{
                 &--titulo{
                     font-size: 33px;
@@ -2285,11 +2431,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
                 }
             }
         }
-        .e-range{
-            width: 85% !important;
-            font-size: 16px;
-            font-family: 'Omnes Semibold';
-        }
+        
 
     }
 
@@ -2310,159 +2452,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         
 
     }
-/***************************************************************************************************
-*******************************************
-************************************************************************************************** */
-    .box-range{
-        width: 65%;
-        position: relative;
-        z-index: 5;
-        input{
-            margin: 0px !important;        
-            padding-top: 0;
-        }
-    }
-    .box-min-max{
-        display: flex;
-        justify-content: space-between;
-        position: relative;        
-        color: #002e75;
-        font-size: 14px;
-        font-weight: 600; 
-        width: 84%;
-    }
-    .minimoImg{
-        position: absolute;
-        top: 2px;
-        left: -7px;
-        z-index: 99;
-        i{
-            color: #002e75;
-            font-size: 24px;
-        }
-    }
-    .maximoImg{
-        position: absolute;
-        top: 2px;
-        right: -7px;
-        z-index: 99;
-        i{
-            color: #002e75;
-            font-size: 24px;
-        }
-    }
 
-.inputSumaAsegurada{
-    background: red;
-}
-
-
-
-.inputSumaAsegurada{
-    border: 1px solid #0855C4;
-    background: #ffffff;
-    width: 145px;
-    height: 36px;
-}
-// Webkit
-.e-range::-webkit-slider-runnable-track {
-  width: 100%;
-  height: $height;
-  background: $lower-background;
-}
-
-.e-range::-webkit-slider-thumb {
-  position: relative;
-  appearance: none;
-  height: $thumb-height;
-  width: $thumb-height;
-  background: $thumb-color;
-  border-radius: 100%;
-  border: 0;
-  top: 50%;
-  margin-top: (-$thumb-height/2);
-  box-shadow: webkit-slider-thumb-shadow();
-  transition: background-color 150ms;
-}
-
-// Firefox
-.e-range::-webkit-range-track,
-.e-range::-webkit-range-progress {
-  width: 100%;
-  height: $height;
-  background: $upper-background;
-}
-.e-range::-moz-range-track,
-.e-range::-moz-range-progress {
-  width: 100%;
-  height: $height;
-  background: $upper-background;
-}
-
-.e-range::-moz-range-progress {
-  background: $lower-background;
-}
-
-.e-range::-moz-range-thumb {
-  appearance: none;
-  margin: 0;
-  height: $thumb-height;
-  width: $thumb-height;
-  background: $thumb-color;
-  border-radius: 100%;
-  border: 0;
-  transition: background-color 150ms;
-}
-
-// Internet Exploder
-.e-range::-ms-track {
-  width: 100%;
-  height: $height;
-  border: 0;
-  // color needed to hide track marks
-  color: transparent;
-  background: transparent;
-}
-
-.e-range::-ms-fill-lower {
-  background: $lower-background;
-}
-
-.e-range::-ms-fill-upper {
-  background: $upper-background;
-}
-
-.e-range::-ms-thumb {
-  appearance: none;
-  height: $thumb-height;
-  width: $thumb-height;
-  background: $thumb-color;
-  border-radius: 100%;
-  border: 0;
-  transition: background-color 150ms;
-  // IE Edge thinks it can support -webkit prefixes
-  top: 0;
-  margin: 0;
-  box-shadow: none;
-}
-
-.e-range:hover,
-.e-range:focus {
-
-  &::-webkit-slider-thumb {
-    background-color: $thumb-hover-color;
-  }
-  &::-moz-range-thumb {
-    background-color: $thumb-hover-color;
-  }
-  &::-ms-thumb {
-    background-color: $thumb-hover-color;
-  }
-}
-
-/******************************************************************************************************* */
-/******************************************************************************************************* */
-/******************************************************************************************************* */
     .capadecarga{
         position: fixed;
         width: 100vw;
