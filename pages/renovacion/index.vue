@@ -521,13 +521,10 @@
                             </div>
                             <div class="box-btn-renovaciones">
                                 <button type="submit" @click="continuar" class="btn-primario-renovaciones" :disabled='this.isDisabledPayment'>
-                                    <span style="">ACTUALIZAR</span>                            
+                                    <span  v-bind:class="{'d-none': estamosProcesandoTuPago}">ACTUALIZAR</span>
+                                    <span class="msj-procesando-pago  parpadea" v-bind:class="{'msj-procesando-pag-activo': estamosProcesandoTuPago}">Estamos procesando tu solicitud ...</span>                            
                                 </button>
                             </div>
-                            
-                            <p v-if="estamosProcesandoTuPago" class="estamos-procesando-tuPago">
-                                Estamos procesando la actualización de tu tarjeta
-                            </p>
                         </div>
                     </div>
                 </b-modal>
@@ -876,10 +873,17 @@ export default {
             if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum) {
                 this.listCotizacion.vehicle.current = this.clonado.vehicle.maximum
                 this.alertaMonto = true
+                setTimeout(() => {
+                    this.alertaMonto = false
+                }, 5000);
             }else if(this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum){
                 this.alertaMonto = true
+                setTimeout(() => {
+                    this.alertaMonto = false
+                }, 5000);
                 this.listCotizacion.vehicle.current = this.clonado.vehicle.minimum
             } else {
+                this.alertaMonto = false
                 this.ocultarSumaAsegurada = true
                 if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum || this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum) {   
                 } else {
@@ -964,7 +968,6 @@ export default {
                 this.objUpdatePolicy.renew = "Y"
                 this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
                 .then((res) =>{
-                    // this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
                     this.showModalRenovarPolizaExitosa()
                     this.showLoader = false 
                 }).catch((err)=>{
@@ -1338,6 +1341,45 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         display: flex;
         min-width: 338px;
         min-height: 425px;
+        .msj-procesando-pago {
+            display: none;
+            font-size: 14px;
+            font-family: 'Omnes Medium';
+            color: #ffffff;
+        }
+        .msj-procesando-pag-activo{
+            display: block;
+        }
+        .parpadea {
+            
+            animation-name: parpadeo;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            -webkit-animation-name:parpadeo;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        @-moz-keyframes parpadeo{  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1.0; }
+        }
+
+        @-webkit-keyframes parpadeo {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1.0; }
+        }
+
+        @keyframes parpadeo {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1.0; }
+        }
         .box-btn-renovaciones{
             width: 100%;
             display: flex;
@@ -1377,7 +1419,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .modal-actualizar-tarjeta{
         .estamos-procesando-tuPago{
-            color: red;
+            margin-top: 12px;
+            color: #0855c4;
             font-size: 15px;
             text-align: center;
         }
