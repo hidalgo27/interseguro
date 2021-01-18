@@ -1,8 +1,7 @@
 <template>
-    <div>  
-        <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
-            <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
-        </div>
+    <div>
+        <fade-loader v-if="showLoader"></fade-loader>
+
         <div class="renovaciones" v-if="mostrarPrimeraPantalla"> 
             
             <b-container>
@@ -41,51 +40,62 @@
                 </b-row>                
             </b-container>                
         </div>        
-        <div class="renovaciones" v-if="mostrarSegundaPantalla"> 
-            <b-container>
-                <b-row> 
-                    <b-col cols="12">
-                        <div class="card-banner">
-                        </div>
-                    </b-col>
-                </b-row>                
-            </b-container>    
-            <b-container> 
-                <b-row class="d-flex  justify-content-center">
-                    <b-col cols="12" lg="6">
-                        <div class="card-datos__titulo">
-                            <p class="card-datos--titulo">{{this.objRenovacion.client.firstName}}, manejar tranquilo nunca fue tan fácil</p>  
-                            <p class="card-datos--subtitulo">Tu seguro vehicular se renovará automáticamente</p>                      
-                        </div>
-                        <div class="card-datos ">
-                            <div class="card-datos__icon">
-                                <div class="box-icon">
-                                    <img class="d-none  d-lg-flex" src="../../static/media/img/bp-car.svg" alt="icon step ingresa tu placa">
-                                </div>
-                            </div>                            
-                            <div class="card-datos__detalle">
-                                <p>Placa: <strong>{{this.objRenovacion.vehicle.plateNumber}}</strong>&nbsp;&nbsp; |&nbsp;&nbsp; Año: <strong>{{this.objRenovacion.vehicle.modelYear}}</strong></p>
-                                <div class="card-datos__detalle--auto">
-                                    <p>Marca: <strong>{{this.objRenovacion.vehicle.brandName}}</strong> &nbsp;&nbsp;|&nbsp;&nbsp; Modelo: <strong>{{this.objRenovacion.vehicle.modelName}}</strong> </p>
+        <div class="renovaciones" v-if="mostrarSegundaPantalla">
+            <div class="renovacion2021">
+                <!-- <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
+                </div> -->
+                <div class="renovacion-data" >
+                    <div class="renovacion-head" v-if="this.objRenovacion">
+                        <p><span>{{this.objRenovacion.client.firstName}},</span> manejar tranquilo nunca fue tan fácil</p>
+                        <span class="subtitulo">Tu seguro vehicular se renovará automáticamente</span>
+                    </div>
+                    <div class="renovacion-body">
+                        <div class="renovacion-body--item  renovacion-body__carro  carro">
+                            <div class="box-icon-seccion d-none  d-lg-flex">
+                                <img class="carro--img  " src="./../../static/media/img/renovacion/tu-carro.png" alt="">
+                            </div>
+                            <div class="carro--datos">
+                                <h3>
+                                    <img width="40" class="carro--img  d-block  d-lg-none" src="./../../static/media/img/renovacion/tu-carro.png" alt=""> 
+                                    Tu carro</h3>
+                                <div class="placa-modelo">
+                                    <div class="placa">
+                                        <p class="item-titulo">Placa:</p>
+                                        <p class="item-descripcion">{{this.objRenovacion.vehicle.plateNumber}}</p>
+                                    </div>
+                                    <div class="modelo">
+                                        <p class="item-titulo">Modelo:</p>
+                                        <p class="item-descripcion">{{this.objRenovacion.vehicle.brandName}} {{this.objRenovacion.vehicle.modelName}}  {{this.objRenovacion.vehicle.modelYear}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-valorComercial  bg-white  mt-3">
-                            <p class="titulo-seccion">Tu seguro vehicular</p>
 
-                            <p class="mb-2"> Vigencia de póliza: <span> {{this.objRenovacion.policy.fromDate}}</span>-<span> {{this.objRenovacion.policy.toDate}}</span></p>
-                            <div><span class="check">&#10095;</span> Suma asegurada :  <span class="monto-actual">$ {{listCotizacion.vehicle.current}}</span>
-                                <div class="caja-oculta">
-                                    <div v-if="!mostrarValorComercial">
-                                        <span class="cambiar" @click="cambiarValor">Cambiar</span>
-                                    </div>
-                                    <div v-else>
-                                        <span class="guardar" @click="guardarValor">Guardar</span>
-                                    </div>
-<<<<<<< HEAD
-                                </div>
+                        <div class="renovacion-body--item  renovacion-body__nueva-poliza  nueva-poliza">
+                            <div class="box-icon-seccion d-none  d-lg-flex">
+                                <img class="nueva-poliza--img  d-none  d-lg-block" src="./../../static/media/img/renovacion/nueva-poliza.png" alt="">
                             </div>
-=======
+                            
+                            <div class="nueva-poliza--datos">
+                                <h3>
+                                    <img width="40" class="carro--img  d-block  d-lg-none" src="./../../static/media/img/renovacion/nueva-poliza.png" alt=""> 
+                                    Tu nueva póliza</h3>
+                                <div class="nueva-poliza">
+                                    <div class="nueva-poliza--item  plan">
+                                        <p class="item-titulo">Plan:<span id="tooltip-plan"  class="tooltip-icon ">
+                                                ?
+                                            </span>
+                                            
+                                            <b-tooltip target="tooltip-plan" triggers="hover">
+                                                Para cambiar el plan de tu Seguro Vehicular por favor comunícate con nuestro equipo de atención al cliente al (01) 500-0000
+                                            </b-tooltip>
+                                        </p>
+                                        <p class="item-descripcion">Plata</p>
+                                    </div>
+                                    <div class="nueva-poliza--item  vigencia-poliza">
+                                        <p class="item-titulo">Vigencia de póliza:</p>
+                                        <p  class="item-descripcion"><span>{{this.objRenovacion.policy.fromDate}}</span>-<span>{{this.objRenovacion.policy.toDate}}</span></p>
+                                    </div>
                                     <div class="nueva-poliza--item  suma-asegurada">
 
                                         <p class="item-titulo">Suma asegurada:
@@ -97,30 +107,28 @@
                                             <b-tooltip target="tooltip-suma-asegurada" triggers="hover">
                                                 Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ {{this.listCotizacion.vehicle.minimum}} y US$ {{this.listCotizacion.vehicle.maximum}}
                                             </b-tooltip>
->>>>>>> feature-renovaciones
 
-                            <div class="card-valorComercial--box">
-                                <div class="box-range">                                    
-                                    <div v-if="mostrarValorComercial">
-                                        <div class="box-range">            
-                                            <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="range" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
+                                        </p>
+                                        <div class="box-input">
+                                            <!-- <div class="flotante-moneda">US$</div> -->
+                                            <img class="edit-suma-asegurada" v-bind:class="{'d-none' : ocultarSumaAsegurada}" src="./../../static/media/img/renovacion/edit.png" alt="">
+                                            <b-form-input class="e-range" v-bind:class="{'inputSumaAsegurada' : ocultarSumaAsegurada}" step="100" v-model="listCotizacion.vehicle.current" type="text" @blur="ocultarSumaAsegurada = false" @focus="ocultarSumaAsegurada = true" @change="cambioInput()"></b-form-input> 
+                                            <div v-if="alertaMonto" style="font-size: 11px;color: red; position: relative; height: 30px;">
+                                                <span class="error-suma-asegurada" >
+                                                    Por favor ingresa un valor entre US$ {{this.listCotizacion.vehicle.minimum}} y US$ {{this.listCotizacion.vehicle.maximum}}
+                                                </span>
+                                            </div>
                                         </div>
-                                        <!-- <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="range" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input>  -->
+                                        <div class="tooltip-suma-asegurada" v-bind:class="{'d-flex' : activarTooltip}">
+                                            <div class="item">
+                                                <p class="tooltip-titulo">¿Qué es suma segurada?</p>
+                                                <p class="tooltip-descripcion">
+                                                    Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-<<<<<<< HEAD
-                                    
-                                </div>                        
-                            </div>
-                            
-                            <div class="card-valorComercial--prima">
-                                <!-- <p v-if="this.listCotizacion.policy !== undefined">Cuota $ {{ this.listCotizacion.policy.annual == undefined ? this.cuota : this.listCotizacion.policy.annual}} </p> -->
-                                <p v-if="this.payment == 1"><span class="check">&#10095;</span> Cuota: <span style="color: #1296ff">$ {{ this.listCotizacion.policy.monthly}} </span> </p>
-                                <p v-else-if="this.payment == 2"><span class="check">&#10095;</span> Cuota: <span style="color: #1296ff">$ {{ this.listCotizacion.policy.quarterly}} </span> </p>
-                                <p v-else-if="this.payment == 3"><span class="check">&#10095;</span> Cuota: <span style="color: #1296ff">$ {{ this.listCotizacion.policy.annual}} </span> </p>
-                                <p v-else-if="this.payment == 4"><span class="check">&#10095;</span> Cuota: <span style="color: #1296ff">$ {{ this.listCotizacion.policy.twoYears}} </span> </p>
-                                <p v-else></p>
-                            </div>
-=======
                                     <div class="divisor  d-lg-none" style="height: 20px; width: 100%;">
 
                                     </div>
@@ -142,138 +150,233 @@
                                             <p @click="cambiarFrecuencia"  class="d-none  d-lg-block" v-else-if="this.payment == 2"> <span class="monto-actual">Trimestral</span><img class="edit-frecuenciaPago" v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
                                             <p @click="cambiarFrecuencia"  class="d-none  d-lg-block" v-else-if="this.payment == 3"> <span class="monto-actual">Anual</span><img class="edit-frecuenciaPago" v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
                                             <p @click="cambiarFrecuencia"  class="d-none  d-lg-block" v-else-if="this.payment == 4"> <span class="monto-actual">Plan 2 años</span><img class="edit-frecuenciaPago" v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
->>>>>>> feature-renovaciones
 
-                            <div class="card-frecuenciaPago ">
-                                <p v-if="this.payment == 1"><span class="check">&#10095;</span> Frecuencia de pago :  <span class="monto-actual">Mensual</span></p>
-                                <p v-else-if="this.payment == 2"><span class="check">&#10095;</span> Frecuencia de pago :  <span class="monto-actual">Trimestral</span></p>
-                                <p v-else-if="this.payment == 3"><span class="check">&#10095;</span> Frecuencia de pago :  <span class="monto-actual">Anual</span></p>
-                                <p v-else-if="this.payment == 4"><span class="check">&#10095;</span> Frecuencia de pago :  <span class="monto-actual">Plan 2 años</span></p>
-                                <input type="radio" id="monthly-radio" class="input-radioButon" v-model="payment" name="priceInformation" value="1">
-                                <input type="radio" id="quarterly-radio" class="input-radioButon" v-model="payment" name="priceInformation" value="2">
-                                <input type="radio" id="annual-radio"  class="input-radioButon" v-model="payment" name="priceInformation"  value="3">
-                                <input type="radio" id="biannual-radio"  class="input-radioButon" v-model="payment" name="priceInformation"  value="4">
-                                <div id="filter" v-if="mostrarFrecuenciaPago">
-                                    <b-card no-body>                                                
-                                        <b-tabs v-model="tabIndex" pills card class="planesRenovaciones-tabs">                                        
-                                            <b-tab title="Plan 1 año" class="plan-uno  pt-0">
-                                                
-                                                <b-col cols="12">
-                                                    <label for="monthly-radio" class="filter-label monthly radio-button" @click="radioComoPagar($event)">                                                    
-                                                        <div class="d-flex align-items-center">
-                                                            <span class="filter-icon"></span>                                                       
-                                                            <div>
-                                                                <span class="radio-buttons__text-price">Mensual</span><span> (12 cuotas)</span>
-                                                                <div class="precios" >
-                                                                    <span>$&nbsp;{{listCotizacion.policy.monthly}}</span>                                                         
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </label>                                            
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <label for="quarterly-radio" class="filter-label quarterly radio-button"  @click="radioComoPagar($event)">                                                    
-                                                        <div class="d-flex align-items-center">
-                                                            <span class="filter-icon"></span>
-                                                            <div>
-                                                                <span class="radio-buttons__text-price">Trimestral</span><span> (4 cuotas)</span>    
-                                                                <div class="precios">
-                                                                    <span>$&nbsp;{{listCotizacion.policy.quarterly}}</span>                                                       
-                                                                </div>
-                                                            </div>                                                                 
-                                                        </div>
-                                                    </label>
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <label for="annual-radio" class="filter-label annual radio-button"  @click="radioComoPagar($event)">                                                    
-                                                        <div class="d-flex align-items-center">
-                                                            <span class="filter-icon"></span>
-                                                            <div>
-                                                                <span class="radio-buttons__text-price">Anual </span><span> (1 cuota)</span>
-                                                                <div class="precios">
-                                                                    <span>$&nbsp;{{listCotizacion.policy.annual}}</span>                              
-                                                                </div>
-                                                            </div>
-                                                        </div>                                                        
-                                                    </label>
-                                                </b-col>
-                                            </b-tab>
-                                            <b-tab title="Plan 2 años" class="plan-dos">                                                        
-                                                <b-col cols="12">
-                                                    <label for="biannual-radio" class="filter-label biannual radio-button"  @click="radioComoPagar($event)">                                                    
-                                                        <div class="label-bianual">
+                                            <p @click="showModalCambiarFrecuencia"  class="d-block  d-lg-none" v-if="this.payment == 1"> <span class="monto-actual">Mensual</span><img v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
+                                            <p @click="showModalCambiarFrecuencia"  class="d-block  d-lg-none" v-else-if="this.payment == 2"> <span class="monto-actual">Trimestral</span><img v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
+                                            <p @click="showModalCambiarFrecuencia"  class="d-block  d-lg-none" v-else-if="this.payment == 3"> <span class="monto-actual">Anual</span><img v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
+                                            <p @click="showModalCambiarFrecuencia"  class="d-block  d-lg-none" v-else-if="this.payment == 4"> <span class="monto-actual">Plan 2 años</span><img v-bind:class="{'d-none' : mostrarFrecuenciaPago}" src="./../../static/media/img/renovacion/edit.png" alt=""></p>
+                                            
+                                            <input type="radio" id="monthly-radio" class="input-radioButon" v-model="payment" name="priceInformation" value="1">
+                                            <input type="radio" id="quarterly-radio" class="input-radioButon" v-model="payment" name="priceInformation" value="2">
+                                            <input type="radio" id="annual-radio"  class="input-radioButon" v-model="payment" name="priceInformation"  value="3">
+                                            <input type="radio" id="biannual-radio"  class="input-radioButon" v-model="payment" name="priceInformation"  value="4">
+                                            <div id="filter" v-if="mostrarFrecuenciaPago">
+                                                <div class="frecuencia-select">                                                
+                                                    <div class="frecuencia-select--item">
+                                                        <label for="monthly-radio" class="filter-label monthly radio-button" @click="radioComoPagar($event)">                                                    
                                                             <div class="d-flex align-items-center">
-                                                                <span class="filter-icon"></span>
+                                                                                                                       
                                                                 <div>
-                                                                    <span class="radio-buttons__text-price">Plan 2 años&nbsp;(1 cuota) + SmartTV</span>
-                                                                    <div class="precios">
-                                                                        <span>$&nbsp;{{listCotizacion.policy.twoYears}}</span>                                                          
+                                                                    <span class="radio-buttons__text-price">Mensual</span><span> (12 cuotas)</span>
+                                                                    <div class="precios" >
+                                                                        <span>$&nbsp;{{listCotizacion.policy.monthly}}</span>                                                         
                                                                     </div>
-                                                                </div> 
-                                                            </div>                                                       
-                                                        </div>
-                                                    </label>
-                                                </b-col>
-                                            </b-tab>
-                                        </b-tabs>
-                                    </b-card>
+                                                                </div>
+                                                            </div>
+                                                        </label>                                            
+                                                    </div>
+                                                    <div class="frecuencia-select--item">
+                                                        <label for="quarterly-radio" class="filter-label quarterly radio-button"  @click="radioComoPagar($event)">                                                    
+                                                            <div class="d-flex align-items-center">
+                                                                
+                                                                <div>
+                                                                    <span class="radio-buttons__text-price">Trimestral</span><span> (4 cuotas)</span>    
+                                                                    <div class="precios">
+                                                                        <span>$&nbsp;{{listCotizacion.policy.quarterly}}</span>                                                       
+                                                                    </div>
+                                                                </div>                                                                 
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                    <div class="frecuencia-select--item">
+                                                        <label for="annual-radio" class="filter-label annual radio-button"  @click="radioComoPagar($event)">                                                    
+                                                            <div class="d-flex align-items-center">
+                                                                
+                                                                <div>
+                                                                    <span class="radio-buttons__text-price">Anual </span><span> (1 cuota)</span>
+                                                                    <div class="precios">
+                                                                        <span>$&nbsp;{{listCotizacion.policy.annual}}</span>                              
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                        
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- <div class="select">
+                                                <b-form-select @change="seleccionarFrecuencia()" :value="selected" :options="options"></b-form-select>
+                                                <div class="select-item">
+                                                    
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="nueva-poliza--item  gps">
+                                        <p class="item-titulo">GPS:
+                                            <span id="tooltip-gps"  class="tooltip-icon ">
+                                                ?
+                                            </span>
+                                            
+                                            <b-tooltip target="tooltip-gps" triggers="hover">
+                                                Para que puedas contar con nuestra cobertura es necesario que instales un servicio de GPS que nos permitirá rastrear tu auto en caso de robo.
+                                            </b-tooltip>
+                                        </p>
+                                        <p  class="item-descripcion" v-if="this.objRenovacion.policy.gps == 'Y'">SI</p>
+                                        <p  class="item-descripcion" v-else-if="this.objRenovacion.policy.gps == 'N'">NO</p>
+                                        <p v-else></p>
+                                    </div>
                                 </div>
-                                <div class="caja-oculta">
-                                    <div v-if="!mostrarFrecuenciaPago">
-                                        <span class="cambiar" @click="cambiarFrecuencia">Cambiar</span>
-                                    </div>
-                                    <div v-else>
-                                        <span class="guardar" @click="guardarFrecuencia">Guardar</span>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>   
-                         
-                        <div class="card-gpsEndoso  bg-white">                            
-                            <div class="card-gpsEndoso--prima">
-                                <p v-if="this.objRenovacion.policy.gps == 'N'"> <span class="check">&#10095;</span> NO Requiere GPS</p>
-                                <p v-else> <span class="check">&#10095;</span> Requiere GPS</p>
-                                <p v-if="this.objRenovacion.policy.financialInstitutionId != '0' && this.objRenovacion.policy.financialInstitutionId != null"> <span class="check">&#10095;</span> Endoso de sesion de terceros con {{this.objRenovacion.policy.financialInstitution}}</p>
-                                
                             </div>
                         </div>
 
-                        <div class="card-pago ">
-                            <div class="card-pago__tarjeta">
-                                <p class="titulo-seccion">Recuerda</p>
-                                <p>El cobro se realizará a tu tarjeta afiliada</p>
-                                <p>
-                                    {{this.objRenovacion.card.brand}}
-                                    <span>{{this.objRenovacion.card.number}}</span> <br>
-                                    <span style="border: 1px solid white;
-                                                border-radius: 4px;
-                                                padding: 1px 6px;
-                                                margin-top: 4px;
-                                                display: inline-block;
-                                                text-decoration: none;" @click="actualizarTarjeta()">Actualizar</span>
-                                </p>
+                        <div class="renovacion-body--item  renovacion-body__carro  medio-pago">
+                            <div class="box-icon-seccion  d-none  d-lg-flex">
+                                <img class="medio-pago--img  d-none  d-lg-block" src="./../../static/media/img/renovacion/tarjeta.png" alt="">
                             </div>
                             
+                            <div class="medio-pago--datos">
+                                <h3>
+                                    <img width="40" class="medio-pago--img  d-block  d-lg-none" src="./../../static/media/img/renovacion/tarjeta.png" alt=""> 
+                                    Medio de pago</h3>
+                                <div class="medio-pago">
+                                    <p class="item-titulo  mb-3">El cobro se realizará a tu tarjeta afiliada
+                                        <span id="tooltip-tarjeta-afiliada"  class="tooltip-icon ">
+                                            ?
+                                        </span>
+                                        
+                                        <b-tooltip target="tooltip-tarjeta-afiliada" triggers="hover">
+                                            Las cuotas de tu nueva póliza serán cargadas a la tarjeta ya afiliada. Si deseas actualizarla, puedes hacerlo haciendo clic en Actualizar medio de pago.
+                                        </b-tooltip>
+                                    </p>
+                                    <p class="tarjeta">
+                                        <span>{{this.objRenovacion.card.brand}}</span>{{this.objRenovacion.card.number}}
+                                        
+                                    </p>
+                                    <button class="ml-lg-3  mt-3  mt-lg-0 boton-secundario" @click="actualizarTarjeta()">
+                                        ACTUALIZAR MEDIO DE PAGO
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-pago__contacto  mt-3">
-                            <p>¿Tienes dudas? 
-                                <span>Llámanos (01)500 0000.</span>
+                    </div>
+
+                    <p class="texto-renovacion">
+                        Si has actualizado alguna de las condiciones de la póliza, <span>recuerda hacer click en Guardar y Renovar para que tu póliza se renueve con estas condiciones.</span>
+                    </p>
+
+                    <div class="renovacion-ctas">
+                        <button class="boton-secundario"  @click="norenovar()">Por ahora prefiero no renovar</button>
+                        <button class="boton-principal" style="padding: 8px 24px;" @click="continuar2($event, 'Y')">GUARDAR Y RENOVAR</button>
+                    </div>
+
+                    <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
+                        <b-button class="boton-principal  d-lg-none" style="padding: 8px 24px;" @click="continuar2($event, 'Y')">GUARDAR Y RENOVAR</b-button>
+                    </div>
+
+                    <p class="texto-tienes-dudas">
+                        <span>¿Aún tienes dudas? </span><br> Llámanos al (01) 500-0000 para ayudarte
+                    </p>
+
+                </div>
+
+                
+
+                <div class="renovacion-info">
+                    <h3 class="renovacion-info--titulo">
+                        Recuerda que tienes estos beneficios adicionales
+                    </h3>
+                    <div class="renovacion-info__beneficios">
+                        <div class="renovacion-info__beneficios--item">
+                            <img width="143" src="./../../static/media/img/renovacion/chofer-reemplazo.png" alt="">
+                            <p class="titulo">
+                                Chofer de reemplazo
+                            </p>
+                            <p class="descripcion">
+                                Puedes usarlo hasta 5 veces al año y sin hacer pagos adicionales
                             </p>
                         </div>
-                        <div class="card-btn">
-                            <button @click="continuar2($event, 'Y')">Guardar y renovar</button>
-                            <span>Por ahora prefiero <span to="/renovacion/renovacion-cancelada" style="text-decoration: underline; cursor: pointer;" @click="norenovar()">no renovar</span></span>
-                            
+                        <div class="renovacion-info__beneficios--item">
+                            <img width="143" src="./../../static/media/img/renovacion/gruas.png" alt="">
+                            <p class="titulo">
+                                Grúas
+                            </p>
+                            <p class="descripcion">
+                                Si no puedes mover tu auto, nosotros nos encargamos de llevarlo a su destino
+                            </p>
                         </div>
-<<<<<<< HEAD
-                        
-                    </b-col>
-                    
-                    <b-col cols="12" lg="4" style="padding: 0 42px">
-                        <div class="aside-box"  style="background: #f7fafb;">
-                            <div class="card-aside">
-                                <p>¿Por qué nuestros <br> clientes renuevan?</p>
-=======
+                        <div class="renovacion-info__beneficios--item">
+                            <img width="143" src="./../../static/media/img/renovacion/asistencia-mecanica.png" alt="">
+                            <p class="titulo">
+                                Asistencia mecánica
+                            </p>
+                            <p class="descripcion">
+                                ¿Tu carro no arranca? Llegamos a donde estés en menos de 25 minutos
+                            </p>
+                        </div>
+                        <div class="renovacion-info__beneficios--item">
+                            <img width="143" src="./../../static/media/img/renovacion/vivemas.png" alt="">
+                            <p class="titulo">
+                                Vivemás
+                            </p>
+                            <p class="descripcion">
+                                Forma parte de nuestro programa de beneficios que incluye descuentos para el mantenimiento de tu auto. Para mayor información ingresa a la página web de <a style="color: #0055c8" href="https://www.interseguro.pe/vivemas/index.php/usuario">Vivemás</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <b-modal id="modalCambiarFrecuencia" title="Bootstrap-Vue" hide-footer hide-header ref="modalCambiarFrecuencia" size="md">
+                    <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalCambiarFrecuencia()">
+                    <div class="modalCambiarFrecuencia">
+                        <input type="radio" id="monthly-radio" class="input-radioButon" v-model="payment" name="priceInformation" value="1">
+                        <input type="radio" id="quarterly-radio" class="input-radioButon" v-model="payment" name="priceInformation" value="2">
+                        <input type="radio" id="annual-radio"  class="input-radioButon" v-model="payment" name="priceInformation"  value="3">
+                        <input type="radio" id="biannual-radio"  class="input-radioButon" v-model="payment" name="priceInformation"  value="4">
+                        <div id="filter" style="position:  !important;">
+                            <div class="frecuencia-select">                                                
+                                <div class="frecuencia-select--item">
+                                    <label for="monthly-radio" class="filter-label monthly radio-button" @click="radioComoPagar($event)">                                                    
+                                        <div class="d-flex align-items-center">
+                                                                                                    
+                                            <div>
+                                                <span class="radio-buttons__text-price">Mensual</span><span> (12 cuotas)</span>
+                                                <div class="precios" >
+                                                    <span>$&nbsp;{{listCotizacion.policy.monthly}}</span>                                                         
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>                                            
+                                </div>
+                                <div class="frecuencia-select--item">
+                                    <label for="quarterly-radio" class="filter-label quarterly radio-button"  @click="radioComoPagar($event)">                                                    
+                                        <div class="d-flex align-items-center">
+                                            
+                                            <div>
+                                                <span class="radio-buttons__text-price">Trimestral</span><span> (4 cuotas)</span>    
+                                                <div class="precios">
+                                                    <span>$&nbsp;{{listCotizacion.policy.quarterly}}</span>                                                       
+                                                </div>
+                                            </div>                                                                 
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="frecuencia-select--item">
+                                    <label for="annual-radio" class="filter-label annual radio-button"  @click="radioComoPagar($event)">                                                    
+                                        <div class="d-flex align-items-center">
+                                            
+                                            <div>
+                                                <span class="radio-buttons__text-price">Anual </span><span> (1 cuota)</span>
+                                                <div class="precios">
+                                                    <span>$&nbsp;{{listCotizacion.policy.annual}}</span>                              
+                                                </div>
+                                            </div>
+                                        </div>                                                        
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </b-modal>
 
@@ -346,38 +449,70 @@
                                     </button>
                                 </div>
                                 
->>>>>>> feature-renovaciones
                             </div>
-                            <div class="cobertura-aside">
-                                <div class="cobertura-aside__list">
-                                    <div class="item">
-                                        <div class="box-img">
-                                            <img src="https://www.interseguro.pe/vehicular/resources/v2/mail/renovacion/icon_mprecio.png" alt="icon_mprecio">
+                    </div>
+                </b-modal>
+
+                <b-modal id="modalActualizarTarjeta" title="Bootstrap-Vue" hide-footer hide-header ref="modalActualizarTarjeta" size="md">
+                    <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalActualizarTarjeta()">
+                    <div class="modal-actualizar-tarjeta">
+                        <div class="respuesta-culqi  exitosa" v-if="respuestaculqiexitosa">
+                            <img class="exitosa-img" src="./../../static/media/img/renovacion/tarjeta-aceptada.png" alt="">
+                            <p>¡Listo! Hemos actualizado de manera conforme la tarjeta afiliada a tu Seguro Vehicular para tu nueva póliza.</p>
+                        </div>
+                        <div class="respuesta-culqi  fallida" v-if="respuestaculqifallida">
+                            <img class="fallida-img" src="./../../static/media/img/renovacion/tarjeta-rechazada.png" alt="">
+                            <p>¡Lo sentimos! No hemos podido actualizar la tarjeta afiliada a tu Seguro Vehicular. Te sugerimos ponerte en contacto con tu banco o afiliar otra tarjeta.</p>
+                        </div>
+                        <div class="modal-custom">
+                            <div class="datos-tarjeta">
+                                <p class="texto-ingresa-tarjeta">INGRESA TU TARJETA</p>
+                                <p class="texto-pago-online">Pago online 100% seguro</p>
+                                
+                                <div class="card-interseguro">   
+                                    <div class="form-group-custom">
+                                        <div class="input-group  iptGral editable  box-iptCard">
+                                            <input placeholder="Número de la tarjeta" id="cardnumber" @keyup="addingBlankSpaces($event)"  v-model="objCardNumber.number" maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>                                            
+                                            <img width="30" :src="creditCardImage" >
                                         </div>
-                                        <p>El mejor precio</p>
                                     </div>
-                                    <div class="item">
-                                        <div class="box-img">
-                                            <img src="https://www.interseguro.pe/vehicular/resources/v2/mail/renovacion/icon_24_7.png" alt="icon_24_7">
+                                    <div class="card-custom">
+                                        <div class="card-custom__date" style="position: relative;"  v-bind:class="{'activeFocus':activeFocus}">
+                                            
+                                            <div class="form-group-custom">                                                            
+                                                <div id="box-mes" class="input-group  iptGral editable">   
+                                                    <input @keyup="keyUpMes()" @blur="activeFocus = !activeFocus" placeholder="MM" id="cardmes" class="form-control text-uppercase iptGral__input ipt-month"  maxlength="2" v-model="card.expiration_month" type="tel" name="name"/>
+                                                </div>
+                                                <div id="focusMES" class=" d-none">
+                                                    Fecha de vencimiento de tu tarjeta.
+                                                </div>
+                                            </div>
+                                            <div class="form-group-custom  text-right-custom">
+                                                <div class="input-group  iptGral editable" >
+                                                    <input @keyup="keyUpCard()" @blur="activeFocus = !activeFocus" id="cardaño" placeholder="AA" class="form-control text-uppercase iptGral__input ipt-year"   maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+
+                                                </div>
+                                            </div>
+                                            <img v-if="activeFocus" class="img-activefocus" src="./../../static/media/img/root/calendar.svg" alt="">
+                                            <img v-else class="img-activefocus" src="./../../static/media/img/root/calendar.png" alt="">
                                         </div>
-                                        <p>Disponibles 24/7</p>
+                                        <div class="card-custom__cvv">
+                                            <div class="form-group-custom">
+                                                <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
+                                                    <input @keyup="keyUpCard()" placeholder="CVV" variant="custom" id="cardccv" class="form-control text-uppercase iptGral__input ipt-cvv" :disabled="isEnable"  :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  id="focusCVV" >
+                                            <!-- <img class="img-fluid" :src="creditCardImageCvv" > -->
+                                        </div>
                                     </div>
-                                    <div class="item">
-                                        <div class="box-img">
-                                            <img src="https://www.interseguro.pe/vehicular/resources/v2/mail/renovacion/icon_chofer.png" alt="icon_chofer">
-                                        </div>
-                                        <p>5 choferes <br> de reemplazo</p>
+
+                                    <div class="metodo_pago_img" >
+                                        <img width="165" src="./../../static/media/img/root/metodo_pago.png" alt="amex">
                                     </div>
-                                    <div class="item">
-                                        <div class="box-img">
-                                            <img src="https://www.interseguro.pe/vehicular/resources/v2/mail/renovacion/icon_cobertura.png" alt="icon_cobertura">
-                                        </div>
-                                        <p>Cobertura completa</p>
-                                    </div>                        
                                 </div>
                             </div>
-<<<<<<< HEAD
-=======
                             <div class="box-btn-renovaciones">
                                 <button type="submit" @click="continuar" class="btn-primario-renovaciones" :disabled='this.isDisabledPayment'>
                                     <span  v-bind:class="{'d-none': estamosProcesandoTuPago}">ACTUALIZAR</span>
@@ -392,22 +527,23 @@
                 <b-row> 
                     <b-col cols="12">
                         <div class="card-banner">
->>>>>>> feature-renovaciones
                         </div>
                     </b-col>
+                </b-row>                
+            </b-container>    
 
-                </b-row>
-            </b-container>
         </div>
-        <b-modal id="modalRenovarPoliza" title="Bootstrap-Vue" hide-footer hide-header ref="modalRenovarPoliza" size="md">
-            <div class="modal-content  modal-confirmaTusDatos">
-                <div class="modal-custom">
-                    <p>Tu información detu Seguro Vehicular se ha  guardado correctamente </p>
-                </div>
+
+        <b-modal id="modalRenovarPolizaExitosa" title="Bootstrap-Vue" hide-footer hide-header ref="modalRenovarPolizaExitosa" size="md">
+            <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalRenovarPolizaExitosa()">
+            <div class="modal-renovarPolizaExitosa">
+                <img class="exitosa-img" src="./../../static/media/img/renovacion/poliza-exitosa.png" alt="">
+                <p>¡Listo! Hemos actualizado de manera conforme la tarjeta afiliada a tu Seguro Vehicular para tu nueva póliza.</p>
             </div>
         </b-modal>
-        <b-modal id="modalActualizarTarjeta" title="Bootstrap-Vue" hide-footer hide-header ref="modalActualizarTarjeta" size="md">
-            <div class=" modal-confirmaTusDatos">
+
+        <!-- <b-modal id="modalActualizarTarjeta" title="Bootstrap-Vue" hide-footer hide-header ref="modalActualizarTarjeta" size="md">
+            <div class=" modalNoRenovar">
                 <div class="modal-custom">
                     <div class="panel-custom pt-3 pb-0">
                         <form class="card-interseguro">   
@@ -453,25 +589,43 @@
                             </div>                
                             <br>
                         </form>
-                        <!-- <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" :disabled='this.isDisabledPayment'> -->
-                        <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" >
+                        <button type="submit" @click="continuar" class="btn-primario-renovaciones" >
                             <span style="">ACTUALIZAR</span>                            
                         </button>
                     </div>
                 </div>
             </div>
-        </b-modal>
+        </b-modal> -->
 
     </div>
 </template>
 <script>
 import { validationMixin } from 'vuelidate'
-    
+import FadeLoader from '@/components/loaders/FadeLoader'
 var cardNumber;
 export default {
     layout: "InterseguroHome",
     data() {
         return {
+            showLoader: false,
+            opacityNone: false,
+            comentariosEnviados: false,
+            alertaMonto:false,
+            ocultarSumaAsegurada: false,
+            objComentario:{},
+            textNorenovar: '',
+            selectedNoRenovar: '',
+            opinionNegativa: false,
+            opinionPositiva: false,
+            activarTooltip: false,
+            activarTooltipDesktop: false,
+            selected:1,
+            activeFocus : false,
+            options: [],
+            respuestaculqiexitosa: false,
+            respuestaculqifallida: false,
+
+            estamosProcesandoTuPago: false,
             itemElegido: {
                 brandId:'',
                 brand:'',
@@ -482,18 +636,9 @@ export default {
                 assignedPrice:null,
                 businessId:1,
                 discountType: '',
-                assignedPrice: null,
                 
             },
-            objCard:{
-                policyId:'',
-                customer_id:'',
-                bin: "",
-                card_brand: "",
-                card_category: "",
-                card_type: "",
-                id:''
-            },
+            
             opacidad: false,
             monto_pagar:"",
             mostrarPrimeraPantalla: true,
@@ -583,6 +728,15 @@ export default {
             /*************************************/
             numberTest:'',
             isEnableURL: true,
+            objCard:{
+                policyId:'',
+                customer_id:'',
+                bin: "",
+                card_brand: "",
+                card_category: "",
+                card_type: "",
+                id:''
+            },
             objCardNumber:{
                 number: ''
             },                
@@ -648,9 +802,10 @@ export default {
             return maximo
         },
     },
+    components:{
+        'fade-loader': FadeLoader,
+    },
     methods: {
-<<<<<<< HEAD
-=======
         handleScroll(eve) {
         if (window.scrollY >= 335) {
             this.opacityNone = true        
@@ -690,10 +845,11 @@ export default {
                 this.opinionNegativa = true;
             }
         },
->>>>>>> feature-renovaciones
         norenovar(){
+            this.comentariosEnviados = false
+            this.opinionPositiva = false;
+            this.opinionNegativa = false;
             this.$store.commit('common/setPlacaNoRenovar',this.objRenovacion.vehicle.plateNumber)
-
             this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
             this.objUpdatePolicy.monto_pagar = this.monto_pagar
             this.objUpdatePolicy.current = this.clonado.vehicle.current
@@ -702,33 +858,13 @@ export default {
 
             this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
             .then((res) =>{
-                this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
-                this.opacidad = false
+                this.showModalNoRenovar()
+                // this.opacidad = false
             }).catch((err)=>{
-                this.opacidad = false                    
+                // this.opacidad = false                    
             })
         },
         cambioInput(evt) {
-<<<<<<< HEAD
-            if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum || this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum) {                
-            } else {
-                this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
-                this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-                    this.msgMontos = "";
-                    this.msgMontosActive = false;
-                    this.clonado.policy.risk = this.listCotizacion.policy.risk;
-                    this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
-                    this.clonado.policy.annual = this.listCotizacion.policy.annual;
-                    this.clonado.policy.quarterly = this.listCotizacion.policy.quarterly;
-                    this.clonado.policy.monthly = this.listCotizacion.policy.monthly;                    
-                    this.clonado.vehicle.current = this.listCotizacion.vehicle.current;
-                    this.clonado.vehicle.minimum = this.clonado.vehicle.minimum;
-                    this.clonado.vehicle.maximum = this.clonado.vehicle.maximum;
-                    this.isEnableNext = false;
-                    this.obtenerMonto() 
-                })
-                this.isDisabled = false;
-=======
             if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum) {
                 this.listCotizacion.vehicle.current = this.clonado.vehicle.maximum
                 this.alertaMonto = true
@@ -765,8 +901,9 @@ export default {
                     })
                     this.isDisabled = false;
                 }
->>>>>>> feature-renovaciones
             }
+
+            
         },
         cambiarValor(){
             this.mostrarValorComercial = true
@@ -774,59 +911,40 @@ export default {
         cambiarFrecuencia(){
             this.mostrarFrecuenciaPago = true
         },
+        showModalCambiarFrecuencia(){
+            this.$refs.modalCambiarFrecuencia.show()
+        },
+        hideModalCambiarFrecuencia(){
+            this.$refs.modalCambiarFrecuencia.hide()
+        },
         guardarValor(){
             this.mostrarValorComercial = false
         },
         guardarFrecuencia(){
             this.mostrarFrecuenciaPago = false
         },
-        metodoPrueba(){
-            this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
-            this.objUpdatePolicy.monto_pagar = this.monto_pagar
-            this.objUpdatePolicy.current = this.clonado.vehicle.current
-            this.objUpdatePolicy.payment = this.payment
-            this.objUpdatePolicy.renew = "Y"
-            this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
-            .then((res) =>{
-                this.obtenerDatos()
-                this.opacidad = false
-            }).catch((err)=>{
-                this.opacidad = false                    
-            })
-        },
+
         radioComoPagar(event){            
             var self = this
+            self.hideModalCambiarFrecuencia()
             setTimeout(function(){
                 if(self.payment == 1){
                     self.monto_pagar = self.listCotizacion.policy.monthlyDiscount > 0 ? self.listCotizacion.policy.monthlyDiscount : self.listCotizacion.policy.monthly
                     self.listCotizacion.paymentMethodId = self.payment
-                    self.metodoPrueba()
                 }else if(self.payment == 2){
                     self.monto_pagar =  self.listCotizacion.policy.quarterlyDiscount > 0 ? self.listCotizacion.policy.quarterlyDiscount : self.listCotizacion.policy.quarterly
                     self.listCotizacion.paymentMethodId = self.payment
-                    self.metodoPrueba()
                 }else if(self.payment == 3){
                     self.monto_pagar = self.listCotizacion.policy.annualDiscount > 0 ? self.listCotizacion.policy.annualDiscount : self.listCotizacion.policy.annual
                     self.listCotizacion.paymentMethodId = self.payment
-                    self.metodoPrueba()
-                }else if(self.payment == 4){
-                    if(self.listCotizacion.discount.intercorp == 5){
-                        self.monto_pagar = self.listCotizacion.policy.twoYearsDiscount > 0 ? self.listCotizacion.policy.twoYearsDiscount : self.listCotizacion.policy.twoYearsDiscount
-                    }else{
-                        self.monto_pagar = self.listCotizacion.policy.twoYears > 0 ? self.listCotizacion.policy.twoYears : self.listCotizacion.policy.twoYears
-                    }         
-                    self.listCotizacion.paymentMethodId = self.payment
-                    self.metodoPrueba()             
                 }else{
                     self.isDisableButton = true
                 }
-                
+                self.mostrarFrecuenciaPago = false
             }, 300);
 
             
         },
-<<<<<<< HEAD
-=======
         showModalRenovarPolizaExitosa(){
             this.$refs.modalRenovarPolizaExitosa.show()
         },
@@ -834,10 +952,9 @@ export default {
             this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
             this.$refs.modalRenovarPolizaExitosa.hide()
         },
->>>>>>> feature-renovaciones
         continuar2 (evt, parametro) {
                 evt.preventDefault();
-                this.opacidad = true
+                this.showLoader = true
                 this.listCotizacion.policy.startDate = this.$store.state.common.fechaVigenciaRenovacion
                 this.listCotizacion.paymentMethodId = this.payment
                 this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
@@ -847,19 +964,14 @@ export default {
                 this.objUpdatePolicy.renew = "Y"
                 this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
                 .then((res) =>{
-<<<<<<< HEAD
-                    this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
-                    this.opacidad = false 
-=======
                     this.showModalRenovarPolizaExitosa()
                     setTimeout(() => {
                         console.log("R-EXITOSA")
                         this.hideModalRenovarPolizaExitosa()
                     }, 3000); 
                     this.showLoader = false 
->>>>>>> feature-renovaciones
                 }).catch((err)=>{
-                    this.opacidad = false                    
+                    this.showLoader = false                    
                 })
 
         },
@@ -906,7 +1018,7 @@ export default {
                 }
                 
             }else{
-                this.isDisabledPayment = true
+                // this.isDisabledPayment = true
                 this.cardCompleto = true
             }
         },            
@@ -921,11 +1033,11 @@ export default {
                     if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
                         this.isDisabledPayment = false
                     }else{
-                        this.isDisabledPayment = true
+                        // this.isDisabledPayment = true
                     }
                 }
             }else{
-                this.isDisabledPayment = true
+                // this.isDisabledPayment = true
             }
         },
         keyUpCard(){
@@ -940,7 +1052,7 @@ export default {
                 if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
                     this.isDisabledPayment = false
                 }else{
-                    this.isDisabledPayment = true
+                    // this.isDisabledPayment = true
                 }
             }
         },
@@ -1002,28 +1114,21 @@ export default {
                             this.$store.commit('payment/setNumeroPoliza',this.objRenovacion.policy.policyNumber)
                             this.itemElegido.year = this.objRenovacion.vehicle.modelYear
                             this.itemElegido.assignedPrice = this.objRenovacion.priceModel.vehicle.current
-                            this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+                            this.$store.dispatch('common/getCotizacion', this.itemElegido)
+                            .then((res) => {
                                 this.listCotizacion = res.data.body.allRisk
                                 this.mostrarPrimeraPantalla = false
                                 this.mostrarSegundaPantalla = true
                                 this.clonado = Object.assign({}, this.listCotizacion);
                                 this.obtenerMonto()   
-<<<<<<< HEAD
-                            }
-                        )                                             
-=======
                                 }
                             ).catch((res) =>{
                             })
->>>>>>> feature-renovaciones
                     }else if (this.objRenovacion.policy.renew == "N") {
                         this.$store.commit('common/setPlacaNoRenovar', this.placa)
                         this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
                     } else {
-<<<<<<< HEAD
-=======
                         console.log("Obtener Datos No entontrados")
->>>>>>> feature-renovaciones
                     }
                 } 
             })
@@ -1031,10 +1136,6 @@ export default {
         actualizarTarjeta(){
             this.$refs.modalActualizarTarjeta.show()
         },
-<<<<<<< HEAD
-        continuar(evt) {
-            this.opacidad = true
-=======
 
         
         hideModalActualizarTarjeta(){
@@ -1042,7 +1143,6 @@ export default {
             this.respuestaculqiexitosa = false
             this.respuestaculqifallida = false
             this.$refs.modalActualizarTarjeta.hide()
-            this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
         },
 
         showModalNoRenovar(){
@@ -1054,42 +1154,12 @@ export default {
             this.$refs.modalNoRenovar.hide()
         },
         continuar(evt) {            
->>>>>>> feature-renovaciones
             evt.preventDefault()
             this.isDisabledPayment = true
+            this.estamosProcesandoTuPago = true
             this.card.expiration_year = "20" + this.expiration_year
             this.card.email = this.objRenovacion.client.email
             this.isisplayNoneLoader = false
-<<<<<<< HEAD
-            this.$store.dispatch('payment/getTokenCulqi', this.card).then((res) =>{
-                    this.objCulqi = res
-                    this.objCard = res.iin
-                    this.objCard.policyId = this.objRenovacion.policy.policyId
-                    this.objCard.customer_id = this.objRenovacion.client.documentNumber
-                    this.objCard.id = this.objCulqi.id
-                    this.objCard.card_number = this.objCulqi.card_number
-                    this.$store.dispatch('payment/getCard', this.objCard).then((res) =>{
-                            this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
-                            this.objUpdatePolicy.monto_pagar = this.monto_pagar
-                            this.objUpdatePolicy.current = this.clonado.vehicle.current
-                            this.objUpdatePolicy.payment = this.payment
-                            this.objUpdatePolicy.renew = "Y"
-                            this.isisplayNoneLoader = false;
-                            this.$refs.modalActualizarTarjeta.hide()
-                            this.$swal({
-                                title: '¡Listo!',
-                                text: 'Tu tarjeta se actualizó correctamente',
-                                type: 'success',
-                                showCancelButton: false,
-                                confirmButtonColor: '#2177CC',
-                                confirmButtonText: 'OK'
-                            })
-                            this.opacidad = false
-                            this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy).then((res) =>{
-                                    this.obtenerDatos()
-                                }
-                            )
-=======
             this.$store.dispatch('payment/getTokenCulqi', this.card)
             .then((res) =>{
                 this.objCulqi = res
@@ -1116,64 +1186,35 @@ export default {
                     this.estamosProcesandoTuPago = false
                     this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy).then((res) =>{
                             this.obtenerDatos()
->>>>>>> feature-renovaciones
                         }
-                    ).catch(()=>{
-                        this.opacidad = false
-                        this.$refs.modalActualizarTarjeta.hide()
-                    })
-                }
-            )
+                    )
+                }).catch(()=>{
+                    this.isDisabledPayment = false
+                    this.respuestaculqifallida = true                        
+                    setTimeout(() => {
+                        this.hideModalActualizarTarjeta()
+                    }, 5000);
+                })
+            }).catch(()=>{
+                this.isDisabledPayment = false
+                this.respuestaculqifallida = true
+                setTimeout(() => {
+                    this.hideModalActualizarTarjeta()
+                }, 5000);
+            })
         }
     },
-    mounted() {        
+    mounted() {       
+        if (process.browser) {
+            window.addEventListener("scroll", this.handleScroll);
+            document.addEventListener('touchstart', this.handleScroll, {passive: true});
+        }
         this.mostrarPrimeraPantalla = true
         this.mostrarSegundaPantalla = false
     }
 }
 </script>
 <style lang="scss" scope>
-/***************************************************************************************************
-*******************************************
-************************************************************************************************** */
-    .box-range{
-        width: 65%;
-        position: relative;
-        z-index: 5;
-        input{
-            margin: 0px !important;        
-            padding-top: 0;
-        }
-    }
-    .box-min-max{
-        display: flex;
-        justify-content: space-between;
-        position: relative;        
-        color: #002e75;
-        font-size: 14px;
-        font-weight: 600; 
-        width: 84%;
-    }
-    .minimoImg{
-        position: absolute;
-        top: 2px;
-        left: -7px;
-        z-index: 99;
-        i{
-            color: #002e75;
-            font-size: 24px;
-        }
-    }
-    .maximoImg{
-        position: absolute;
-        top: 2px;
-        right: -7px;
-        z-index: 99;
-        i{
-            color: #002e75;
-            font-size: 24px;
-        }
-    }
 $height: 30px;
 $thumb-height: 13px;
 $track-height: 8px;
@@ -1198,23 +1239,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   @return $val;
 }
-<<<<<<< HEAD
-
-.e-range {
-  display: block;
-  appearance: none;
-  width: 100%;
-  margin: 0;
-  height: $height;
-  overflow: hidden;
-  cursor: pointer;
-  
-  &:focus {
-    outline: none;
-  }
-}
-
-=======
 
 #modalCambiarFrecuencia{
     .modal-content {
@@ -1804,7 +1828,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         }
     }
 
->>>>>>> feature-renovaciones
 // Webkit
 .e-range::-webkit-slider-runnable-track {
   width: 100%;
@@ -1854,8 +1877,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   border: 0;
   transition: background-color 150ms;
 }
-<<<<<<< HEAD
-=======
 
 // Internet Exploder
 .e-range::-ms-track {
@@ -2488,7 +2509,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         
 
     }
->>>>>>> feature-renovaciones
 
     .capadecarga{
         position: fixed;
@@ -2533,7 +2553,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         min-height: 260px;
     }
     .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        background: #f7fafb !important;
         border-radius: 4px;
     }
     #cardmes{
@@ -2566,7 +2585,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-top: 16px;
         &__cvv{
             width: 50%;
             position: relative;
@@ -2603,7 +2621,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
                     }
                     &:after{
                         width: 5px;
-                        height: 36px;
+                        height: 45px;
                         background: #f7fafb;
                         content: "/";
                         top: 1px;
