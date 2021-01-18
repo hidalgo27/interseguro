@@ -105,7 +105,7 @@
                                             </span>
                                             
                                             <b-tooltip target="tooltip-suma-asegurada" triggers="hover">
-                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
+                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ {{this.listCotizacion.vehicle.minimum}} y US$ {{this.listCotizacion.vehicle.maximum}}
                                             </b-tooltip>
 
                                         </p>
@@ -134,13 +134,7 @@
                                     </div>
                                     <div class="nueva-poliza--item  cuota">
                                         <p class="item-titulo">Cuota:
-                                            <span id="tooltip-cuota"  class="tooltip-icon ">
-                                                ?
-                                            </span>
                                             
-                                            <b-tooltip target="tooltip-cuota" triggers="hover">
-                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
-                                            </b-tooltip>
                                         </p>
                                         <p  class="item-descripcion" v-if="this.payment == 1">$ {{ this.listCotizacion.policy.monthly}}  </p>
                                         <p  class="item-descripcion" v-else-if="this.payment == 2">$ {{ this.listCotizacion.policy.quarterly}}  </p>
@@ -388,7 +382,7 @@
 
                 <b-modal id="modalNoRenovar" title="Bootstrap-Vue" hide-footer hide-header ref="modalNoRenovar" size="md">
                     <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalNoRenovar()">
-                    <div class="respuesta-culqi  exitosa" v-if="comentariosEnviados">
+                    <div class="hemos-recibido-comentario" v-if="comentariosEnviados">
                         <img class="exitosa-img" src="./../../static/media/img/renovacion/tarjeta-aceptada.png" alt="">
                         <p>Hemos recibido tu comentario <br>
                              ¡Muchas gracias!</p>
@@ -828,6 +822,7 @@ export default {
                 this.comentariosEnviados = true
                 setTimeout(() => {
                     this.hideModalNoRenovar()
+                    this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
                 }, 3000);
             })
         },
@@ -954,6 +949,7 @@ export default {
             this.$refs.modalRenovarPolizaExitosa.show()
         },
         hideModalRenovarPolizaExitosa(){
+            this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
             this.$refs.modalRenovarPolizaExitosa.hide()
         },
         continuar2 (evt, parametro) {
@@ -969,6 +965,10 @@ export default {
                 this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
                 .then((res) =>{
                     this.showModalRenovarPolizaExitosa()
+                    setTimeout(() => {
+                        console.log("R-EXITOSA")
+                        this.hideModalRenovarPolizaExitosa()
+                    }, 3000); 
                     this.showLoader = false 
                 }).catch((err)=>{
                     this.showLoader = false                    
@@ -1143,6 +1143,7 @@ export default {
             this.respuestaculqiexitosa = false
             this.respuestaculqifallida = false
             this.$refs.modalActualizarTarjeta.hide()
+            this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
         },
 
         showModalNoRenovar(){
@@ -1170,7 +1171,8 @@ export default {
                 this.objCard.card_number = this.objCulqi.card_number
                 this.$store.dispatch('payment/getCard', this.objCard).then((res) =>{
                     this.isDisabledPayment = false
-                    this.respuestaculqiexitosa = true 
+                    this.respuestaculqiexitosa = true
+                    
                     this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
                     this.objUpdatePolicy.monto_pagar = this.monto_pagar
                     this.objUpdatePolicy.current = this.clonado.vehicle.current
@@ -1314,6 +1316,19 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
         input[type="radio"]:checked ~ label {
             color: orange;
+        }
+    }
+    .hemos-recibido-comentario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p{
+            margin-top: 24px;
+            color: #0855C4;
+            font-size: 22px;
+            font-family: 'Omnes Medium';
+            text-align: center;
         }
     }
     .modalNoRenovar{
