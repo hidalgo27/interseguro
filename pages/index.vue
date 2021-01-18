@@ -454,12 +454,39 @@
             this.$store.commit('common/setEmail', mailGenerado)
           },
           getVehicle () {
+            this.item.plateNumber = this.item.plateNumber.toUpperCase();
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
-              let respuesta = res.data.body
+              
+
+              const respuesta = res.data.body;
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
-                this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+              
+                if(respuesta.useType){
+                   const useType = respuesta.useType.toString().toLowerCase();
+                    if(useType === 'particular' || useType === 'escolar'){
+                      this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+                    }else{
+                      this.loading = false;
+                      this.$swal({
+                        // title: "Oops...",
+                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
+                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                         ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
+                        <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
+                        type: "warning",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                      });
+                      return;
+                    };
+                }else{
+                      this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+                }
+               
+
                 if (respuesta.appDiscount == true) {
                   this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
                 }else{
@@ -508,18 +535,19 @@
                 
                 
               }
-              // else if(res.data.code === 307){
-              //     this.loading = false;
-              //     this.$swal({
-              //     title: "Oops...",
-              //     text: `Lo sentimos, lamentablemente no podemos asegurar la placa ${this.item.plateNumber}. 
-              //     Para mayor información contáctanos al (01)500-0000."`,
-              //     type: "warning",
-              //     showCancelButton: false,
-              //     confirmButtonColor: "#2177CC",
-              //     confirmButtonText: "OK",
-              //   });
-              // }
+              
+              else if(res.data.code === 307){
+                  this.loading = false;
+                  this.$swal({
+                  // title: "Oops...",
+                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+                  Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
+                  type: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#2177CC",
+                  confirmButtonText: "OK",
+                });
+              }
             })
 
           },

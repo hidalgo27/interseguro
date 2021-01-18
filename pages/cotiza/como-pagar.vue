@@ -686,7 +686,9 @@ import { validationMixin } from 'vuelidate'
                         })
                         this.opacidad =false
                     }else{
-                        this.objCulqi = res
+                        this.objCulqi = res;
+                        console.log(res,'alva');
+                        console.log(this.objCulqi.iin.issuer.name)
                         this.objPaymentExecute = {
                             tokenId: this.objCulqi.id,
                             planId: this.$store.state.common.planSeleccionado,
@@ -726,7 +728,8 @@ import { validationMixin } from 'vuelidate'
                                 brand: this.objCulqi.iin.card_brand,
                                 category: this.objCulqi.iin.card_category,
                                 number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type
+                                type: this.objCulqi.iin.card_type,
+                                bank : this.objCulqi.iin.issuer.name
                             }
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
