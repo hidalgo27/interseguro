@@ -71,7 +71,8 @@ const state = () => ({
                 card_brand: item.card_brand,
                 card_category: item.card_category,
                 card_number: item.card_number,
-                card_type: item.card_type
+                card_type: item.card_type,
+                bank : item.bank
             },
             token_id: item.id,
             policyId:  item.policyId
