@@ -405,7 +405,8 @@ import { validationMixin } from 'vuelidate'
                 valeAgora: false,
                 urlLocal:'',
                 cobertura_is:{
-                    plan:''
+                    plan:'',
+                    content_ids:''
                 },
                 frecuenciaPago:0,
                 itemElegido: {
@@ -565,8 +566,10 @@ import { validationMixin } from 'vuelidate'
             //         this.remarketingv2()
             //     }, 0);
             //     $nuxt.$emit('bv::hide::modal', 'leavePaymentAgora')
+            
             // },
             cotizador_datalayer(evento,step_valor){
+                this.cobertura_is.content_ids =  this.$store.state.common.code_sku
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: evento,

@@ -4,6 +4,7 @@ const getDefaultState = () => {
     return {
     //GLOBALES
     montoPagar:0,
+    code_sku:0,
     flagCloseListon: 1,
     appDiscountURL: false,
     appDiscount: false,
@@ -108,6 +109,9 @@ const mutations = {
     },
     setAppDiscountURL (state, payload){
         state.appDiscountURL = payload
+    },
+    setCode_sku (state, payload){
+        state.code_sku = payload
     },
     setFlagCloseListon (state, payload){
         state.flagCloseListon = payload

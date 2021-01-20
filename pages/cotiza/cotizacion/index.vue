@@ -1468,7 +1468,8 @@
           'quota': '',
           'discount': '',
           'startDate': '',
-          'credit' : ''
+          'credit' : '',
+          'sku' : ''
         },
         /***********************EVALUAR ********************** */
         soatActive: 0,
@@ -2661,10 +2662,9 @@
             break;
           default:
             this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-            break
-
-          
+            break          
         }
+        this.$store.commit('common/setCode_sku', this.code_sku)
           if (this.$store.state.common.origenCliente == 2) {
             this.objectVehicle.modelId = -1;
             if (this.objectVehicle.modelId == -1) {
@@ -2687,6 +2687,7 @@
             
           } else if (this.$store.state.common.origenCliente == 1) {
           }
+          
           this.activeBox_1 = true;
           this.activeBox_2 = false;
           // this.loading = false;

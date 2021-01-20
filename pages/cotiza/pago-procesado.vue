@@ -183,7 +183,8 @@ export default {
       monto_pagar:'',
       cobertura_is:{
         transactionId:'',
-        plan:""
+        plan:"",
+        content_ids:""
       },
       emailUsuario: '',
       planSeleccionado: '',
@@ -230,6 +231,7 @@ export default {
         });
     },
     cotizador_datalayer(evento,step_valor){
+      this.cobertura_is.content_ids =  this.$store.state.common.code_sku
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
           event: evento,

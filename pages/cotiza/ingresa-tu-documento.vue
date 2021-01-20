@@ -1586,6 +1586,7 @@ export default {
       } /***************************************** */,
       cobertura_is: {
         personType: "",
+        content_ids:""
       },
       documento_steps2: "",
       monto_pagar_steps3: "",
@@ -1840,6 +1841,7 @@ export default {
       }
     },
     cotizador_datalayer(evento, step_valor) {
+      this.cobertura_is.content_ids =  this.$store.state.common.code_sku
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: evento,
