@@ -405,7 +405,8 @@ export default {
               card_brand: this.objCulqui.iin.card_brand,
               card_category: this.objCulqui.iin.card_category,
               card_number: this.objCulqui.card_number,
-              card_type: this.objCulqui.iin.card_type
+              card_type: this.objCulqui.iin.card_type,
+              bank : this.objCulqui.iin.issuer.name
             },
             token_id: this.objCulqui.id,
             policyId:  localStorage.getItem("policyId")
