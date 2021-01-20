@@ -687,8 +687,6 @@ import { validationMixin } from 'vuelidate'
                         this.opacidad =false
                     }else{
                         this.objCulqi = res;
-                        console.log(res,'alva');
-                        console.log(this.objCulqi.iin.issuer.name)
                         this.objPaymentExecute = {
                             tokenId: this.objCulqi.id,
                             planId: this.$store.state.common.planSeleccionado,
