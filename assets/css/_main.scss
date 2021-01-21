@@ -20,6 +20,12 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #ebf1fb;
 // }
+.leaveModal {
+  
+  .modal-content{
+    background: #FFF188 !important;
+  }
+}
 .modal-blackWeek{
   max-width: 472px;
   width: 100%;
@@ -198,21 +204,25 @@
   content: 'DIAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
+  color: #0855c4!important;
 }
 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
   content: 'HORAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
+  color: #0855c4!important;
 }
 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
   content: 'MIN' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
+  color: #0855c4!important;
 }
 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
   content: 'SEG' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
+  color: #0855c4!important;
 }
 .flipdown.flipdown__theme-dark .rotor-group-heading:before {
   color: #ffffff !important;
@@ -806,7 +816,7 @@
   }
 
   .flipdown .rotor {
-    font-size: 24px !important;
+    font-size: 33px !important;
     margin-right: 3px !important;
   }
 

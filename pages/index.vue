@@ -4,10 +4,18 @@
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
-            <p class="titulo-formulario">
+            <!-- <p class="titulo-formulario">
                 <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
                 Manejar tranquilo <br> ahora es más fácil
-            </p>
+            </p> -->
+            <img class="d-lg-none" width="100%" src="./../static/media/interseguroVehicular_v2/logo-verano-mobile.svg" alt="">
+            <div class="box-contador  d-lg-none  mt-2" style="padding-left: 32px;">
+              <div  class="example">
+                  <div id="contadorCyber" class="flipdown">
+                      
+                  </div> 
+              </div>
+            </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
@@ -44,19 +52,28 @@
                   <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
                 </p>
               </div>
-            </b-form>
-            
+            </b-form>            
           </div>
         </div>
-        <div class="home-banner__der">
+        <div class="home-banner__der">          
           <div class="box-titulo">
+            <img style="max-width: 658px;" width="100%" src="./../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+            <div class="box-contador" style="padding-left: 32px;">
+              <div  class="example  d-none  d-md-flex">
+                  <div id="contadorCyber2" class="flipdown">
+                      
+                  </div> 
+              </div>
+            </div>
+          </div>
+          <!-- <div class="box-titulo">
             <p class="title-banner">
               Manejar tranquilo <br> ahora es más fácil
             </p>
             <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
               <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
             </p>
-          </div>
+          </div> -->
           <!-- <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
           <div class="box-contador" style="padding-left: 32px;">
             <div  class="example  d-none  d-md-flex">
@@ -376,8 +393,8 @@
       },
       methods: {
         contador(){
-            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1611550799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1611550799, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -556,9 +573,9 @@
           
       },
       mounted () {
-        // setTimeout(() => {
-        //   this.contador()
-        // }, 750);
+        setTimeout(() => {
+          this.contador()
+        }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
         
         // this.$store.commit('common/resetState')
@@ -713,13 +730,13 @@
     }
   }
   .home{
-    margin-top: 120px;
+    margin-top: 70px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 170px;
+      padding-top: 260px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -938,11 +955,13 @@
       }
     }  
     .boxHome-banner{
+      padding-top: 30px;
       position: relative;
       height: 296px;
-      background-color:  rgba(8,85,196,.1);
-      // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
+      // background-color:  rgba(8,85,196,.1);
+      background-color: #FFF188;
       .home-banner{
+        
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
@@ -1010,7 +1029,14 @@
           // display: flex;
           // flex-direction: column;
           align-items: center;
+          .box-titulo{
+            position: relative;
+          }
           .box-contador{
+            padding-left: 32px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
             .example{
               display: flex;
               align-items: center;
@@ -1075,7 +1101,7 @@
       }
     }
     .formCotizador{
-      padding:2rem 1.5rem;
+      padding: 2rem 1.5rem;      
       max-width: 438px;
       width: 100%;
       height: 314px;
@@ -1083,7 +1109,8 @@
       background: #fff;
       box-shadow: -3px 4px 12px -1px #ccc;
       position: relative;
-      margin: auto;      
+      margin: auto; 
+      margin-top: 24px;     
       h1{
         font-family: 'Omnes Medium';
         font-size: 1.1rem;
@@ -1188,6 +1215,7 @@
       margin: auto;
       flex-direction: column;
       .box-titulo{
+        position: relative;
         margin-bottom: 48px;
       }
       .titulo-clientes{
@@ -1533,6 +1561,11 @@
     border-width: 1.5px !important;
   }
   
+@media (min-width: 600px) {
+    .home .boxHome-banner {
+      height: 524px;
+    }
+}
   @media (min-width: 992px) {
     .home{
       margin-top: 0px;
@@ -1553,7 +1586,6 @@
         }
       }
       .boxHome-banner{
-        background-color:  rgba(8,85,196,.1);
         height: auto;
         .home-banner{
           flex-direction: row;
@@ -1607,7 +1639,7 @@
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            // background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1615,8 +1647,9 @@
             align-items: flex-start;
             // padding-left: 32px;
             .box-titulo{
-              padding-top: 150px;
+              padding-top: 0px;
               padding-left: 24px;
+              height: 300px;
             }
             p{
               font-weight: 500;
@@ -1952,7 +1985,7 @@
         // background-position-y: 0;
         // background-size: cover;    
         .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
           // background: transparent;
           background-size: 50%;
           padding: 0 1.5rem;
@@ -1971,6 +2004,7 @@
             }
             .box-titulo{
               padding: 0;
+              height: 350px;
             }
           }
         }
@@ -2151,7 +2185,7 @@
     .home{
       .boxHome-banner{              
         .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
           background-size: 50%;
           padding-left: 128px;
           max-width: 1440px;

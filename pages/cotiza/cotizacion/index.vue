@@ -255,7 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -338,7 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                    15%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1342,7 +1342,7 @@
     </b-modal>
 
     <!-- Modal de abandono  -->
-    <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1401,8 +1401,35 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
-
+    </b-modal> -->
+      <b-modal
+        id="leaveQuote2"
+        class="leaveModal"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              
+              <img class="img-verano" width="100%" src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p style="color : #454A6C; font-size: 21px">
+                Aprovecha este <strong> 15% de dscto.<br> por tiempo limitado</strong> en todos<br> nuestros planes y maneja tranquilo
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
+                >TERMINAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
   </section>
 </template>
 
@@ -3158,12 +3185,13 @@
           if (this.$store.state.common.leaveMessage == 0) {
             if (e.clientX < 0 || e.clientY < 0) {
               this.$store.commit('common/setLeaveMessage',1)
-              let num = this.$store.state.common.plateNumber.slice(-1)
-              if (num % 2 == 0) {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote2')
-              } else {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote')
-              }
+              this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+              // let num = this.$store.state.common.plateNumber.slice(-1)
+              // if (num % 2 == 0) {
+              //   this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+              // } else {
+              //   this.$nuxt.$emit('bv::show::modal','leaveQuote')
+              // }
             }
           }
         }
@@ -5377,7 +5405,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     display: inline-block;
     margin: 0;
     width: 80%;
-    left: 10%;
+    left: 5;
     height: 45px;
     line-height: 45px;
     padding: 0;
@@ -5555,7 +5583,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: absolute;
       width: 2px;
       height: 15px;
-      right: 10%;
+      right: 5;
       bottom: -7px;
       background: red;
     }
@@ -5564,7 +5592,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: absolute;
       width: 2px;
       height: 15px;
-      left: 10%;
+      left: 5;
       bottom: -7px;
       background: red;
     }
@@ -6203,9 +6231,15 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   text-align: center;
   width: 80%;
   z-index: 999;
-  left: 10%;
+  left: 5;
 }
-
+@media screen and (min-width: 600px) {
+.leaveModal {
+    .img-verano{
+      max-width: 380px;
+    }
+  }
+}
 @media screen and (max-width: 992px) {
   
   .planActivo.plata{
