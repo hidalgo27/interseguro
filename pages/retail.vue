@@ -223,7 +223,7 @@
                 </b-row>
             </b-container>
         </section>
-
+<!-- 
         <section class="pt-4">
             <b-container style="background:#ffffff; border-radius:12px; box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px; padding-bottom:10px; padding-left:23px; padding-right:23px">
                 <b-row class="justify-content-center box-ingresaDocumento">      
@@ -244,8 +244,6 @@
                             </div>
                         </b-col>
                     </div>
-
-                    <!--<div class="box-cotizacion2">-->
                         <b-col cols="12" lg="8">
                             <b-row class="box-row first-box justify-content-center ">
                                 <b-col cols="12" lg="4" class="mb-2">
@@ -535,13 +533,12 @@
                                     </div>
                                 </b-row>
                             </b-col>
-                        </template>
-                    <!--</div>-->
+                        </template>                    
                 </b-row>
             </b-container>
-        </section>
+        </section> -->
 
-        <section class="pt-4">
+        <!-- <section class="pt-4">
             <b-container style="background:#ffffff; border-radius:12px; box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;">
                 <b-row>
                     <b-col cols="6">
@@ -593,8 +590,8 @@
                     </b-col>                     
                 </b-row>
             </b-container>
-        </section>
-
+        </section> -->
+<!-- 
         <section class="pt-4">
             <b-container style="background:#ffffff; border-radius:12px; box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;">
                 <div class="metodo-pago" >
@@ -702,22 +699,18 @@
                                                             <div class="precios" style="color:#616161" v-if="listCotizacion.discount.intercorp == 5">
                                                                 <span>$&nbsp;{{listCotizacion.policy.annualDiscount}}</span>
                                                                 <span class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span> 
-                                                                <!-- <span>+ GiftCard S/ 150 Oechsle</span> -->
                                                             </div>
                                                             <div class="precios" style="color:#616161" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 10">
                                                                 <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
                                                                 <span class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span>
-                                                                <!-- <span>+ GiftCard S/ 150 Oechsle</span>                                                              -->
                                                             </div>                                                            
                                                             <div class="precios" style="color:#616161" v-else-if="listCotizacion.discount.intercorp == 0 && listCotizacion.discount.special == 15">
                                                                 <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
                                                                 <span class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span> 
-                                                                <!-- <span>+ GiftCard S/ 150 Oechsle</span>                                                             -->
                                                             </div>
                                                             <div class="precios" style="color:#616161" v-else>
                                                                 <span>$&nbsp;{{listCotizacion.policy.annual}}</span>
                                                                 <span class="montoTachado" >$&nbsp;{{listCotizacion.policy.annualCalculated}}</span> 
-                                                                <!-- <span>+ GiftCard S/ 150 Oechsle</span>                                                           -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -814,8 +807,315 @@
                     </b-row>
                 </div>
             </b-container>
-        </section>
+        </section> -->
 
+    <section>
+              <div class="v2-planes-desktop  row  d-none  d-lg-flex">
+                
+                <div class="col-4">
+                  <div style="height: 40px;" class="plan-recomendado">
+                    
+                  </div>
+                  <div class="v2-plan-item  plan4  plata  "  @click="seleccionarPLanDesktop(4)" v-bind:class="{planInactivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-plata">
+                      PLAN PLATA
+                    </div>
+                    <div class="v2-detalle-plan" >
+                      
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar_plata}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes_plata}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
+                      </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
+                      <div class="box-importante" style="height: 40px;">
+                      </div>
+                      <div class="que-me-cubre">
+                        <div class="titulo">
+                          Este plan incluye:
+                        </div>
+                        <p class="que-me-cubre__item">
+                          Beneficios Interseguro alva2
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="titulo  mt-4  mb-2   no-incluye-titulo">
+                          Este plan no incluye:
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Pérdida parcial por accidente
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" >
+                          Ausencia de control*
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          
+                          <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event,4)">CONTINUAR</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div style="height: 40px;" class="plan-recomendado">
+                    
+                  </div>
+                  <div class="v2-plan-item  plan6  oro   "  @click="seleccionarPLanDesktop(6)" v-bind:class="{planInactivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-oro">
+                      PLAN ORO
+                    </div>
+                    <div class="v2-detalle-plan"> 
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar_oro}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes_oro}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
+                      </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="que-me-cubre">
+                        <div class="titulo">
+                          Este plan incluye:
+                        </div>
+                        <p class="que-me-cubre__item">
+                          Beneficios Interseguro
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida parcial por accidente
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="titulo  mt-4  mb-2  no-incluye-titulo">
+                          Este plan no incluye:
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item    no-incluye" >
+                          Ausencia de control*
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
+                          <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event,6)">CONTINUAR</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div style="height: 40px; " class="plan-recomendado">
+                    <span>&#9733;	</span> MÁS VENDIDO
+                  </div>
+                  <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planInactivoDesktop: planInactivo}">
+                    <div class="plan-item  plan-black">
+                      PLAN BLACK
+                    </div>
+                    <div class="v2-detalle-plan" > 
+                      <div class="box-monto-frecuencia">
+                        <div class="v2-detalle-plan__suma  box-monto-pago">
+                            <div class="monto-frecuencia">
+                                <span>US$</span>
+                                <span class="monto">{{this.monto_pagar_black}}</span>
+                            </div>
+                            <p class="antes">Antes US${{this.monto_antes_black}}</p>
+                        </div>
+                        <div class="v2-detalle-plan__box-frecuencia  select">
+                          <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                        </div>
+                      </div>
+                      <div class="dto-cotizador">
+                        <div class="flotante-dcto">
+                          10%
+                        </div>
+                      </div>
+                      <div class="box-importante">
+                        <p class="titulo">Importante</p>
+                        <ul>
+                          <li>
+                            <div class="detalle-item">
+                              <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
+                              <p class="endozar-poliza  text-right"   style="width: auto;">
+                                  <template v-if="this.endosoSeleccionado.id == 0">                          
+                                    <span style="display: inline-block; cursor:outline: none;  pointer; text-align: left;"
+                                      class="detalle-enlace"
+                                      v-b-modal.modalEntidadFinanciera2
+                                      @click="clickEnlace('entidad Financiera')"
+                                      >Aquí
+                                      </span>  
+                                  </template>
+                                  <template v-else>                         
+                                    <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
+                                    class="detalle-enlace"
+                                        
+                                        v-b-modal.modalEntidadFinanciera2
+                                        @click="clickEnlace('entidad Financiera')"
+                                    > {{this.endosoSeleccionado.name}}</span>   
+                                  </template>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="que-me-cubre">
+                        <div class="titulo">
+                          Este plan incluye:
+                        </div>
+                        <p class="que-me-cubre__item">
+                          Beneficios Interseguro
+                        </p>
+                        <p class="que-me-cubre__item">
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida parcial por accidente
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Ausencia de control*
+                        </p>
+                      </div>
+                      <div class="item-inferior">
+                        <div class="descargar-detalle">
+                          <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                        </div>
+                        <div class="box-btn">
+                          <span class="continuar" @click="continuar($event,3)">CONTINUAR</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </section>
         <section>
             <b-container>
                 <b-row class="justify-content-center">
@@ -2779,6 +3079,83 @@ export default {
     data(){
         return {
 
+        options: [
+            { value: null, text: '' },
+            { value: '1', text: 'Mensual' },
+            { value: '2', text: 'Trimestral' },
+            { value: '3', text: 'Anual' },
+        ],
+        planInactivo: false,
+
+        listaBasica: {
+          vehicle: {
+            current: null,
+            maximum: 0,
+            minimum: 0,
+            gps:''
+          },
+          policy: {
+            calculated: 0,
+            annual: 0,
+            quarterly: 0,
+            monthly: 0,
+            monthlyCalculated: 0,
+          },
+          vehicle:{
+            
+          }
+        },
+ listaMedia: {
+          vehicle: {
+            current: null,
+            maximum: 0,
+            minimum: 0
+          },
+          policy: {
+            calculated: 0,
+            annual: 0,
+            quarterly: 0,
+            monthly: 0,
+            monthlyCalculated: 0,
+          },
+        },
+        listaFull: {
+          vehicle: {
+            current: null,
+            maximum: 0,
+            minimum: 0
+          },
+          policy: {
+            calculated: 0,
+            annual: 0,
+            quarterly: 0,
+            monthly: 0,
+            monthlyCalculated: 0,
+          },
+        },
+        opacityNone: false,
+        urlpdf:'',
+        mostrarMensajeEnviadoEndosar: false,
+        mostrarMensajeEnviadoCotizacion: false,
+        maximoImgDisabled: false,
+        minimoImgDisabled: false,
+        monto_pagar_plata :'',
+        monto_antes_plata :'',
+            
+        monto_pagar_oro :'',
+        monto_antes_oro :'',
+
+        monto_pagar_black :'',
+        monto_antes_black :'',
+        valorSeleccionado: false,
+        activarTooltip: false,
+        activarTooltipDesktop: false,
+        gps:'',
+        frecuencia: '',
+        planSeleccionado:3,
+        selected: 1,
+        monto_pagar: '',
+        monto_antes: '',
             isDisabledEnviarCorreo: false,
             showModal: false,
             objSOAT: {},
@@ -2970,6 +3347,111 @@ export default {
         }
     },
     methods:{
+
+    seleccionarFrecuencia(){
+        if (this.selected == 1) {
+            this.monto_pagar_plata = this.listaBasica.policy.monthly
+            this.monto_antes_plata = this.listaBasica.policy.monthlyCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.monthly
+            this.monto_antes_oro = this.listaMedia.policy.monthlyCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.monthly
+            this.monto_antes_black = this.listaFull.policy.monthlyCalculated
+
+            if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
+                this.monto_pagar = this.listaFull.policy.monthly
+                this.monto_antes = this.listaFull.policy.monthlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.monthly
+                this.monto_antes = this.listaMedia.policy.monthlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.monthly
+                this.monto_antes = this.listaBasica.policy.monthlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else{
+
+            }
+            
+        }else if(this.selected == 2){
+            this.monto_pagar_plata = this.listaBasica.policy.quarterly
+            this.monto_antes_plata = this.listaBasica.policy.quarterlyCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.quarterly
+            this.monto_antes_oro = this.listaMedia.policy.quarterlyCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.quarterly
+            this.monto_antes_black = this.listaFull.policy.quarterlyCalculated
+
+            if (this.planSeleccionado == 3 || this.planSeleccionado == 10) {
+                this.monto_pagar = this.listaFull.policy.quarterly
+                this.monto_antes = this.listaFull.policy.quarterlyCalculated
+
+                this.monto_pagar_mensual = this.listaFull.policy.quarterly
+                this.monto_antes_mensual = this.listaFull.policy.quarterlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.quarterly
+                this.monto_antes = this.listaMedia.policy.quarterlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.quarterly
+                this.monto_antes = this.listaBasica.policy.quarterlyCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else{}
+        }else if(this.selected == 3){
+            this.monto_pagar_plata = this.listaBasica.policy.annual
+            this.monto_antes_plata = this.listaBasica.policy.annualCalculated
+            
+            this.monto_pagar_oro = this.listaMedia.policy.annual
+            this.monto_antes_oro = this.listaMedia.policy.annualCalculated
+
+            this.monto_pagar_black = this.listaFull.policy.annual
+            this.monto_antes_black = this.listaFull.policy.annualCalculated
+            
+            // this.frecuencia = 'Anual'
+            if (this.planSeleccionado == 3) {
+                this.monto_pagar = this.listaFull.policy.annual
+                this.monto_antes = this.listaFull.policy.annualCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else if(this.planSeleccionado == 6){
+                this.monto_pagar = this.listaMedia.policy.annual
+                this.monto_antes = this.listaMedia.policy.annualCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else if(this.planSeleccionado == 4){
+                this.monto_pagar = this.listaBasica.policy.annual
+                this.monto_antes = this.listaBasica.policy.annualCalculated
+                this.$store.commit('common/setMontoPagar',this.monto_pagar)
+            }else{}
+        }else{}
+      },           
+      seleccionarPLanDesktop(id){
+        id = id+""
+        this.planInactivo = true
+
+        if (this.planSeleccionado == id && this.valorSeleccionado) {
+          console.log(id)
+        }else{
+          this.valorSeleccionado = true
+          let elemento1 = document.querySelectorAll(".v2-plan-item")
+          for (let index = 0; index < elemento1.length; index++) {
+            elemento1[index].classList.remove("planActivoDesktop")      
+          }
+          setTimeout(() => {
+            let arreglo = document.querySelectorAll(".plan"+id)
+            for (let i = 0; i < arreglo.length; i++) {
+              arreglo[i].classList.add("planActivoDesktop")
+            }
+            this.seleccionarFrecuencia()
+          }, 250);
+          this.$store.commit('common/setPlanSeleccionado',id)
+          this.planSeleccionado = id
+          this.detectarPLanSeleccionado()
+        }
+        
+      },
         delayCotizacion(event, ms) {
             var self = this                                 
             clearTimeout(self.timer)
