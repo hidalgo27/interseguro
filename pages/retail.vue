@@ -809,7 +809,37 @@
             </b-container>
         </section> -->
 
-    <section>
+           
+        <b-row>
+      <b-col xs="12" md="8" lg="12" class="order-md-3">
+            <div class="v2-planes">
+              <div class="row  mb-4">
+                <div class="col-12  col-lg-6">
+                  <p class="v2-planes--titulo">
+                    Selecciona tu plan
+                  </p>
+                </div>
+                <div class="col-lg-6  d-none  d-lg-flex  align-items-center  justify-content-end">
+                  <div class="fecha">                    
+                    <div @click="showModalInicioVigencia()">
+                      Fecha de inicio:
+                        <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
+                            <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
+                                {{this.fechaVigencia}}
+                            </span>
+                            <span style="cursor: pointer;" v-else >
+                                Cambiar
+                            </span>                                        
+                        </span>
+                    </div>
+                  </div>
+                  <div class="mail-fecha  mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
+                    <span class="enviar-cotizacion">Enviar cotización</span>
+                                  
+                  </div> 
+                </div>
+              </div>
+
               <div class="v2-planes-desktop  row  d-none  d-lg-flex">
                 
                 <div class="col-4">
@@ -846,7 +876,7 @@
                           Este plan incluye:
                         </div>
                         <p class="que-me-cubre__item">
-                          Beneficios Interseguro alva2
+                          Beneficios Interseguro
                         </p>
                         <p class="que-me-cubre__item" >
                           Central de emergencias
@@ -1115,7 +1145,193 @@
                   </div>
                 </div>
               </div>
-    </section>
+
+              <div class="v2-seleccion-planes  d-lg-none">
+                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>PLATA</p>
+                  <p>US$ {{this.listaBasica.policy.monthly}}</p>
+                </div>
+                <div class="v2-seleccion-planes__item planorito  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>ORO</p>
+                  <p>US$ {{this.listaMedia.policy.monthly}}</p>
+                </div>
+                <div class="v2-seleccion-planes__item  plan3  black" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
+                  <p>BLACK</p>
+                  <p>US$ {{this.listaFull.policy.monthly}}</p>
+                </div>
+                
+              </div>
+
+              <div class="v2-detalle-plan  d-lg-none" :class="classPlan"> 
+                <div class="box-monto-frecuencia">
+                  <div class="v2-detalle-plan__suma  box-monto-pago">
+                      <div class="monto-frecuencia">
+                          <span>US$</span>
+                          <span class="monto">{{this.monto_pagar}}</span>
+                      </div>
+                      <p class="antes">Antes US${{this.monto_antes}}</p>
+                  </div>
+                  <div class="v2-detalle-plan__box-frecuencia  select">
+                    <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
+                  </div>
+                </div>
+                <div class="dto-cotizador">
+                  <div class="flotante-dcto">
+                    10%
+                  </div>
+                </div>
+                <div class="box-importante">
+                  <p class="titulo">Importante</p>
+                  <ul>
+                    <li>
+                      <div class="detalle-item" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">
+                        <p style="width: 208px;"><span class="symbol-point">&#11044;</span>Endosa tu crédito vehicular </p>
+                        <p class="endozar-poliza  text-right"   style="width: auto;">
+                            <template v-if="this.endosoSeleccionado.id == 0">                          
+                              <span style="display: inline-block; outline: none;  cursor: pointer; text-align: left;"
+                                class="detalle-enlace"
+                                v-b-modal.modalEntidadFinanciera2
+                                @click="clickEnlace('entidad Financiera')"
+                                >Aquí
+                                </span>  
+                            </template>
+                            <template v-else>                         
+                              <span  style="display: inline-block;  outline: none;  line-height: 1; padding-bottom: 4px; cursor: pointer;"
+                                class="detalle-enlace"
+                                v-b-modal.modalEntidadFinanciera2
+                                @click="clickEnlace('entidad Financiera')"
+                              > {{this.endosoSeleccionado.name}}</span>   
+                            </template>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="detalle-item">
+                      <div class="item    pb-3">
+                          <span href="javascript:void(0);" v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                            <span class="mb-0 gps requiere-gps"  >
+                              <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                            </span>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detalle-item" v-if="this.gps == true">
+                        <p>GPS:</p>
+                        <p>SI</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="que-me-cubre">
+                        <div class="titulo">                          
+                          Este plan incluye:
+                        </div>
+                        <p class="que-me-cubre__item">
+                          Beneficios Interseguro
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Central de emergencias
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Responsabilidad Civil
+                        </p>
+                        <p class="que-me-cubre__item" >
+                          Robo total
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 6 || this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                          Pérdida parcial por accidente
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 6 || this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 3 ||  this.planSeleccionado == 10">
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 3 ||  this.planSeleccionado == 10">
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 3 ||  this.planSeleccionado == 10">
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 3 ||  this.planSeleccionado == 10">
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item " v-if="this.planSeleccionado == 3 ||  this.planSeleccionado == 10">
+                          Ausencia de control*
+                        </p>
+
+                        <p class="titulo  mt-4  mb-2   no-incluye-titulo" v-if="this.planSeleccionado == 4">
+                          Este plan no incluye:
+                        </p>
+
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4">
+                          Pérdida parcial por accidente
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4">
+                          Accidentes de ocupantes
+                        </p>
+                        <p class="titulo  mt-4  mb-2   no-incluye-titulo" v-if="this.planSeleccionado == 6">
+                          Este plan no incluye:
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4 ||  this.planSeleccionado == 6">
+                          Accesorios musicales
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4 ||  this.planSeleccionado == 6">
+                          Rotura de lunas
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4 ||  this.planSeleccionado == 6">
+                          Desastres naturales, vandalismo, incendios.
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4 ||  this.planSeleccionado == 6">
+                          Pérdida total por accidente
+                        </p>
+                        <p class="que-me-cubre__item   no-incluye" v-if="this.planSeleccionado == 4 ||  this.planSeleccionado == 6">
+                          Ausencia de control*
+                        </p>
+                </div>
+                <div class="descargar-detalle">
+                  <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
+                </div>
+                <div class="d-flex   d-lg-none">
+                  <div class="mail-fecha  mail-cotizador"  @click="showModalEnviarEmail()">                  
+                    <span class="enviar-cotizacion">Enviar cotización</span>                                     
+                  </div> 
+                </div>
+                <div class="d-flex   d-lg-none">
+                  <div class="mail-fecha  boton-fecha"  @click="showModalInicioVigencia()">                  
+                      <div class="detalle-item">
+                        <p> Fecha de inicio:</p>
+                        <p>
+                            <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
+                                <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
+                                    {{this.fechaVigencia}}
+                                </span>
+                                <span style="cursor: pointer;" v-else >
+                                    Cambiar
+                                </span>                                        
+                            </span>
+                        </p>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+
+              <div class="v2-comparar-planes  d-lg-none">
+                <!-- <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span>  -->
+              </div>
+              <div id="btnirapagar" class="box-btn " v-bind:class="{'opacityNone': opacityNone}">
+                  <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+              </div>
+              <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
+                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+              </div>
+            </div>
+            
+
+
+          </b-col>
+        </b-row>
+    
         <section>
             <b-container>
                 <b-row class="justify-content-center">
@@ -1957,28 +2173,7 @@
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
     }      
-    .modal-body__custom {
-        background-image: url("../static/media/img/flujo/cotizacion/modalFondo.PNG");
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        margin-bottom: 0;
-        height: 220px;
-        background-size: auto;
-        background-position-x: 50%;
-        background-repeat: no-repeat;
-        background-position-y: 50%; 
-        padding-bottom: 0; 
-        .text-modalEnviarMail {
-            color: #4a4a4a;
-            font-size: 20px;
-            font-weight: 600;
-            text-align: center;
-            font-family: 'omnesregular';
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-    }
+  
     /********************************************************************
                         FIN MODAL ENVIAR CORREO
     *********************************************************************/
@@ -3048,6 +3243,7 @@
             }
         }
     }
+
     @media (min-width: 990px){
         .steps-box {
             margin-top: 120px;
@@ -3059,6 +3255,3333 @@
             margin-top: 140px;
         }
     }
+</style>
+
+<style lang="scss" scoped>
+
+.phoneContent{
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 20px 0px;
+
+    .phoneS{
+    width: 100px;
+      height: 100px;
+      background: #0055c8;
+      display: flex;
+      justify-content: center;
+      border-radius: 50px;
+    }
+    
+}
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+  
+}
+.page-cotizador{
+  background: white;
+  padding-top: 120px; 
+}
+.opacityNone{
+    opacity: 1 !important;
+}
+button:focus{
+  outline: none;
+}
+.v2modalGPS{
+  &__header{
+    display: flex;
+    background: #0855c4;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    .texto-header{
+      padding-left: 8px;
+    }
+    img{
+      width: 79px;
+    }
+    .titulo{
+      font-family: 'Omnes Medium';
+      font-size: 18px;
+      color: #ffffff; 
+      margin-bottom: 8px;
+    }
+    .descripcion{
+      font-family: 'Omnes Regular';
+      font-size: 14px;
+      color: #ffffff; 
+    }
+  }
+  &__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .box-empresas{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    p{
+      text-align: center;
+    }
+    .certificado{
+      color: #454A6C;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    .tienes-gps{
+      color: #0855C4;
+      font-family: 'Omnes Medium';
+      font-size: 23px;
+      margin-top: 36px;
+    }
+    .finalizar-compra{
+      color: #EA0F90;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      margin-top: 24px;
+    }
+    .empresa-item{
+      display: inline-flex;
+      border: 1px solid #D5D5D5;
+      border-radius: 3px;
+      align-items: flex-start;
+      padding-top: 16px;
+      padding-left: 22px;
+      padding-right: 22px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      width: 296px;
+      margin-top: 24px;
+      img{
+        width: 28px;
+        height: auto;
+        padding-top: 8px;
+      }
+      span{
+        font-size: 11px;
+        color: #454A6C;
+        font-family: 'Omnes Regular';
+      }
+      p{
+        font-size: 18px;
+        color: #454A6C;
+        font-family: 'Omnes Medium';
+        text-align: left;
+      }
+      &__der{
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+      }
+      &__izq{
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+      }
+    }
+  }
+  &__footer{
+    background: #EFF0F3;
+    padding: 16px;
+    p{
+      color: #454A6C;
+      font-size: 13px;
+      font-family: 'Omnes Regular';
+      text-align: center;
+    }
+  }
+}
+.box-mensajeEnviadoCotizacion, .box-mensajeEnviadoEndosar{
+  position: absolute;
+  background: white;
+  width: 100%;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+  height: 240px;
+  .modal-titulo-enviado{
+    color: #454A6C;
+    font-size: 17px;
+    font-family: 'Omnes Medium';
+    margin: auto;
+    width: 92%;
+  }
+}
+.box-mensajeEnviadoEndosar{
+  height: 346px;
+  .endosar-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .modal-titulo-endoso{
+      color: #0855C4;
+      font-size: 24px;
+      font-family: 'Omnes medium';
+      text-align: center;
+      margin: auto;
+      margin-bottom: 24px;
+      line-height: 35px;
+      margin-top: 32px;
+    }
+  }
+}
+.mostrarMensajeEnviadoEndosar{
+  display: flex;
+}
+.mostrarMensajeEnviadoCotizacion{
+  display: flex;
+}
+.maximoImgDisabled {
+    cursor: not-allowed !important;
+}
+.minimoImgDisabled {
+    cursor: not-allowed !important;
+}
+.maximoImgDisabled{
+  background: #9DA3B5 !important;
+}
+.minimoImgDisabled{
+  background: #9DA3B5 !important;
+}
+.plan-recomendado{
+    height: 40px;
+    color: #EA0F8F;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.v2-detalle-plan.planBlack{
+  border-top: 5px solid #27362d;
+}
+.v2-detalle-plan.planOro{
+  border-top: 5px solid #e6ac38;
+}
+.v2-detalle-plan.planPlata{
+  border-top: 5px solid #b1b1b1;
+}
+.v2-planes{
+  margin-top: 12px;
+  .box-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      background: #ea0c90;
+      color: #ffffff;
+      height: 50px;
+      width: 270px;
+      display: inline-block;
+      border-radius: 4px;
+      font-size: 24px;
+      font-family: 'Omnes regular';
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  }
+  &--titulo{
+    color: #0855C4;
+    font-size: 25px;
+    font-family: "Omnes Medium";
+    text-align: center;
+    padding: 24px 0;
+  }
+}
+.v2-suma-asegurada{
+  .tooltip-suma-aseguradaDesktop{
+    p{
+      color: white;
+    }
+      &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        left: -36px;
+        z-index: 0;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-right: 45px solid #44496b;
+        border-top: 20px solid rgba(39, 54, 45, 0);
+        border-left: 24px solid transparent;
+        border-bottom: 20px solid transparent;
+        top: 74px;
+      }
+      position: absolute;
+      width: 100%;
+      height: 280px;
+      top: -40px;
+      left: 312px;
+      z-index: 999;
+      padding: 32px;
+      margin: auto;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      
+      .item{
+        max-width: 310px;
+        height: 280px;
+        background: #44496B;
+        padding: 24px;
+      }
+      .tooltip-titulo{
+        font-size: 23px;
+      }
+      .tooltip-descripcion{
+        font-size: 16px;
+        font-family: 'Omnes Regular';
+        margin-top: 12px;
+      }
+  }
+  .tooltip-icon{
+    background: #D0D6E0;
+    color: white;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+  }
+  &--titulo{
+    color: #0855C4;
+    font-size: 25px;
+    font-family: "Omnes Medium";
+    text-align: center;
+  }
+  .v2-valores-minimo-maximo{
+    color: #454A6C;
+    font-size: 11px;
+    text-align: center;
+    font-family: 'Omnes regular';
+    margin-top: 8px;
+  }
+  .v2-valor-comercial{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    .tooltip-suma-asegurada{
+      &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        left: calc(50% - 18px);
+        z-index: 999;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-right: 18px solid transparent;
+        border-top: 24px solid rgba(39,54,45,0);
+        border-left: 18px solid transparent;
+        border-bottom: 39px solid white;
+        top: -28px;
+      }
+      position: absolute;
+      width: 100%;
+      height: 280px;
+      top: 60px;
+      left: 0;
+      z-index: 999;
+      padding: 32px;
+      margin: auto;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      
+      .item{
+        max-width: 310px;
+        height: 280px;
+        background: white;
+        padding: 24px;
+      }
+      .tooltip-titulo{
+
+      }
+      .tooltip-descripcion{
+        
+      }
+    }
+    .e-range{
+      text-align: center;
+      width: 250px;
+      margin: 0 12px;
+      border: 1px solid #D5D5D5;
+      height: 46px;
+      color: #454A6C;
+      font-size: 24px;
+    }
+    .box-input{
+      position: relative;
+      .flotante-moneda{
+        height: 45px;
+        width: 55px;
+        position: absolute;
+        font-size: 24px;
+        line-height: 45px;
+        left: 24px;
+        color: #454A6C;
+        font-family: 'Omnes Medium';
+      }
+    }
+    .minimoImg, .maximoImg{
+      background: #0855C4;
+      width: 35px;
+      height: 35px;
+      border-radius: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      border: none;
+    }
+
+  }
+}
+ 
+.v2-datos-carro{
+  font-family: 'Omnes Regular';
+  border: 1px solid #D5D5D5;
+  padding: 14px 24px 0;
+  .v2-carro-editar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      z-index: 0;
+      bottom: 14px;
+      right: 0;
+      background: #D9D9D9;
+    }
+    span{
+      &:nth-child(1){
+        color: #454A6C;
+        font-size: 18px;
+        font-family: 'Omnes Medium';
+        margin-bottom: 24px
+      }
+    }
+    .v2-editar{
+      position: relative;
+      color: #0f67e6;
+      font-size: 14px;
+      font-family: "Omnes Semibold";      
+      cursor: pointer;
+      border: 1px solid #0f67e6;
+      padding: 1px 6px;
+      border-radius: 3px;
+      letter-spacing: 0;
+    }
+  }
+  &__detalle{    
+    margin-bottom: 24px;
+    display: flex;
+    position: relative;
+    &--modelo{
+      padding-left: 24px;
+      font-family: 'Omnes Regular';
+      position: relative;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        background: #D9D9D9;
+      }
+    }
+    &--placa{
+      min-width: 80px;
+      font-family: 'Omnes Regular';
+      position: relative;
+      
+    }
+    .mi-modelo-descripcion{
+      width: auto;
+      display: inline-block;
+      color: #454A6C;
+      font-size: 16px;
+      position: relative;
+    }
+    p{
+      
+      color: #454A6C;
+      font-size: 16px;
+      display: flex;
+    }
+    span{
+      display: inline-block;
+      width: 78px;      
+      min-width: 78px;
+
+    }
+    .v2-editar{
+      position: relative;
+      cursor: pointer;
+      width: 14px;
+      min-width: 14px;
+      left: 12px;
+      height: 15px;
+      top: 2px;
+    }
+    .campo{
+      font-family: 'Omnes Medium';
+    }
+  }
+}
+
+.v2-seleccion-planes{
+  display: flex;
+  justify-content: space-between;
+  
+  &__item{
+    background: #EFF0F3;
+    color: #B1B1B1;
+    width: 100px;
+    padding: 3px 0;
+    p{
+      font-size: 15px;
+      color: #B1B1B1;
+      text-align: center;
+    }
+  }
+}
+.v2-detalle-plan{
+  margin-top: 12px;
+  border-radius: 3px;
+  border: 1px solid #D5D5D5;
+  padding: 35px;
+  .dto-cotizador{
+    position: relative;
+    .flotante-dcto{
+      background: #EA0F90;
+      color: #ffffff;
+      font-family: "Omnes Regular";
+      font-size: 25px;
+      padding: 12px;
+      position: absolute;
+      right: -35px;
+      top: 0px;
+      border-radius: 4px 0 0 4px;
+    }
+  }
+  .detalle-item{
+    display: flex;
+    align-items: center;
+    .symbol-point{
+      color: #EA0F90;
+      font-size: 8px;
+      margin-right: 8px;
+      height: 16px;
+      display: inline-block;
+      line-height: 15px;
+      vertical-align: middle;
+
+    }
+    .detalle-enlace{
+      color: #0855c4;
+      text-decoration: underline;
+      font-size: 16px;
+      font-family: 'Omnes medium';
+      :focus{
+        outline: none;
+      }
+    }
+  }
+  .box-monto-frecuencia{
+    display: flex;
+    padding-top: 24px;
+  }
+  
+  .que-me-cubre{
+    .titulo{
+      margin-bottom: 24px;
+      font-size: 20px;
+      font-family: "Omnes Medium";
+      color: #454A6C;
+      position: relative;
+      
+    }
+    
+    &__item{
+      margin: 1px 0;
+      color: #454A6C;
+      font-size: 16px;
+      font-family: "Omnes regular";
+      padding-left: 20px;
+      position: relative;      
+      &:before{
+        content: "";        
+        background: url("https://www.interseguro.pe/vehicular/resources/campania2020/check.png");
+        background-size: contain;
+        height: 11px;
+        width: 11px;
+        position: absolute;
+        left: 0;
+        top: 6px;
+        background-repeat: no-repeat;
+      }
+    }
+    .no-incluye-titulo{
+      color: #7F839F;
+    }
+    .no-incluye{
+      color: #7F839F;
+      &:before{
+        content: "x";
+        background: transparent;      
+        background-size: contain;
+        height: 11px;
+        width: 11px;
+        position: absolute;
+        left: 4px;
+        top: 0px;
+      }
+    }
+    
+  }
+  .box-importante{
+    padding: 14px 0;
+    .titulo{
+      font-size: 20px;
+      font-family: "Omnes Medium";
+      color: #454A6C;
+      margin-bottom: 16px;
+    }
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      p{
+        color: #454A6C;
+        font-size: 16px;
+        font-family: "Omnes regular";
+      }
+    }
+  }
+  &__suma{
+    width: 50%;
+    .monto-frecuencia{
+      color: #454A6C;
+      font-family: "Omnes Medium";
+      font-size: 30px;
+    }
+    .antes{
+      font-family: "Omnes Regular";
+      font-size: 18px;
+      margin-top: 12px;
+      text-decoration: line-through;
+      -webkit-text-decoration-color: #ea0f90;
+      text-decoration-color: #ea0f90;
+    }
+  }
+  &__box-frecuencia{
+    width: 50%;
+    .custom-select{
+      height: 45px;
+      color: #454A6C;
+      font-family: 'Omnes medium';
+      font-size: 20px;
+      width: 150px;
+      cursor: pointer;
+    }
+  }
+  
+}
+.v2-comparar-planes{
+  margin: 36px 0;
+  text-align: center;
+  a{
+    color: #454A6C;
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: "Omnes medium";
+  }
+}
+
+.enlaceTerminosCondiciones{
+  color: #0854c4;
+  cursor: pointer;
+}
+.liston{
+  background: #ff9200 !important;
+  position: absolute;
+  width: 100%;
+  height: 56px;
+  top: 0;
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  .desktop_cotizador_liston{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 45px;
+    padding: 0 45px 0 8px;
+    font-size: 14px;
+  }
+  .closeListon{
+    cursor: pointer;
+    position: absolute;
+    right: 4px;
+    height: 30px;
+    top: 5px;
+    border-radius: 45px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+  }
+}
+
+.desktop_cotizador_mobile{
+  display:  block;
+}
+.entidad_float{
+  display: none;
+  position: absolute;
+  top: -10px;
+  font-size: 12px;
+  height: 70px;
+  right: calc(-15vw + 2px);
+  width: calc(100vw - 87vw);
+  img{
+    margin-right: 5px;
+  }
+}
+.inputMarcaHide{
+  overflow: hidden;
+  height: 1px;
+}
+.ingresaLetraMarca{
+  opacity: 0;
+}
+a.steps__item.paso1:after{
+  content: "1" !important;
+  background: #0754c4 !important;
+  color: white !important;
+  text-align: center;
+  font-size: 14px;
+}
+.frase-cotizacion{
+  font-size: 19px;
+}
+.ausencia-control-mobile{
+  flex-direction: column;
+  display: flex;
+  .ausencia-control{
+    margin-top: 2px;
+    font-size: 11px;
+  }
+}
+.ausencia-controlBox{
+  flex-direction: column;
+  .ausencia-control{
+    margin-top: 5px;
+    font-size: 12px;
+  }
+}
+.ausencia-desktop{
+  justify-content: center !important;
+  flex-direction: column !important;
+  height: 60px !important;
+  align-items: flex-start !important;
+}
+
+.box-btn__button {
+  margin-top: 16px;
+  animation: shadow-pulse 1s infinite;
+}
+.contenedor-personalizado{
+  background: #fff;
+  position: relative;
+}
+.contenedor-2{
+  padding-top: 4px;
+  margin-top: 12px;
+}
+.contenedor-1{
+  padding: 0 8px;
+}
+
+.bg-shadow{
+  box-shadow: 0 2px 10px 0 rgba(0,40,80,0.07);
+  background: white;
+  border-radius: 24px;
+  .borderNone{
+    border: none !important;
+  }
+  .adicional{
+    border-radius: 5px;
+    border: 1px solid #15b3ff;
+    position: relative;
+    cursor: pointer;
+    &__box{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      background: #15b3ff;
+      left: 0;
+      top: -28px;
+      width: 100%;
+      height: 32px;
+      border-radius: 4px 4px 0 0;
+      text-align: center;
+      span{
+        margin-right: 8px;
+        font-family: 'Omnes Regular';
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+  }
+}
+.borderNone{
+  border: none !important;
+}
+.adicionalMobile{
+  border-radius: 5px;
+  border: 1px solid #15b3ff;
+  position: relative;
+  width: 66%;
+  cursor: pointer;
+  .panel-planes__item{
+    width: 50%;
+    display: inline-block;
+    margin-right: -4px;
+  }
+  &__box{
+    position: absolute;
+    background: #15b3ff;
+    left: 0;
+    top: -28px;
+    width: 100%;
+    height: 32px;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+    
+    span{
+      
+      font-family: 'Omnes Regular';
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      font-size: 16px !important;
+      line-height: 30px;
+    }
+  }
+}
+.descargar_cobertura{
+  max-width: 131px;
+}
+.miAuto{
+  .placa{
+    font-family: 'Omnes Regular';
+    font-weight: 600;
+    
+  }
+  p{
+    font-size: 17px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #0754c4 !important;
+  }
+}
+.editar-vehiculo-desktop{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.card-cobertura .card-header a[data-v-614db64e]:not(:disabled):not(.disabled):active, .card-cobertura .card-header a:not(:disabled):not(.disabled).active[data-v-614db64e], .card-cobertura .card-header .show > a.dropdown-toggle[data-v-614db64e] {
+    color: #fff;
+    background-color: #0754c4;
+}
+.w180px{
+  min-width: 150px;
+  padding-left: 8px;
+  padding-right: 4px;
+  font-size: 12px;
+}
+.table-planes{
+  .check-table{
+    color: #696969;
+    font-size: 22px;
+    text-align: center;
+  }
+  &__titulo{
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    width: 60px;
+    span{
+      height: 20px;
+      padding: 2px 4px;
+      text-align: center;
+      vertical-align: middle;
+      display: inline-block;
+      line-height: 17px;
+      color: white;
+      width: 50px;
+    }
+    span.plata{
+      background-color: #b1b1b1;
+    }
+    span.oro{
+      background-color: #e6ac38;
+    }
+    span.black{
+      background-color: #27362d;
+    }
+  }
+  &__robo{    
+  }
+  &__semifull{
+  }
+  &__full{
+  }
+  tbody{
+    tr{
+      height: 39px;
+      &:nth-child(even){        
+        background: #f0f2f6;
+      }
+    }
+  }
+}
+
+.detallePlan-titulo{
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  flex-direction: column;
+  p{
+    font-family: 'Omnes Medium';
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #0754c4;
+    text-transform: uppercase;
+  }
+
+}
+.precioRegular{
+  font-size: 14px !important;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.07px;
+  color: #828282 !important;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.box-dto{  
+  position: absolute;
+  right: -12px;
+  top: 10px;
+  box-shadow: 0 2px 10px 0 rgba(0,40,80,0.07);  
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  img{
+    max-width: 115px;
+    width: 100%;
+  }
+  span{
+    text-align: center;
+    width: 130px;
+    height: 22px;
+    font-family: 'Omnes Medium';
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    color: #0855c4;
+    display: inline-block;
+  }
+}
+.planHover{
+  max-width: 160px;
+  margin: auto;
+  cursor: pointer;
+  &:hover{
+    // box-shadow: 0 2px 4px 0 #363232;
+      box-shadow: 0 2px 8px 0 #89adbf;
+  }
+}
+.detallePlan.pt-45{
+    padding-top: 45px;
+}
+
+
+.detallePlan{
+
+  .check-planes{
+    color: #696969;
+    font-weight: 700;
+  }
+  .plan-item{     
+    border-radius: 8px;
+    overflow: hidden;
+    &__header{
+      height: 34px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    &__cuerpo{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 55px;
+    }
+  }
+  &--item{
+    display: flex;
+    align-items: center;
+  }
+  &__lista{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    // padding-top: 24px;
+    position: relative;
+    .planRecomendado{
+      background: #0754c4;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      height: 24px;
+      p{
+        font-family: 'Omnes Medium';
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.3px;
+        text-align: center;
+        color: #fece08;
+      }
+    } 
+  }
+  .lista-plan0{
+    p{
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 0.08px;
+      padding: 0 12px;
+    }    
+  }
+  .lista-plan3{
+    &:after{
+      background: #fece08;
+      content: 'Plan recomendado ';
+      height: 24px;
+      color: #0754c4;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      line-height: 24px;
+      font-size: 13px;
+    }
+  }
+  &--item{
+    height: 40px;
+    margin-right: 1px;
+    p{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .descripcion{
+      justify-content: flex-start;
+    }
+  }
+  .detallePlan--item:nth-child(even){
+    background-color: #f0f2f6;
+  }
+  .detallePlan--item3:nth-child(odd){
+    background-color: #f0f2f6;
+  }
+  &__titulo{
+    font-family: 'Omnes Medium';
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    .mes{
+      font-family: 'Omnes Medium';
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: right;
+      color: #ffffff;
+    }
+    .dolar{
+      font-size: 16px;
+      color: white;
+    }
+    
+    .subtitulo{
+      font-size: 18px;
+    }
+  }
+}
+.planInactivo{
+  box-shadow: none;
+}
+.planActivo{
+  background: #6B797F !important;
+  position: relative;
+  &:before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    left: 39px;
+    bottom: -19px;
+    z-index: 9;
+    text-align: center;
+    align-items: center;
+    color: white;
+    line-height: 24px;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+.roboTotal{
+  border-radius: 2px; 
+  
+}
+.semifull{
+  height: 56px;
+  border-radius: 2px;  
+}
+.full{
+  height: 56px;
+  border-radius: 2px;
+  
+}
+.texto-seleccionaPlan{
+  padding: 12px 0  4px;
+  font-family: 'Omnes Medium';
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: 0.09px;
+  color: #0754c4;
+}
+.panel-planes{
+  display: flex;
+  width: 100%;
+  
+  &__item{
+    padding: 4px;
+    width: 33%;   
+    
+  }
+  .item{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    padding-top: 0;
+    background: #EFF0F3;
+  }
+  p,span{
+    font-size: 11px;
+  }
+  .plan-item{     
+    border-radius: 3px;
+    overflow: hidden;
+    &__header{
+      height: 26px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    &__cuerpo{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16px;
+    }
+  }
+
+  span{
+    font-size: 18px;
+  }
+  .subtitulo{
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .cuota{
+    font-size: 24px;
+  } 
+}
+.basico__monto-mensual, .semifull__monto-mensual, .full__monto-mensual{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  span{
+    color: white !important;  
+    
+  }
+}
+.card-cobertura{
+  width: 100%;
+  .escudo_cobertura{
+    position: absolute;
+    left: 9px;
+    width: 18px;
+  }
+
+  .card-body{
+    padding: 0;
+  }
+  .card-header{
+    padding: 0;
+    a{
+      background-color: #0754c4;
+      border: none;
+    }
+    a:not(:disabled):not(.disabled):active, a:not(:disabled):not(.disabled).active, .show > a.dropdown-toggle {
+        color: #fff;
+        background-color: #0754c4;
+    }
+  }
+}
+.capaOculta{
+  background: #f7fafb;
+  position: absolute;
+  width: 100%;
+  height: 450px;
+  z-index: 999;
+  display: none; 
+  align-items: center;
+  .v-spinner{
+    background:  transparent !important;
+    height: 450px !important;
+
+  }
+}
+.capaOcultaGris{
+    background: rgba(37, 39, 51, 0.74902);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    top: 0;
+}
+.mostrarCapaGris{
+  display: block !important;
+}
+.mostrarCapa{
+    display: block;
+  }
+  .tomar-cuenta{
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    color: #565656;
+  }
+  .descargar-detalle{
+    margin: 24px 0;
+    text-align: center;
+    a{
+      cursor: pointer;
+      color: #454A6C;
+      font-size: 16px;
+      font-family: "Omnes medium";
+      text-decoration: underline;
+    }
+  }
+  .item-inferior{
+    position: absolute;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    left: 0;
+  }
+  .mail-cotizador{
+    &:hover{
+    background: #0855c4;
+    color: #ffffff;
+  }
+  }
+  .boton-fecha{
+    background-image: none !important;
+    background-position-x: 0 !important;
+    .detalle-item{
+      justify-content: center;
+    }
+    p{
+      width: auto;
+    }
+  }
+
+
+.ocultarItemsSeleccionados{
+  display: none !important;
+}
+.datos-vehiculo-mobile{
+  padding-top: 14px;
+  .mi-carro{
+    font-family: 'Omnes Regular';
+    font-size: 22px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #0754c4;
+    padding-bottom: 8px;
+  }
+  .item{
+    height: 22px;
+    line-height: 22px;
+    position: relative;
+  }
+  .flecha_edicion{
+    width: 13px;  
+    height: 7px;
+    position: relative;
+    top: -2px;
+    left: 3px;
+  }
+  .editar-vehiculo{
+    position: absolute;
+    right: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #0754c4;
+    border: 1px solid #0754c4;
+    border-radius: 6px;
+    padding: 2px 10px;
+  }
+}
+.box-range{
+  width: 80%;
+  position: relative;
+  z-index: 5;
+  p{
+    text-align: center;
+  }
+  input{
+      margin: 0px !important;        
+      padding-top: 0;
+  }
+}
+
+
+/******************************************************************************************************* */
+/******************************************************************************************************* */
+/******************************************************************************************************* */
+$height: 30px;
+$thumb-height: 26px;
+$track-height: 8px;
+
+// colours
+// $upper-color: #d8d8d8;
+// $lower-color: #00ADEE;
+// $thumb-color: #0055c8;
+// $thumb-hover-color: #007bff;
+$upper-color: #d8d8d8;
+$lower-color: #00ADEE;
+$thumb-color: #00ADEE;
+$thumb-hover-color: #00ADEE;
+
+$upper-background: linear-gradient(to bottom, $upper-color, $upper-color) 100% 50% / 100% $track-height no-repeat transparent;
+$lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 50% / 100% $track-height no-repeat transparent;
+
+// Webkit cannot style progress so we fake it with a long shadow
+// on the thumb element
+@function webkit-slider-thumb-shadow($i: 1) {
+  $val: #{$i}px 0 0 -#{($thumb-height - $track-height) / 2} #{$upper-color};
+  @if $i == 1 {
+    @for $k from 2 through 1000 {
+      $val: #{$val}, webkit-slider-thumb-shadow($k);
+    }
+  }
+  @return $val;
+}
+
+.e-range {
+  display: block;
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  height: $height;
+  overflow: hidden;
+  cursor: pointer;
+  background: #EFF0F3;
+  border: none !important;
+  &:focus {
+    outline: none;
+  }
+}
+
+// Webkit
+.e-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: $height;
+  background: $lower-background;
+}
+
+.e-range::-webkit-slider-thumb {
+  position: relative;
+  appearance: none;
+  height: $thumb-height;
+  width: $thumb-height;
+  background: $thumb-color;
+  border-radius: 100%;
+  border: 0;
+  top: 50%;
+  margin-top: (-$thumb-height/2);
+  box-shadow: webkit-slider-thumb-shadow();
+  transition: background-color 150ms;
+}
+
+// Firefox
+.e-range::-moz-range-track,
+.e-range::-moz-range-progress {
+  width: 100%;
+  height: $height;
+  background: $upper-background;
+}
+
+.e-range::-moz-range-progress {
+  background: $lower-background;
+}
+
+.e-range::-moz-range-thumb {
+  appearance: none;
+  margin: 0;
+  height: $thumb-height;
+  width: $thumb-height;
+  background: $thumb-color;
+  border-radius: 100%;
+  border: 0;
+  transition: background-color 150ms;
+}
+
+// Internet Exploder
+.e-range::-ms-track {
+  width: 100%;
+  height: $height;
+  border: 0;
+  // color needed to hide track marks
+  color: transparent;
+  background: transparent;
+}
+
+.e-range::-ms-fill-lower {
+  background: $lower-background;
+}
+
+.e-range::-ms-fill-upper {
+  background: $upper-background;
+}
+
+.e-range::-ms-thumb {
+  appearance: none;
+  height: $thumb-height;
+  width: $thumb-height;
+  background: $thumb-color;
+  border-radius: 100%;
+  border: 0;
+  transition: background-color 150ms;
+  // IE Edge thinks it can support -webkit prefixes
+  top: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.e-range:hover,
+.e-range:focus {
+
+  &::-webkit-slider-thumb {
+    background-color: $thumb-hover-color;
+  }
+  &::-moz-range-thumb {
+    background-color: $thumb-hover-color;
+  }
+  &::-ms-thumb {
+    background-color: $thumb-hover-color;
+  }
+}
+
+
+
+/******************************************************************************************************* */
+/******************************************************************************************************* */
+/******************************************************************************************************* */
+.lista1, .lista2, .lista3{
+  display: none;
+  
+}
+.listas{
+  &--box{   
+    background: white;
+    height: auto;
+    max-height: 300px;
+    overflow: scroll;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px 0 rgba(0,40,80,0.07);
+    &::-webkit-scrollbar {
+      width: 8px;     /* Tamaño del scroll en vertical */
+      height: 8px;    /* Tamaño del scroll en horizontal */      
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    .item{
+      height: 35px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      padding-left: 8px;
+      font-size: 1rem;
+      font-family: 'Omnes Medium';
+      cursor: pointer;
+      p{
+        height: 35px;
+        line-height: 35px;     
+      }      
+      &:hover{
+        background: #f7fafb;
+      }
+    }  
+  }
+}
+.mostrarListaMarca{
+  display: block;
+}
+.mostrarListaAnio{
+  display: block;
+}
+.mostrarListaModelo{
+  display: block;
+}
+.mostrarItemMarca, .mostrarItemAnio, .mostrarItemModelo{
+  display: inline-flex;  
+}
+
+.itemEndosoActivo {
+  background: red;
+}
+.endosoSesion {
+  height: 145px;
+  overflow-y: scroll;
+    padding: 0 24px;
+  .endosoItem {
+    display: flex;
+    align-items: center;
+  }
+  .endosoUncheck {
+    width: 15px;
+    height: 15px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    background-size: contain;
+  }
+
+  label {
+    width: 90%;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+  }
+  div {
+    height: 38px;
+    cursor: pointer;
+    &:hover {
+      background: #f7f7f7;
+    }
+    span {
+      padding-left: 12px;
+      cursor: pointer;
+      width: 100%;
+      display: inline-block;
+      line-height: 1px;
+    }
+  }
+}
+.box-btnEndosoSesion {
+  text-align: center;
+  padding: 20px 0px;
+  button {
+    background: white;
+    padding: 8px 19px;
+    font-size: 16px;
+    border: 1px solid #ea0c90;
+    color: #ea0c90;
+    border-radius: 100px;
+    transition: all 0.75s;
+    &:hover {
+      background: #ea0c90;
+      color: white;
+      transition: all 0.75s;
+    }
+  }
+}
+.endosoSesion::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+.endosoSesion::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
+}
+
+.endosoSesion::-webkit-scrollbar-thumb {
+  background-color: #4e4c4c;
+  border: 2px solid #555555;
+}
+.steps-box {
+  padding: 0px;
+}
+.box-campaniatv {
+  .enlace-smarttv {
+    font-size: 15px;
+    color: #0855c4;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  .campaniatv-textos {
+    color: #5fa9fc;
+    font-family: 'Omnes Medium';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: left;
+  }
+}
+.requiere-gps {
+  color: #454A6C;
+  font-size: 16px;
+  font-family: "Omnes regular";
+  &:hover {
+    cursor: pointer;
+  }
+}
+.modalCompararPlanes{
+   .img-close-modal{
+    position: absolute;
+    top: -38px;
+    right: -38px;
+    cursor: pointer;
+  }
+  p{
+    font-size: 24px;
+    color: #454A6C;
+    text-align: center;
+  }
+  .modal-content{
+    border: none;
+  }
+}
+.modal-rootCotizador{
+  border: none;
+  .img-close-modal{
+    position: absolute;
+    top: -38px;
+    right: -38px;
+    cursor: pointer;
+  }
+  .modal-head{
+    // padding-top: 32px;
+  }
+  .modal-content{
+    border: none;
+  }
+  .modal-body{
+    display: flex;
+    flex-direction: column;
+    &__item{
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    // .tercer-item{
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+  }
+  .box-titulo{
+    p{
+      text-shadow: 0 3px 6px rgba(8, 84, 196, 0.02);
+      font-family: 'Omnes Medium';
+      font-size: 24px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+    }
+    span{
+      text-shadow: 0 3px 6px rgba(8, 84, 196, 0.02);
+      display: inline-block;
+      font-family: 'Omnes Regular';
+      font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+      width: 100%;
+    }
+  }
+  .box-descripcion{
+    padding-left: 12px;
+    .titulo{
+      font-family: 'Omnes Regular';
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 0.89;
+      letter-spacing: normal;
+      text-align: left;
+      color: #14aded;
+    }
+    .desc{
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      text-align: left;
+      color: #454a6c;
+    }
+    
+  }
+  .disclaimer-porcentaje{
+    font-family: 'Omnes Regular';
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.07;
+    letter-spacing: normal;
+    text-align: left;
+    color: #454a6c;
+    margin-top: 24px;
+  }
+  .box-img{
+    img{
+      height: 90px;
+      width: auto;
+      max-width: initial;
+    }
+  }
+  .box-btn{
+     button{
+       width: 260px;
+     }    
+  }
+}
+.modal-gps,
+.modal-endoso {
+  position: relative;
+  border: 0 !important;
+  .modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    right: -42px;
+    top: -49px;
+    background: transparent !important;
+  }
+  .box-titulo {
+    color: #00adee;
+    font-family: 'Omnes Medium';
+    font-size: 21.5px;
+    font-weight: 600;
+    letter-spacing: -0.31px;
+    line-height: 26px;
+    text-align: center;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    h2 {
+      border: 2px solid #00adee;
+      display: inline-block;
+      position: relative;
+      font-size: 28px;
+      padding: 5px 25px;
+    }
+  }
+  .modal-body {
+    display: flex;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    flex-direction: column;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .box-paso {
+      color: #ea0c90;
+      font-family: 'Omnes Medium';
+      font-size: 15.74px;
+      font-weight: 600;
+      letter-spacing: -0.16px;
+      line-height: 19px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Omnes Medium';
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 43px;
+      }
+    }
+    .box-descripcion {
+      color: #5e5e5e;
+      font-family: 'Omnes Medium';
+      font-size: 15.74px;
+      font-weight: 500;
+      line-height: 19px;
+      text-align: center;
+    }
+  }
+}
+
+.modeloFaltante,
+.marcaFaltante,
+.añoFaltante {
+  border: 1px solid #0855c4 !important;
+}
+
+.msg_atiguedad {
+  display: none;
+}
+.modal-body {
+  min-height: 180px;
+}
+.select_modelo {
+  border: 2px solid #0855c4 !important;
+  border-radius: 2px;
+}
+.is_disabled_marcaAno {
+  display: none;
+}
+.box_capa {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.capa_select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #d7d7d77d;
+  z-index: 9;
+  height: 100%;
+}
+.msgMontoErroneo {
+  visibility: hidden;
+}
+
+.is_oculto_textMarca {
+  display: inline-block !important;
+  opacity: 1 !important;
+  transition: opacity 0s ease-in;
+}
+.año-fabricacion {
+  opacity: 0;
+  transition: opacity 0s ease-in;
+  color: #0855c4;
+  font-size: 13px;
+  line-height: 14px !important;
+  display: inline-block;
+}
+.oculto {
+  display: none;
+}
+.box-btn {
+  margin: 0px 0 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-weight: 500;
+  margin: 16px 0;
+  padding-bottom: 16px;
+  &__backContinuar {
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &--dni {
+    padding: 0 12px !important;
+    width: 170px !important;
+    font-size: 17px !important;
+    font-family: 'Omnes Medium';
+    &:disabled {
+      background: #9b9b9b;
+    }
+  }
+  .backcotizacion {
+    color: #757575;
+    cursor: pointer;
+  }
+  a {
+    width: 80px;
+    margin: 0;
+  }
+  span {
+    display: inline-block;
+    text-align: left;
+  }
+  button {
+    display: inline-block;
+    margin: 0;
+    width: 80%;
+    left: 10%;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+    background: #ea0c90;
+    color: white;
+    font-size: 15px;
+    font-family: 'Omnes Medium';
+    border-radius: 3px;
+  }
+}
+.box-btn__button.box-btn--back {
+  padding-left: 0;
+  padding: 0;
+  width: 170px;
+}
+.form-content {
+  &__title {
+    font-size: 22px;
+    text-align: center;
+    width: 240px;
+    margin: auto;
+  }
+}
+
+.fa-check:before {
+  color: white;
+}
+
+/**************************************************/
+.box-input {
+  // margin-bottom: 1rem;
+  background: transparent;
+  .input-vehicular {
+    border: none;
+    border: 1px solid #0855c4;
+    border-radius: 0;
+    font-size: 13px;
+    background: transparent;
+    width: 100%;
+    border-radius: 4px;
+  }
+}
+/********************************************************************
+                    INICIO BOX COTIZACION 1
+*********************************************************************/
+.box-cotizacion1 {
+  height: 345px;
+  margin-bottom: 16px;
+  position: absolute;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+  .box-select {
+    background: #f7fafb;
+    border-radius: 12px 12px 0 0;
+    padding: 32px 24px;
+    .titulo {
+      color: #0855c4;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  .box-img {
+    background: #e3eaf5;
+    border-radius: 0 0 12px 12px;
+    min-height: 200px;
+    &__logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      color: #0855c4;
+      font-size: 20px;
+      text-align: center;
+      line-height: 20px;
+      .img-logo {
+        transform-style: preserve-3d;
+        // animation: 5s rotacion infinite;
+      }
+      p {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.activeBox_1 {
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+/********************************************************************
+                    FIN BOX COTIZACION 1
+*********************************************************************/
+/********************************************************************
+                    INICIO BOX COTIZACION 2
+*********************************************************************/
+.checkbox-aux__span {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #a9a9a9;
+  border-radius: 0.25em;
+  width: 1em;
+  height: 1em;
+  float: left;
+  margin-right: 0.3em;
+  i {
+    position: absolute;
+    font-size: 14px;
+  }
+}
+.box-cotizacion2 {
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+  // min-height: 380px;
+  .box-btn {
+    margin-top: 18px;
+    margin-bottom: 0;
+  }
+  .box-tooltip {
+    position: relative;
+    margin-bottom: 4px !important;
+    &__valor-comercial {
+      font-size: 15px;
+      color: #0855c4;
+      font-weight: 500;
+      line-height: 20px;
+      width: 100%;
+      display: inline-block;
+      word-spacing: 2px;
+      font-weight: 600;
+    }
+    .valor-comercial-small {
+      position: relative;
+      font-size: 13px;
+      width: 16px;
+      background: transparent;
+      height: 16px;
+      display: inline-block;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 15px;
+      color: #9e9e9e;
+      font-weight: 600;
+      border: 1px solid #9e9e9e;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    #msg-valor {
+      display: none;
+      position: absolute;
+      background: #002e75;
+      color: white;
+      bottom: 28px;
+      width: 240px;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      left: 0;
+    }
+  }
+  .box-range {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      right: 10%;
+      bottom: -7px;
+      background: red;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      left: 10%;
+      bottom: -7px;
+      background: red;
+    }
+    .box-edit {
+      position: relative;
+      width: 100%;
+      margin: auto;
+      &:after {
+        content: "$";
+        width: 25px;
+        position: absolute;
+        top: 7px;
+        font-size: 20px;
+        left: 20%;
+        color: #495057;
+      }
+      i {
+        position: absolute;
+        font-size: 22px;
+        color: #757575;
+        right: 12%;
+        top: 25%;
+      }
+    }
+    input {
+      margin: auto;
+      padding-top: 0;
+      width: 80%;
+      height: 45px;
+      font-size: 22px;
+      line-height: 24px;
+      text-align: center;
+      padding: 0;
+      border: none;
+      border-bottom: 2px solid red;
+      border-radius: 0;
+      position: relative;
+      background: transparent;
+      z-index: 9;
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+
+
+.cotizador{
+  padding-bottom: 14px;
+}
+  .cotizacion {
+    background: #e3eaf5;
+    border-radius: 0 0 12px 12px;
+    padding: 32px 24px;
+    flex-direction: column;
+    display: flex;
+    &__dto {
+      position: absolute;
+      top: 0;
+      right: 0;
+      img {
+        width: 94px;
+        height: 94px;
+      }
+    }
+    &__boxImg {
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 94px;
+        height: 94px;
+      }
+    }
+    .cotizacion-datos_dto {
+      color: #818181;
+      font-family: 'Omnes Medium';
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 17px;
+      text-align: left;
+      text-decoration: line-through;
+    }
+    .priceHead__head--detail {
+      .checkbox-aux__descripcion {
+        color: #666666;
+        font-family: 'Omnes Medium';
+        font-size: 10.8px;
+        font-weight: 500;
+        line-height: 11.7px;
+        width: 135.17px;
+        text-align: left;
+        left: 45px;
+      }
+      .cobertura-enlace {
+        color: #5e5e5e;
+        font-family: 'Omnes Medium';
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: left;
+        margin-top: 16px;
+        a {
+          color: #0855c4;
+          text-decoration: underline;
+        }
+      }
+      .endoso {
+        color: #5e5e5e;
+        font-family: 'Omnes Medium';
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: left;
+        a {
+          text-decoration: underline;
+          color: #0855c4;
+        }
+      }
+    }
+    .text-endosar {
+      font-size: 12px;
+      padding-left: 4px;
+      padding-top: 8px;
+      display: flex;
+      align-items: center;
+      img {
+        padding-right: 4px;
+      }
+    }
+    .cotizacion-datos {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      position: relative;
+      .etiqueta_dsct {
+        position: absolute;
+        right: 0;
+        width: 50px;
+      }
+      &__item {
+        display: flex;
+        align-items: flex-end;
+      }
+      &__head {
+        &--detail {
+          margin-bottom: 24px;
+        }
+      }
+      .monto-anual {
+        color: #5fa9fc;
+        font-family: 'Omnes Medium';
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19px;
+        text-align: left;
+      }
+      .monto-mensual {
+        font-size: 20px;
+        font-family: 'Omnes Medium';
+        font-size: 64px;
+        font-weight: 900;
+        color: #5fa9fc;
+        margin-bottom: 0;
+        text-align: left;
+        line-height: 52px;
+        display: inline-block;
+        vertical-align: top;
+        small {
+          vertical-align: top;
+          font-size: 48px !important;
+          padding-top: 8px;
+          margin-right: -10px;
+        }
+      }
+      .text-mensual {
+        display: inline-block;
+        font-size: 18px;
+        color: #5fa9fc !important;
+      }
+      .igv_anual {
+        font-size: 16px;
+      }
+
+      .box-tooltip {
+        position: relative;
+        margin-bottom: 4px !important;
+        &__gps {
+          font-size: 15px;
+          color: #0855c4;
+          font-weight: 500;
+          line-height: 20px;
+          width: 100%;
+          display: inline;
+          word-spacing: 2px;
+          font-weight: 600;
+        }
+        .gps-small {
+          position: relative;
+          font-size: 13px;
+          width: 16px;
+          background: transparent;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 15px;
+          color: #ea0c90;
+          font-weight: 600;
+          border: 1px solid #ea0c90;
+        }
+        #msg-valor {
+          display: none;
+          position: absolute;
+          background: #002e75;
+          color: white;
+          bottom: 28px;
+          width: 240px;
+          padding: 8px;
+          border-radius: 8px;
+          font-size: 12px;
+          font-weight: 500;
+          left: 0;
+        }
+      }
+
+      .gps {
+        position: relative;
+        color: #5e5e5e;
+        font-family: 'Omnes Medium';
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: left;
+        strong {
+          font-size: 17px;
+        }
+      }
+    }
+    .priceHead__head--detail {
+      .cobertura {
+        color: #616161;
+      }
+    }
+    .incluye_igv {
+      position: relative;
+      display: block;
+      color: #666666;
+      font-family: 'Omnes Medium';
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 16px;
+      text-align: left;
+    }
+  }
+}
+.todo-riesgo {
+  background: #f7fafb;
+  border-radius: 12px 12px 0 0;
+  padding: 32px 24px;
+  &__head {
+    margin-bottom: 8px;
+    .box-titulos {
+      display: inline-block;
+      &__titulo {
+        color: #0855c4;
+        font-size: 17px;
+        font-weight: 600;
+        display: inline-block;
+        position: relative;
+        &:after {
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          background: #0855c4;
+          left: 0;
+          bottom: -4px;
+        }
+      }
+      &__subtitulo {
+        margin-bottom: 0;
+        color: #666666;
+        font-size: 16px;
+      }
+    }
+    img {
+      display: inline-block;
+      padding-right: 8px;
+    }
+  }
+  &__datosVehiculo {
+    margin-bottom: 16px;
+    p {
+      margin-bottom: 0;
+      color: #616161;
+      line-height: 1 !important;
+      font-size: 15px;
+      font-weight: 500;
+      padding-top: 4px;
+      &:nth-child(1) {
+        text-transform: uppercase;
+      }
+      &:nth-child(2) {
+      }
+      span {
+        padding-top: 4px;
+        color: #0855c4;
+        font-size: 15px;
+        text-decoration: underline;
+      }
+    }
+  }
+  .valorComercial {
+    padding-top: 24px;
+    .checkbox-aux label input[type="checkbox"]:checked + .checkbox-aux__span {
+      background: #0855c4;
+    }
+    .checkbox-aux__descripcion {
+      left: 35px;
+    }
+  }
+  .box-msgMontos {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    line-height: 12px;
+    padding-top: 32px;
+    &__text {
+      padding-top: 4px;
+      font-size: 14px;
+      color: #c01010;
+    }
+  }
+  .msgMontosActive {
+    opacity: 1 !important;
+    transition: all 0s ease-in;
+  }
+
+  &__subtitulo {
+    color: #0855c4;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__lista {
+    padding-left: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+/********************************************************************
+                  FIN COTIZACION BOX 2
+*********************************************************************/
+
+.activeBox_2 {
+  z-index: 1;
+  transition: opacity 0s ease-out;
+  opacity: 0;
+  position: absolute;
+  display: none;
+}
+
+.detalle-marca {
+  min-height: 26px;
+  .span-alterno {
+    font-size: 15px;
+  }
+  .placa {
+    font-size: 20px;
+  }
+}
+.btnTodoRiesgo {
+  border: 1px solid #ea0c90;
+  background: transparent !important;
+  color: #ea0c90 !important;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  margin-right: 12px !important;
+  padding: 0 8px !important;
+  font-family: 'Omnes Medium';
+
+  span {
+    &:nth-child(1) {
+      letter-spacing: 0;
+    }
+    display: block;
+    padding-left: 4px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 16px;
+    text-align: center;
+    font-family: 'Omnes Medium';
+  }
+  &:hover {
+    background: white !important;
+    color: #ea0c90 !important;
+  }
+}
+
+/********************************************************************
+                    MODAL ENVIAR CORREO
+*********************************************************************/
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-close {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  z-index: 9999;
+}
+
+.modal-container__custom {
+  position: relative;
+  width: 92%;
+  margin: 0px auto;
+  padding: 0px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  .modal-close-cotizacion {
+    font-family: 'Omnes Semibold';
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    top: -16px;
+    right: -10px;
+    padding: 0;
+    position: absolute;
+    color: #006ab8;
+    opacity: 1;
+    border-radius: 50%;
+    
+    box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.6);
+    text-align: center;
+    line-height: 40px;
+  }
+  .btn-enviarModal {
+    background: #ea0c90;
+    color: white;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 3px;
+  }
+  .btn-continuarCompra {
+    background: #ea0c90;
+    color: white;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 3px;
+  }
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/********************************************************************
+                    FIN MODAL ENVIAR CORREO
+*********************************************************************/
+.footerv2-desktop {
+  margin-top: 40px;
+}
+.modal-footer {
+  border-top: 0px solid transparent;
+}
+.footer-custom {
+  padding: 0;
+  padding: 0 8px 13px;
+  width: 90%;
+  margin: auto;
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 70px;
+    flex-direction: column;
+  }
+  .grupo-enviar {
+    width: 100%;
+    position: relative;
+    input {
+      width: 100%;
+      margin: 8px 0;
+      height: 40px;
+      padding-left: 44px;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    &:before {
+      background: url(/vehicular/_nuxt/static/media/img/flujo/cotizacion/mail-icon.png);
+      content: "";
+      position: absolute;
+      left: 9px;
+      width: 27px;
+      height: 20px;
+      z-index: 9;
+      background-size: contain;
+      background-repeat: no-repeat;
+      top: 18px;
+    }
+  }
+  button {
+    margin-bottom: 8px;
+  }
+  .form-group {
+    margin: 0rem;
+  }
+}
+.listonMobile{
+  position: relative;
+  img{
+    right: 0;
+    position: absolute;
+    width: 32px;
+    animation: listonMobile 1s infinite;
+    top: -30px;
+  }
+  p{
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-align: center;
+    color: #003aad;
+    padding: 0;
+    margin: 0;
+    padding-top: 6px;
+  }
+}
+
+
+/********************************************************************
+                  MEDIA QUERYS                                      
+*********************************************************************/
+@keyframes listonFondo {
+    0% {
+        background: #ff9200;
+    }
+
+    100% {
+        background: #e7ac38;
+    }
+}
+@keyframes listonMobile {
+    0% {
+        width: 28px;
+    }
+
+    100% {
+        width: 32px;
+    }
+}
+
+.box-btns-fixed{
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 12px;
+  position: fixed;
+  text-align: center;
+  width: 80%;
+  z-index: 999;
+  left: 10%;
+}
+
+@media screen and (max-width: 992px) {
+  
+  .planActivo.plata{
+    background-color: #b1b1b1 !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #b1b1b1;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+  .planActivo.oro{
+    background-color: #e6ac38 !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #e6ac38;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+  .planActivo.black{
+    background-color: #27362d !important;
+    &:before{    
+      border-right: 10px solid transparent;
+      border-top: 10px solid #27362d;
+      border-left: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    p{
+      color: white !important;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .modal-blackWeek{
+    h3{
+        font-size: 30px;
+    }
+    p{
+        font-size: 20px;
+    }
+}
+  .box-mensajeEnviadoCotizacion{
+    .modal-titulo-enviado{
+      font-size: 21px;
+      line-height: 28px;
+    }
+  }
+  
+  .box-mensajeEnviadoEndosar{
+    .endosar-item{
+      .modal-titulo-endoso{
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+.capaOcultaGris{
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    top: 0;
+}
+.v2modalGPS{
+    &__header{
+      .titulo{
+        font-size: 22px;
+      }
+      .descripcion{
+        font-size: 18px;
+      }
+    }
+    &__body{
+      .box-empresas{
+        flex-direction: row;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .empresa-item{
+        margin: 8px;
+      }
+      .finalizar-compra{
+        font-size: 18px;
+      }
+    }
+  }
+.planActivoDesktop.plata{
+  border: 1px solid #b1b1b1;
+}
+.planActivoDesktop.oro{
+  border: 1px solid #e6ac38;
+}
+.planActivoDesktop.black{
+  border: 1px solid #333;
+}
+.planActivo.oro,.planActivo.plata,.planActivo.black{
+  background: white !important;
+}
+.mail-cotizador{
+  .mail{
+    right: -16px;
+    top: -80px;    
+  }
+}
+.box-dto {
+    right: -16px;
+    top: -29px;
+}
+  .precioRegular{
+    font-size: 14px !important;
+  }
+  .box-cotizacion1 .box-select {
+    border-radius: 12px;
+  }
+  .modal-endoso,
+  .modal-gps {
+    .modal-body {
+      flex-direction: row;
+      &__item {
+        width: 33, 3%;
+      }
+    }
+  }
+  .box-titulo {
+    h2 {
+      &:before {
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 2px;
+        left: -100px;
+        top: 20px;
+        background: #00adee;
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 2px;
+        right: -100px;
+        top: 20px;
+        background: #00adee;
+      }
+    }
+  }
+  .todo-riesgo {
+    border-radius: 12px 0 0 12px;
+    .btnTodoRiesgo {
+      font-size: 13px;
+    }
+  }
+  .box-cotizacion2 {
+    .cotizacion {
+      border-radius: 0 12px 12px 0;
+    }
+  }
+  .form-body {
+    margin-top: 1.5rem;
+  }
+  .form-group {
+    margin-top: 1rem;
+  }
+
+  .box-cotizacion1 {
+    .box-img {
+      border-radius: 0 12px 12px 0;
+    }
+  }
+  .box-input {
+    .input-vehicular {
+      width: 175px;
+    }
+  }
+
+  .modal-container__custom {
+    border-radius: 5px;
+    width: 530px !important;
+    .footer-custom {
+      border-radius: 0 0 20px 20px;
+      &__box {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .footer-custom {
+    button {
+      margin-bottom: 0;
+    }
+  }
+  .box-btn {
+    &__backContinuar {
+    }
+  }
+
+  .panel-planes{
+    p,span{
+      color: white;
+    }
+
+    .subtitulo{
+      font-size: 15px;
+    }
+    .cuota{
+      font-size: 32px;
+    } 
+  }
+
+
+
+
+  
+  .v2-suma-asegurada .v2-valor-comercial .box-input .flotante-moneda{
+    left: 34px;
+  }
+  .v2-suma-asegurada{
+    &--titulo{
+      text-align: left;
+    }
+    .v2-valor-comercial{
+      justify-content: flex-start;
+      width: 340px;
+      .e-range{
+        width: 220px;
+        padding-right: 32px;
+        text-align: right;
+      }
+    }
+    .v2-valores-minimo-maximo{
+      width: 340px;
+      text-align: left;
+      left: 78px;
+      position: relative;
+    }
+  }
+  .v2-planes{
+    margin-top: 32px;
+    border-top: 1px solid #D5D5D5;
+    padding-top: 20px;
+    &--titulo{
+      text-align: left;
+    }
+    .fecha{
+      height: 45px;
+      border: 1px solid #0854c4;
+      width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0854c4;
+      border-radius: 4px;
+      cursor: pointer;
+      span{
+        color: #0854c4;
+      }
+    }
+  }
+  .v2-detalle-plan{
+    padding: 0px 24px 32px;
+    margin-top: 0;
+    height: 700px;
+    .dto-cotizador{
+      .flotante-dcto{
+        right: -24px;
+      }
+    }
+  }
+  .v2-datos-carro{
+    margin-top: 42px;
+    width: 505px;
+  }
+  .v2-planes-desktop{
+    .plan-item{
+      height: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-family: 'Omnes regular';
+      font-size: 20px;
+    }
+    .plan-black{
+      background: #27362d;
+    }
+    .plan-oro{
+      background: #e6ac38;
+    }
+    .plan-plata{
+      background: #b1b1b1;
+    }
+  }
+
+
+
+
+.v2-datos-carro{
+    &__detalle{
+      .v2-editar{
+      }
+    }
+  }
+  .contenedor-personalizado{
+    background: transparent;
+    
+  }
+  .detallePlan{
+    .plan-item{
+      &__header{
+        height: 40px;
+        span{
+          font-size: 18px;
+        }
+      }
+      &__cuerpo{
+        color: #696969;
+        font-size: 14px;
+        height: 45px;
+        span{
+          font-size: 28px;
+          color: #696969;
+        }
+      }
+    }
+  }
+  .box-btn{
+    margin: 0;
+    padding: 12px 0;
+    button{
+      width: 200px;
+    }
+  }
+}
+
+
+
+@media (min-width: 1200px){
+  .pt-5-desktop{
+    padding-top: 50px !important;
+  }
+  .liston{
+    display: flex;
+    .desktop_cotizador_liston{
+      font-size: 18px;
+    }
+    .closeListon{
+    right: 9rem;
+  }
+  }
+  .listonMobile{
+    display: none;
+  }
+  .box-btn-cotizador{
+    max-width: 83%;
+    margin: auto;
+  }
+  .entidad_float{
+    display: block;
+  }
+  .modal-rootCotizador{
+    .img-close-modal{
+    }
+    .modal-head{
+    }
+    .modal-content{
+    }
+    .modal-body{
+      flex-direction: row;      
+      margin-bottom: 0;
+      &__item{
+        display: flex;
+        align-items: flex-start;
+        width: 33%;
+      }
+    }
+    .box-titulo{
+      p{
+        font-size: 38px;
+      }
+      span{
+        font-size: 28px;
+      }
+    }
+    .box-descripcion{
+      .titulo{
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .desc{
+      }
+      
+    }
+    .disclaimer-porcentaje{
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #808080;
+    }
+    .box-img{
+      img{
+      }
+    }
+    .box-btn{
+      button{
+      }    
+    }
+  }
+}
+@media (min-width: 1366px){
+  .desktop_cotizador_liston{
+    display: block;
+  }
+  .desktop_cotizador_mobile{
+    display:  none;
+  }
+  .entidad_float{
+     right: calc(-17vw + 5px);
+    width: calc(100vw - 85vw);
+  }
+}
+.leaveModal {
+  .modal-lg {
+    max-width: 660px !important;
+  }
+  font-family: 'Omnes Regular';
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  h2 {
+    font-size: 32px;
+    color: #0854c4;
+  }
+  h3 {
+    font-size: 20px;
+    color: #454a6c;
+  }
+  span {
+    font-family: 'Omnes Medium';
+  }
+  img {
+    margin-top: 30px;
+  }
+  .btn{
+    background-color: #ea0c90;
+    color: white;
+    height: 50px;
+    width: 300px;
+    line-height: 0.5;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    &:hover{
+      opacity: .7;
+    }
+  }
+  .form-control{
+    display: initial;
+    height: 50px;
+    width: 300px;
+
+  }
+}
 </style>
 
 <script>
@@ -3079,12 +6602,7 @@ export default {
     data(){
         return {
 
-        options: [
-            { value: null, text: '' },
-            { value: '1', text: 'Mensual' },
-            { value: '2', text: 'Trimestral' },
-            { value: '3', text: 'Anual' },
-        ],
+     
         planInactivo: false,
 
         listaBasica: {
@@ -3105,7 +6623,7 @@ export default {
             
           }
         },
- listaMedia: {
+        listaMedia: {
           vehicle: {
             current: null,
             maximum: 0,
@@ -3156,8 +6674,14 @@ export default {
         selected: 1,
         monto_pagar: '',
         monto_antes: '',
-            isDisabledEnviarCorreo: false,
-            showModal: false,
+        isDisabledEnviarCorreo: false,
+        showModal: false,
+        options: [
+            { value: null, text: '' },
+            { value: '1', text: 'Mensual' },
+            { value: '2', text: 'Trimestral' },
+            { value: '3', text: 'Anual' },
+        ],
             objSOAT: {},
             objUtm:{},
             
@@ -3349,6 +6873,8 @@ export default {
     methods:{
 
     seleccionarFrecuencia(){
+
+      
         if (this.selected == 1) {
             this.monto_pagar_plata = this.listaBasica.policy.monthly
             this.monto_antes_plata = this.listaBasica.policy.monthlyCalculated
@@ -3427,31 +6953,7 @@ export default {
             }else{}
         }else{}
       },           
-      seleccionarPLanDesktop(id){
-        id = id+""
-        this.planInactivo = true
-
-        if (this.planSeleccionado == id && this.valorSeleccionado) {
-          console.log(id)
-        }else{
-          this.valorSeleccionado = true
-          let elemento1 = document.querySelectorAll(".v2-plan-item")
-          for (let index = 0; index < elemento1.length; index++) {
-            elemento1[index].classList.remove("planActivoDesktop")      
-          }
-          setTimeout(() => {
-            let arreglo = document.querySelectorAll(".plan"+id)
-            for (let i = 0; i < arreglo.length; i++) {
-              arreglo[i].classList.add("planActivoDesktop")
-            }
-            this.seleccionarFrecuencia()
-          }, 250);
-          this.$store.commit('common/setPlanSeleccionado',id)
-          this.planSeleccionado = id
-          this.detectarPLanSeleccionado()
-        }
-        
-      },
+ 
         delayCotizacion(event, ms) {
             var self = this                                 
             clearTimeout(self.timer)
@@ -4401,6 +7903,96 @@ export default {
                 })
             })
         },
+        getCotizacion2() {
+            console.log(this.itemElegido, 'alva');
+            return;
+          this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+            if (res.data.code == 0) { 
+              
+              this.listCotizacionTotal = res.data.body
+              this.listaBasica = res.data.body.basic
+              this.listaMedia = res.data.body.medium
+              this.listaFull = res.data.body.allRisk
+              this.listCotizacion = res.data.body.allRisk
+              this.clonado = Object.assign({}, this.listCotizacion)
+              this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
+              this.cobertura_is.name = this.itemElegido.brand + ' - ' + this.itemElegido.model + ' - ' + this.itemElegido.modelYear
+              this.cobertura_is.discount = '10'
+              this.cobertura_is.startDate = this.fechaVigencia
+              
+              this.cobertura_is.credit = this.endosoSeleccionado.name
+              this.cobertura_is.price = this.listCotizacion.policy.annual
+              this.cobertura_is.ammount = this.listCotizacion.vehicle.current
+              this.cobertura_is.quota = this.listCotizacion.policy.monthly
+              this.segundaPantalla()
+              this.seleccionarFrecuencia()
+            } else if (res.data.code == 213) {
+              let errorDetectado = {
+                url : 'getcotizacion',
+                page : 2,
+                message : res.data.message,
+                objEnviado : this.itemElegido
+              }                
+              this.$store.dispatch('common/eventoErrores', errorDetectado)
+              this.$swal({
+                title: "Oops...",
+                text: res.data.message,
+                type: "error",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK"
+              });
+              this.$nuxt.$router.push({path: "/"})
+              
+              
+            }
+            else if(res.data.code === 200){
+              if(!this.htmlModal){
+                this.htmlModal = document.getElementById('imagePhone');
+                this.htmlModal.style.display = "";
+              }
+
+              const goToVehicular = () => this.$nuxt.$router.back();
+
+              // imagePhone.style.display = '';
+              this.$swal({
+                // title: "Oops...",
+                html: this.htmlModal,
+                // type: "warning",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK",
+                
+              }).then(function () {
+                goToVehicular();
+              });
+        
+
+            } 
+            else {
+              let errorDetectado = {
+                url : 'getcotizacion',
+                page : 2,
+                message : res.data.message,
+                objEnviado : this.itemElegido
+              }
+              this.$store.dispatch('common/eventoErrores', errorDetectado)
+
+              this.$swal({
+                title: "Oops...",
+                text: res.data.message,
+                type: "error",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK"
+              });
+              
+              
+            }
+            
+          })
+        
+      },        
         getCotizacion(current = null) {
             return new Promise((resolve, reject) => {
                 this.remarketingId = this.remarketingId == null ? "" : this.remarketingId
@@ -4808,6 +8400,7 @@ export default {
         },
     },
     mounted(){
+        
         localStorage.setItem("businessId",1)
         var url = window.location.pathname
         var fecha, fechaEnNumeros, aleatorio, aleatorioFinal
@@ -4819,6 +8412,7 @@ export default {
         this.email = mailGenerado
         this.getcreateRemarketing()
         this.getFinancialInstitution()
+        this.getCotizacion2();
     }
 }
 </script>

@@ -2710,7 +2710,9 @@
         })
       },
       getCotizacion() {
+        console.log(this.itemElegido , 'alvita')
           this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+            console.log(res,'alvo')
             if (res.data.code == 0) { 
               
               this.listCotizacionTotal = res.data.body
