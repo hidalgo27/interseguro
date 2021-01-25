@@ -800,11 +800,16 @@ export default {
             this.isisplayNoneLoader = false
             this.$store.dispatch('payment/getTokenCulqi', this.card).then((res) =>{
                     this.objCulqi = res
-                    this.objCard = res.iin
+                    // this.objCard = res.iin
                     this.objCard.policyId = this.objRenovacion.policy.policyId
                     this.objCard.customer_id = this.objRenovacion.client.documentNumber
                     this.objCard.id = this.objCulqi.id
-                    this.objCard.card_number = this.objCulqi.card_number
+
+                    this.objCard.card_brand = this.objCulqi.iin.card_brand;
+                    this.objCard.card_category = this.objCulqi.iin.card_category;
+                    this.objCard.card_number =  this.objCulqi.card_number;
+                    this.objCard.card_type = this.objCulqi.iin.card_type;
+                    this.objCard.bank = this.objCulqi.iin.issuer.name;
                     this.$store.dispatch('payment/getCard', this.objCard).then((res) =>{
                             this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
                             this.objUpdatePolicy.monto_pagar = this.monto_pagar
