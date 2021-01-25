@@ -9,7 +9,7 @@
                             <div class="text-center form-content__msg"></div>
                             <h2 class="mt-4  mb-0 text-center form-content__title text-uppercase">
                                 <div class="img-form" style="margin-bottom:5px">
-                                    <img src="../static/media/img/bp-car.svg" alt="icon step ingresa tu placa">
+                                    <img src="../../static/media/img/bp-car.svg" alt="icon step ingresa tu placa">
                                 </div>
                                 <span class="tag-1">Empecemos,<br></span>
                                 <span class="tag-0">completa tus Datos</span>
@@ -91,7 +91,7 @@
                 <b-row>
                     <b-col cols="12" class="b-white">
                         <div id="show-modal" class="mail-float" role="button" v-on:click="showModal = showModal != undefined ? true : true">
-                            <img src="../static/media/img/flujo/cotizacion/email.png" alt="">
+                            <img src="../../static/media/img/flujo/cotizacion/email.png" alt="">
                             <span>Recibe tu cotización</span>
                         </div>
                         
@@ -816,7 +816,7 @@
               <div class="row  mb-4">
                 <div class="col-12  col-lg-6">
                   <p class="v2-planes--titulo">
-                    Selecciona tu plan
+                    Selecciona tu plan {{this.listaBasica.deducible}}
                   </p>
                 </div>
                 <div class="col-lg-6  d-none  d-lg-flex  align-items-center  justify-content-end">
@@ -918,9 +918,7 @@
                           
                           <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
                         </div>
-                        <div class="box-btn">
-                          <span class="continuar" @click="continuar($event,4)">CONTINUAR</span>
-                        </div>
+                    
                       </div>
                     </div>
                   </div>
@@ -1017,9 +1015,6 @@
                         <div class="descargar-detalle">
                           <!-- <a target="_blank" rel="noopener" v-bind:href="Condicionado_Particular">Descargar detalle de cobertura</a> -->
                           <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
-                        </div>
-                        <div class="box-btn">
-                          <span class="continuar" @click="continuar($event,6)">CONTINUAR</span>
                         </div>
                       </div>
                     </div>
@@ -1137,9 +1132,7 @@
                         <div class="descargar-detalle">
                           <a v-bind:href="urlpdf" target="_blank" rel="noopener" >Descargar detalle de cobertura</a>
                         </div>
-                        <div class="box-btn">
-                          <span class="continuar" @click="continuar($event,3)">CONTINUAR</span>
-                        </div>
+                     
                       </div>
                     </div>
                   </div>
@@ -1319,12 +1312,7 @@
               <div class="v2-comparar-planes  d-lg-none">
                 <!-- <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span>  -->
               </div>
-              <div id="btnirapagar" class="box-btn " v-bind:class="{'opacityNone': opacityNone}">
-                  <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
-              </div>
-              <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
-                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
-              </div>
+      
             </div>
             
 
@@ -1341,20 +1329,7 @@
             </b-container>
         </section>
         
-        <section>
-            <b-container>
-                <b-row class="justify-content-center">
-                    <b-col cols="6"  class="text-center">
-                        <button type="submit" 
-                                @click="continuar" 
-                                class="btn box-btn__button box-btn--primary" 
-                                :disabled='this.isDisabledPayment'>
-                                <span>PAGAR ${{this.monto_pagar}}</span>                 
-                        </button>
-                    </b-col>
-                </b-row>
-            </b-container>
-        </section>
+ 
 
         <br>
 
@@ -1364,18 +1339,8 @@
                     <b-col cols="12" class="text-center">
                         <label>
                             <span>
-                                
-                                <div v-if="this.listCotizacion.vehicle.gps == 'Y'">
-                                    Acepto las <a href="javascript:void(0);"  v-b-modal.modalusopolitica>Condiciones de Uso y Política de Privacidad</a>
-                                    <br>, las <a href="javascript:void(0);"  v-b-modal.modalpoliza>Condiciones de la Póliza</a>
-                                    <br>y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>.
-                                </div>
-                                <div v-else>
-                                    Acepto las <a href="javascript:void(0);"  v-b-modal.modalusopolitica>Condiciones de Uso y Política de Privacidad</a>
-                                    <br>y las <a href="javascript:void(0);"  v-b-modal.modalpoliza>Condiciones de la Póliza</a>.
-                                </div>
-                                <br>
-                                Autorizo el envío de la póliza electrónica <br> y comunicación de Inteseguro a mi correo.
+                                ¡No olvidar! No aseguramos autos de Uso Particular ni mayor a 10 años de antigüedad
+
                             </span>
                         </label>
                     </b-col>
@@ -2042,7 +2007,7 @@
     }
     .checkbox-aux label input[type="checkbox"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon,
     .radio label input[type="radio"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon{
-        content: url('../static/media/img/check_white.png');
+        content: url('../../static/media/img/check_white.png');
         position: absolute;
         width: 15px;
         height: 15px;
@@ -2400,7 +2365,7 @@
         padding: 0px;
         &:before{
             content: "";
-            background: url("../static/media/img/flujo/cotizacion/edit.png");
+            background: url("../../static/media/img/flujo/cotizacion/edit.png");
             height: 30px;
             width: 25px;
             position: absolute;
@@ -2602,7 +2567,7 @@
     }
     .checkbox-aux label input[type="checkbox"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon,
     .radio label input[type="radio"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon{
-        content: url('../static/media/img/check_white.png');
+        content: url('../../static/media/img/check_white.png');
         position: absolute;
         width: 15px;
         height: 15px;
@@ -6352,6 +6317,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     margin-top: 32px;
     border-top: 1px solid #D5D5D5;
     padding-top: 20px;
+    margin: 0px 10%;
     &--titulo{
       text-align: left;
     }
@@ -6601,7 +6567,18 @@ export default {
     layout: "InterseguroHome",
     data(){
         return {
-
+         cobertura_is: {
+          'name': '',
+          'price': '',
+          'category': 'Seguro',
+          'brand': 'Vehicular',
+          'variant': '',
+          'ammount': '',
+          'quota': '',
+          'discount': '',
+          'startDate': '',
+          'credit' : ''
+        },
      
         planInactivo: false,
 
@@ -6843,6 +6820,10 @@ export default {
         }
     },
     computed:{
+        classPlan: function(){
+        return this.planSeleccionado == 4 ? 'planPlata' : this.planSeleccionado == 3 ? 'planBlack' : this.planSeleccionado == 6 ? 'planOro' : 'planNoSeleccionado'
+        // return "uno"
+      },
         isMinimo: function() {
             let minimo = this.clonado.vehicle.minimum
             return minimo.toLocaleString()
@@ -6872,6 +6853,69 @@ export default {
     },
     methods:{
 
+  detectarPLanSeleccionado(){
+        if(this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10){        
+          this.listCotizacion = this.listaFull
+          // this.devolverMonto(this.listaFull)
+          if(this.endosoSeleccionado.id != 0){        
+            this.$store.commit('common/setPlanSeleccionado',10)
+          }
+          this.cobertura_is.variant = "black $"+this.listCotizacion.policy.monthly+"/mes"
+     
+        }else if(this.$store.state.common.planSeleccionado == 6){            
+            this.listCotizacion = this.listaMedia
+            this.cobertura_is.variant = "oro $"+this.listCotizacion.policy.monthly+"/mes"
+            this.endosoSeleccionado = {id:0, name: ''}
+            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
+        }else if(this.$store.state.common.planSeleccionado == 4){
+            this.listCotizacion = this.listaBasica
+            this.endosoSeleccionado = {id:0, name: ''}
+            this.$store.commit('common/setEntidadFinanciera', {id: 0, name:''})
+            this.cobertura_is.variant = "plata $"+this.listCotizacion.policy.monthly+"/mes"
+        }else{}
+      },
+      seleccionarPLan(id){
+        this.planInactivo = true
+        let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
+        for (let index = 0; index < elemento1.length; index++) {
+          elemento1[index].classList.remove("planActivo")      
+        }
+        setTimeout(() => {
+          let arreglo = document.querySelectorAll(".plan"+id)
+          for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i].classList.add("planActivo")
+          }
+          this.seleccionarFrecuencia()
+        }, 250);
+        this.$store.commit('common/setPlanSeleccionado',id)
+        this.planSeleccionado = id
+        this.detectarPLanSeleccionado()
+      },
+      seleccionarPLanDesktop(id){
+        this.planInactivo = true
+
+        if (this.planSeleccionado == id && this.valorSeleccionado) {
+          this.detectarPLanSeleccionado()
+           this.seleccionarFrecuencia()
+        }else{
+          this.valorSeleccionado = true
+          let elemento1 = document.querySelectorAll(".v2-plan-item")
+          for (let index = 0; index < elemento1.length; index++) {
+            elemento1[index].classList.remove("planActivoDesktop")      
+          }
+          setTimeout(() => {
+            let arreglo = document.querySelectorAll(".plan"+id)
+            for (let i = 0; i < arreglo.length; i++) {
+              arreglo[i].classList.add("planActivoDesktop")
+            }
+            this.seleccionarFrecuencia()
+          }, 250);
+          this.$store.commit('common/setPlanSeleccionado',id)
+          this.planSeleccionado = id
+          this.detectarPLanSeleccionado()
+        }
+        
+      },
     seleccionarFrecuencia(){
 
       
@@ -7674,9 +7718,14 @@ export default {
                     this.getBrand()
                     this.getYear()
                     this.getUses()
-                    this.objVehicle.brandId = -1
-                    this.objVehicle.modelYear = -1
-                    this.objVehicle.modelId = -1
+                    if(this.estado_vehicle){
+                      this.updateModel()
+                      this.validarSelect()
+                    }
+                   
+                    // this.objVehicle.brandId = -1
+                    // this.objVehicle.modelYear = -1
+                    // this.objVehicle.modelId = -1
                 });
             }
         },
@@ -7810,15 +7859,32 @@ export default {
                     if (res.data.code == 0) {
                         if (res.data.body.exists == false) {
                             this.estado_vehicle = 0;
-                            resolve(res);
+                            this.objVehicle.brandId = -1
+                            this.objVehicle.modelYear = -1
+                            this.objVehicle.modelId = -1   
+                            this.msgMontos = ""
+                            this.msgMontosActive = false
+                            this.clonado.policy.risk = ''
+                            this.clonado.policy.calculated = 0
+                            this.clonado.policy.annual = 0
+                            this.clonado.policy.quarterly = 0
+                            this.clonado.policy.monthly = 0
+                            this.clonado.deducible = 0
+                            this.clonado.vehicle.current = 0
+                            this.clonado.vehicle.minimum = 0
+                            this.clonado.vehicle.maximum = 0
+                            this.clonado.adjust = 0
+                            this.isEnableNext = false                                                     
+                         
                         } else {
-                            this.objVehicle = res.data.body
+                        
+                            this.objVehicle = res.data.body;
                             this.estado_vehicle = 1
-                            if (this.objVehicle.activePolicy === true) {
-                                this.$nuxt.$router.push({path: "/placa-registrada"})
-                            } else {
-                                this.objVehicle = res.data.body
-                            }
+                            // if (this.objVehicle.activePolicy === true) {
+                                // this.$nuxt.$router.push({path: "/placa-registrada"})
+                            // } else {
+                                // this.objVehicle = res.data.body
+                            // }
                             resolve(res);
                         }
                     } else {
@@ -8005,6 +8071,7 @@ export default {
                   .then(res => {
                     if (res.data.code == 0) {
                         this.listCotizacion = res.data.body.allRisk
+                      
                         if (this.listCotizacion.policy.risk == "Riesgo Foreigner") {
                             this.objVehicleSelect.riesgo = this.listCotizacion.policy.risk
                         } else {
@@ -8145,7 +8212,12 @@ export default {
                         (this.objVehicle.modelId = this.objVehicle.modelId),
                         (this.objVehicle.modelYear = this.objVehicle.modelYear),
                         (this.objVehicle.plateNumber = this.placa)
-                        this.getCotizacion().then(() => {
+                        this.getCotizacion().then((res) => {
+                            this.listCotizacionTotal = res.data.body
+                            this.listaBasica = res.data.body.basic
+                            this.listaMedia = res.data.body.medium
+                            this.listaFull = res.data.body.allRisk
+                            this.seleccionarFrecuencia()
                             this.clonado = Object.assign({}, this.listCotizacion)
                         })
                     })
@@ -8218,8 +8290,8 @@ export default {
                 this.numberTest = numberValidation.card.code.size
                 this.cvvcci = numberValidation.card.code.name
                 let cardType = numberValidation.card.type !== 'american-express' ? numberValidation.card.type : 'amex'
-                this.creditCardImage = require('../static/media/img/flujo/metodo-pago/' + cardType + '.png')
-                this.creditCardImageCvv = require('../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
+                this.creditCardImage = require('../../static/media/img/flujo/metodo-pago/' + cardType + '.png')
+                this.creditCardImageCvv = require('../../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
             } else {
                 this.creditCardImage = ''
                 this.creditCardImageCvv = ''
@@ -8412,7 +8484,6 @@ export default {
         this.email = mailGenerado
         this.getcreateRemarketing()
         this.getFinancialInstitution()
-        this.getCotizacion2();
     }
 }
 </script>
