@@ -286,7 +286,7 @@
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
 
-        <!-- <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -330,9 +330,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
-        <!-- <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+        <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
@@ -349,7 +349,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
         <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
@@ -381,36 +381,7 @@
                 </b-row>
             </b-container>
         </b-modal> -->
-         <b-modal
-        id="leavePayment"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              
-              <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-              <p style="color : #454A6C; font-size: 21px">
-                <strong style="text-transform: uppercase">{{this.$store.state.common.objCliente.firstName}},</strong> <br>
-                Aprovecha este <strong> 15% de dscto.<br> por tiempo limitado</strong> en todos<br> nuestros planes y maneja tranquilo
-              </p>
-            </b-col>
-          </b-row>
-          
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
-                >TERMINAR COMPRA</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal>
+         
     </section>
 </template>
 
@@ -718,7 +689,7 @@ import { validationMixin } from 'vuelidate'
                         })
                         this.opacidad =false
                     }else{
-                        this.objCulqi = res;
+                        this.objCulqi = res
                         this.objPaymentExecute = {
                             tokenId: this.objCulqi.id,
                             planId: this.$store.state.common.planSeleccionado,
@@ -758,8 +729,7 @@ import { validationMixin } from 'vuelidate'
                                 brand: this.objCulqi.iin.card_brand,
                                 category: this.objCulqi.iin.card_category,
                                 number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type,
-                                bank : this.objCulqi.iin.issuer.name
+                                type: this.objCulqi.iin.card_type
                             }
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
@@ -1825,11 +1795,6 @@ a.steps__item.paso1:after{
         font-weight: 500;
     }
     @media (min-width: 768px) {
-        .leaveModal {
-    .img-verano{
-      max-width: 380px;
-    }
-  }
         .metodo-pago{            
             &__comoPagar{
                 // padding: 4px 15px;
