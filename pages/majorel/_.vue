@@ -90,12 +90,7 @@
             <b-container style="background:#ffffff; border-radius:12px; box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 10px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px; padding-bottom:10px; padding-left:23px; padding-right:23px">
                 <b-row>
                     <b-col cols="12" class="b-white">
-                        <div id="show-modal" class="mail-float" role="button" v-on:click="showModal = showModal != undefined ? true : true">
-                            <img src="../../static/media/img/flujo/cotizacion/email.png" alt="">
-                            <span>Recibe tu cotización</span>
-                        </div>
-                        
-
+                     
                         <div>
                             <div v-if="showModal">
                                 <transition name="modal">
@@ -134,11 +129,11 @@
                         <form class="form-horizontal form-content ">
                             <div class="text-center form-content__msg"></div>
                             <h2 class="mt-4  mb-0 text-center form-content__title text-uppercase">
-                                <span class="tag-1">Tu seguro vehicular</span>
+                                <span class="tag-1">Ingresa una Suma asegurada dentro del rango</span>
                             </h2>
                         </form>
                     </b-col>
-                    <b-col cols="6">
+                    <b-col cols="12">
                         <div class="box-cotizacion2">
                             <b-row id="car-price">
                                 <b-col cols="12"
@@ -196,30 +191,7 @@
                             </b-row>
                         </div>
                     </b-col>
-                    <b-col cols="6">
-                        <div class="box-cotizacion2">
-                            <div class="cotizacion">
-                                <div class="cotizacion-datos">
-                                    <div class="cotizacion-datos_dto">
-                                        <span>$ {{this.listCotizacion.policy.monthlyCalculated}} /MES</span>
-                                    </div>
-                                    <div class="cotizacion-datos__item">
-                                        <span class="monto-mensual">
-                                            <small>$</small>
-                                            {{this.listCotizacion.policy.monthly}}
-                                        </span>
-                                        <span class="text-mensual">/ MES</span>
-                                    </div>
-                                    <div class="cotizacion-datos__item">
-                                        <span class="monto-anual">
-                                            Anual: $
-                                            {{this.listCotizacion.policy.annual}}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </b-col>
+              
                 </b-row>
             </b-container>
         </section>
@@ -816,28 +788,11 @@
               <div class="row  mb-4">
                 <div class="col-12  col-lg-6">
                   <p class="v2-planes--titulo">
-                    Selecciona tu plan {{this.listaBasica.deducible}}
+                    Selecciona un plan 
+                    <!-- {{this.listaBasica.deducible}} -->
                   </p>
                 </div>
-                <div class="col-lg-6  d-none  d-lg-flex  align-items-center  justify-content-end">
-                  <div class="fecha">                    
-                    <div @click="showModalInicioVigencia()">
-                      Fecha de inicio:
-                        <span style="display: inline-block; line-height: 1; outline: none; color: #007bff;  line-height: 1;" >                      
-                            <span class="detalle-enlace"  style="cursor: pointer; position: relative;" v-if="this.fechaVigencia != ''" >
-                                {{this.fechaVigencia}}
-                            </span>
-                            <span style="cursor: pointer;" v-else >
-                                Cambiar
-                            </span>                                        
-                        </span>
-                    </div>
-                  </div>
-                  <div class="mail-fecha  mail-cotizador  m-0  ml-3" @click="showModalEnviarEmail()">                  
-                    <span class="enviar-cotizacion">Enviar cotización</span>
-                                  
-                  </div> 
-                </div>
+             
               </div>
 
               <div class="v2-planes-desktop  row  d-none  d-lg-flex">
@@ -1719,7 +1674,7 @@
                 background: transparent;
                 z-index: 9;
                 &:hover{
-                    cursor: pointer;
+                    // cursor: pointer;
                 }
                 &:focus {
                     box-shadow: none;
@@ -5279,7 +5234,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   &__title {
     font-size: 22px;
     text-align: center;
-    width: 240px;
+    width: 100%;
     margin: auto;
   }
 }
@@ -5439,7 +5394,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       height: 15px;
       right: 10%;
       bottom: -7px;
-      background: red;
+      background:transparent;
     }
     &:before {
       content: "";
@@ -5448,7 +5403,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       height: 15px;
       left: 10%;
       bottom: -7px;
-      background: red;
+      background:transparent;
+
     }
     .box-edit {
       position: relative;
@@ -5474,14 +5430,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     input {
       margin: auto;
       padding-top: 0;
-      width: 80%;
+      width: 100%;
       height: 45px;
       font-size: 22px;
       line-height: 24px;
       text-align: center;
       padding: 0;
       border: none;
-      border-bottom: 2px solid red;
+      border-bottom: 2px solid #eee;
       border-radius: 0;
       position: relative;
       background: transparent;
@@ -7875,6 +7831,7 @@ export default {
                             this.clonado.vehicle.maximum = 0
                             this.clonado.adjust = 0
                             this.isEnableNext = false                                                     
+                            resolve(res);
                          
                         } else {
                         
@@ -7968,97 +7925,7 @@ export default {
                     reject(err)
                 })
             })
-        },
-        getCotizacion2() {
-            console.log(this.itemElegido, 'alva');
-            return;
-          this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-            if (res.data.code == 0) { 
-              
-              this.listCotizacionTotal = res.data.body
-              this.listaBasica = res.data.body.basic
-              this.listaMedia = res.data.body.medium
-              this.listaFull = res.data.body.allRisk
-              this.listCotizacion = res.data.body.allRisk
-              this.clonado = Object.assign({}, this.listCotizacion)
-              this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
-              this.cobertura_is.name = this.itemElegido.brand + ' - ' + this.itemElegido.model + ' - ' + this.itemElegido.modelYear
-              this.cobertura_is.discount = '10'
-              this.cobertura_is.startDate = this.fechaVigencia
-              
-              this.cobertura_is.credit = this.endosoSeleccionado.name
-              this.cobertura_is.price = this.listCotizacion.policy.annual
-              this.cobertura_is.ammount = this.listCotizacion.vehicle.current
-              this.cobertura_is.quota = this.listCotizacion.policy.monthly
-              this.segundaPantalla()
-              this.seleccionarFrecuencia()
-            } else if (res.data.code == 213) {
-              let errorDetectado = {
-                url : 'getcotizacion',
-                page : 2,
-                message : res.data.message,
-                objEnviado : this.itemElegido
-              }                
-              this.$store.dispatch('common/eventoErrores', errorDetectado)
-              this.$swal({
-                title: "Oops...",
-                text: res.data.message,
-                type: "error",
-                showCancelButton: false,
-                confirmButtonColor: "#2177CC",
-                confirmButtonText: "OK"
-              });
-              this.$nuxt.$router.push({path: "/"})
-              
-              
-            }
-            else if(res.data.code === 200){
-              if(!this.htmlModal){
-                this.htmlModal = document.getElementById('imagePhone');
-                this.htmlModal.style.display = "";
-              }
-
-              const goToVehicular = () => this.$nuxt.$router.back();
-
-              // imagePhone.style.display = '';
-              this.$swal({
-                // title: "Oops...",
-                html: this.htmlModal,
-                // type: "warning",
-                showCancelButton: false,
-                confirmButtonColor: "#2177CC",
-                confirmButtonText: "OK",
-                
-              }).then(function () {
-                goToVehicular();
-              });
-        
-
-            } 
-            else {
-              let errorDetectado = {
-                url : 'getcotizacion',
-                page : 2,
-                message : res.data.message,
-                objEnviado : this.itemElegido
-              }
-              this.$store.dispatch('common/eventoErrores', errorDetectado)
-
-              this.$swal({
-                title: "Oops...",
-                text: res.data.message,
-                type: "error",
-                showCancelButton: false,
-                confirmButtonColor: "#2177CC",
-                confirmButtonText: "OK"
-              });
-              
-              
-            }
-            
-          })
-        
-      },        
+        },        
         getCotizacion(current = null) {
             return new Promise((resolve, reject) => {
                 this.remarketingId = this.remarketingId == null ? "" : this.remarketingId
@@ -8083,7 +7950,8 @@ export default {
                         localStorage.setItem("quarterly", this.listCotizacion.policy.quarterly )
                         localStorage.setItem("annual", this.listCotizacion.policy.annual )
                         localStorage.setItem("gps", this.listCotizacion.vehicle.gps )
-                        resolve(res)
+                        resolve(res);
+                        return;
                     } else if (res.data.code == 213) {
                         this.$swal({
                             title: "Oops...",
@@ -8219,6 +8087,7 @@ export default {
                             this.listaFull = res.data.body.allRisk
                             this.seleccionarFrecuencia()
                             this.clonado = Object.assign({}, this.listCotizacion)
+
                         })
                     })
                 } else {
@@ -8227,8 +8096,13 @@ export default {
                         (this.objVehicle.modelId = this.objVehicle.modelId),
                         (this.objVehicle.modelYear = this.objVehicle.modelYear),
                         (this.objVehicle.plateNumber = this.placa)
-                        this.getCotizacion().then(() => {
+                        this.getCotizacion().then((res) => {
                             this.estado_vehicle = 1
+                            this.listCotizacionTotal = res.data.body
+                            this.listaBasica = res.data.body.basic
+                            this.listaMedia = res.data.body.medium
+                            this.listaFull = res.data.body.allRisk
+                            this.seleccionarFrecuencia()                            
                             this.clonado = Object.assign({}, this.listCotizacion) 
                         })
                     })
