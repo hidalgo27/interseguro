@@ -604,7 +604,7 @@ import { validationMixin } from 'vuelidate'
 import FadeLoader from '@/components/loaders/FadeLoader'
 var cardNumber;
 export default {
-    layout: "InterseguroHome",
+    // layout: "InterseguroHome",
     data() {
         return {
             showLoader: false,
@@ -884,20 +884,32 @@ export default {
                 } else {
                     this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
                     this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-                        // this.msgMontos = "";
-                        // this.msgMontosActive = false;
-                        //REVISAR DESPUES EL CALL
-                        this.listCotizacion = res.data.body.allRisk
-                        this.clonado.policy.risk = this.listCotizacion.policy.risk;
-                        this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
-                        this.clonado.policy.annual = this.listCotizacion.policy.annual;
-                        this.clonado.policy.quarterly = this.listCotizacion.policy.quarterly;
-                        this.clonado.policy.monthly = this.listCotizacion.policy.monthly;                    
-                        this.clonado.vehicle.current = this.listCotizacion.vehicle.current;
-                        this.clonado.vehicle.minimum = this.clonado.vehicle.minimum;
-                        this.clonado.vehicle.maximum = this.clonado.vehicle.maximum;
-                        // this.isEnableNext = false;
-                        this.obtenerMonto() 
+                        if (res.data.code == 301) {
+                            this.$swal({
+                            title: 'Oops...',
+                            text: 'Estamos teniendo inconvenientes',
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonColor: '#2177CC',
+                            confirmButtonText: 'OK'
+                        })
+                        }else{
+                            // this.msgMontos = "";
+                            // this.msgMontosActive = false;
+                            //REVISAR DESPUES EL CALL
+                            this.listCotizacion = res.data.body.allRisk
+                            this.clonado.policy.risk = this.listCotizacion.policy.risk;
+                            this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
+                            this.clonado.policy.annual = this.listCotizacion.policy.annual;
+                            this.clonado.policy.quarterly = this.listCotizacion.policy.quarterly;
+                            this.clonado.policy.monthly = this.listCotizacion.policy.monthly;                    
+                            this.clonado.vehicle.current = this.listCotizacion.vehicle.current;
+                            this.clonado.vehicle.minimum = this.clonado.vehicle.minimum;
+                            this.clonado.vehicle.maximum = this.clonado.vehicle.maximum;
+                            // this.isEnableNext = false;
+                            this.obtenerMonto() 
+                        }
+                        
                     })
                     this.isDisabled = false;
                 }
@@ -1114,16 +1126,21 @@ export default {
                             this.$store.commit('payment/setNumeroPoliza',this.objRenovacion.policy.policyNumber)
                             this.itemElegido.year = this.objRenovacion.vehicle.modelYear
                             this.itemElegido.assignedPrice = this.objRenovacion.priceModel.vehicle.current
-                            this.$store.dispatch('common/getCotizacion', this.itemElegido)
-                            .then((res) => {
-                                this.listCotizacion = res.data.body.allRisk
-                                this.mostrarPrimeraPantalla = false
-                                this.mostrarSegundaPantalla = true
-                                this.clonado = Object.assign({}, this.listCotizacion);
-                                this.obtenerMonto()   
-                                }
-                            ).catch((res) =>{
-                            })
+                            // this.$store.dispatch('common/getCotizacion', this.itemElegido)
+                            // .then((res) => {
+                            //     this.listCotizacion = res.data.body.allRisk
+                            //     this.mostrarPrimeraPantalla = false
+                            //     this.mostrarSegundaPantalla = true
+                            //     this.clonado = Object.assign({}, this.listCotizacion);
+                            //     this.obtenerMonto()   
+                            //     }
+                            // ).catch((res) =>{
+                            // })
+                            this.listCotizacion = res.data.body.priceModel
+                            this.mostrarPrimeraPantalla = false
+                            this.mostrarSegundaPantalla = true
+                            this.clonado = Object.assign({}, this.listCotizacion);
+                            this.obtenerMonto()   
                     }else if (this.objRenovacion.policy.renew == "N") {
                         this.$store.commit('common/setPlacaNoRenovar', this.placa)
                         this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
@@ -1205,7 +1222,8 @@ export default {
             })
         }
     },
-    mounted() {       
+    mounted() {
+        this.$store.commit('common/setListaCotizacion',this.listCotizacion)
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
