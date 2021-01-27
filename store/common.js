@@ -91,7 +91,8 @@ const getDefaultState = () => {
     codigoRemarketingGenerado: '',
 
     // Modal de abandono
-    leaveMessage: 0
+    leaveMessage: 0,
+    leaveMessage1: 0
     }
 }
 
@@ -241,6 +242,9 @@ const mutations = {
     },
     setLeaveMessage (state, payload) {
         state.leaveMessage = payload
+    },
+    setLeaveMessage1 (state, payload) {
+        state.leaveMessage1 = payload
     }
 }
 

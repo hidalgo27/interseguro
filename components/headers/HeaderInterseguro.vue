@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  
+        </div>   -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -288,7 +288,7 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        background: #0855c4;
+        background: url('./../../static/media/interseguroVehicular_v2/fondo-liston-desktop.png');
         width: 100%;
         height: 46px;
         left: 0;
@@ -640,7 +640,7 @@ export default {
     }
     @media (min-width: 1200px){
         .liston{       
-            height: 42px;     
+            height: 55px;     
             flex-direction: row;
             justify-content: space-between;
             display: flex;

@@ -186,26 +186,45 @@
                                                 </b-col>                    
                                             </b-row>
                                         </b-col>
-                                    
-                                        <b-col cols="12" lg="12" class="pt-3 ">
+                                        
+                                        <b-col cols="12" lg="12" class="pt-5 pt-lg-2 mt-5  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                            <b-row class="justify-content-center">
+                                                
+                                                <b-col cols="10" class="text-center">
+                                                    <div class="flotante-50dcto" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                                        <div class="d-flex flex-direction-column">
+                                                            <img src="./../../static/media/interseguroVehicular_v2/dto-50.svg" alt="">
+                                                            <span style="">Recuerda que el 50% de dscto. <br> será aplicado a la 2da, 3ra y 4ta <br> cuota mensual de tu seguro</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
+                                                        :disabled='this.isDisabledPayment'>
+                                                        <span>PAGAR ${{this.monto_pagar}} </span>                                                        
+                                                        
+                                                    </button>
+                                                </b-col>
+                                                <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                </b-col>
+                                            </b-row>
+                                        </b-col>
+
+                                        <b-col cols="12" lg="12" class="" v-if="this.$store.state.common.frecuenciaPago != 1">
                                             <b-row class="justify-content-center">
                                                 
                                                 <b-col cols="10" class="text-center">
                                                     
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
                                                         :disabled='this.isDisabledPayment'>
-                                                        <span>PAGAR ${{this.monto_pagar}}</span>                                                        
+                                                        <span>PAGAR ${{this.monto_pagar}} </span> 
                                                     </button>
-
-
                                                 </b-col>
                                                 <b-col cols="12">
                                                     <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
                                                 </b-col>
-
-                                                
                                             </b-row>
-                                        </b-col>                                            
+                                        </b-col>
+
                                     </b-row>
                                 </div>
                             </b-col>
@@ -286,7 +305,7 @@
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
 
-        <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -330,9 +349,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
@@ -349,7 +368,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
         <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
@@ -381,7 +400,37 @@
                 </b-row>
             </b-container>
         </b-modal> -->
-         
+         <b-modal
+        id="leavePayment"
+        class="leaveModal"
+        size="lg"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              
+              <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+
+              <p class="mt-3" style="color : #ffffff; font-size: 19px">
+                  <strong>{{this.$store.state.common.objCliente.firstName}}</strong>,<br>
+                <strong>¡Por tiempo limitado! </strong> Asegura tu auto con <br> <strong>50% menos por 3 meses</strong> y participa de <br> nuestro sorteo de <strong>1 PS4 + 1 silla gamer</strong>
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
+                >TERMINAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
     </section>
 </template>
 
@@ -689,7 +738,7 @@ import { validationMixin } from 'vuelidate'
                         })
                         this.opacidad =false
                     }else{
-                        this.objCulqi = res
+                        this.objCulqi = res;
                         this.objPaymentExecute = {
                             tokenId: this.objCulqi.id,
                             planId: this.$store.state.common.planSeleccionado,
@@ -729,7 +778,8 @@ import { validationMixin } from 'vuelidate'
                                 brand: this.objCulqi.iin.card_brand,
                                 category: this.objCulqi.iin.card_category,
                                 number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type
+                                type: this.objCulqi.iin.card_type,
+                                bank : this.objCulqi.iin.issuer.name
                             }
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
@@ -1218,7 +1268,40 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss">
-    
+    .flotante-50dcto{
+        background: #CBDBF2;
+        position: absolute;
+        right: 0;
+        top: -92px;
+        padding: 8px;
+        border-radius: 3px;
+        left: 30px;
+        z-index: 999;
+        width: 254px;
+        &:after{
+            content: '';            
+            width: 0;
+            position: absolute;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 30px solid #CBDBF2;
+            left: 110px;
+        }
+        span{
+            text-transform: none;
+            color: #0855C4;
+            font-size: 13px;
+            font-family: 'Omnes Regular';
+            letter-spacing: 0;
+            display: inline-block;
+            text-align: left;
+            padding-left: 9px;
+        }
+        img{
+
+        }
+    }
         .liston-agora{
             display: none;
             position: absolute;
@@ -1281,7 +1364,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 120px;;
+    padding-top: 143px;;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
@@ -1795,6 +1878,11 @@ a.steps__item.paso1:after{
         font-weight: 500;
     }
     @media (min-width: 768px) {
+        .leaveModal {
+            .img-verano{
+            max-width: 380px;
+            }
+        }
         .metodo-pago{            
             &__comoPagar{
                 // padding: 4px 15px;
@@ -2244,6 +2332,26 @@ a.steps__item.paso1:after{
     }
 }
     @media (min-width: 992px) {
+        .flotante-50dcto{
+            right: -278px;
+            top: 0;
+            padding: 8px;
+            border-radius: 3px;
+            left: initial;
+            width: 254px;
+            &:after{
+                border-bottom: 15px solid transparent;
+                border-right: 30px solid #CBDBF2;
+                border-top: 15px solid transparent;                
+                left: -40px;
+                top: 24px;
+            }
+            span{
+            }
+            img{
+
+            }
+        }
         .steps-box{
             .steps-plan{
                 margin-bottom: 12px;

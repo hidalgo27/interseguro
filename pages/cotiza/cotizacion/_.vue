@@ -1,5 +1,5 @@
 <template>
-  <section class="page-cotizador"  @click="clickIngresaLetra($event)" >
+  <section class="page-cotizador"  @click="clickIngresaLetra($event)"  v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
     <div class="capaOculta" v-bind:class="{mostrarCapa: mostrarCapa}">
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
@@ -26,6 +26,9 @@
             </div> 
         </b-col>  
       </b-row>  
+
+     
+
     </b-container>
 
     <b-container class="contenedor-personalizado">
@@ -167,7 +170,7 @@
                 <button class="minimoImg" @click="minimoImg"  v-bind:class="{minimoImgDisabled : minimoImgDisabled}" :disabled="minimoImgDisabled">
                   <span>-</span>
                 </button>
-                  <div class="box-input">
+                  <div class="box-input" v-if="listCotizacion">
                     <div class="flotante-moneda">US$</div>
                     <b-form-input class="e-range" step="100" v-model="listCotizacion.vehicle.current" type="text" :min="isMinimo" :max="isMaximo" @change="cambioInput()"></b-form-input> 
                   </div>
@@ -197,7 +200,7 @@
 
           
 
-          <b-col xs="12" md="6" lg="12" class="order-md-3">
+          <b-col xs="12" md="8" lg="12" class="order-md-3">
             <div class="v2-planes">
               <div class="row  mb-4">
                 <div class="col-12  col-lg-6">
@@ -244,15 +247,15 @@
                                 <span>US$</span>
                                 <span class="monto">{{this.monto_pagar_plata}}</span>
                             </div>
-                            <p class="antes">Antes US${{this.monto_antes_plata}}</p>
+                            <!-- <p class="antes">Antes US${{this.monto_antes_plata}}</p> -->
                         </div>
                         <div class="v2-detalle-plan__box-frecuencia  select">
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
                       <div class="dto-cotizador">
-                        <div class="flotante-dcto">
-                          10%
+                        <div class="flotante-dcto"  v-if="this.selected == 1">
+                          - 50% por 3 meses <br> <span @click="metodoFlotante()">VER AQUÍ</span>
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -327,15 +330,15 @@
                                 <span>US$</span>
                                 <span class="monto">{{this.monto_pagar_oro}}</span>
                             </div>
-                            <p class="antes">Antes US${{this.monto_antes_oro}}</p>
+                            <!-- <p class="antes">Antes US${{this.monto_antes_oro}}</p> -->
                         </div>
                         <div class="v2-detalle-plan__box-frecuencia  select">
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
                       <div class="dto-cotizador">
-                        <div class="flotante-dcto">
-                          10%
+                        <div class="flotante-dcto"  v-if="this.selected == 1">
+                          - 50% por 3 meses <br> <span @click="metodoFlotante()">VER AQUÍ</span>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -427,15 +430,15 @@
                                 <span>US$</span>
                                 <span class="monto">{{this.monto_pagar_black}}</span>
                             </div>
-                            <p class="antes">Antes US${{this.monto_antes_black}}</p>
+                            <!-- <p class="antes">Antes US${{this.monto_antes_black}}</p> -->
                         </div>
                         <div class="v2-detalle-plan__box-frecuencia  select">
                           <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                         </div>
                       </div>
                       <div class="dto-cotizador">
-                        <div class="flotante-dcto">
-                          10%
+                        <div class="flotante-dcto"  v-if="this.selected == 1">
+                          - 50% por 3 meses <br> <span @click="metodoFlotante()">VER AQUÍ</span>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -532,7 +535,7 @@
                 </div>
               </div>
 
-              <div class="v2-seleccion-planes  d-md-none">
+              <div class="v2-seleccion-planes  d-lg-none">
                 <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                   <p>PLATA</p>
                   <p>US$ {{this.listaBasica.policy.monthly}}</p>
@@ -548,23 +551,23 @@
                 
               </div>
 
-              <div class="v2-detalle-plan  d-md-none" :class="classPlan"> 
+              <div class="v2-detalle-plan  d-lg-none" :class="classPlan"> 
                 <div class="box-monto-frecuencia">
                   <div class="v2-detalle-plan__suma  box-monto-pago">
                       <div class="monto-frecuencia">
                           <span>US$</span>
                           <span class="monto">{{this.monto_pagar}}</span>
                       </div>
-                      <p class="antes">Antes US${{this.monto_antes}}</p>
+                      <!-- <p class="antes">Antes US${{this.monto_antes}}</p> -->
                   </div>
                   <div class="v2-detalle-plan__box-frecuencia  select">
                     <b-form-select @change="seleccionarFrecuencia()" v-model="selected" :options="options"></b-form-select>
                   </div>
                 </div>
                 <div class="dto-cotizador">
-                  <div class="flotante-dcto">
-                    10%
-                  </div>
+                  <div class="flotante-dcto"  v-if="this.selected == 1">
+                          - 50% por 3 meses <br> <span @click="metodoFlotante()">VER AQUÍ</span>
+                        </div>
                 </div>
                 <div class="box-importante">
                   <p class="titulo">Importante</p>
@@ -705,9 +708,11 @@
               <div class="v2-comparar-planes  d-lg-none">
                 <span @click="showModalCompararPlanes()"><img src="../../../static/media/img/comparar-planes.png"  class="mr-2" alt="B">COMPARAR PLANES</span> 
               </div>
-
-              <div class="box-btn  d-lg-none">
-                <span class="continuar" @click="continuar($event, planSeleccionado)">CONTINUAR</span>
+              <div id="btnirapagar" class="box-btn " v-bind:class="{'opacityNone': opacityNone}">
+                  <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+              </div>
+              <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
+                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>
             
@@ -728,7 +733,23 @@
 
       </b-row>
     </b-container>
-
+    <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+            <b-container  style="height: 100%;">
+                <b-row class="align-items-center" style="height: 100%;">
+                    <b-col cols="12">
+                        <div class="banner-modal">
+                            <img src="./../../../static/media/modalBlackWeek/modal.svg" alt="">
+                        </div>
+                    </b-col>                  
+                    <b-col cols="12" class="mb-2">
+                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
+                    </b-col>
+                    <b-col class="text-center mb-4" cols="12">
+                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
     <b-modal
         title="Bootstrap-Vue"
         hide-footer
@@ -761,7 +782,19 @@
     </b-modal>
     
 
+      <div id="imagePhone" style="display:none" >
+        <div class="phoneContent">
+                 <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
+                  <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
+                 </a>
+          </div>
+      
+                Tenemos problemas para cotizar tu placa. Por favor 
+                 ponte en contacto con nosotros llamando al   
+                 <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>
+                 y te ayudamos a seguir con la cotización.
 
+        </div>
     
       <b-modal title="Bootstrap-Vue"
           hide-footer
@@ -1180,7 +1213,7 @@
         <div class="v2modalGPS__header">
           <img src="./../../../static/media/interseguroVehicular_v2/auto-gps.png" alt="">
           <div class="texto-header">
-            <p class="titulo">Tu Mazda necesita un GPS, te ayudamos a contratarlo</p>
+            <p class="titulo">Tu {{this.itemElegido.brand }} necesita un GPS, te ayudamos a contratarlo</p>
             <span class="descripcion">
               Por ser de Interseguro, podrás acceder a los mejores precios:
             </span>
@@ -1199,7 +1232,7 @@
                 <p>US$150</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 618 1900</p>
+                <p>(01) 618 1900</p>
               </div>
             </div>
 
@@ -1214,7 +1247,7 @@
                 <p>US$177</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 620 1111</p>
+                <p>(01) 620 1111</p>
               </div>
             </div>
 
@@ -1229,7 +1262,7 @@
                 <p>US$165</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 630 7575</p>
+                <p>(01) 630 7575</p>
               </div>
             </div>
 
@@ -1244,7 +1277,7 @@
                 <p>US$199</p>
                 <!-- <span class="precio-antes">250</span> -->
                 <span>Contacto:</span>
-                <p>(01 513 8686</p>
+                <p>(01) 513 8686</p>
               </div>
             </div>
           </div>
@@ -1309,7 +1342,7 @@
     </b-modal>
 
     <!-- Modal de abandono  -->
-    <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1368,8 +1401,77 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
+      <b-modal
+        id="leaveQuote2"
+        class="leaveModal"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              
+              <img class="img-verano" width="100%" src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3" style="color : #ffffff; font-size: 19px">
+                <strong>¡Por tiempo limitado! </strong> Asegura tu auto con <br> <strong>50% menos por 3 meses</strong> y participa de <br> nuestro sorteo de <strong>1 PS4 + 1 silla gamer</strong>
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
+                >CONTINUAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
 
+      <b-modal
+        id="leaveQuote"
+        class="leaveModal"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row>
+            <b-col>
+              <div style="position: absolute;
+                        left: 0px;
+                        display: flex;
+                        top: -63px;">
+                <img class="img-flotante"  width="80" src="./../../../static/media/interseguroVehicular_v2/flotante.svg" alt="">
+              </div>
+            </b-col>
+          </b-row>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+               
+              <img class="img-verano"  src="./../../../static/media/interseguroVehicular_v2/ahorro.svg" alt="">
+              <p class="mt-3" style="color : #ffffff; font-size: 16px">
+                <strong>¡No te lo pierdas!</strong>
+                <br>
+                Todas las compras en frecuencia de pago <br> <span style="background: #EA0F8F;"> mensual tendrán un 50% de dscto.</span> <br>
+                en la 2da, 3ra y 4ta cuota del seguro.
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote')"
+                >DE ACUERDO</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
   </section>
 </template>
 <script>
@@ -1388,6 +1490,8 @@
     layout: 'InterseguroHomeCotizacion',
     data() {
        return {
+         opacityNone: false,
+         urlpdf:'',
         mostrarMensajeEnviadoEndosar: false,
         mostrarMensajeEnviadoCotizacion: false,
         maximoImgDisabled: false,
@@ -2451,6 +2555,13 @@
     },
     },
     mounted: function () {
+      if (this.$store.state.common.leaveMessage1 == 0) {
+        this.$store.commit('common/setLeaveMessage1',1)
+        this.$nuxt.$emit('bv::show::modal','leaveQuote')
+    }
+    
+    this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
+      
       this.selected = this.$store.state.common.frecuenciaPago
       if(this.fechaVigencia == null || this.fechaVigencia == 'null' || this.fechaVigencia == ''){
         let fecha = new Date()
@@ -2547,8 +2658,85 @@
     }
   }
 </script>
+
 <style lang="scss" scoped>
 
+.phoneContent{
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 20px 0px;
+
+    .phoneS{
+    width: 100px;
+      height: 100px;
+      background: #0055c8;
+      display: flex;
+      justify-content: center;
+      border-radius: 50px;
+    }
+    
+}
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
+.page-cotizador{
+  background: white;
+  padding-top: 103px; 
+}
+.opacityNone{
+    opacity: 1 !important;
+}
 button:focus{
   outline: none;
 }
@@ -2811,7 +2999,7 @@ button:focus{
         font-family: 'Omnes Regular';
         margin-top: 12px;
       }
-    }
+  }
   .tooltip-icon{
     background: #D0D6E0;
     color: white;
@@ -2925,6 +3113,7 @@ button:focus{
 
   }
 }
+ 
 .v2-datos-carro{
   font-family: 'Omnes Regular';
   border: 1px solid #D5D5D5;
@@ -3050,12 +3239,17 @@ button:focus{
       background: #EA0F90;
       color: #ffffff;
       font-family: "Omnes Regular";
-      font-size: 25px;
-      padding: 12px;
+      font-size: 13px;     
+      padding: 5px 6px;
       position: absolute;
       right: -35px;
-      top: 0px;
+      top: 8px;
       border-radius: 4px 0 0 4px;
+      text-align: right;
+      span{
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
   .detalle-item{
@@ -3134,7 +3328,7 @@ button:focus{
     
   }
   .box-importante{
-    padding: 14px 0;
+    padding: 34px 0 14px;
     .titulo{
       font-size: 20px;
       font-family: "Omnes Medium";
@@ -4587,7 +4781,8 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   button {
     display: inline-block;
     margin: 0;
-    width: 100%;
+    width: 80%;
+    left: 5;
     height: 45px;
     line-height: 45px;
     padding: 0;
@@ -4765,7 +4960,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: absolute;
       width: 2px;
       height: 15px;
-      right: 10%;
+      right: 5;
       bottom: -7px;
       background: red;
     }
@@ -4774,7 +4969,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: absolute;
       width: 2px;
       height: 15px;
-      left: 10%;
+      left: 5;
       bottom: -7px;
       background: red;
     }
@@ -5404,8 +5599,34 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         width: 32px;
     }
 }
-
-
+.box-btns-fixed {
+    bottom: 0;
+    margin: auto;
+    padding-bottom: 12px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    margin-left: 0 ;
+    padding-left: 0 ;
+}
+// .box-btns-fixed{
+//   bottom: 0;
+//   margin: auto;
+//   padding-bottom: 12px;
+//   position: fixed;
+//   text-align: center;
+//   width: 80%;
+//   z-index: 999;
+//   left: 5;
+// }
+@media screen and (min-width: 600px) {
+.leaveModal {
+    .img-verano{
+      max-width: 380px;
+    }
+  }
+}
 @media screen and (max-width: 992px) {
   
   .planActivo.plata{
@@ -5446,6 +5667,25 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
 }
 @media screen and (min-width: 992px) {
+  .page-cotizador{
+    .leaveModal {
+      .img-flotante{
+        width: 90px !important;
+      }
+      p{
+        font-size: 18px !important;
+      }
+    }
+  }
+  
+  .modal-blackWeek{
+    h3{
+        font-size: 30px;
+    }
+    p{
+        font-size: 20px;
+    }
+}
   .box-mensajeEnviadoCotizacion{
     .modal-titulo-enviado{
       font-size: 21px;
@@ -5621,9 +5861,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
 
 
-  .page-cotizador{
-    background: white;
-  }
+  
   .v2-suma-asegurada .v2-valor-comercial .box-input .flotante-moneda{
     left: 34px;
   }

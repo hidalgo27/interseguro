@@ -371,7 +371,7 @@ export default {
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
-    padding-top: 110px;
+    padding-top: 170px;
   }
   .card-btnPago{
     display: flex;
