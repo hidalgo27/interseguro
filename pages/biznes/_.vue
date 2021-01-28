@@ -7236,7 +7236,7 @@ export default {
                 this.isDisabled = true
             } else {
                 //localStorage.setItem("current", this.listCotizacion.vehicle.current)
-                this.getCotizacion(this.listCotizacion.vehicle.current).then(() => {
+                this.getCotizacion(this.listCotizacion.vehicle.current).then((res) => {
                     this.msgMontos = ""
                     this.msgMontosActive = false
                     this.clonado.policy.risk = this.listCotizacion.policy.risk
@@ -7251,6 +7251,12 @@ export default {
                     this.clonado.adjust = this.listCotizacion.adjust
                     localStorage.setItem("objPoliza", JSON.stringify(this.clonado))
                     this.isEnableNext = false
+                    this.listCotizacionTotal = res.data.body
+                    this.listaBasica = res.data.body.basic
+                    this.listaMedia = res.data.body.medium
+                    this.listaFull = res.data.body.allRisk
+                    this.seleccionarFrecuencia()
+                    this.clonado = Object.assign({}, this.listCotizacion)                    
                 })
               this.isDisabled = false
             }
