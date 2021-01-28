@@ -21,9 +21,13 @@
 //   background: #ebf1fb;
 // }
 .leaveModal {
-  
+  p{
+    
+    font-family: 'Omnes Regular';
+  }
   .modal-content{
-    background: #fff !important;
+    padding-top: 24px;
+    background: url('./../../static/media/interseguroVehicular_v2/fondo-modal.png');
   }
 }
 .modal-blackWeek{
@@ -204,25 +208,25 @@
   content: 'DIAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855c4!important;
+  color: #ffffff!important;
 }
 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
   content: 'HORAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855c4!important;
+  color: #ffffff!important;
 }
 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
   content: 'MIN' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855c4!important;
+  color: #ffffff!important;
 }
 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
   content: 'SEG' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855c4!important;
+  color: #ffffff!important;
 }
 .flipdown.flipdown__theme-dark .rotor-group-heading:before {
   color: #ffffff !important;
@@ -284,7 +288,7 @@
 .flipdown .rotor-top,
 .flipdown .rotor-bottom,
 .flipdown .rotor:after {
-  width: 22px !important;
+  width: 15px !important;
 }
 
 .flipdown .rotor-group {
@@ -770,7 +774,7 @@
 }
 @media (min-width: 1024px) {
   .rotor-group-heading {
-    width: 65px !important;
+    width: 47px  !important;
   }
   .exampleMobile .flipdown .rotor-group {
     padding-right: 6px !important;
@@ -816,7 +820,7 @@
   }
 
   .flipdown .rotor {
-    font-size: 33px !important;
+    font-size: 24px !important;
     margin-right: 3px !important;
   }
 
@@ -827,11 +831,11 @@
   .flipdown .rotor-top,
   .flipdown .rotor-bottom,
   .flipdown .rotor:after {
-    width: 30px !important;
+    width: 20px !important;
   }
 
   .flipdown .rotor-group {
-    padding-right: 20px !important;
+    padding-right: 10px !important;
   }
 
   .flipdown .rotor-group:last-child {

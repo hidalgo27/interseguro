@@ -3,22 +3,24 @@
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
-                    <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
-                    <!-- <div  class="example">            
+                    <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/logo-franja-10.svg" alt="">
+                    <div  class="example">
+                        <p>50% menos por 3 meses y sorteo de 1 PS4 + silla gamer.</p>
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
-                    </div> -->
-                    <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
+                    </div>
+                    
+                    <div class="closeListon-mobile d-md-none" @click="closeListon()">X</div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img src="./../../static/media/modal/logo-franja-10.svg" alt="">          
-                        <p >Compra con 10% de dscto. en todos nuestros planes</p>
+                        <img src="./../../static/media/interseguroVehicular_v2/logo-franja-10.svg" alt="">          
+                        <p>Asegura tu auto con 50% de dscto. por 3 meses y participa del sorteo de 1 PS4 + 1 silla gamer</p>
                     </div>
-                    <!-- <div id="contadorCyber2" class="flipdown"></div> -->
+                    <div id="contadorCyber2" class="flipdown"></div>
                     
                 </div>
-                <div class="closeListon" @click="closeListon()">X</div>
+                <div class="closeListon d-none d-md-block" @click="closeListon()">X</div>
             </div>
         </div>  
         <div class="menu-nav">
@@ -169,7 +171,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -202,8 +204,8 @@ export default {
     methods:{
         
         contador(){
-            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1612155599, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1612155599, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -273,7 +275,19 @@ export default {
 
 <style lang="scss" scoped>
     
-    
+    .closeListon-mobile{
+        height: 30px;
+        top: 5px;
+        border-radius: 45px;
+        width: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+        position: relative;
+        right: 4px;
+        top: 0px;
+    }
     .closeListon{
         
         cursor: pointer;
@@ -291,11 +305,9 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        // background-image: url('./../../static/media/modalBlackWeek/fondo-liston-mobile.png');
-        // background-size: contain;
-        background-color: #0855C4;
+        background: url('./../../static/media/interseguroVehicular_v2/fondo-liston-desktop.png');
         width: 100%;
-        height: 46px;
+        height: 90px;
         left: 0;
         justify-content: center;
         padding-left: 16px;
@@ -308,7 +320,7 @@ export default {
             margin-right: auto;
             img{
                 position: relative;
-                width: 31px;
+                width: 124px;
                 height: auto;
                 left: -8px;
             }
@@ -329,6 +341,7 @@ export default {
         }
         
         p{
+            position: relative;
             text-align: left;
             font-size: 14px;
             font-weight: normal;
@@ -336,7 +349,7 @@ export default {
             font-style: normal;
             line-height: 1.3;
             letter-spacing: normal;
-            color: #fff;
+            color: #ffffff;
             font-family: 'Omnes Regular' !important;
         }
         .example{
@@ -592,7 +605,7 @@ export default {
     @media (min-width: 992px){
         .logo-franja{
             img{
-                width: 31px !important;
+                width: 100px !important;
             }
         }
         .footer-menu{
@@ -624,6 +637,9 @@ export default {
             height: 42px;
             .contadorCyber2{
                 margin-left: 30px;
+            }
+            p{
+                left: -8px;
             }
         }
          .header-planes{
@@ -718,7 +734,7 @@ export default {
     }
     @media (min-width: 1366px){
         .liston{
-            height: 42px;
+            height: 50px;
             padding-right: 102px;
             padding-left: 128px;
             .box-texto-img{

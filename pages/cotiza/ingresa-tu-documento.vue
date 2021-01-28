@@ -879,48 +879,18 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img
-                src="../../static/media/modal/leave-datos.png"
-                alt="Abandonar Seguro Vehicular"
-              />
+              
+             <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3" style="color : #ffffff; font-size: 19px">
+                <strong>¡Por tiempo limitado! </strong> Asegura tu auto con <br> <strong>50% menos por 3 meses</strong> y participa de <br> nuestro sorteo de <strong>1 PS4 + 1 silla gamer</strong>
+              </p>
             </b-col>
           </b-row>
-          <b-row class="text-center">
-            <b-col cols="12" class="mb-3">
-              <h2 v-if="this.planSeleccionado == 4">
-                <span>¡Buena elección!</span> <br />
-                Tu auto estará <br />
-                protegido en caso lo roben
-              </h2>
-              <h2 v-if="this.planSeleccionado == 6">
-                <span>¡Buena elección!</span> <br />
-                Has elegido el plan <br />
-                perfecto para tu
-                {{ this.$store.state.common.itemElegido.brand }}
-              </h2>
-              <h2
-                v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-              >
-                <span>¡Buena elección!</span> <br />
-                Has elegido el plan que te <br />
-                protege contra Todo Riesgo
-              </h2>
-            </b-col>
-            <b-col cols="12" class="mb-3">
-              <h3>
-                No lo dejes pasar, protege tu
-                {{ this.$store.state.common.itemElegido.brand }} <br />
-                hoy por solo ${{ this.$store.state.common.montoPagar }}.
-              </h3>
-            </b-col>
-            <b-col cols="12" class="mb-2">
-              <h3>Continúa tu cotización en el siguiente paso.</h3>
-            </b-col>
-          </b-row>
+          
           <b-row class="justify-content-center">
             <b-col class="text-center mb-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
-                >QUIERO CONTINUAR</b-button
+                >CONTINUAR COMPRA</b-button
               >
             </b-col>
           </b-row>
@@ -1005,7 +975,7 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 120px;
+  padding-top: 143px;
   .steps-plan {
     background: white;
   }
@@ -1381,6 +1351,11 @@ input:focus {
 }
 
 @media (min-width: 768px) {
+  .leaveModal {
+    .img-verano{
+      max-width: 380px;
+    }
+  }
   .ml-2-mobile {
     margin-left: 8px;
   }
@@ -1519,6 +1494,12 @@ input[type="color"]:focus,
   background: #27362d;
 }
 .leaveModal {
+  .img-verano{
+
+  }
+  .modal-content{
+    background: #FFF188 !important;
+  }
   .modal-lg {
     max-width: 660px;
   }
@@ -1547,7 +1528,7 @@ input[type="color"]:focus,
     background-color: #ea0c90;
     color: white;
     height: 50px;
-    width: 300px;
+    width: 250px;
     line-height: 0.5;
     font-size: 16px;
     border-radius: 3px;
