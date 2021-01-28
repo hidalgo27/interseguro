@@ -8,7 +8,7 @@
                 <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
                 Manejar tranquilo <br> ahora es más fácil
             </p> -->
-            <img class="d-lg-none" width="100%" src="./../static/media/interseguroVehicular_v2/logo-verano-mobile.svg" alt="">
+            <img class="d-lg-none" width="100%" src="./../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
             <div class="box-contador  d-lg-none  mt-2" style="padding-left: 32px;">
               <div  class="example">
                   <div id="contadorCyber" class="flipdown">
