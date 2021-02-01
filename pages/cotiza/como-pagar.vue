@@ -191,12 +191,7 @@
                                             <b-row class="justify-content-center">
                                                 
                                                 <b-col cols="10" class="text-center">
-                                                    <div class="flotante-50dcto" v-if="this.$store.state.common.frecuenciaPago == 1">
-                                                        <div class="d-flex flex-direction-column">
-                                                            <img src="./../../static/media/interseguroVehicular_v2/dto-50.svg" alt="">
-                                                            <span style="">Recuerda que el 50% de dscto. <br> será aplicado a la 2da, 3ra y 4ta <br> cuota mensual de tu seguro</span>
-                                                        </div>
-                                                    </div>
+
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
                                                         :disabled='this.isDisabledPayment'>
                                                         <span>PAGAR ${{this.monto_pagar}} </span>                                                        
@@ -304,8 +299,7 @@
         <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
-
-        <!-- <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -349,9 +343,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
-        <!-- <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+        <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
@@ -368,7 +362,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
         <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
             <b-container>
@@ -400,37 +394,7 @@
                 </b-row>
             </b-container>
         </b-modal> -->
-         <b-modal
-        id="leavePayment"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              
-              <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-
-              <p class="mt-3" style="color : #ffffff; font-size: 19px">
-                  <strong>{{this.$store.state.common.objCliente.firstName}}</strong>,<br>
-                <strong>¡Por tiempo limitado! </strong> Asegura tu auto con <br> <strong>50% menos por 3 meses</strong> y participa de <br> nuestro sorteo de <strong>1 PS4 + 1 silla gamer</strong>
-              </p>
-            </b-col>
-          </b-row>
-          
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
-                >TERMINAR COMPRA</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal>
+         
     </section>
 </template>
 
