@@ -73,7 +73,7 @@ module.exports = {
     { src: '~plugins/vue-tab.js', ssr: false },    
     { src: '~plugins/vue-cliploader.js', ssr: false },
     { src: '~plugins/ga.js', ssr: false },
-    // { src: '~plugins/chat.js', ssr: false },
+    { src: '~plugins/chat.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
     { src: '~/plugins/localStorage.js', ssr: false }
   ],

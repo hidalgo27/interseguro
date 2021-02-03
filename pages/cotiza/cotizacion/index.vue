@@ -3175,11 +3175,7 @@
   },
 
   mounted: function () {
-    if (this.$store.state.common.leaveMessage1 == 0) {
-        this.$store.commit('common/setLeaveMessage1',1)
-        this.$nuxt.$emit('bv::show::modal','leaveQuote')
-    }
-    
+
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
