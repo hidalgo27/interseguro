@@ -8,7 +8,20 @@
     
     <b-container class="contenedor-personalizado" >
       <b-row>
-        <b-col cols="12" xl="10" class="m-auto">
+        <b-col cols="12" xl="12" class="m-auto">
+          <div class="flotante-covid" v-if="activeBox_1">
+            <div class="flotante-covid__cuerpo    d-none  d-lg-block">
+               <!-- <img
+                  @click="hideModalRootCotizador()"
+                  src="./../../../static/media/img/root/close.png"
+                  width="50"
+                  alt="icon close"
+                  class="img-close "
+                /> -->
+                 <router-link  to="/tyc"><img class="gratis-prueba" src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+              
+            </div>            
+          </div>
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
@@ -712,7 +725,17 @@
                   <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
               <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
-                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+                  <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid">
+                    <img
+                      @click="hideFlotante()"
+                      src="./../../../static/media/img/root/close.png"
+                      width="50"
+                      alt="icon close"
+                      class="img-close "
+                    />
+                    <router-link to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                  </div>
+                  <b-button class="continuar  d-lg-none mt-2" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>
             
@@ -1375,7 +1398,7 @@
       </b-container>
     </b-modal>
 
-    <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1401,7 +1424,40 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
+
+     <b-modal
+        id="leaveQuote2"
+        class="leaveModal"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              
+              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3" style="color : #ffffff; font-size: 19px">
+
+                <strong>¡Quedan pocas horas! </strong> Compra <br> 
+                tu Seguro Vehicular hoy y obtén GRATIS<br> 
+                una prueba rápida de COVID-19 a domicilio
+
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
+                >Quiero continuar</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
 
   </section>
 </template>
@@ -1422,6 +1478,7 @@
     layout: 'InterseguroFlujo',
     data() {
       return {
+        flotanteCovid: true,
         opacityNone: false,
         urlpdf:'',
         mostrarMensajeEnviadoEndosar: false,
@@ -1745,6 +1802,9 @@
       },
     },
     methods: {
+      hideFlotante(){
+        this.flotanteCovid = !this.flotanteCovid
+      },
       metodoFlotante(){
         this.$nuxt.$emit('bv::show::modal','leaveQuote')
       },
@@ -3086,11 +3146,12 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.promocion == true ? "vehicular/promocion/" : this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },
             datosProducto: {
+              urlGlobal : this.$store.state.common.urlGlobal,
               marca : this.$store.state.common.itemElegido.brand,
               modelo : this.$store.state.common.itemElegido.model,
               planSeleccionado : this.planSeleccionado+'',
@@ -3337,7 +3398,35 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px; 
+  padding-top: 120px;
+  .img-close{
+    position: absolute;
+    right: -24px;
+    top: -20px;
+  }
+  .flotante-covid{
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    .gratis-prueba{
+      width: 210px;
+    }
+    a{
+      cursor: pointer;
+      z-index: 99;
+    }
+    .img-close{
+      position: absolute;
+      right: -24px;
+      top: -20px;
+    }
+    &__cuerpo{
+      position: relative;
+    }
+    img{
+      cursor: pointer;
+    }
+  }
 }
 .opacityNone{
     opacity: 1 !important;
@@ -6209,6 +6298,9 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   width: 80%;
   z-index: 999;
   left: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 992px) {

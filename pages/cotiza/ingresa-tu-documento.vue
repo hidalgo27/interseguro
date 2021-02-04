@@ -865,9 +865,41 @@
           </div> -->
         </div>
       </b-modal>
+<b-modal
+        id="leaveDocument"
+        class="leaveModal"
+        size="lg"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              
+             <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3" style="color : #ffffff; font-size: 19px">
 
+                <strong>¡Quedan pocas horas! </strong> Compra <br> 
+                tu Seguro Vehicular hoy y obtén GRATIS<br> 
+                una prueba rápida de COVID-19 a domicilio
+
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
+                >CONTINUAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
       <!-- Modal de abandono -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -925,7 +957,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
@@ -1381,11 +1413,7 @@ input:focus {
 }
 
 @media (min-width: 768px) {
-  .leaveModal {
-    .img-verano{
-      max-width: 380px;
-    }
-  }
+
   .ml-2-mobile {
     margin-left: 8px;
   }
@@ -1524,9 +1552,6 @@ input[type="color"]:focus,
   background: #27362d;
 }
 .leaveModal {
-  .img-verano{
-
-  }
   .modal-content{
     background: #FFF188 !important;
   }

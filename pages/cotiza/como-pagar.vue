@@ -39,6 +39,11 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
+                <div class="flotante-covid-3  d-none  d-md-block" v-if="this.$store.state.common.frecuenciaPago == 1">
+                    <div class="d-flex flex-direction-column">
+                        <router-link  to="/tyc"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                    </div>
+                </div>
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
@@ -187,11 +192,17 @@
                                             </b-row>
                                         </b-col>
                                         
-                                        <b-col cols="12" lg="12" class="pt-5 pt-lg-2 mt-5  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                        <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
                                             <b-row class="justify-content-center">
-                                                
+                                                <b-col cols="10" class="text-center  d-md-none">
+                                                    <div class="flotante-50dcto" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                                        <div class="d-flex flex-direction-column justify-content-center  mb-2">
+                                                           <router-link  to="/tyc"><img width="250" class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                                                        </div>
+                                                    </div>
+                                                </b-col>
                                                 <b-col cols="10" class="text-center">
-
+                                                    
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
                                                         :disabled='this.isDisabledPayment'>
                                                         <span>PAGAR ${{this.monto_pagar}} </span>                                                        
@@ -1231,40 +1242,15 @@ import { validationMixin } from 'vuelidate'
     }
 </script>
 
-<style lang="scss">
-    .flotante-50dcto{
-        background: #CBDBF2;
+<style lang="scss" scope>
+    .flotante-covid-3{
         position: absolute;
-        right: 0;
-        top: -92px;
+        right: 0px;
+        top: 200px;
         padding: 8px;
         border-radius: 3px;
-        left: 30px;
-        z-index: 999;
-        width: 254px;
-        &:after{
-            content: '';            
-            width: 0;
-            position: absolute;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 30px solid #CBDBF2;
-            left: 110px;
-        }
-        span{
-            text-transform: none;
-            color: #0855C4;
-            font-size: 13px;
-            font-family: 'Omnes Regular';
-            letter-spacing: 0;
-            display: inline-block;
-            text-align: left;
-            padding-left: 9px;
-        }
-        img{
-
-        }
+        z-index: 9;
+        width: 200px;
     }
         .liston-agora{
             display: none;

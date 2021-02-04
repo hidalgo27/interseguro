@@ -186,11 +186,7 @@
                       >Libro de Reclamaciones</a>
                     </li>
                     <li class="acordeon-lista">
-                      <a
-                        target="_blank" rel="noopener"
-                        class="acordeon-enlace"
-                        href="https://www.interseguro.pe/vehicular/tyc"
-                      >Promociones </a>
+                      <router-link target="_blank" class="acordeon-enlace" to="/tyc">Promociones</router-link>
                     </li>
                   </ul>
                 </b-card-text>
@@ -426,11 +422,7 @@
                 >Libro de Reclamaciones</a>
               </li>
               <li class="acordeon-lista">
-                <a
-                  target="_blank" rel="noopener"
-                  class="acordeon-enlace"
-                  href="https://www.interseguro.pe/vehicular/tyc"
-                >Promociones</a>
+                <router-link target="_blank" class="acordeon-enlace" to="/tyc">Promociones</router-link>
               </li>
             </ul>
           </div>

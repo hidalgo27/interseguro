@@ -22,11 +22,14 @@
 // }
 .leaveModal {
   p{
-    
+    color: #0855C4 !important;
     font-family: 'Omnes Regular';
   }
   .modal-content{
-    background: #fff !important;
+    background: #CBDBF2 !important;
+  }
+  .img-verano{
+    max-width: 300px;
   }
 }
 .modal-blackWeek{
@@ -207,28 +210,28 @@
   content: 'DIAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #ffffff!important;
+  color: #0855C4!important;
 }
 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
   content: 'HORAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #ffffff!important;
+  color: #0855C4!important;
 }
 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
   content: 'MIN' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #ffffff!important;
+  color: #0855C4!important;
 }
 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
   content: 'SEG' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #ffffff!important;
+  color: #0855C4!important;
 }
 .flipdown.flipdown__theme-dark .rotor-group-heading:before {
-  color: #ffffff !important;
+  color: #0855C4 !important;
 }
 .exampleMobile .flipdown .rotor-group {
   padding-right: 15px !important;

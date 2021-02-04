@@ -3,6 +3,7 @@
 const getDefaultState = () => {
     return {
     //GLOBALES
+    urlGlobal: '',
     montoPagar:0,
     code_sku:0,
     flagCloseListon: 1,
@@ -38,6 +39,7 @@ const getDefaultState = () => {
     pantallaFlujo: 0,
     fechaVigencia: '',
     businessId: 1,
+    promocion : false,
     objVehiculo : {
         activePolicy: false,
         appDiscount: false,
@@ -121,6 +123,9 @@ const mutations = {
     setMontoPagar (state, payload){
         state.montoPagar = payload
     },
+    setUrlGlobal (state, payload){
+        state.urlGlobal = payload
+    },
     setAppDiscount (state, payload){
         state.appDiscount = payload
     },
@@ -177,6 +182,9 @@ const mutations = {
     },
     setBusinessId (state, payload) {
         state.businessId = payload
+    },
+    setPromocion (state, payload) {
+        state.promocion = payload
     },
     setVehicleState (state, payload) {
         state.vehicleState = payload
