@@ -9,7 +9,7 @@
     <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="12" class="m-auto">
-          <div class="flotante-covid" v-if="activeBox_1">
+          <div class="flotante-covid" v-if="activeBox_1 && this.$store.state.common.promocion == true">
             <div class="flotante-covid__cuerpo    d-none  d-lg-block">
                <!-- <img
                   @click="hideModalRootCotizador()"
@@ -733,7 +733,7 @@
                       alt="icon close"
                       class="img-close "
                     />
-                    <router-link to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                    <router-link v-if="this.$store.state.common.promocion == true" to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
                   </div>
                   <b-button class="continuar  d-lg-none mt-2" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
@@ -3219,7 +3219,7 @@
       },
       mouseLeave(e) {
         if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-          if (this.$store.state.common.leaveMessage == 0) {
+          if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
             if (e.clientX < 0 || e.clientY < 0) {
               this.$store.commit('common/setLeaveMessage',1)
               this.$nuxt.$emit('bv::show::modal','leaveQuote2')

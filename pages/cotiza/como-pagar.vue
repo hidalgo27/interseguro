@@ -39,7 +39,7 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <div class="flotante-covid-3  d-none  d-md-block" v-if="this.$store.state.common.frecuenciaPago == 1">
+                <div class="flotante-covid-3  d-none  d-md-block" v-if="this.$store.state.common.promocion == true">
                     <div class="d-flex flex-direction-column">
                         <router-link  to="/tyc"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
                     </div>
@@ -195,7 +195,7 @@
                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
                                             <b-row class="justify-content-center">
                                                 <b-col cols="10" class="text-center  d-md-none">
-                                                    <div class="flotante-50dcto" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                                    <div class="flotante-50dcto" v-if="this.$store.state.common.promocion == true">
                                                         <div class="d-flex flex-direction-column justify-content-center  mb-2">
                                                            <router-link  to="/tyc"><img width="250" class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
                                                         </div>

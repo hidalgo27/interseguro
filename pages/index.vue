@@ -561,6 +561,7 @@
           // this.contador()
         }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
+        this.$store.commit('common/setPromocion', false)
         
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
