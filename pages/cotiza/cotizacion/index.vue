@@ -725,7 +725,7 @@
                   <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
               <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
-                  <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid">
+                  <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid && this.$store.state.common.promocion == true">
                     <img
                       @click="hideFlotante()"
                       src="./../../../static/media/img/root/close.png"
@@ -733,7 +733,7 @@
                       alt="icon close"
                       class="img-close "
                     />
-                    <router-link v-if="this.$store.state.common.promocion == true" to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                    <router-link to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
                   </div>
                   <b-button class="continuar  d-lg-none mt-2" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
