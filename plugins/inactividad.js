@@ -28,6 +28,7 @@ function logout() {
                 console.log("ooooooooooo");
             } else {
                 if (objJWT.common.codigoRemarketingGenerado) {
+                    console.log(usuarioInactivo)
                     if (usuarioInactivo == false) {
                         console.log("U-getUsuarioActivo");
                         getUsuarioActivo()
@@ -42,7 +43,7 @@ function logout() {
 
 window.addEventListener("beforeunload", function (e) {
     console.log(window.location.pathname)
-    if (window.location.pathname == '/vehicular/' || 
+    if (window.location.pathname == '/vehicular/' ||
         window.location.pathname == '/vehicular/app/' ||
         window.location.pathname == '/vehicular/majorel/in' ||
         window.location.pathname == '/vehicular/majorel/out' ||
@@ -80,3 +81,30 @@ var inactivityTime = function () {
 };
 console.log("-----------------")
 inactivityTime()
+
+let seconds = 100000;
+let myVar;
+function initTimer() {
+    myVar = setTimeout(() => {
+        if (window.location.pathname == '/vehicular/' ||
+            window.location.pathname == '/vehicular/app/' ||
+            window.location.pathname == '/vehicular/majorel/in' ||
+            window.location.pathname == '/vehicular/majorel/out' ||
+            window.location.pathname == '/vehicular/majorel/lead' ||
+            window.location.pathname == '/vehicular/biznes/lead') {
+            console.log("-o-o-oo-o-o-o-2222")
+        } else {
+            objJWT = JSON.parse(localStorage.getItem("jwt"))
+            logout()
+        }
+    }, seconds);
+}
+function handleVisibilityChange() {
+    if (document.hidden) {
+        initTimer();
+    } else {
+        clearTimeout(myVar);
+    }
+}
+
+document.addEventListener("visibilitychange", handleVisibilityChange, false);
