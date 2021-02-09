@@ -712,6 +712,7 @@
                   <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
               <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
+                
                   <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>

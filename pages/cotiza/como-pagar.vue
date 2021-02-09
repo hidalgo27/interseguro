@@ -39,9 +39,16 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <div class="flotante-covid-3  d-none  d-md-block" v-if="this.$store.state.common.frecuenciaPago == 1">
-                    <div class="d-flex flex-direction-column">
-                        <router-link  to="/tyc"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                <div class="flotante-covid-3  d-none  d-md-block">
+                    <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
+                        <router-link  to="/tyc"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></router-link>
+                        <div class="box-contador" >
+                            <div  class="example  d-md-flex">
+                                <div id="contadorCyber4" class="flipdown">
+                                    
+                                </div> 
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
@@ -196,9 +203,17 @@
                                             <b-row class="justify-content-center">
                                                 <b-col cols="10" class="text-center  d-md-none">
                                                     <div class="flotante-50dcto" v-if="this.$store.state.common.frecuenciaPago == 1">
-                                                        <div class="d-flex flex-direction-column justify-content-center  mb-2">
-                                                           <router-link  to="/tyc"><img width="250" class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
+                                                        <div class="d-flex flex-direction-column justify-content-center  mb-2" style="position: relative;">
+                                                           <router-link  to="/tyc"><img width="250" class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" alt=""></router-link>
+                                                           <div class="box-contador" >
+                                                                <div  class="example  d-md-flex">
+                                                                    <div id="contadorCyber3" class="flipdown">
+                                                                        
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
                                                         </div>
+
                                                     </div>
                                                 </b-col>
                                                 <b-col cols="10" class="text-center">
@@ -310,7 +325,7 @@
         <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
-        <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -331,9 +346,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -354,57 +369,29 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class=" leaveModal"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
                 <b-row class="align-items-center" style="height: 100%;">
-                    <b-col cols="12">
-                        <div class="banner-modal">
-                            <img src="./../../static/media/modalBlackWeek/modal.svg" alt="">
-                        </div>
-                    </b-col>                  
-                    <b-col cols="12" class="mb-2">
-                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, </h3> 
-                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
-                    </b-col>
-                    <b-col class="text-center mb-4" cols="12">
-                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
+                    <b-col cols="12">                          
+                        <img class="img-verano" width="140"  src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+                        <p class="mt-3">
+                            <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                            <span style="color : #454A6C; font-size: 17px">
+                            Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                            </span>
+                        </p>
                     </b-col>
                 </b-row>
+                <b-row class="justify-content-center">
+            <b-col class="text-center mt-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
+                >CONTINUAR COMPRA</b-button>
+            </b-col>
+          </b-row>
             </b-container>
         </b-modal>
-
-        <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
-            <b-container>
-                
-                <b-row class="text-center">
-                    <b-col cols="12" class="mb-3">
-                        <h2><strong>¡POR TIEMPO LIMITADO!</strong></h2>
-                    </b-col>
-                </b-row>
-                <b-row class="justify-content-center">
-                    <b-col class="text-center mb-3" cols="12">
-                        <img width="254" src="../../static/media/interseguroVehicular_v2/agora.png" alt="Abandonar Seguro Vehicular">
-                    </b-col>
-                </b-row>
-                <b-row>                    
-                    <b-col cols="12" class="mb-2">
-                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, <br> Te regalamos un <strong>vale de S/100 en Agora <br></strong> por comprar tu Seguro Vehicular</h3>
-                    </b-col>
-                </b-row>
-                <b-row class="justify-content-center">
-                    <b-col class="text-center mb-4" cols="12">
-                        <b-button @click="enviarParametroAgora()">IR A PAGAR</b-button>
-                    </b-col>
-                </b-row>
-                <b-row>                    
-                    <b-col cols="12" class="mb-2">
-                        <p>Agora es el nuevo medio de pago de Intercorp, lo podrás <br> usar para pagar Spotify, Plaza Vea y más.</p>
-                    </b-col>
-                </b-row>
-            </b-container>
-        </b-modal> -->
          
     </section>
 </template>
@@ -580,6 +567,10 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            contador(){
+                var flipdown2 = new FlipDown(1613365199, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1613365199, 'contadorCyber3').start()
+            },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
             },
@@ -1155,6 +1146,9 @@ import { validationMixin } from 'vuelidate'
             // if(localStorage.getItem('activoAgora')){
             //     this.valeAgora = true
             // }
+            setTimeout(() => {
+                this.contador()
+            }, 750);
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
@@ -1243,6 +1237,23 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
+.contenedor-custom{
+    .box-contador{
+        position: absolute;
+        bottom: 12px;
+        right: 14px;
+        .example{
+            display: flex;
+            align-items: center;
+            margin-top: 1px;
+        }
+        p{
+            color: #ffffff;
+            font-size: 20px;
+            padding-right: 24px;
+        }
+    }
+}
     .flotante-covid-3{
         position: absolute;
         right: 0px;
@@ -2282,6 +2293,19 @@ a.steps__item.paso1:after{
     }
 }
     @media (min-width: 992px) {
+        .contenedor-custom{
+            .box-contador{
+                position: absolute;
+                bottom: 19px;
+                right: 0px;
+                .flipdown{
+                    width: 225px !important;
+                }
+                img{                
+                    width: 324px;
+                }
+            }
+        }
         .flotante-50dcto{
             right: -278px;
             top: 0;

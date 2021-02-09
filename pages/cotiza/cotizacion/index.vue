@@ -6,22 +6,9 @@
     <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
     </div>
     
-    <b-container class="contenedor-personalizado" >
+    <b-container class="contenedor-personalizado  " >
       <b-row>
         <b-col cols="12" xl="12" class="m-auto">
-          <div class="flotante-covid" v-if="activeBox_1">
-            <div class="flotante-covid__cuerpo    d-none  d-lg-block">
-               <!-- <img
-                  @click="hideModalRootCotizador()"
-                  src="./../../../static/media/img/root/close.png"
-                  width="50"
-                  alt="icon close"
-                  class="img-close "
-                /> -->
-                 <router-link  to="/tyc"><img class="gratis-prueba" src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
-              
-            </div>            
-          </div>
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
@@ -44,7 +31,7 @@
 
     </b-container>
 
-    <b-container class="contenedor-personalizado">
+    <b-container class="contenedor-personalizado cotizador-2021">
       <b-row class="justify-content-center" style="position: relative;">
         <b-container >
           <b-row class="d-flex justify-content-center" >
@@ -268,7 +255,8 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          <span>2da</span>
+                          <a href="">cuota gratis</a>
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -351,7 +339,8 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          <span>2da</span>
+                          <a href="">cuota gratis</a>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -451,7 +440,8 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          <span>2da</span>
+                          <a href="">cuota gratis</a>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -579,7 +569,8 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                    <span>2da</span>
+                    <a href="">cuota gratis</a>
                   </div>
                 </div>
                 <div class="box-importante">
@@ -725,7 +716,7 @@
                   <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
               <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
-                  <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid">
+                  <!-- <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                     <img
                       @click="hideFlotante()"
                       src="./../../../static/media/img/root/close.png"
@@ -733,8 +724,15 @@
                       alt="icon close"
                       class="img-close "
                     />
-                    <router-link to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/flotante-covid.svg" alt=""></router-link>
-                  </div>
+                    <router-link to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/segunda-cuota.svg" alt=""></router-link>
+                    <div class="box-contador" >
+                      <div  class="example  d-md-flex">
+                          <div id="contadorCyber5" class="flipdown">
+                              
+                          </div> 
+                      </div>
+                    </div>
+                  </div> -->
                   <b-button class="continuar  d-lg-none mt-2" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>
@@ -1438,12 +1436,13 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
               
-              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-              <p class="mt-3" style="color : #ffffff; font-size: 19px">
+              <img class="img-verano" width="140"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3">
 
-                <strong>¡Quedan pocas horas! </strong> Compra <br> 
-                tu Seguro Vehicular hoy y obtén GRATIS<br> 
-                una prueba rápida de COVID-19 a domicilio
+                <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                <span style="color : #454A6C; font-size: 17px">
+                  Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                </span>
 
               </p>
             </b-col>
@@ -1802,6 +1801,9 @@
       },
     },
     methods: {
+      contador(){
+            var flipdown2 = new FlipDown(1613365199, 'contadorCyber5').start()
+        },
       hideFlotante(){
         this.flotanteCovid = !this.flotanteCovid
       },
@@ -3326,7 +3328,23 @@
 </script>
 
 <style lang="scss" scoped>
-
+.cotizador-2021{
+  .box-contador{
+        position: absolute;
+        bottom: 20px;
+        right: 12px;
+        .example{
+            display: flex;
+            align-items: center;
+            margin-top: 1px;
+        }
+        p{
+            color: #ffffff;
+            font-size: 20px;
+            padding-right: 24px;
+        }
+    }
+}
 .phoneContent{
 
     display: flex;
@@ -3939,6 +3957,15 @@ button:focus{
       right: -35px;
       top: 0px;
       border-radius: 4px 0 0 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      a{
+        font-size: 16px;
+        color: #ffffff;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
   .detalle-item{
@@ -4018,6 +4045,7 @@ button:focus{
   }
   .box-importante{
     padding: 14px 0;
+    margin-top: 32px;
     .titulo{
       font-size: 20px;
       font-family: "Omnes Medium";
@@ -6304,7 +6332,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 }
 
 @media screen and (max-width: 992px) {
-  
+
   .planActivo.plata{
     background-color: #b1b1b1 !important;
     &:before{    
