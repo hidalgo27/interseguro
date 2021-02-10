@@ -3,7 +3,7 @@
 
         <div class="menu-nav">
             <div class="menu-nav__izq">
-                <nuxt-link :to="{ path: '/interbank' }" class="main-nav__logo">
+                <nuxt-link :to="{ path: '/interbank/' }" class="main-nav__logo">
                     <img src="../../static/media/interseguroVehicular_v2/logo-ibk.png" class="main-nav__logo--iso" alt="seguros vehiculares">
                     <img src="../../static/media/interseguroVehicular_v2/logo-ibk.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
@@ -19,13 +19,13 @@
 
                 <ul>
                     <li class="" @click="enlaceTest()">
-                        <nuxt-link class=""  to="/cobertura-interbank">¿Qué me cubre?</nuxt-link>
+                        <nuxt-link class=""  to="/interbank/cobertura/">¿Qué me cubre?</nuxt-link>
                     </li>        
                     <li class="" @click="enlaceTest()">
-                        <nuxt-link class=""  to="/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
+                        <nuxt-link class=""  to="/interbank/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
                     </li>
                     <li class="" @click="enlaceTest()">
-                        <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
+                        <nuxt-link class="" to="/interbank/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
                     </li>
                     <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
                         <div class="telefono">
