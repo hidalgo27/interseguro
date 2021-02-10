@@ -82,7 +82,7 @@ var inactivityTime = function () {
 console.log("-----------------")
 inactivityTime()
 
-let seconds = 100000;
+let seconds = 5000;
 let myVar;
 function initTimer() {
     myVar = setTimeout(() => {
