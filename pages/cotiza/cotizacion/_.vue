@@ -1794,6 +1794,18 @@
       },
     },
     methods: {
+      contador(){
+            // var flipdown2 = new FlipDown(1613365199, 'contadorCyber5').start()
+        },
+      hideFlotante(){
+        this.flotanteCovid = !this.flotanteCovid
+      },
+      metodoFlotante(){
+        this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+      },
+      hidemetodoFlotante(){
+        this.$nuxt.$emit('bv::hide::modal','leaveQuote2')
+      },
       clickCapaGris(){
         this.mostrarCapaGris = false
         this.activarTooltipDesktop = false

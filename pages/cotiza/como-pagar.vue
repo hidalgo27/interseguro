@@ -583,6 +583,9 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            hidemetodoFlotante(){
+                this.$nuxt.$emit('bv::hide::modal','leavePayment')
+            },
             metodoFlotante(){
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
