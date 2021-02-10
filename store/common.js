@@ -772,6 +772,22 @@ const actions = {
             })
         })
     },
+    obtenerDatosRenovaciones ({ commit, state }, item){
+        return new Promise((resolve, reject) => {
+        this.$axios.get("provider/v2/policy/renew/price-plans/"+ item.placa +"/"+item.anio)
+            .then(res => {
+                if (res) {
+                    commit('setObjRenovacion', res.data.body)
+                    resolve(res);
+                } else {
+                reject(res)
+                }
+            })
+            .catch(function(error) {
+                reject(error)
+            })
+        })
+    },
     /*********************************************************
                 * FLUJO BACKEND A-CELE
     *********************************************************/
