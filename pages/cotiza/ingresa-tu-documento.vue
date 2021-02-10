@@ -878,12 +878,13 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
               
-             <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-              <p class="mt-3" style="color : #ffffff; font-size: 19px">
+            <img class="img-verano" width="140"  src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3">
 
-                <strong>¡Quedan pocas horas! </strong> Compra <br> 
-                tu Seguro Vehicular hoy y obtén GRATIS<br> 
-                una prueba rápida de COVID-19 a domicilio
+                <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                <span style="color : #454A6C; font-size: 17px">
+                  Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                </span>
 
               </p>
             </b-col>
@@ -2635,7 +2636,7 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0) {
+      if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
         if (e.clientX < 0 || e.clientY < 0) {
           this.$store.commit("common/setLeaveMessage", 1);
           this.$nuxt.$emit("bv::show::modal", "leaveDocument");
