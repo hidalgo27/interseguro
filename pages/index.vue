@@ -8,6 +8,9 @@
               <div class="mt-3">
                 <img src="./../static/media/interseguroVehicular_v2/segunda-cuota-movil.svg" alt="">
               </div>
+               <div class="mt-2  mb-2">
+                <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡No te lo pierdas!</span>
+              </div>
               <div class="box-contador" >
                 <div  class="example  d-md-flex">
                     <div id="contadorCyber" class="flipdown">
@@ -67,7 +70,10 @@
           <div class="mt-3  mb-4">
             <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">
           </div>
-          <div class="box-contador" >
+          <div>
+            <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡No te lo pierdas!</span>
+          </div>
+          <div class="box-contador">
             <div  class="example  d-none  d-md-flex">
                 <div id="contadorCyber2" class="flipdown">
                     
@@ -572,6 +578,7 @@
           this.contador()
         }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
+        this.$store.commit('common/setPromocion', false)
         
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
@@ -636,7 +643,11 @@
 </script>
 
 <style lang="scss" scope>
-
+.flipdown .rotor-group-heading:before {
+    font-size: 9px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+}
   .listonMobile{
     position: relative;
     img{

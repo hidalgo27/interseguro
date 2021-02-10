@@ -256,7 +256,7 @@
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
                           <span>2da</span>
-                          <a href="">cuota gratis</a>
+                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -340,7 +340,7 @@
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
                           <span>2da</span>
-                          <a href="">cuota gratis</a>
+                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -441,7 +441,7 @@
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
                           <span>2da</span>
-                          <a href="">cuota gratis</a>
+                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -570,7 +570,7 @@
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
                     <span>2da</span>
-                    <a href="">cuota gratis</a>
+                    <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                   </div>
                 </div>
                 <div class="box-importante">
@@ -904,7 +904,6 @@
           ref="modalNumeroCelular"
           id="modalNumeroCelular">
         <div class="modal-content modal-root">
-            <img class="img-close-modal" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
             <div class="modal-body">
               
               <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
@@ -1435,7 +1434,7 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              
+              <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
               <img class="img-verano" width="140"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
               <p class="mt-3">
 
@@ -1469,7 +1468,7 @@
       date: new Date(),
       disabledDates: {
       to: new Date(Date.now() - 8640000),
-      from: new Date(fechaActual.getTime() + 3.888e+9)
+      from: new Date(fechaActual.getTime() + 7.884e+9)
     }
   }
 
@@ -1808,7 +1807,10 @@
         this.flotanteCovid = !this.flotanteCovid
       },
       metodoFlotante(){
-        this.$nuxt.$emit('bv::show::modal','leaveQuote')
+        this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+      },
+      hidemetodoFlotante(){
+        this.$nuxt.$emit('bv::hide::modal','leaveQuote2')
       },
       hideModalBlackWeek(){
           $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -3221,16 +3223,10 @@
       },
       mouseLeave(e) {
         if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-          if (this.$store.state.common.leaveMessage == 0) {
+          if (this.$store.state.common.leaveMessage == 0 ) {
             if (e.clientX < 0 || e.clientY < 0) {
               this.$store.commit('common/setLeaveMessage',1)
               this.$nuxt.$emit('bv::show::modal','leaveQuote2')
-              // let num = this.$store.state.common.plateNumber.slice(-1)
-              // if (num % 2 == 0) {
-              //   this.$nuxt.$emit('bv::show::modal','leaveQuote2')
-              // } else {
-              //   this.$nuxt.$emit('bv::show::modal','leaveQuote')
-              // }
             }
           }
         }
@@ -3960,7 +3956,7 @@ button:focus{
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      a{
+      .cuota-gratis-span{
         font-size: 16px;
         color: #ffffff;
         text-decoration: underline;
@@ -5204,6 +5200,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   font-size: 16px;
   font-family: "Omnes regular";
   &:hover {
+    cursor: pointer;
+  }
+}
+.leaveModal{
+  .img-close-modal{
+        position: absolute;
+    top: -91px;
+    right: -46px;
     cursor: pointer;
   }
 }
