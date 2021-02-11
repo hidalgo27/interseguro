@@ -1,5 +1,5 @@
 <template>
-    <div class="v2_cobertura" style="position: relative;">
+    <div class="v2-cobertura-ibk">
         <!-- Mobile Version -->
         <section  class="cobertura-mobile d-block d-md-none">
             <!-- <b-container> -->
@@ -353,7 +353,7 @@
                 </div>
         </section>
         
-        <section class="cobertura-desktop d-none d-md-block   pb-5">
+        <section class="cobertura-desktop-ibk d-none d-md-block   pb-5">
             <div>
                 <div class="section-header  detalle-coberturas">
                     <p class="section-header__title  mt-3">Revisa nuestras coberturas y elige tu plan </p>
@@ -372,7 +372,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="background-color: #ebf4ff;">
+                            <tr style="background-color: #EBFBF1;">
                                 <td rowspan="2" class="texto-izq">Responsabilidad Civil
                                     <!-- <div>
                                         <span id="disabled-wrapper" class="d-inline-block" tabindex="0">
@@ -389,7 +389,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
-                            <tr style="background-color: #ebf4ff;">
+                            <tr style="background-color: #EBFBF1;">
                                 <td><p><strong>Frente a Terceros:</strong><br><span>Hasta $150000</span></p></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -404,7 +404,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
-                            <tr style="background-color: #ebf4ff;">
+                            <tr style="background-color: #EBFBF1;">
                                 <td class="texto-izq">Pérdida parcial por choques</td>
                                 
                                 <td><p><strong>Si tu carro sufre daños por un choque o<br>accidente involuntario.</strong><br><span>Hasta 75% del valor asegurado del carro.</span></p></td>
@@ -472,7 +472,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
-                            <tr style="background-color: #ebf4ff;">
+                            <tr style="background-color: #EBFBF1;">
                                 <td class="texto-izq">Pérdida total por choques</td>
                                 <td><p><strong>Si tu carro sufre daños irreparables<br>por un choque o accidente involuntario.</strong><br><span>Cubrimos hasta: Valor total asegurado del carro</span></p></td>
                                 <td align="center"><p><span>-</span></p></td>
@@ -495,7 +495,7 @@
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
-                            <tr style="background-color: #ebf4ff;">
+                            <tr style="background-color: #EBFBF1;">
                                 <td class="texto-izq">Rotura de lunas</td>
                                 <td><p><strong>Si rompieron una o más de tus lunas.</strong><br><span>Cubrimos hasta: Valor total asegurado del carro</span><br>
                                  <span class="ausencia-control">
@@ -561,7 +561,7 @@
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
-                            <tr style="background-color: #ebf4ff;">
+                            <tr style="background-color: #EBFBF1;">
                                 <td class="texto-izq">
                                     <div class="ausencia-control-mobile">
                                     <span>Ausencia de Control</span>
@@ -601,8 +601,8 @@
            
         </section>
 
-        <section ref="asistencias" id="asistencias" class="servicios-tranquilidad  d-none  d-lg-block   pb-5">
-            <div  class="section-servicios" >
+        <section class="servicios-tranquilidad  d-none  d-lg-block   pb-5">
+            <div class="section-servicios">
                 <div class="section-header">
                     <h1 class="section-header__title">Nuetros servicios adicionales</h1>
                 </div>
@@ -753,7 +753,7 @@
         </section>
         
         <section id="nomecubre" class="cobertura-3" ref="nomecubre">
-            <div class="cobertura-desktop">
+            <div class="cobertura-desktop-ibk">
                 <div class="section-header">
                     <h1 class="section-header__title">Revisa lo que los seguros vehiculares no cubren</h1>
                 </div>
@@ -997,6 +997,7 @@
 </template>
 
 <style lang="scss" scope>
+
 .ausencia-control-mobile{
   flex-direction: column;
   display: flex;
@@ -1007,22 +1008,7 @@
 .ausencia-control{
     color: #979696;
 }
-.minitabla{
-    padding: 0; 
-    margin: 0;    
-    width: 100%;
-    td{
-        font-size: 14px;
-        text-align: center;
-    }
-    &__titulo{
-        background: #c1eafc;
-        text-align: center;
-        color: #0667ba;
-        font-size: 15px;
-    }
-    
-}
+
 .tab-servicios{
     .box-mapa{
         display: none;
@@ -1161,9 +1147,9 @@
         margin-bottom: 0;                                      
     }
 }
-.v2_cobertura{
+.v2-cobertura-ibk{
     background: #f7f4fc;
-    padding-top: 52px;
+    padding-top: 100px;
     p,div{
         margin: 0;
     }
@@ -1206,9 +1192,9 @@
                 vertical-align: middle;
             }
             .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-                color: #00adee;
+                color: #00C450;
                 background-color: #fff;
-                border-color: #00adee #00adee #fff;
+                border-color: #00C450 #00C450 #fff;
                 font-family: 'Omnes Medium';
                 font-size: 22px;
                 font-weight: 500;
@@ -1216,15 +1202,77 @@
                 font-style: normal;
                 line-height: 1;
                 letter-spacing: normal;
-                color: #00adee;
+                color: #00C450;
                 text-align: center;
                 border-right: 2px solid;
                 border-left: 2px solid;
                 border-top: 2px solid;
             }
             .nav-tabs .nav-item a{
-                border-bottom: 2px solid #00adee;
+                border-bottom: 2px solid #00C450;
                 text-align: center;
+            }
+        }
+    }
+    .cobertura-3{
+        box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
+        background-color: #fcfcfc;
+        .section-header{  
+            &__title {
+                font-size: 22px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+                text-align: center;
+                color: #696969;
+            }
+        }
+        .cobertura-3-item{
+            width: 180px !important;
+            height: 180px !important;
+            border-radius: 200px !important;
+            background-color: #F1F7FF;
+            margin-left: auto;
+            margin-right: auto;
+            .cobertura-icon{
+                width: 100px;
+                height: 85px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    height: 66px;
+                    width: auto;
+                }
+            }
+            &__title{
+                font-family: 'Omnes Regular';
+                color: #505050;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                text-align: center;
+                
+            }
+            .item-box{
+                &__enlace{
+                    background: transparent;
+                    &--detalle{
+                        text-decoration: underline;
+                        font-size: 20px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.55;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #00C450;
+                        font-family: 'Omnes Regular';
+                    }
+                }
             }
         }
     }
@@ -1443,10 +1491,26 @@
         }
     }
 }
-.cobertura-desktop{
+.cobertura-desktop-ibk{
     font-family: 'Omnes Medium';
     max-width: 1140px;
     margin: auto !important;
+    .minitabla{
+        padding: 0; 
+        margin: 0;    
+        width: 100%;
+        td{
+            font-size: 14px;
+            text-align: center;
+        }
+        &__titulo{
+            background: #00C450;
+            text-align: center;
+            color: #ffffff;
+            font-size: 15px;
+        }
+        
+    }
     .section-header{
         padding: 24px 0;
         &__title {
@@ -1464,7 +1528,7 @@
             margin-right: auto;
             margin-left: auto;
             font-size: 18px;
-            border: 0.2px solid #dbe6e4;
+            border: 0.2px solid #EBFBF1;
             // border-collapse: collapse;
             h1{
                 font-size: 20px;
@@ -1473,7 +1537,7 @@
             }
             .tcobertura__cabecera{
                 p{
-                color: #0667ba;
+                color: #333333;
                 }
             }
             p{
@@ -1485,7 +1549,7 @@
                 letter-spacing: 0.07px;
                 strong{
                     font-size: 14px;
-                    color: #0667ba;
+                    color: #00C450;
                 }
                 span{
                     font-size: 14px;
@@ -1494,8 +1558,8 @@
             td{
                 padding-left: 10px;
                 padding-right: 10px;
-                border-left: 0.2px solid #dbe6e4; 
-                border-right: 0.2px solid #dbe6e4;
+                border-left: 0.2px solid #EBFBF1; 
+                border-right: 0.2px solid #EBFBF1;
             }
         }
     }
@@ -1503,68 +1567,7 @@
 }
 
 
-.cobertura-3{
-    box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
-    background-color: #fcfcfc;
-    .section-header{  
-        &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #696969;
-        }
-    }
-    .cobertura-3-item{
-        width: 180px !important;
-        height: 180px !important;
-        border-radius: 200px !important;
-        background-color: #F1F7FF;
-        margin-left: auto;
-        margin-right: auto;
-        .cobertura-icon{
-            width: 100px;
-            height: 85px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img{
-                height: 66px;
-                width: auto;
-            }
-        }
-        &__title{
-            font-family: 'Omnes Regular';
-            color: #505050;
-            font-weight: 600;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.35;
-            letter-spacing: normal;
-            text-align: center;
-            
-        }
-        .item-box{
-            &__enlace{
-                background: transparent;
-                &--detalle{
-                    text-decoration: underline;
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: 1.55;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #00adee;
-                    font-family: 'Omnes Regular';
-                }
-            }
-        }
-    }
-}
+
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
     color: #fff;
@@ -1591,6 +1594,11 @@
                 font-weight: 500;
             }
         }
+        .section-header{
+            &__title{
+                font-size: 44px;
+            }
+        }
     }
 }
 </style>
@@ -1598,7 +1606,7 @@
 <script>
 import Modal2 from '@/components/modals/modal2'
 export default {
-    layout: 'InterseguroHome',
+    layout: 'InterbankHome',
     data() {
         return {
             isVisibleRC: false,
@@ -1614,8 +1622,8 @@ export default {
                 {
                     id: 300,    
                     titulo: "Si te portas mal",
-                    url: require("../../static/media/img/exclusion-01.png"),
-                    detalles:[
+                    url: require("../../static/media/img/ibk/cobertura/si-te-portas-mal.svg"),
+                        detalles:[
                         {descripcion:'Si manejaste ebrio o bajo el efecto de drogas, sustancias alucinógenas, legales o no.'},
                         {descripcion:'Si huiste del lugar del accidente y dañan tu carro, a menos que sea para evitar el accidente.'},
                         {descripcion:'Si manejaron tu carro sin tener brevete, o si lo tenían vencido o suspendido. '},
@@ -1626,7 +1634,7 @@ export default {
                 {
                     id: 301,  
                     titulo: "Sobre lo que llevas",
-                    url: require("../../static/media/img/exclusion-02.png"),
+                    url: require("../../static/media/img/ibk/cobertura/sobre-lo-que-llevas.svg"),
                     detalles:[
                         {descripcion:'Si llevabas mercadería o insumos inflamables, corrosivos o explosivos.'},
                         {descripcion:'Si causan daños a los remolques, casas rodantes o furgones acoplados a tu carro. Tampoco si se lastiman o mueren las personas que iban dentro, ni las cosas que se dañen.'},
@@ -1639,7 +1647,7 @@ export default {
                 {
                     id: 302,    
                     titulo: "Sobre lo que dañas",
-                    url: require("../../static/media/img/exclusion-03.png"),
+                    url: require("../../static/media/img/ibk/cobertura/lo-que-danias.svg"),
                     detalles:[
                         {descripcion:'Si se dañan tus propiedades o propiedades bajo tu control, no cubrimos esas reparaciones.'},
                         {descripcion:'Si se dañan la capota de lona o los accesorios, piezas o partes de descapotables.'},
@@ -1649,7 +1657,7 @@ export default {
                 {
                     id: 303,  
                     titulo: "Alguien lleva tu carro",
-                    url: require("../../static/media/img/exclusion-04.png"),
+                    url: require("../../static/media/img/ibk/cobertura/alguien-lleva-tu-carro.svg"),
                     detalles:[
                         {descripcion:'Si tu carro se daña cuando lo remolcan o lo transporta una grúa que no sea nuestra. Por favor, evita transportarlo con otros medios que no sean nuestros.'},
                         {descripcion:'Si hay daños causados a otras personas cuando robaron tu carro, salvo si te lastimaron a ti o a las personas que iban contigo justo antes del robo.'},          
@@ -1658,7 +1666,7 @@ export default {
                 {
                     id: 304,  
                     titulo: "Desgaste o mal uso",
-                    url: require("../../static/media/img/exclusion-05.png"),
+                    url: require("../../static/media/img/ibk/cobertura/desgaste.svg"),
                     detalles:[
                         {descripcion:'Si tu carro sufre daños causados por desgaste, sobrecarga, mal uso, falla mecánica, falta de uso o falta de mantenimiento.'},
                         {descripcion:'Si realizaste una instalación eléctrica defectuosa o incorrecta.'},
@@ -1668,7 +1676,7 @@ export default {
                 {
                     id: 305,  
                     titulo: "Casos extremos",
-                    url: require("../../static/media/img/exclusion-06.png"),
+                    url: require("../../static/media/img/ibk/cobertura/casos-extremos.svg"),
                     detalles:[
                         {descripcion:'Si los daños a tu carro sucedieron porque se proclamó un estado de sitio o alguna autoridad decidió confiscar, expropiar, nacionalizar o destruir bienes.'},
                         {descripcion:'Si los daños fueron causados debido a una guerra, civil o internacional.'},
@@ -1678,7 +1686,7 @@ export default {
                 {
                     id: 307,  
                     titulo: "Otros",
-                    url: require("../../static/media/img/exclusion-07.png"),
+                    url: require("../../static/media/img/ibk/cobertura/otros.svg"),
                     detalles:[
                         {descripcion:'Si los daños ocurrieron cuando usaste tu carro como taxi, colectivo, auto de instrucción, movilidad escolar, para arrendamiento o cualquier otro uso comercial, solo aseguramos uso particular.'},
                         {descripcion:'Si los daños ocurrieron cuando tu carro iba por zonas que no están destinadas al paso de vehículos, a menos que sean trayectos obligados.'},
@@ -1724,24 +1732,10 @@ export default {
                 'event': 'pagina_vista',
                 'page-url': '/vehicular/cobertura', 
                 'page-title': 'Cobertura'
-            })            
-        },
-        getPos(busstop) {
-         const left = this.$refs.busstop.getBoundingClientRect().left
-         const top = this.$refs.busstop.getBoundingClientRect().top
+            })
         }
     },
     mounted: function(){
-        let asistencias = document.getElementById("asistencias")
-        let puntoeny = asistencias.offsetTop
-        puntoeny = puntoeny - 100
-        window.scrollTo({ top: puntoeny, behavior: 'smooth' });
-
-        var div = document.querySelector('#asistencias');       
-
-        if (true) {
-            
-        }
         if (document.location.hostname == "www.interseguro.pe"){
             fbq('track', 'ViewContent', {
                 ViewContentcobertura: 'ViewContentcobertura'

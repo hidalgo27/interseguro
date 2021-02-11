@@ -197,6 +197,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header-planes .menu-nav__der ul li {
+    font-family: 'Geometria Medium';
+}
 .cyberInterseguroEnlace{
   color: white;
   padding-left: 5px;

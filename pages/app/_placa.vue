@@ -1244,12 +1244,7 @@ export default {
 .opacityNone{
     opacity: 1 !important;
 }
-.iptGral.editable .ipt-cardNumber {
-    padding-left: 42px !important;
-}
-.iptGral.editable .ipt-cvv {
-    padding-left: 42px !important;
-}
+
 /******************************************************************************************************* */
 /******************************************************************************************************* */
 /******************************************************************************************************* */
@@ -1264,7 +1259,12 @@ $thumb-hover-color: #0855C4;
 
 $upper-background: linear-gradient(to bottom, $upper-color, $upper-color) 100% 50% / 100% $track-height no-repeat transparent;
 $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 50% / 100% $track-height no-repeat transparent;
-
+.iptGral.editable .ipt-cardNumber {
+    padding-left: 42px !important;
+}
+.iptGral.editable .ipt-cvv {
+    padding-left: 42px !important;
+}
 
 .e-range {
   display: block;

@@ -1,5 +1,5 @@
 <template>
-  <div class="home"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -735,7 +735,7 @@
       text-decoration: none;
     }
   }
-  .home{
+  .home-is{
     margin-top: 120px;
     // margin-top: 170px;
     font-size: 16px;
@@ -1568,7 +1568,7 @@
   }
   
   @media (min-width: 992px) {
-    .home{
+    .home-is{
       margin-top: 0px;
       // margin-top: 72px;
       .home-beneficios2{
@@ -1838,7 +1838,7 @@
     }
   }
   @media (min-width: 1024px) {
-    .home{
+    .home-is{
       .home-banner{
         padding-left: 65px;
       }
@@ -1981,7 +1981,7 @@
         width: 700px;
       }
     }
-    .home{
+    .home-is{
       .boxHome-banner{
         .home-banner{
           background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);          
@@ -2152,7 +2152,7 @@
   }
 
   @media (min-width: 1366px) {
-    .home{
+    .home-is{
       .home-pasos{
         padding-top: 42px;
         .planes{
@@ -2174,7 +2174,7 @@
     outline: 0 none;
   }
   @media (min-width: 1440px) {
-    .home{
+    .home-is{
       .boxHome-banner{              
         .home-banner{
           background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
@@ -2195,7 +2195,7 @@
   }
 
   @media (min-width: 1900px) {
-    .home{
+    .home-is{
       .boxHome-banner{              
         .home-banner{
           padding-left: 0;
@@ -2213,7 +2213,7 @@
   }
 
   @media (min-height: 768px) and (min-width: 992px){
-    .home{
+    .home-is{
         .boxHome-banner{
           .home-banner{
             // &__izq{
