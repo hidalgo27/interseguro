@@ -20,7 +20,7 @@
 
 <script>
 import BannerPreguntasFrecuentesIbk from "@/components/is/common/BannerPreguntasFrecuentesIbk";
-import nuevoTextLinks from "@/components/is/common/TextLinksRenovado2";
+import nuevoTextLinks from "@/components/is/common/TextLinksRenovadoIbk";
 import { preguntasFrecuentesGenerico } from 'preguntas-frecuentes-viajes'
 
 export default {

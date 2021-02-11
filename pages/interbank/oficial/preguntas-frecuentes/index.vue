@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import BannerPreguntasFrecuentes from "@/components/is/common/BannerPreguntasFrecuentes";
+import BannerPreguntasFrecuentes from "@/components/is/common/BannerPreguntasFrecuentesIbk";
 
 
 export default {
@@ -269,7 +269,7 @@ export default {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'pagina_vista',
-            'page-url': '/vehicular/interbank/interbank/oficial/preguntas-frecuentes', 
+            'page-url': '/vehicular/interbank/oficial/preguntas-frecuentes', 
             'page-title': 'oficial Preguntas frecuentes'
         });
     }

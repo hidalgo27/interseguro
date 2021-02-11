@@ -1,5 +1,5 @@
 <template>
-  <section class="page-cotizador"  @click="clickIngresaLetra($event)"  v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
+  <section class="page-cotizador  cotizador-ibk"  @click="clickIngresaLetra($event)"  v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
     <div class="capaOculta" v-bind:class="{mostrarCapa: mostrarCapa}">
       <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
     </div>
@@ -419,7 +419,7 @@
 
                 <div class="col-4">
                   <div style="height: 40px; " class="plan-recomendado">
-                    <span>&#9733;	</span> MÁS VENDIDO
+                    <span>&#9733;	</span> RECOMENDADO
                   </div>
                   <div class="v2-plan-item   plan3  black   "  @click="seleccionarPLanDesktop(3)" v-bind:class="{planInactivoDesktop: planInactivo}">
                     <div class="plan-item  plan-black">
@@ -770,7 +770,7 @@
             class="modal-close"
         />
          <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
-            <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mail.png" alt="">
+            <img width="80" class="check-enviado" src="./../../../static/media/img/ibk/mail-ibk.svg" alt="">
             <p class="modal-titulo  modal-titulo-enviado"><strong>Hemos enviado tu cotización a tu correo. </strong> <br> No lo dudes y compra hoy al precio más bajo. </p>
           </div>
 
@@ -3288,6 +3288,16 @@
 </script>
 
 <style lang="scss" scoped>
+
+  .modal .modal-titulo {
+    color: #333333;
+    font-family: 'Omnes medium';
+  }
+
+  .modal .box-btns .btn-principal {
+    background: #00C450;
+}
+
 .phoneContent{
 
     display: flex;
@@ -3514,7 +3524,7 @@ button:focus{
   display: none;
   height: 240px;
   .modal-titulo-enviado{
-    color: #454A6C;
+    color: #333333;
     font-size: 17px;
     font-family: 'Omnes Medium';
     margin: auto;
@@ -3560,7 +3570,7 @@ button:focus{
 }
 .plan-recomendado{
     height: 40px;
-    color: #EA0F8F;
+    color: #00C450;
     text-align: center;
     font-size: 20px;
     line-height: 40px;
@@ -3958,7 +3968,7 @@ button:focus{
       position: relative;      
       &:before{
         content: "";        
-        background: url("https://www.interseguro.pe/vehicular/resources/campania2020/check.png");
+        background: url("./../../../static/media/img/ibk/check.svg");
         background-size: contain;
         height: 11px;
         width: 11px;
@@ -4019,7 +4029,7 @@ button:focus{
       margin-top: 12px;
       text-decoration: line-through;
       -webkit-text-decoration-color: #ea0f90;
-      text-decoration-color: #ea0f90;
+      text-decoration-color: #0133A1;
     }
   }
   &__box-frecuencia{
@@ -4746,11 +4756,11 @@ a.steps__item.paso1:after{
   justify-content: center;
   display: flex;
   align-items: center;
-  color: #333333;
+  color: #0133A1;
   border-radius: 4px;
   width: 240px;
   height: 46px;
-  border: 1px solid #333333;
+  border: 1px solid #0133A1;
   margin: auto;
   margin-top: 24px;
   background-image: url(../../../static/media/interseguroVehicular_v2/mail-cotizador.svg);
@@ -4761,7 +4771,7 @@ a.steps__item.paso1:after{
   background-position-x: 170px !important;
   transition: .5s;
   &:hover{
-    background-color: #333333;
+    background-color: #0133A1;
     background-image: url(./../../../static/v2_icon/email.png);
     background-repeat: no-repeat;
     background-size: 40px;
@@ -6538,16 +6548,16 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .fecha{
       height: 45px;
-      border: 1px solid #333333;
+      border: 1px solid #0133A1;
       width: 220px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #333333;
+      color: #0133A1;
       border-radius: 4px;
       cursor: pointer;
       span{
-        color: #333333;
+        color: #0133A1;
       }
     }
   }

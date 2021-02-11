@@ -54,20 +54,13 @@
                                     <b-row>
                                         <b-col cols="12" md="12">
                                             <div class="boxtitulo">
-                                                <p class="boxtitulo__principal texto-candado">INGRESA TU TARJETA <img class="img-candado" src="../../static/media/img/candado.png" alt="candado"> <span v-if="this.businessId == 2">Interbank</span> </p>
-                                                <p class="boxtitulo__principal"></p>
+                                                <p class="boxtitulo__principal texto-candado">INGRESA TU TARJETA 
+                                                </p>
                                             </div>
                                         </b-col>
                                         <b-col cols="12" md="12">                                            
                                             <div class="imgs">
-                                                <span class="msg-alterno">Pago online 100% seguro</span>
-                                                <div class="tarjetas">
-                                                    <span><img width="25" src="../../static/media/img/flujo/metodo-pago/visa.png" alt="visa"></span>
-                                                    <span><img width="25" src="../../static/media/img/flujo/metodo-pago/mastercard.png" alt="mastercard"></span>
-                                                    <span><img width="23" src="../../static/media/img/flujo/metodo-pago/american.png" alt="amex"></span>
-                                                    <span v-if="this.businessId == 1"><img width="25" src="../../static/media/img/flujo/metodo-pago/dinners.png" alt="dinners"></span>
-                                                </div>
-                                                
+                                                <span class="msg-alterno">Pago online 100% seguro</span>                                                
                                             </div>
                                             
                                         </b-col>                                         
@@ -134,9 +127,9 @@
                                         </b-col>
                                     </b-row>
                                 </div>
-                                <div class="panel-custom pt-0">
-                                    <b-row>
-                                        <b-col cols="12" md="12">
+                                <div class="panel-custom mb-2">
+                                    <b-row class="justify-content-center  mb-3">
+                                        <b-col cols="12" md="10">
                                             <div class="checkbox-aux font-nunito">
                                                 <label  class="box-checkbox"  id="show-modal">
                                                     <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
@@ -169,6 +162,11 @@
                                             </div>
                                         </b-col>
                                     </b-row>
+                                    <b-row class="justify-content-center">
+                                        <b-col>
+                                            <img class="d-block  m-auto" src="./../../static/media/img/ibk/tarjetas.svg" alt="">
+                                        </b-col>
+                                    </b-row>
                                     <b-row  class="text-center justify-content-center">
                                         <b-col cols="12" lg="5"  class="text-center">
                                             <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
@@ -183,11 +181,13 @@
                                             </b-row>
                                         </b-col>
                                         
-                                        <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                       
+                                        
+
+
+                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
                                             <b-row class="justify-content-center">
-                                                <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
-                                                </b-col>
+                                                
                                                 <b-col cols="10" class="text-center">
                                                     
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
@@ -196,26 +196,11 @@
                                                         
                                                     </button>
                                                 </b-col>
-                                            </b-row>
-                                        </b-col>
-                                        
-
-                                        <b-col cols="12" lg="12" class="" v-if="this.$store.state.common.frecuenciaPago != 1">
-                                            <b-row class="justify-content-center">
                                                 <b-col cols="12">
                                                     <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
                                                 </b-col>
-                                                <b-col cols="10" class="text-center">
-                                                    
-                                                    <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
-                                                        :disabled='this.isDisabledPayment'>
-                                                        <span>PAGAR ${{this.monto_pagar}} </span> 
-                                                    </button>
-                                                </b-col>
-                                                
                                             </b-row>
                                         </b-col>
-
                                     </b-row>
                                 </div>
                             </b-col>
@@ -1111,7 +1096,12 @@ import { validationMixin } from 'vuelidate'
 
 <style lang="scss" scope>
 
-
+.box-btn--primary{
+    background: #05BE50;
+    &:hover{
+        background: #05BE50;
+    }
+}
 
 
 a.steps__item.paso3:after{
@@ -1439,13 +1429,9 @@ a.steps__item.paso1:after{
     }
     .boxtitulo{
         width: 100%;
+        text-align: center;
         .texto-candado{
-            display: flex;
             align-items: center;
-        }
-        .img-candado{
-            width: 14px;
-            margin-left: 8px;
         }
         &__dto5{
             position: absolute;
@@ -1478,7 +1464,7 @@ a.steps__item.paso1:after{
         .imgs{
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
         .msg-alterno{
             font-size: 13px;
@@ -1791,13 +1777,13 @@ a.steps__item.paso1:after{
         border-radius: 4px;
     }
     #cardmes{
-        border-radius: 4px 0 0 4px;
+        border-radius: 2px 0 0 2px;
         text-align: right;
         padding-right: 10px;
 
     }
     #cardaño{
-        border-radius:  0 4px 4px 0;
+        border-radius:  0 2px 2px 0;
         padding-left: 10px;
     }
     .box-checkbox{
@@ -1886,7 +1872,6 @@ a.steps__item.paso1:after{
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-top: 16px;
         &__cvv{
             width: 40%;
             position: relative;
@@ -2001,7 +1986,7 @@ a.steps__item.paso1:after{
         margin-top: 30px;
     }
     .btn{
-        background-color: #ea0c90;
+        background-color: #05BE50;
         color: white;
         height: 50px;
         width: 300px;
@@ -2038,7 +2023,7 @@ a.steps__item.paso1:after{
         font-family: 'Omnes Medium';
     }
     .btn{
-        background-color: #ea0c90;
+        background-color: #05BE50;
         color: white;
         height: 50px;
         width: 300px;
@@ -2093,7 +2078,7 @@ a.steps__item.paso1:after{
         margin-top: 0px;
     }
     .btn{
-        background-color: #ea0c90;
+        background-color: #05BE50;
         color: white;
         height: 50px;
         width: 300px;
@@ -2203,5 +2188,245 @@ a.steps__item.paso1:after{
 //     }
 // }
 
+    .iptGral.editable .iptGral__input {
+        padding-left: 30px;
+        max-width: 460px;
+        height: 48px;
+        border: 1px solid #D1D1D1 !important;
+        box-shadow: none;
+        line-height: 48px;
+    }
+    .iptGral.editable ::placeholder {
+        color: #D1D1D1 !important;        
+    }
+    .box-iptCard{
+        position: relative;
+        display: flex;
+        align-items: center;
+        img{
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            padding-top: 8px;
+            right: 8px;
+
+        }
+        .icon-tarjeta{
+            position: absolute;
+            width: 18px;
+            left: 0;
+            padding-top: 0;
+            margin-left: 6px;
+        }
+        .ipt-cardNumber{            
+            background-image: url("./../../static/media/img/root/tarjeta.svg");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        .ipt-cardNumber:focus {
+            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+            border: 1.5px solid #0855c4!important;
+            box-shadow: none;
+        }
+        
+    }
+    .card-interseguro{
+        border-radius: 5px;
+        width: 100%;
+        max-width: 440px;
+        .form-label.col-form-label.label-completed{
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+        .subtitulo{
+            color: #0BD360;
+        }
+        label{
+            color: #0855c4;
+        }
+        .slash-symbol{
+            position: relative;
+            label{
+                position: absolute;
+                bottom: -4px;
+                z-index: 99;
+                font-size: 26px;
+                padding-bottom: 0;
+                color:#0855c4;
+            }
+        }
+        .ipt-month{
+            width: 40px;
+            padding-right: 8px !important;
+            // background-image: url("./../../static/media/img/root/calendar.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+            text-align: left !important;
+            padding-left: 41px !important;
+        }
+        .ipt-month:focus {
+            // background-image: url("./../../static/media/img/root/calendar.svg");
+            box-shadow: none;
+        }
+        
+        .img-activefocus{
+            position: absolute;
+            z-index: 9;
+            width: 20px;
+            left: 29px;
+        }
+        
+        .ipt-year{
+            width: 65px;
+            padding: 0 5px 0 0;
+            text-align: left !important;
+            padding-left: 0 !important;
+            padding-left: 6px !important;
+        }
+        .ipt-cvv{
+            width: 60px;
+            padding: 0 0 0 8px;
+            background-image: url("./../../static/media/img/root/ccv.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        #box-ccv .ipt-cvv:focus {
+            background-image: url("./../../static/media/img/root/cvv_focus.png");
+            border: 1.5px solid #0855c4 !important;
+            box-shadow: none;
+        }
+        .text-right-custom{
+            text-align: right;
+            label{
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+        }
+        .iptGral__input{
+            color: #616161;
+            font-size: 20px;
+        }
+    }
+    .metodo_pago_img{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        img{
+            height: 22px;
+            width: auto;
+        }
+    }
+    .card-custom{
+        display: flex;
+        justify-content: space-between;
+        max-width: 440px;
+        &__cvv{
+            max-width: 220px;
+            width: 50%;
+            position: relative;
+            z-index: 7;
+            box-sizing: content-box;
+            #box-ccv{
+                position: relative;
+                display: flex;
+                align-items: center;
+                .icon-ccv{
+                    position: absolute;
+                    width: 18px;
+                    left: 0;
+                    padding-top: 0;
+                    margin-left: 6px;
+                    z-index: 9;        
+                }
+                input{
+                    padding-left: 34px;
+                }
+            }
+        }
+        &__date.activeFocus{
+            border: 1px solid #0855c4;
+        }
+        &__date{    
+            max-width: 220px;
+            width: 50%;
+            display: inline-flex;
+            .form-group-custom{
+                &:nth-child(1){
+                    width: 92px;
+                }
+                &:nth-child(2){
+                    width: 70%;
+                }
+                &:nth-child(4){
+                    width: 50%;
+                }
+                
+                #box-mes{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    .icon-mes{                    
+                        position: absolute;
+                        width: 18px;
+                        left: 0;
+                        padding-top: 0;
+                        margin-left: 6px;
+                        z-index: 9;
+                    }
+                    &:after{
+                        width: 5px;
+                        height: 46px;
+                        background: #fff;
+                        content: "/";
+                        top: 1px;
+                        right: -2px;
+                        position: absolute;
+                        z-index: 99;
+                        font-size: 17px;
+                        line-height: 44px;
+                        color: #d3ddef;
+                    }
+                }
+            }
+        }
+    }
+    .card-custom__date{
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 94px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
+    @media (min-width: 1200px) {
+        .card-interseguro{
+            width: 100%;
+        }
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 112px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
 </style>
 

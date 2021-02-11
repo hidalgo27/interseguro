@@ -353,7 +353,7 @@
                 </div>
         </section>
         
-        <section class="cobertura-desktop d-none d-md-block   pb-5">
+        <section class="cobertura-desktop-ibk d-none d-md-block   pb-5">
             <div>
                 <div class="section-header  detalle-coberturas">
                     <p class="section-header__title  mt-3">Revisa nuestras coberturas y elige tu plan </p>
@@ -753,7 +753,7 @@
         </section>
         
         <section id="nomecubre" class="cobertura-3" ref="nomecubre">
-            <div class="cobertura-desktop">
+            <div class="cobertura-desktop-ibk">
                 <div class="section-header">
                     <h1 class="section-header__title">Revisa lo que los seguros vehiculares no cubren</h1>
                 </div>
@@ -996,7 +996,8 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
+
 .ausencia-control-mobile{
   flex-direction: column;
   display: flex;
@@ -1007,22 +1008,7 @@
 .ausencia-control{
     color: #979696;
 }
-.minitabla{
-    padding: 0; 
-    margin: 0;    
-    width: 100%;
-    td{
-        font-size: 14px;
-        text-align: center;
-    }
-    &__titulo{
-        background: #00C450;
-        text-align: center;
-        color: #ffffff;
-        font-size: 15px;
-    }
-    
-}
+
 .tab-servicios{
     .box-mapa{
         display: none;
@@ -1225,6 +1211,68 @@
             .nav-tabs .nav-item a{
                 border-bottom: 2px solid #00C450;
                 text-align: center;
+            }
+        }
+    }
+    .cobertura-3{
+        box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
+        background-color: #fcfcfc;
+        .section-header{  
+            &__title {
+                font-size: 22px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+                text-align: center;
+                color: #696969;
+            }
+        }
+        .cobertura-3-item{
+            width: 180px !important;
+            height: 180px !important;
+            border-radius: 200px !important;
+            background-color: #F1F7FF;
+            margin-left: auto;
+            margin-right: auto;
+            .cobertura-icon{
+                width: 100px;
+                height: 85px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    height: 66px;
+                    width: auto;
+                }
+            }
+            &__title{
+                font-family: 'Omnes Regular';
+                color: #505050;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                text-align: center;
+                
+            }
+            .item-box{
+                &__enlace{
+                    background: transparent;
+                    &--detalle{
+                        text-decoration: underline;
+                        font-size: 20px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.55;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #00C450;
+                        font-family: 'Omnes Regular';
+                    }
+                }
             }
         }
     }
@@ -1443,10 +1491,26 @@
         }
     }
 }
-.cobertura-desktop{
+.cobertura-desktop-ibk{
     font-family: 'Omnes Medium';
     max-width: 1140px;
     margin: auto !important;
+    .minitabla{
+        padding: 0; 
+        margin: 0;    
+        width: 100%;
+        td{
+            font-size: 14px;
+            text-align: center;
+        }
+        &__titulo{
+            background: #00C450;
+            text-align: center;
+            color: #ffffff;
+            font-size: 15px;
+        }
+        
+    }
     .section-header{
         padding: 24px 0;
         &__title {
@@ -1503,68 +1567,7 @@
 }
 
 
-.cobertura-3{
-    box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
-    background-color: #fcfcfc;
-    .section-header{  
-        &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #696969;
-        }
-    }
-    .cobertura-3-item{
-        width: 180px !important;
-        height: 180px !important;
-        border-radius: 200px !important;
-        background-color: #F1F7FF;
-        margin-left: auto;
-        margin-right: auto;
-        .cobertura-icon{
-            width: 100px;
-            height: 85px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img{
-                height: 66px;
-                width: auto;
-            }
-        }
-        &__title{
-            font-family: 'Omnes Regular';
-            color: #505050;
-            font-weight: 600;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.35;
-            letter-spacing: normal;
-            text-align: center;
-            
-        }
-        .item-box{
-            &__enlace{
-                background: transparent;
-                &--detalle{
-                    text-decoration: underline;
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: 1.55;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #00C450;
-                    font-family: 'Omnes Regular';
-                }
-            }
-        }
-    }
-}
+
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
     color: #fff;

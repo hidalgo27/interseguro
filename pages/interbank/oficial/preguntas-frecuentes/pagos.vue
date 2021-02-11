@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import BannerPreguntasFrecuentes from "@/components/is/common/BannerPreguntasFrecuentes";
-import nuevoTextLinks from "@/components/is/common/TextLinksRenovado2";
+import BannerPreguntasFrecuentes from "@/components/is/common/BannerPreguntasFrecuentesIbk";
+import nuevoTextLinks from "@/components/is/common/TextLinksRenovadoIbk";
 import { preguntasFrecuentesGenerico } from 'preguntas-frecuentes-viajes'
 
 export default {

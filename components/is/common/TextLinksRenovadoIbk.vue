@@ -1,7 +1,7 @@
 <template lang="pug">
   #text-links
     div(v-for="(item,key) in itemsMenu" :key="item.id")
-      router-link.omnes-medium(:to="'/oficial/'+item.to" target="_self" class="links-text ")
+      router-link.omnes-medium(:to="'/interbank/oficial/'+item.to" target="_self" class="links-text ")
         div
           img(v-bind:src="item.src"   style="width: auto ; max-height: 38px; max-width: 38px; padding-right: 0; margin-right: 14px;" alt='seguro vehicular')
           span {{item.title}}
@@ -16,37 +16,37 @@ export default {
           title : "Cobertura",          
           id: "accordeon1",
           to: "preguntas-frecuentes/cobertura",
-          src: require("./../../../static/media/img/root/pf/cobertura.png")
+          src: require("./../../../static/media/img/ibk/pf/coberturas.svg")
         },
         {
           title: "Asistencias",          
           id: "accordeon2",
           to: "preguntas-frecuentes/asistencias",
-          src: require("./../../../static/media/img/root/pf/asistencias.png")
+          src: require("./../../../static/media/img/ibk/pf/asistencias.svg")
         },
         {
           title: "Inspección",          
           id: "accordeon3",
           to: "preguntas-frecuentes/inspeccion",
-          src: require("./../../../static/media/img/root/pf/inspeccion.png")
+          src: require("./../../../static/media/img/ibk/pf/inspeccion.svg")
         },
         {
           title: "Pagos",
           id: "accordeon4",
           to: "preguntas-frecuentes/pagos",
-          src: require("./../../../static/media/img/root/pf/pagos.png")
+          src: require("./../../../static/media/img/ibk/pf/pagos.svg")
         },
         {
           title: "Siniestros",
           id: "accordeon5",
           to: "preguntas-frecuentes/siniestros",
-          src: require("./../../../static/media/img/root/pf/siniestros.png")
+          src: require("./../../../static/media/img/ibk/pf/siniestros.svg")
         },
         {
           title: "¿Qué pasa si...?",
           id: "accordeon6",
           to: "preguntas-frecuentes/que-pasa-si",
-          src: require("./../../../static/media/img/root/pf/que_pasa_si.png")
+          src: require("./../../../static/media/img/ibk/pf/que-pasa-si.svg")
         }
       ]
     }
@@ -63,7 +63,7 @@ export default {
       height:44px;
     }
     img {
-      filter: contrast(0%)
+      
     }
     span {
       filter: contrast(0%);
@@ -97,7 +97,7 @@ export default {
       height:44px;
     }
     img {
-      filter: contrast(0%)
+      
     }
     span {
       filter: contrast(0%);

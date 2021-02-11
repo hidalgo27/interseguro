@@ -214,8 +214,8 @@
     <div class="home-talleres  mt-lg-4">
       <div class="home-talleresBox">
         <div class="home-talleres__desc">
-          <p class="d-block  d-md-none"><strong> Repara tu auto </strong> <br> en nuestra red de talleres</p>
-          <p class="d-none  d-md-block"><strong> Repara tu auto </strong> <br> en nuestra red <br> de talleres</p>
+          <p class=""> Repara tu auto en <br> nuestra red de talleres</p>
+          <a class="btn-talleres  mt-3" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
         </div>
       </div>
     </div>
@@ -228,21 +228,34 @@
         <div class="box-total">
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+            <img src="./../../static/media/img/ibk/cliente1.png" alt="">
             <p class="cliente">Manuel Augusto</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
+            <p class="protegido">
+              Carro protegido <br> <strong>KIA CERATO</strong>
+            </p>
+            
           </div>
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+            <img src="./../../static/media/img/ibk/cliente2.png" alt="">
             <p class="cliente">Carolina Chavez</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
+            <p class="protegido">
+              Carro protegido <br> <strong>MAZDA 3</strong>
+            </p>
           </div>
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+            <img src="./../../static/media/img/ibk/cliente3.png" alt="">
             <p class="cliente">Enrique Quispe</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
+            <p class="protegido">
+              Carro protegido <br> <strong>SUSUKI VITARA</strong>
+            </p>
           </div>
         </div>
     </div>
@@ -268,9 +281,13 @@
             <div>
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+                <img src="./../../static/media/img/ibk/cliente1.png" alt="">
                 <p class="cliente">Manuel Augusto</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
+                <p class="protegido">
+                  Carro protegido <br> <strong>KIA CERATO</strong>
+                </p>
               </div>
             </div>
           </b-carousel-slide>
@@ -279,9 +296,13 @@
             <div>
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+                <img src="./../../static/media/img/ibk/cliente2.png" alt="">
                 <p class="cliente">Carolina Chavez</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
+                <p class="protegido">
+                  Carro protegido <br> <strong>MAZDA 3</strong>
+                </p>
               </div>
             </div>
           </b-carousel-slide>
@@ -290,9 +311,13 @@
             <div>
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+                <img src="./../../static/media/img/ibk/cliente3.png" alt="">
                 <p class="cliente">Enrique Quispe</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
+                <p class="protegido">
+                  Carro protegido <br> <strong>SUSUKI VITARA</strong>
+                </p>
               </div>
             </div>
           </b-carousel-slide>
@@ -690,7 +715,7 @@
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 170px;
+      padding-top: 42px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -910,7 +935,7 @@
     }  
     .boxHome-banner{
       position: relative;
-      height: 296px;
+      height: 360px;
       background-color: #05BE50;
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
@@ -930,7 +955,7 @@
           // padding-top: 68px !important;
           height: 500px;
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           width: 90%;
           border-bottom: 1px solid white !important;
           input{
@@ -1109,15 +1134,17 @@
     .home-talleres{
       padding-top: 42px;
       padding-bottom: 42px;
+      background-color: #00C450;
       .home-talleresBox{
         width: 100%;
         margin: auto;
       }
       &__desc{
+        width: 300px;
+        margin: auto;
         p{
           text-shadow: 0 3px 6px rgba(62, 135, 240, 0.08);
           font-size: 22px;
-          font-weight: normal;
           font-stretch: normal;
           font-style: normal;
           line-height: 1.09;
@@ -1136,7 +1163,8 @@
         background-color: #f1f7ff;
         color:#00C450;
         border: 1px solid #00C450;
-        display: inline-block;
+        display: block;
+        margin: auto;
         height: 49px;
         width: 220px;
         line-height: 49px;
@@ -1155,6 +1183,14 @@
       max-width: 80%;
       margin: auto;
       flex-direction: column;
+      .protegido{
+        margin-top: 24px;
+        color: #333333;
+        text-align: center;
+        strong{
+          color: #0855c4;
+        }
+      }
       .box-titulo{
         margin-bottom: 48px;
       }
@@ -1177,9 +1213,9 @@
         padding: 0 30px;
         position: relative;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         width: 300px;
-        height: 240px;
+        height: 313px;
         border-radius: 12px;
         border: solid 0.8px #333333;
         flex-direction: column;
@@ -1191,15 +1227,16 @@
           left: calc(159px - 28px);
         }
         .cliente{
-          font-family: 'Omnes Medium';
+          font-family: 'Omnes SemiBold';
           font-size: 18px;
           font-weight: 500;
           font-stretch: normal;
           font-style: normal;
           line-height: 1.11;
           letter-spacing: normal;
-          text-align: left;
+          text-align: center;
           color: #555555;
+          margin-top: 12px;
         }
         .ahorro{
           margin-top: 4px;
@@ -1211,7 +1248,6 @@
           font-style: normal;
           line-height: 1.11;
           letter-spacing: normal;
-          text-align: left;
           color: #333333;
         }
         .descripcion{
@@ -1223,20 +1259,27 @@
           font-style: normal;
           line-height: 1.25;
           letter-spacing: normal;
-          text-align: left;
+          text-align: center;
           color: #555555;
         }
       }
     }
     .home-clientes{
       padding-top: 24px;
+      .protegido{
+        margin-top: 24px;
+        color: #333333;
+        text-align: center;
+        strong{
+          color: #0855c4;
+        }
+      }
       .box-slider{
         padding: 0 30px;
         position: relative;
         display: flex;
-        align-items: flex-start;
         width: 300px;
-        height: 240px;
+        height: 313px;
         border-radius: 12px;
         border: solid 0.8px #333333;
         flex-direction: column;
@@ -1248,14 +1291,13 @@
           left: calc(159px - 12px);
         }
         .cliente{
-          font-family: 'Omnes Medium';
+          font-family: 'Omnes SemiBold';
           font-size: 18px;
           font-weight: 500;
           font-stretch: normal;
           font-style: normal;
           line-height: 1.11;
           letter-spacing: normal;
-          text-align: left;
           color: #555555;
         }
         .ahorro{
@@ -1280,7 +1322,6 @@
           font-style: normal;
           line-height: 1.25;
           letter-spacing: normal;
-          text-align: left;
           color: #555555;
         }
       }
@@ -1298,19 +1339,18 @@
         }
       }
       .carousel-clientes{
-        height: 300px !important;
+        height: 340px !important;
         margin-top: 24px;
         .box-slider{
           padding: 0 30px;
           position: relative;
           display: flex;
-          align-items: flex-start;
           width: 308px;
-          height: 240px;
           border-radius: 12px;
           border: solid 0.8px #333333;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           .escudo-cliente{
             position: absolute;
             top: -12px;
@@ -1318,14 +1358,12 @@
             left: calc(159px - 12px);
           }
           .cliente{
-            font-family: 'Omnes Medium';
             font-size: 18px;
             font-weight: 500;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.11;
             letter-spacing: normal;
-            text-align: left;
             color: #555555;
           }
           .ahorro{
@@ -1350,7 +1388,6 @@
             font-style: normal;
             line-height: 1.25;
             letter-spacing: normal;
-            text-align: left;
             color: #555555;
           }
         }
@@ -1522,7 +1559,8 @@
       }
       .boxHome-banner{
         background-color: #05BE50;
-        height: auto;
+        height: 580px;
+        
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
@@ -1693,12 +1731,14 @@
               .titulo{
                 text-align: left;
                 font-size: 25px;
+                font-family: 'Geometria Bold';
               }
               .descripcion{
                 text-align: left;
                 font-size: 18px;
                 margin-top: 8px;
                 max-width: 260px;
+                font-family: "Montserrat Regular";
               }
               .descargar-ahora{
                 text-align: left;
@@ -1775,6 +1815,7 @@
       .home-banner{
         padding-left: 65px;
       }
+      
       .home-beneficios2{
           padding-top: 48px;
           padding-bottom: 48px;
@@ -1866,6 +1907,7 @@
       }
 
       .home-talleres{
+        background-color: #ffffff;
         .home-talleresBox{
           background-color: #00C450;
           background-image: url('./../../static/media/img/ibk/talleres.svg');
@@ -1883,9 +1925,14 @@
           }
         }
         &__desc{
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: initial;
           p{
-            text-align: left;
-            padding-left: 30px;
+            text-align: center;
           }
         }
         .btn-talleres{

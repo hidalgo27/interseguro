@@ -105,11 +105,12 @@
                     <b-col cols="12" lg="6" class="step01 pd-b16">
                     <div class="box-img img-step1 pd-b16">
                         <img
-                        src="@/static/media/img/step01.svg"
+                        
+                        src="./../../static/media/img/ibk/uno.svg"
                         alt="Cambiar Seguro Vehicular"
                         name="Cambiar-Seguro-Vehicular"
                         width="50"
-                        class="image-29"
+                        class="image-29  mr-2"
                         >
                         <h2 class="heading-7">Ten a la mano la siguiente información:</h2>
                     </div>
@@ -132,7 +133,7 @@
 
                     <b-col cols="12" lg="6" class="step02 pd-b16">
                     <div class="box-img img-step2 pd-b16">
-                        <img src="@/static/media/img/step02.svg" width="50" alt="icon step 2">
+                        <img src="./../../static/media/img/ibk/dos.svg" width="50" alt="icon step 2"  class="mr-2">
                         <h2 class="heading-7">Envía un correo a tu aseguradora o corredor</h2>
                     </div>
 

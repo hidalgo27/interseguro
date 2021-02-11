@@ -1184,7 +1184,7 @@ input:focus {
   position: relative;
   width: 100%;
   &__titulo {
-    color: #0855c4;
+    color: #333333;
     font-size: 16px;
     font-weight: 500;
     padding-left: 0;
@@ -1196,11 +1196,11 @@ input:focus {
     position: absolute;
     right: 16px;
     z-index: 99;
-    border: 1px solid #0855c4;
+    border: 1px solid #333333;
     border-radius: 6px;
     padding: 0 4px 0 4px;
     text-align: left;
-    color: #0855c4;
+    color: #333333;
     font-size: 14px;
     top: 8px;
     cursor: pointer;
