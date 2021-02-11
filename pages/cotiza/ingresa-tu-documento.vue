@@ -865,9 +865,42 @@
           </div> -->
         </div>
       </b-modal>
+<b-modal
+        id="leaveDocument"
+        class="leaveModal"
+        size="lg"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              
+            <img class="img-verano" width="140"  src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3">
 
+                <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                <span style="color : #454A6C; font-size: 17px">
+                  Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                </span>
+
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
+                >CONTINUAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
       <!-- Modal de abandono -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -925,7 +958,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
@@ -1005,7 +1038,7 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 120px;
+  padding-top: 143px;
   .steps-plan {
     background: white;
   }
@@ -1381,6 +1414,7 @@ input:focus {
 }
 
 @media (min-width: 768px) {
+
   .ml-2-mobile {
     margin-left: 8px;
   }
@@ -1519,6 +1553,9 @@ input[type="color"]:focus,
   background: #27362d;
 }
 .leaveModal {
+  .modal-content{
+    background: #FFF188 !important;
+  }
   .modal-lg {
     max-width: 660px;
   }
@@ -1547,7 +1584,7 @@ input[type="color"]:focus,
     background-color: #ea0c90;
     color: white;
     height: 50px;
-    width: 300px;
+    width: 250px;
     line-height: 0.5;
     font-size: 16px;
     border-radius: 3px;
@@ -2599,7 +2636,7 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0) {
+      if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
         if (e.clientX < 0 || e.clientY < 0) {
           this.$store.commit("common/setLeaveMessage", 1);
           this.$nuxt.$emit("bv::show::modal", "leaveDocument");

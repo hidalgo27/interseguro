@@ -42,7 +42,7 @@
                     COTIZAR
                       <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
                   </button>
-                  <p class="no-tengo-placa" @click="resetearPlaca($event)">Todavía no tengo placa</p>
+                  <p class="no-tengo-placa"></p>
                   <p class="respaldo-intercorp">
                     <span> Con el respaldo del grupo</span>
                     <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
@@ -579,7 +579,7 @@
                         COTIZAR
                           <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
                       </button>
-                      <p class="no-tengo-placa  mt-3" @click="resetearPlaca($event)">Todavía no tengo placa</p>
+                      <p class="no-tengo-placa  mt-3"></p>
                       <p class="respaldo-intercorp mt-3">
                         <span> Con el respaldo del grupo</span>
                         <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
@@ -2669,7 +2669,7 @@ p, img{
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 360px;
+        height: 310px;
         background: #fff;
         position: relative;
         z-index: 9999;
@@ -2774,7 +2774,7 @@ p, img{
     .homeRoot{
       .formCotizador{
         padding-top: 60px;
-        height: 334px;
+        height: 310px;
         border-radius: 35px 0 35px;
         .formCotizador-titulo{
           font-size: 24px;
@@ -3180,7 +3180,7 @@ p, img{
         }
       }
       .formCotizador{
-        height: 360px;
+        height: 310px;
       }
 
       .home-pasos{

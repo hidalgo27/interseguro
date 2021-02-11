@@ -511,6 +511,7 @@
       mounted () {
         this.$store.commit('common/resetState')
         this.$store.commit('common/setBusinessId', 1)
+        this.$store.commit('common/setPromocion', false)
         /************************************************************************ */
         /********************* CONFIGURACIONES GLOBALES************************* */
         /************************************************************************ */

@@ -3,6 +3,7 @@
 const getDefaultState = () => {
     return {
     //GLOBALES
+    urlGlobal: '',
     montoPagar:0,
     code_sku:0,
     flagCloseListon: 1,
@@ -38,6 +39,7 @@ const getDefaultState = () => {
     pantallaFlujo: 0,
     fechaVigencia: '',
     businessId: 1,
+    promocion : false,
     objVehiculo : {
         activePolicy: false,
         appDiscount: false,
@@ -91,7 +93,8 @@ const getDefaultState = () => {
     codigoRemarketingGenerado: '',
 
     // Modal de abandono
-    leaveMessage: 0
+    leaveMessage: 0,
+    leaveMessage1: 0
     }
 }
 
@@ -119,6 +122,9 @@ const mutations = {
     
     setMontoPagar (state, payload){
         state.montoPagar = payload
+    },
+    setUrlGlobal (state, payload){
+        state.urlGlobal = payload
     },
     setAppDiscount (state, payload){
         state.appDiscount = payload
@@ -176,6 +182,9 @@ const mutations = {
     },
     setBusinessId (state, payload) {
         state.businessId = payload
+    },
+    setPromocion (state, payload) {
+        state.promocion = payload
     },
     setVehicleState (state, payload) {
         state.vehicleState = payload
@@ -241,6 +250,9 @@ const mutations = {
     },
     setLeaveMessage (state, payload) {
         state.leaveMessage = payload
+    },
+    setLeaveMessage1 (state, payload) {
+        state.leaveMessage1 = payload
     }
 }
 
@@ -424,6 +436,20 @@ const actions = {
             ? 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt
             : 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt + '&assignedPrice=' + item.assignedPrice +'&documentNumber='+state.documentoLocal
             this.$axios.get( url + "&discountType=" + item.discountType + "&businessId=" + item.businessId ).then( res => {
+                if ( res ) {
+                    resolve(res)
+                } else  {
+                    reject(res)
+                }
+            })
+            .catch(err => {
+              reject(err)
+            });
+        });
+    },
+    getCotizacionRenovacion ({ commit, state }, item) {
+        return new Promise((resolve, reject) => {
+            this.$axios.get( 'provider/v2/policy/renew/price-plans/' + state.plateNumber + '/' + item.year ).then( res => {
                 if ( res ) {
                     resolve(res)
                 } else  {

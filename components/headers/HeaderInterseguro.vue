@@ -158,7 +158,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        // this.contador()
         
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {

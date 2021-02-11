@@ -1,6 +1,170 @@
 <template>
   <div>
+
     <section class="tyc">
+      <b-container>
+        <b-row>
+          <b-col cols="12">
+            <div class="section-header pd-b16">
+              <p class="text-center"><strong>Promoción “Prueba rápida de COVID-19 a domicilio” </strong></p>              
+            </div>
+          </b-col>
+          <b-col cols="12" lg="12">
+            <ol>
+              <li>
+                <p>
+                  <b>Alcance</b>
+                </p>                
+                <p>
+                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una (01) prueba rápida de descarte para COVID 19 con envío a domicilio, que se regalará a los cien (50) primeros clientes que efectúen una compra de una nueva póliza de Seguro Vehicular haciendo uso de la página Web en el siguiente link: www.interseguro.pe/vehicular/promocion/ de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro). Para acceder a la promoción solo debe comprar un Seguro Vehicular en Plan Black o Plan Oro en cualquier frecuencia de pago (mensual, trimestral o anual) a través del link www.interseguro.pe/vehicular/promocion/.
+                </p>
+                <p>
+                  Los participantes deben cumplir los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído y conocer en su totalidad. Promoción válida a nivel Lima metropolitana y Callao.
+                </p>
+              </li>
+              <br>
+              <li>
+                <p>
+                  <b>Premio materia de la promoción</b>
+                </p>
+                
+                <p>
+                  <ul>
+                    <li>Prueba rápida para COVID 19 <br> Precio valorizado en: S/ 70 Soles (Setenta y 00/100 Soles).</li>
+                  </ul>
+                </p>
+              </li>
+              <br>
+              <li>
+                <p>
+                  <b>Vigencia de la Promoción</b>
+                </p>                
+                <p>
+                  <ul>
+                    <li>Fecha de Inicio de la promoción: 00:01 horas del Jueves 04 de febrero del 2021.</li>
+                    <li>Fecha de Finalización de la promoción: 23:59 horas del lunes 08 de febrero del 2021. </li>
+                  </ul>
+                </p>
+              </li>
+              <br>
+              <li>
+                <p>
+                  <b>Fecha y mecánica de la promoción</b>
+                </p>
+                <p>
+                  Para participar en la promoción, el cliente deberá efectuar la compra de una nueva póliza de nuestro producto digital Seguro Vehicular haciendo uso de la página Web en el siguiente link: www.interseguro.pe/vehicular/promocion/ de Interseguro; la compra debe ser de un Plan Black o Plan Oro en cualquier frecuencia de pago; el cliente puede realizar el pago empleando cualquier tarjeta.
+                </p>
+                <p>
+                  Transcurridos 15 días útiles posteriores a la compra, el proveedor se contactará con los clientes para agendar su cita, previa coordinación con el establecimiento; el cliente tiene 60 días calendarios a partir de esta comunicación para concretar la cita, de lo contrario, perderá el beneficio.
+                </p>
+
+                
+              </li>
+              <br>
+              <li>
+                <p>Requisitos para participar de la promoción</p>
+                <p>Aplica únicamente para las personas naturales que adquieran una póliza nueva de Seguro Vehicular a través de la página Web en el siguiente link: www.interseguro.pe/vehicular/promocion/ de Interseguro.</p>
+                <p>Condiciones bajo las cuales los clientes podrán obtener el premio al adquirir los siguientes seguros:</p>
+
+                <p>Seguro Vehicular:</p>
+                <p>
+                  Participan todos los clientes que contraten una nueva póliza de Seguro Vehicular durante las fechas indicadas en la sección “Vigencia de la Promoción”. La compra debe ser de un Plan Black o Plan Oro, en cualquier frecuencia de pago y puede realizar el pago empleando cualquier tarjeta.
+                </p>
+                <p>
+                  Se hará efectivo una vez transcurrido 15 días útiles de la fecha de emisión de la póliza.
+                </p>
+                  <p>
+                    El cliente puede designar a otra persona como beneficiario siempre y cuando el domicilio esté dentro de las zonas de cobertura (Lima Metropolitana y Callao).
+                  </p>
+                  <p>
+                    La programación de citas puede realizarse hasta 60 días naturales después de la fecha desde que el proveedor se comunica con el cliente, pasado este periodo el cliente pierde el beneficio.
+                  </p>
+                  <p>
+                    Los exámenes se realizarán en el domicilio del cliente, previa coordinación.
+                    El cliente debe llenar la Carta de Compromiso para caso sospechoso, probable y confirmado.
+                  </p>
+                  <p>
+                    Llenado de Ficha de reporte.
+                  </p>
+                  <p>
+                    Incluye servicio de toma de muestra y lectura de Prueba Rápida (IgM/IgG COVID-19)
+                  </p>
+                  <p>
+                    Registro de cada colaborador en el sistema del Ministerio de Salud SISCOVID 19
+                  </p>
+                  <p>
+                    Entrega de carta de resultados de prueba rápida Covid-19
+                    Todos los profesionales a cargo contarán con el EPP correspondiente
+                    Los resultados se brindarán en un plazo no mayor a 24 horas.
+                    Los servicios se realizarán en Lima Metropolitana y el Callao.
+                    Stock máximo: 50 vales virtuales.
+
+                  </p>
+                  <p>
+                    Aplica exclusivamente para personas naturales con documento de identidad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.
+                  </p>
+                  <p>
+                    Los datos ingresados al momento de la contratación del seguro deben ser correctos y veraces, caso contrario no podrá hacerse acreedor del premio.
+                  La póliza adquirida debe estar vigente a la fecha y hora de la entrega del premio (toma de muestra), de lo contrario éste no podrá ser reclamado.
+                  </p>
+
+              </li>
+              <br>
+              <li>
+                <p>
+                  <b>Restricciones del Premio:</b>
+                </p>
+                <p>
+                  Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones.
+                </p>
+                <p>
+                 Todo intento de fraude o interferencia con el sistema de registro, eliminará al participante de esta promoción.
+                </p>
+                <p>
+                  No participan colaboradores de Interseguro. El premio no es canjeable por dinero.
+                </p>
+                <p>
+                  El premio incluye únicamente el concepto anunciado.
+                </p>
+              </li>
+              <br>
+              <li>
+                <p><b>Sobre Consentimiento y la Protección de Datos Personales:</b></p>
+                <ul>
+                  <li>
+                    <p>
+                      El solo hecho de participar supone el conocimiento y, por tanto, la total aceptación de las presentes Bases por parte de los participantes.
+                    </p>
+                    <p>
+                      La aceptación del premio supondrá la expresa autorización del ganador a Interseguro Compañía de Seguros S.A. para la difusión pública, transmisión, retransmisión, reproducción o publicación de los datos personales, las filmaciones, fotografías, imágenes o grabaciones de las imágenes y voces de los participantes, en todos y cualesquiera medios de comunicación conocidos o por conocerse (incluyendo, pero sin limitarse, a gráficos, visuales, audiovisuales, televisión por aire, antena, cable o satélite, radio e Internet) con fines comerciales o aquellos relacionados con la difusión del concurso, sin que el participante tenga derecho a reclamo de indemnización contraprestación o retribución alguna.
+                    </p>
+                    <p>
+                      La aceptación del premio supondrá la expresa autorización del ganador a Interseguro Compañía de Seguros S.A. para la difusión pública, transmisión, retransmisión, reproducción o publicación de los datos personales, las filmaciones, fotografías, imágenes o grabaciones de las imágenes y voces de los participantes, en todos y cualesquiera medios de comunicación conocidos o por conocerse (incluyendo, pero sin limitarse, a gráficos, visuales, audiovisuales, televisión por aire, antena, cable o satélite, radio e Internet) con fines comerciales o aquellos relacionados con la difusión del concurso, sin que el participante tenga derecho a reclamo de indemnización contraprestación o retribución alguna.
+                    </p>
+                    <p>
+                      Interseguro Compañía de Seguros S.A. garantiza la seguridad y confidencialidad en el tratamiento de los datos de carácter personal facilitados por los usuarios, de conformidad con los dispuesto en la Ley N° 29733, Ley de Protección de Datos Personales y/o sus normas reglamentarias, complementarias, modificatorias, sustitutorias y demás disposiciones aplicables (en adelante, “la Ley”).
+Toda información entregada a Interseguro mediante su sitio web www.interseguro.pe será objeto de tratamiento automatizado e incorporada en una o más bases de datos de las que Interseguro será titular y responsable, conforme a los términos previstos por la Ley.
+                    </p>
+                    <p>
+                      El usuario otorga autorización expresa e inequívoca a Interseguro para realizar tratamiento y hacer uso de la información personal que este proporcione a Interseguro. cuando acceda al sitio web www.interseguro.pe, participe en promociones comerciales, envíe consultas o comunique incidencias, y en general cualquier interacción web, además de la información que se derive del uso de productos y/o servicios que pudiera tener contratados con Interseguro y de cualquier información pública o que pudiera recoger a través de fuentes de acceso público, incluyendo aquellos a los que Interseguro tenga acceso como consecuencia de su navegación por esta página web (en adelante, la “Información”) para las finalidades de envío de comunicaciones comerciales, comercialización de productos y servicios, y del mantenimiento de su relación contractual con Interseguro. La navegación en la página web www.interseguro.pe, la participación en promociones comerciales, y cualquier otra interacción web implica el consentimiento expreso e inequívoco del usuario para la cesión de sus datos personales a Interseguro. El usuario reconoce y acepta que Interseguro podrá ceder sus datos personales a cualquier tercero, siempre que sea necesaria su participación para cumplir con la prestación de servicios y comercialización de productos y servicios.
+                    </p>
+                    <p>
+                      Interseguro Compañía de Seguros podrá ceder, en su caso, la Información a sus empresas subsidiarias, filiales, asociadas, afiliadas o miembros del grupo económico al cual pertenece y/o terceros con los que éstas mantengan una relación contractual, supuesto en el cual sus datos serán almacenados en los sistemas informáticos de cualquiera de ellos. En todo caso, Interseguro garantiza el mantenimiento de la confidencialidad y el tratamiento seguro de la Información en estos casos. El uso de la Información por las empresas antes indicadas se circunscribirá a los fines contenidos en este documento.
+                    </p>
+                    <p>
+                      La política de privacidad de Interseguro le asegura al usuario el ejercicio de los derechos de información, acceso, actualización, inclusión, rectificación, supresión o cancelación, oposición y revocación del consentimiento, en los términos establecidos en la Ley. En cualquier momento, el usuario tendrá el derecho a solicitar a Interseguro el ejercicio de los derechos que le confiere la Ley, así como la revocación de su consentimiento según lo previsto en la Ley. Interseguro garantiza la confidencialidad en el tratamiento de los datos de carácter personal, así como haber adoptado los niveles de seguridad de protección de los datos personales, instalado todos los medios y adoptado todas las medidas técnicas, organizativas y legales a su alcance que garanticen la seguridad y eviten la alteración, pérdida, tratamiento o acceso no autorizado a los datos personales. Nada de lo incluido aquí se interpretará como límite o reducción de las responsabilidades y las obligaciones Interseguro hacia sus clientes
+                    </p>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+            </ol>
+           
+          </b-col>
+        </b-row>
+      </b-container>
+
       <b-container>
         <b-row>
           <b-col cols="12">
@@ -322,7 +486,7 @@
                   <b>Alcance</b>
                 </p>                
                 <p>
-                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una tarjeta virtual por un valor de S/ 50 Soles, que se regalará a los 50 primeros clientes que efectúen una compra de Seguro Vehicular haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion50.Para acceder a la promoción, el usuario debe realizar la compra de un Plan BLACK empleando cualquier modalidad de pago (mensual, trimestral, anual) a través del enlace www.interseguro.pe/vehicular/promocion50. Los participantes deben cumplir los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído y conocer en su totalidad. Esta promoción no aplica para otros canales de venta, ni para las compras realizadas a través del enlace www.interseguro.pe/vehicular ni es acumulable con otras promociones o descuentos. Aplica para vales canjeables a nivel nacional.
+                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una tarjeta virtual por un valor de S/ 50 Soles, que se regalará a los 50 primeros clientes que efectúen una compra de Seguro Vehicular haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion/50.Para acceder a la promoción, el usuario debe realizar la compra de un Plan BLACK empleando cualquier modalidad de pago (mensual, trimestral, anual) a través del enlace www.interseguro.pe/vehicular/promocion/50. Los participantes deben cumplir los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído y conocer en su totalidad. Esta promoción no aplica para otros canales de venta, ni para las compras realizadas a través del enlace www.interseguro.pe/vehicular ni es acumulable con otras promociones o descuentos. Aplica para vales canjeables a nivel nacional.
                 </p>
               </li>
               <br>
@@ -356,7 +520,7 @@
                   <b>Fecha y mecánica de la promoción</b>
                 </p>                
                 <p>
-                  Para participar en la promoción, el cliente deberá efectuar una compra nuestro producto digital Seguro Vehicular plan BLACK empleando cualquier modalidad de pago, haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion50.
+                  Para participar en la promoción, el cliente deberá efectuar una compra nuestro producto digital Seguro Vehicular plan BLACK empleando cualquier modalidad de pago, haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion/50.
                   Al finalizar la promoción, Interseguro validará los datos y enviará un mailing a los clientes premiados con el código de activación de la tarjeta virtual y los detalles del premio.
                 </p>
               </li>
@@ -378,7 +542,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li><p>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe/vehicular/promocion50 desde las 13:00 horas del 13/10/2020 hasta las 23:59:59 horas del 18/10/2020.</p></li>
+                  <li><p>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe/vehicular/promocion/50 desde las 13:00 horas del 13/10/2020 hasta las 23:59:59 horas del 18/10/2020.</p></li>
                   <li><p>Stock máximo: 50 vales virtuales</p></li>
                   <li><p>Aplica exclusivamente para personas naturales con documento de identidad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.</p></li>
                   <li><p>Los datos ingresados deben ser correctos y veraces, caso contrario el participante no podrá hacerse acreedor del premio.</p></li>
@@ -436,7 +600,7 @@
                   <b>Alcance</b>
                 </p>                
                 <p>
-                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una tarjeta virtual por un valor de S/ 100 Soles, que se regalará a los 50 primeros clientes que efectúen una compra de Seguro Vehicular haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion100. Para acceder a la promoción, el usuario debe realizar la compra de un Plan BLACK empleando cualquier modalidad de pago (mensual, trimestral, anual) a través del enlace www.interseguro.pe/vehicular/promocion100. Los participantes deben cumplir los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído y conocer en su totalidad. Esta promoción no aplica para otros canales de venta, ni para las compras realizadas a través del enlace www.interseguro.pe/vehicular ni es acumulable con otras promociones o descuentos. Aplica para vales canjeables a nivel nacional.
+                  Será materia de la presente Promoción Comercial el entregar un Premio consistente en una tarjeta virtual por un valor de S/ 100 Soles, que se regalará a los 50 primeros clientes que efectúen una compra de Seguro Vehicular haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion/100. Para acceder a la promoción, el usuario debe realizar la compra de un Plan BLACK empleando cualquier modalidad de pago (mensual, trimestral, anual) a través del enlace www.interseguro.pe/vehicular/promocion/100. Los participantes deben cumplir los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído y conocer en su totalidad. Esta promoción no aplica para otros canales de venta, ni para las compras realizadas a través del enlace www.interseguro.pe/vehicular ni es acumulable con otras promociones o descuentos. Aplica para vales canjeables a nivel nacional.
                 </p>
               </li>
               <br>
@@ -470,7 +634,7 @@
                   <b>Fecha y mecánica de la promoción</b>
                 </p>                
                 <p>
-                  Para participar en la promoción, el cliente deberá efectuar una compra nuestro producto digital Seguro Vehicular plan BLACK empleando cualquier modalidad de pago, haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion100.
+                  Para participar en la promoción, el cliente deberá efectuar una compra nuestro producto digital Seguro Vehicular plan BLACK empleando cualquier modalidad de pago, haciendo uso del siguiente enlace www.interseguro.pe/vehicular/promocion/100.
                   Al finalizar la promoción, Interseguro validará los datos y enviará un mailing a los clientes premiados con el código de activación de la tarjeta virtual y los detalles del premio.
                 </p>
               </li>
@@ -492,7 +656,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li><p>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe/vehicular/promocion100 desde las 13:00 horas del 13/10/2020 hasta las 23:59:59 horas del 18/10/2020.</p></li>
+                  <li><p>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe/vehicular/promocion/100 desde las 13:00 horas del 13/10/2020 hasta las 23:59:59 horas del 18/10/2020.</p></li>
                   <li><p>Stock máximo: 50 vales virtuales</p></li>
                   <li><p>Aplica exclusivamente para personas naturales con documento de identidad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.</p></li>
                   <li><p>Los datos ingresados deben ser correctos y veraces, caso contrario el participante no podrá hacerse acreedor del premio.</p></li>

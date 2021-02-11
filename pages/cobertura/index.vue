@@ -996,7 +996,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
 .ausencia-control-mobile{
   flex-direction: column;
   display: flex;

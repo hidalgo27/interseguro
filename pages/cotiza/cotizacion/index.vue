@@ -6,9 +6,9 @@
     <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
     </div>
     
-    <b-container class="contenedor-personalizado" >
+    <b-container class="contenedor-personalizado  " >
       <b-row>
-        <b-col cols="12" xl="10" class="m-auto">
+        <b-col cols="12" xl="12" class="m-auto">
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
@@ -26,23 +26,12 @@
             </div> 
         </b-col>  
       </b-row>  
-      <!-- <div id="imagePhone"  style="visibility:false">
-        <div class="phoneContent">
-            <div class="phoneS">
-              <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
-          </div>
-          </div>
-      
-                Tenemos problemas para cotizar tu placa. Por favor 
-                 ponte en contacto con nosotros llamando al   
-                 <a style="color : #5b85c5" href="tel:+51015000000">(01)500-0000</a>
-                 y te ayudamos a seguir con la cotización.`,
 
-        </div> -->
+     
 
     </b-container>
 
-    <b-container class="contenedor-personalizado">
+    <b-container class="contenedor-personalizado cotizador-2021">
       <b-row class="justify-content-center" style="position: relative;">
         <b-container >
           <b-row class="d-flex justify-content-center" >
@@ -266,7 +255,8 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          <span>2da</span>
+                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -349,7 +339,8 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          <span>2da</span>
+                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -449,7 +440,8 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          <span>2da</span>
+                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                         </div>
                       </div>
                       <div class="box-importante">
@@ -577,7 +569,8 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                    <span>2da</span>
+                    <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
                   </div>
                 </div>
                 <div class="box-importante">
@@ -723,7 +716,24 @@
                   <b-button  class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
               <div class="box-btns-fixed  box-btn " v-bind:class="{'d-none': opacityNone}">
-                  <b-button class="continuar  d-lg-none" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
+                  <!-- <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
+                    <img
+                      @click="hideFlotante()"
+                      src="./../../../static/media/img/root/close.png"
+                      width="50"
+                      alt="icon close"
+                      class="img-close "
+                    />
+                    <router-link to="/tyc"><img src="./../../../static/media/interseguroVehicular_v2/segunda-cuota.svg" alt=""></router-link>
+                    <div class="box-contador" >
+                      <div  class="example  d-md-flex">
+                          <div id="contadorCyber5" class="flipdown">
+                              
+                          </div> 
+                      </div>
+                    </div>
+                  </div> -->
+                  <b-button class="continuar  d-lg-none mt-2" @click="continuar($event, planSeleccionado)">CONTINUAR</b-button>
               </div>
             </div>
             
@@ -793,7 +803,19 @@
     </b-modal>
     
 
+      <div id="imagePhone" style="display:none" >
+        <div class="phoneContent">
+                 <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
+                  <img src="../../../static/media/interseguroVehicular_v2/telefono.svg" alt="telefono">
+                 </a>
+          </div>
+      
+                Tenemos problemas para cotizar tu placa. Por favor 
+                 ponte en contacto con nosotros llamando al   
+                 <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>
+                 y te ayudamos a seguir con la cotización.
 
+        </div>
     
       <b-modal title="Bootstrap-Vue"
           hide-footer
@@ -882,7 +904,6 @@
           ref="modalNumeroCelular"
           id="modalNumeroCelular">
         <div class="modal-content modal-root">
-            <img class="img-close-modal" src="./../../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
             <div class="modal-body">
               
               <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
@@ -1374,7 +1395,7 @@
       </b-container>
     </b-modal>
 
-    <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1400,7 +1421,41 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
+
+     <b-modal
+        id="leaveQuote2"
+        class="leaveModal"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
+              <img class="img-verano" width="140"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <p class="mt-3">
+
+                <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                <span style="color : #454A6C; font-size: 17px">
+                  Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                </span>
+
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
+                >Quiero continuar</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
 
   </section>
 </template>
@@ -1413,7 +1468,7 @@
       date: new Date(),
       disabledDates: {
       to: new Date(Date.now() - 8640000),
-      from: new Date(fechaActual.getTime() + 3.888e+9)
+      from: new Date(fechaActual.getTime() + 7.884e+9)
     }
   }
 
@@ -1421,6 +1476,7 @@
     layout: 'InterseguroFlujo',
     data() {
       return {
+        flotanteCovid: true,
         opacityNone: false,
         urlpdf:'',
         mostrarMensajeEnviadoEndosar: false,
@@ -1646,6 +1702,7 @@
         isDisabledEnviarCorreo: false,
         email: '',
         objUtm:'',
+        htmlModal : '',
         /* ********************** REMARKETING *********************/
         objRemarketing: {
           codigoRemarketing: "",
@@ -1694,6 +1751,7 @@
       }
     },
     created() {
+  
       if (process.browser) {
         window.addEventListener("scroll", this.handleScroll);
         document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -1742,6 +1800,18 @@
       },
     },
     methods: {
+      contador(){
+            // var flipdown2 = new FlipDown(1613365199, 'contadorCyber5').start()
+        },
+      hideFlotante(){
+        this.flotanteCovid = !this.flotanteCovid
+      },
+      metodoFlotante(){
+        this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+      },
+      hidemetodoFlotante(){
+        this.$nuxt.$emit('bv::hide::modal','leaveQuote2')
+      },
       hideModalBlackWeek(){
           $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
       },
@@ -2289,6 +2359,42 @@
               this.code_sku = "sku046"
             }else if(this.itemElegido.model.indexOf("PRISMA") >= 0 ) {
               this.code_sku = "sku047"
+            }else if(this.itemElegido.model.indexOf("ASTRA ENJOY ") >= 0 ) {
+              this.code_sku = "sku099"
+            }else if(this.itemElegido.model.indexOf("COLORADO ") >= 0 ) {
+              this.code_sku = "sku100"
+            }else if(this.itemElegido.model.indexOf("LUV D-MAX") >= 0 ) {
+              this.code_sku = "sku101"
+            }else if(this.itemElegido.model.indexOf("N300") >= 0 ) {
+              this.code_sku = "sku102"
+            }else if(this.itemElegido.model.indexOf("N400") >= 0 ) {
+              this.code_sku = "sku103"
+            }else if(this.itemElegido.model.indexOf("ONIX") >= 0 ) {
+              this.code_sku = "sku104"
+            }else if(this.itemElegido.model.indexOf("OPTRA") >= 0 ) {
+              this.code_sku = "sku105"
+            }else if(this.itemElegido.model.indexOf("ORLANDO") >= 0 ) {
+              this.code_sku = "sku106"
+            }else if(this.itemElegido.model.indexOf("TRACKER") >= 0 ) {
+              this.code_sku = "sku107"
+            }else if(this.itemElegido.model.indexOf("TRAVERSE") >= 0 ) {
+              this.code_sku = "sku108"
+            }else if(this.itemElegido.model.indexOf("SPIN") >= 0 ) {
+              this.code_sku = "sku109"
+            }else if(this.itemElegido.model.indexOf("SUBURBAN") >= 0 ) {
+              this.code_sku = "sku110"
+            }else if(this.itemElegido.model.indexOf("TRAIBLAZER") >= 0 ) {
+              this.code_sku = "sku111"
+            }else if(this.itemElegido.model.indexOf("TAHOE") >= 0 ) {
+              this.code_sku = "sku112"
+            }else if(this.itemElegido.model.indexOf("SILVERADO") >= 0 ) {
+              this.code_sku = "sku113"
+            }else if(this.itemElegido.model.indexOf("GROOVE") >= 0 ) {
+              this.code_sku = "sku114"
+            }else if(this.itemElegido.model.indexOf("MALIBU") >= 0 ) {
+              this.code_sku = "sku115"
+            }else if(this.itemElegido.model.indexOf("VIVANT") >= 0 ) {
+              this.code_sku = "sku116"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2460,6 +2566,36 @@
               this.code_sku = "sku012"
             }else if(this.itemElegido.model.indexOf("SX4") >= 0 ) {
               this.code_sku = "sku024"
+            }else if(this.itemElegido.model.indexOf("ALTO") >= 0 ) {
+              this.code_sku = "sku117"
+            }else if(this.itemElegido.model.indexOf("APV ") >= 0 ) {
+              this.code_sku = "sku118"
+            }else if(this.itemElegido.model.indexOf("BALENO") >= 0 ) {
+              this.code_sku = "sku119"
+            }else if(this.itemElegido.model.indexOf("CIAZ") >= 0 ) {
+              this.code_sku = "sku120"
+            }else if(this.itemElegido.model.indexOf("GRAND NOMADE") >= 0 ) {
+              this.code_sku = "sku121"
+            }else if(this.itemElegido.model.indexOf("GRAND VITARA") >= 0 ) {
+              this.code_sku = "sku122"
+            }else if(this.itemElegido.model.indexOf("IGNIS") >= 0 ) {
+              this.code_sku = "sku123"
+            }else if(this.itemElegido.model.indexOf("JIMNY") >= 0 ) {
+              this.code_sku = "sku124"
+            }else if(this.itemElegido.model.indexOf("KIZASHI") >= 0 ) {
+              this.code_sku = "sku125"
+            }else if(this.itemElegido.model.indexOf("S-CROSS") >= 0 ) {
+              this.code_sku = "sku126"
+            }else if(this.itemElegido.model.indexOf("S-Presso") >= 0 ) {
+              this.code_sku = "sku127"
+            }else if(this.itemElegido.model.indexOf("VITARA") >= 0 ) {
+              this.code_sku = "sku128"
+            }else if(this.itemElegido.model.indexOf("XL-7") >= 0 ) {
+              this.code_sku = "sku129"
+            }else if(this.itemElegido.model.indexOf("CELERIO 1.0") >= 0 ) {
+              this.code_sku = "sku130"
+            }else if(this.itemElegido.model.indexOf("ERTIGA") >= 0 ) {
+              this.code_sku = "sku131"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2512,6 +2648,32 @@
           case 54:
             if (this.itemElegido.model.indexOf("SANDERO") >= 0 ) {
               this.code_sku = "sku036"
+            }else if(this.itemElegido.model.indexOf("DUSTER") >= 0 ) {
+              this.code_sku = "sku142"
+            }else if(this.itemElegido.model.indexOf("DUSTER OROCH") >= 0 ) {
+              this.code_sku = "sku143"
+            }else if(this.itemElegido.model.indexOf("KOLEOS") >= 0 ) {
+              this.code_sku = "sku144"
+            }else if(this.itemElegido.model.indexOf("LOGAN") >= 0 ) {
+              this.code_sku = "sku145"
+            }else if(this.itemElegido.model.indexOf("GRAND SCENIC") >= 0 ) {
+              this.code_sku = "sku146"
+            }else if(this.itemElegido.model.indexOf("FLUENCE 2.0") >= 0 ) {
+              this.code_sku = "sku147"
+            }else if(this.itemElegido.model.indexOf("CAPTUR") >= 0 ) {
+              this.code_sku = "sku148"
+            }else if(this.itemElegido.model.indexOf("KANGOO EXPRESS 1.9D RL") >= 0 ) {
+              this.code_sku = "sku149"
+            }else if(this.itemElegido.model.indexOf("MEGANE II") >= 0 ) {
+              this.code_sku = "sku150"
+            }else if(this.itemElegido.model.indexOf("MEGANE RS 2.0TURBO") >= 0 ) {
+              this.code_sku = "sku151"
+            }else if(this.itemElegido.model.indexOf("KWID") >= 0 ) {
+              this.code_sku = "sku152"
+            }else if(this.itemElegido.model.indexOf("STEPWAY 1.6") >= 0 ) {
+              this.code_sku = "sku153"
+            }else if(this.itemElegido.model.indexOf("SYMBOL 1.6") >= 0 ) {
+              this.code_sku = "sku154"
             }else{
               this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
             }
@@ -2539,6 +2701,26 @@
               this.code_sku = "sku058"
             }else if(this.itemElegido.model.indexOf("QASHQAI") >= 0 ) {
               this.code_sku = "sku059"
+            }else if(this.itemElegido.model.indexOf("PATHFINDER") >= 0 ) {
+              this.code_sku = "sku132"
+            }else if(this.itemElegido.model.indexOf("MARCH") >= 0 ) {
+              this.code_sku = "sku133"
+            }else if(this.itemElegido.model.indexOf("V16 1.6") >= 0 ) {
+              this.code_sku = "sku134"
+            }else if(this.itemElegido.model.indexOf("JUKE") >= 0 ) {
+              this.code_sku = "sku135"
+            }else if(this.itemElegido.model.indexOf("ALMERA") >= 0 ) {
+              this.code_sku = "sku136"
+            }else if(this.itemElegido.model.indexOf("ALMERA") >= 0 ) {
+              this.code_sku = "sku137"
+            }else if(this.itemElegido.model.indexOf("MURANO") >= 0 ) {
+              this.code_sku = "sku138"
+            }else if(this.itemElegido.model.indexOf("KICKS") >= 0 ) {
+              this.code_sku = "sku139"
+            }else if(this.itemElegido.model.indexOf("TEANA") >= 0 ) {
+              this.code_sku = "sku140"
+            }else if(this.itemElegido.model.indexOf("URVAN") >= 0 ) {
+              this.code_sku = "sku141"
             }else if(this.itemElegido.model.indexOf("SENTRA") >= 0 ) {
               this.code_sku = "sku060"
             } else{
@@ -2709,7 +2891,6 @@
       },
       getCotizacion() {
           this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-            console.log(res.data.code , 'alva')
             if (res.data.code == 0) { 
               
               this.listCotizacionTotal = res.data.body
@@ -2749,20 +2930,29 @@
               
               
             }
-            // else if(res.data.code === 200){
-              
-            //   const imagePhone = document.getElementById('imagePhone');
-            //   console.log(imagePhone)
-            //   this.$swal({
-            //     title: "Oops...",
-            //     html: imagePhone,
-            //     // type: "warning",
-            //     showCancelButton: false,
-            //     confirmButtonColor: "#2177CC",
-            //     confirmButtonText: "OK"
-            //   });
+            else if(res.data.code === 200){
+              if(!this.htmlModal){
+                this.htmlModal = document.getElementById('imagePhone');
+                this.htmlModal.style.display = "";
+              }
 
-            // } 
+              const goToVehicular = () => this.$nuxt.$router.back();
+
+              // imagePhone.style.display = '';
+              this.$swal({
+                // title: "Oops...",
+                html: this.htmlModal,
+                // type: "warning",
+                showCancelButton: false,
+                confirmButtonColor: "#2177CC",
+                confirmButtonText: "OK",
+                
+              }).then(function () {
+                goToVehicular();
+              });
+        
+
+            } 
             else {
               let errorDetectado = {
                 url : 'getcotizacion',
@@ -2960,11 +3150,12 @@
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
-              url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+              url: process.env.URL + (this.$store.state.common.promocion == true ? "vehicular/promocion/" : this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
               plantilla: this.objPlantilla,
               utm: this.objUtm
             },
             datosProducto: {
+              urlGlobal : this.$store.state.common.urlGlobal,
               marca : this.$store.state.common.itemElegido.brand,
               modelo : this.$store.state.common.itemElegido.model,
               planSeleccionado : this.planSeleccionado+'',
@@ -3032,15 +3223,10 @@
       },
       mouseLeave(e) {
         if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-          if (this.$store.state.common.leaveMessage == 0) {
+          if (this.$store.state.common.leaveMessage == 0 ) {
             if (e.clientX < 0 || e.clientY < 0) {
               this.$store.commit('common/setLeaveMessage',1)
-              let num = this.$store.state.common.plateNumber.slice(-1)
-              if (num % 2 == 0) {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote2')
-              } else {
-                this.$nuxt.$emit('bv::show::modal','leaveQuote')
-              }
+              this.$nuxt.$emit('bv::show::modal','leaveQuote2')
             }
           }
         }
@@ -3048,6 +3234,7 @@
   },
 
   mounted: function () {
+
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
@@ -3137,7 +3324,23 @@
 </script>
 
 <style lang="scss" scoped>
-
+.cotizador-2021{
+  .box-contador{
+        position: absolute;
+        bottom: 20px;
+        right: 12px;
+        .example{
+            display: flex;
+            align-items: center;
+            margin-top: 1px;
+        }
+        p{
+            color: #ffffff;
+            font-size: 20px;
+            padding-right: 24px;
+        }
+    }
+}
 .phoneContent{
 
     display: flex;
@@ -3209,7 +3412,35 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px; 
+  padding-top: 120px;
+  .img-close{
+    position: absolute;
+    right: -24px;
+    top: -20px;
+  }
+  .flotante-covid{
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    .gratis-prueba{
+      width: 210px;
+    }
+    a{
+      cursor: pointer;
+      z-index: 99;
+    }
+    .img-close{
+      position: absolute;
+      right: -24px;
+      top: -20px;
+    }
+    &__cuerpo{
+      position: relative;
+    }
+    img{
+      cursor: pointer;
+    }
+  }
 }
 .opacityNone{
     opacity: 1 !important;
@@ -3722,6 +3953,15 @@ button:focus{
       right: -35px;
       top: 0px;
       border-radius: 4px 0 0 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .cuota-gratis-span{
+        font-size: 16px;
+        color: #ffffff;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
   .detalle-item{
@@ -3801,6 +4041,7 @@ button:focus{
   }
   .box-importante{
     padding: 14px 0;
+    margin-top: 32px;
     .titulo{
       font-size: 20px;
       font-family: "Omnes Medium";
@@ -4962,6 +5203,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     cursor: pointer;
   }
 }
+.leaveModal{
+  .img-close-modal{
+        position: absolute;
+    top: -91px;
+    right: -46px;
+    cursor: pointer;
+  }
+}
 .modalCompararPlanes{
    .img-close-modal{
     position: absolute;
@@ -6081,10 +6330,13 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   width: 80%;
   z-index: 999;
   left: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 992px) {
-  
+
   .planActivo.plata{
     background-color: #b1b1b1 !important;
     &:before{    

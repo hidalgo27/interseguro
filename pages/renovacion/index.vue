@@ -105,7 +105,7 @@
                                             </span>
                                             
                                             <b-tooltip target="tooltip-suma-asegurada" triggers="hover">
-                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ {{this.listCotizacion.vehicle.minimum}} y US$ {{this.listCotizacion.vehicle.maximum}}
+                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
                                             </b-tooltip>
 
                                         </p>
@@ -134,7 +134,13 @@
                                     </div>
                                     <div class="nueva-poliza--item  cuota">
                                         <p class="item-titulo">Cuota:
+                                            <span id="tooltip-cuota"  class="tooltip-icon ">
+                                                ?
+                                            </span>
                                             
+                                            <b-tooltip target="tooltip-cuota" triggers="hover">
+                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
+                                            </b-tooltip>
                                         </p>
                                         <p  class="item-descripcion" v-if="this.payment == 1">$ {{ this.listCotizacion.policy.monthly}}  </p>
                                         <p  class="item-descripcion" v-else-if="this.payment == 2">$ {{ this.listCotizacion.policy.quarterly}}  </p>
@@ -382,7 +388,7 @@
 
                 <b-modal id="modalNoRenovar" title="Bootstrap-Vue" hide-footer hide-header ref="modalNoRenovar" size="md">
                     <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalNoRenovar()">
-                    <div class="hemos-recibido-comentario" v-if="comentariosEnviados">
+                    <div class="respuesta-culqi  exitosa" v-if="comentariosEnviados">
                         <img class="exitosa-img" src="./../../static/media/img/renovacion/tarjeta-aceptada.png" alt="">
                         <p>Hemos recibido tu comentario <br>
                              ¡Muchas gracias!</p>
@@ -515,10 +521,13 @@
                             </div>
                             <div class="box-btn-renovaciones">
                                 <button type="submit" @click="continuar" class="btn-primario-renovaciones" :disabled='this.isDisabledPayment'>
-                                    <span  v-bind:class="{'d-none': estamosProcesandoTuPago}">ACTUALIZAR</span>
-                                    <span class="msj-procesando-pago  parpadea" v-bind:class="{'msj-procesando-pag-activo': estamosProcesandoTuPago}">Estamos procesando tu solicitud ...</span>                            
+                                    <span style="">ACTUALIZAR</span>                            
                                 </button>
                             </div>
+                            
+                            <p v-if="estamosProcesandoTuPago" class="estamos-procesando-tuPago">
+                                Estamos procesando la actualización de tu tarjeta
+                            </p>
                         </div>
                     </div>
                 </b-modal>
@@ -604,7 +613,7 @@ import { validationMixin } from 'vuelidate'
 import FadeLoader from '@/components/loaders/FadeLoader'
 var cardNumber;
 export default {
-    // layout: "InterseguroHome",
+    layout: "InterseguroHome",
     data() {
         return {
             showLoader: false,
@@ -822,7 +831,6 @@ export default {
                 this.comentariosEnviados = true
                 setTimeout(() => {
                     this.hideModalNoRenovar()
-                    this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
                 }, 3000);
             })
         },
@@ -868,48 +876,29 @@ export default {
             if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum) {
                 this.listCotizacion.vehicle.current = this.clonado.vehicle.maximum
                 this.alertaMonto = true
-                setTimeout(() => {
-                    this.alertaMonto = false
-                }, 5000);
             }else if(this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum){
                 this.alertaMonto = true
-                setTimeout(() => {
-                    this.alertaMonto = false
-                }, 5000);
                 this.listCotizacion.vehicle.current = this.clonado.vehicle.minimum
             } else {
-                this.alertaMonto = false
                 this.ocultarSumaAsegurada = true
                 if (this.listCotizacion.vehicle.current > this.clonado.vehicle.maximum || this.listCotizacion.vehicle.current < this.clonado.vehicle.minimum) {   
                 } else {
                     this.itemElegido.assignedPrice = this.listCotizacion.vehicle.current
-                    this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-                        if (res.data.code == 301) {
-                            this.$swal({
-                            title: 'Oops...',
-                            text: 'Estamos teniendo inconvenientes',
-                            type: 'error',
-                            showCancelButton: false,
-                            confirmButtonColor: '#2177CC',
-                            confirmButtonText: 'OK'
-                        })
-                        }else{
-                            // this.msgMontos = "";
-                            // this.msgMontosActive = false;
-                            //REVISAR DESPUES EL CALL
-                            this.listCotizacion = res.data.body.allRisk
-                            this.clonado.policy.risk = this.listCotizacion.policy.risk;
-                            this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
-                            this.clonado.policy.annual = this.listCotizacion.policy.annual;
-                            this.clonado.policy.quarterly = this.listCotizacion.policy.quarterly;
-                            this.clonado.policy.monthly = this.listCotizacion.policy.monthly;                    
-                            this.clonado.vehicle.current = this.listCotizacion.vehicle.current;
-                            this.clonado.vehicle.minimum = this.clonado.vehicle.minimum;
-                            this.clonado.vehicle.maximum = this.clonado.vehicle.maximum;
-                            // this.isEnableNext = false;
-                            this.obtenerMonto() 
-                        }
-                        
+                    this.$store.dispatch('common/getCotizacionRenovacion', this.itemElegido).then((res) => {
+                        // this.msgMontos = "";
+                        // this.msgMontosActive = false;
+                        //REVISAR DESPUES EL CALL
+                        this.listCotizacion = res.data.body.allRisk
+                        this.clonado.policy.risk = this.listCotizacion.policy.risk;
+                        this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
+                        this.clonado.policy.annual = this.listCotizacion.policy.annual;
+                        this.clonado.policy.quarterly = this.listCotizacion.policy.quarterly;
+                        this.clonado.policy.monthly = this.listCotizacion.policy.monthly;                    
+                        this.clonado.vehicle.current = this.listCotizacion.vehicle.current;
+                        this.clonado.vehicle.minimum = this.clonado.vehicle.minimum;
+                        this.clonado.vehicle.maximum = this.clonado.vehicle.maximum;
+                        // this.isEnableNext = false;
+                        this.obtenerMonto() 
                     })
                     this.isDisabled = false;
                 }
@@ -961,7 +950,6 @@ export default {
             this.$refs.modalRenovarPolizaExitosa.show()
         },
         hideModalRenovarPolizaExitosa(){
-            this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
             this.$refs.modalRenovarPolizaExitosa.hide()
         },
         continuar2 (evt, parametro) {
@@ -976,11 +964,8 @@ export default {
                 this.objUpdatePolicy.renew = "Y"
                 this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
                 .then((res) =>{
+                    // this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
                     this.showModalRenovarPolizaExitosa()
-                    setTimeout(() => {
-                        console.log("R-EXITOSA")
-                        this.hideModalRenovarPolizaExitosa()
-                    }, 3000); 
                     this.showLoader = false 
                 }).catch((err)=>{
                     this.showLoader = false                    
@@ -1126,21 +1111,16 @@ export default {
                             this.$store.commit('payment/setNumeroPoliza',this.objRenovacion.policy.policyNumber)
                             this.itemElegido.year = this.objRenovacion.vehicle.modelYear
                             this.itemElegido.assignedPrice = this.objRenovacion.priceModel.vehicle.current
-                            // this.$store.dispatch('common/getCotizacion', this.itemElegido)
-                            // .then((res) => {
-                            //     this.listCotizacion = res.data.body.allRisk
-                            //     this.mostrarPrimeraPantalla = false
-                            //     this.mostrarSegundaPantalla = true
-                            //     this.clonado = Object.assign({}, this.listCotizacion);
-                            //     this.obtenerMonto()   
-                            //     }
-                            // ).catch((res) =>{
-                            // })
-                            this.listCotizacion = res.data.body.priceModel
-                            this.mostrarPrimeraPantalla = false
-                            this.mostrarSegundaPantalla = true
-                            this.clonado = Object.assign({}, this.listCotizacion);
-                            this.obtenerMonto()   
+                            this.$store.dispatch('common/getCotizacionRenovacion', this.itemElegido)
+                            .then((res) => {
+                                this.listCotizacion = res.data.body.allRisk
+                                this.mostrarPrimeraPantalla = false
+                                this.mostrarSegundaPantalla = true
+                                this.clonado = Object.assign({}, this.listCotizacion);
+                                this.obtenerMonto()   
+                                }
+                            ).catch((res) =>{
+                            })
                     }else if (this.objRenovacion.policy.renew == "N") {
                         this.$store.commit('common/setPlacaNoRenovar', this.placa)
                         this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
@@ -1160,7 +1140,6 @@ export default {
             this.respuestaculqiexitosa = false
             this.respuestaculqifallida = false
             this.$refs.modalActualizarTarjeta.hide()
-            this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
         },
 
         showModalNoRenovar(){
@@ -1188,8 +1167,7 @@ export default {
                 this.objCard.card_number = this.objCulqi.card_number
                 this.$store.dispatch('payment/getCard', this.objCard).then((res) =>{
                     this.isDisabledPayment = false
-                    this.respuestaculqiexitosa = true
-                    
+                    this.respuestaculqiexitosa = true 
                     this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
                     this.objUpdatePolicy.monto_pagar = this.monto_pagar
                     this.objUpdatePolicy.current = this.clonado.vehicle.current
@@ -1222,8 +1200,7 @@ export default {
             })
         }
     },
-    mounted() {
-        this.$store.commit('common/setListaCotizacion',this.listCotizacion)
+    mounted() {       
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -1336,19 +1313,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
             color: orange;
         }
     }
-    .hemos-recibido-comentario{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        p{
-            margin-top: 24px;
-            color: #0855C4;
-            font-size: 22px;
-            font-family: 'Omnes Medium';
-            text-align: center;
-        }
-    }
     .modalNoRenovar{
         display: flex;
         flex-direction: column;
@@ -1374,45 +1338,6 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         display: flex;
         min-width: 338px;
         min-height: 425px;
-        .msj-procesando-pago {
-            display: none;
-            font-size: 14px;
-            font-family: 'Omnes Medium';
-            color: #ffffff;
-        }
-        .msj-procesando-pag-activo{
-            display: block;
-        }
-        .parpadea {
-            
-            animation-name: parpadeo;
-            animation-duration: 3s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-
-            -webkit-animation-name:parpadeo;
-            -webkit-animation-duration: 3s;
-            -webkit-animation-timing-function: linear;
-            -webkit-animation-iteration-count: infinite;
-        }
-
-        @-moz-keyframes parpadeo{  
-            0% { opacity: 1.0; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1.0; }
-        }
-
-        @-webkit-keyframes parpadeo {  
-            0% { opacity: 1.0; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1.0; }
-        }
-
-        @keyframes parpadeo {  
-            0% { opacity: 1.0; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1.0; }
-        }
         .box-btn-renovaciones{
             width: 100%;
             display: flex;
@@ -1452,8 +1377,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .modal-actualizar-tarjeta{
         .estamos-procesando-tuPago{
-            margin-top: 12px;
-            color: #0855c4;
+            color: red;
             font-size: 15px;
             text-align: center;
         }

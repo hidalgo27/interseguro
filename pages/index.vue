@@ -1,13 +1,24 @@
 <template>
-  <div class="home"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
-            <p class="titulo-formulario">
-                <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
-                Manejar tranquilo <br> ahora es más fácil
-            </p>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+              <div class="mt-3">
+                <img src="./../static/media/interseguroVehicular_v2/segunda-cuota-movil.svg" alt="">
+              </div>
+               <div class="mt-2  mb-2">
+                <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡No te lo pierdas!</span>
+              </div>
+              <div class="box-contador" >
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyber" class="flipdown">
+                        
+                    </div> 
+                </div>
+              </div>
+            </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
@@ -38,14 +49,13 @@
                   COTIZAR
                     <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
                 </button>
-                <p class="no-tengo-placa" @click="resetearPlaca($event)">Todavía no tengo placa</p>
+                <p class="no-tengo-placa"></p>
                 <p class="respaldo-intercorp">
                   <span> Con el respaldo del grupo</span>
                   <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
                 </p>
               </div>
-            </b-form>
-            
+            </b-form>            
           </div>
         </div>
         <div class="home-banner__der">
@@ -53,18 +63,23 @@
             <p class="title-banner">
               Manejar tranquilo <br> ahora es más fácil
             </p>
-            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
-              <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
-            </p>
           </div>
-          <!-- <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
-          <div class="box-contador" style="padding-left: 32px;">
+          <div class="mt-3">
+            <img src="./../static/media/interseguroVehicular_v2/pocos-dias.svg" alt="">
+          </div>
+          <div class="mt-3  mb-4">
+            <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">
+          </div>
+          <div>
+            <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡No te lo pierdas!</span>
+          </div>
+          <div class="box-contador">
             <div  class="example  d-none  d-md-flex">
                 <div id="contadorCyber2" class="flipdown">
                     
                 </div> 
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -376,8 +391,8 @@
       },
       methods: {
         contador(){
-            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1613365199, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1613365199, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -454,12 +469,39 @@
             this.$store.commit('common/setEmail', mailGenerado)
           },
           getVehicle () {
+            this.item.plateNumber = this.item.plateNumber.toUpperCase();
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
-              let respuesta = res.data.body
+              
+
+              const respuesta = res.data.body;
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
-                this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+              
+                if(respuesta.useType){
+                   const useType = respuesta.useType.toString().toLowerCase();
+                    if(useType === 'particular' || useType === 'escolar'){
+                      this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+                    }else{
+                      this.loading = false;
+                      this.$swal({
+                        // title: "Oops...",
+                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
+                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                         ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
+                        <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
+                        type: "warning",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                      });
+                      return;
+                    };
+                }else{
+                      this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+                }
+               
+
                 if (respuesta.appDiscount == true) {
                   this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
                 }else{
@@ -508,18 +550,19 @@
                 
                 
               }
-              // else if(res.data.code === 307){
-              //     this.loading = false;
-              //     this.$swal({
-              //     title: "Oops...",
-              //     text: `Lo sentimos, lamentablemente no podemos asegurar la placa ${this.item.plateNumber}. 
-              //     Para mayor información contáctanos al (01)500-0000."`,
-              //     type: "warning",
-              //     showCancelButton: false,
-              //     confirmButtonColor: "#2177CC",
-              //     confirmButtonText: "OK",
-              //   });
-              // }
+              
+              else if(res.data.code === 307){
+                  this.loading = false;
+                  this.$swal({
+                  // title: "Oops...",
+                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+                  Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
+                  type: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#2177CC",
+                  confirmButtonText: "OK",
+                });
+              }
             })
 
           },
@@ -528,10 +571,14 @@
           
       },
       mounted () {
-        // setTimeout(() => {
-        //   this.contador()
-        // }, 750);
+        this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
+        this.$store.commit('common/setPromocion', true)
+        localStorage.setItem("urlLocal", "/promocion")
+        setTimeout(() => {
+          this.contador()
+        }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
+        this.$store.commit('common/setPromocion', false)
         
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
@@ -596,7 +643,11 @@
 </script>
 
 <style lang="scss" scope>
-
+.flipdown .rotor-group-heading:before {
+    font-size: 9px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+}
   .listonMobile{
     position: relative;
     img{
@@ -684,7 +735,7 @@
       text-decoration: none;
     }
   }
-  .home{
+  .home-is{
     margin-top: 120px;
     // margin-top: 170px;
     font-size: 16px;
@@ -816,10 +867,10 @@
           .plan--cabecera{  
             background-color: #b1b1b1;
             &:before{
-              background-image: url(../static/media/img/home/plata_dto.png);
+              background-image: url(./../static/media/img/home/plata_dto.png);
             } 
             &:after{
-              background-image: url(../static/media/img/home/plata.png);
+              background-image: url(./../static/media/img/home/plata.png);
               bottom: -9px;
             }            
           }
@@ -828,10 +879,10 @@
           .plan--cabecera{  
             background-color: #e6ac38;
             &:before{
-              background-image: url(../static/media/img/home/oro_dto.png);
+              background-image: url(./../static/media/img/home/oro_dto.png);
             }
             &:after{
-              background-image: url(../static/media/img/home/oro.png);
+              background-image: url(./../static/media/img/home/oro.png);
             } 
           }
         }
@@ -839,10 +890,10 @@
           .plan--cabecera{  
             background-color: #27362d;
             &:before{
-              background-image: url(../static/media/img/home/black_dto.png);
+              background-image: url(./../static/media/img/home/black_dto.png);
             }
             &:after{
-              background-image: url(../static/media/img/home/black.png);
+              background-image: url(./../static/media/img/home/black.png);
             } 
           }
         }
@@ -986,7 +1037,7 @@
             .example{
               display: flex;
               align-items: center;
-              margin-top: 32px;
+              margin-top: 1px;
             }
             p{
               color: #ffffff;
@@ -1012,6 +1063,17 @@
           }
         }
       }
+    }
+    .box-flotante-covid{
+      flex-direction: column;
+      background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");      
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 175px;
+      margin: 0 -15px;
+      position: relative;
+      padding-left: 16px;
+
     }
     .box-formCotizador{
       width: 100%;
@@ -1050,7 +1112,7 @@
       padding:2rem 1.5rem;
       max-width: 438px;
       width: 100%;
-      height: 314px;
+      height: 280px;
       border-radius: 3rem 0 3rem 0;
       background: #fff;
       box-shadow: -3px 4px 12px -1px #ccc;
@@ -1506,7 +1568,7 @@
   }
   
   @media (min-width: 992px) {
-    .home{
+    .home-is{
       margin-top: 0px;
       // margin-top: 72px;
       .home-beneficios2{
@@ -1584,7 +1646,9 @@
             background-position-y: bottom;
             background-position-x: right;
             width: 100%;
+            justify-content: flex-start;
             align-items: flex-start;
+            flex-direction: column;
             // padding-left: 32px;
             .box-titulo{
               padding-top: 150px;
@@ -1611,7 +1675,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 360px;
+        height: 3000px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
@@ -1774,7 +1838,7 @@
     }
   }
   @media (min-width: 1024px) {
-    .home{
+    .home-is{
       .home-banner{
         padding-left: 65px;
       }
@@ -1917,15 +1981,10 @@
         width: 700px;
       }
     }
-    .home{
-      .boxHome-banner{  
-        // background-image: url('./../static/media/modalBlackWeek/fondo-modal-lg.svg');
-        // background-position-x: 0;
-        // background-position-y: 0;
-        // background-size: cover;    
+    .home-is{
+      .boxHome-banner{
         .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
-          // background: transparent;
+          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);          
           background-size: 50%;
           padding: 0 1.5rem;
           padding-left: 65px;
@@ -1933,11 +1992,6 @@
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
-            align-items: center;
-            // img{
-            //   width: 749px;
-            //   padding-left: 32px;
-            // }
             p{
               font-size: 2.6rem;
             }
@@ -1949,7 +2003,7 @@
       }
       
       .formCotizador{
-        height: 360px;
+        height: 300px;
         margin-top: 40px;
       }
 
@@ -2098,7 +2152,7 @@
   }
 
   @media (min-width: 1366px) {
-    .home{
+    .home-is{
       .home-pasos{
         padding-top: 42px;
         .planes{
@@ -2120,7 +2174,7 @@
     outline: 0 none;
   }
   @media (min-width: 1440px) {
-    .home{
+    .home-is{
       .boxHome-banner{              
         .home-banner{
           background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
@@ -2141,7 +2195,7 @@
   }
 
   @media (min-width: 1900px) {
-    .home{
+    .home-is{
       .boxHome-banner{              
         .home-banner{
           padding-left: 0;
@@ -2159,7 +2213,7 @@
   }
 
   @media (min-height: 768px) and (min-width: 992px){
-    .home{
+    .home-is{
         .boxHome-banner{
           .home-banner{
             // &__izq{
