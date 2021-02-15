@@ -78,9 +78,9 @@ export default {
 </script>
 
 <style lang="scss">
-body{
-  font-family: "Montserrat Regular";
-}
+  body{
+    font-family: "Montserrat Regular";
+  }
   .cuentaSueldobox{
     padding-top: 0px;
   }

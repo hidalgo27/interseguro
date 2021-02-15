@@ -591,7 +591,7 @@
                         </tbody>
                     </table>
                     <p class="pt-2">
-                        <span  class="ausencia-control" style="font-size: 14px; font-family: 'Omnes Medium'; font-weight:600; display: block !important;">
+                        <span  class="ausencia-control" style="font-size: 14px; font-family: 'Geometria Medium'; font-weight:600; display: block !important;">
                             *En pick-ups aumenta el deducible a 15% en talleres preferentes, a 20% en concesionarios y a 25% en talleres no afiliados con un pago mínimo de $200, $250 y $350 en talleres preferentes, concesionarios y no afiliados respectivamente.
                         </span>
                     </p>
@@ -997,7 +997,9 @@
 </template>
 
 <style lang="scss" scope>
-
+.section-header__title{
+    font-family: 'Geometria Medium' !important;
+}
 .ausencia-control-mobile{
   flex-direction: column;
   display: flex;
@@ -1157,7 +1159,7 @@
         padding: 24px 0;
     }
     .servicios-tranquilidad{
-        font-family: 'Omnes Medium';        
+        font-family: 'Geometria Medium';        
         background: #fff;
         .tab-content{
             padding-top: 12px;
@@ -1195,7 +1197,7 @@
                 color: #00C450;
                 background-color: #fff;
                 border-color: #00C450 #00C450 #fff;
-                font-family: 'Omnes Medium';
+                font-family: 'Geometria Medium';
                 font-size: 22px;
                 font-weight: 500;
                 font-stretch: normal;
@@ -1305,7 +1307,7 @@
             width: 75px;
         }
         .texto-titulo{
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-size: 20px;
             font-weight: 500;
             font-stretch: normal;
@@ -1318,7 +1320,7 @@
     }
     tbody{
         .texto-izq{
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-size: 20px;
             font-weight: 500;
             font-stretch: normal;
@@ -1331,7 +1333,7 @@
     }
 }
 .cobertura-mobile{
-    font-family: 'Omnes Medium';
+    font-family: 'Geometria Medium';
     .section-header{ 
         &__title {
             font-size: 22px;
@@ -1407,7 +1409,7 @@
     }
     .benefit-tab{
         color: #5e5e5e;
-        font-family: 'Omnes Medium';
+        font-family: 'Geometria Medium';
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -1446,7 +1448,7 @@
             }
         }
         .modal-description{
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
@@ -1492,7 +1494,7 @@
     }
 }
 .cobertura-desktop-ibk{
-    font-family: 'Omnes Medium';
+    font-family: 'Geometria Medium';
     max-width: 1140px;
     margin: auto !important;
     .minitabla{
@@ -1542,7 +1544,7 @@
             }
             p{
                 color: #696969;
-                font-family: 'Omnes Medium';
+                font-family: 'Geometria Medium';
                 font-weight: normal;
                 font-stretch: normal;
                 font-style: normal;

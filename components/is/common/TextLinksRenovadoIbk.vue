@@ -116,7 +116,7 @@ export default {
     }
     .nuxt-link-exact-active {
       img, span {
-        color: #0754C4 !important;
+        color: #333 !important;
         font-family: 'Omnes Semibold';
         filter: contrast(100%)
       }
@@ -154,7 +154,7 @@ export default {
       a > div {
         text-align: center;
         vertical-align: center;
-        color: #0855C4;
+        color: #333;
         font-size: 18px;
         font-weight: 400;
         line-height: 15.97px;

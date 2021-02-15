@@ -12,7 +12,7 @@
 </template>
 <style lang="scss">
     .banner-pf{
-        background: #00C450;
+        background: #00C450 !important;
         .contenedor{
             display: flex;
             justify-content: center;
