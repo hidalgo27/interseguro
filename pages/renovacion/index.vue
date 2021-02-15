@@ -831,7 +831,9 @@ export default {
                 this.comentariosEnviados = true
                 setTimeout(() => {
                     this.hideModalNoRenovar()
+                    this.$nuxt.$router.push({path: "/renovacion/renovacion-cancelada"})
                 }, 3000);
+
             })
         },
         selectNoRenovar(){
@@ -963,9 +965,12 @@ export default {
                 this.objUpdatePolicy.payment = this.payment
                 this.objUpdatePolicy.renew = "Y"
                 this.$store.dispatch('payment/updatePolicy', this.objUpdatePolicy)
-                .then((res) =>{
-                    // this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
-                    this.showModalRenovarPolizaExitosa()
+                .then((res) =>{        
+                    this.showModalRenovarPolizaExitosa()           
+                    setTimeout(() => {
+                        this.hideModalRenovarPolizaExitosa()
+                        this.$nuxt.$router.push({path: "/renovacion/renovacion-exitosa"})
+                    }, 4000);
                     this.showLoader = false 
                 }).catch((err)=>{
                     this.showLoader = false                    
