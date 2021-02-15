@@ -106,6 +106,9 @@
           <div class="planes__item">
             <div class="plata  plan">
               <div class="plan--cabecera">
+                <div class="flotante">
+                  DESDE $12 AL MES
+                </div>
                 <p>PLATA</p>
               </div>
               <div class="plan--cuerpo">
@@ -119,6 +122,9 @@
           <div class="planes__item">
             <div class="oro  plan">
               <div class="plan--cabecera">
+                <div class="flotante">
+                  DESDE $29 AL MES
+                </div>
                 <p>ORO</p>
               </div>
               <div class="plan--cuerpo">
@@ -134,6 +140,9 @@
           <div class="planes__item">
             <div class="black  plan">
               <div class="plan--cabecera">
+                <div class="flotante">
+                  DESDE $33 AL MES
+                </div>
                 <p>BLACK</p>
               </div>
               <div class="plan--cuerpo">
@@ -222,14 +231,14 @@
 
       <div class="home-clientes2 p-47px d-none  d-lg-flex">
         <div class="box-titulo">
-          <p class="titulo-clientes">¿Qué dicen nuestros clientes?</p>
+          <p class="titulo-clientes">¡Ellos ya están manejando sin   <br>preocupaciones!</p>
         </div>
 
         <div class="box-total">
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <img src="./../../static/media/img/ibk/cliente1.png" alt="">
-            <p class="cliente">Manuel Augusto</p>
+            <p class="cliente">Manuela Augusto</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
             <p class="protegido">
@@ -263,7 +272,7 @@
     <div class="home-clientes">
        <div class="clientes-slider    d-block  d-lg-none">
         <div class="box-titulo">
-          <p>¿Qué dicen nuestros clientes?</p>
+          <p>¡Ellos ya están manejando sin preocupaciones!</p>
         </div>
         <b-carousel
           id="carousel-fade"
@@ -282,7 +291,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente1.png" alt="">
-                <p class="cliente">Manuel Augusto</p>
+                <p class="cliente">Manuela Augusto</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
                 <p class="protegido">
@@ -554,12 +563,10 @@
           
       },
       mounted () {
-        this.$store.commit('common/setFlagCloseListon', 1)
-
-        
+        this.$store.commit('common/setBusinessId', 2)
+        this.$store.commit('common/setFlagCloseListon', 1)        
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
-        this.$store.commit('common/setBusinessId', 1)
         this.$store.commit('common/setFechaVigencia', '')
         this.$store.commit('common/setPlanSeleccionado', 3)
         this.$store.commit('common/setEntidadFinanciera', {id: 0,name: ''})
@@ -577,7 +584,6 @@
         this.$store.commit('common/setDiscountType', '')
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
-        this.$store.commit('common/setBusinessId', 1)
         // this.$store.commit('common/setObjVehiculo', {})
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
         if (document.location.hostname == "www.interseguro.pe"){
@@ -745,7 +751,7 @@
           text-align: center;
         }
         .como-funciona{
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           padding-bottom: 16px;
           font-size: 1.3rem;
           font-size: 26px;
@@ -757,7 +763,7 @@
           padding-bottom: 42px;          
         }
         .nuevos-planes{
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 1.3rem;
           font-size: 26px;
           line-height: 1.27;
@@ -839,8 +845,10 @@
         .plata{        
           .plan--cabecera{  
             background-color: #b1b1b1;
-            &:before{
-              background-image: url(./../../static/media/img/home/plata_dto.png);
+            .flotante{
+              background-color: #DDDDDD;
+              color: #5F5F5F;
+              font-family: 'Geometria Medium';
             } 
             &:after{
               background-image: url(./../../static/media/img/home/plata.png);
@@ -851,9 +859,11 @@
         .oro{        
           .plan--cabecera{  
             background-color: #e6ac38;
-            &:before{
-              background-image: url(./../../static/media/img/home/oro_dto.png);
-            }
+            .flotante{
+              background-color: #FFD96E;
+              color: #AC7812;
+              font-family: 'Geometria Medium';
+            } 
             &:after{
               background-image: url(./../../static/media/img/home/oro.png);
             } 
@@ -862,9 +872,11 @@
         .black{        
           .plan--cabecera{  
             background-color: #27362d;
-            &:before{
-              background-image: url(./../../static/media/img/home/black_dto.png);
-            }
+            .flotante{
+              background-color: #AABCB1;
+              color: #27362D;
+              font-family: 'Geometria Medium';
+            } 
             &:after{
               background-image: url(./../../static/media/img/home/black.png);
             } 
@@ -880,15 +892,17 @@
         &--cabecera{
           text-align: center;          
           position: relative;
+          font-family: 'Geometria Medium';
           &:after{
           }
-          &:before{
+          .flotante{
             content: "";
             position: absolute;
-            top: -26px;
-            width: 150px;
-            height: 32px;
-            left: -5px;
+            top: -32px;
+            width: 180px;
+            height: 35px;
+            line-height: 35px;
+            left: 0px;
             background-size: contain;
             background-repeat: no-repeat;
           }
@@ -1012,7 +1026,7 @@
             }
           }
           p{
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-size: 2.8rem;
             font-weight: 500;
             font-stretch: normal;
@@ -1080,7 +1094,7 @@
       position: relative;
       margin: auto;      
       h1{
-        font-family: 'Omnes Medium';
+        font-family: 'Geometria Medium';
         font-size: 1.1rem;
         font-weight: 600;
         font-stretch: normal;
@@ -1104,7 +1118,7 @@
         box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
         background-color: #0855c4!important;
         color: white !important;
-        font-family: 'Omnes Medium';
+        font-family: 'Geometria Medium';
       }
       .box-btn-homeForm{
         button{
@@ -1241,7 +1255,7 @@
         .ahorro{
           margin-top: 4px;
           height: 18px;
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 18px;
           font-weight: 500;
           font-stretch: normal;
@@ -1252,7 +1266,7 @@
         }
         .descripcion{
           margin-top: 8px;
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 16px;
           font-weight: normal;
           font-stretch: normal;
@@ -1303,7 +1317,7 @@
         .ahorro{
           margin-top: 4px;
           height: 18px;
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 18px;
           font-weight: 500;
           font-stretch: normal;
@@ -1315,7 +1329,7 @@
         }
         .descripcion{
           margin-top: 8px;
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 16px;
           font-weight: normal;
           font-stretch: normal;
@@ -1327,7 +1341,7 @@
       }
       .box-titulo{
         p{
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 26px;
           font-weight: 500;
           font-stretch: normal;
@@ -1369,7 +1383,7 @@
           .ahorro{
             margin-top: 4px;
             height: 18px;
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-size: 18px;
             font-weight: 500;
             font-stretch: normal;
@@ -1381,7 +1395,7 @@
           }
           .descripcion{
             margin-top: 8px;
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-size: 16px;
             font-weight: normal;
             font-stretch: normal;
@@ -1436,7 +1450,7 @@
       }
       .box-titulo{
         p{
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 26px;
           font-weight: 500;
           font-stretch: normal;
@@ -1450,7 +1464,7 @@
       
       &__titulo{
         p{
-          font-family: 'Omnes Medium';
+          font-family: 'Geometria Medium';
           font-size: 26px;
           font-weight: 500;
           font-stretch: normal;
@@ -1491,7 +1505,7 @@
           }
           .beneficios-titulo{
             font-size: 20px;
-            font-family: 'Omnes Medium';
+            font-family: 'Geometria Medium';
             font-weight: 500;
             font-stretch: normal;
             font-style: normal;
@@ -1506,7 +1520,7 @@
             span{
               transition: all 0.5s;
               font-weight: 500;
-              font-family: 'Omnes Medium';
+              font-family: 'Geometria Medium';
             }
           }
           img{
@@ -1547,7 +1561,7 @@
       .home-beneficios2{
         &__titulo{
           p{
-            font-size: 36px;
+            font-size: 40px;
             color: #333333;
           }
         }
@@ -1587,7 +1601,7 @@
               height: 51px;
             }
             .no-tengo-placa{
-              font-family: 'Omnes Medium';
+              font-family: 'Geometria Medium';
               font-size: 1rem;
               font-weight: 500;
               font-stretch: normal;
@@ -1783,7 +1797,9 @@
             }
           }
           .incluye{
-            font-size: 19px;
+            font-size: 20px;
+            font-family: 'Montserrat Medium';
+            color: #333333;
             span{
               color: #00C450;
               font-size: 26px;
@@ -1946,6 +1962,10 @@
       .home-clientes2{
         padding-top: 48px;
         padding-bottom: 48px;
+        .titulo-clientes{
+          font-family: 'Geometria Medium';
+        }
+        
       }
       .home-pasos .plan--cabecera:after {
         bottom: -15px !important;
@@ -2003,11 +2023,13 @@
         &__planes{
           &--titulo{
             .como-funciona{
-              font-size: 36px;
+              font-family: 'Geometria Medium';
+              font-size: 40px;
               max-width: 100%;
             }
             .nuevos-planes{
-              font-size: 36px;
+              font-family: 'Geometria Medium';
+              font-size: 40px;
               max-width: 100%;
             }
             span{
