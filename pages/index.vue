@@ -9,7 +9,7 @@
                 <img src="./../static/media/interseguroVehicular_v2/segunda-cuota-movil.svg" alt="">
               </div>
                <div class="mt-2  mb-2">
-                <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡No te lo pierdas!</span>
+                <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡Quedan pocas horas!</span>
               </div>
               <div class="box-contador" >
                 <div  class="example  d-md-flex">
@@ -71,7 +71,7 @@
             <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">
           </div>
           <div>
-            <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡No te lo pierdas!</span>
+            <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡Quedan pocas horas!</span>
           </div>
           <div class="box-contador">
             <div  class="example  d-none  d-md-flex">
@@ -391,8 +391,8 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1613365199, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1613365199, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1613451599, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1613451599, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
