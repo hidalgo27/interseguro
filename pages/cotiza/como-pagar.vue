@@ -46,7 +46,7 @@
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
-                                >¡No te lo pierdas! 
+                                >¡Última Oportunidad!
                             </span>
                             <div  class="example  d-md-flex">
                                 <div id="contadorCyber4" class="flipdown">
@@ -392,9 +392,9 @@
                     <b-col cols="12">                          
                         <img class="img-verano" width="140"  src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
                         <p class="mt-3">
-                            <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                            <strong style="color : #0855C4; font-size: 30px">¡Últimas 24 horas! </strong> <br> <br> 
                             <span style="color : #454A6C; font-size: 17px">
-                            Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                                Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
                             </span>
                         </p>
                     </b-col>

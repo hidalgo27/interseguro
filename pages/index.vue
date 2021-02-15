@@ -6,7 +6,20 @@
           <div class="box-formCotizador">
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
               <div class="mt-3">
-                <img src="./../static/media/interseguroVehicular_v2/segunda-cuota-movil.svg" alt="">
+                <p style="color: #0855c4;
+                          font-family: 'Omnes Medium';
+                          font-size: 28px;
+                          line-height: 34px;">Manejar tranquilo <br> ahora es más fácil</p>
+
+                  <p style="color: #454A6C; font-size: 16px; font-family: 'Omnes SemiBold">
+                    ¡Últimas 24 horas! <br>
+                    <span  style="color: #454A6C; font-size: 14px;font-family: 'Omnes Medium;">
+                    Asegura tu auto con la segunda cuota mensual  
+                    </span>
+                </p>
+                <div class="mt-3">
+                  <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">
+              </div>
               </div>
                <div class="mt-2  mb-2">
                 <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡Quedan pocas horas!</span>
@@ -65,7 +78,13 @@
             </p>
           </div>
           <div class="mt-3">
-            <img src="./../static/media/interseguroVehicular_v2/pocos-dias.svg" alt="">
+            <p style="color: #454A6C; font-size: 30px; font-family: 'Omnes SemiBold">
+                ¡Últimas 24 horas! <br>
+                <span  style="color: #454A6C; font-size: 20px;font-family: 'Omnes Medium;">
+                Asegura tu auto con la segunda cuota mensual  
+                </span>
+            </p>
+            <!-- <img src="./../static/media/interseguroVehicular_v2/pocos-dias.svg" alt=""> -->
           </div>
           <div class="mt-3  mb-4">
             <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">

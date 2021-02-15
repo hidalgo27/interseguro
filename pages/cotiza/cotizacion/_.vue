@@ -1437,12 +1437,10 @@
               <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
               <img class="img-verano" width="140"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
               <p class="mt-3">
-
-                <strong style="color : #0855C4; font-size: 30px">¡Solo por pocos días! </strong> <br> <br> 
+                <strong style="color : #0855C4; font-size: 30px">¡Últimas 24 horas! </strong> <br> <br> 
                 <span style="color : #454A6C; font-size: 17px">
-                  Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                    Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
                 </span>
-
               </p>
             </b-col>
           </b-row>
