@@ -6,14 +6,11 @@
           <div class="box-formCotizador">
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
               <div class="mt-3">
-                <p style="color: #0855c4;
-                          font-family: 'Omnes Medium';
-                          font-size: 28px;
-                          line-height: 34px;">Manejar tranquilo <br> ahora es más fácil</p>
+                <p class="omnes-medium" style="color: #0855c4; font-size: 28px; line-height: 34px;">Manejar tranquilo <br> ahora es más fácil</p>
 
-                  <p style="color: #454A6C; font-size: 16px; font-family: 'Omnes SemiBold">
-                    ¡Últimas 24 horas! <br>
-                    <span  style="color: #454A6C; font-size: 14px;font-family: 'Omnes Medium;">
+                  <p  class="omnes-medium" style="color: #454A6C; font-size: 16px; font-family: 'Omnes SemiBold">
+                    <strong>¡Últimas 24 horas! </strong><br>
+                    <span style="color: #454A6C; font-size: 14px;">
                     Asegura tu auto con la segunda cuota mensual  
                     </span>
                 </p>
@@ -80,7 +77,7 @@
           <div class="mt-3">
             <p style="color: #454A6C; font-size: 30px; font-family: 'Omnes SemiBold">
                 ¡Últimas 24 horas! <br>
-                <span  style="color: #454A6C; font-size: 20px;font-family: 'Omnes Medium;">
+                <span  class="omnes-medium" style="color: #454A6C; font-size: 20px;">
                 Asegura tu auto con la segunda cuota mensual  
                 </span>
             </p>
@@ -662,6 +659,9 @@
 </script>
 
 <style lang="scss" scope>
+.omnes-medium{
+  font-family: 'Omnes Medium';
+}
 .flipdown .rotor-group-heading:before {
     font-size: 9px !important;
     height: 15px !important;
@@ -981,7 +981,7 @@
     }  
     .boxHome-banner{
       position: relative;
-      height: 296px;
+      height: 414px;
       background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
