@@ -225,7 +225,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >¡No te lo pierdas! 
+                                                                    >¡Última Oportunidad!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber3" class="flipdown">
