@@ -794,9 +794,11 @@ import { validationMixin } from 'vuelidate'
                                 }
                                 this.$store.dispatch('common/eventoErrores', errorDetectado)
                                 this.opacidad =false
+
+
                                 this.$swal({
                                     title: 'Oops...',
-                                    text: res.body.message,
+                                    text: res.message || JSON.parse(res.body).user_message,
                                     type: 'error',
                                     showCancelButton: false,
                                     confirmButtonColor: '#2177CC',
