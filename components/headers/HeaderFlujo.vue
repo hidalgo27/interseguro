@@ -4,7 +4,7 @@
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                     <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">                    
-                    <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
+                   <p ><strong>¡Por tiempo limitado!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
                     <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
                     </div>
@@ -202,8 +202,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1613969999, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1613969999, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

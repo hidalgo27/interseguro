@@ -598,8 +598,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1613451599, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1613451599, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1613969999, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1613969999, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -1262,7 +1262,22 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
-
+.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+    
+    color: #0854c4 !important;
+}
+.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+    
+    color: #0854c4 !important;
+}
+.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+    
+    color: #0854c4 !important;
+}
+.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+    
+    color: #0854c4 !important;
+}
 .flotante-covid-boton{
     .img-close {
         position: absolute;

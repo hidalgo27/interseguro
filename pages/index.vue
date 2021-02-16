@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="home-banner__der">
-          <div class="box-titulo">
+          <div class="box-titulo  ml-5">
             <img src="./../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
             <div class="box-contador">
               <div  class="example  d-none  d-md-flex">
@@ -375,8 +375,8 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1613451599, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1613451599, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1613969999, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1613969999, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
