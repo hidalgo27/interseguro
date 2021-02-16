@@ -26,7 +26,8 @@
     font-family: 'Omnes Regular';
   }
   .modal-content{
-    background: #ffffff !important;
+    background: url("./../../static/media/interseguroVehicular_v2/fondo_cuponazo_modal.svg") !important;
+    background-size: cover !important;
   }
   .img-verano{
     max-width: 300px;
@@ -210,28 +211,28 @@
   content: 'DIAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855C4!important;
+  color: #ffffff!important;
 }
 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
   content: 'HORAS' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855C4!important;
+  color: #ffffff!important;
 }
 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
   content: 'MIN' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855C4!important;
+  color: #ffffff!important;
 }
 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
   content: 'SEG' !important;
   font-family: 'Omnes Medium' !important;
   letter-spacing: 1px !important;
-  color: #0855C4!important;
+  color: #ffffff!important;
 }
 .flipdown.flipdown__theme-dark .rotor-group-heading:before {
-  color: #0855C4 !important;
+  color: #ffffff !important;
 }
 .exampleMobile .flipdown .rotor-group {
   padding-right: 15px !important;
