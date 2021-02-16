@@ -5,22 +5,6 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
-              <div class="mt-3">
-                <p class="omnes-medium" style="color: #0855c4; font-size: 28px;line-height: 34px;">Manejar tranquilo <br> ahora es más fácil</p>
-
-                  <p style="color: #454A6C; font-size: 16px; font-family: 'Omnes SemiBold">
-                    ¡Últimas 24 horas! <br>
-                    <span class="omnes-medium" style="color: #454A6C; font-size: 14px;">
-                    Asegura tu auto con la segunda cuota mensual  
-                    </span>
-                </p>
-                <div class="mt-3">
-                  <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">
-              </div>
-              </div>
-               <div class="mt-2  mb-2">
-                <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡Quedan pocas horas!</span>
-              </div>
               <div class="box-contador" >
                 <div  class="example  d-md-flex">
                     <div id="contadorCyber" class="flipdown">
@@ -70,32 +54,16 @@
         </div>
         <div class="home-banner__der">
           <div class="box-titulo">
-            <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
-            </p>
-          </div>
-          <div class="mt-3">
-            <p style="color: #454A6C; font-size: 30px; font-family: 'Omnes SemiBold">
-                ¡Últimas 24 horas! <br>
-                <span class="omnes-medium"  style="color: #454A6C; font-size: 20px;">
-                Asegura tu auto con la segunda cuota mensual  
-                </span>
-            </p>
-            <!-- <img src="./../static/media/interseguroVehicular_v2/pocos-dias.svg" alt=""> -->
-          </div>
-          <div class="mt-3  mb-4">
-            <img src="./../static/media/interseguroVehicular_v2/btn-gratis.svg" alt="">
-          </div>
-          <div>
-            <span style="color: #0855C4;font-size: 16px; font-family: 'Omnes Semibold">¡Quedan pocas horas!</span>
-          </div>
-          <div class="box-contador">
-            <div  class="example  d-none  d-md-flex">
-                <div id="contadorCyber2" class="flipdown">
-                    
-                </div> 
+            <img src="./../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
+            <div class="box-contador">
+              <div  class="example  d-none  d-md-flex">
+                  <div id="contadorCyber2" class="flipdown">
+                      
+                  </div> 
+              </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -755,7 +723,7 @@
     }
   }
   .home{
-    margin-top: 120px;
+    margin-top: 80px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
@@ -982,7 +950,7 @@
     .boxHome-banner{
       position: relative;
       height: 414px;
-      background-color:  rgba(8,85,196,.1);
+      background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
@@ -1085,14 +1053,20 @@
     }
     .box-flotante-covid{
       flex-direction: column;
-      background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");      
+      background-image: url("./../static/media/interseguroVehicular_v2/cuponazo.png");      
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: 175px;
+      background-position: center;
       margin: 0 -15px;
       position: relative;
       padding-left: 16px;
-
+      width: 100%;
+      height: 280px;
+      .box-contador {
+        position: absolute;
+        bottom: -10px;
+        left: 66px;
+      }
     }
     .box-formCotizador{
       width: 100%;
@@ -1606,7 +1580,10 @@
         }
       }
       .boxHome-banner{
-        background-color:  rgba(8,85,196,.1);
+        background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         height: auto;
         .home-banner{
           flex-direction: row;
@@ -1672,6 +1649,7 @@
             .box-titulo{
               padding-top: 150px;
               padding-left: 24px;
+              position: relative;
             }
             p{
               font-weight: 500;
@@ -2002,8 +1980,7 @@
     }
     .home{
       .boxHome-banner{
-        .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);          
+        .home-banner{  
           background-size: 50%;
           padding: 0 1.5rem;
           padding-left: 65px;
@@ -2015,7 +1992,12 @@
               font-size: 2.6rem;
             }
             .box-titulo{
-              padding: 0;
+              padding: 0;              
+              .box-contador{
+                position: absolute;
+                right: -100px;
+                bottom: -38px;
+              }
             }
           }
         }
@@ -2196,7 +2178,6 @@
     .home{
       .boxHome-banner{              
         .home-banner{
-          background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
           background-size: 50%;
           padding-left: 128px;
           max-width: 1440px;

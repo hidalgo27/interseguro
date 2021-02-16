@@ -46,13 +46,12 @@
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
-                                >¡Última Oportunidad!
+                                >¡Por tiempo limitado!
                             </span>
                             <div  class="example  d-md-flex">
-                                <div id="contadorCyber4" class="flipdown">
-                                    
+                                <div id="contadorCyber4" class="flipdown">                                    
                                 </div> 
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -217,6 +216,12 @@
                                                         
                                                     </button>
                                                 </b-col>
+                                                <b-col cols="12"  class="mt-2" style="background: #CBDBF2; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
+                                                    <img class="mr-2" src="./../../static/media/interseguroVehicular_v2/dscto-2dacuota.svg" alt="">
+                                                    <p style="color:#0855C4;text-align:left;">
+                                                        Termina tu compra hoy y aplicaremos un descuento a la 2da cuota mensual de tu seguro para que sea GRATIS
+                                                    </p>
+                                                </b-col>
                                                 <b-col cols="12">
                                                     <div class=" box-btn testest  mt-4" >
                                                         <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
@@ -225,7 +230,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >¡Última Oportunidad!
+                                                                    >¡Por tiempo limitado!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber3" class="flipdown">
@@ -389,12 +394,15 @@
             <img class="img-close-modal" width="70" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
 
                 <b-row class="align-items-center" style="height: 100%;">
-                    <b-col cols="12">                          
-                        <img class="img-verano" width="140"  src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+                    <b-col cols="12">
+                        <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
                         <p class="mt-3">
-                            <strong style="color : #0855C4; font-size: 30px">¡Últimas 24 horas! </strong> <br> <br> 
-                            <span style="color : #454A6C; font-size: 17px">
-                                Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                            <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                            <span style="color : #ffffff; font-size: 18px">
+                                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> 
+                                <span style="color: #FFD527;">
+                                2da cuota mensual gratis
+                                </span>
                             </span>
                         </p>
                     </b-col>

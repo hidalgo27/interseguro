@@ -1435,11 +1435,14 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
               <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
-              <img class="img-verano" width="140"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
               <p class="mt-3">
-                <strong style="color : #0855C4; font-size: 30px">¡Últimas 24 horas! </strong> <br> <br> 
-                <span style="color : #454A6C; font-size: 17px">
-                    Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                <span style="color : #ffffff; font-size: 18px">
+                    ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> 
+                    <span style="color: #FFD527;">
+                      2da cuota mensual gratis
+                    </span>
                 </span>
               </p>
             </b-col>
@@ -1448,7 +1451,7 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
-                >Quiero continuar</b-button
+                >TERMINAR COMPRA</b-button
               >
             </b-col>
           </b-row>
