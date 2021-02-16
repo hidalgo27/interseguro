@@ -1151,7 +1151,7 @@
 }
 .v2-cobertura-ibk{
     background: #f7f4fc;
-    padding-top: 100px;
+    padding-top: 50px;
     p,div{
         margin: 0;
     }

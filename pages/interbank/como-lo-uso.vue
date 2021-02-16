@@ -233,7 +233,7 @@ export default {
 
 .como-lo-uso{
     padding-bottom: 0; 
-    padding-top: 120px;
+    padding-top: 85px;
     p{
         color: #333333;
     }
