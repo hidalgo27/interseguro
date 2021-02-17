@@ -6,12 +6,12 @@
         class="main-nav__logo"
       >
         <img
-          src="../../static/media/interseguroVehicular_v2/logo-ibk.png"
+          src="../../static/media/interseguroVehicular_v2/logo-ibk.svg"
           class="main-nav__logo--iso"
           alt="seguros vehiculares"
         >
         <img
-          src="../../static/media/interseguroVehicular_v2/logo-ibk.png"
+          src="../../static/media/interseguroVehicular_v2/logo-ibk.svg"
           class="main-nav__logo--full"
           alt="intersguro seguro vehicular"
         >

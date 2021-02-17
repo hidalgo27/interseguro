@@ -371,7 +371,7 @@ export default {
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
-    padding-top: 170px;
+    padding-top: 70px;
   }
   .card-btnPago{
     display: flex;
@@ -486,7 +486,7 @@ export default {
       }
     }
     img{
-      width: 96px;
+      width: 54px;
     }
   }
 
@@ -556,6 +556,7 @@ export default {
     }
     .descripcion{
       color: #0854c4;
+      font-family: 'Montserrat Medium';
     }
     .card-pagoProcesado{
       border-bottom: solid 1px #efefef;
@@ -568,7 +569,7 @@ export default {
         width: 35%;
       }
       .cuota{
-        width: 165px;
+        width: 200px;
         .cuota-frecuencia{
           display: inline-block;
           color: #0854c4;
@@ -679,7 +680,7 @@ export default {
         font-size: 22px;
       }
       img{
-        width: 80px;
+        width: 90px;
       }
     }
   }
