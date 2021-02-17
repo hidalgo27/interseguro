@@ -3,8 +3,8 @@
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to=" '/interbank/'" class="main-nav__logo">
-                    <img src="../../static/media/interseguroVehicular_v2/logo-ibk.png" class="main-nav__logo--iso" alt="seguros vehiculares">
-                    <img src="../../static/media/interseguroVehicular_v2/logo-ibk.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
+                    <img src="../../static/media/interseguroVehicular_v2/logo-ibk.svg" class="main-nav__logo--iso" alt="seguros vehiculares">
+                    <img src="../../static/media/interseguroVehicular_v2/logo-ibk.svg" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
                 <div class="nav-contacto  d-flex  d-xl-none">                
                     
@@ -19,7 +19,7 @@
                         <div class="main-nav__menu" id="main-menu">
                             <div class="main-menu">
                                 <div class="box-logo">
-                                    <img width="240" src="../../static/media/interseguroVehicular_v2/logo-ibk.png" alt="logo_blanco">
+                                    <img width="240" src="../../static/media/interseguroVehicular_v2/logo-ibk.svg" alt="logo_blanco">
                                 </div>
                                 <div class="box-close" @click="closeNav($event)">
                                     <img src="../../static/media/img/home/close.png" alt="close">
@@ -265,7 +265,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
     color: #0855c4 !important;
 }
 .main-nav__logo img {
-    height: 30px;
+    height: 23px;
 }
 
     .closeListon{
@@ -368,7 +368,6 @@ a.nuxt-link-exact-active.nuxt-link-active {
     }
     .box-logo{
         img{
-            height: 40px;
             width: auto !important;
             margin-bottom: 48px;
         }
@@ -595,6 +594,9 @@ a.nuxt-link-exact-active.nuxt-link-active {
         }
     }
     @media (min-width: 992px){
+        .main-nav__logo img {
+            height: 30px;
+        }
         .footer-menu{
             width: 25%;
             &__redes{

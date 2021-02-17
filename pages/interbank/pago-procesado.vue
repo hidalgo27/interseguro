@@ -486,7 +486,7 @@ export default {
       }
     }
     img{
-      width: 96px;
+      width: 54px;
     }
   }
 
@@ -569,7 +569,7 @@ export default {
         width: 35%;
       }
       .cuota{
-        width: 165px;
+        width: 200px;
         .cuota-frecuencia{
           display: inline-block;
           color: #0854c4;
@@ -680,7 +680,7 @@ export default {
         font-size: 22px;
       }
       img{
-        width: 80px;
+        width: 90px;
       }
     }
   }

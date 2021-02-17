@@ -59,7 +59,7 @@
 
       <div class="home-pasos__beneficios">
         <div class="home-pasos__planes--titulo">
-          <p class="como-funciona">Es fácil, en solo 3 pasos</p>
+          <p class="como-funciona">¡Protege tu auto en solo 3 pasos!</p>
         </div>
         
         <div class="home-pasos__cuerpo   pasos">
@@ -201,7 +201,7 @@
             <p class="beneficios-titulo">
               Auxilio mecánico
             </p>    
-            <p  class=""><span></span> Te ayudamos en donde estés <br>hasta 2 veces al mes  </p>
+            <p  class=""><span></span> Te ayudamos en donde estés hasta 2 veces al mes  </p>
           </div>
         </div>
         <div class="beneficios2__item">
@@ -224,7 +224,7 @@
       <div class="home-talleresBox">
         <div class="home-talleres__desc">
           <p class=""> Repara tu auto en <br> nuestra red de talleres</p>
-          <a class="btn-talleres  mt-3" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
+          <a class="btn-talleres  mt-3" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">VER TALLERES</a>
         </div>
       </div>
     </div>
@@ -263,7 +263,7 @@
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
             <p class="protegido">
-              Carro protegido <br> <strong>SUSUKI VITARA</strong>
+              Carro protegido <br> <strong>SUZUKI VITARA</strong>
             </p>
           </div>
         </div>
@@ -323,9 +323,9 @@
                 <img src="./../../static/media/img/ibk/cliente3.png" alt="">
                 <p class="cliente">Enrique Quispe</p>
                 <!-- <p class="ahorro">---</p> -->
-                <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
+                <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!‘’</p>
                 <p class="protegido">
-                  Carro protegido <br> <strong>SUSUKI VITARA</strong>
+                  Carro protegido <br> <strong>SUZUKI VITARA</strong>
                 </p>
               </div>
             </div>
@@ -626,7 +626,11 @@
 </script>
 
 <style lang="scss" scope>
-
+  .home.home-ibk{
+    .check{
+      color: #696969 !important;
+    }
+  }
   .listonMobile{
     position: relative;
     img{
@@ -733,7 +737,7 @@
         text-align: center;
         color: #0667ba !important;
         animation: updown 1.5s ease 0s infinite;
-        font-family: 'Omnes Regular';
+        font-family: 'Montserrat Regular';
         cursor: pointer;
         img{
           position: relative;
@@ -943,7 +947,7 @@
             display: inline-block;
             position: absolute;
             bottom: 16px;
-            font-family: 'Omnes Regular';
+            font-family: 'Montserrat Regular';
           }
         }
       }
@@ -1202,8 +1206,10 @@
         margin-top: 24px;
         color: #333333;
         text-align: center;
+        font-family: 'Geometria Medium';
         strong{
           color: #0855c4;
+          font-family: 'Geometria Bold';
         }
       }
       .box-titulo{
@@ -1267,7 +1273,7 @@
         }
         .descripcion{
           margin-top: 8px;
-          font-family: 'Geometria Medium';
+          font-family: 'Montserrat Regular';
           font-size: 16px;
           font-weight: normal;
           font-stretch: normal;
@@ -1285,8 +1291,10 @@
         margin-top: 24px;
         color: #333333;
         text-align: center;
+        font-family: 'Geometria Medium';
         strong{
           color: #0855c4;
+          font-family: 'Geometria Bold';
         }
       }
       .box-slider{
@@ -1330,7 +1338,7 @@
         }
         .descripcion{
           margin-top: 8px;
-          font-family: 'Geometria Medium';
+          font-family: 'Montserrat Regular';
           font-size: 16px;
           font-weight: normal;
           font-stretch: normal;
@@ -1380,6 +1388,7 @@
             line-height: 1.11;
             letter-spacing: normal;
             color: #555555;
+            font-family: 'Geometria Bold';
           }
           .ahorro{
             margin-top: 4px;
@@ -1396,7 +1405,7 @@
           }
           .descripcion{
             margin-top: 8px;
-            font-family: 'Geometria Medium';
+            font-family: 'Montserrat Regular';
             font-size: 16px;
             font-weight: normal;
             font-stretch: normal;
@@ -1428,7 +1437,7 @@
                 letter-spacing: normal;
                 text-align: center;
                 color: #696969;    
-                font-family: 'Omnes Regular';        
+                font-family: 'Montserrat Regular';        
               }
             }
           }
@@ -1512,7 +1521,7 @@
             font-style: normal;
             line-height: 1.2;
             letter-spacing: normal;
-            color: #454A6C;
+            color: #333333;
           }
           &:hover{
             img{
@@ -1531,20 +1540,20 @@
             transition: all .75s;
             font-size: 18px;
             font-weight: 400;
-            font-family: 'Omnes Regular';
+            font-family: 'Montserrat Regular';
             font-stretch: 400;
             font-style: normal;
             line-height: 1.2;
             letter-spacing: normal;
             text-align: left;
-            color: #454A6C;            
+            color: #333333;            
           }
         }
       }      
     }
   }
   #vehicleModelPlate{
-    font-family: 'Omnes Regular';
+    font-family: 'Montserrat Regular';
     font-size: 18.5px;
     color: #495057;
   }
@@ -1622,7 +1631,7 @@
               letter-spacing: normal;
               text-align: center;
               color: #494a49;
-              font-family: 'Omnes Regular';
+              font-family: 'Montserrat Regular';
             }
           }
           &__der{

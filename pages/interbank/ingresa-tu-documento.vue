@@ -942,7 +942,7 @@
   max-width: 472px;
   width: 100%;
   height: 509px;
-  font-family: "Omnes Regular";
+  font-family: "Montserrat Regular";
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -959,7 +959,7 @@
     color: #ffffff;
   }
   span {
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
   }
   .btn {
     background-color: #00C450;
@@ -1225,7 +1225,7 @@ input:focus {
     display: inline-block;
     color: #484848;
     font-size: 17px;
-    font-family: "Omnes Regular";
+    font-family: "Montserrat Regular";
   }
 }
 .isUsuarioEncontrado {
@@ -1290,17 +1290,23 @@ input:focus {
   top: 4px;
   background: transparent;
 }
+.v2-planes .box-btn span[data-v-2bd413a0] {
+    
+}
 .box-row {
   position: relative;
   .box-btn--dni {
-    margin-top: 16px;
-    background-color: #00C450;
-    color: white;
-    height: 45px;
+    background: #00C450;
+    color: #ffffff;
+    height: 50px;
+    width: 270px;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 22px;
+    font-family: 'Montserrat regular';
+    text-align: center;
     line-height: 0.5;
-    font-size: 15px;
-    width: 300px;
-    border-radius: 3px;
+    cursor: pointer;
     &:disabled {
       background: #9b9b9b;
     }
@@ -1379,7 +1385,9 @@ input:focus {
 .iptGral__input {
   padding-left: 6px;
 }
-
+.titulo-flujo {
+    color: #333;
+}
 @media (min-width: 768px) {
 
   .ml-2-mobile {
@@ -1404,7 +1412,7 @@ input:focus {
   .box-ingresaDocumento {
     margin: 0 -15px;
     .titulo-flujo {
-      font-family: "Omnes Regular";
+      font-family: "Montserrat Regular";
       font-size: 17px;
       font-stretch: normal;
       font-style: normal;
@@ -1526,7 +1534,7 @@ input[type="color"]:focus,
   .modal-lg {
     max-width: 660px;
   }
-  font-family: "Omnes Regular";
+  font-family: "Montserrat Regular";
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -1542,7 +1550,7 @@ input[type="color"]:focus,
     color: #454a6c;
   }
   span {
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
   }
   img {
     margin-top: 30px;

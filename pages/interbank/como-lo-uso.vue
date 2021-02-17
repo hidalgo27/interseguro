@@ -209,6 +209,33 @@ export default {
 }
 </script>
 <style lang="scss" scope>
+
+.heading-7{
+    font-family: 'Geometria Medium';
+    font-size: 20px;
+}
+.section-header__title {
+    color: #333333;
+    font-family: 'Geometria Medium';
+    font-size: 24px;
+}
+.section-header__parrafo{
+    font-family: 'Montserrat Medium';
+}
+.section-header__subtitle {
+    font-family: 'Montserrat Regular';
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+.section-header__parrafo strong {
+    font-family: 'Montserrat Regular';
+
+}
+ul.steplist.w-list-unstyled {
+    padding-left: 56px;
+}
+
 .cambio{
     background: #EBFBF1;
     color: #00C450;
@@ -222,6 +249,8 @@ export default {
 .btn-ibk{
     background: #00C450;
     border-radius: 4px;
+    font-family: 'Geometria Medium';
+    font-weight: normal;
 }
 .section-header__title {
     color: #333333;
@@ -233,7 +262,7 @@ export default {
 
 .como-lo-uso{
     padding-bottom: 0; 
-    padding-top: 85px;
+    padding-top: 50px;
     p{
         color: #333333;
     }
@@ -334,11 +363,26 @@ export default {
     padding-top: 50px
 }
 @media (min-width: 992px){
+    .section-header__subtitle {
+        font-family: 'Geometria Bold';
+        color: #333;
+    }
+    .section-header__title {
+        color: #333333;
+        font-family: 'Geometria Medium';
+        font-size: 44px;
+    }
+    .como-lo-uso{
+        padding-top: 100px;
+    }
     .darkbg {
         padding-top: 5%;
     }
     .tabs-content__panel--parrafo {
         font-size: 16px;
+    }
+    .heading-7{
+        font-size: 26px;
     }
 }
 

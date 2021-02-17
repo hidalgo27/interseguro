@@ -60,7 +60,7 @@
                                         </b-col>
                                         <b-col cols="12" md="12">                                            
                                             <div class="imgs">
-                                                <span class="msg-alterno">Pago online 100% seguro</span>                                                
+                                                <span class="msg-alterno"> <img src="./../../static/media/img/ibk/candado.svg" alt=""> Pago online 100% seguro</span>                                                
                                             </div>
                                             
                                         </b-col>                                         
@@ -1138,7 +1138,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 70px;;
+    padding-top: 70px;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
@@ -1444,8 +1444,9 @@ a.steps__item.paso1:after{
             font-size: 16px;
             margin: 0;
             line-height: 1;
-            font-weight: bold;
             line-height: 24px;
+            font-family: 'Geometria Medium';
+            font-size: 22px;
         }
         &__secundario{
             color: #616161;
@@ -1467,10 +1468,12 @@ a.steps__item.paso1:after{
             justify-content: center;
         }
         .msg-alterno{
-            font-size: 13px;
+            font-size: 14px;
             line-height: 16px;            
             font-weight: 500;
-            color: #0855c4;
+            color: #454A6C;
+            font-family: 'Montserrat Medium';
+            margin-top: 12px;
         }
         .cliploader{
             background: transparent;
@@ -1482,6 +1485,8 @@ a.steps__item.paso1:after{
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            font-family: 'Geometria Medium';
+            font-size: 18px;
             .pago_seguro{
                 color: #fff;
                 font-size: 11px;
