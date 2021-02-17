@@ -780,6 +780,7 @@ import { validationMixin } from 'vuelidate'
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
                         .then((res) =>{
+
                             if (res.code == 0) {
                                 this.opacidad =false
                                 // this.validarROOT()
@@ -794,11 +795,10 @@ import { validationMixin } from 'vuelidate'
                                 }
                                 this.$store.dispatch('common/eventoErrores', errorDetectado)
                                 this.opacidad =false
-
-
+                             
                                 this.$swal({
                                     title: 'Oops...',
-                                    text: res.message || JSON.parse(res.body).user_message,
+                                    text: JSON.parse(res.body).message,
                                     type: 'error',
                                     showCancelButton: false,
                                     confirmButtonColor: '#2177CC',
