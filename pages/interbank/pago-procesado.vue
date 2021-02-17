@@ -8,7 +8,7 @@
         <b-col cols="12"  lg="6">
           <div class="poliza-card">
             <div>
-              <img src="../../static/media/interseguroVehicular_v2/auto_poliza.png" alt="auto_poliza">
+              <img class="mr-3" src="../../static/media/interseguroVehicular_v2/auto_poliza_ibk.svg" alt="auto_poliza">
             </div>
             <div class="felicitaciones">
               <p class="titulo">¡Felicitaciones!</p>
@@ -34,15 +34,15 @@
                 <span class="titulo">Datos del Auto</span><br>
                 <div class="item  marca  mt-2">
                   <span class="subtitulo">Marca/modelo</span><br>
-                  <span>{{this.listaTransaccion.brand||""}} / {{this.listaTransaccion.model||""}} </span>
+                  <span class="descripcion">{{this.listaTransaccion.brand||""}} / {{this.listaTransaccion.model||""}} </span>
                 </div>
                 <div class="item  placa  mt-2">
                   <span class="subtitulo">Placa</span><br>
-                  <span>{{this.listaTransaccion.plateNumber||""}}</span>
+                  <span  class="descripcion">{{this.listaTransaccion.plateNumber||""}}</span>
                 </div>
                 <div class="item  anio  mt-2">
                   <span class="subtitulo">Año</span><br>
-                  <span>{{this.listaTransaccion.modelYear||""}}</span>
+                  <span  class="descripcion">{{this.listaTransaccion.modelYear||""}}</span>
                 </div>
               </div>
 
@@ -50,11 +50,11 @@
                 <span class="titulo">Resumen del seguro</span><br>
                 <div class="item  inicio">
                   <span class="subtitulo">Inicio</span><br>
-                  <span>{{this.listaTransaccion.fromDate||""}}</span>
+                  <span  class="descripcion">{{this.listaTransaccion.fromDate||""}}</span>
                 </div>
                 <div class="item  fin">
                   <span class="subtitulo">Fin</span><br>
-                  <span>{{this.listaTransaccion.toDate||""}}</span>
+                  <span  class="descripcion">{{this.listaTransaccion.toDate||""}}</span>
                 </div>
 
                 <div class="item  plan  d-none  d-md-inline-block">
@@ -120,7 +120,7 @@
               </div>
 
               <div class="comunicanos">
-                <p class="mt-3">En unos minutos nos comunicaremos contigo vía whatsapp al número <strong>{{this.numeroTelefono}}</strong> para realizar la inspección de tu auto</p>
+                <p class="mt-3" style="color: #001F5E;">En unos minutos nos comunicaremos contigo vía whatsapp al número <strong>{{this.numeroTelefono}}</strong> para realizar la inspección de tu auto</p>
               </div>
             </div>
 
@@ -131,7 +131,7 @@
                 <div class="redes  mt-4">
                   <div class="redes__item">
                     <a class="enlace_item"  target="_blank" :href="urlCompartirFacebook" >
-                      <img src="../../static/media/interseguroVehicular_v2/facebook_pago.png" width="25" alt="facebook_pago">
+                      <img src="../../static/media/interseguroVehicular_v2/facebook-ibk.svg" width="25" alt="facebook_pago">
                       <span>Facebook</span>
                     </a>
                   </div>
@@ -143,18 +143,18 @@
                   </div> -->
                   <div class="redes__item">
                     <a class="enlace_item"  target="_blank" :href="urlCompartirTwitter" >
-                      <img src="../../static/media/interseguroVehicular_v2/tweet_pago.png" width="25" alt="tweet_pago">
+                      <img src="../../static/media/interseguroVehicular_v2/twitter-ibk.svg" width="25" alt="tweet_pago">
                       <span>Twitter</span>
                     </a>
                   </div>
                   <div class="redes__item">
                     <a class="enlace_item"  target="_blank" :href="urlCompartirFacebook" >
-                      <img src="../../static/media/interseguroVehicular_v2/copiar_pago.png" width="25" alt="copiar_pago">
+                      <img src="../../static/media/interseguroVehicular_v2/copiar-ibk.svg" width="25" alt="copiar_pago">
                       <span>Copiar</span>
                     </a>
                   </div>
                 </div>
-                <p class="mt-3">Si no te llegó la confirmación de tu compra, revisa la bandeja de SPAM o contáctanos a la <strong>Central de Atención al Cliente</strong> para poder ayudarte.</p>
+                <p class="mt-3" style="color: #001F5E;">Si no te llegó la confirmación de tu compra, revisa la bandeja de SPAM o contáctanos a la <strong>Central de Atención al Cliente</strong> para poder ayudarte.</p>
               </div>
             </div>
 
@@ -371,7 +371,7 @@ export default {
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
-    padding-top: 170px;
+    padding-top: 70px;
   }
   .card-btnPago{
     display: flex;
@@ -383,9 +383,9 @@ export default {
       justify-content: center;
       width: 150px;
       height: 48.3px;
-      border-radius: 7.7px;
-      background-color: #ea0c90;
+      background-color: #00C450;
       color: white;
+      font-family: 'Geometria Medium';
       img{
         width: 20px;
       }
@@ -399,8 +399,7 @@ export default {
       justify-content: center;
       width: 150px;
       height: 48.3px;
-      border-radius: 7px;
-      background-color: #00adee;
+      background-color: #0133A1;
       color: white;
     }
     .comunicanos{
@@ -430,7 +429,6 @@ export default {
     }
     .redes{
       display: flex;
-      justify-content: center;
       align-items: center;
       margin-top: 12px;
       
@@ -463,7 +461,7 @@ export default {
   .poliza-pago{
     position: relative;
     height: 134px;
-    background-image: linear-gradient(to bottom, #0062ee, #00adee);
+    background: #00C450;
     p{
       color: white;
     }  
@@ -473,13 +471,12 @@ export default {
     align-items: center;
     height: 100%;
     &__prima{
-      background-color: #ea0c90;
+      background-color: #FFFFFF;
       position: absolute;
       right: 8px;
       top: 38px;
-      color: white;
+      color: #0133A1;
       padding: 10px 5px;
-      border-radius: 8px 0 8px 0;
       padding-right: 8px;
       padding-left: 8px;
       span{
@@ -489,7 +486,7 @@ export default {
       }
     }
     img{
-      width: 64px;
+      width: 96px;
     }
   }
 
@@ -533,9 +530,9 @@ export default {
       background: #27362d;
     }
     .titulo{
-      background: #efefef;
+      background: #E5E5E5;
       padding: 4px 16px;
-      border-radius: 6px;
+      font-family: 'Geometria Medium';
     }
     .subtitulo{
       font-size: 14px;
@@ -544,7 +541,8 @@ export default {
       font-style: normal;
       line-height: normal;
       letter-spacing: normal;
-      color: #0754c4;
+      color: #333333;
+      font-family: 'Geometria Medium';
     }
     .titulo2{
       font-size: 14px;
@@ -553,7 +551,11 @@ export default {
       font-style: normal;
       line-height: normal;
       letter-spacing: normal;
-      color: #0754c4;
+      color: #333333;
+      font-family: 'Geometria Medium';
+    }
+    .descripcion{
+      color: #0854c4;
     }
     .card-pagoProcesado{
       border-bottom: solid 1px #efefef;
@@ -569,6 +571,7 @@ export default {
         width: 165px;
         .cuota-frecuencia{
           display: inline-block;
+          color: #0854c4;
         }
         .cuota-text{
           display: inline-block;
@@ -591,6 +594,7 @@ export default {
         line-height: normal;
         letter-spacing: 1px;
         color: #0754c4;
+        font-family: 'Geometria Medium';
       }
       .email-resumen{
         font-size: 16px;
@@ -630,7 +634,7 @@ export default {
         background: none;  
       }
       .poliza-card{
-        background-image: linear-gradient(to bottom, #0062ee, #00adee);
+        background: #00C450;
         display: flex;
         align-items: center;
         justify-content: center;

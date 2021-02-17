@@ -98,7 +98,7 @@
           </div>
         </div>
         
-        <div class="home-pasos__planes--titulo   pt-2   d-block">
+        <div class="home-pasos__planes--titulo   d-block">
           <p class="nuevos-planes">¡Elige tu plan! </p>
         </div>
 
@@ -115,7 +115,7 @@
                 <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>      
+                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>      
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@
                 <p><span class="check">&#10004;</span> <span>Pérdida parcial en caso choques hasta por el 75% del valor de tu carro</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Accidente de Ocupantes</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@
                 <p><span class="check">&#10004;</span> <span>Protección frente a riegos de naturaleza, incendios y huelgas</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Hasta 5 choferes de reemplazo al año</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@
 
     <div class="home-beneficios2  p-47px">
       <div class="home-beneficios2__titulo">
-        <p>Disfruta de nuestros increíbles beneficios </p>
+        <p class="mb-4">Disfruta de nuestros increíbles beneficios </p>
       </div>
       <div class="home-beneficios2__cuerpo  beneficios2 d-lg-flex">
         <div class="beneficios2__item">
@@ -715,14 +715,14 @@
     }
   }
   .home-ibk{
-    margin-top: 120px;
+    margin-top: 70px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
       padding-top: 42px;
-      padding-bottom: 48px;
+      
       .parrafo-video{
         font-size: 30px; 
         font-weight: normal;
@@ -763,6 +763,7 @@
           padding-bottom: 42px;          
         }
         .nuevos-planes{
+          padding: 40px 0;
           font-family: 'Geometria Medium';
           font-size: 1.3rem;
           font-size: 26px;
@@ -1353,7 +1354,7 @@
         }
       }
       .carousel-clientes{
-        height: 340px !important;
+        height: 400px !important;
         margin-top: 24px;
         .box-slider{
           padding: 0 30px;
@@ -1406,7 +1407,7 @@
           }
         }
         &__item{
-          height: 300px !important;          
+          height: 400px !important;          
           .carousel-caption {
             height: 100%;
             display: flex;
@@ -1578,14 +1579,15 @@
         height: 580px;
         
         .home-banner{
+          align-items: flex-start;
           flex-direction: row;
           padding-left: 45px;
           min-height: 445px;
           &__izq{
-            // padding-top: 68px !important;
+            padding-top: 85px !important;
             height: calc(85vh);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             width: auto;            
             input{
               width: 360px;
@@ -1624,7 +1626,7 @@
             }
           }
           &__der{
-            padding-top: 0px !important;
+            padding-top: 150px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;
@@ -1715,7 +1717,7 @@
       .home-pasos{
         padding-top: 42px;
         .nuevos-planes{
-          padding: 28px 0 40px;
+          padding: 40px 0 40px;
         }
         &__beneficios{
           display: flex;
@@ -1723,6 +1725,7 @@
           align-items: center;
         }
         .pasos{
+          padding-bottom: 40px;
           display: flex;
           flex-direction: row;
           justify-content: space-around;
@@ -1767,7 +1770,7 @@
           display: flex;
           flex-direction: row;
           align-items: center;
-          padding: 0 5%;
+          padding: 30px 0 !important;
           justify-content: space-around;
           align-items: flex-end;
           &__item{
@@ -1867,7 +1870,6 @@
           display: flex;
           flex-direction: row;
           align-items: center;
-          padding: 0 5%;
           justify-content: space-around;
           align-items: flex-end;
           &__item{
@@ -1990,7 +1992,7 @@
         .home-banner{
           background-image: url('./../../static/media/img/ibk/banner.svg');          
           background-size: 100%;
-          padding: 0 1.5rem;
+          padding: 0;
           padding-left: 65px;
           &__der{
             background: transparent;
@@ -2041,7 +2043,6 @@
           }
         }
         .planes{
-          padding: 0 !important;
           width: 94%;
           max-width: 1200px;
           &__item{
@@ -2165,7 +2166,6 @@
       .home-pasos{
         padding-top: 42px;
         .planes{
-          padding: 0 !important;
           width: 100%;
           max-width: 1200px;
         }
@@ -2187,7 +2187,7 @@
       .boxHome-banner{              
         .home-banner{
           padding-left: 128px;
-          max-width: 1440px;
+          max-width: 100%;
           &__der{
             background: transparent ;
             margin-left: 0;

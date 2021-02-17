@@ -3369,7 +3369,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px;
+  padding-top: 70px;
   .img-close{
     position: absolute;
     right: -24px;

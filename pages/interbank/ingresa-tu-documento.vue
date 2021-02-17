@@ -1005,7 +1005,7 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 143px;
+  padding-top: 70px;
   .steps-plan {
     background: white;
   }
