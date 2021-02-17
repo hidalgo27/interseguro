@@ -556,6 +556,7 @@ export default {
     }
     .descripcion{
       color: #0854c4;
+      font-family: 'Montserrat Medium';
     }
     .card-pagoProcesado{
       border-bottom: solid 1px #efefef;
