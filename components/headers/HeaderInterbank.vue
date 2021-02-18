@@ -1,5 +1,26 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
+
+        <div>
+            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+                <div class="d-md-none  liston-mobile">
+                   <p ><strong>¡Por tiempo limitado! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                    <div  class="example">            
+                        <div id="contadorCyber12" class="flipdown  flipdownMobile"></div>
+                    </div>
+                </div>
+                
+                <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
+                    <div class="d-flex align-items-center logo-franja">
+                        <p ><strong>¡Por tiempo limitado!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                    </div>
+                    <div id="contadorCyber13" class="flipdown"></div>
+                    
+                </div>
+                <div class="closeListon" @click="closeListon()">X</div>
+            </div>
+        </div>  
+
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to=" '/interbank/'" class="main-nav__logo">
@@ -142,7 +163,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
@@ -178,8 +199,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1614574799, 'contadorCyber13').start()
+            var flipdown = new FlipDown(1614574799, 'contadorCyber12').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -283,11 +304,15 @@ a.nuxt-link-exact-active.nuxt-link-active {
         font-size: 18px;
 
     }
+    .liston .liston-mobile{
+    display: flex;
+    align-items: center;
+}
     .liston{        
         flex-direction: column;
-        background: #0855c4;
+        background: #05BE50;
         width: 100%;
-        height: 46px;
+        height: 70px;
         left: 0;
         justify-content: center;
         padding-left: 16px;
@@ -329,9 +354,6 @@ a.nuxt-link-exact-active.nuxt-link-active {
             letter-spacing: normal;
             color: #fff;
             font-family: 'Omnes Regular' !important;
-        }
-        .example{
-            width: 100%;
         }
         .logo-franja{
             margin-left: auto;
@@ -382,6 +404,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
     }
     .menu-item__enlace{
         text-transform: uppercase;
+        font-family: 'Geometria medium';
     }
 }
 @keyframes zoom {
@@ -623,8 +646,10 @@ a.nuxt-link-exact-active.nuxt-link-active {
     }
     @media (min-width: 1024px){
         .liston {
-            // flex-direction: row;
-            height: 42px;
+            height: 60px;
+            .example{
+                width: 100%;
+            }
         }
         // .liston .box-texto-img {
         //     height: 56px;
@@ -638,15 +663,14 @@ a.nuxt-link-exact-active.nuxt-link-active {
          }
     }
     @media (min-width: 1200px){
-        .liston{       
-            height: 42px;     
+        .liston{
             flex-direction: row;
             justify-content: space-between;
             display: flex;
             padding-left: 65px;
             p{
                 padding-left: 18px;
-                font-size: 18px;
+                font-size: 20px;
                 font-family: 'Omnes Regular' !important;
             }
             .closeListon{
@@ -724,7 +748,6 @@ a.nuxt-link-exact-active.nuxt-link-active {
         //         padding-top: 5px;
         // }
         .liston{
-            height: 42px;
             padding-right: 102px;
             padding-left: 128px;
             .box-texto-img{
@@ -747,9 +770,6 @@ a.nuxt-link-exact-active.nuxt-link-active {
         }
     }
     @media (min-width: 1440px){
-        .liston p {
-            font-size:16px;
-        }
         .header-planes{
             .menu-nav{
                 &__izq{

@@ -6,20 +6,20 @@
     <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
     </div>
     
-    <b-container class="contenedor-personalizado  " >
+    <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="12" class="m-auto">
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
-                  <router-link class="steps__item " to="/cotiza/cotizacion"   style="cursor: auto;"><li></li></router-link>
+                  <router-link class="steps__item " to="/interbank/cotizacion/"   style="cursor: auto;"><li></li></router-link>
                 </template>              
                 <template >
                   <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
-                  <router-link v-else class="steps__item " to="/cotiza/cotizacion" style="cursor: auto;"><li></li></router-link>
+                  <router-link v-else class="steps__item " to="/interbank/cotizacion/" style="cursor: auto;"><li></li></router-link>
                 </template>
                 <template >
-                  <router-link  class="steps__item   steps--active  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
+                  <router-link  class="steps__item   steps--active  paso1" to="/interbank/cotizacion/"><li></li></router-link>                
                 </template>                              
                   <li class="steps--progressBar"></li>                
               </ul>
@@ -771,11 +771,11 @@
         />
          <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
             <img width="80" class="check-enviado" src="./../../../static/media/img/ibk/mail-ibk.svg" alt="">
-            <p class="modal-titulo  modal-titulo-enviado"><strong>¡Ya tienes tu cotización en tu correo! Puedes compartirla con quien quieras </strong> </p>
+            <p class="modal-titulo  modal-titulo-enviado"><strong>¡Ya tienes la cotización en tu correo! Puedes compartirla con quien quieras </strong> </p>
           </div>
 
         <div class="modalEnviarEmail">
-            <p class="modal-titulo">Recibe tu cotización en tu correo</p>
+            <p class="modal-titulo">Recibe la cotización en tu correo</p>
             
             <div class="fechaCotizador">
                 <b-form-input id="input-small" placeholder="Ejem. lperez@gmail.com"  v-model="email"></b-form-input>
@@ -1973,8 +1973,9 @@
         this.detectarPLanSeleccionado()
       },
       continuar(e,id) {
+        
+        e.stopPropagation();
         console.log(id)
-        event.stopPropagation();
         this.seleccionarPLanDesktop(id)
         this.$store.commit('common/setFrecuenciaPago', this.selected)
         this.cobertura_is.credit = this.endosoSeleccionado.name
@@ -2002,7 +2003,7 @@
         }else{
         }
         this.cotizador_datalayer('addToCart')
-        this.$nuxt.$router.push('../ingresa-tu-documento')
+        this.$nuxt.$router.push({path: "./../ingresa-tu-documento/"});
 
       },
       getVehicle(){
@@ -3199,7 +3200,7 @@
   },
 
   mounted: function () {
-
+console.log("coti",this.planSeleccionado)
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
@@ -3289,10 +3290,13 @@
 </script>
 
 <style lang="scss" scoped>
-
+.box-steps .plan-titulo p {
+    border-radius: 3px;
+}
   .modal .modal-titulo {
     color: #333333;
     font-family: 'Montserrat medium';
+    width: 260px !important;
   }
 
   .modal .box-btns .btn-principal {
@@ -3370,7 +3374,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  padding-top: 120px;
   font-family: 'Montserrat Medium';
   .img-close{
     position: absolute;

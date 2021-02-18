@@ -12,15 +12,15 @@
           
             <ul class="steps" style="display: inline-flex">
               <template>
-                <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  steps--active  paso3" to="/cotiza/como-pagar"><li></li></router-link>
-                <router-link v-else class="steps__item  steps--active  paso3" to="/cotiza/ingresa-tu-documento"  style="cursor: auto;"><li></li></router-link>
+                <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  steps--active  paso3" to="/interbank/como-pagar/"><li></li></router-link>
+                <router-link v-else class="steps__item  steps--active  paso3" to="/interbank/ingresa-tu-documento/"  style="cursor: auto;"><li></li></router-link>
               </template>              
               <template >
-                <router-link v-if="documento_steps2 != ''" class="steps__item  paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
-                <router-link v-else class="steps__item   paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
+                <router-link v-if="documento_steps2 != ''" class="steps__item  paso2" to="/interbank/ingresa-tu-documento/"><li></li></router-link>
+                <router-link v-else class="steps__item   paso2" to="/interbank/ingresa-tu-documento/"><li></li></router-link>
               </template>
               <template >
-                <router-link  class="steps__item  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
+                <router-link  class="steps__item  paso1" to="/interbank/cotizacion/"><li></li></router-link>                
               </template>
                 <li class="steps--progressBar"></li>
             </ul>
@@ -41,6 +41,7 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
+                
                 <b-col cols="12" md="8">
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">
@@ -187,7 +188,23 @@
 
                                          <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
                                             <b-row class="justify-content-center">
-                                                
+                                                <div class="flotante-covid-3  d-none  d-md-block">
+                                                    <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
+                                                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="370"></span>
+                                                        <div class="box-contador " >
+                                                            <span  class="cuota-gratis-span"
+                                                                >¡Por tiempo limitado!
+                                                            </span>
+                                                            <div  class="example  d-md-flex">
+                                                                <div id="contadorCyber14" class="flipdown">                                    
+                                                                </div> 
+                                                            </div>                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                </b-col>
                                                 <b-col cols="10" class="text-center">
                                                     
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
@@ -196,8 +213,30 @@
                                                         
                                                     </button>
                                                 </b-col>
+                                                <b-col cols="12"  class="mt-2" style="background: #D2F5E0; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
+                                                    <img class="mr-2" src="./../../static/media/interseguroVehicular_v2/dscto-2dacuota.svg" alt="">
+                                                    <p style="color:#05BE50;text-align:left;">
+                                                        Termina tu compra hoy y aplicaremos un descuento a la 2da cuota mensual de tu seguro para que sea GRATIS
+                                                    </p>
+                                                </b-col>
                                                 <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                    <div class=" box-btn testest  mt-4" >
+                                                        <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
+                                                            
+                                                            <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="320">
+                                                            
+                                                            <div class="box-contador" >
+                                                                <span  class="cuota-gratis-span"
+                                                                    >¡Por tiempo limitado!
+                                                                </span>
+                                                                <div  class="example  d-md-flex">
+                                                                    <div id="contadorCyber15" class="flipdown">
+                                                                        
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </b-col>
                                             </b-row>
                                         </b-col>
@@ -457,6 +496,10 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            contador(){
+                var flipdown = new FlipDown(1614574799, 'contadorCyber14').start();
+                var flipdown = new FlipDown(1614574799, 'contadorCyber15').start()
+            },
             cotizador_datalayer(evento,step_valor){
                 this.cobertura_is.content_ids =  this.$store.state.common.code_sku
                 window.dataLayer = window.dataLayer || [];
@@ -628,7 +671,7 @@ import { validationMixin } from 'vuelidate'
                                 this.opacidad =false
                                 // this.validarROOT()
                                 this.$store.commit('common/setPolicy_id',res.body.policyId)
-                                this.$nuxt.$router.push({path: './pago-procesado'})
+                                this.$nuxt.$router.push({path: '/interbank/pago-procesado/'})
                             }else if(res.code == 100){
                                 let errorDetectado = {
                                     url : 'EXECUTE',
@@ -694,7 +737,7 @@ import { validationMixin } from 'vuelidate'
             
             volver (evt) {
                 evt.preventDefault();
-                this.$nuxt.$router.push("./ingresa-tu-documento");              
+                this.$nuxt.$router.push({path: "/interbank/ingresa-tu-documento/"});            
             },
             
             comoPagarDatalayer(){
@@ -1003,9 +1046,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            // if(localStorage.getItem('activoAgora')){
-            //     this.valeAgora = true
-            // }
+            this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1096,6 +1137,33 @@ import { validationMixin } from 'vuelidate'
 
 <style lang="scss" scope>
 
+.flotante-covid-boton{
+    .img-close {
+        position: absolute;
+        right: -14px;
+    }
+    .box-contador{
+        position: absolute;
+        bottom: 6px !important;
+        right: 40px !important;
+        .cuota-gratis-span{
+            font-family: 'omnes SemiBold' !important;
+            font-size: 16px !important;
+            color: #0855c4;
+        }
+    }
+}
+.flotante-covid-3 {
+    position: absolute;
+    right: -360px;
+    top: 3px;
+    padding: 8px;
+    border-radius: 3px;
+    z-index: 9;
+}
+.box-steps .plan-titulo p {
+    border-radius: 3px;
+}
 .box-btn--primary{
     background: #05BE50;
     &:hover{
@@ -1138,7 +1206,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 70px;
+    padding-top: 120px;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
@@ -1440,7 +1508,7 @@ a.steps__item.paso1:after{
             z-index: 9;
         }
         &__principal{
-            color: #0855c4;
+            color: #333;
             font-size: 16px;
             margin: 0;
             line-height: 1;
@@ -2101,6 +2169,17 @@ a.steps__item.paso1:after{
     }
 }
     @media (min-width: 992px) {
+        .contenedor-custom .box-contador {
+            position: absolute;
+            bottom: 11px;
+            right: 0;
+            width: 232px;
+        }
+        .box-contador .cuota-gratis-span, .flotante-covid-boton .box-contador .cuota-gratis-span {
+            font-family: "omnes SemiBold"!important;
+            font-size: 16px!important;
+            color: #0855c4;
+        }
         .steps-box{
             .steps-plan{
                 margin-bottom: 12px;
