@@ -932,6 +932,9 @@
 </template>
 
 <style lang="scss" scoped>
+.steps--progressBar {
+    background-color: #0133A1 !important;
+}
 .box-steps .plan-titulo p {
     border-radius: 3px;
 }
@@ -996,14 +999,14 @@
 }
 a.steps__item.paso2:after {
   content: "2" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
 }
 a.steps__item.paso1:after {
   content: "1" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;

@@ -1136,7 +1136,9 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
-
+.steps--progressBar {
+    background-color: #0133A1 !important;
+}
 .flotante-covid-boton{
     .img-close {
         position: absolute;
@@ -1174,21 +1176,21 @@ import { validationMixin } from 'vuelidate'
 
 a.steps__item.paso3:after{
   content: "3" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
 }
 a.steps__item.paso2:after{
   content: "2" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
 }
 a.steps__item.paso1:after{
   content: "1" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
@@ -1486,7 +1488,7 @@ a.steps__item.paso1:after{
     .boxtitulo-intercorp{
         position: absolute;
         height: 36px;
-        background: #0754c4;
+        background: #0133A1;
         color: white;
         font-size: 12px;
         left: 0;

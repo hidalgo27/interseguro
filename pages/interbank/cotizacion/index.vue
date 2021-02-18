@@ -21,7 +21,7 @@
                 <template >
                   <router-link  class="steps__item   steps--active  paso1" to="/interbank/cotizacion/"><li></li></router-link>                
                 </template>                              
-                  <li class="steps--progressBar"></li>                
+                  <li class="steps--progressBar" style="background-color: #0133A1 !important;"></li>                
               </ul>
             </div> 
         </b-col>  
@@ -3290,6 +3290,12 @@ console.log("coti",this.planSeleccionado)
 </script>
 
 <style lang="scss" scoped>
+.steps--progressBar {
+    background-color: #0133A1 !important;
+}
+a.steps__item.paso1:after {
+    background: #0133A1 !important;
+}
 .box-steps .plan-titulo p {
     border-radius: 3px;
 }
@@ -4126,7 +4132,7 @@ button:focus{
 }
 a.steps__item.paso1:after{
   content: "1" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
@@ -4265,7 +4271,7 @@ a.steps__item.paso1:after{
     font-style: normal;
     line-height: 1;
     letter-spacing: 1px;
-    color: #0754c4 !important;
+    color: #0133A1 !important;
   }
 }
 .editar-vehiculo-desktop{
@@ -4276,7 +4282,7 @@ a.steps__item.paso1:after{
 }
 .card-cobertura .card-header a[data-v-614db64e]:not(:disabled):not(.disabled):active, .card-cobertura .card-header a:not(:disabled):not(.disabled).active[data-v-614db64e], .card-cobertura .card-header .show > a.dropdown-toggle[data-v-614db64e] {
     color: #fff;
-    background-color: #0754c4;
+    background-color: #0133A1;
 }
 .w180px{
   min-width: 150px;
@@ -4348,7 +4354,7 @@ a.steps__item.paso1:after{
     font-style: normal;
     line-height: 1;
     letter-spacing: 1px;
-    color: #0754c4;
+    color: #0133A1;
     text-transform: uppercase;
   }
 
@@ -4440,7 +4446,7 @@ a.steps__item.paso1:after{
     // padding-top: 24px;
     position: relative;
     .planRecomendado{
-      background: #0754c4;
+      background: #0133A1;
       position: absolute;
       width: 100%;
       top: 0;
@@ -4474,7 +4480,7 @@ a.steps__item.paso1:after{
       background: #fece08;
       content: 'Plan recomendado ';
       height: 24px;
-      color: #0754c4;
+      color: #0133A1;
       position: absolute;
       top: 0;
       width: 100%;
@@ -4576,7 +4582,7 @@ a.steps__item.paso1:after{
   font-style: normal;
   line-height: 1.17;
   letter-spacing: 0.09px;
-  color: #0754c4;
+  color: #0133A1;
 }
 .panel-planes{
   display: flex;
@@ -4673,12 +4679,12 @@ a.steps__item.paso1:after{
   .card-header{
     padding: 0;
     a{
-      background-color: #0754c4;
+      background-color: #0133A1;
       border: none;
     }
     a:not(:disabled):not(.disabled):active, a:not(:disabled):not(.disabled).active, .show > a.dropdown-toggle {
         color: #fff;
-        background-color: #0754c4;
+        background-color: #0133A1;
     }
   }
 }
@@ -4821,7 +4827,7 @@ a.steps__item.paso1:after{
     font-style: normal;
     line-height: normal;
     letter-spacing: 1px;
-    color: #0754c4;
+    color: #0133A1;
     padding-bottom: 8px;
   }
   .item{
@@ -4846,8 +4852,8 @@ a.steps__item.paso1:after{
     line-height: normal;
     letter-spacing: normal;
     text-align: right;
-    color: #0754c4;
-    border: 1px solid #0754c4;
+    color: #0133A1;
+    border: 1px solid #0133A1;
     border-radius: 6px;
     padding: 2px 10px;
   }
