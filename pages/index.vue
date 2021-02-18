@@ -1,5 +1,6 @@
 <template>
   <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -367,10 +368,12 @@
 </template>
 
 <script>
+import FadeLoader from '@/components/loaders/FadeLoader'
   export default {
     layout: "InterseguroHome",
       data () {
           return {
+            showLoader: true,
             loading: false,
             color: "#00ADEE",
             sizePulse: "45px",
@@ -386,8 +389,11 @@
             saveCliente:{}
           }
       },
-      components: {},
+      components: {
+        'fade-loader': FadeLoader
+      },
       created() {
+        this.showLoader = true
       },
       methods: {
         contador(){
@@ -601,6 +607,7 @@
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
         this.$store.commit('common/setBusinessId', 1)
+        this.showLoader = false
         // this.$store.commit('common/setObjVehiculo', {})
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
         if (document.location.hostname == "www.interseguro.pe"){
@@ -637,7 +644,9 @@
         //     this.flagCloseListon = 1
         // }
         this.createMail()
-        this.$store.commit('common/setLeaveMessage',0) 
+        this.$store.commit('common/setLeaveMessage',0);
+        this.showLoader = false
+        console.log("HOME BASE")
       }
   }
 </script>
