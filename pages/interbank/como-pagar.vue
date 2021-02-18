@@ -1,7 +1,13 @@
 <template>
     <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
         <!-- v-bind:class="{'d-none': opacityNone}" -->
-        
+<!-- Facebook Pixel Code -->
+
+<noscript>
+<img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+</noscript>
+
+<!-- End Facebook Pixel Code -->
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -496,6 +502,29 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
             contador(){
                 var flipdown = new FlipDown(1614574799, 'contadorCyber14').start();
                 var flipdown = new FlipDown(1614574799, 'contadorCyber15').start()
@@ -514,8 +543,8 @@ import { validationMixin } from 'vuelidate'
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     'event': 'pagina_vista',
-                    'page-url': '/vehicular/cotiza/como-pagar', 
-                    'page-title': 'Como Pagar',
+                    'page-url': '/vehicular/interbank/como-pagar', 
+                    'page-title': 'Interbank Como Pagar',
                     'dni-encontrado': this.$store.state.common.clientStateGA, // true of false
                     'ecommerce': {
                         'checkout': {
@@ -1046,6 +1075,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
+            this.pixelfacebook()
             this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")

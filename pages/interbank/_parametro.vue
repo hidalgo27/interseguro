@@ -411,8 +411,8 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/",
-            "page-title": "Home",
+            "page-url": "/vehicular/interbank",
+            "page-title": "Interbank Home Parametros",
             ecommerce: {
               checkout: {
                 actionField: { step: 1 } // esto marca el primer paso en el embudo
@@ -1804,6 +1804,12 @@
   .home-ibk .home-pasos .plan--cuerpo .incluye {
     font-family: 'Montserrat Medium';
 }
+
+  @media (min-width: 600px) {
+    .home-ibk .home-pasos {
+      padding-top: 237px;
+  }
+  }
   @media (min-width: 992px) {
     .home-ibk{
       // margin-top: 72px;
@@ -1879,7 +1885,7 @@
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            // background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1912,7 +1918,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 3000px;
+        height: 300px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
