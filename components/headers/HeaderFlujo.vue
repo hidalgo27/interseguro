@@ -2,25 +2,25 @@
     <header class="header-planes" @scroll="handleScroll()" >
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <div class="d-md-none  liston-black">
-                    <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
-                    <!-- <div  class="example">            
+                <div class="d-md-none  liston-mobile">
+                    <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">                    
+                   <p ><strong>¡Por tiempo limitado!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                    <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
-                    </div> -->
-                    <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
+                    </div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img src="./../../static/media/modal/logo-franja-10.svg" alt="">          
-                        <p >Compra con 10% de dscto. en todos nuestros planes</p>
+                        <img src="./../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">          
+                        <p ><strong>¡Por tiempo limitado!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
                     </div>
-                    <!-- <div id="contadorCyber2" class="flipdown"></div> -->
+                    <div id="contadorCyber2" class="flipdown"></div>
                     
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  
+        </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -169,7 +169,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -202,8 +202,8 @@ export default {
     methods:{
         
         contador(){
-            // var flipdown2 = new FlipDown(1606798799, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1606798799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1613969999, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1613969999, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -291,26 +291,27 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        // background-image: url('./../../static/media/modalBlackWeek/fondo-liston-mobile.png');
-        // background-size: contain;
         background-color: #0855C4;
         width: 100%;
-        height: 46px;
+        height: 70px;
         left: 0;
         justify-content: center;
         padding-left: 16px;
         display: flex;
-        .liston-black{
+        .liston-mobile{
             display: flex;
-            // justify-content: space-between;
             align-items: center;
-            margin-left: auto;
-            margin-right: auto;
             img{
                 position: relative;
-                width: 31px;
+                width: 48px;
                 height: auto;
                 left: -8px;
+            }
+            .example{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: auto;
             }
         }
         .box-texto-img{
@@ -343,8 +344,6 @@ export default {
             width: 100%;
         }
         .logo-franja{
-            margin-left: auto;
-            margin-right: auto;
             img{
                 width: 31px;
             }
@@ -592,7 +591,7 @@ export default {
     @media (min-width: 992px){
         .logo-franja{
             img{
-                width: 31px !important;
+                width: 90px !important;
             }
         }
         .footer-menu{
@@ -636,7 +635,7 @@ export default {
     }
     @media (min-width: 1200px){
         .liston{       
-            height: 42px;     
+            height: 72px;     
             flex-direction: row;
             justify-content: space-between;
             display: flex;
@@ -718,7 +717,6 @@ export default {
     }
     @media (min-width: 1366px){
         .liston{
-            height: 42px;
             padding-right: 102px;
             padding-left: 128px;
             .box-texto-img{

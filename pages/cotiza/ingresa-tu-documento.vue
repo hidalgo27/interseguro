@@ -876,15 +876,16 @@
       >
         <b-container>
           <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              
-             <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-              <p class="mt-3" style="color : #ffffff; font-size: 19px">
-
-                <strong>¡Quedan pocas horas! </strong> Compra <br> 
-                tu Seguro Vehicular hoy y obtén GRATIS<br> 
-                una prueba rápida de COVID-19 a domicilio
-
+            <b-col class="text-center mb-3" cols="12">              
+              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
+              <p class="mt-3">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                <span style="color : #ffffff; font-size: 18px">
+                    ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> 
+                    <span style="color: #FFD527;">
+                      2da cuota mensual gratis
+                    </span>
+                </span>
               </p>
             </b-col>
           </b-row>
@@ -2635,7 +2636,7 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0) {
+      if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
         if (e.clientX < 0 || e.clientY < 0) {
           this.$store.commit("common/setLeaveMessage", 1);
           this.$nuxt.$emit("bv::show::modal", "leaveDocument");

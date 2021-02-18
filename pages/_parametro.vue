@@ -493,14 +493,22 @@
                   if (respuesta.activePolicy === true) {
                     this.$nuxt.$router.push({path: "/placa-registrada"})
                   } else {             
-                    this.loading = false       
-                    this.$nuxt.$router.push("/cotiza/cotizacion/")
+                    this.loading = false 
+                    if (this.$store.state.common.businessId == 1) {
+                      this.$nuxt.$router.push("/cotiza/cotizacion/")
+                    }else if(this.$store.state.common.businessId == 2) {
+                      this.$nuxt.$router.push("/interbank/cotizacion/")  
+                    }else{}      
                   }
                 }else {                
                   this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
                   this.$store.commit('common/setVehicleState', 0)
                   this.loading = false
-                  this.$nuxt.$router.push("/cotiza/cotizacion/")
+                  if (this.$store.state.common.businessId == 1) {
+                    this.$nuxt.$router.push("/cotiza/cotizacion/")
+                  }else if(this.$store.state.common.businessId == 2) {
+                    this.$nuxt.$router.push("/interbank/cotizacion/")  
+                  }else{}     
                 }
               }else{
 
@@ -511,6 +519,7 @@
       mounted () {
         this.$store.commit('common/resetState')
         this.$store.commit('common/setBusinessId', 1)
+        this.$store.commit('common/setPromocion', false)
         /************************************************************************ */
         /********************* CONFIGURACIONES GLOBALES************************* */
         /************************************************************************ */
@@ -647,7 +656,11 @@
                         
                         if (res.data.detalle.pantalla == 1) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
-                          this.$nuxt.$router.push("/cotiza/cotizacion/")
+                          if (this.$store.state.common.businessId == 1) {
+                            this.$nuxt.$router.push("/cotiza/cotizacion/")
+                          }else if(this.$store.state.common.businessId == 2) {
+                            this.$nuxt.$router.push("/interbank/cotizacion/")  
+                          }else{}
                         }else if (res.data.detalle.pantalla == 2) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                           if (respuesta.datosProducto.idMarca  > 0) {
@@ -681,7 +694,12 @@
                                 this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
 
-                                this.$nuxt.$router.push("/cotiza/ingresa-tu-documento/")
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/cotiza/ingresa-tu-documento/")  
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                }else{}
+                                
                               })
                             } catch (error) {
                               this.$nuxt.$router.push("/");      
@@ -703,8 +721,11 @@
                                 }
                                 this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
-
-                                this.$nuxt.$router.push("/cotiza/ingresa-tu-documento/")
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/cotiza/ingresa-tu-documento/")  
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                }else{}
                               })
                           }
                           
@@ -746,8 +767,12 @@
 
                                 this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
-
-                                this.$nuxt.$router.push("/cotiza/como-pagar/")
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/cotiza/como-pagar/")
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                }else{}
+                                
                               })
                             } catch (error) {
                               this.$nuxt.$router.push("/");      
@@ -777,7 +802,11 @@
                                 this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
 
-                                this.$nuxt.$router.push("/cotiza/como-pagar/")
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/cotiza/como-pagar/")
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                }else{}
                               })
                             // this.$store.commit('common/setListaCotizacion', respuesta.datosProducto.listCotizacion) 
                           }
