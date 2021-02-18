@@ -1,5 +1,6 @@
 <template>
   <div class="home  home-ibk"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -382,7 +383,7 @@
   import FadeLoader from '@/components/loaders/FadeLoader'
   
   export default {
-    layout: "InterbankHome",
+    layout: "InterbankHome2",
       data () {
           return {
             showLoader: true,
@@ -429,6 +430,7 @@
               this.createMail()
               this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
               this.$nuxt.$router.push({path: "/cotiza/cotizacion-sin-placa"})
+              this.showLoader = false
             })
           },
           consultarPlaca(event, ms) {  
@@ -497,6 +499,7 @@
                     this.loading = false 
                     if (this.$store.state.common.businessId == 1) {
                       this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                      this.showLoader = false
                     }else if(this.$store.state.common.businessId == 2) {
                       this.$nuxt.$router.push("/interbank/cotizacion/")  
                     }else{}      
@@ -507,8 +510,10 @@
                   this.loading = false
                   if (this.$store.state.common.businessId == 1) {
                     this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                    this.showLoader = false
                   }else if(this.$store.state.common.businessId == 2) {
                     this.$nuxt.$router.push("/interbank/cotizacion/")  
+                    this.showLoader = false
                   }else{}     
                 }
               }else{
@@ -659,8 +664,10 @@
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                           if (this.$store.state.common.businessId == 1) {
                             this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                            this.showLoader = false
                           }else if(this.$store.state.common.businessId == 2) {
                             this.$nuxt.$router.push("/interbank/cotizacion/")  
+                            this.showLoader = false
                           }else{}
                         }else if (res.data.detalle.pantalla == 2) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
@@ -696,9 +703,11 @@
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
 
                                 if (this.$store.state.common.businessId == 1) {
-                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else{}
                                 
                               })
@@ -723,9 +732,11 @@
                                 this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
                                 if (this.$store.state.common.businessId == 1) {
-                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else{}
                               })
                           }
@@ -770,8 +781,10 @@
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
                                 if (this.$store.state.common.businessId == 1) {
                                   this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")
+                                  this.showLoader = false
                                 }else{}
                                 
                               })
@@ -805,8 +818,10 @@
 
                                 if (this.$store.state.common.businessId == 1) {
                                   this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")
+                                  this.showLoader = false
                                 }else{}
                               })
                             // this.$store.commit('common/setListaCotizacion', respuesta.datosProducto.listCotizacion) 
