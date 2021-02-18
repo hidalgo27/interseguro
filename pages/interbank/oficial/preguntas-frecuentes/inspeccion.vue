@@ -30,7 +30,7 @@ export default {
     return {
       TextoTab: "Inspección", 
       imagenMenu: require("@/static/media/img/root/pf/inspeccion.png"),
-      regresarPrincipal: '/oficial/preguntas-frecuentes/',
+      regresarPrincipal: '/interbank/oficial/preguntas-frecuentes/',
       preguntas: [
         {
           title: "¿Cuántos días tengo para hacer mi inspección?",

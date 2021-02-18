@@ -2036,13 +2036,8 @@ export default {
     volver(evt) {
       evt.preventDefault();
       if (this.$store.state.common.businessId == 2) {
-        this.$nuxt.$router.push({
-          path: "/cotiza/cotizacion-interbank",
-        });
-      } else {
-        this.$nuxt.$router.push({
-          path: "/cotiza/cotizacion",
-        });
+        this.$nuxt.$router.push({path: "/cotiza/cotizacion-interbank"});
+      } else {this.$nuxt.$router.push({path: "/cotiza/cotizacion"});
       }
     },
     clearPlaceholderDNI(eve) {

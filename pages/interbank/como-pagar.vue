@@ -12,15 +12,15 @@
           
             <ul class="steps" style="display: inline-flex">
               <template>
-                <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  steps--active  paso3" to="/cotiza/como-pagar"><li></li></router-link>
-                <router-link v-else class="steps__item  steps--active  paso3" to="/cotiza/ingresa-tu-documento"  style="cursor: auto;"><li></li></router-link>
+                <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  steps--active  paso3" to="/interbank/como-pagar/"><li></li></router-link>
+                <router-link v-else class="steps__item  steps--active  paso3" to="/interbank/ingresa-tu-documento/"  style="cursor: auto;"><li></li></router-link>
               </template>              
               <template >
-                <router-link v-if="documento_steps2 != ''" class="steps__item  paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
-                <router-link v-else class="steps__item   paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
+                <router-link v-if="documento_steps2 != ''" class="steps__item  paso2" to="/interbank/ingresa-tu-documento/"><li></li></router-link>
+                <router-link v-else class="steps__item   paso2" to="/interbank/ingresa-tu-documento/"><li></li></router-link>
               </template>
               <template >
-                <router-link  class="steps__item  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
+                <router-link  class="steps__item  paso1" to="/interbank/cotizacion/"><li></li></router-link>                
               </template>
                 <li class="steps--progressBar"></li>
             </ul>
@@ -628,7 +628,7 @@ import { validationMixin } from 'vuelidate'
                                 this.opacidad =false
                                 // this.validarROOT()
                                 this.$store.commit('common/setPolicy_id',res.body.policyId)
-                                this.$nuxt.$router.push({path: './pago-procesado'})
+                                this.$nuxt.$router.push({path: '/interbank/pago-procesado/'})
                             }else if(res.code == 100){
                                 let errorDetectado = {
                                     url : 'EXECUTE',
@@ -694,7 +694,7 @@ import { validationMixin } from 'vuelidate'
             
             volver (evt) {
                 evt.preventDefault();
-                this.$nuxt.$router.push("./ingresa-tu-documento");              
+                this.$nuxt.$router.push({path: "/interbank/ingresa-tu-documento/"});            
             },
             
             comoPagarDatalayer(){
@@ -1003,9 +1003,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            // if(localStorage.getItem('activoAgora')){
-            //     this.valeAgora = true
-            // }
+            console.log("CP")
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1095,7 +1093,9 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
-
+.box-steps .plan-titulo p {
+    border-radius: 3px;
+}
 .box-btn--primary{
     background: #05BE50;
     &:hover{
@@ -1138,7 +1138,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 70px;
+    padding-top: 120px;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
@@ -1440,7 +1440,7 @@ a.steps__item.paso1:after{
             z-index: 9;
         }
         &__principal{
-            color: #0855c4;
+            color: #333;
             font-size: 16px;
             margin: 0;
             line-height: 1;

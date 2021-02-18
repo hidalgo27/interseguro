@@ -10,6 +10,7 @@
         <b-col cols="12" lg="8" class="m-auto">
           <div class="box-steps">
             <div class="backcotizacion" @click="volver($event)">
+
               <img
                 width="35"
                 src="../../static/media/img/flujo/cotizacion/back.svg"
@@ -21,7 +22,7 @@
               <template>
                 <router-link
                   class="steps__item"
-                  to="/cotiza/ingresa-tu-documento"
+                  to="/interbank/ingresa-tu-documento/"
                   style="cursor: auto"
                   ><li></li
                 ></router-link>
@@ -30,18 +31,18 @@
                 <router-link
                   v-if="documento_steps2 != ''"
                   class="steps__item steps--active paso2"
-                  to="/cotiza/ingresa-tu-documento"
+                  to="/interbank/ingresa-tu-documento/"
                   ><li></li
                 ></router-link>
                 <router-link
                   v-else
                   class="steps__item steps--active paso2"
-                  to="/cotiza/ingresa-tu-documento"
+                  to="/interbank/ingresa-tu-documento/"
                   ><li></li
                 ></router-link>
               </template>
               <template>
-                <router-link class="steps__item paso1" to="/cotiza/cotizacion"
+                <router-link class="steps__item paso1" to="/interbank/cotizacion/"
                   ><li></li
                 ></router-link>
               </template>
@@ -931,6 +932,9 @@
 </template>
 
 <style lang="scss" scoped>
+.box-steps .plan-titulo p {
+    border-radius: 3px;
+}
 @media screen and (max-width: 767px) {
   input,
   select,
@@ -1005,7 +1009,7 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 70px;
+  padding-top: 120px;
   .steps-plan {
     background: white;
   }
@@ -1899,6 +1903,7 @@ export default {
    **** VOLVER CUANDO SI ES CUENTA SUELDO EN EL COTIZADOR CAMBIA EL MONTO
     */
     continuar(evt) {
+      console.log("item documento", this.itemElegido)
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia;
       // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true;
@@ -1912,8 +1917,9 @@ export default {
           this.updateClient();
           this.isDisableButton = false;
           this.$store.commit('common/setEmail', this.objClients.emailAddress)
-          this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
-          this.$nuxt.$router.push({path: "./como-pagar"})
+                                                                         
+          // this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
+          this.$nuxt.$router.push({path: "/interbank/como-pagar/"})
         } else {
         }
         this.$store.commit(
@@ -1962,11 +1968,8 @@ export default {
       });
     },
     volver(evt) {
-      evt.preventDefault();
-      
-        this.$nuxt.$router.push({
-          path: "./cotizacion",
-        });
+      evt.preventDefault();      
+      this.$nuxt.$router.push({path: "/interbank/cotizacion/"});
     },
     clearPlaceholderDNI(eve) {
       eve.target.placeholder = "";
@@ -2568,6 +2571,7 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
+    console.log("ID")
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);

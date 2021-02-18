@@ -384,7 +384,7 @@
                                 
                                 <td><p><strong>Frente a Ocupantes:</strong><br><span>$10,000 por ocupante. Máximo 5 ocupantes</span></p></td>
                                 <td align="center" rowspan="2"><p><span>$150</span></p></td>
-                                <td align="center" rowspan="2"><p><span>10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center" rowspan="2"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -433,7 +433,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <!-- <td align="center"><p><span>10 del monto a<br>indemnizar</span></p></td> -->
+                                <!-- <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td> -->
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -490,7 +490,7 @@
                                     <img width="14" src="../../static/media/img/exclamacion.png" alt="">Se incluyen todos los que hayan sido observados durante
                                         la inspección vehicular. (ejm: radio, aros, gps, etc)</span></p></td>
                                 <td align="center"><p><span>$150</span></p></td>
-                                <td align="center"><p><span>10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -503,7 +503,7 @@
                                  
                                 </p></td>
                                 <td align="center"><p><span>Nacionales : $0</span> <br> <span>Importadas: $150</span></p></td>
-                                <td align="center"><p><span>10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -604,7 +604,7 @@
         <section class="servicios-tranquilidad  d-none  d-lg-block   pb-5">
             <div class="section-servicios">
                 <div class="section-header">
-                    <h1 class="section-header__title">Nuetros servicios adicionales</h1>
+                    <h1 class="section-header__title">Nuestros servicios adicionales</h1>
                 </div>
                 <div class="coverage-tab">
                     <b-tabs content-class="mt-3" justified >
@@ -662,7 +662,7 @@
                                         <img src="../../static/media/img/cobertura/incluye-chofer.png">
                                         <br>
                                         <br>
-                                        <span>*Si necesitas chóferes adicionales, agrega uno adicional a tu plan <br> por S/ 50.aplica para todos los planes.</span>
+                                        <span>*Si necesitas chóferes adicionales, agrega uno adicional a tu plan <br> por S/ 50. Aplica para todos los planes.</span>
                                         <br> <span> ** No incluye gastos en gasolina, peaje ni estacionamientos.</span>
                                     </b-col>
                                     <b-col>
@@ -885,7 +885,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br><span>*Si necesitas choferes adicionales, agrega uno adicional A TU PLAN POR S/50. APLICA PARA TODOS LOS PLANES.</span>
+                                <br><span>*Si necesitas choferes adicionales, agrega uno adicional a tu plan por S/50. Aplica para todos los planes.</span>
                                 <br>
                                 <br><span>** No incluye gastos en gasolina, peaje ni estacionamientos.</span>
                             </div>
@@ -1012,6 +1012,8 @@
     }
 }
 .v2-cobertura-ibk{
+    padding-top: 90px;
+
     h4{
         font-size: 20px;
         font-family: 'Geometria Medium';
@@ -1053,7 +1055,7 @@
     }
     .point-desc{
         padding-left: 8px;
-        width: 350px;
+        max-width: 350px;
         font-size: 13px;
     }
     .nav-item{
@@ -1117,7 +1119,7 @@
             
             .point{
                 border-right: 2px solid #C1C1C1;
-                width: 100px;
+                min-width: 70px;
                 justify-content: center;
                 color: #5E5E5E;
             }
@@ -1607,9 +1609,9 @@
     box-shadow: none !important;
 }
 @media (min-width: 992px) {
-.v2-cobertura-ibk {
+.v2-cobertura-ibk {    
     background: #f7f4fc;
-    padding-top: 53px;
+    padding-top: 120px;
 }
 }
 @media (min-width: 1200px) {

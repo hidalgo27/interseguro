@@ -49,7 +49,7 @@
                         <div>
                             <h2 class="tabs-content__panel--title  text-center"><strong>Me robaron el carro</strong></h2>
                             <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Tranquilo, asegúrate de estar a
-                                salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 <span class="span-number">3.</span> Una persona del
+                                salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 <br> <br> <span class="span-number"> 3.</span> Una persona del
                                 equipo llegará a ayudarte inmediatamente.<br>‍<br><span class="span-number">4.</span> Te ayudamos
                                 a presentar una denuncia policial en la comisaría que corresponda y a pasar el dosaje etílico de ser necesario.
                                 <br>‍<br><span class="span-number">5.</span> Si pasan 30 días de haber presentado la denuncia y tu carro
@@ -86,7 +86,7 @@
                         </span>
                     </h3>
                 </div>
-                <nuxt-link class="button  btn-ibk"  to="/oficial/preguntas-frecuentes">ver Preguntas frecuentes</nuxt-link>
+                <nuxt-link class="button  btn-ibk"  to="/interbank/oficial/preguntas-frecuentes">ver Preguntas frecuentes</nuxt-link>
                 
             </b-container>
         </section>
@@ -147,7 +147,7 @@
                     </div>
                     </b-col>
                     <b-col class="pd-t16">
-                    <a v-bind:href="urlpdf" target="_blank" rel="noopener" class="button  btn-ibk">Descargar plantilla</a>
+                    <a href="https://www.interseguro.pe/vehicular/resources/mail/cambiateInterseguro/Carta_Cancelacio%CC%81n_de_Seguro.pdf" target="_blank" rel="noopener" class="button  btn-ibk">Descargar plantilla</a>
                     </b-col>
                 </b-row>
                 </div>
@@ -198,7 +198,7 @@ export default {
             })
         }else{
         }
-        this.urlpdf = "require('./../../static/media/documentos/FAQs.pdf')"
+        this.urlpdf = require('./../../static/media/documentos/FAQs.pdf')
         this.PaginaVista()
         // var check = document.getElementById("nav-checkbox")
         // check.checked = false
@@ -251,6 +251,9 @@ ul.steplist.w-list-unstyled {
     border-radius: 4px;
     font-family: 'Geometria Medium';
     font-weight: normal;
+    &:hover{
+        color: #fff;
+    }
 }
 .section-header__title {
     color: #333333;
@@ -262,7 +265,7 @@ ul.steplist.w-list-unstyled {
 
 .como-lo-uso{
     padding-bottom: 0; 
-    padding-top: 50px;
+    padding-top: 120px;
     p{
         color: #333333;
     }
@@ -373,7 +376,7 @@ ul.steplist.w-list-unstyled {
         font-size: 44px;
     }
     .como-lo-uso{
-        padding-top: 100px;
+        padding-top: 120px;
     }
     .darkbg {
         padding-top: 5%;

@@ -30,7 +30,7 @@ export default {
     return {
       TextoTab: "¿Qué pasa si...?", 
       imagenMenu: require("@/static/media/img/root/pf/que_pasa_si.png"),
-      regresarPrincipal: '/oficial/preguntas-frecuentes/',
+      regresarPrincipal: '/interbank/oficial/preguntas-frecuentes/',
       preguntas: [
         {
           title: "¿Qué pasa si ocurre un incidente y yo no soy el que maneja?",

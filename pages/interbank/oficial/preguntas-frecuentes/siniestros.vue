@@ -30,7 +30,7 @@ export default {
     return {
       TextoTab: "Siniestros", 
       imagenMenu: require("@/static/media/img/root/pf/siniestros.png"),
-      regresarPrincipal: '/oficial/preguntas-frecuentes/',
+      regresarPrincipal: '/interbank/oficial/preguntas-frecuentes/',
       preguntas: [
         {
           title: "¿Dónde puedo reportar un siniestro?",

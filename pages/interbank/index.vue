@@ -4,6 +4,15 @@
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+              <div class="box-contador" >
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyber11" class="flipdown">
+                        
+                    </div> 
+                </div>
+              </div>
+            </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
@@ -44,10 +53,15 @@
           </div>
         </div>
         <div class="home-banner__der">
-          <div class="box-titulo">
-            <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
-            </p>
+          <div class="box-titulo  ml-5">
+            <img src="./../../static/media/img/ibk/cuponazo-ibk.svg" alt="">
+            <div class="box-contador">
+              <div  class="example  d-none  d-md-flex">
+                  <div id="contadorCyber10" class="flipdown">
+                      
+                  </div> 
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -261,7 +275,7 @@
             <img src="./../../static/media/img/ibk/cliente3.png" alt="">
             <p class="cliente">Enrique Quispe</p>
             <!-- <p class="ahorro">---</p> -->
-            <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
+            <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"</p>
             <p class="protegido">
               Carro protegido <br> <strong>SUZUKI VITARA</strong>
             </p>
@@ -386,6 +400,10 @@
       created() {
       },
       methods: {
+        contador(){
+            var flipdown2 = new FlipDown(1614574799, 'contadorCyber10').start()
+            var flipdown = new FlipDown(1614574799, 'contadorCyber11').start()
+        },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
@@ -563,6 +581,9 @@
           
       },
       mounted () {
+        setTimeout(() => {
+          this.contador()
+        }, 750);
         this.$store.commit('common/setBusinessId', 2)
         this.$store.commit('common/setFlagCloseListon', 1)        
         // this.$store.commit('common/resetState')
@@ -626,6 +647,7 @@
 </script>
 
 <style lang="scss" scope>
+
   .home.home-ibk{
     .check{
       color: #696969 !important;
@@ -722,10 +744,27 @@
     margin-top: 70px;
     // margin-top: 170px;
     font-size: 16px;
-    background-color: #fff;    
+    background-color: #fff;  
+    .box-flotante-covid {
+      flex-direction: column;
+      background-image: url("./../../static/media/img/ibk/cuponazo-ibk.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      margin: 0 -15px;
+      position: relative;
+      padding-left: 16px;
+      width: 100%;
+      height: 280px;
+  }  
+  .box-flotante-covid .box-contador {
+    position: absolute;
+    bottom: -10px;
+    left: 66px;
+  }
     .home-pasos{
       background-color: #fff;
-      padding-top: 42px;
+      padding-top: 197px;
       
       .parrafo-video{
         font-size: 30px; 
@@ -801,13 +840,13 @@
             .titulo{
               color: #333333;
               font-size: 20px;
-              font-weight: 500;
               font-stretch: normal;
               font-style: normal;
               line-height: 1.25;
               text-align: left;
               display: flex;
-              align-items: center;              
+              align-items: center; 
+              font-family: "Geometria Bold";             
             }            
             .descripcion{
               font-size: 16px;
@@ -958,13 +997,12 @@
       background-color: #05BE50;
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
-        // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
+        
         margin: auto;
         background-repeat: no-repeat;
         background-size: 700px;
         background-position-y: bottom;
         background-position-x: right;
-        // background-position: right;
         display: flex;
         align-items: center;
         height: 100%;
@@ -1044,17 +1082,6 @@
         }
       }
     }
-    .box-flotante-covid{
-      flex-direction: column;
-      background-image: url("./../../static/media/interseguroVehicular_v2/banner_img.svg");      
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: 175px;
-      margin: 0 -15px;
-      position: relative;
-      padding-left: 16px;
-
-    }
     .box-formCotizador{
       width: 100%;
       padding: 0;      
@@ -1121,7 +1148,7 @@
         top: -1rem;
         border-radius: 8px 0 8px 0;
         box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-        background-color: #0855c4!important;
+        background-color: #0133A1!important;
         color: white !important;
         font-family: 'Geometria Medium';
       }
@@ -1208,7 +1235,7 @@
         text-align: center;
         font-family: 'Geometria Medium';
         strong{
-          color: #0855c4;
+          color: #0133A1;
           font-family: 'Geometria Bold';
         }
       }
@@ -1293,7 +1320,7 @@
         text-align: center;
         font-family: 'Geometria Medium';
         strong{
-          color: #0855c4;
+          color: #0133A1;
           font-family: 'Geometria Bold';
         }
       }
@@ -1558,7 +1585,7 @@
     color: #495057;
   }
   #vehicleModelPlate:focus {
-    border-color: #0855c4 !important;
+    border-color: #0133A1 !important;
     border-width: 1.5px !important;
   }
   .home-ibk .home-pasos .plan--cuerpo .incluye {
@@ -1566,7 +1593,6 @@
 }
   @media (min-width: 992px) {
     .home-ibk{
-      margin-top: 0px;
       // margin-top: 72px;
       .home-beneficios2{
         &__titulo{
@@ -1697,7 +1723,7 @@
           top: -1rem;
           border-radius: 8px 0 8px 0;
           box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-          background-color: #0855c4 !important;
+          background-color: #0133A1 !important;
           color: white !important;
           width: 220px;
           height: 40px;
@@ -1999,7 +2025,7 @@
     .home-ibk{
       .boxHome-banner{
         .home-banner{
-          background-image: url('./../../static/media/img/ibk/banner.svg');          
+          // background-image: url('./../../static/media/img/ibk/banner.svg');          
           background-size: 100%;
           padding: 0;
           padding-left: 65px;

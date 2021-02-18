@@ -490,7 +490,8 @@
           
       },
       mounted () {
-        
+        console.log("ALERTA")
+        alert("ALERTA")
         this.$store.commit('common/setNuevoProducto', false)
         this.$store.commit('common/setFlujoDetectado', 'Interbank - parametros')
         this.$store.commit('common/resetState')
