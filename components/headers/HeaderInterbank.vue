@@ -40,7 +40,7 @@
                         <div class="main-nav__menu" id="main-menu">
                             <div class="main-menu">
                                 <div class="box-logo">
-                                    <img width="240" src="../../static/media/interseguroVehicular_v2/logo-ibk.svg" alt="logo_blanco">
+                                    <img width="240" src="../../static/media/interseguroVehicular_v2/logo-ibk-white.svg" alt="logo_blanco">
                                 </div>
                                 <div class="box-close" @click="closeNav($event)">
                                     <img src="../../static/media/img/home/close.png" alt="close">
@@ -278,14 +278,14 @@ export default {
 <style lang="scss" scoped>
 
 #main-menu{
-    background: #fff;
+    background: #0133a1;
     z-index: 99999;
 }
 .main-nav__menu .menu-item__enlace {
-    color: #333;
+    color: #fff;
 }
 a.nuxt-link-exact-active.nuxt-link-active {
-    color: #0855c4 !important;
+    color: #fff !important;
 }
 .main-nav__logo img {
     height: 23px;
@@ -369,7 +369,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
     width: 70%;
     p{
         margin-bottom: 12px;
-        color: #333;
+        color: #fff;
     }
     &__redes{
         display: flex;
@@ -466,7 +466,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
         width: 100%;
         margin: auto;
         top:0;
-        z-index: 99999;
+        z-index: 999;
         border-bottom: 1px solid #d4d4d4;
         .menu-nav{
             display: flex;

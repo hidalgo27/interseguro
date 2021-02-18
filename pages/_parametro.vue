@@ -1125,7 +1125,7 @@
     
     .home-pasos{
       background-color: #fff;
-      padding-top: 230px;
+      padding-top: 100px;
       .parrafo-video{
         font-size: 30px; 
         font-weight: normal;
