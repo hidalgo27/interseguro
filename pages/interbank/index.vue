@@ -56,7 +56,7 @@
           <div class="box-titulo  ml-5">
             <img src="./../../static/media/img/ibk/cuponazo-ibk.svg" alt="">
             <div class="box-contador">
-              <div  class="example  d-none  d-md-flex">
+              <div  class="example  d-none  d-md-flex" style="justify-content: flex-end;">
                   <div id="contadorCyber10" class="flipdown">
                       
                   </div> 
@@ -741,8 +741,7 @@
     }
   }
   .home-ibk{
-    margin-top: 70px;
-    // margin-top: 170px;
+    margin-top: 130px;
     font-size: 16px;
     background-color: #fff;  
     .box-flotante-covid {
@@ -764,7 +763,7 @@
   }
     .home-pasos{
       background-color: #fff;
-      padding-top: 197px;
+      padding-top: 235px;
       
       .parrafo-video{
         font-size: 30px; 
@@ -995,6 +994,7 @@
       position: relative;
       height: 360px;
       background-color: #05BE50;
+      padding-top: 34px;
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
         
@@ -1611,8 +1611,8 @@
       }
       .boxHome-banner{
         background-color: #05BE50;
-        height: 580px;
-        
+        height: 520px;
+        padding-top: 0px;
         .home-banner{
           align-items: flex-start;
           flex-direction: row;
@@ -1661,7 +1661,7 @@
             }
           }
           &__der{
-            padding-top: 150px !important;
+            padding-top: 60px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;

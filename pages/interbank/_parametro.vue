@@ -407,7 +407,7 @@
             this.$store.dispatch('common/getcreateRemarketing', item.email).then(res  => {
               this.createMail()
               this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
-              this.$nuxt.$router.push({path: "/cotiza/cotizacion-sin-placa"})
+              this.$nuxt.$router.push({path: "/interbank/cotiza/cotizacion-sin-placa"})
             })
           },
           consultarPlaca(event, ms) {  
@@ -474,13 +474,13 @@
                     this.$nuxt.$router.push({path: "/placa-registrada"})
                   } else {             
                     this.loading = false       
-                    this.$nuxt.$router.push("/cotiza/cotizacion/")
+                    this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
                   }
                 }else {                
                   this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
                   this.$store.commit('common/setVehicleState', 0)
                   this.loading = false
-                  this.$nuxt.$router.push("/cotiza/cotizacion/")
+                  this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
                 }
               }else{
 
@@ -568,14 +568,15 @@
                         this.$nuxt.$router.push({path: "/placa-registrada"})
                       } else {
                         if (res.data.detalle.pantalla == 1) {
-                          this.$nuxt.$router.push("/cotiza/cotizacion/")
+                          this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
                         } else if (res.data.detalle.pantalla == 2) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
+                          this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")
                         } else if (res.data.detalle.pantalla == 3) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                           this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
                           this.$store.commit('common/setFrecuenciaPago', respuesta.datosPago.idFrecuencia)
-                          this.$nuxt.$router.push("/cotiza/como-pagar/")
+                          this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
                         }
                       }
                     }

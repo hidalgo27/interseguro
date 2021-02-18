@@ -276,8 +276,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 #main-menu{
     background: #fff;
+    z-index: 99999;
 }
 .main-nav__menu .menu-item__enlace {
     color: #333;
@@ -356,8 +358,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
             font-family: 'Omnes Regular' !important;
         }
         .logo-franja{
-            margin-left: auto;
-            margin-right: auto;
+            
             img{
                 width: 31px;
             }
@@ -465,7 +466,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
         width: 100%;
         margin: auto;
         top:0;
-        z-index: 999;
+        z-index: 99999;
         border-bottom: 1px solid #d4d4d4;
         .menu-nav{
             display: flex;
