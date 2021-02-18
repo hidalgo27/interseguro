@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Header from '@/components/headers/HeaderInterbank'
+import Header from '@/components/headers/HeaderHomeIBK'
 import Footer from '@/components/footers/Footer'
 export default {
   data() {
