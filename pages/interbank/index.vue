@@ -56,7 +56,7 @@
           <div class="box-titulo  ml-5">
             <img src="./../../static/media/img/ibk/cuponazo-ibk.svg" alt="">
             <div class="box-contador">
-              <div  class="example  d-none  d-md-flex">
+              <div  class="example  d-none  d-md-flex" style="justify-content: flex-end;">
                   <div id="contadorCyber10" class="flipdown">
                       
                   </div> 
@@ -378,7 +378,7 @@
 
 <script>
   export default {
-    layout: "InterbankHome",
+    layout: "InterbankHome2",
       data () {
           return {
             loading: false,
@@ -742,7 +742,6 @@
   }
   .home-ibk{
     margin-top: 70px;
-    // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;  
     .box-flotante-covid {
@@ -750,7 +749,7 @@
       background-image: url("./../../static/media/img/ibk/cuponazo-ibk.svg");
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: 50%;
+      background-position-y: 28px;
       margin: 0 -15px;
       position: relative;
       padding-left: 16px;
@@ -759,12 +758,12 @@
   }  
   .box-flotante-covid .box-contador {
     position: absolute;
-    bottom: -10px;
+    bottom: 5px;
     left: 66px;
   }
     .home-pasos{
       background-color: #fff;
-      padding-top: 197px;
+      padding-top: 235px;
       
       .parrafo-video{
         font-size: 30px; 
@@ -995,6 +994,7 @@
       position: relative;
       height: 360px;
       background-color: #05BE50;
+      padding-top: 34px;
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
         
@@ -1217,12 +1217,6 @@
         font-size: 18px;
         text-align: center;
         transition: all .75s;
-        &:hover{
-          background-color: #00C450;
-          color:#f1f7ff;
-          border: 1px solid #f1f7ff;
-          transition: all .75s
-        }
       }
     }
     .home-clientes2{
@@ -1611,8 +1605,8 @@
       }
       .boxHome-banner{
         background-color: #05BE50;
-        height: 580px;
-        
+        height: 485px;
+        padding-top: 0px;
         .home-banner{
           align-items: flex-start;
           flex-direction: row;
@@ -1620,10 +1614,11 @@
           min-height: 445px;
           &__izq{
             padding-top: 85px !important;
-            height: calc(85vh);
+            height: 450px;
             display: flex;
             align-items: flex-start;
-            width: auto;            
+            width: auto;
+            border-bottom: 0 !important;         
             input{
               width: 360px;
               height: 51px;
@@ -1661,7 +1656,7 @@
             }
           }
           &__der{
-            padding-top: 150px !important;
+            padding-top: 60px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;
@@ -1672,7 +1667,7 @@
             background-position-x: right;
             width: 100%;
             justify-content: flex-start;
-            align-items: flex-start;
+            align-items: center;
             flex-direction: column;
             // padding-left: 32px;
             .box-titulo{
@@ -1725,7 +1720,7 @@
           box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
           background-color: #0133A1 !important;
           color: white !important;
-          width: 220px;
+          width: 245px;
           height: 40px;
           text-align: center;
           font-size: 1.4rem;
@@ -2045,7 +2040,6 @@
       
       .formCotizador{
         height: 300px;
-        margin-top: 40px;
       }
 
       .home-pasos{
@@ -2218,11 +2212,14 @@
     outline: 0 none;
   }
   @media (min-width: 1440px) {
+    .home-ibk .boxHome-banner .home-banner {
+        max-width: 1200px;
+    }
     .home-ibk{
       .boxHome-banner{              
         .home-banner{
           padding-left: 128px;
-          max-width: 100%;
+          
           &__der{
             background: transparent ;
             margin-left: 0;

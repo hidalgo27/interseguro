@@ -1,5 +1,5 @@
 <template>
-    <div class="mainibk">
+    <div>
       <header-is></header-is>      
         <div>
           <nuxt/>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Header from '@/components/headers/HeaderInterbank'
+import Header from '@/components/headers/HeaderHomeIBK'
 import Footer from '@/components/footers/Footer'
 export default {
   data() {
@@ -45,9 +45,9 @@ export default {
 </script>
 
 <style lang="scss">
-body .mainibk{
-  font-family: "Montserrat Regular";
-}
+  body{
+    font-family: "Montserrat Regular";
+  }
   .cuentaSueldobox{
     padding-top: 0px;
   }

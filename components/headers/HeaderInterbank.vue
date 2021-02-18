@@ -6,7 +6,7 @@
                 <div class="d-md-none  liston-mobile">
                    <p ><strong>¡Por tiempo limitado! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
                     <div  class="example">            
-                        <div id="contadorCyber12" class="flipdown  flipdownMobile"></div>
+                        <div id="contadorCyber12" class="flipdown  flipdownMobile" style="max-width: 256px !important;"></div>
                     </div>
                 </div>
                 
@@ -14,7 +14,7 @@
                     <div class="d-flex align-items-center logo-franja">
                         <p ><strong>¡Por tiempo limitado!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
                     </div>
-                    <div id="contadorCyber13" class="flipdown"></div>
+                    <div id="contadorCyber13" class="flipdown" style="max-width: 256px !important;"></div>
                     
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
@@ -276,8 +276,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 #main-menu{
     background: #fff;
+    z-index: 99999;
 }
 .main-nav__menu .menu-item__enlace {
     color: #333;
@@ -356,8 +358,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
             font-family: 'Omnes Regular' !important;
         }
         .logo-franja{
-            margin-left: auto;
-            margin-right: auto;
+            
             img{
                 width: 31px;
             }
@@ -465,7 +466,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
         width: 100%;
         margin: auto;
         top:0;
-        z-index: 999;
+        z-index: 99999;
         border-bottom: 1px solid #d4d4d4;
         .menu-nav{
             display: flex;
@@ -480,8 +481,9 @@ a.nuxt-link-exact-active.nuxt-link-active {
                     width: 20px;
                 }
                 span{
-                    color: #0855c4;
+                    color: #333333;
                     font-size: 14px;
+                    font-family: 'Geometria Medium';
                 }
             }
             &__izq{

@@ -997,6 +997,9 @@
 </template>
 
 <style lang="scss" scope>
+.cobertura-mobile .accordion-tab__blue .btn-secondary {
+    background-color: #EBFBF1 !important;
+}
 .modal-content{
     .span-primario {
         color: #333;

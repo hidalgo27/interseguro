@@ -1,372 +1,391 @@
 <template>
-  <div @load="hjs(event)">
+  <div class="home  home-ibk"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <div class="boxHome-banner">      
+      <div  class="home-banner"  >
+        <div class="home-banner__izq">
+          <div class="box-formCotizador">
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+              <div class="box-contador" >
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyber11" class="flipdown">
+                        
+                    </div> 
+                </div>
+              </div>
+            </div>
+            <b-form class="formCotizador">                         
+              <div class="formCotizador__msg">
+                Desde US$ 12 al mes
+              </div>
+              <h1>Cotiza tu seguro vehicular ahora</h1>
+              <b-form-group label-for="placa">
+                  <b-form-input
+                    id="vehicleModelPlate"
+                    class="text-uppercase form-control"
+                    @keyup.native="consultarPlaca($event,750)"
+                    maxlength="6"
+                    autocomplete="off"
+                    type="text"
+                    v-model="item.plateNumber"                    
+                    required
+                    placeholder="Ingresa tu Placa"
+                    name="Placa"
+                    aria-label="placa"                
+                    autofocus
+                ></b-form-input>
+              </b-form-group>
+              <div class="box-btn-homeForm">
+                <button
+                  type="button"
+                  @click="onSubmit"
+                  class="btn-home-cotizar"
+                >
+                  COTIZAR
+                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                </button>
+                <p class="no-tengo-placa"></p>
+                <p class="respaldo-intercorp">
+                  <span> Con el respaldo del grupo</span>
+                  <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+                </p>
+              </div>
+            </b-form>            
+          </div>
+        </div>
+        <div class="home-banner__der">
+          <div class="box-titulo  ml-5">
+            <img src="./../../static/media/img/ibk/cuponazo-ibk.svg" alt="">
+            <div class="box-contador">
+              <div  class="example  d-none  d-md-flex" style="justify-content: flex-end;">
+                  <div id="contadorCyber10" class="flipdown">
+                      
+                  </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-pasos" >
+      <div class="home-pasos__titulo">
+      </div>
+
+      <div class="home-pasos__beneficios">
+        <div class="home-pasos__planes--titulo">
+          <p class="como-funciona">¡Protege tu auto en solo 3 pasos!</p>
+        </div>
+        
+        <div class="home-pasos__cuerpo   pasos">
+          <div class="pasos__item">
+            <div class="pasos__item--img">
+              <img src="./../../static/media/img/ibk/cotiza.svg" alt="lupa">            
+            </div>
+            <div class="pasos__item--desc">
+              <p class="titulo">Cotiza</p>
+              <p class="descripcion">Ingresa tu placa <br> y selecciona tu carro</p>
+            </div>
+            <div class="pasos__item--flecha  d-none  d-lg-block">
+              <img src="./../../static/media/img/home/flecha_der.png" alt="flecha der">
+            </div>
+          </div>
+          <div class="pasos__item">
+            <div class="pasos__item--img">
+              <img src="./../../static/media/img/ibk/elige.svg" alt="flecha">            
+            </div>
+            <div class="pasos__item--desc">
+              <p class="titulo">Elige</p>
+              <p class="descripcion">Tenemos 3 planes para ti</p>
+            </div>
+            <div class="pasos__item--flecha  d-none  d-lg-block">
+              <img src="./../../static/media/img/home/flecha_der.png" alt="flecha der">
+            </div>
+          </div>
+          <div class="pasos__item  pb-0">
+            <div class="pasos__item--img">
+              <img src="./../../static/media/img/ibk/paga.svg" alt="candado">            
+            </div>
+            <div class="pasos__item--desc">
+              <p class="titulo">Paga</p>
+              <p class="descripcion">¡Listo! <br> Ya estás asegurado</p>
+            </div>          
+          </div>
+        </div>
+        
+        <div class="home-pasos__planes--titulo   d-block">
+          <p class="nuevos-planes">¡Elige tu plan! </p>
+        </div>
+
+        <div class="home-pasos__planes  planes">
+          <div class="planes__item">
+            <div class="plata  plan">
+              <div class="plan--cabecera">
+                <div class="flotante">
+                  DESDE $12 AL MES
+                </div>
+                <p>PLATA</p>
+              </div>
+              <div class="plan--cuerpo">
+                <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>      
+              </div>
+            </div>
+          </div>
+          <div class="planes__item">
+            <div class="oro  plan">
+              <div class="plan--cabecera">
+                <div class="flotante">
+                  DESDE $29 AL MES
+                </div>
+                <p>ORO</p>
+              </div>
+              <div class="plan--cuerpo">
+                <p class="incluye"><span>&#43;</span> Incluye PLAN PLATA</p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Pérdida parcial en caso choques hasta por el 75% del valor de tu carro</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Accidente de Ocupantes</span></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>
+              </div>
+            </div>
+          </div>
+          <div class="planes__item">
+            <div class="black  plan">
+              <div class="plan--cabecera">
+                <div class="flotante">
+                  DESDE $33 AL MES
+                </div>
+                <p>BLACK</p>
+              </div>
+              <div class="plan--cuerpo">
+                <p class="incluye"><span>&#43;</span> Incluye PLAN ORO</p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Pérdida total en caso choques por el valor total de tu carro</span> </p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Accesorios adicionales hasta por $1,500</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Protección frente a riegos de naturaleza, incendios y huelgas</span></p>
+                <br>
+                <p><span class="check">&#10004;</span> <span>Hasta 5 choferes de reemplazo al año</span></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     
-    <clip-loader class="cliploader  clipgss" :loading="loadinggss" :color="color" :size="size"></clip-loader>
-    <section class="portada2  portada2_ibk" v-bind:class="{clasePadreIbk: this.valorIbk == 2}">
-      <div class="portada2__form">
+
+    <div class="home-beneficios2  p-47px">
+      <div class="home-beneficios2__titulo">
+        <p class="mb-4">Disfruta de nuestros increíbles beneficios </p>
+      </div>
+      <div class="home-beneficios2__cuerpo  beneficios2 d-lg-flex">
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../../static/media/img/ibk/inspeccion.svg" alt="choferes">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">Inspección Digital </p>
         
-        <div class="form-cotizador">
-          <div class="form-cotizador__msg">
-            Desde US$ 36 x mes
+            <p  class="">Desde tu celular <br> y en solo 5 minutos <span></span></p>
           </div>
-          <div class="seguro-vehicular seguro-vehicular-ibk">
-            <img src="../../static/media/interseguroVehicular_v2/seguro-vehicular.svg" alt="seguro-vehicular">
-          </div>
-          <p class="compra-online">Compra 100% online al mejor precio</p>
-          <b-form-group>
-            <b-form-input
-              id="vehicleModelPlate"
-              class="text-uppercase form-control"
-              @keyup.native="delay($event,750)"              
-              maxlength="6"
-              autocomplete="off"
-              type="text"
-              v-model="placa"
-              required
-              placeholder="Ingresa tu Placa"
-              name="Placa"
-              aria-label="placa"
-              :disabled="this.placaIsDisable"
-              autofocus
-            ></b-form-input>
-          </b-form-group>
-          <div class="bcotizar">
-            <button
-              type="button"
-              @click="onSubmit"
-              class="box-btn__button box-btn--primary offset-3"
-              :disabled="isDisabled"
-            >
-              Continuar
-              <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
-            </button>
-            <a
-              class="menu-item__enlace no-placa"
-              style="color: #0855c4"
-              href
-              @click="resetearPlaca($event)"
-            >Todavía no tengo placa</a>
-          </div>
-        </div>
-      </div>
-      <div class="maneja">
-        <p>Maneja tranquilo</p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estamos para protegerte</p>
-      </div>
-    </section>
-
-
-    <section id="beneficios" class="beneficios">
-      <b-container class="beneficios-ibk" style="z-index: 99;">
-        <div class="section-header">
-          <h3 class="title-principal title-section-home text-center">
-            Beneficios Únicos
-          </h3>
-        </div>
-        <div class="section-body">
-          <div class="home-beneficios">
-            <div class="home-beneficios__item beneficios-item ">
-              <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/choferes.png" alt="icon">
-              </div>
-              <div class="beneficios-item__titulo">
-                <h4>Hasta 5 choferes</h4>
-              </div>
-              <div class="beneficios-item__texto">
-                <p>
-                  de reemplazo al año ¡Gratis!
-                </p>
-              </div>
-            </div>
-            <div class="home-beneficios__item beneficios-item">
-              <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/gruas.png" alt="icon">
-              </div>
-              
-                <div class="beneficios-item__titulo">
-                  <h4>Vamos a rescatarte</h4>
-                </div>
-                <div class="beneficios-item__texto">
-                  <p>donde estés hasta 2 veces al mes.</p>
-                </div>
-              
-            </div>
-            <div class="home-beneficios__item beneficios-item">
-              <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/asistencia.png" alt="icon">
-              </div>
-              
-                <div class="beneficios-item__titulo">
-                  <h4>¿Tu carro falló?</h4>
-                </div>
-                <div class="beneficios-item__texto">
-                  <p>Te auxiliamos rápido, fallas eléctricas y mecánicas.</p>
-                </div>
-              
-            </div>
-            <div class="home-beneficios__item beneficios-item">
-              <div class="beneficios-item__img">
-                <img src="../../static/media/interseguroVehicular_v2/descuentos.png" alt="icon">
-              </div>
-              
-                <div class="beneficios-item__titulo">
-                  <h4>Accede a descuentos</h4>
-                </div>
-                <div class="beneficios-item__texto">
-                  <p>increíbles con nuestro programa Vive+.</p>
-                </div>
-              
-            </div>
-          </div>
-        </div>
-        <div class="row d-flex  justify-content-center">
-          <router-link to="/cobertura/" class="btn-beneficios"> Quiero ver más</router-link>
           
         </div>
-      </b-container>
-    </section>
-
-
-    <section id="elegir" class="section elegir" style="background: #f7fafb !important">
-      <b-container>
-        <div class="section-header">
-          <h3 class="title-principal title-section-home">
-            ¿Por qué elegirnos?            
-          </h3>          
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../../static/media/img/ibk/chofer.svg" alt="gruas">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">
+              Chofer de reemplazo
+            </p>
+            <p  class="">Hasta 5 choferes <br> de reemplazo al año  <span></span> </p>
+          </div>
+          
         </div>
-        <div class="section-body">
-          <div class="home-beneficios">
-            <div class="home-beneficios__item beneficios-item ">              
-              <div class="beneficios-item__titulo">
-                <img src="../../static/media/interseguroVehicular_v2/icon_respaldo_intercorp.png" alt="somos intercorp">
-                <h4>Somos Intercorp</h4>
-              </div>
-              <div class="beneficios-item__texto">
-                <p>
-                 El grupo económico más grande del país.
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../../static/media/img/ibk/auxilio.svg" alt="mecanico">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">
+              Auxilio mecánico
+            </p>    
+            <p  class=""><span></span> Te ayudamos en donde estés hasta 2 veces al mes  </p>
+          </div>
+        </div>
+        <div class="beneficios2__item">
+          <div class="img-box">
+            <img src="./../../static/media/img/ibk/beneficios.svg" alt="">
+          </div>
+          <div class="beneficios-desc">
+            <p class="beneficios-titulo">
+              Programa de beneficios 
+            </p>     
+            <p  class=""><span></span> Descuentos en miles <br> de establecimientos </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="home-talleres  mt-lg-4">
+      <div class="home-talleresBox">
+        <div class="home-talleres__desc">
+          <p class=""> Repara tu auto en <br> nuestra red de talleres</p>
+          <a class="btn-talleres  mt-3" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">VER TALLERES</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="home-clientes2 p-47px d-none  d-lg-flex">
+        <div class="box-titulo">
+          <p class="titulo-clientes">¡Ellos ya están manejando sin   <br>preocupaciones!</p>
+        </div>
+
+        <div class="box-total">
+          <div class="box-slider">
+            <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+            <img src="./../../static/media/img/ibk/cliente1.png" alt="">
+            <p class="cliente">Manuela Augusto</p>
+            <!-- <p class="ahorro">---</p> -->
+            <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
+            <p class="protegido">
+              Carro protegido <br> <strong>KIA CERATO</strong>
+            </p>
+            
+          </div>
+          <div class="box-slider">
+            <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+            <img src="./../../static/media/img/ibk/cliente2.png" alt="">
+            <p class="cliente">Carolina Chavez</p>
+            <!-- <p class="ahorro">---</p> -->
+            <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
+            <p class="protegido">
+              Carro protegido <br> <strong>MAZDA 3</strong>
+            </p>
+          </div>
+          <div class="box-slider">
+            <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+            <img src="./../../static/media/img/ibk/cliente3.png" alt="">
+            <p class="cliente">Enrique Quispe</p>
+            <!-- <p class="ahorro">---</p> -->
+            <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"</p>
+            <p class="protegido">
+              Carro protegido <br> <strong>SUZUKI VITARA</strong>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <div class="home-clientes">
+       <div class="clientes-slider    d-block  d-lg-none">
+        <div class="box-titulo">
+          <p>¡Ellos ya están manejando sin preocupaciones!</p>
+        </div>
+        <b-carousel
+          id="carousel-fade"
+          class="carousel-clientes"
+          v-model="slideBeneficios"
+          :interval="4000"
+          controls
+          indicators
+          he
+          background="transparent"
+          style="text-shadow: 1px 1px 2px #333; color: red;"
+        >
+
+          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
+            <div>
+              <div class="box-slider">
+                <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+                <img src="./../../static/media/img/ibk/cliente1.png" alt="">
+                <p class="cliente">Manuela Augusto</p>
+                <!-- <p class="ahorro">---</p> -->
+                <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
+                <p class="protegido">
+                  Carro protegido <br> <strong>KIA CERATO</strong>
                 </p>
               </div>
             </div>
-            <div class="home-beneficios__item beneficios-item">              
-                <div class="beneficios-item__titulo">
-                  <img src="../../static/media/interseguroVehicular_v2/despidete_papeleo.png" alt="despidete del papeleo">
-                  <h4>Despídete del papeleo</h4>
-                </div>
-                <div class="beneficios-item__texto">
-                  <p>Compra tu póliza 100% online y en 3 minutos.</p>
-                </div>
-              
-            </div>
-            <div class="home-beneficios__item beneficios-item">
-                <div class="beneficios-item__titulo">
-                  <img src="../../static/media/interseguroVehicular_v2/disponible_24_7.png" alt="disponibles 24 a 7">
-                  <h4>Disponibles 24/7</h4>
-                </div>
-                <div class="beneficios-item__texto">
-                  <p>WhatsApp o teléfono siempre disponibles.</p>
-                </div>
-              
-            </div>
-            <div class="home-beneficios__item beneficios-item">
-                <div class="beneficios-item__titulo">
-                  <img src="../../static/media/interseguroVehicular_v2/precio_accesible.png" alt="precio accesible">
-                  <h4>Precio accesible</h4>
-                </div>
-                <div class="beneficios-item__texto">
-                  <p>Tarifas competitivas para proteger lo que más valoras.</p>
-                </div>
-              
-            </div>
-          </div>
-        </div>
-      </b-container>
-    </section>
+          </b-carousel-slide>
 
-   
-
-    <section id="clientes" style="background: #fff !important">
-      <b-container>
-        <div class="section-body">
-          <div class="testimonios">
-            <div class="section-header">
-              <h3 class="title-principal title-section-home text-center">
-                ¿Qué dicen nuestros clientes?
-                <span class="title-magenta"></span>
-              </h3>
-            </div>
-            <div data-animation="slide"  data-duration="500" class="slider w-slider testimonios__body">
-              <div class="w-slider-mask" id="w-slider-mask">
-                <div class="slide-2 w-slide">
-                
-                  <carousel
-                    :per-page="1"
-                    class="carousel"
-                    :autoplay-timeout="4000"
-                    :mouseDrag="true"
-                    :loop="true"
-                    :autoplay="true"
-                    :navigationEnabled="true"
-                    :autoplayDirection="'left'"
-                    :spacePadding=4
-                    :paginationEnabled="true"
-                    navigationNextLabel="<i class='fa fa-chevron-right'></i>"
-                    navigationPrevLabel="<i class='fa fa-chevron-left'></i>"
-                    :perPageCustom="[[480, 1], [768, 2], [992, 2], [1200, 3]]"
-                    paginationColor="#ccc"
-                    paginationActiveColor="#00ADEE">
-                  
-                    <slide v-for="(item, index) in listatestimonios" :key="index" class="slide testimonios__body--item">                    
-                      <div class="testimonios-slide">
-
-                        <div class="testimonios-slide__descripcion">
-                          <p class="parrafo">{{item.descripcion}}</p>
-                        </div>
-
-                        <div class="testimonios-slide__usuario">
-                          <div class="usuario-nombre">
-                            <span class="primer-nombre">{{item.nombre}} {{item.apellido}}</span>
-                            <span>
-                              <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                              <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                              <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                              <template v-if="item.id == '5'">                                    
-                                <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                                <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                              </template>
-                              <template v-else-if="item.id == '4.5'">
-                                <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                                <img src="../../static/media/interseguroVehicular_v2/media_estrella.svg" alt="estrella_amarilla">
-                              </template>
-                              <template v-else-if="item.id == '4'">
-                                <img src="../../static/media/interseguroVehicular_v2/estrella_amarilla.svg" alt="estrella_amarilla">
-                                <img src="../../static/media/interseguroVehicular_v2/estrella_gris.svg" alt="estrella_amarilla">
-                              </template>
-                              <template v-else-if="item.id == '3.5'">
-                                <img src="../../static/media/interseguroVehicular_v2/media_estrella.svg" alt="estrella_amarilla">
-                                <img src="../../static/media/interseguroVehicular_v2/estrella_gris.svg" alt="estrella_amarilla">
-                              </template>
-                            </span>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      
-                    </slide>
-                    
-                  </carousel>
-                  
-                </div>
+          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
+            <div>
+              <div class="box-slider">
+                <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+                <img src="./../../static/media/img/ibk/cliente2.png" alt="">
+                <p class="cliente">Carolina Chavez</p>
+                <!-- <p class="ahorro">---</p> -->
+                <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
+                <p class="protegido">
+                  Carro protegido <br> <strong>MAZDA 3</strong>
+                </p>
               </div>
-            </div>                
-          </div>
-        </div>
-      </b-container>
-    </section>
-
-    <section id="talleres" class="talleres" style="background: #f7fafb !important">
-      <b-container fluid class="container-talleres">
-        <div class="section-header  d-sm-none">
-          <h3 class="title-principal title-section-home">
-            Talleres Afiliados
-          </h3>
-          <p>Encuentra la relación y ubicación de <br> nuestros talleres afiliados</p>
-        </div>
-        <div class="section-body">
-          <div class="mapa d-none  d-sm-flex">
-            <img   src="../../static/media/interseguroVehicular_v2/talleres.png" alt="talleres">
-
-          </div>
-          <div class="contenido">
-            <div class="section-header d-none d-sm-block">
-              <h3 class="title-principal title-section-home">
-                Talleres Afiliados
-              </h3>
-              <p>Encuentra la relación y ubicación de <br> nuestros talleres afiliados</p>
             </div>
-            <div class="box-btns">
-              <b-button class="talleres-cercanos">
-                <a target="_black" href="https://www.google.com/maps/d/u/0/viewer?mid=13NFmWBG7859lYz_z_2ZluRQaDaTH9Hi9&hl=es&ll=-12.109991959196146%2C-77.03860524421464&z=12">Ver talleres más cercanos</a>
-              </b-button>
+          </b-carousel-slide>
+
+          <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
+            <div>
+              <div class="box-slider">
+                <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
+                <img src="./../../static/media/img/ibk/cliente3.png" alt="">
+                <p class="cliente">Enrique Quispe</p>
+                <!-- <p class="ahorro">---</p> -->
+                <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!‘’</p>
+                <p class="protegido">
+                  Carro protegido <br> <strong>SUZUKI VITARA</strong>
+                </p>
+              </div>
             </div>
-            
-          </div>
-        </div>
-      </b-container>
-    </section>   
+          </b-carousel-slide>
+
+        </b-carousel>
+      </div>
+     </div>
 
 
-    <b-modal  
-      id="modalcampaniatv"
+    <b-modal
+      id="modalHomeVideo"
       title="Bootstrap-Vue"
       hide-footer
       hide-header
-      ref="modalcampaniatv"
-      class="modalcampaniatv"
-      size="lg">
-      <div class="modal-content">
-        <b-btn class="mt-3 modal-close"
-          @click="hideModalcampaniatv()"
-          style="border: none;">
-          <img  src="../../static/media/img/flujo/cotizacion/modal-close.svg"
-            width="40"
-            alt="icon close"
-            class="image-9">
-        </b-btn>
-        <div class="modal-head">
-          <div class="box-titulo">
-            <h2>LLÉVATE UN SMART TV 4K <br> UHD SAMSUNG 55"</h2>
-          </div>
-          <div class="modal-divider"></div>
-        </div>
+      ref="hidemodalHomeVideo"
+    >
+      <div class="modal-content modalHomeVideo">
         <div class="modal-body">
-          <div class="modal-body__item">
-            <div class="box-img">
-              <img src="../../static/media/img/flujo/cotizacion/paso1_tv.png" alt="paso 1 tv">
+          <div>
+            <div class="close" @click="hidemodalHomeVideo()">
+              X
             </div>
-            <div class="box-text">
-              <div class="box-descripcion">
-                <p>Elige la opción "Plan 2 años" en la compra de tu seguro vehicular. </p>
-              </div>
+            <div id="etiqueton" class="endosoSesion">
+              <iframe width="560" height="450" src="https://www.youtube.com/embed/BNkYOo4SGyg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-          </div>
-          <div class="modal-body__item">
-            <div class="box-img">
-              <img src="../../static/media/img/flujo/cotizacion/paso2_tv.png" alt="paso 2 tv">
-            </div>
-            <div class="box-text">
-              <div class="box-descripcion">
-                <p>Luego realiza la evaluación vehicular de manera digital.</p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-body__item">
-            <div class="box-img">
-              <img src="../../static/media/img/flujo/cotizacion/paso3_tv.png" alt="paso 3 tv">
-            </div>
-            <!-- <div class="box-text">
-              <div class="box-descripcion">
-                <p><strong>¡El delivery de la Smart TV está incluído!</strong>
-                    Nos contactaremos contigo en las siguientes 48h para coordinar la entrega. </p>
-              </div>
-            </div> -->
           </div>
         </div>
-        <div @click="hideModalcampaniatv()" class="modal-footer">
-          COTIZAR AHORA
-        </div>
+
+        <div class="row"></div>
       </div>
     </b-modal>
-    
+
   </div>
-  
 </template>
 
+
 <script>
+  import moment from "moment/moment.js"
+  import FadeLoader from '@/components/loaders/FadeLoader'
+  
   export default {
-    layout: "InterseguroParametro",
+    layout: "InterbankHome",
       data () {
           return {
+            showLoader: true,
             loading: false,
             color: "#00ADEE",
             sizePulse: "45px",
@@ -382,7 +401,9 @@
             saveCliente:{}
           }
       },
-      components: {},
+      components:{
+        'fade-loader': FadeLoader
+      },
       created() {
       },
       methods: {
@@ -473,29 +494,35 @@
                   if (respuesta.activePolicy === true) {
                     this.$nuxt.$router.push({path: "/placa-registrada"})
                   } else {             
-                    this.loading = false       
-                    this.$nuxt.$router.push("/cotiza/cotizacion/")
+                    this.loading = false 
+                    if (this.$store.state.common.businessId == 1) {
+                      this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                    }else if(this.$store.state.common.businessId == 2) {
+                      this.$nuxt.$router.push("/interbank/cotizacion/")  
+                    }else{}      
                   }
                 }else {                
                   this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
                   this.$store.commit('common/setVehicleState', 0)
                   this.loading = false
-                  this.$nuxt.$router.push("/cotiza/cotizacion/")
+                  if (this.$store.state.common.businessId == 1) {
+                    this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                  }else if(this.$store.state.common.businessId == 2) {
+                    this.$nuxt.$router.push("/interbank/cotizacion/")  
+                  }else{}     
                 }
               }else{
 
               }
             })
           },
-          
       },
       mounted () {
-        console.log("ALERTA")
-        alert("ALERTA")
         this.$store.commit('common/setNuevoProducto', false)
         this.$store.commit('common/setFlujoDetectado', 'Interbank - parametros')
         this.$store.commit('common/resetState')
         this.$store.commit('common/setBusinessId', 1)
+        this.$store.commit('common/setPromocion', false)
         /************************************************************************ */
         /********************* CONFIGURACIONES GLOBALES************************* */
         /************************************************************************ */
@@ -538,24 +565,79 @@
         
 
         if (this.$route.params.parametro.length == 6){
+          this.$store.commit('common/setFlujoDetectado', 'remarketing')
+          this.$nuxt.$emit('show-loader', {
+            text: 'Estamos cargando tus datos, solo tomará un momento'
+          })
           this.PaginaVista()
+
           this.$store.dispatch('common/getDataRmkt', this.$route.params.parametro)
             .then((res) =>{
-              if(res.data.codigoRespuesta == "01"){              
+              if(res.data.codigoRespuesta == "01"){
+              
+              
+                this.$store.commit('common/setPantallaFlujo', 1)
                 let respuesta = res.data.detalle
-                
+                if(respuesta.datosProducto.nuevoProducto == true){                  
+                  this.$store.commit('common/setNuevoProducto', true)
+                  localStorage.setItem("urlLocal", "/app")
+                }else{
+                  localStorage.setItem("urlLocal", "/")
+                  this.$store.commit('common/setNuevoProducto', false)
+                }
                 this.$store.commit('common/setCodeRmkt',respuesta.codigoVenta)
+                this.$store.commit('common/setCodigoRemarketingGenerado',res.data.codigoRemarketing)
                 this.$store.commit('common/setPlateNumber',respuesta.datosProducto.placa)
                 this.$store.commit('common/setCurrent',respuesta.datosProducto.valorComercial)
                 this.$store.commit('common/setEmail',respuesta.correo)
-                this.$store.commit('common/setFechaVigencia', respuesta.datosProducto.fechaInicio)
                 this.$store.commit('common/setPlanSeleccionado', respuesta.datosProducto.planSeleccionado)
                 this.$store.commit('common/setItemElegido', respuesta.datosProducto.itemElegido)                 
-                this.$store.commit('common/setIBusinessId', respuesta.datosProducto.businessId)
-                this.$store.commit('common/setEntidadFinanciera', {
-                  id: respuesta.datosProducto.idEndosoSeleccionado, 
-                  name: respuesta.datosProducto.endosoSeleccionado
-                })
+                if (respuesta.datosProducto.planSeleccionado == 0 || respuesta.datosProducto.planSeleccionado == null ) {
+                  this.$store.commit('common/setPlanSeleccionado', 3)
+                }else{
+                  this.$store.commit('common/setPlanSeleccionado', respuesta.datosProducto.planSeleccionado)
+
+                }
+                if (respuesta.datosProducto.businessId == 0 || respuesta.datosProducto.businessId == null ) {
+                  this.$store.commit('common/setBusinessId', 1)
+                }else{
+                  this.$store.commit('common/setBusinessId', respuesta.datosProducto.businessId)
+                }
+                if (respuesta.datosProducto.idEndosoSeleccionado == 0 || respuesta.datosProducto.idEndosoSeleccionado == null || respuesta.datosProducto.idEndosoSeleccionado == '' ) {
+
+                  this.$store.commit('common/setEntidadFinanciera', {id: 0 , name:''})
+                }else{
+                  this.$store.commit('common/setEntidadFinanciera', {
+                    id: respuesta.datosProducto.idEndosoSeleccionado, 
+                    name: respuesta.datosProducto.endosoSeleccionado
+                  })
+                }
+                if (respuesta.datosProducto.fechaInicio == null || respuesta.datosProducto.fechaInicio == undefined) {
+                    var fechaActual = new Date()
+                    const state = {
+                      date: new Date(),
+                    }
+                  let fechaVigencia = moment(state.date).format("DD/MM/YYYY")
+                  this.$store.commit('common/setFechaVigencia', fechaVigencia )
+                }else{
+                  let inputDate = Date.parse(respuesta.datosProducto.fechaInicio)
+                  inputDate = new Date(inputDate)
+                  let fecha = new Date()
+                  let dia = fecha.getDate()
+                  let mes = fecha.getMonth()+1
+                  let año = fecha.getFullYear()
+                  let fechaActual = dia+'/'+mes+'/'+año
+                  
+                  let todaysDate = Date.parse(fechaActual)
+                  todaysDate = new Date(fechaActual)
+
+                  if(inputDate.getTime() ===  todaysDate.getTime()) {
+                    this.$store.commit('common/setFechaVigencia', respuesta.datosProducto.fechaInicio)    
+                  }else{
+                    this.$store.commit('common/setFechaVigencia', fechaActual)  
+                  }
+                  
+                }
 
                 let rmktItem = {
                   plateNumber: this.$store.state.common.plateNumber,
@@ -564,38 +646,212 @@
                 this.$store.dispatch('common/getVehicle', rmktItem)
                   .then((ress) => {
                     if (ress.data.code == 0) {
+                      if (ress.data.body.exists == true) {
+                        this.$store.commit('common/setVehicleState', 1)
+                        this.$store.commit('common/setObjVehiculo', ress.data.body)
+                      }else{
+                        this.$store.commit('common/setVehicleState', 0)
+                        this.$store.commit('common/setObjVehiculo', ress.data.body)
+                      }
                       if (ress.data.body.activePolicy === true) {
                         this.$nuxt.$router.push({path: "/placa-registrada"})
                       } else {
+                        
                         if (res.data.detalle.pantalla == 1) {
-                          this.$nuxt.$router.push("/cotiza/cotizacion/")
-                        } else if (res.data.detalle.pantalla == 2) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
-                        } else if (res.data.detalle.pantalla == 3) {
+                          if (this.$store.state.common.businessId == 1) {
+                            this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                          }else if(this.$store.state.common.businessId == 2) {
+                            this.$nuxt.$router.push("/interbank/cotizacion/")  
+                          }else{}
+                        }else if (res.data.detalle.pantalla == 2) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
-                          this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
-                          this.$store.commit('common/setFrecuenciaPago', respuesta.datosPago.idFrecuencia)
-                          this.$nuxt.$router.push("/cotiza/como-pagar/")
+                          if (respuesta.datosProducto.idMarca  > 0) {
+                            try {
+                              let itemElegido = {
+                                assignedPrice: respuesta.datosProducto.valorComercial,
+                                brand: respuesta.datosProducto.marca,
+                                brandId: respuesta.datosProducto.idMarca,
+                                businessId: 1,
+                                discountType: "",
+                                model: respuesta.datosProducto.modelo,
+                                modelId: respuesta.datosProducto.idModelo,
+                                modelYear: respuesta.datosProducto.anio,
+                                remarketingId: "",
+                                year: respuesta.datosProducto.anio
+                              }
+                              this.$store.commit('common/setItemElegido', itemElegido) 
+                              this.$store.dispatch('common/getCotizacion', itemElegido).then((res) => {
+                                if (res.data.code = 301) {
+                                  this.$nuxt.$router.push("/");
+                                }
+                                if (respuesta.datosProducto.planSeleccionado == 4) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.basic)
+                                }else if(respuesta.datosProducto.planSeleccionado == 6){
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.medium)
+                                }else if (respuesta.datosProducto.planSeleccionado == 3 || respuesta.datosProducto.planSeleccionado == 10) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }else{
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }
+                                this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
+                                this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
+
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")  
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                }else{}
+                                
+                              })
+                            } catch (error) {
+                              this.$nuxt.$router.push("/");      
+                            }
+                          }else{
+                            let itemElegido = respuesta.datosProducto.itemElegido
+                            this.$store.dispatch('common/getCotizacion', itemElegido).then((res) => {
+                                if (res.data.code = 301) {
+                                  this.$nuxt.$router.push("/");
+                                }
+                                if (respuesta.datosProducto.planSeleccionado == 4) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.basic)
+                                }else if(respuesta.datosProducto.planSeleccionado == 6){
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.medium)
+                                }else if (respuesta.datosProducto.planSeleccionado == 3 || respuesta.datosProducto.planSeleccionado == 10) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }else{
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }
+                                this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
+                                this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")  
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                }else{}
+                              })
+                          }
+                          
+                        } else if (res.data.detalle.pantalla == 3  ) {
+                          this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
+                          if (respuesta.datosProducto.idMarca  > 0) {
+                            try {
+                              let itemElegido = {
+                                assignedPrice: respuesta.datosProducto.valorComercial,
+                                brand: respuesta.datosProducto.marca,
+                                brandId: respuesta.datosProducto.idMarca,
+                                businessId: 1,
+                                discountType: "",
+                                model: respuesta.datosProducto.modelo,
+                                modelId: respuesta.datosProducto.idModelo,
+                                modelYear: respuesta.datosProducto.anio,
+                                remarketingId: "",
+                                year: respuesta.datosProducto.anio
+                              }
+                              this.$store.commit('common/setItemElegido', itemElegido) 
+                              this.$store.dispatch('common/getCotizacion', itemElegido).then((res) => {
+                                if (res.data.code = 301) {
+                                  this.$nuxt.$router.push("/");
+                                }
+                                if (respuesta.datosProducto.planSeleccionado == 4) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.basic)
+                                }else if(respuesta.datosProducto.planSeleccionado == 6){
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.medium)
+                                }else if (respuesta.datosProducto.planSeleccionado == 3 || respuesta.datosProducto.planSeleccionado == 10) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }else{
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }
+                                if (respuesta.datosPago.idFrecuencia == "" || respuesta.datosPago.idFrecuencia == null) {
+                                  this.$store.commit('common/setFrecuenciaPago', 1)
+                                }else{
+                                  this.$store.commit('common/setFrecuenciaPago', respuesta.datosPago.idFrecuencia)
+                                }
+
+                                this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
+                                this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                }else{}
+                                
+                              })
+                            } catch (error) {
+                              this.$nuxt.$router.push("/");      
+                            }
+                          }else{
+                            let itemElegido = respuesta.datosProducto.itemElegido
+                            this.$store.dispatch('common/getCotizacion', itemElegido).then((res) => {
+                                if (res.data.code = 301) {
+                                  this.$nuxt.$router.push("/");
+                                }
+                                if (respuesta.datosProducto.planSeleccionado == 4) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.basic)
+                                }else if(respuesta.datosProducto.planSeleccionado == 6){
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.medium)
+                                }else if (respuesta.datosProducto.planSeleccionado == 3 || respuesta.datosProducto.planSeleccionado == 10) {
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }else{
+                                  this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                                }
+
+                                if (respuesta.datosPago.idFrecuencia == "" || respuesta.datosPago.idFrecuencia == null) {
+                                  this.$store.commit('common/setFrecuenciaPago', 1)
+                                }else{
+                                  this.$store.commit('common/setFrecuenciaPago', respuesta.datosPago.idFrecuencia)
+                                }
+
+                                this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
+                                this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
+
+                                if (this.$store.state.common.businessId == 1) {
+                                  this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
+                                }else if(this.$store.state.common.businessId == 2) {
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                }else{}
+                              })
+                            // this.$store.commit('common/setListaCotizacion', respuesta.datosProducto.listCotizacion) 
+                          }
                         }
+
                       }
                     }
                   })
-                
-              } 
+
+              }else{
+                /* this.$nuxt.$router.push({
+                  path: "/pageNotFound"
+                }) */
+              }
+            })
+            .catch(()=>{
+              /* this.$nuxt.$router.push({
+                path: "/pageNotFound"
+              }); */
             })
         }else{
+          this.showLoader = false
           if (this.$route.params.parametro == 'cuentasueldo/' || this.$route.params.parametro == 'cuentasueldo') {
-            
             this.$store.commit('common/setCuentasueldo', 'Y')
             this.$store.commit('common/setTarjetaoh', 'N')
-            
+            this.$store.commit('common/setDiscountType', 'cta-sueldo')
+            this.$nuxt.$emit('hide-loader')
+            localStorage.setItem("urlLocal", "/cuentasueldo")
             this.PaginaVista()
           }else if(this.$route.params.parametro == 'tarjetaoh/' || this.$route.params.parametro == 'tarjetaoh'){
             this.$store.commit('common/setCuentasueldo', 'N')
             this.$store.commit('common/setTarjetaoh', 'Y')
+            this.$store.commit('common/setDiscountType', 'tarjeta-oh')
+            localStorage.setItem("urlLocal", "/tarjetaoh")
+            this.$nuxt.$emit('hide-loader')
             this.PaginaVista()
           }else{
-
+            localStorage.setItem("urlLocal", "/")
+            
+            /* this.$nuxt.$router.push({
+                path: "/pageNotFound"
+            }); */
           }
         }
       }
@@ -603,263 +859,1630 @@
   }
 </script>
 
-<style lang="scss" scoped>
 
-.bannerSlider{
-  width: 440px;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  .VueCarousel-pagination{
-    display: flex;
-    justify-content: flex-start;
-    .VueCarousel-dot-container{
-      margin: 0;
+
+<style lang="scss" scope>
+
+  .home.home-ibk{
+    .check{
+      color: #696969 !important;
     }
   }
-  &__item{
-    .item{
+  .listonMobile{
+    position: relative;
+    img{
+        right: 0;
+        position: absolute;
+        width: 32px;
+        animation: listonMobile 1s infinite;
+        top: -30px;
+    }
+    p{
+        text-align: center;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.3;
+        letter-spacing: normal;
+        text-align: center;
+        color: #333333;
+        padding: 0;
+        margin: 0;
+        padding-top: 6px;
+    }
+  }
+  #main-menu{
+    display: none;
+  }
+  p:focus{
+    outline: none;
+  }
+  .modalHomeVideo{
+    iframe{
+      height: 315px;
+      width: 100%;
+    }
+    .close{
+      position: absolute;
+      right: -4px;
+      top: -10px;
+      background: white;
+      z-index: 999;
+      opacity: 1;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      p{
-        color: white;
-        font-size: 23px;
-        padding-right: 32px;
-        line-height: 1.2;
-      }
-      img{
-        max-height: 125px;
-        width: auto;
-        max-width: 125px;
-      }
+      align-items: center;
+      color: #2b3a41;
+      cursor: pointer;
     }
   }
+
+@keyframes updown{
+    0%{ transform: translateY(0) }
+    50%{ transform: translateY(-4px) }
 }
-.cyberInterseguro{
-  // background: url("../../static/media/interseguroVehicular_v2/ladrillos.jpg");
-  padding-top: 46px !important;
-  padding-bottom: 46px !important;
+@keyframes listonFondo {
+    0% {
+        background: #D8E8FA;
+    }
+
+    100% {
+        background: #B1D4F7;
+    }
+}
+@keyframes listonMobile {
+    0% {
+        width: 28px;
+    }
+
+    100% {
+        width: 32px;
+    }
+}
+
+
+  div, p, img{
+    margin: 0;
+    padding: 0;
+  }
   a{
     text-decoration: none;
-    color: #053f8a;
-    font-family: 'Omnes Medium';
-  }
-  .title-section-cyber{
-    color: #053f8a;
-    font-family: 'Omnes Medium';
-    font-size: 36px;
-    font-weight: 500;
-  }
-  
-  .descuentos{
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    width: 100%;
-    margin: auto;
-    font-family: 'Omnes Medium';
-    
-    &__descripcion{
-      padding: 12px 12px 0 12px; 
-      font-size: 16px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      p{
-        text-align: center;
-      }
-    }
-    &__item{
-      overflow: hidden;
-      box-shadow: 0 8px 22px 0 rgba(35, 45, 65, 0.18);
-      border-radius: 5px;
-      margin: 24px;
-      img{
-        width: 100%;
-      }
-    }
-  }
-}
-.campania_cyber{
-  
-  .exampleMobile{
-      position: relative;
-      z-index: 99;
-      margin-top: 12px;
-  }
-}
-.campaniatv-home-mobile {
-    position: fixed;
-    bottom: 0;
-    background: #1e1e1e;
-    color: white;
-    width: 100%;
-    z-index: 99;
-    height: 90px;
-    justify-content: flex-end;
-    align-items: center;
-    &__texto{
-      width: 45%;
-      font-family: 'Omnes Medium';
-      font-size: 16px;
-    }
-}
-.campania_cyber .campaniatv-home__body{
-  display: flex;
-  justify-content: flex-end;
-}
-  .talleres{
-    p{
-      color: #787878;
-      font-family: 'Omnes Medium';
-      font-size: 17px;
-      padding: 12px 0;
-    }
-  }
-  .respaldo-intercorp{
-    color: gray;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    padding: 4px 0;
-    justify-content: center;
-    span{
-      margin-right: 8px;
-    }    
-    img{
-      height: 14px;
-    }
-  }
-  .btn-beneficios{
-    border: 1px solid #EA0C90;
-    background: white;
-    padding: 12px 22px;
-    border-radius: 22px;
-    margin: 14px 0 42px;
-    color: #EA0C90;
-    font-weight: 500;
-    font-size: 18px;
     &:hover{
       text-decoration: none;
-      transition: .50s;
-      background: #EA0C90;
-      color: white;
     }
   }
-  .v-spinner{
-    right: 0;
-  }
-  .clipgss{
-    background: white;
-    width: 100%;
-    height: 100vh;
+  .home-ibk{
+    margin-top: 130px;
+    font-size: 16px;
+    background-color: #fff;  
+    .box-flotante-covid {
+      flex-direction: column;
+      background-image: url("./../../static/media/img/ibk/cuponazo-ibk.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      margin: 0 -15px;
+      position: relative;
+      padding-left: 16px;
+      width: 100%;
+      height: 280px;
+  }  
+  .box-flotante-covid .box-contador {
     position: absolute;
-    left: 0;
+    bottom: -10px;
+    left: 66px;
   }
-  .title-section-home{
-    color : #00ADEE !important;
+    .home-pasos{
+      background-color: #fff;
+      padding-top: 235px;
+      
+      .parrafo-video{
+        font-size: 30px; 
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.97;
+        letter-spacing: normal;
+        text-align: center;
+        color: #0667ba !important;
+        animation: updown 1.5s ease 0s infinite;
+        font-family: 'Montserrat Regular';
+        cursor: pointer;
+        img{
+          position: relative;
+          top: -7px;
+        }
+      }
+      &__planes--titulo{
+        p{
+          opacity: 1;
+          font-size: 20px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: -0.21px;
+          text-align: center;
+        }
+        .como-funciona{
+          font-family: 'Geometria Medium';
+          padding-bottom: 16px;
+          font-size: 1.3rem;
+          font-size: 26px;
+          line-height: 1.27;
+          text-align: center;
+          color: #333333;
+          max-width: 300px;
+          margin: auto;
+          padding-bottom: 42px;          
+        }
+        .nuevos-planes{
+          padding: 40px 0;
+          font-family: 'Geometria Medium';
+          font-size: 1.3rem;
+          font-size: 26px;
+          line-height: 1.27;
+          text-align: center;
+          color: #333333;
+          margin: auto;
+        }
+        span{
+          font-size: 22px;
+          letter-spacing: -0.23px;
+          color: #00C450;
+        }
+      }
+      .pasos{
+        &__item{
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: flex-start;
+          position: relative;
+          padding-bottom: 32px;
+          padding-left: 18%;          
+          &--img{
+            img{
+              width: 70px;
+            }
+          }
+          &--desc{
+            padding-left: 16px;
+            .titulo{
+              color: #333333;
+              font-size: 20px;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              text-align: left;
+              display: flex;
+              align-items: center; 
+              font-family: "Geometria Bold";             
+            }            
+            .descripcion{
+              font-size: 16px;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1;
+              letter-spacing: normal;
+              text-align: left;
+              color: #505050;
+            }
+          }
+          &--flecha{
+            img{
+              width: 14px;
+            }
+          }          
+        }
+      }
+      .planes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        padding-top: 34px;
+        &__item{
+          width: 100%;
+          margin-bottom: 48px;
+          max-width: 380px;
+        }        
+        .plata, .oro, .black{
+          .plan--cabecera{
+            height: 45px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .plata{        
+          .plan--cabecera{  
+            background-color: #b1b1b1;
+            .flotante{
+              background-color: #DDDDDD;
+              color: #5F5F5F;
+              font-family: 'Geometria Medium';
+            } 
+            &:after{
+              background-image: url(./../../static/media/img/home/plata.png);
+              bottom: -9px;
+            }            
+          }
+        }
+        .oro{        
+          .plan--cabecera{  
+            background-color: #e6ac38;
+            .flotante{
+              background-color: #FFD96E;
+              color: #AC7812;
+              font-family: 'Geometria Medium';
+            } 
+            &:after{
+              background-image: url(./../../static/media/img/home/oro.png);
+            } 
+          }
+        }
+        .black{        
+          .plan--cabecera{  
+            background-color: #27362d;
+            .flotante{
+              background-color: #AABCB1;
+              color: #27362D;
+              font-family: 'Geometria Medium';
+            } 
+            &:after{
+              background-image: url(./../../static/media/img/home/black.png);
+            } 
+          }
+        }
+      }
+      .plan{
+        border-radius: 9px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        min-height: 175px;
+        position: relative;
+        &--cabecera{
+          text-align: center;          
+          position: relative;
+          font-family: 'Geometria Medium';
+          &:after{
+          }
+          .flotante{
+            content: "";
+            position: absolute;
+            top: -32px;
+            width: 180px;
+            height: 35px;
+            line-height: 35px;
+            left: 0px;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+        }
+        &--cuerpo{
+          padding: 20px 0;
+          p{
+            height: 32px;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: -0.16px;
+            text-align: left;
+            color: #696969;
+            width: 85%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            span:nth-child(2){
+              padding-left: 8px;
+            }
+          }
+          a{
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.75;
+            letter-spacing: normal;
+            text-align: center;
+            color: #00C450;
+            text-decoration: underline;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            position: absolute;
+            bottom: 16px;
+            font-family: 'Montserrat Regular';
+          }
+        }
+      }
+    }  
+    .boxHome-banner{
+      position: relative;
+      height: 360px;
+      background-color: #05BE50;
+      padding-top: 34px;
+      // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
+      .home-banner{
+        
+        margin: auto;
+        background-repeat: no-repeat;
+        background-size: 700px;
+        background-position-y: bottom;
+        background-position-x: right;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+        &__izq{
+          // margin-top: 24px;
+          // padding-top: 68px !important;
+          height: 500px;
+          display: flex;
+          align-items: center;
+          width: 90%;
+          border-bottom: 1px solid white !important;
+          input{
+            max-width: 360px;
+            width: 100%;
+            height: 51px;
+            margin: 0 auto!important;
+            text-align: center;
+          }
+          button{
+            color: white !important;
+            border-color: #00C450 !important;
+            background-color: #00C450 !important;
+            width: 360px;
+            height: 51px;
+          }
+          .no-tengo-placa{
+            font-size: 1rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: #333333;
+            margin: 10px 0;
+            cursor: pointer;
+          }
+          .respaldo-intercorp{
+            font-size: .938rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            text-align: center;
+            color: #494a49;
+            span{
+              top: 2px;
+              position: relative;
+            }
+          }
+        }
+        &__der{
+          padding-top: 68px !important;
+          height: auto;
+          display: none;
+          // display: flex;
+          // flex-direction: column;
+          align-items: center;
+          .efecto-enlace{
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+          p{
+            font-family: 'Geometria Medium';
+            font-size: 2.8rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: -1px;
+            text-align: left;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    .box-formCotizador{
+      width: 100%;
+      padding: 0;      
+      .titulo-formulario{
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        color: #333333;
+        margin-top: 25px;
+        padding: 0;
+        margin: auto;
+        padding-top: 18px;
+        padding-bottom: 28px;
+        position: relative;
+        max-width: 438px;
+        width: 100%;
+        .img-form{
+          position: absolute;
+          bottom: -32px;
+          left: 7px;
+          z-index: 0;
+          height: 82px;
+          display: none;
+          img{
+            height: 82px;
+          }
+        }
+      }
+    }
+    .formCotizador{
+      padding:2rem 1.5rem;
+      max-width: 438px;
+      width: 100%;
+      height: 280px;
+      border-radius: 3rem 0 3rem 0;
+      background: #fff;
+      box-shadow: -3px 4px 12px -1px #ccc;
+      position: relative;
+      margin: auto;      
+      h1{
+        font-family: 'Geometria Medium';
+        font-size: 1.1rem;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        color: #333333;
+        margin-top: 25px;
+        margin: 0;
+        padding: 0;
+        padding-top: 8px;
+        padding-bottom: 18px;
+      }
+      &__msg{
+        padding: 7px 14px;
+        position: absolute;
+        right: -1rem;
+        top: -1rem;
+        border-radius: 8px 0 8px 0;
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
+        background-color: #0133A1!important;
+        color: white !important;
+        font-family: 'Geometria Medium';
+      }
+      .box-btn-homeForm{
+        button{
+          border-color: #00C450!important;
+          background-color: #00C450!important;
+          max-width: 360px;
+          width: 100%;
+          height: 51px;
+          margin: 0 auto!important;
+          position: relative;
+        }
+      }
+    }
+    .cliploader{
+      width: 100%;
+      right: 0;
+      height: 51px;
+      top: 0px;
+    }
+    .carousel-indicators li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    
+    .home-talleres{
+      padding-top: 42px;
+      padding-bottom: 42px;
+      background-color: #00C450;
+      .home-talleresBox{
+        width: 100%;
+        margin: auto;
+      }
+      &__desc{
+        width: 300px;
+        margin: auto;
+        p{
+          text-shadow: 0 3px 6px rgba(62, 135, 240, 0.08);
+          font-size: 22px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.09;
+          letter-spacing: normal;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
+      &__boxBtn{
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
+      .btn-talleres{
+        border-radius: 2px;
+        background-color: #f1f7ff;
+        color:#00C450;
+        border: 1px solid #00C450;
+        display: block;
+        margin: auto;
+        height: 49px;
+        width: 220px;
+        line-height: 49px;
+        font-size: 18px;
+        text-align: center;
+        transition: all .75s;
+        &:hover{
+          background-color: #00C450;
+          color:#f1f7ff;
+          border: 1px solid #f1f7ff;
+          transition: all .75s
+        }
+      }
+    }
+    .home-clientes2{
+      max-width: 80%;
+      margin: auto;
+      flex-direction: column;
+      .protegido{
+        margin-top: 24px;
+        color: #333333;
+        text-align: center;
+        font-family: 'Geometria Medium';
+        strong{
+          color: #0133A1;
+          font-family: 'Geometria Bold';
+        }
+      }
+      .box-titulo{
+        margin-bottom: 48px;
+      }
+      .titulo-clientes{
+        font-size: 36px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 0.89;
+        letter-spacing: normal;
+        text-align: center;
+        color: #333333;
+      }
+      .box-total{
+        margin-top: 32px;
+        display: flex;
+        justify-content: space-around;
+      }
+      .box-slider{
+        padding: 0 30px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 300px;
+        height: 313px;
+        border-radius: 12px;
+        border: solid 0.8px #333333;
+        flex-direction: column;
+        justify-content: center;
+        .escudo-cliente{
+          position: absolute;
+          top: -12px;
+          width: 24px;
+          left: calc(159px - 28px);
+        }
+        .cliente{
+          font-family: 'Omnes SemiBold';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          text-align: center;
+          color: #555555;
+          margin-top: 12px;
+        }
+        .ahorro{
+          margin-top: 4px;
+          height: 18px;
+          font-family: 'Geometria Medium';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          color: #333333;
+        }
+        .descripcion{
+          margin-top: 8px;
+          font-family: 'Montserrat Regular';
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: #555555;
+        }
+      }
+    }
+    .home-clientes{
+      padding-top: 24px;
+      .protegido{
+        margin-top: 24px;
+        color: #333333;
+        text-align: center;
+        font-family: 'Geometria Medium';
+        strong{
+          color: #0133A1;
+          font-family: 'Geometria Bold';
+        }
+      }
+      .box-slider{
+        padding: 0 30px;
+        position: relative;
+        display: flex;
+        width: 300px;
+        height: 313px;
+        border-radius: 12px;
+        border: solid 0.8px #333333;
+        flex-direction: column;
+        justify-content: center;
+        .escudo-cliente{
+          position: absolute;
+          top: -12px;
+          width: 24px;
+          left: calc(159px - 12px);
+        }
+        .cliente{
+          font-family: 'Omnes SemiBold';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          color: #555555;
+        }
+        .ahorro{
+          margin-top: 4px;
+          height: 18px;
+          font-family: 'Geometria Medium';
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.11;
+          letter-spacing: normal;
+          text-align: left;
+          color: #333333;
+        }
+        .descripcion{
+          margin-top: 8px;
+          font-family: 'Montserrat Regular';
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          color: #555555;
+        }
+      }
+      .box-titulo{
+        p{
+          font-family: 'Geometria Medium';
+          font-size: 26px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.23;
+          letter-spacing: normal;
+          text-align: center;
+          color: #333333;
+        }
+      }
+      .carousel-clientes{
+        height: 400px !important;
+        margin-top: 24px;
+        .box-slider{
+          padding: 0 30px;
+          position: relative;
+          display: flex;
+          width: 308px;
+          border-radius: 12px;
+          border: solid 0.8px #333333;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .escudo-cliente{
+            position: absolute;
+            top: -12px;
+            width: 24px;
+            left: calc(159px - 12px);
+          }
+          .cliente{
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.11;
+            letter-spacing: normal;
+            color: #555555;
+            font-family: 'Geometria Bold';
+          }
+          .ahorro{
+            margin-top: 4px;
+            height: 18px;
+            font-family: 'Geometria Medium';
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.11;
+            letter-spacing: normal;
+            text-align: left;
+            color: #333333;
+          }
+          .descripcion{
+            margin-top: 8px;
+            font-family: 'Montserrat Regular';
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            color: #555555;
+          }
+        }
+        &__item{
+          height: 400px !important;          
+          .carousel-caption {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: none !important;
+            div{
+              img{
+                width: 110px;
+              }
+              p{
+                transition: all .75s;
+                font-size: 18px;
+                font-weight: 400;
+                font-stretch: 400;
+                font-style: normal;
+                line-height: 0.89;
+                letter-spacing: normal;
+                text-align: center;
+                color: #696969;    
+                font-family: 'Montserrat Regular';        
+              }
+            }
+          }
+        }
+      }
+    }
+    .home-talleres{
+      &__img{
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    .home-beneficios2{
+      background-color: #f7fbff;
+      padding-top: 42px;
+      &__titulo{
+        margin-bottom: 40px;
+      }
+      .box-titulo{
+        p{
+          font-family: 'Geometria Medium';
+          font-size: 26px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.23;
+          letter-spacing: normal;
+          text-align: left;
+          color: #333333;
+        }
+      }
+      
+      &__titulo{
+        p{
+          font-family: 'Geometria Medium';
+          font-size: 26px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1;
+          letter-spacing: normal;
+          text-align: center;
+          color: #333333;
+        }
+      }
+      .beneficios2{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        &__item{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          max-width: 320px;
+          margin: auto;
+          margin-bottom: 32px;
+          .img-box {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 80px;
+              img{
+                width: 100%;
+                padding: 0 10px;
+              }
+          }
+          .beneficios-desc{
+            width: 240px;
+            margin-top: 12px;
+          }
+          .beneficios-titulo{
+            font-size: 20px;
+            font-family: 'Geometria Medium';
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            color: #333333;
+          }
+          &:hover{
+            img{
+              transition: all 0.5s;
+            }
+            span{
+              transition: all 0.5s;
+              font-weight: 500;
+              font-family: 'Geometria Medium';
+            }
+          }
+          img{
+            width: 100px;
+          }
+          p{
+            transition: all .75s;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: 'Montserrat Regular';
+            font-stretch: 400;
+            font-style: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #333333;            
+          }
+        }
+      }      
+    }
+  }
+  #vehicleModelPlate{
+    font-family: 'Montserrat Regular';
+    font-size: 18.5px;
+    color: #495057;
+  }
+  #vehicleModelPlate:focus {
+    border-color: #0133A1 !important;
+    border-width: 1.5px !important;
+  }
+  .home-ibk .home-pasos .plan--cuerpo .incluye {
+    font-family: 'Montserrat Medium';
+}
+  @media (min-width: 992px) {
+    .home-ibk{
+      // margin-top: 72px;
+      .home-beneficios2{
+        &__titulo{
+          p{
+            font-size: 40px;
+            color: #333333;
+          }
+        }
+        .beneficios2{
+          flex-direction: row;
+          flex-wrap: wrap;
+          &__item{
+            width: 50%;
+          }
+        }
+      }
+      .boxHome-banner{
+        background-color: #05BE50;
+        height: 520px;
+        padding-top: 0px;
+        .home-banner{
+          align-items: flex-start;
+          flex-direction: row;
+          padding-left: 45px;
+          min-height: 445px;
+          &__izq{
+            padding-top: 85px !important;
+            height: calc(85vh);
+            display: flex;
+            align-items: flex-start;
+            width: auto;            
+            input{
+              width: 360px;
+              height: 51px;
+              margin: 0 auto!important;
+              text-align: center;
+            }
+            button{
+              color: white !important;
+              border-color: #00C450!important;
+              background-color: #00C450!important;
+              width: 360px;
+              height: 51px;
+            }
+            .no-tengo-placa{
+              font-family: 'Geometria Medium';
+              font-size: 1rem;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: #333333;
+              margin: 24px 0;
+            }
+            .respaldo-intercorp{
+              font-size: .938rem;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.33;
+              letter-spacing: normal;
+              text-align: center;
+              color: #494a49;
+              font-family: 'Montserrat Regular';
+            }
+          }
+          &__der{
+            padding-top: 60px !important;
+            height: auto;
+            display: flex;
+            -webkit-box-align: center;
+            background-size: 90%;
+            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            background-repeat: no-repeat;
+            background-position-y: bottom;
+            background-position-x: right;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            // padding-left: 32px;
+            .box-titulo{
+              padding-top: 150px;
+              padding-left: 24px;
+            }
+            p{
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: -1px;
+              text-align: left;
+            }
+          }
+        }
+      }
+      .box-formCotizador{
+        padding: 0;
+        .titulo-formulario{
+          display: none;
+        }
+      }
+      .formCotizador{
+        padding: 2.375rem;
+        width: 438px;
+        height: 3000px;
+        border-radius: 3rem 0 3rem 0;
+        background: #fff;
+        box-shadow: -3px 4px 12px -1px #ccc;
+        position: relative;
+        
+        h1{
+          font-size: 1.35rem;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: #333333;
+          
+        }
+        &__msg{
+          padding: 7px 0;
+          position: absolute;
+          right: -1rem;
+          top: -1rem;
+          border-radius: 8px 0 8px 0;
+          box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
+          background-color: #0133A1 !important;
+          color: white !important;
+          width: 220px;
+          height: 40px;
+          text-align: center;
+          font-size: 1.4rem;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: -0.4px;
+          color: #ffffff;
+        }
+        .box-btn-homeForm{
+          button{
+            border-color: #00C450!important;
+            background-color: #00C450!important;
+            max-width: 360px;
+            width: 100%;
+            height: 51px;
+            margin: 0 auto!important;
+            border: none;
+          }
+        }
+
+      }
+
+      .home-pasos{
+        padding-top: 42px;
+        .nuevos-planes{
+          padding: 40px 0 40px;
+        }
+        &__beneficios{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .pasos{
+          padding-bottom: 40px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          width: 80%;
+          margin: auto;
+          align-items: flex-start;
+          &__item{
+            margin: initial;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 33%;
+            padding-left: 0;
+            justify-content: center;
+            max-width: 314px !important;
+            padding-bottom: 0;
+            &--flecha{
+              position: absolute;
+              right: -24px;
+            }
+            &--desc{
+              .titulo{
+                text-align: left;
+                font-size: 25px;
+                font-family: 'Geometria Bold';
+              }
+              .descripcion{
+                text-align: left;
+                font-size: 18px;
+                margin-top: 8px;
+                max-width: 260px;
+                font-family: "Montserrat Regular";
+              }
+              .descargar-ahora{
+                text-align: left;
+              }
+            }
+          }
+          
+        }
+        .planes{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 30px 0 !important;
+          justify-content: space-around;
+          align-items: flex-end;
+          &__item{
+            max-width: 270px;
+            .black{
+              .plan--cuerpo{
+               padding-top: 8px; 
+              }
+            }
+            .oro{
+              .plan--cuerpo{
+                padding-top: 8px;
+              }
+            }
+          }
+        }        
+        .plan--cuerpo{
+          p{
+            height: auto;
+            width: 74%;
+            span{
+              font-size: 15px;
+            }
+            .check{
+              font-weight: 600;
+              color: #696969 !important;
+            }
+          }
+          .incluye{
+            font-size: 20px;
+            font-family: 'Montserrat Medium';
+            color: #333333;
+            span{
+              color: #00C450;
+              font-size: 26px;
+              font-weight: 600;
+              padding-right: 3px;
+            }
+          }
+        }
+        &__planes{
+          &--titulo{
+            p{
+              text-align: left;
+              font-size: 2.4rem;
+            }
+          }
+        }
+        .plata{
+          min-height: 330px;
+        }
+        .oro{
+          min-height: 360px;
+        }
+        .black{
+          min-height: 390px;
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    .home-ibk{
+      .home-banner{
+        padding-left: 65px;
+      }
+      
+      .home-beneficios2{
+          padding-top: 48px;
+          padding-bottom: 48px;
+      }
+      .home-pasos{
+        &__beneficios{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .pasos{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          width: 80%;
+          margin: auto;
+          &__item{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 33%;
+            padding-left: 0;
+            justify-content: center;
+            &--flecha{
+              position: absolute;
+            }
+          }
+          
+        }
+        .planes{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          align-items: flex-end;
+          &__item{
+            max-width: 270px;
+            .black{
+              .plan--cuerpo{
+               padding-top: 8px; 
+              }
+            }
+            .oro{
+              .plan--cuerpo{
+                padding-top: 8px;
+              }
+            }
+          }
+        }        
+        .plan--cuerpo{
+          p{
+            height: auto;
+            width: 74%;
+            span{
+              font-size: 15px;
+            }
+            .check{
+              font-weight: 600;
+              color: #696969 !important;
+            }
+          }
+          .incluye{
+            font-size: 19px;
+            span{
+              color: #00C450;
+              font-size: 26px;
+              font-weight: 600;
+              padding-right: 3px;
+            }
+          }
+        }
+        &__planes{
+          &--titulo{
+            p{
+              font-size: 2.4rem;
+            }
+          }
+        }
+        .plata{
+          min-height: 330px;
+        }
+        .oro{
+          min-height: 360px;
+        }
+        .black{
+          min-height: 390px;
+        }
+      }
+
+      .home-talleres{
+        background-color: #ffffff;
+        .home-talleresBox{
+          background-color: #00C450;
+          background-image: url('./../../static/media/img/ibk/talleres.svg');
+          height: 339px;
+          width: 90%;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          background-repeat: no-repeat;
+        }
+        &__img{
+          img{
+            height: 184px;
+            width: inherit;
+          }
+        }
+        &__desc{
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: initial;
+          p{
+            text-align: center;
+          }
+        }
+        .btn-talleres{
+          height: 44px;
+          line-height: 44px;
+          width: 220px;
+        }
+      }
+      .home-clientes2{
+        padding-top: 48px;
+        padding-bottom: 48px;
+        .titulo-clientes{
+          font-family: 'Geometria Medium';
+        }
+        
+      }
+      .home-pasos .plan--cabecera:after {
+        bottom: -15px !important;
+      }
+      .home-pasos .planes .black .plan--cabecera:after {
+        bottom: -8px !important;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .listonMobile{
+      display: none;
+    }
+    .modalHomeVideo{
+      iframe{
+        height: 450px;
+        width: 700px;
+      }
+    }
+    .home-ibk{
+      .boxHome-banner{
+        .home-banner{
+          // background-image: url('./../../static/media/img/ibk/banner.svg');          
+          background-size: 100%;
+          padding: 0;
+          padding-left: 65px;
+          &__der{
+            background: transparent;
+            margin-left: 0;
+            padding-left: 1rem;
+            p{
+              font-size: 2.6rem;
+            }
+            .box-titulo{
+              padding: 0;
+            }
+          }
+        }
+      }
+      
+      .formCotizador{
+        height: 300px;
+        margin-top: 40px;
+      }
+
+      .home-pasos{
+        .pasos{
+          width: 100%;
+          max-width: 1200px;
+          justify-content: space-between;
+          &__item{
+            max-width: 360px !important;
+          }
+        }
+        &__planes{
+          &--titulo{
+            .como-funciona{
+              font-family: 'Geometria Medium';
+              font-size: 40px;
+              max-width: 100%;
+            }
+            .nuevos-planes{
+              font-family: 'Geometria Medium';
+              font-size: 40px;
+              max-width: 100%;
+            }
+            span{
+              font-size: 44px;
+            }
+            p{
+              font-size: 28px;
+            }
+          }
+        }
+        .planes{
+          width: 94%;
+          max-width: 1200px;
+          &__item{
+            max-width: 310px !important;
+          }
+        }
+        .plan{
+          min-height: 330px;
+          &--cabecera{
+            &:after{
+              bottom: -9px;
+            }
+            p{
+              font-size: 31px;
+            }
+          }
+          &--cuerpo{
+            p{
+              height: auto;
+              width: 74%;
+              span{
+                font-size: 18px;
+              }
+              .check{
+                font-weight: 600;
+                color: #696969 !important;
+              }
+            }
+            .incluye{
+              font-size: 19px;
+              span{
+                color: #00C450;
+                font-size: 30px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        
+        .plata{
+          min-height: 330px;
+        }
+        .oro{
+          min-height: 360px;
+        }
+        .black{
+          min-height: 390px;
+        }
+      }
+
+      .home-talleres{
+        padding: 0 10%;
+        .home-talleresBox{
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          width: 94%;
+        }
+      }
+      .home-clientes{
+        &__titulo{
+          height: 83px;
+          p{
+            font-size: 42px;
+          }
+        }
+      }
+      .home-beneficios2{
+          padding-top: 48px;
+          padding-bottom: 48px;
+        .beneficios2{
+          max-width: 1200px;
+          flex-direction: row;
+          padding: 0;
+          margin-top: 20px;
+          &__item{
+            margin-bottom: 0;
+            width: 25%;
+            flex-direction: column;
+            .beneficios-titulo{
+              font-size: 25px;
+              margin: 8px 0;
+            }
+            .img-box{
+              width: initial;
+              height: 110px;
+            }
+            
+          }
+          .beneficios-desc{
+            width: initial;
+            p{
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    .home .home-clientes__cuerpo .carousel-clientes__item .carousel-caption div{
+      font-size: 39px;
+    }
+    .home .home-clientes__cuerpo {
+      height: 483px;
+    }
+    .home .home-clientes__cuerpo .carousel-clientes {
+      height: 483px !important;
+    }
+    .home .home-clientes__cuerpo .carousel-clientes__item .carousel-caption {
+      align-items: flex-end;
+    }
+    .carousel-caption {
+      top: 20px;
+    }
+    .home .home-pasos .planes .oro .plan--cabecera:after {
+      bottom: -12px !important;
+    }
   }
 
-
-
-
-
-  .ui-container {
-  width: 600px;
-  height: 400px;
-  overflow:hidden;
-  position:relative;
-  scroll-behavior:smooth;
-}
-.ui-items{
-  width:calc( 600px *  4);
-  height:100%;
-  display:flex;
-  flex-wrap:nowrap;
-}
-.ui-items .ui-item{
-  width: 600px;
-  height:400px;
-  padding:1.5em;
-  background-color: #36a5ff;
-  background-size:cover;
-  color:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.ui-items .ui-item span{
-  text-align:center;
-  font-size:24px;
-  position:relative;
-  font-family:"lato";
-  background-image:linear-gradient(to right,#fff,#fff);
-  background-size: 0% 100%;
-  background-position: 0% 100%;
-  background-repeat:no-repeat;
-}
-
-.ui-buttons{
-  display:inline-block;
-  position:sticky;
-  left:50%;
-  bottom:10px;
-  transform:translateX(-50%);
-}
-
-.ui-buttons a{
-  display:inline-block;
-  border-radius:50%;
-  width:15px;
-  height:15px;
-  background-color: #fff;
-  transition:transform 0.1s;
-  pointer-events:auto;
-}
-
-/* => animation <= */
-.ui-items .ui-item:target{
-  animation:opacity 500ms cubic-bezier(.65,.05,.36,1) ;
-}
-
-.ui-items .ui-item:target span{
-  animation:move 1500ms cubic-bezier(.65,.05,.36,1) 100ms; 
-}
-/* => end animation <= */
-
-
-a:active {
-  outline:none;
-  background-color: #777;
-  transform:scale(1.4);
-}
-
-/* for the item itself */
-@keyframes opacity {
-  0%{opacity:0}
-  100%{opacity:1}
-}
-
-/* for the item's text */
-@keyframes move {
-  0%{
-    left:-50%;
-    background-size: 100% 100%;
+  @media (min-width: 1366px) {
+    .home-ibk{
+      .home-pasos{
+        padding-top: 42px;
+        .planes{
+          width: 100%;
+          max-width: 1200px;
+        }
+      }
+      .home-talleres{
+        .home-talleresBox{
+          width: 82%;
+        }
+      }
+    }
   }
-  30%{
-  left:0%;
-}
-  100%{
-   background-size: 0% 100%;
-  background-position: 0% 100%;
-  }
-}
 
-.portada2 {
-    margin-top: 70px !important
-}
+  select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    box-shadow: none;
+    outline: 0 none;
+  }
+  @media (min-width: 1440px) {
+    .home-ibk{
+      .boxHome-banner{              
+        .home-banner{
+          padding-left: 128px;
+          max-width: 100%;
+          &__der{
+            background: transparent ;
+            margin-left: 0;
+            padding-left: 3rem;
+            p{
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1900px) {
+    .home-ibk{
+      .boxHome-banner{              
+        .home-banner{
+          padding-left: 0;
+          &__der{
+            background: transparent ;
+            margin-left: 0;
+            padding-left: 3rem;
+            p{
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-height: 768px) and (min-width: 992px){
+    .home-ibk{
+        .boxHome-banner{
+          .home-banner{
+            // &__izq{
+            //   height: calc(100vh - 290px);
+            //   min-height: 580px;
+            // }
+            // &__der{
+            //   height: calc(100vh - 290px);
+            //   min-height: 580px;
+            // }
+          }
+        }
+    }
+  }
 </style>
