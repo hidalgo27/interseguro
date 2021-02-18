@@ -2218,8 +2218,7 @@
     .home-ibk{
       .boxHome-banner{              
         .home-banner{
-          padding-left: 128px;
-          
+          padding-left: 0;
           &__der{
             background: transparent ;
             margin-left: 0;
