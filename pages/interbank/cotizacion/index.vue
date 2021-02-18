@@ -5,7 +5,13 @@
     </div>
     <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
     </div>
-    
+        <!-- Facebook Pixel Code -->
+
+      <noscript>
+      <img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+      </noscript>
+
+      <!-- End Facebook Pixel Code -->
     <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="12" class="m-auto">
@@ -1785,6 +1791,29 @@
       },
     },
     methods: {
+      pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
       handleScroll(eve) {
         if (window.scrollY >= 750) {
             this.opacityNone = true        
@@ -2113,14 +2142,14 @@
         if (this.$store.state.common.nuevoProducto == true) {
           url = "/vehicular-app/cotiza/cotizacion/"
         }else if (this.$store.state.common.nuevoProducto == false){
-          url = "/vehicular/cotiza/cotizacion/"
+          url = "/vehicular/interbank/cotizacion/"
         }
           
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
             "page-url": url,
-            "page-title": "Cotizacion",
+            "page-title": "Interbank Cotizacion",
             datos_vehicular_encontrado: valor, // podria ser false
             ecommerce: {
               checkout: {
@@ -3200,7 +3229,7 @@
   },
 
   mounted: function () {
-console.log("coti",this.planSeleccionado)
+this.pixelfacebook()
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto

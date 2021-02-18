@@ -5,6 +5,13 @@
       'pt-sinBlack': this.$store.state.common.flagCloseListon == 0,
     }"
   >
+      <!-- Facebook Pixel Code -->
+
+    <noscript>
+    <img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <!-- End Facebook Pixel Code -->
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class="m-auto">
@@ -1733,6 +1740,29 @@ export default {
     };
   },
   methods: {
+    pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
     eventoModalTerminosCondiciones() {
       this.$refs.ingresaTuPlaca.show();
     },
@@ -1744,8 +1774,8 @@ export default {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "pagina_vista",
-        "page-url": "/vehicular/cotiza/ingresa-tu-documento",
-        "page-title": "Ingresa Tu Documento",
+        "page-url": "/vehicular/interbank/ingresa-tu-documento",
+        "page-title": "interbank Ingresa Tu Documento",
         ecommerce: {
           checkout: {
             actionField: { step: 3 }, // esto marca el primer paso en el embudo
@@ -1758,7 +1788,7 @@ export default {
       window.dataLayer.push({
         event: "pagina_vista",
         "page-url": "/vehicular-app/cotiza/ingresa-tu-documento/",
-        "page-title": "Ingresa Tu Documento",
+        "page-title": "Interbank Ingresa Tu Documento",
       });
     },
     validarEmail() {
@@ -2574,7 +2604,7 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
-    console.log("ID")
+    this.pixelfacebook()
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);
