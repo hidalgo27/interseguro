@@ -58,6 +58,7 @@ export default {
     
   },
   mounted() {
+    console.log("LAYOUT 3")
     if (localStorage.getItem("flagCloseListon") == 1) {
       this.flagCloseListon = localStorage.getItem("flagCloseListon")
     }else{

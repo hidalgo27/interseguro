@@ -1,5 +1,12 @@
 <template>
   <div class="home  home-ibk"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <!-- Facebook Pixel Code -->
+
+<noscript>
+<img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+</noscript>
+
+<!-- End Facebook Pixel Code -->
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -400,6 +407,29 @@
       created() {
       },
       methods: {
+        pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
         contador(){
             var flipdown2 = new FlipDown(1614574799, 'contadorCyber10').start()
             var flipdown = new FlipDown(1614574799, 'contadorCyber11').start()
@@ -420,8 +450,8 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/",
-            "page-title": "Home",
+            "page-url": "/vehicular/interbank",
+            "page-title": "interbank Home",
             ecommerce: {
               checkout: {
                 actionField: { step: 1 } // esto marca el primer paso en el embudo
@@ -581,6 +611,7 @@
           
       },
       mounted () {
+        this.pixelfacebook()
         setTimeout(() => {
           this.contador()
         }, 750);
@@ -1585,6 +1616,12 @@
   .home-ibk .home-pasos .plan--cuerpo .incluye {
     font-family: 'Montserrat Medium';
 }
+
+  @media (min-width: 600px) {
+    .home-ibk .home-pasos {
+        padding-top: 40px;
+    }
+  }
   @media (min-width: 992px) {
     .home-ibk{
       // margin-top: 72px;
@@ -1656,12 +1693,12 @@
             }
           }
           &__der{
-            padding-top: 60px !important;
+            padding-top: 0px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            // background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1671,8 +1708,8 @@
             flex-direction: column;
             // padding-left: 32px;
             .box-titulo{
-              padding-top: 150px;
-              padding-left: 24px;
+                padding-top: 58px;
+              padding-left: 0;
             }
             p{
               font-weight: 500;
@@ -1694,7 +1731,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 3000px;
+        height: 300px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
@@ -2028,6 +2065,7 @@
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
+            padding-top: 62px !important;
             p{
               font-size: 2.6rem;
             }

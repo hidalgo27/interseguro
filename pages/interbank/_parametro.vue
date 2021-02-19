@@ -1,5 +1,6 @@
 <template>
   <div class="home  home-ibk"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -382,7 +383,7 @@
   import FadeLoader from '@/components/loaders/FadeLoader'
   
   export default {
-    layout: "InterbankHome",
+    layout: "InterbankHome2",
       data () {
           return {
             showLoader: true,
@@ -411,8 +412,8 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/",
-            "page-title": "Home",
+            "page-url": "/vehicular/interbank",
+            "page-title": "Interbank Home Parametros",
             ecommerce: {
               checkout: {
                 actionField: { step: 1 } // esto marca el primer paso en el embudo
@@ -429,6 +430,7 @@
               this.createMail()
               this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
               this.$nuxt.$router.push({path: "/cotiza/cotizacion-sin-placa"})
+              this.showLoader = false
             })
           },
           consultarPlaca(event, ms) {  
@@ -497,6 +499,7 @@
                     this.loading = false 
                     if (this.$store.state.common.businessId == 1) {
                       this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                      this.showLoader = false
                     }else if(this.$store.state.common.businessId == 2) {
                       this.$nuxt.$router.push("/interbank/cotizacion/")  
                     }else{}      
@@ -507,8 +510,10 @@
                   this.loading = false
                   if (this.$store.state.common.businessId == 1) {
                     this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                    this.showLoader = false
                   }else if(this.$store.state.common.businessId == 2) {
                     this.$nuxt.$router.push("/interbank/cotizacion/")  
+                    this.showLoader = false
                   }else{}     
                 }
               }else{
@@ -661,8 +666,10 @@
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                           if (this.$store.state.common.businessId == 1) {
                             this.$nuxt.$router.push("/interbank/cotiza/cotizacion/")
+                            this.showLoader = false
                           }else if(this.$store.state.common.businessId == 2) {
                             this.$nuxt.$router.push("/interbank/cotizacion/")  
+                            this.showLoader = false
                           }else{}
                         }else if (res.data.detalle.pantalla == 2) {
                           this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
@@ -698,9 +705,11 @@
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
 
                                 if (this.$store.state.common.businessId == 1) {
-                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else{}
                                 
                               })
@@ -725,9 +734,11 @@
                                 this.$store.commit('common/setDocumentoLocal', respuesta.datosTitular.numeroDocumento)
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
                                 if (this.$store.state.common.businessId == 1) {
-                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/cotiza/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")  
+                                  this.$nuxt.$router.push("/interbank/ingresa-tu-documento/")
+                                  this.showLoader = false
                                 }else{}
                               })
                           }
@@ -772,8 +783,10 @@
                                 this.$store.commit('common/setNumeroTelefono', respuesta.datosTitular.numeroTelefono)
                                 if (this.$store.state.common.businessId == 1) {
                                   this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")
+                                  this.showLoader = false
                                 }else{}
                                 
                               })
@@ -807,8 +820,10 @@
 
                                 if (this.$store.state.common.businessId == 1) {
                                   this.$nuxt.$router.push("/interbank/cotiza/como-pagar/")
+                                  this.showLoader = false
                                 }else if(this.$store.state.common.businessId == 2) {
-                                  this.$nuxt.$router.push("/interbank/como-pagar/")  
+                                  this.$nuxt.$router.push("/interbank/como-pagar/")
+                                  this.showLoader = false
                                 }else{}
                               })
                             // this.$store.commit('common/setListaCotizacion', respuesta.datosProducto.listCotizacion) 
@@ -1806,6 +1821,12 @@
   .home-ibk .home-pasos .plan--cuerpo .incluye {
     font-family: 'Montserrat Medium';
 }
+
+  @media (min-width: 600px) {
+    .home-ibk .home-pasos {
+      padding-top: 237px;
+  }
+  }
   @media (min-width: 992px) {
     .home-ibk{
       // margin-top: 72px;
@@ -1881,7 +1902,7 @@
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            // background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1914,7 +1935,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 3000px;
+        height: 300px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;

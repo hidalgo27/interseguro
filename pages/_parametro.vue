@@ -7,7 +7,7 @@
           <div class="box-formCotizador">
             <p class="titulo-formulario">
                 <img class="img-form" src="./../static/media/img/home/img-form.png" alt="img-form">
-              Manejar tranquilo <br> ahora es más fácil</p>
+              Manejar tranquilo  <br> ahora es más fácil</p>
             <b-form class="formCotizador">
                          
               <div class="formCotizador__msg">
@@ -56,7 +56,7 @@
         <div class="home-banner__der">
           <div class="box-titulo">
             <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
+              Manejar tranquilo  <br> ahora es más fácil
             </p>
           </div>
         </div>
@@ -404,6 +404,7 @@
         'fade-loader': FadeLoader
       },
       created() {
+        this.showLoader = true
       },
       methods: {
         PaginaVista() {
@@ -517,8 +518,12 @@
           },
       },
       mounted () {
+<<<<<<< HEAD
         console.log("ALERTA 2")
         alert("ALERTA 2")
+=======
+        console.log("HOME PARAMETRO")
+>>>>>>> feature-ibk
         this.$store.commit('common/resetState')
         this.$store.commit('common/setBusinessId', 1)
         this.$store.commit('common/setPromocion', false)
@@ -830,8 +835,9 @@
               }); */
             })
         }else{
-          this.showLoader = false
+          this.showLoader = true
           if (this.$route.params.parametro == 'cuentasueldo/' || this.$route.params.parametro == 'cuentasueldo') {
+            this.showLoader = false
             this.$store.commit('common/setCuentasueldo', 'Y')
             this.$store.commit('common/setTarjetaoh', 'N')
             this.$store.commit('common/setDiscountType', 'cta-sueldo')
@@ -839,6 +845,7 @@
             localStorage.setItem("urlLocal", "/cuentasueldo")
             this.PaginaVista()
           }else if(this.$route.params.parametro == 'tarjetaoh/' || this.$route.params.parametro == 'tarjetaoh'){
+            this.showLoader = false
             this.$store.commit('common/setCuentasueldo', 'N')
             this.$store.commit('common/setTarjetaoh', 'Y')
             this.$store.commit('common/setDiscountType', 'tarjeta-oh')
@@ -1127,7 +1134,7 @@
     
     .home-pasos{
       background-color: #fff;
-      padding-top: 230px;
+      padding-top: 100px;
       .parrafo-video{
         font-size: 30px; 
         font-weight: normal;

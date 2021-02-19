@@ -1234,9 +1234,7 @@ export default {
     visibility: visible;
     opacity: 1;
 }
-.spinner-sq {
-    top: 0 !important;
-}
+
 #btnirapagar{
     opacity: 0;
     margin-top: 24px;

@@ -1765,8 +1765,8 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/cobertura', 
-                'page-title': 'Cobertura'
+                'page-url': '/vehicular/interbank/cobertura', 
+                'page-title': 'interbank Cobertura'
             })
         }
     },

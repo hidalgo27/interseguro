@@ -184,8 +184,8 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/como-lo-uso', 
-                'page-title': 'Como Lo Uso'
+                'page-url': '/vehicular/interbank/como-lo-uso', 
+                'page-title': 'Interbank Como Lo Uso'
             });
         }
 

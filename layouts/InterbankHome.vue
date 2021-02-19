@@ -39,6 +39,7 @@ export default {
       }
   },
   mounted() {
+    console.log("LAYOUT 8")
     this.cuentaSueldo = localStorage.getItem("urlLocal") == '/cuentasueldo'  || localStorage.getItem("urlLocal") == '/tarjetaoh'? true : false
   }
 }
