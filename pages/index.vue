@@ -731,7 +731,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       text-decoration: none;
     }
   }
-  .home{
+  .home-is{
     margin-top: 80px;
     // margin-top: 170px;
     font-size: 16px;
