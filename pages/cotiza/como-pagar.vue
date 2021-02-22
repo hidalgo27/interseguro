@@ -46,7 +46,7 @@
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
-                                >¡Por tiempo limitado!
+                                >Por ¡Últimos días!
                             </span>
                             <div  class="example  d-md-flex">
                                 <div id="contadorCyber4" class="flipdown">                                    
@@ -230,7 +230,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >¡Por tiempo limitado!
+                                                                    >Por ¡Últimos días!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber3" class="flipdown">
@@ -598,8 +598,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1613969999, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1613969999, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1614574799, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1614574799, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')

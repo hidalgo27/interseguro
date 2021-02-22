@@ -4,7 +4,7 @@
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
-                   <p ><strong>¡Por tiempo limitado! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                   <p ><strong>Por ¡Últimos días! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
                     <div  class="example">            
                         <div id="contadorCyber12" class="flipdown  flipdownMobile" style="max-width: 256px !important;"></div>
                     </div>
@@ -12,7 +12,7 @@
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <p ><strong>¡Por tiempo limitado!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                        <p ><strong>Por ¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
                     </div>
                     <div id="contadorCyber13" class="flipdown" style="max-width: 256px !important;"></div>
                     

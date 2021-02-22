@@ -199,7 +199,7 @@
                                                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="370"></span>
                                                         <div class="box-contador " >
                                                             <span  class="cuota-gratis-span"
-                                                                >¡Por tiempo limitado!
+                                                                >Por ¡Últimos días!
                                                             </span>
                                                             <div  class="example  d-md-flex">
                                                                 <div id="contadorCyber14" class="flipdown">                                    
@@ -233,7 +233,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >¡Por tiempo limitado!
+                                                                    >Por ¡Últimos días!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber15" class="flipdown">
