@@ -518,12 +518,7 @@
           },
       },
       mounted () {
-<<<<<<< HEAD
-        console.log("ALERTA 2")
-        alert("ALERTA 2")
-=======
         console.log("HOME PARAMETRO")
->>>>>>> feature-ibk
         this.$store.commit('common/resetState')
         this.$store.commit('common/setBusinessId', 1)
         this.$store.commit('common/setPromocion', false)
