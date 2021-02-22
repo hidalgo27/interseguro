@@ -964,6 +964,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 @media screen and (max-width: 767px) {
   input,
   select,

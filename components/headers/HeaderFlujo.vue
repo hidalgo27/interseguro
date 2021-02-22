@@ -4,7 +4,7 @@
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                     <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">                    
-                   <p ><strong>Por ¡Últimos días!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                   <p ><strong>¡Últimos días!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
                     <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
                     </div>
@@ -13,7 +13,7 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                         <img src="./../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">          
-                        <p ><strong>Por ¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                        <p ><strong>¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
                     </div>
                     <div id="contadorCyber2" class="flipdown"></div>
                     

@@ -199,7 +199,7 @@
                                                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="370"></span>
                                                         <div class="box-contador " >
                                                             <span  class="cuota-gratis-span"
-                                                                >Por ¡Últimos días!
+                                                                >¡Últimos días!
                                                             </span>
                                                             <div  class="example  d-md-flex">
                                                                 <div id="contadorCyber14" class="flipdown">                                    
@@ -233,7 +233,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >Por ¡Últimos días!
+                                                                    >¡Últimos días!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber15" class="flipdown">
@@ -1166,6 +1166,9 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
+.steps-box{
+  background: white !important;
+}
 .steps--progressBar {
     background-color: #0133A1 !important;
 }
@@ -1637,20 +1640,10 @@ a.steps__item.paso1:after{
         &__ingresatarjeta{
             padding: 24px 16px 12px;
             border-radius: 0 0 16px 16px;
-            background: #f7f4fc;
             .box-ingresaTarjeta{
                 background: white;
                 padding: 18px 15px 0 15px;
-            }
-            &:before{
-                content: "";
-                position: absolute;
-                left: 0;
-                background: #f7f4fc;
-                width: 2px;
-                height: 90%;
-                top: 5%;
-            }           
+            }        
             .boxtitulo{
                 &__secundario{
                     color: #0BD360;

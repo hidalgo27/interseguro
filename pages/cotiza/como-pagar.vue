@@ -46,7 +46,7 @@
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
-                                >Por ¡Últimos días!
+                                >¡Últimos días!
                             </span>
                             <div  class="example  d-md-flex">
                                 <div id="contadorCyber4" class="flipdown">                                    
@@ -230,7 +230,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >Por ¡Últimos días!
+                                                                    >¡Últimos días!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber3" class="flipdown">
@@ -1262,6 +1262,7 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
+
 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
     
     color: #0854c4 !important;
