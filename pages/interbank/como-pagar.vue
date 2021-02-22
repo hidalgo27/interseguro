@@ -82,7 +82,6 @@
                                                         Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                     </div>
                                                     <div class="input-group  iptGral editable  box-iptCard">
-                                                        <img src="../../static/media/img/flujo/como-pagar/icon-tarjeta.png" class="icon-tarjeta"/>
                                                         <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
                                                         id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
                                                         aria-label="Número de tarjeta" autocomplete="cc-number"
@@ -1868,7 +1867,7 @@ a.steps__item.paso1:after{
         display: none;
     }
     .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        background: #fff !important;
+        background-color: #fff !important;
         border-radius: 4px;
     }
     #cardmes{
@@ -2295,7 +2294,7 @@ a.steps__item.paso1:after{
 // }
 
     .iptGral.editable .iptGral__input {
-        padding-left: 30px;
+        padding-left: 42px;
         max-width: 460px;
         height: 48px;
         border: 1px solid #D1D1D1 !important;
@@ -2387,7 +2386,7 @@ a.steps__item.paso1:after{
             position: absolute;
             z-index: 9;
             width: 20px;
-            left: 29px;
+            left: 15px;
         }
         
         .ipt-year{
@@ -2526,7 +2525,7 @@ a.steps__item.paso1:after{
             width: 100%;
         }
         .card-custom__date .form-group-custom:nth-child(1) {
-            width: 112px;
+            width: 121px;
             position: relative;
         }
         .card-custom__date .form-group-custom:nth-child(2) {
