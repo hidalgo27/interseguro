@@ -1,7 +1,20 @@
 <template>
     <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
         <!-- v-bind:class="{'d-none': opacityNone}" -->
-        
+        <div id="newModal" style="display:none" >
+        <div class="phoneContent">
+                 <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
+                  <img src="./../../static/media/interseguroVehicular_v2/cardImage.svg" alt="telefono">
+                 </a>
+          </div>
+            <br>
+            <p style="color : #0855C4; font-size : '23px'">Error en el pago</p>
+            <br>
+            <p style="color: #454A6C;
+    font-family: 'Omnes Regular';
+    opacity: 1;">{{textErrModal}}</p>
+
+        </div>   
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -436,6 +449,8 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterseguroFlujo',
         data(){
             return {
+                htmlModal : '',
+                textErrModal : '',
                 flotanteCovid: true,
                 valeAgora: false,
                 urlLocal:'',
@@ -795,14 +810,45 @@ import { validationMixin } from 'vuelidate'
                                 }
                                 this.$store.dispatch('common/eventoErrores', errorDetectado)
                                 this.opacidad =false
-                             
+                                const messageErr = JSON.parse(JSON.parse(res.body).body);
+
+
+                                const showMessageErr = () => {
+                                    const err = messageErr.decline_code;
+                                    if(err == 'stolen_card'){
+                                        return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'lost_card'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'insufficient_funds'){
+                                        return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
+                                    }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'incorrect_cvv'){
+                                        return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'issuer_not_available'){
+                                        return 'El pago no pudo ser procesado. Por favor vuelve a realiazr el pago en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'processing_error'){
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al (01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.'
+                                    }else {
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al (01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.'
+                                    }
+                                };
+
+                                this.textErrModal = showMessageErr();
+                                if(!this.htmlModal){
+                                    this.htmlModal = document.getElementById('newModal');
+                                    this.htmlModal.style.display = "";
+                                }
+
                                 this.$swal({
-                                    title: 'Oops...',
-                                    text: JSON.parse(res.body).message,
-                                    type: 'error',
-                                    showCancelButton: false,
-                                    confirmButtonColor: '#2177CC',
-                                    confirmButtonText: 'OK'
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    text: showMessageErr(),
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
                                 })
                             }else{
                                 this.opacidad =false
@@ -1264,6 +1310,16 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
+.swal-buttonx .swal2-close{
+    border-radius: 50px !important;
+    display: flex !important;
+    /* border: 1px solid red; */
+    top: -22px !important;
+    right: -16px !important;
+    background: white !important;
+    color: #0855C4 !important;
+    box-shadow: 0px 2px 10px -1px #949297 !important;  
+}
 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
     
     color: #0854c4 !important;
