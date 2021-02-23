@@ -2183,7 +2183,7 @@ a.steps__item.paso1:after{
         .ipt-month{
             width: 40px;
             padding-right: 8px !important;
-            // background-image: url("./../../static/media/img/root/calendar.png");
+            background-image: url("./../../static/media/img/root/calendar.png");
             background-repeat: no-repeat;
             background-position-x: 12px;
             background-position-y: 14px;
@@ -2194,7 +2194,7 @@ a.steps__item.paso1:after{
             padding-left: 41px !important;
         }
         .ipt-month:focus {
-            // background-image: url("./../../static/media/img/root/calendar.svg");
+            background-image: url("./../../static/media/img/root/calendar.svg");
             box-shadow: none;
         }
         
