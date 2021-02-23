@@ -2017,7 +2017,6 @@ a.steps__item.paso1:after{
         display: none;
     }
     .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        background: #fff !important;
         border-radius: 4px;
     }
     #cardmes{
