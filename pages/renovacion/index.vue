@@ -105,7 +105,7 @@
                                             </span>
                                             
                                             <b-tooltip target="tooltip-suma-asegurada" triggers="hover">
-                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
+                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ {{this.listCotizacion.vehicle.minimum}} y US$ {{this.listCotizacion.vehicle.maximum}}
                                             </b-tooltip>
 
                                         </p>
@@ -134,13 +134,7 @@
                                     </div>
                                     <div class="nueva-poliza--item  cuota">
                                         <p class="item-titulo">Cuota:
-                                            <span id="tooltip-cuota"  class="tooltip-icon ">
-                                                ?
-                                            </span>
                                             
-                                            <b-tooltip target="tooltip-cuota" triggers="hover">
-                                                Puedes editar la suma asegurada de tu póliza siempre que el valor se encuentre entre US$ MIN y US$ MAX
-                                            </b-tooltip>
                                         </p>
                                         <p  class="item-descripcion" v-if="this.payment == 1">$ {{ this.listCotizacion.policy.monthly}}  </p>
                                         <p  class="item-descripcion" v-else-if="this.payment == 2">$ {{ this.listCotizacion.policy.quarterly}}  </p>
@@ -388,7 +382,7 @@
 
                 <b-modal id="modalNoRenovar" title="Bootstrap-Vue" hide-footer hide-header ref="modalNoRenovar" size="md">
                     <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalNoRenovar()">
-                    <div class="respuesta-culqi  exitosa" v-if="comentariosEnviados">
+                    <div class="hemos-recibido-comentario" v-if="comentariosEnviados">
                         <img class="exitosa-img" src="./../../static/media/img/renovacion/tarjeta-aceptada.png" alt="">
                         <p>Hemos recibido tu comentario <br>
                              ¡Muchas gracias!</p>
@@ -521,13 +515,10 @@
                             </div>
                             <div class="box-btn-renovaciones">
                                 <button type="submit" @click="continuar" class="btn-primario-renovaciones" :disabled='this.isDisabledPayment'>
-                                    <span style="">ACTUALIZAR</span>                            
+                                    <span  v-bind:class="{'d-none': estamosProcesandoTuPago}">ACTUALIZAR</span>
+                                    <span class="msj-procesando-pago  parpadea" v-bind:class="{'msj-procesando-pag-activo': estamosProcesandoTuPago}">Estamos procesando tu solicitud ...</span>                            
                                 </button>
                             </div>
-                            
-                            <p v-if="estamosProcesandoTuPago" class="estamos-procesando-tuPago">
-                                Estamos procesando la actualización de tu tarjeta
-                            </p>
                         </div>
                     </div>
                 </b-modal>

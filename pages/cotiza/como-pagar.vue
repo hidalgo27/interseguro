@@ -102,12 +102,11 @@
                                                         Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                     </div>
                                                     <div class="input-group  iptGral editable  box-iptCard">
-                                                        <img src="../../static/media/img/flujo/como-pagar/icon-tarjeta.png" class="icon-tarjeta"/>
                                                         <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
                                                         id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
                                                         aria-label="Número de tarjeta" autocomplete="cc-number"
                                                         aria-describedby="numberDocumentFeedback"
-                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cartNumber"/>
+                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
                                                         
                                                         <img width="30" :src="creditCardImage" >
                                                         <span class="error-card">error momentaneo</span>
@@ -117,7 +116,6 @@
                                                     <div class="card-custom__date">
                                                         <div class="form-group-custom">                                                            
                                                             <div id="box-mes" class="input-group  iptGral editable">   
-                                                                <img src="../../static/media/img/flujo/como-pagar/icon-mes.png" class="icon-mes"/>
                                                                 <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
                                                                  class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
                                                                   v-model="card.expiration_month" type="tel" name="cardmes"/>
@@ -136,7 +134,6 @@
                                                     <div class="card-custom__cvv">
                                                         <div class="form-group-custom">
                                                             <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
-                                                                <img src="../../static/media/img/flujo/como-pagar/icon-ccv.png" class="icon-ccv"/>                                   
                                                                 <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
                                                                 id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
                                                                 aria-describedby="numberFeedback"
@@ -1403,7 +1400,7 @@ a.steps__item.paso1:after{
 }
 .steps-box{
     padding-top: 143px;;
-    background: #f7f4fc;
+    background: #ffffff;
     .steps-plan{
         margin-bottom: 26px;
         background: white;
@@ -1800,20 +1797,11 @@ a.steps__item.paso1:after{
         &__ingresatarjeta{
             padding: 24px 16px 12px;
             border-radius: 0 0 16px 16px;
-            background: #f7f4fc;
+            background: #fff;
             .box-ingresaTarjeta{
                 background: white;
                 padding: 18px 15px 0 15px;
             }
-            &:before{
-                content: "";
-                position: absolute;
-                left: 0;
-                background: #f7f4fc;
-                width: 2px;
-                height: 90%;
-                top: 5%;
-            }           
             .boxtitulo{
                 &__secundario{
                     color: #0BD360;
@@ -2054,7 +2042,6 @@ a.steps__item.paso1:after{
         display: none;
     }
     .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        background: #fff !important;
         border-radius: 4px;
     }
     #cardmes{
@@ -2148,29 +2135,186 @@ a.steps__item.paso1:after{
             font-size: 20px;
         }
     }
+    .iptGral.editable .iptGral__input {
+        padding-left: 30px;
+        max-width: 460px;
+        height: 48px;
+        border: 1px solid #D1D1D1 !important;
+        box-shadow: none;
+        line-height: 48px;
+    }
+    .iptGral.editable ::placeholder {
+        color: #D1D1D1 !important;        
+    }
+    .box-iptCard{
+        position: relative;
+        display: flex;
+        align-items: center;
+        img{
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            padding-top: 8px;
+            right: 8px;
+
+        }
+        .icon-tarjeta{
+            position: absolute;
+            width: 18px;
+            left: 0;
+            padding-top: 0;
+            margin-left: 6px;
+        }
+        .ipt-cardNumber{            
+            background-image: url("./../../static/media/img/root/tarjeta.svg");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        .ipt-cardNumber:focus {
+            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+            border: 1.5px solid #0855c4!important;
+            box-shadow: none;
+        }        
+    }
+    .card-interseguro{
+        border-radius: 5px;
+        width: 100%;
+        max-width: 440px;
+        .form-label.col-form-label.label-completed{
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+        .subtitulo{
+            color: #0BD360;
+        }
+        label{
+            color: #0855c4;
+        }
+        .slash-symbol{
+            position: relative;
+            label{
+                position: absolute;
+                bottom: -4px;
+                z-index: 99;
+                font-size: 26px;
+                padding-bottom: 0;
+                color:#0855c4;
+            }
+        }
+        .ipt-month{
+            width: 40px;
+            padding-right: 8px !important;
+            background-image: url("./../../static/media/img/root/calendar.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+            text-align: left !important;
+            padding-left: 41px !important;
+        }
+        .ipt-month:focus {
+            background-image: url("./../../static/media/img/root/calendar.svg");
+            box-shadow: none;
+        }
+        
+        .img-activefocus{
+            position: absolute;
+            z-index: 9;
+            width: 20px;
+            left: 29px;
+        }
+        
+        .ipt-year{
+            width: 65px;
+            padding: 0 5px 0 0;
+            text-align: left !important;
+            padding-left: 0 !important;
+            padding-left: 6px !important;
+        }
+        .ipt-cvv{
+            width: 60px;
+            padding: 0 0 0 8px;
+            background-image: url("./../../static/media/img/root/ccv.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        #box-ccv .ipt-cvv:focus {
+            background-image: url("./../../static/media/img/root/cvv_focus.png");
+            border: 1.5px solid #0855c4 !important;
+            box-shadow: none;
+        }
+        .text-right-custom{
+            text-align: right;
+            label{
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+        }
+        .iptGral__input{
+            color: #616161;
+            font-size: 20px;
+        }
+    }
+    .metodo_pago_img{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        img{
+            height: 22px;
+            width: auto;
+        }
+    }
 
     .card-custom{
         display: flex;
         justify-content: space-between;
-        width: 100%;
-        margin-top: 16px;
+        max-width: 440px;
         &__cvv{
-            width: 40%;
+            max-width: 220px;
+            width: 50%;
             position: relative;
             z-index: 7;
-            margin-left: -4px;
-            left: -1px;
             box-sizing: content-box;
+            #box-ccv{
+                position: relative;
+                display: flex;
+                align-items: center;
+                .icon-ccv{
+                    position: absolute;
+                    width: 18px;
+                    left: 0;
+                    padding-top: 0;
+                    margin-left: 6px;
+                    z-index: 9;        
+                }
+                input{
+                    padding-left: 34px;
+                }
+            }
+        }
+        &__date.activeFocus{
+            border: 1px solid #0855c4;
         }
         &__date{    
-            width: 40%;
-            display: flex;
+            max-width: 220px;
+            width: 50%;
+            display: inline-flex;
             .form-group-custom{
                 &:nth-child(1){
-                    width: 50%;
+                    width: 92px;
                 }
                 &:nth-child(2){
-                    width: 50%;
+                    width: 70%;
                 }
                 &:nth-child(4){
                     width: 50%;
@@ -2190,7 +2334,7 @@ a.steps__item.paso1:after{
                     }
                     &:after{
                         width: 5px;
-                        height: 36px;
+                        height: 46px;
                         background: #fff;
                         content: "/";
                         top: 1px;
@@ -2198,10 +2342,37 @@ a.steps__item.paso1:after{
                         position: absolute;
                         z-index: 99;
                         font-size: 17px;
-                        line-height: 34px;
+                        line-height: 44px;
+                        color: #d3ddef;
                     }
                 }
             }
+        }
+    }
+    .card-custom__date{
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 94px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
+    @media (min-width: 1200px) {
+        .card-interseguro{
+            width: 100%;
+        }
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 112px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
         }
     }
     .modal-personal-title {
