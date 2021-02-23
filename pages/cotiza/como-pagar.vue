@@ -2136,12 +2136,12 @@ a.steps__item.paso1:after{
         }
     }
     .iptGral.editable .iptGral__input {
-        padding-left: 30px;
+        padding-left: 38px;
         max-width: 460px;
         height: 48px;
         border: 1px solid #D1D1D1 !important;
         box-shadow: none;
-        line-height: 48px;
+        line-height: 1;
     }
     .iptGral.editable ::placeholder {
         color: #D1D1D1 !important;        
@@ -2298,7 +2298,7 @@ a.steps__item.paso1:after{
                     z-index: 9;        
                 }
                 input{
-                    padding-left: 34px;
+                    padding-left: 38px;
                 }
             }
         }
