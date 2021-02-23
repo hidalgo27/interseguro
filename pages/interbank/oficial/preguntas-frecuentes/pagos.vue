@@ -30,7 +30,7 @@ export default {
     return {
       TextoTab: "Pagos", 
       imagenMenu: require("@/static/media/img/root/pf/pagos.png"),
-      regresarPrincipal: '/oficial/preguntas-frecuentes/',
+      regresarPrincipal: '/interbank/oficial/preguntas-frecuentes/',
       preguntas: [
         {
           title: "¿Dónde puedo comprar el seguro vehicular?", 

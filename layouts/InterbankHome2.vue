@@ -1,6 +1,6 @@
 <template>
-    <div>      
-      <header-is></header-is>
+    <div>
+      <header-is></header-is>      
         <div>
           <nuxt/>
         </div>
@@ -9,52 +9,46 @@
 </template>
 
 <script>
-import Header from '@/components/headers/HeaderParametro'
-import HeaderCotizador from '@/components/headers/HeaderInterseguroCotizador'
+import Header from '@/components/headers/HeaderHomeIBK'
 import Footer from '@/components/footers/Footer'
-import FadeLoader from '@/components/loaders/FadeLoader'
 export default {
-  data () {
+  data() {
     return {
-      businessId: "",
       loadinggss:true,
       loading: false,
       color: "#00ADEE",
       sizePulse: "45px",
       size: "30px",
       ocultoAcctivador:false,
-      cuentaSueldo: false,
-      show: true,
-      textLoader: '',
+      cuentaSueldo: false
     }
   },
+ 
   methods: {
     
   },
   components: {
     'header-is': Header,
-    'footer-is': Footer,
-    'header-cotizador':HeaderCotizador,
-    'fade-loader': FadeLoader
+    'footer-is': Footer
   },
-  created () {
-    let self = this
-    // listen to show-loader event
-    this.$nuxt.$on('show-loader', ({ text }) => {
-      self.textLoader = text
-      self.show = true
-    })
-    this.$nuxt.$on('hide-loader', () => { self.show = false })
+  created() {      
+      if(this.$route.name == "pagogss-pagogss"){        
+        this.loadinggss = true
+      }else{
+        this.loadinggss = false
+      }
   },
   mounted() {
-    console.log("LAYOUT 1")
+    console.log("LAYOUT 7")
     this.cuentaSueldo = localStorage.getItem("urlLocal") == '/cuentasueldo'  || localStorage.getItem("urlLocal") == '/tarjetaoh'? true : false
-    this.businessId = this.$store.state.common.businessId
   }
 }
 </script>
 
 <style lang="scss">
+  body{
+    font-family: "Montserrat Regular";
+  }
   .cuentaSueldobox{
     padding-top: 0px;
   }
@@ -63,4 +57,19 @@ export default {
       padding-top: 51px;
     }
   }
+  .campania-mobile{
+    height: 75px !important;
+    text-align: center;
+    h3{
+      width: 100% !important;
+    }
+    p{
+      width: 100% !important;
+    }
+  }
+  .w-slider {
+    height: 300px;
+    overflow: hidden;
+  }
+
 </style>

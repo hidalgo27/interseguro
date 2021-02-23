@@ -30,7 +30,7 @@ export default {
     return {
       TextoTab: "Asistencias", 
       imagenMenu: require("@/static/media/img/root/pf/asistencias.png"),
-      regresarPrincipal: '/oficial/preguntas-frecuentes/',
+      regresarPrincipal: '/interbank/oficial/preguntas-frecuentes/',
       preguntas:  [
           {
             title: "¿Qué servicios incluye?",

@@ -384,7 +384,7 @@
                                 
                                 <td><p><strong>Frente a Ocupantes:</strong><br><span>$10,000 por ocupante. Máximo 5 ocupantes</span></p></td>
                                 <td align="center" rowspan="2"><p><span>$150</span></p></td>
-                                <td align="center" rowspan="2"><p><span>%10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center" rowspan="2"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -433,7 +433,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <!-- <td align="center"><p><span>%10 del monto a<br>indemnizar</span></p></td> -->
+                                <!-- <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td> -->
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -490,7 +490,7 @@
                                     <img width="14" src="../../static/media/img/exclamacion.png" alt="">Se incluyen todos los que hayan sido observados durante
                                         la inspección vehicular. (ejm: radio, aros, gps, etc)</span></p></td>
                                 <td align="center"><p><span>$150</span></p></td>
-                                <td align="center"><p><span>%10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -503,7 +503,7 @@
                                  
                                 </p></td>
                                 <td align="center"><p><span>Nacionales : $0</span> <br> <span>Importadas: $150</span></p></td>
-                                <td align="center"><p><span>%10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>

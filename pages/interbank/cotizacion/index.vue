@@ -5,23 +5,29 @@
     </div>
     <div class="capaOcultaGris" @click="clickCapaGris" v-bind:class="{mostrarCapaGris: mostrarCapaGris}">
     </div>
-    
-    <b-container class="contenedor-personalizado  " >
+        <!-- Facebook Pixel Code -->
+
+      <noscript>
+      <img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+      </noscript>
+
+      <!-- End Facebook Pixel Code -->
+    <b-container class="contenedor-personalizado" >
       <b-row>
         <b-col cols="12" xl="12" class="m-auto">
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
-                  <router-link class="steps__item " to="/cotiza/cotizacion"   style="cursor: auto;"><li></li></router-link>
+                  <router-link class="steps__item " to="/interbank/cotizacion/"   style="cursor: auto;"><li></li></router-link>
                 </template>              
                 <template >
                   <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
-                  <router-link v-else class="steps__item " to="/cotiza/cotizacion" style="cursor: auto;"><li></li></router-link>
+                  <router-link v-else class="steps__item " to="/interbank/cotizacion/" style="cursor: auto;"><li></li></router-link>
                 </template>
                 <template >
-                  <router-link  class="steps__item   steps--active  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
+                  <router-link  class="steps__item   steps--active  paso1" to="/interbank/cotizacion/"><li></li></router-link>                
                 </template>                              
-                  <li class="steps--progressBar"></li>                
+                  <li class="steps--progressBar" style="background-color: #0133A1 !important;"></li>                
               </ul>
             </div> 
         </b-col>  
@@ -72,7 +78,7 @@
                 <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
                   
 
-                  <p class="listas--titulo ">
+                  <p class="listas--titulo mt-2  mb-2">
                       Selecciona la marca
                     </p>
                   <div class="listas--box">
@@ -771,11 +777,11 @@
         />
          <div class="box-mensajeEnviadoCotizacion" v-bind:class="{mostrarMensajeEnviadoCotizacion : mostrarMensajeEnviadoCotizacion}">
             <img width="80" class="check-enviado" src="./../../../static/media/img/ibk/mail-ibk.svg" alt="">
-            <p class="modal-titulo  modal-titulo-enviado"><strong>Hemos enviado tu cotización a tu correo. </strong> <br> No lo dudes y compra hoy al precio más bajo. </p>
+            <p class="modal-titulo  modal-titulo-enviado"><strong>¡Ya tienes la cotización en tu correo! Puedes compartirla con quien quieras </strong> </p>
           </div>
 
         <div class="modalEnviarEmail">
-            <p class="modal-titulo">Recibe tu cotización en tu correo</p>
+            <p class="modal-titulo">Recibe la cotización en tu correo</p>
             
             <div class="fechaCotizador">
                 <b-form-input id="input-small" placeholder="Ejem. lperez@gmail.com"  v-model="email"></b-form-input>
@@ -1215,7 +1221,7 @@
     />
       <div class="v2modalGPS">
         <div class="v2modalGPS__header">
-          <img src="./../../../static/media/interseguroVehicular_v2/auto-gps.png" alt="">
+          <img src="./../../../static/media/img/ibk/auto-gps.svg" alt="">
           <div class="texto-header">
             <p class="titulo">Tu {{this.itemElegido.brand }} necesita un GPS, te ayudamos a contratarlo</p>
             <span class="descripcion">
@@ -1227,7 +1233,7 @@
           <div class="box-empresas">
             <div class="empresa-item">
               <div class="empresa-item__der">
-                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <img src="./../../../static/media/img/ibk/empresa.svg" alt="">
                 <span>Empresa:</span>
                 <p>Protemax</p>
               </div>
@@ -1242,7 +1248,7 @@
 
             <div class="empresa-item">
               <div class="empresa-item__der">
-                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <img src="./../../../static/media/img/ibk/empresa.svg" alt="">
                 <span>Empresa:</span>
                 <p>Satellital Patrol</p>
               </div>
@@ -1257,7 +1263,7 @@
 
             <div class="empresa-item">
               <div class="empresa-item__der">
-                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <img src="./../../../static/media/img/ibk/empresa.svg" alt="">
                 <span>Empresa:</span>
                 <p>Tracklink Motor link</p>
               </div>
@@ -1272,7 +1278,7 @@
 
             <div class="empresa-item">
               <div class="empresa-item__der">
-                <img src="./../../../static/media/interseguroVehicular_v2/empresa.png" alt="">
+                <img src="./../../../static/media/img/ibk/empresa.svg" alt="">
                 <span>Empresa:</span>
                 <p>Prosegur</p>
               </div>
@@ -1319,12 +1325,13 @@
     />
     <div class="box-mensajeEnviadoEndosar" v-bind:class="{mostrarMensajeEnviadoEndosar : mostrarMensajeEnviadoEndosar}">
         <div class="endosar-item">
-          <img width="80" class="check-enviado" src="./../../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="">
-          <p class="modal-titulo-endoso">Tu Seguro Vehicular se ha endosado correctamente al {{this.endosoSeleccionado.name}}</p>
+          <img width="80" class="check-enviado" src="./../../../static/media/img/ibk/mensaje-enviado-cotizacion-ibk.svg" alt="">
+          <p class="modal-titulo-endoso">Tu póliza se ha endosado correctamente</p>
+          <!-- <p class="modal-titulo-endoso">Tu Seguro Vehicular se ha endosado correctamente al {{this.endosoSeleccionado.name}}</p> -->
         </div>
     </div>
 
-     <p class="modal-titulo">¿Dónde pediste tu crédito vehicular?</p>
+     <p class="modal-titulo" style="color: #333;">¿Dónde pediste tu crédito vehicular?</p>
       <div id="boxEndosoSesion"  class="modalEntidadFinanciera  endosoSesion">
         <div v-for="(item, index) in listaNuevaDeEndoso" :key="index">
           <div v-on:click="setearEntidadFinanciera(item)">
@@ -1784,6 +1791,29 @@
       },
     },
     methods: {
+      pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
       handleScroll(eve) {
         if (window.scrollY >= 750) {
             this.opacityNone = true        
@@ -1972,8 +2002,9 @@
         this.detectarPLanSeleccionado()
       },
       continuar(e,id) {
+        
+        e.stopPropagation();
         console.log(id)
-        event.stopPropagation();
         this.seleccionarPLanDesktop(id)
         this.$store.commit('common/setFrecuenciaPago', this.selected)
         this.cobertura_is.credit = this.endosoSeleccionado.name
@@ -2001,7 +2032,7 @@
         }else{
         }
         this.cotizador_datalayer('addToCart')
-        this.$nuxt.$router.push('../ingresa-tu-documento')
+        this.$nuxt.$router.push({path: "./../ingresa-tu-documento/"});
 
       },
       getVehicle(){
@@ -2111,14 +2142,14 @@
         if (this.$store.state.common.nuevoProducto == true) {
           url = "/vehicular-app/cotiza/cotizacion/"
         }else if (this.$store.state.common.nuevoProducto == false){
-          url = "/vehicular/cotiza/cotizacion/"
+          url = "/vehicular/interbank/cotizacion/"
         }
           
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
             "page-url": url,
-            "page-title": "Cotizacion",
+            "page-title": "Interbank Cotizacion",
             datos_vehicular_encontrado: valor, // podria ser false
             ecommerce: {
               checkout: {
@@ -3185,7 +3216,7 @@
         this.$store.commit('common/setEmail', this.email)
           this.$store.dispatch('common/enviarMailing').then((res) => {
             this.mostrarMensajeEnviadoCotizacion = false
-            this.$nuxt.$router.push("../ingresa-tu-documento")
+            this.$nuxt.$router.push("./../ingresa-tu-documento")
           }).catch(()=>{
             this.mostrarMensajeEnviadoCotizacion = false
           })
@@ -3198,7 +3229,7 @@
   },
 
   mounted: function () {
-
+this.pixelfacebook()
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
@@ -3288,10 +3319,19 @@
 </script>
 
 <style lang="scss" scoped>
-
+.steps--progressBar {
+    background-color: #0133A1 !important;
+}
+a.steps__item.paso1:after {
+    background: #0133A1 !important;
+}
+.box-steps .plan-titulo p {
+    border-radius: 3px;
+}
   .modal .modal-titulo {
     color: #333333;
-    font-family: 'Omnes medium';
+    font-family: 'Montserrat medium';
+    width: 260px !important;
   }
 
   .modal .box-btns .btn-principal {
@@ -3319,7 +3359,7 @@
     max-width: 472px;
     width: 100%;
     height: 509px;
-    font-family: 'Omnes Regular';
+    font-family: 'Montserrat Regular';
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -3336,7 +3376,7 @@
         color: #ffffff;
     }
     span {
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
     }
     .btn{
         background-color: #00C450;
@@ -3369,7 +3409,8 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  padding-top: 120px;
+  font-family: 'Montserrat Medium';
   .img-close{
     position: absolute;
     right: -24px;
@@ -3408,7 +3449,7 @@ button:focus{
 .v2modalGPS{
   &__header{
     display: flex;
-    background: #333333;
+    background: #0133A1;
     padding: 16px;
     justify-content: center;
     align-items: center;
@@ -3419,13 +3460,13 @@ button:focus{
       width: 79px;
     }
     .titulo{
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 18px;
       color: #ffffff; 
       margin-bottom: 8px;
     }
     .descripcion{
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       font-size: 14px;
       color: #ffffff; 
     }
@@ -3446,19 +3487,19 @@ button:focus{
     }
     .certificado{
       color: #454A6C;
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       font-size: 16px;
       margin-bottom: 24px;
     }
     .tienes-gps{
       color: #333333;
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 23px;
       margin-top: 36px;
     }
     .finalizar-compra{
-      color: #00C450;
-      font-family: 'Omnes Regular';
+      color: #0133A1;
+      font-family: 'Montserrat Regular';
       font-size: 16px;
       margin-top: 24px;
     }
@@ -3482,12 +3523,12 @@ button:focus{
       span{
         font-size: 11px;
         color: #454A6C;
-        font-family: 'Omnes Regular';
+        font-family: 'Montserrat Regular';
       }
       p{
         font-size: 18px;
         color: #454A6C;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         text-align: left;
       }
       &__der{
@@ -3508,7 +3549,7 @@ button:focus{
     p{
       color: #454A6C;
       font-size: 13px;
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       text-align: center;
     }
   }
@@ -3526,7 +3567,7 @@ button:focus{
   .modal-titulo-enviado{
     color: #333333;
     font-size: 17px;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     margin: auto;
     width: 92%;
   }
@@ -3541,7 +3582,7 @@ button:focus{
     .modal-titulo-endoso{
       color: #333333;
       font-size: 24px;
-      font-family: 'Omnes medium';
+      font-family: 'Montserrat medium';
       text-align: center;
       margin: auto;
       margin-bottom: 24px;
@@ -3599,7 +3640,7 @@ button:focus{
       display: inline-block;
       border-radius: 4px;
       font-size: 24px;
-      font-family: 'Omnes regular';
+      font-family: 'Montserrat regular';
       text-align: center;
       line-height: 50px;
       cursor: pointer;
@@ -3608,7 +3649,7 @@ button:focus{
   &--titulo{
     color: #333333;
     font-size: 25px;
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
     text-align: center;
     padding: 24px 0;
   }
@@ -3661,7 +3702,7 @@ button:focus{
       }
       .tooltip-descripcion{
         font-size: 16px;
-        font-family: 'Omnes Regular';
+        font-family: 'Montserrat Regular';
         margin-top: 12px;
       }
   }
@@ -3679,14 +3720,14 @@ button:focus{
   &--titulo{
     color: #333333;
     font-size: 25px;
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
     text-align: center;
   }
   .v2-valores-minimo-maximo{
     color: #454A6C;
     font-size: 11px;
     text-align: center;
-    font-family: 'Omnes regular';
+    font-family: 'Montserrat regular';
     margin-top: 8px;
   }
   .v2-valor-comercial{
@@ -3759,7 +3800,7 @@ button:focus{
         line-height: 45px;
         left: 24px;
         color: #454A6C;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
       }
     }
     .minimoImg, .maximoImg{
@@ -3780,7 +3821,7 @@ button:focus{
 }
  
 .v2-datos-carro{
-  font-family: 'Omnes Regular';
+  font-family: 'Montserrat Regular';
   border: 1px solid #D5D5D5;
   padding: 14px 24px 0;
   .v2-carro-editar{
@@ -3802,7 +3843,7 @@ button:focus{
       &:nth-child(1){
         color: #454A6C;
         font-size: 18px;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         margin-bottom: 24px
       }
     }
@@ -3810,7 +3851,7 @@ button:focus{
       position: relative;
       color: #0f67e6;
       font-size: 14px;
-      font-family: "Omnes Semibold";      
+      font-family: "Montserrat Medium";      
       cursor: pointer;
       border: 1px solid #0f67e6;
       padding: 1px 6px;
@@ -3824,7 +3865,7 @@ button:focus{
     position: relative;
     &--modelo{
       padding-left: 24px;
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       position: relative;
       &:before{
         content: "";
@@ -3839,7 +3880,7 @@ button:focus{
     }
     &--placa{
       min-width: 80px;
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       position: relative;
       
     }
@@ -3872,7 +3913,7 @@ button:focus{
       top: 2px;
     }
     .campo{
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
     }
   }
 }
@@ -3903,7 +3944,7 @@ button:focus{
     .flotante-dcto{
       background: #0133A1;
       color: #ffffff;
-      font-family: "Omnes Regular";
+      font-family: "Montserrat Regular";
       font-size: 25px;
       padding: 12px;
       position: absolute;
@@ -3938,7 +3979,7 @@ button:focus{
       color: #333333;
       text-decoration: underline;
       font-size: 16px;
-      font-family: 'Omnes medium';
+      font-family: 'Montserrat medium';
       :focus{
         outline: none;
       }
@@ -3953,7 +3994,7 @@ button:focus{
     .titulo{
       margin-bottom: 24px;
       font-size: 20px;
-      font-family: "Omnes Medium";
+      font-family: "Montserrat Medium";
       color: #454A6C;
       position: relative;
       
@@ -3963,7 +4004,7 @@ button:focus{
       margin: 1px 0;
       color: #454A6C;
       font-size: 16px;
-      font-family: "Omnes regular";
+      font-family: "Montserrat regular";
       padding-left: 20px;
       position: relative;      
       &:before{
@@ -4001,7 +4042,7 @@ button:focus{
     margin-top: 32px;
     .titulo{
       font-size: 20px;
-      font-family: "Omnes Medium";
+      font-family: "Montserrat Medium";
       color: #454A6C;
       margin-bottom: 16px;
     }
@@ -4012,7 +4053,7 @@ button:focus{
       p{
         color: #454A6C;
         font-size: 16px;
-        font-family: "Omnes regular";
+        font-family: "Montserrat regular";
       }
     }
   }
@@ -4020,11 +4061,11 @@ button:focus{
     width: 50%;
     .monto-frecuencia{
       color: #454A6C;
-      font-family: "Omnes Medium";
+      font-family: "Montserrat Medium";
       font-size: 30px;
     }
     .antes{
-      font-family: "Omnes Regular";
+      font-family: "Montserrat Regular";
       font-size: 18px;
       margin-top: 12px;
       text-decoration: line-through;
@@ -4037,7 +4078,7 @@ button:focus{
     .custom-select{
       height: 45px;
       color: #454A6C;
-      font-family: 'Omnes medium';
+      font-family: 'Montserrat medium';
       font-size: 20px;
       width: 150px;
       cursor: pointer;
@@ -4052,7 +4093,7 @@ button:focus{
     color: #454A6C;
     font-size: 16px;
     text-decoration: underline;
-    font-family: "Omnes medium";
+    font-family: "Montserrat medium";
   }
 }
 
@@ -4120,7 +4161,7 @@ button:focus{
 }
 a.steps__item.paso1:after{
   content: "1" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
@@ -4192,7 +4233,7 @@ a.steps__item.paso1:after{
       text-align: center;
       span{
         margin-right: 8px;
-        font-family: 'Omnes Regular';
+        font-family: 'Montserrat Regular';
         font-size: 18px;
         font-weight: 500;
         font-stretch: normal;
@@ -4231,7 +4272,7 @@ a.steps__item.paso1:after{
     
     span{
       
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       font-weight: 500;
       font-stretch: normal;
       font-style: normal;
@@ -4248,7 +4289,7 @@ a.steps__item.paso1:after{
 }
 .miAuto{
   .placa{
-    font-family: 'Omnes Regular';
+    font-family: 'Montserrat Regular';
     font-weight: 600;
     
   }
@@ -4259,7 +4300,7 @@ a.steps__item.paso1:after{
     font-style: normal;
     line-height: 1;
     letter-spacing: 1px;
-    color: #0754c4 !important;
+    color: #0133A1 !important;
   }
 }
 .editar-vehiculo-desktop{
@@ -4270,7 +4311,7 @@ a.steps__item.paso1:after{
 }
 .card-cobertura .card-header a[data-v-614db64e]:not(:disabled):not(.disabled):active, .card-cobertura .card-header a:not(:disabled):not(.disabled).active[data-v-614db64e], .card-cobertura .card-header .show > a.dropdown-toggle[data-v-614db64e] {
     color: #fff;
-    background-color: #0754c4;
+    background-color: #0133A1;
 }
 .w180px{
   min-width: 150px;
@@ -4335,14 +4376,14 @@ a.steps__item.paso1:after{
   padding-left: 8px;
   flex-direction: column;
   p{
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     font-size: 18px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1;
     letter-spacing: 1px;
-    color: #0754c4;
+    color: #0133A1;
     text-transform: uppercase;
   }
 
@@ -4376,7 +4417,7 @@ a.steps__item.paso1:after{
     text-align: center;
     width: 130px;
     height: 22px;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
@@ -4434,13 +4475,13 @@ a.steps__item.paso1:after{
     // padding-top: 24px;
     position: relative;
     .planRecomendado{
-      background: #0754c4;
+      background: #0133A1;
       position: absolute;
       width: 100%;
       top: 0;
       height: 24px;
       p{
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 12px;
         font-weight: 500;
         font-stretch: normal;
@@ -4468,7 +4509,7 @@ a.steps__item.paso1:after{
       background: #fece08;
       content: 'Plan recomendado ';
       height: 24px;
-      color: #0754c4;
+      color: #0133A1;
       position: absolute;
       top: 0;
       width: 100%;
@@ -4496,7 +4537,7 @@ a.steps__item.paso1:after{
     background-color: #f0f2f6;
   }
   &__titulo{
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     font-size: 32px;
     font-weight: 500;
     font-stretch: normal;
@@ -4505,7 +4546,7 @@ a.steps__item.paso1:after{
     letter-spacing: normal;
     text-align: center;
     .mes{
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 14px;
       font-weight: normal;
       font-stretch: normal;
@@ -4563,14 +4604,14 @@ a.steps__item.paso1:after{
 }
 .texto-seleccionaPlan{
   padding: 12px 0  4px;
-  font-family: 'Omnes Medium';
+  font-family: 'Montserrat Medium';
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.17;
   letter-spacing: 0.09px;
-  color: #0754c4;
+  color: #0133A1;
 }
 .panel-planes{
   display: flex;
@@ -4667,12 +4708,12 @@ a.steps__item.paso1:after{
   .card-header{
     padding: 0;
     a{
-      background-color: #0754c4;
+      background-color: #0133A1;
       border: none;
     }
     a:not(:disabled):not(.disabled):active, a:not(:disabled):not(.disabled).active, .show > a.dropdown-toggle {
         color: #fff;
-        background-color: #0754c4;
+        background-color: #0133A1;
     }
   }
 }
@@ -4722,7 +4763,7 @@ a.steps__item.paso1:after{
       cursor: pointer;
       color: #454A6C;
       font-size: 16px;
-      font-family: "Omnes medium";
+      font-family: "Montserrat medium";
       text-decoration: underline;
     }
   }
@@ -4791,7 +4832,7 @@ a.steps__item.paso1:after{
     height: auto;
   }
   p{
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
     line-height: 1;  
     color: #333333;
     font-size: 14px;  
@@ -4808,14 +4849,14 @@ a.steps__item.paso1:after{
 .datos-vehiculo-mobile{
   padding-top: 14px;
   .mi-carro{
-    font-family: 'Omnes Regular';
+    font-family: 'Montserrat Regular';
     font-size: 22px;
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: 1px;
-    color: #0754c4;
+    color: #0133A1;
     padding-bottom: 8px;
   }
   .item{
@@ -4840,8 +4881,8 @@ a.steps__item.paso1:after{
     line-height: normal;
     letter-spacing: normal;
     text-align: right;
-    color: #0754c4;
-    border: 1px solid #0754c4;
+    color: #0133A1;
+    border: 1px solid #0133A1;
     border-radius: 6px;
     padding: 2px 10px;
   }
@@ -5029,7 +5070,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       border-bottom: 1px solid rgba(0, 0, 0, 0.12);
       padding-left: 8px;
       font-size: 1rem;
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       cursor: pointer;
       p{
         height: 35px;
@@ -5145,7 +5186,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .campaniatv-textos {
     color: #5fa9fc;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     font-size: 16px;
     font-weight: 600;
     line-height: 19px;
@@ -5155,7 +5196,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 .requiere-gps {
   color: #454A6C;
   font-size: 16px;
-  font-family: "Omnes regular";
+  font-family: "Montserrat regular";
   &:hover {
     cursor: pointer;
   }
@@ -5214,7 +5255,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .box-titulo{
     p{
       text-shadow: 0 3px 6px rgba(8, 84, 196, 0.02);
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 24px;
       font-weight: 500;
       font-stretch: normal;
@@ -5227,7 +5268,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     span{
       text-shadow: 0 3px 6px rgba(8, 84, 196, 0.02);
       display: inline-block;
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       font-size: 20px;
       font-weight: normal;
       font-stretch: normal;
@@ -5242,7 +5283,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .box-descripcion{
     padding-left: 12px;
     .titulo{
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       font-size: 18px;
       font-weight: 500;
       font-stretch: normal;
@@ -5253,7 +5294,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       color: #14aded;
     }
     .desc{
-      font-family: 'Omnes Regular';
+      font-family: 'Montserrat Regular';
       font-size: 16px;
       font-weight: normal;
       font-stretch: normal;
@@ -5266,7 +5307,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     
   }
   .disclaimer-porcentaje{
-    font-family: 'Omnes Regular';
+    font-family: 'Montserrat Regular';
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
@@ -5304,7 +5345,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   }
   .box-titulo {
     color: #00adee;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     font-size: 21.5px;
     font-weight: 600;
     letter-spacing: -0.31px;
@@ -5336,7 +5377,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
 
     .box-paso {
       color: #00C450;
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 15.74px;
       font-weight: 600;
       letter-spacing: -0.16px;
@@ -5349,7 +5390,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 28px;
         font-weight: 600;
         line-height: 43px;
@@ -5357,7 +5398,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .box-descripcion {
       color: #5e5e5e;
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 15.74px;
       font-weight: 500;
       line-height: 19px;
@@ -5439,7 +5480,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     padding: 0 12px !important;
     width: 170px !important;
     font-size: 17px !important;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     &:disabled {
       background: #9b9b9b;
     }
@@ -5467,7 +5508,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     background: #00C450;
     color: white;
     font-size: 15px;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     border-radius: 3px;
   }
 }
@@ -5727,7 +5768,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
     .cotizacion-datos_dto {
       color: #818181;
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 15px;
       font-weight: 500;
       line-height: 17px;
@@ -5737,7 +5778,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     .priceHead__head--detail {
       .checkbox-aux__descripcion {
         color: #666666;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 10.8px;
         font-weight: 500;
         line-height: 11.7px;
@@ -5747,7 +5788,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .cobertura-enlace {
         color: #5e5e5e;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -5760,7 +5801,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .endoso {
         color: #5e5e5e;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -5802,7 +5843,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .monto-anual {
         color: #5fa9fc;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 16px;
         font-weight: 600;
         line-height: 19px;
@@ -5810,7 +5851,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       }
       .monto-mensual {
         font-size: 20px;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 64px;
         font-weight: 900;
         color: #5fa9fc;
@@ -5880,7 +5921,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       .gps {
         position: relative;
         color: #5e5e5e;
-        font-family: 'Omnes Medium';
+        font-family: 'Montserrat Medium';
         font-size: 15px;
         font-weight: 500;
         line-height: 16px;
@@ -5899,7 +5940,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       position: relative;
       display: block;
       color: #666666;
-      font-family: 'Omnes Medium';
+      font-family: 'Montserrat Medium';
       font-size: 13px;
       font-weight: 500;
       line-height: 16px;
@@ -6034,7 +6075,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   padding: 12px 0;
   margin-right: 12px !important;
   padding: 0 8px !important;
-  font-family: 'Omnes Medium';
+  font-family: 'Montserrat Medium';
 
   span {
     &:nth-child(1) {
@@ -6047,7 +6088,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     letter-spacing: 1px;
     line-height: 16px;
     text-align: center;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
   }
   &:hover {
     background: white !important;
@@ -6092,7 +6133,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   .modal-close-cotizacion {
-    font-family: 'Omnes Semibold';
+    font-family: 'Montserrat Medium';
     font-size: 30px;
     width: 40px;
     height: 40px;
@@ -6171,7 +6212,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     font-size: 20px;
     font-weight: 600;
     text-align: center;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -6583,7 +6624,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
       justify-content: center;
       align-items: center;
       color: #ffffff;
-      font-family: 'Omnes regular';
+      font-family: 'Montserrat regular';
       font-size: 20px;
     }
     .plan-black{
@@ -6732,7 +6773,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   .modal-lg {
     max-width: 660px !important;
   }
-  font-family: 'Omnes Regular';
+  font-family: 'Montserrat Regular';
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -6748,7 +6789,7 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     color: #454a6c;
   }
   span {
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
   }
   img {
     margin-top: 30px;

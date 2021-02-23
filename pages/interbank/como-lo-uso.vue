@@ -49,7 +49,7 @@
                         <div>
                             <h2 class="tabs-content__panel--title  text-center"><strong>Me robaron el carro</strong></h2>
                             <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Tranquilo, asegúrate de estar a
-                                salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 <span class="span-number">3.</span> Una persona del
+                                salvo.<br>‍<br><span class="span-number">2.</span> Llámanos al (01) 500 0000 <br> <br> <span class="span-number"> 3.</span> Una persona del
                                 equipo llegará a ayudarte inmediatamente.<br>‍<br><span class="span-number">4.</span> Te ayudamos
                                 a presentar una denuncia policial en la comisaría que corresponda y a pasar el dosaje etílico de ser necesario.
                                 <br>‍<br><span class="span-number">5.</span> Si pasan 30 días de haber presentado la denuncia y tu carro
@@ -86,7 +86,7 @@
                         </span>
                     </h3>
                 </div>
-                <nuxt-link class="button  btn-ibk"  to="/oficial/preguntas-frecuentes">ver Preguntas frecuentes</nuxt-link>
+                <nuxt-link class="button  btn-ibk"  to="/interbank/oficial/preguntas-frecuentes">ver Preguntas frecuentes</nuxt-link>
                 
             </b-container>
         </section>
@@ -147,7 +147,7 @@
                     </div>
                     </b-col>
                     <b-col class="pd-t16">
-                    <a v-bind:href="urlpdf" target="_blank" rel="noopener" class="button  btn-ibk">Descargar plantilla</a>
+                    <a href="https://www.interseguro.pe/vehicular/resources/mail/cambiateInterseguro/Carta_Cancelacio%CC%81n_de_Seguro.pdf" target="_blank" rel="noopener" class="button  btn-ibk">Descargar plantilla</a>
                     </b-col>
                 </b-row>
                 </div>
@@ -184,8 +184,8 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/como-lo-uso', 
-                'page-title': 'Como Lo Uso'
+                'page-url': '/vehicular/interbank/como-lo-uso', 
+                'page-title': 'Interbank Como Lo Uso'
             });
         }
 
@@ -198,7 +198,7 @@ export default {
             })
         }else{
         }
-        this.urlpdf = "require('./../../static/media/documentos/FAQs.pdf')"
+        this.urlpdf = require('./../../static/media/documentos/FAQs.pdf')
         this.PaginaVista()
         // var check = document.getElementById("nav-checkbox")
         // check.checked = false
@@ -209,6 +209,33 @@ export default {
 }
 </script>
 <style lang="scss" scope>
+
+.heading-7{
+    font-family: 'Geometria Medium';
+    font-size: 20px;
+}
+.section-header__title {
+    color: #333333;
+    font-family: 'Geometria Medium';
+    font-size: 24px;
+}
+.section-header__parrafo{
+    font-family: 'Montserrat Medium';
+}
+.section-header__subtitle {
+    font-family: 'Montserrat Regular';
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+.section-header__parrafo strong {
+    font-family: 'Montserrat Regular';
+
+}
+ul.steplist.w-list-unstyled {
+    padding-left: 56px;
+}
+
 .cambio{
     background: #EBFBF1;
     color: #00C450;
@@ -222,6 +249,11 @@ export default {
 .btn-ibk{
     background: #00C450;
     border-radius: 4px;
+    font-family: 'Geometria Medium';
+    font-weight: normal;
+    &:hover{
+        color: #fff;
+    }
 }
 .section-header__title {
     color: #333333;
@@ -233,7 +265,7 @@ export default {
 
 .como-lo-uso{
     padding-bottom: 0; 
-    padding-top: 85px;
+    padding-top: 120px;
     p{
         color: #333333;
     }
@@ -334,11 +366,26 @@ export default {
     padding-top: 50px
 }
 @media (min-width: 992px){
+    .section-header__subtitle {
+        font-family: 'Geometria Bold';
+        color: #333;
+    }
+    .section-header__title {
+        color: #333333;
+        font-family: 'Geometria Medium';
+        font-size: 44px;
+    }
+    .como-lo-uso{
+        padding-top: 120px;
+    }
     .darkbg {
         padding-top: 5%;
     }
     .tabs-content__panel--parrafo {
         font-size: 16px;
+    }
+    .heading-7{
+        font-size: 26px;
     }
 }
 

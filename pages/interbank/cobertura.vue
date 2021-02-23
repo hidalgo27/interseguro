@@ -197,7 +197,7 @@
                                     <p>
                                         Si los accesorios de tu carro son robados o dañados en un accidente.
                                         <br>
-                                        <br>Cubrimos hasta:  $1500
+                                        <br>Cubrimos hasta:  $1,500
                                         <br>
                                         <br>Pago mínimo : $150
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -384,13 +384,13 @@
                                 
                                 <td><p><strong>Frente a Ocupantes:</strong><br><span>$10,000 por ocupante. Máximo 5 ocupantes</span></p></td>
                                 <td align="center" rowspan="2"><p><span>$150</span></p></td>
-                                <td align="center" rowspan="2"><p><span>%10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center" rowspan="2"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
                             <tr style="background-color: #EBFBF1;">
-                                <td><p><strong>Frente a Terceros:</strong><br><span>Hasta $150000</span></p></td>
+                                <td><p><strong>Frente a Terceros:</strong><br><span>Hasta $150,000</span></p></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -433,7 +433,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <!-- <td align="center"><p><span>%10 del monto a<br>indemnizar</span></p></td> -->
+                                <!-- <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td> -->
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -485,12 +485,12 @@
                                 <td class="texto-izq">Accesorios</td>
                                 <td><p   style="max-width: 420px;"><strong>Si los accesorios de tu carro son robados<br>
                                 o dañados en un accidente</strong><br>
-                                <span>Cubrimos hasta: $1500</span><br>
+                                <span>Cubrimos hasta: $1,500</span><br>
                                 <span class="ausencia-control">
                                     <img width="14" src="../../static/media/img/exclamacion.png" alt="">Se incluyen todos los que hayan sido observados durante
                                         la inspección vehicular. (ejm: radio, aros, gps, etc)</span></p></td>
                                 <td align="center"><p><span>$150</span></p></td>
-                                <td align="center"><p><span>%10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -503,7 +503,7 @@
                                  
                                 </p></td>
                                 <td align="center"><p><span>Nacionales : $0</span> <br> <span>Importadas: $150</span></p></td>
-                                <td align="center"><p><span>%10 del monto a<br>indemnizar</span></p></td>
+                                <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -604,7 +604,7 @@
         <section class="servicios-tranquilidad  d-none  d-lg-block   pb-5">
             <div class="section-servicios">
                 <div class="section-header">
-                    <h1 class="section-header__title">Nuetros servicios adicionales</h1>
+                    <h1 class="section-header__title">Nuestros servicios adicionales</h1>
                 </div>
                 <div class="coverage-tab">
                     <b-tabs content-class="mt-3" justified >
@@ -662,11 +662,11 @@
                                         <img src="../../static/media/img/cobertura/incluye-chofer.png">
                                         <br>
                                         <br>
-                                        <span>*Si necesitas chóferes adicionales, agrega uno adicional a tu plan <br> por S/ 50.aplica para todos los planes.</span>
+                                        <span>*Si necesitas chóferes adicionales, agrega uno adicional a tu plan <br> por S/ 50. Aplica para todos los planes.</span>
                                         <br> <span> ** No incluye gastos en gasolina, peaje ni estacionamientos.</span>
                                     </b-col>
                                     <b-col>
-                                        <h4>¿Hasta donde llegan  nuestros servicio de grúas?</h4>
+                                        <h4>¿Hasta donde llegan  nuestros servicio de chofer de reemplazo?</h4>
                                         <div class="tab-servicios">                                           
                                             <div class="box-tab" style="background: white;">
                                                 <div class="box-tab__item">
@@ -759,7 +759,7 @@
                 </div>
                 <div class="section-body">
                     <b-row class="justify-content-center">
-                        <b-col cols="12" sm="6"  md="3" class="mb-5" v-for="(item, index) in ListNoCubrimos" :key="index" >
+                        <b-col cols="6" sm="6"  md="3" class="mb-5" v-for="(item, index) in ListNoCubrimos" :key="index" >
                             <div class="cobertura-3-item__title  mb-2">{{item.titulo}}</div>
                             <div class="cobertura-3-item  d_flex_column">
                             <div class="cobertura-icon">
@@ -885,7 +885,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br><span>*Si necesitas choferes adicionales, agrega uno adicional a tu plan por S/ 50. Aplica para todos los planes.</span>
+                                <br><span>*Si necesitas choferes adicionales, agrega uno adicional a tu plan por S/50. Aplica para todos los planes.</span>
                                 <br>
                                 <br><span>** No incluye gastos en gasolina, peaje ni estacionamientos.</span>
                             </div>
@@ -997,6 +997,31 @@
 </template>
 
 <style lang="scss" scope>
+.cobertura-mobile .accordion-tab__blue .btn-secondary {
+    background-color: #EBFBF1 !important;
+}
+.modal-content{
+    .span-primario {
+        color: #333;
+        margin: 12px 0;
+        font-family: 'Geometria Bold';
+    }
+    .box-modal2-p{
+        display: flex;
+        align-items: center;
+        img{
+            margin-right: 8px;
+        }
+    }
+}
+.v2-cobertura-ibk{
+    padding-top: 90px;
+
+    h4{
+        font-size: 20px;
+        font-family: 'Geometria Medium';
+    }
+}
 .section-header__title{
     font-family: 'Geometria Medium' !important;
 }
@@ -1033,7 +1058,7 @@
     }
     .point-desc{
         padding-left: 8px;
-        width: 350px;
+        max-width: 350px;
         font-size: 13px;
     }
     .nav-item{
@@ -1097,7 +1122,7 @@
             
             .point{
                 border-right: 2px solid #C1C1C1;
-                width: 100px;
+                min-width: 70px;
                 justify-content: center;
                 color: #5E5E5E;
             }
@@ -1151,7 +1176,6 @@
 }
 .v2-cobertura-ibk{
     background: #f7f4fc;
-    padding-top: 50px;
     p,div{
         margin: 0;
     }
@@ -1172,7 +1196,7 @@
             padding: 24px 0;
         }
         .coverage-tab{
-            color: #505050;
+            color: #333;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.08;
@@ -1221,13 +1245,13 @@
         background-color: #fcfcfc;
         .section-header{  
             &__title {
-                font-size: 22px;
-                font-weight: 500;
-                font-stretch: normal;
+                font-size: 24px;
                 font-style: normal;
                 letter-spacing: normal;
                 text-align: center;
-                color: #696969;
+                color: #333;
+                max-width: 326px;
+                margin: auto;
             }
         }
         .cobertura-3-item{
@@ -1250,7 +1274,7 @@
             }
             &__title{
                 font-family: 'Omnes Regular';
-                color: #505050;
+                color: #333;
                 font-weight: 600;
                 font-stretch: normal;
                 font-style: normal;
@@ -1288,7 +1312,7 @@
         tr{
             height: 47px;
             p{
-                color: #696969;
+                color: #333;
             }
         }
         .plata{
@@ -1315,7 +1339,7 @@
             line-height: 1;
             letter-spacing: normal;
             text-align: center;
-            color: #696969;
+            color: #333;
         }
     }
     tbody{
@@ -1328,7 +1352,7 @@
             line-height: 1.25;
             letter-spacing: 0.11px;
             text-align: left;
-            color: #505050;
+            color: #333;
         }
     }
 }
@@ -1336,19 +1360,19 @@
     font-family: 'Geometria Medium';
     .section-header{ 
         &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
+            font-size: 24px;
             font-style: normal;
             letter-spacing: normal;
             text-align: center;
-            color: #505050;
+            color: #333;
+            max-width: 326px;
+            margin: auto;
         }
     }
     .accordion-tab{
         .btn {
             height: 57px;
-            color: #505050;
+            color: #333;
             // background-color: #f1f7ff;
             line-height: 55px;
             text-align: left;
@@ -1374,7 +1398,7 @@
             p{
                 text-align: left;
                 strong{
-                    color: #0855c4;
+                    color: #00C450;
                 }
                 span{
                     font-size: 14px;
@@ -1384,7 +1408,7 @@
         .btn-secondary:not(:disabled):not(.disabled):active,
         .btn-secondary:not(:disabled):not(.disabled).active,
         .show > .btn-secondary.dropdown-toggle {
-            color: #505050;
+            color: #333;
         }
         &__blue{
             .btn-secondary:not(:disabled):not(.disabled):active,
@@ -1423,7 +1447,7 @@
         }
         a{
             font-size: 14px;
-            color: #0497ce;
+            color: #00C450;
             text-decoration-line: underline;
         }
         &__blue{
@@ -1456,7 +1480,7 @@
             letter-spacing: normal;
             strong{
                 font-size: 22px;
-                color: #0855c4;
+                color: #00C450;
                 font-weight: 600;
                 line-height: 1;
             }
@@ -1483,13 +1507,13 @@
 .servicios-tranquilidad{
     .section-header{  
         &__title {
-            font-size: 44px;
+            font-size: 33px;
             font-weight: 500;
             font-stretch: normal;
             font-style: normal;
             letter-spacing: normal;
             text-align: center;
-            color: #505050;
+            color: #333;
         }
     }
 }
@@ -1516,13 +1540,13 @@
     .section-header{
         padding: 24px 0;
         &__title {
-            font-size: 44px;
+            font-size: 33px;
             font-weight: 500;
             font-stretch: normal;
             font-style: normal;
             letter-spacing: normal;
             text-align: center;
-            color: #505050;
+            color: #333;
         }
     }
     .coverage-detail{
@@ -1535,7 +1559,7 @@
             h1{
                 font-size: 20px;
                 font-weight: 500;
-                color: #696969;
+                color: #333;
             }
             .tcobertura__cabecera{
                 p{
@@ -1543,7 +1567,7 @@
                 }
             }
             p{
-                color: #696969;
+                color: #333;
                 font-family: 'Geometria Medium';
                 font-weight: normal;
                 font-stretch: normal;
@@ -1587,8 +1611,17 @@
     border-color: transparent !important;
     box-shadow: none !important;
 }
-
+@media (min-width: 992px) {
+.v2-cobertura-ibk {    
+    background: #f7f4fc;
+    padding-top: 120px;
+}
+}
 @media (min-width: 1200px) {
+    .v2-cobertura-ibk .cobertura-3 .section-header__title{
+        font-size: 33px;
+        max-width: 100%;
+    }
     .cobertura-3{
         .cobertura-3-item{
             &__title{
@@ -1598,7 +1631,7 @@
         }
         .section-header{
             &__title{
-                font-size: 44px;
+                font-size: 33px;
             }
         }
     }
@@ -1732,8 +1765,8 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/cobertura', 
-                'page-title': 'Cobertura'
+                'page-url': '/vehicular/interbank/cobertura', 
+                'page-title': 'interbank Cobertura'
             })
         }
     },

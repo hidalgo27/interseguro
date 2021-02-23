@@ -5,11 +5,19 @@
       'pt-sinBlack': this.$store.state.common.flagCloseListon == 0,
     }"
   >
+      <!-- Facebook Pixel Code -->
+
+    <noscript>
+    <img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <!-- End Facebook Pixel Code -->
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class="m-auto">
           <div class="box-steps">
             <div class="backcotizacion" @click="volver($event)">
+
               <img
                 width="35"
                 src="../../static/media/img/flujo/cotizacion/back.svg"
@@ -21,7 +29,7 @@
               <template>
                 <router-link
                   class="steps__item"
-                  to="/cotiza/ingresa-tu-documento"
+                  to="/interbank/ingresa-tu-documento/"
                   style="cursor: auto"
                   ><li></li
                 ></router-link>
@@ -30,18 +38,18 @@
                 <router-link
                   v-if="documento_steps2 != ''"
                   class="steps__item steps--active paso2"
-                  to="/cotiza/ingresa-tu-documento"
+                  to="/interbank/ingresa-tu-documento/"
                   ><li></li
                 ></router-link>
                 <router-link
                   v-else
                   class="steps__item steps--active paso2"
-                  to="/cotiza/ingresa-tu-documento"
+                  to="/interbank/ingresa-tu-documento/"
                   ><li></li
                 ></router-link>
               </template>
               <template>
-                <router-link class="steps__item paso1" to="/cotiza/cotizacion"
+                <router-link class="steps__item paso1" to="/interbank/cotizacion/"
                   ><li></li
                 ></router-link>
               </template>
@@ -931,6 +939,12 @@
 </template>
 
 <style lang="scss" scoped>
+.steps--progressBar {
+    background-color: #0133A1 !important;
+}
+.box-steps .plan-titulo p {
+    border-radius: 3px;
+}
 @media screen and (max-width: 767px) {
   input,
   select,
@@ -942,7 +956,7 @@
   max-width: 472px;
   width: 100%;
   height: 509px;
-  font-family: "Omnes Regular";
+  font-family: "Montserrat Regular";
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -959,7 +973,7 @@
     color: #ffffff;
   }
   span {
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
   }
   .btn {
     background-color: #00C450;
@@ -992,20 +1006,20 @@
 }
 a.steps__item.paso2:after {
   content: "2" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
 }
 a.steps__item.paso1:after {
   content: "1" !important;
-  background: #0754c4 !important;
+  background: #0133A1 !important;
   color: white !important;
   text-align: center;
   font-size: 14px;
 }
 .steps-box {
-  padding-top: 70px;
+  padding-top: 120px;
   .steps-plan {
     background: white;
   }
@@ -1225,7 +1239,7 @@ input:focus {
     display: inline-block;
     color: #484848;
     font-size: 17px;
-    font-family: "Omnes Regular";
+    font-family: "Montserrat Regular";
   }
 }
 .isUsuarioEncontrado {
@@ -1290,17 +1304,23 @@ input:focus {
   top: 4px;
   background: transparent;
 }
+.v2-planes .box-btn span[data-v-2bd413a0] {
+    
+}
 .box-row {
   position: relative;
   .box-btn--dni {
-    margin-top: 16px;
-    background-color: #00C450;
-    color: white;
-    height: 45px;
+    background: #00C450;
+    color: #ffffff;
+    height: 50px;
+    width: 270px;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 22px;
+    font-family: 'Montserrat regular';
+    text-align: center;
     line-height: 0.5;
-    font-size: 15px;
-    width: 300px;
-    border-radius: 3px;
+    cursor: pointer;
     &:disabled {
       background: #9b9b9b;
     }
@@ -1379,7 +1399,9 @@ input:focus {
 .iptGral__input {
   padding-left: 6px;
 }
-
+.titulo-flujo {
+    color: #333;
+}
 @media (min-width: 768px) {
 
   .ml-2-mobile {
@@ -1404,7 +1426,7 @@ input:focus {
   .box-ingresaDocumento {
     margin: 0 -15px;
     .titulo-flujo {
-      font-family: "Omnes Regular";
+      font-family: "Montserrat Regular";
       font-size: 17px;
       font-stretch: normal;
       font-style: normal;
@@ -1526,7 +1548,7 @@ input[type="color"]:focus,
   .modal-lg {
     max-width: 660px;
   }
-  font-family: "Omnes Regular";
+  font-family: "Montserrat Regular";
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -1542,7 +1564,7 @@ input[type="color"]:focus,
     color: #454a6c;
   }
   span {
-    font-family: "Omnes Medium";
+    font-family: "Montserrat Medium";
   }
   img {
     margin-top: 30px;
@@ -1718,6 +1740,29 @@ export default {
     };
   },
   methods: {
+    pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
     eventoModalTerminosCondiciones() {
       this.$refs.ingresaTuPlaca.show();
     },
@@ -1729,8 +1774,8 @@ export default {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "pagina_vista",
-        "page-url": "/vehicular/cotiza/ingresa-tu-documento",
-        "page-title": "Ingresa Tu Documento",
+        "page-url": "/vehicular/interbank/ingresa-tu-documento",
+        "page-title": "interbank Ingresa Tu Documento",
         ecommerce: {
           checkout: {
             actionField: { step: 3 }, // esto marca el primer paso en el embudo
@@ -1743,7 +1788,7 @@ export default {
       window.dataLayer.push({
         event: "pagina_vista",
         "page-url": "/vehicular-app/cotiza/ingresa-tu-documento/",
-        "page-title": "Ingresa Tu Documento",
+        "page-title": "Interbank Ingresa Tu Documento",
       });
     },
     validarEmail() {
@@ -1891,6 +1936,7 @@ export default {
    **** VOLVER CUANDO SI ES CUENTA SUELDO EN EL COTIZADOR CAMBIA EL MONTO
     */
     continuar(evt) {
+      console.log("item documento", this.itemElegido)
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia;
       // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true;
@@ -1904,8 +1950,9 @@ export default {
           this.updateClient();
           this.isDisableButton = false;
           this.$store.commit('common/setEmail', this.objClients.emailAddress)
-          this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
-          this.$nuxt.$router.push({path: "./como-pagar"})
+                                                                         
+          // this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
+          this.$nuxt.$router.push({path: "/interbank/como-pagar/"})
         } else {
         }
         this.$store.commit(
@@ -1954,11 +2001,8 @@ export default {
       });
     },
     volver(evt) {
-      evt.preventDefault();
-      
-        this.$nuxt.$router.push({
-          path: "./cotizacion",
-        });
+      evt.preventDefault();      
+      this.$nuxt.$router.push({path: "/interbank/cotizacion/"});
     },
     clearPlaceholderDNI(eve) {
       eve.target.placeholder = "";
@@ -2560,6 +2604,7 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
+    this.pixelfacebook()
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);

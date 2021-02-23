@@ -51,8 +51,8 @@ export default {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'pagina_vista',
-            'page-url': '/vehicular/cotiza/placa-registrada', 
-            'page-title': 'Placa Registrada'
+            'page-url': '/vehicular/interbank/placa-registrada', 
+            'page-title': 'Interbank Placa Registrada'
         });
     }
   }
@@ -63,7 +63,7 @@ export default {
     padding-top: 140px;
 }
 .descripcion-bold{
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
     font-size: 26px;
     font-weight: bold;
 }
@@ -71,6 +71,6 @@ export default {
     color: #0BD360;
     font-weight: bold;
     font-size: 24px;
-    font-family: 'Omnes Medium';
+    font-family: 'Montserrat Medium';
 }
 </style>

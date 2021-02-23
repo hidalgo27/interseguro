@@ -1,5 +1,12 @@
 <template>
   <section class="pago-procesado">
+  <!-- Facebook Pixel Code -->
+
+  <noscript>
+  <img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <!-- End Facebook Pixel Code -->
     <b-container>
       <b-row class="justify-content-center  poliza-pago">
         <!-- <p v-if="this.endosoActivo == true" class="text-center">
@@ -222,6 +229,29 @@ export default {
   
   computed: {},
   methods: {
+    pixelfacebook(){
+          console.log("PRUEBAS");
+          !function(f,b,e,v,n,t,s)
+
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+          n.queue=[];t=b.createElement(e);t.async=!0;
+
+          t.src=v;s=b.getElementsByTagName(e)[0];
+
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+          'https://connect.facebook.net/en_US/fbevents.js');
+
+          fbq('init', '511754043550707');
+
+          fbq('track', 'PageView');
+
+        },
    PaginaVistaNuevoProducto() {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -266,14 +296,15 @@ export default {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "pagina_vista",
-        "page-url": "/vehicular/cotiza/pago-procesado",
-        "page-title": "Pago Procesado"
+        "page-url": "/vehicular/interbank/pago-procesado",
+        "page-title": "interbank Pago Procesado"
       });
     },
     pagoProcesadoDataLayer() {
     }
   },
   mounted: function() {
+    this.pixelfacebook()
     localStorage.setItem('activoAgora', false)
     this.numeroTelefono = this.$store.state.common.numeroTelefono 
     this.cobertura_is = this.$store.state.common.objectDigodat
@@ -371,7 +402,7 @@ export default {
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
-    padding-top: 70px;
+    padding-top: 120px;
   }
   .card-btnPago{
     display: flex;
@@ -486,7 +517,7 @@ export default {
       }
     }
     img{
-      width: 96px;
+      width: 54px;
     }
   }
 
@@ -556,6 +587,7 @@ export default {
     }
     .descripcion{
       color: #0854c4;
+      font-family: 'Montserrat Medium';
     }
     .card-pagoProcesado{
       border-bottom: solid 1px #efefef;
@@ -568,7 +600,7 @@ export default {
         width: 35%;
       }
       .cuota{
-        width: 165px;
+        width: 200px;
         .cuota-frecuencia{
           display: inline-block;
           color: #0854c4;
@@ -679,7 +711,7 @@ export default {
         font-size: 22px;
       }
       img{
-        width: 80px;
+        width: 90px;
       }
     }
   }

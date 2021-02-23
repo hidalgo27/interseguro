@@ -293,7 +293,7 @@ export default {
   }
 
   #preguntas-frecuentes {
-    padding-top: 75px;
+    padding-top: 140px;
     .container {
       max-width: 1170px;
     }
