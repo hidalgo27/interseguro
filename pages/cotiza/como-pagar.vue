@@ -12,7 +12,9 @@
             <br>
             <p style="color: #454A6C;
     font-family: 'Omnes Regular';
-    opacity: 1;">{{textErrModal}}</p>
+    opacity: 1;">{{textErrModal}}
+    <br>
+    {{textErrModalTwo}}</p>
 
         </div>   
     <b-container class="steps-plan">
@@ -448,6 +450,7 @@ import { validationMixin } from 'vuelidate'
             return {
                 htmlModal : '',
                 textErrModal : '',
+                textErrModalTwo : '',
                 flotanteCovid: true,
                 valeAgora: false,
                 urlLocal:'',
@@ -812,6 +815,7 @@ import { validationMixin } from 'vuelidate'
 
                                 const showMessageErr = () => {
                                     const err = messageErr.decline_code;
+                                    this.textErrModalTwo = '';
                                     if(err == 'stolen_card'){
                                         return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
                                     }else if( err == 'lost_card'){
@@ -823,11 +827,13 @@ import { validationMixin } from 'vuelidate'
                                     }else if( err == 'incorrect_cvv'){
                                         return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
                                     }else if( err == 'issuer_not_available'){
-                                        return 'El pago no pudo ser procesado. Por favor vuelve a realiazr el pago en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                                        return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
                                     }else if( err == 'processing_error'){
-                                        return 'El pago no pudo ser procesado. Por favor contáctanos al (01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.'
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
                                     }else {
-                                        return 'El pago no pudo ser procesado. Por favor contáctanos al (01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.'
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
                                     }
                                 };
 
