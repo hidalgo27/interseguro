@@ -5,9 +5,9 @@
                 <b-col cols="12" lg="6">
                     <div class="exitosa ">
                         <img style="width: 70px; margin-bottom: 28px;" src="../../static/media/interseguroVehicular_v2/success.png" alt="success">
-                        <p><strong>La información de tu Seguro Vehicular se ha guardado correctamente</strong></p> <br>
-                        <p>La renovación automática será el día <strong>{{this.fecha}}</strong></p> 
-                        <p>Te llegará la póliza por correo ese día</p>
+                         <br>
+                          <br>
+                        <p><strong>La información de tu Seguro Vehicular se ha guardado correctamente</strong></p>
                     </div>
                 </b-col>
             </b-row>

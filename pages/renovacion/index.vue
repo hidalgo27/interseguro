@@ -90,7 +90,7 @@
                                                 Para cambiar el plan de tu Seguro Vehicular por favor comunícate con nuestro equipo de atención al cliente al (01) 500-0000
                                             </b-tooltip>
                                         </p>
-                                        <p class="item-descripcion">Plata</p>
+                                        <p class="item-descripcion">{{this.planSeleccionadoName}}</p>
                                     </div>
                                     <div class="nueva-poliza--item  vigencia-poliza">
                                         <p class="item-titulo">Vigencia de póliza:</p>
@@ -516,7 +516,9 @@
                             <div class="box-btn-renovaciones">
                                 <button type="submit" @click="continuar" class="btn-primario-renovaciones" :disabled='this.isDisabledPayment'>
                                     <span  v-bind:class="{'d-none': estamosProcesandoTuPago}">ACTUALIZAR</span>
-                                    <span class="msj-procesando-pago  parpadea" v-bind:class="{'msj-procesando-pag-activo': estamosProcesandoTuPago}">Estamos procesando tu solicitud ...</span>                            
+                                    <span class="msj-procesando-pago  parpadea"   v-if="estamosProcesandoTuPago">
+                                        Estamos procesando tu solicitud ...
+                                    </span>                            
                                 </button>
                             </div>
                         </div>
@@ -538,7 +540,7 @@
             <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalRenovarPolizaExitosa()">
             <div class="modal-renovarPolizaExitosa">
                 <img class="exitosa-img" src="./../../static/media/img/renovacion/poliza-exitosa.png" alt="">
-                <p>¡Listo! Hemos actualizado de manera conforme la tarjeta afiliada a tu Seguro Vehicular para tu nueva póliza.</p>
+                <p>¡Listo! Hemos actualizado de manera conforme los datos para la renovación de tu póliza.</p>
             </div>
         </b-modal>
 
@@ -1097,11 +1099,25 @@ export default {
         },
 
         obtenerDatos(){
+            
             this.$store.commit('common/setPlateNumber', this.placa)
             this.$store.dispatch('common/obtenerDatos', this.placa).then((res) =>{          
                 if (res.data.code == 0) {
                     this.objRenovacion = res.data.body
                     this.$store.commit('common/setFechaVigenciaRenovacion', this.objRenovacion.policy.fromDate)
+
+                    if (this.objRenovacion.policy.planId == 4) {
+                        this.planSeleccionadoName = "Plata"
+                    }else if(this.objRenovacion.policy.planId == 6){
+                         this.planSeleccionadoName = "Oro"
+                    }else if (this.objRenovacion.policy.planId == 3 || this.objRenovacion.policy.planId == 10) {
+                         this.planSeleccionadoName = "Black"
+                    }else if (this.objRenovacion.policy.planId == undefined || this.objRenovacion.policy.planId == null) {
+                         this.planSeleccionadoName = "Todo Riesgo"
+                    }else{
+                         this.planSeleccionadoName = "Todo Riesgo"
+                    }
+                    
                     if (this.objRenovacion.policy.renew == "Y") {
                             this.$store.commit('common/setPlacaNoRenovar', '')
                             this.$store.commit('payment/setNumeroPoliza',this.objRenovacion.policy.policyNumber)
@@ -1109,12 +1125,21 @@ export default {
                             this.itemElegido.assignedPrice = this.objRenovacion.priceModel.vehicle.current
                             this.$store.dispatch('common/getCotizacionRenovacion', this.itemElegido)
                             .then((res) => {
-                                this.listCotizacion = res.data.body.allRisk
+                                if (this.objRenovacion.policy.planId == 4) {
+                                    this.listCotizacion = res.data.body.basic
+                                }else if(this.objRenovacion.policy.planId == 6){
+                                    this.listCotizacion = res.data.body.medium
+                                }else if (this.objRenovacion.policy.planId == 3 || this.objRenovacion.policy.planId == 10) {
+                                    this.listCotizacion = res.data.body.allRisk
+                                }else{
+                                    this.listCotizacion = res.data.body.allRisk
+                                }
+                                
                                 this.mostrarPrimeraPantalla = false
                                 this.mostrarSegundaPantalla = true
                                 this.clonado = Object.assign({}, this.listCotizacion);
-                                this.obtenerMonto()   
-                                }
+                                this.obtenerMonto()
+                            }
                             ).catch((res) =>{
                             })
                     }else if (this.objRenovacion.policy.renew == "N") {
@@ -1127,6 +1152,10 @@ export default {
             })
         },
         actualizarTarjeta(){
+            this.objCardNumber.number = ""
+            this.card.expiration_month = ""
+            this.expiration_year = ""
+            this.card.cvv = ""
             this.$refs.modalActualizarTarjeta.show()
         },
 
@@ -1197,6 +1226,7 @@ export default {
         }
     },
     mounted() {       
+        
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -1207,6 +1237,9 @@ export default {
 }
 </script>
 <style lang="scss" scope>
+.renovaciones{
+    padding-top: 75px;
+}
 $height: 30px;
 $thumb-height: 13px;
 $track-height: 8px;
@@ -1230,6 +1263,25 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
   }
   @return $val;
+}
+#modalNoRenovar{
+    .modal-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hemos-recibido-comentario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p{
+            text-align: center;
+            margin-top: 24px;
+            color: #0855c4;
+            font-size: 18px;
+        }
+    }
 }
 
 #modalCambiarFrecuencia{
@@ -2561,14 +2613,14 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
                     &:after{
                         width: 5px;
                         height: 45px;
-                        background: #f7fafb;
+                        background: #fff;
                         content: "/";
-                        top: 1px;
+                        top: 2px;
                         right: -2px;
                         position: absolute;
                         z-index: 99;
-                        font-size: 17px;
-                        line-height: 34px;
+                        font-size: 24px;
+                        line-height: 43px;
                     }
                 }
             }
