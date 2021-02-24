@@ -1,5 +1,6 @@
 <template>
   <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -351,10 +352,12 @@
 </template>
 
 <script>
+import FadeLoader from '@/components/loaders/FadeLoader'
   export default {
     layout: "InterseguroHome",
       data () {
           return {
+            showLoader: true,
             loading: false,
             color: "#00ADEE",
             sizePulse: "45px",
@@ -370,13 +373,16 @@
             saveCliente:{}
           }
       },
-      components: {},
+      components: {
+        'fade-loader': FadeLoader
+      },
       created() {
+        this.showLoader = true
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1613969999, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1613969999, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1614574799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1614574799, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -585,6 +591,7 @@
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
         this.$store.commit('common/setBusinessId', 1)
+        this.showLoader = false
         // this.$store.commit('common/setObjVehiculo', {})
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
         if (document.location.hostname == "www.interseguro.pe"){
@@ -621,7 +628,9 @@
         //     this.flagCloseListon = 1
         // }
         this.createMail()
-        this.$store.commit('common/setLeaveMessage',0) 
+        this.$store.commit('common/setLeaveMessage',0);
+        this.showLoader = false
+        console.log("HOME BASE")
       }
   }
 </script>
@@ -722,7 +731,7 @@
       text-decoration: none;
     }
   }
-  .home{
+  .home-is{
     margin-top: 80px;
     // margin-top: 170px;
     font-size: 16px;

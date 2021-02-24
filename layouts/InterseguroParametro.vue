@@ -47,6 +47,7 @@ export default {
     this.$nuxt.$on('hide-loader', () => { self.show = false })
   },
   mounted() {
+    console.log("LAYOUT 1")
     this.cuentaSueldo = localStorage.getItem("urlLocal") == '/cuentasueldo'  || localStorage.getItem("urlLocal") == '/tarjetaoh'? true : false
     this.businessId = this.$store.state.common.businessId
   }

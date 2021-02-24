@@ -939,6 +939,9 @@
 </template>
 
 <style lang="scss" scoped>
+.steps-box{
+  background: white !important;
+}
 .steps--progressBar {
     background-color: #0133A1 !important;
 }

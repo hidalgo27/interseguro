@@ -4,7 +4,7 @@
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
-                   <p ><strong>¡Por tiempo limitado! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                   <p ><strong>¡Últimos días! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
                     <div  class="example">            
                         <div id="contadorCyber12" class="flipdown  flipdownMobile" style="max-width: 256px !important;"></div>
                     </div>
@@ -12,7 +12,7 @@
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <p ><strong>¡Por tiempo limitado!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                        <p ><strong>¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
                     </div>
                     <div id="contadorCyber13" class="flipdown" style="max-width: 256px !important;"></div>
                     
@@ -40,7 +40,7 @@
                         <div class="main-nav__menu" id="main-menu">
                             <div class="main-menu">
                                 <div class="box-logo">
-                                    <img width="240" src="../../static/media/interseguroVehicular_v2/logo-ibk.svg" alt="logo_blanco">
+                                    <img width="240" src="../../static/media/interseguroVehicular_v2/logo-ibk-white.svg" alt="logo_blanco">
                                 </div>
                                 <div class="box-close" @click="closeNav($event)">
                                     <img src="../../static/media/img/home/close.png" alt="close">
@@ -278,14 +278,14 @@ export default {
 <style lang="scss" scoped>
 
 #main-menu{
-    background: #fff;
+    background: #0133a1;
     z-index: 99999;
 }
 .main-nav__menu .menu-item__enlace {
-    color: #333;
+    color: #fff;
 }
 a.nuxt-link-exact-active.nuxt-link-active {
-    color: #0855c4 !important;
+    color: #fff !important;
 }
 .main-nav__logo img {
     height: 23px;
@@ -369,7 +369,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
     width: 70%;
     p{
         margin-bottom: 12px;
-        color: #333;
+        color: #fff;
     }
     &__redes{
         display: flex;
@@ -466,7 +466,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
         width: 100%;
         margin: auto;
         top:0;
-        z-index: 99999;
+        z-index: 999;
         border-bottom: 1px solid #d4d4d4;
         .menu-nav{
             display: flex;
