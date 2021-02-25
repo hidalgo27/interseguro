@@ -447,6 +447,23 @@ const actions = {
             });
         });
     },
+    getCotizacionRenovacion ({ commit, state }, item) {
+        return new Promise((resolve, reject) => { 
+            let url = item.assignedPrice == null
+            ? 'provider/v2/policy/renew/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt
+            : 'provider/v2/policy/renew/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt + '&assignedPrice=' + item.assignedPrice +'&documentNumber='+state.documentoLocal
+            this.$axios.get( url + "&discountType=" + item.discountType + "&businessId=" + item.businessId ).then( res => {
+                if ( res ) {
+                    resolve(res)
+                } else  {
+                    reject(res)
+                }
+            })
+            .catch(err => {
+              reject(err)
+            });
+        });
+    },
     getBrand ({ commit, dispatch }) {
         return new Promise((resolve, reject) => {
             this.$axios.get('provider/v1/other/brand/group')
@@ -771,6 +788,22 @@ const actions = {
     obtenerDatos ({ commit, state }, item){
         return new Promise((resolve, reject) => {
         this.$axios.get("provider/v2/policy/renew/find/"+ item)
+            .then(res => {
+                if (res) {
+                    commit('setObjRenovacion', res.data.body)
+                    resolve(res);
+                } else {
+                reject(res)
+                }
+            })
+            .catch(function(error) {
+                reject(error)
+            })
+        })
+    },
+    obtenerDatosRenovaciones ({ commit, state }, item){
+        return new Promise((resolve, reject) => {
+        this.$axios.get("provider/v2/policy/renew/price-plans/"+ item.placa +"/"+item.anio)
             .then(res => {
                 if (res) {
                     commit('setObjRenovacion', res.data.body)

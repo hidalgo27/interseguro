@@ -2256,7 +2256,8 @@
     .home-ibk{
       .boxHome-banner{              
         .home-banner{
-          padding-left: 0px;
+          max-width: 1200px;
+          padding-left: 0;
           
           &__der{
             background: transparent ;

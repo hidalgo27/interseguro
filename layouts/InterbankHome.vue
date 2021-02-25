@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mainibk">
       <header-is></header-is>      
         <div>
           <nuxt/>
@@ -46,9 +46,9 @@ export default {
 </script>
 
 <style lang="scss">
-  body{
-    font-family: "Montserrat Regular";
-  }
+body .mainibk{
+  font-family: "Montserrat Regular";
+}
   .cuentaSueldobox{
     padding-top: 0px;
   }

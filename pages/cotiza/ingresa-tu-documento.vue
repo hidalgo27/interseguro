@@ -1039,10 +1039,8 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
+  background: white;
   padding-top: 143px;
-  .steps-plan {
-    background: white;
-  }
 }
 .edit-input {
   cursor: auto !important;
@@ -2037,13 +2035,8 @@ export default {
     volver(evt) {
       evt.preventDefault();
       if (this.$store.state.common.businessId == 2) {
-        this.$nuxt.$router.push({
-          path: "/cotiza/cotizacion-interbank",
-        });
-      } else {
-        this.$nuxt.$router.push({
-          path: "/cotiza/cotizacion",
-        });
+        this.$nuxt.$router.push({path: "/cotiza/cotizacion-interbank"});
+      } else {this.$nuxt.$router.push({path: "/cotiza/cotizacion"});
       }
     },
     clearPlaceholderDNI(eve) {
