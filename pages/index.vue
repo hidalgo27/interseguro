@@ -381,8 +381,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1613969999, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1613969999, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1614574799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1614574799, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -731,7 +731,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       text-decoration: none;
     }
   }
-  .home{
+  .home-is{
     margin-top: 80px;
     // margin-top: 170px;
     font-size: 16px;

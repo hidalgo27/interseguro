@@ -997,7 +997,10 @@
 </template>
 
 <style lang="scss" scope>
-.cobertura-mobile .accordion-tab__blue .btn-secondary {
+.v2-cobertura-ibk .cobertura-mobile .benefit-tab__blue {
+    background-color: #EBFBF1;
+}
+.v2-cobertura-ibk .cobertura-mobile .accordion-tab__blue .btn-secondary {
     background-color: #EBFBF1 !important;
 }
 .modal-content{
@@ -1175,7 +1178,7 @@
     }
 }
 .v2-cobertura-ibk{
-    background: #f7f4fc;
+    background: #fff;
     p,div{
         margin: 0;
     }
@@ -1424,10 +1427,10 @@
             .btn-secondary:not(:disabled):not(.disabled):active,
             .btn-secondary:not(:disabled):not(.disabled).active,
             .show > .btn-secondary.dropdown-toggle {
-                background-color: #f8f8f8;
+                background-color: #fff;
             }
             .btn-secondary {
-                background-color: #f8f8f8;
+                background-color: #fff;
             }
         }
     }
@@ -1454,7 +1457,7 @@
             background-color: #f1f7ff;
         }
         &__white{
-            background-color: #f8f8f8;
+            background-color: #fff;
         }
     }
     .modal-coverage{
@@ -1613,7 +1616,7 @@
 }
 @media (min-width: 992px) {
 .v2-cobertura-ibk {    
-    background: #f7f4fc;
+    background: #fff;
     padding-top: 120px;
 }
 }

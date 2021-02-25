@@ -964,6 +964,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 @media screen and (max-width: 767px) {
   input,
   select,
@@ -1038,10 +1039,8 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
+  background: white;
   padding-top: 143px;
-  .steps-plan {
-    background: white;
-  }
 }
 .edit-input {
   cursor: auto !important;

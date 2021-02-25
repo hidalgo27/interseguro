@@ -82,51 +82,46 @@
                                                         Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                     </div>
                                                     <div class="input-group  iptGral editable  box-iptCard">
-                                                        <img src="../../static/media/img/flujo/como-pagar/icon-tarjeta.png" class="icon-tarjeta"/>
                                                         <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
                                                         id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
                                                         aria-label="Número de tarjeta" autocomplete="cc-number"
                                                         aria-describedby="numberDocumentFeedback"
-                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cartNumber"/>
+                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
                                                         
                                                         <img width="30" :src="creditCardImage" >
                                                         <span class="error-card">error momentaneo</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-custom">
-                                                    <div class="card-custom__date">
+                                                    <div class="card-custom__date" style="position: relative;"  v-bind:class="{'activeFocus':activeFocus}">
+                                                        
                                                         <div class="form-group-custom">                                                            
                                                             <div id="box-mes" class="input-group  iptGral editable">   
-                                                                <img src="../../static/media/img/flujo/como-pagar/icon-mes.png" class="icon-mes"/>
-                                                                <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
-                                                                 class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
-                                                                  v-model="card.expiration_month" type="tel" name="cardmes"/>
+                                                                <input @keyup="keyUpMes()" @blur="activeFocus = !activeFocus" placeholder="MM" id="cardmes" class="form-control text-uppercase iptGral__input ipt-month"  maxlength="2" v-model="card.expiration_month" type="tel" name="name"/>
                                                             </div>
-                                                            <div id="focusMES">
+                                                            <div id="focusMES" class=" d-none">
                                                                 Fecha de vencimiento de tu tarjeta.
                                                             </div>
                                                         </div>
                                                         <div class="form-group-custom  text-right-custom">
-                                                            <div class="input-group  iptGral editable">
-                                                                <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+                                                            <div class="input-group  iptGral editable" >
+                                                                <input @keyup="keyUpCard()" @blur="activeFocus = !activeFocus" id="cardaño" placeholder="AA" class="form-control text-uppercase iptGral__input ipt-year"   maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
 
                                                             </div>
                                                         </div>
+                                                        <img v-if="activeFocus" class="img-activefocus" src="./../../static/media/img/root/calendar.svg" alt="">
+                                                        <img v-else class="img-activefocus" src="./../../static/media/img/root/calendar.png" alt="">
                                                     </div>
                                                     <div class="card-custom__cvv">
                                                         <div class="form-group-custom">
                                                             <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
-                                                                <img src="../../static/media/img/flujo/como-pagar/icon-ccv.png" class="icon-ccv"/>                                   
-                                                                <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
-                                                                id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
-                                                                aria-describedby="numberFeedback"
-                                                                 :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
+                                                                <input @keyup="keyUpCard()" placeholder="CVV" variant="custom" id="cardccv" class="form-control text-uppercase iptGral__input ipt-cvv" :disabled="isEnable"  :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="name"/>
                                                             </div>
-                                                        </div>     
-                                                    </div>  
+                                                        </div>
+                                                    </div>
                                                     <div  id="focusCVV" >
-                                                        <img class="img-fluid" :src="creditCardImageCvv" >
-                                                    </div>  
+                                                        <!-- <img class="img-fluid" :src="creditCardImageCvv" > -->
+                                                    </div>
                                                 </div>
                                                 <div class="error-gral">Error momentáneo</div>                 
                                                 <br>
@@ -199,7 +194,7 @@
                                                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="370"></span>
                                                         <div class="box-contador " >
                                                             <span  class="cuota-gratis-span"
-                                                                >¡Por tiempo limitado!
+                                                                >¡Últimos días!
                                                             </span>
                                                             <div  class="example  d-md-flex">
                                                                 <div id="contadorCyber14" class="flipdown">                                    
@@ -233,7 +228,7 @@
                                                             
                                                             <div class="box-contador" >
                                                                 <span  class="cuota-gratis-span"
-                                                                    >¡Por tiempo limitado!
+                                                                    >¡Últimos días!
                                                                 </span>
                                                                 <div  class="example  d-md-flex">
                                                                     <div id="contadorCyber15" class="flipdown">
@@ -347,6 +342,7 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterbankHome',
         data(){
             return {
+                activeFocus: false,
                 flotanteCovid: true,
                 valeAgora: false,
                 urlLocal:'',
@@ -1166,6 +1162,9 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
+.steps-box{
+  background: white !important;
+}
 .steps--progressBar {
     background-color: #0133A1 !important;
 }
@@ -1637,20 +1636,10 @@ a.steps__item.paso1:after{
         &__ingresatarjeta{
             padding: 24px 16px 12px;
             border-radius: 0 0 16px 16px;
-            background: #f7f4fc;
             .box-ingresaTarjeta{
                 background: white;
                 padding: 18px 15px 0 15px;
-            }
-            &:before{
-                content: "";
-                position: absolute;
-                left: 0;
-                background: #f7f4fc;
-                width: 2px;
-                height: 90%;
-                top: 5%;
-            }           
+            }        
             .boxtitulo{
                 &__secundario{
                     color: #0BD360;
@@ -1878,7 +1867,7 @@ a.steps__item.paso1:after{
         display: none;
     }
     .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        background: #fff !important;
+        background-color: #fff !important;
         border-radius: 4px;
     }
     #cardmes{
@@ -1895,7 +1884,7 @@ a.steps__item.paso1:after{
         display: flex;
         align-items: center;
     }
-    .ipt-cartNumber{
+    .ipt-cardNumber{
         padding-left: 34px;
     }
     .box-iptCard{
@@ -2305,7 +2294,7 @@ a.steps__item.paso1:after{
 // }
 
     .iptGral.editable .iptGral__input {
-        padding-left: 30px;
+        padding-left: 42px;
         max-width: 460px;
         height: 48px;
         border: 1px solid #D1D1D1 !important;
@@ -2397,7 +2386,7 @@ a.steps__item.paso1:after{
             position: absolute;
             z-index: 9;
             width: 20px;
-            left: 29px;
+            left: 15px;
         }
         
         .ipt-year{
@@ -2536,7 +2525,7 @@ a.steps__item.paso1:after{
             width: 100%;
         }
         .card-custom__date .form-group-custom:nth-child(1) {
-            width: 112px;
+            width: 121px;
             position: relative;
         }
         .card-custom__date .form-group-custom:nth-child(2) {

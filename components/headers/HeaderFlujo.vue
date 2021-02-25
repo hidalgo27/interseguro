@@ -4,7 +4,7 @@
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                     <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">                    
-                   <p ><strong>¡Por tiempo limitado!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                   <p ><strong>¡Últimos días!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
                     <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
                     </div>
@@ -13,14 +13,14 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                         <img src="./../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">          
-                        <p ><strong>¡Por tiempo limitado!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                        <p ><strong>¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
                     </div>
                     <div id="contadorCyber2" class="flipdown"></div>
                     
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  
+        </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -202,8 +202,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1613969999, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1613969999, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1614574799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1614574799, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
