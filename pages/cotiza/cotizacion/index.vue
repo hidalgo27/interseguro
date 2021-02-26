@@ -1740,8 +1740,8 @@
               telefono: ""
             },
             remitente: {
-              correoRemitente: "segurovehicular@interseguro.com.pe",
-              correoRemitenteDisplay: "Interseguro Vehicular"
+              correoRemitente: "comunicaciones@interseguro.com.pe",
+              correoRemitenteDisplay: "Interseguro"
             },
             datosPago: {
               idFrecuencia: "",
@@ -3196,8 +3196,8 @@
               origenDatos: this.$store.state.common.origenCliente
             },
             remitente: {
-              correoRemitente: "segurovehicular@interseguro.com.pe",
-              correoRemitenteDisplay: "Interseguro Vehicular"
+              correoRemitente: "comunicaciones@interseguro.com.pe",
+              correoRemitenteDisplay: "Interseguro"
             },
             datosPago: {
               idFrecuencia: "",

@@ -2616,8 +2616,8 @@ export default {
             origenDatos: localStorage.getItem("origenDatos"),
           },
           remitente: {
-            correoRemitente: "segurovehicular@interseguro.com.pe",
-            correoRemitenteDisplay: "Interseguro Vehicular",
+            correoRemitente: "comunicaciones@interseguro.com.pe",
+            correoRemitenteDisplay: "Interseguro",
           },
           datosPago: {
             idFrecuencia: 1,
