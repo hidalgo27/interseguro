@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="interbankLayout2">
       <header-is></header-is>      
         <div>
           <nuxt/>
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-  body{
+  .interbankLayout2{
     font-family: "Montserrat Regular";
   }
   .cuentaSueldobox{

@@ -1233,6 +1233,12 @@ export default {
         }
         this.mostrarPrimeraPantalla = true
         this.mostrarSegundaPantalla = false
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'pagina_vista',
+            'page-url': '/vehicular/renovacion', 
+            'page-title': 'renovacion'
+        })
     }
 }
 </script>
