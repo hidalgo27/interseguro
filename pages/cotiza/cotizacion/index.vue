@@ -255,8 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>2da</span>
-                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                          10%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -339,8 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>2da</span>
-                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                          10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -440,8 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>2da</span>
-                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                          10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -569,8 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    <span>2da</span>
-                    <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                    10%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1395,7 +1391,7 @@
       </b-container>
     </b-modal>
 
-    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1421,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal> -->
+    </b-modal>
 
-     <b-modal
+     <!-- <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1456,7 +1452,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
   </section>
 </template>
@@ -1740,8 +1736,8 @@
               telefono: ""
             },
             remitente: {
-              correoRemitente: "segurovehicular@interseguro.com.pe",
-              correoRemitenteDisplay: "Interseguro Vehicular"
+              correoRemitente: "comunicaciones@interseguro.com.pe",
+              correoRemitenteDisplay: "Interseguro"
             },
             datosPago: {
               idFrecuencia: "",
@@ -3196,8 +3192,8 @@
               origenDatos: this.$store.state.common.origenCliente
             },
             remitente: {
-              correoRemitente: "segurovehicular@interseguro.com.pe",
-              correoRemitenteDisplay: "Interseguro Vehicular"
+              correoRemitente: "comunicaciones@interseguro.com.pe",
+              correoRemitenteDisplay: "Interseguro"
             },
             datosPago: {
               idFrecuencia: "",

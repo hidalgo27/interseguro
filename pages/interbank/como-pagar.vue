@@ -522,8 +522,8 @@ import { validationMixin } from 'vuelidate'
 
         },
             contador(){
-                var flipdown = new FlipDown(1614574799, 'contadorCyber14').start();
-                var flipdown = new FlipDown(1614574799, 'contadorCyber15').start()
+                var flipdown = new FlipDown(1615179599, 'contadorCyber14').start();
+                var flipdown = new FlipDown(1615179599, 'contadorCyber15').start()
             },
             cotizador_datalayer(evento,step_valor){
                 this.cobertura_is.content_ids =  this.$store.state.common.code_sku
@@ -1022,8 +1022,8 @@ import { validationMixin } from 'vuelidate'
                         "origenDatos": localStorage.getItem("origenDatos"),
                     },
                     "remitente": {
-                        "correoRemitente": "segurovehicular@interseguro.com.pe",
-                        "correoRemitenteDisplay": "Interseguro Vehicular"
+                        "correoRemitente": "comunicaciones@interseguro.com.pe",
+                        "correoRemitenteDisplay": "Interseguro"
                     },
                     "datosPago": {
                         "idFrecuencia": this.payment,
