@@ -431,8 +431,8 @@
 
         },
         contador(){
-            var flipdown2 = new FlipDown(1614574799, 'contadorCyber10').start()
-            var flipdown = new FlipDown(1614574799, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1615179599, 'contadorCyber10').start()
+            var flipdown = new FlipDown(1615179599, 'contadorCyber11').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -568,7 +568,7 @@
                         }else{
                         }
                         this.$store.commit('common/setPantallaFlujo', 1)
-                        this.$nuxt.$router.push("./cotizacion/")
+                        this.$nuxt.$router.push("interbank/cotizacion/")
                       }
                     }else {
                       if(respuesta.client.externalId > 0 ){
@@ -584,7 +584,7 @@
                       }else{
                       }
                       this.$store.commit('common/setPantallaFlujo', 1)
-                      this.$nuxt.$router.push("./cotizacion/")
+                      this.$nuxt.$router.push("interbank/cotizacion/")
                     }
                 }
                 

@@ -41,7 +41,7 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <div class="flotante-covid-3  d-none  d-md-block">
+                <!-- <div class="flotante-covid-3  d-none  d-md-block">
                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
                         <div class="box-contador " >
@@ -54,7 +54,7 @@
                             </div>                            
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
@@ -216,31 +216,6 @@
                                                         
                                                     </button>
                                                 </b-col>
-                                                <b-col cols="12"  class="mt-2" style="background: #CBDBF2; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
-                                                    <img class="mr-2" src="./../../static/media/interseguroVehicular_v2/dscto-2dacuota.svg" alt="">
-                                                    <p style="color:#0855C4;text-align:left;">
-                                                        Termina tu compra hoy y aplicaremos un descuento a la 2da cuota mensual de tu seguro para que sea GRATIS
-                                                    </p>
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <div class=" box-btn testest  mt-4" >
-                                                        <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
-                                                            
-                                                            <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="320">
-                                                            
-                                                            <div class="box-contador" >
-                                                                <span  class="cuota-gratis-span"
-                                                                    >¡Últimos días!
-                                                                </span>
-                                                                <div  class="example  d-md-flex">
-                                                                    <div id="contadorCyber3" class="flipdown">
-                                                                        
-                                                                    </div> 
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </b-col>
                                             </b-row>
                                         </b-col>
                                         
@@ -366,7 +341,7 @@
             </b-container>
         </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -387,9 +362,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
-        <b-modal id="leavePayment" class=" leaveModal"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class=" leaveModal"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
             <img class="img-close-modal" width="70" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
 
@@ -414,7 +389,7 @@
             </b-col>
           </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
          
     </section>
 </template>
@@ -598,8 +573,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1614574799, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1614574799, 'contadorCyber3').start()
+                // var flipdown2 = new FlipDown(1614574799, 'contadorCyber4').start()
+                // var flipdown = new FlipDown(1614574799, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
