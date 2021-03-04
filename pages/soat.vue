@@ -12,37 +12,41 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-12    col-lg-9">
+                <div class="col-12    col-md-10  col-xl-9">
                     <div class="row">
                         <div class="col-12  col-md-6">
-                            <div class="productos-is-item">
-                                <div class="productos-is-item--boxImg">
-                                    <img class="productos-is-item--imgvehicular" src="./../static/productos-is/vehicular.svg" alt="">
+                            <a  class="productos-is--enlace" target="_blank" href="https://www.interseguro.pe/vehicular/?utm_source=google&utm_medium=search&utm_campaign=experimento_landing">
+                                <div class="productos-is-item">
+                                    <div class="productos-is-item--boxImg">
+                                        <img class="productos-is-item--imgvehicular" src="./../static/productos-is/vehicular.svg" alt="">
+                                    </div>
+                                    
+                                    <p class="productos-is-item--titulo">
+                                        SEGURO VEHICULAR
+                                    </p>
+                                    <div class="productos-is-item--btn">COTIZAR</div>
+                                    <p class="productos-is-item--precio">
+                                        Desde <span class="monto">US$ 12</span> / MES
+                                    </p>
                                 </div>
-                                
-                                <p class="productos-is-item--titulo">
-                                    SEGURO VEHICULAR
-                                </p>
-                                <a class="productos-is-item--btn" href="">COTIZAR</a>
-                                <p class="productos-is-item--precio">
-                                    Desde <span class="monto">US$ 12</span> / MES
-                                </p>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-12  col-md-6">
-                            <div class="productos-is-item  productos-is-soat">
-                                <div class="productos-is-item--boxImg">
-                                    <img class="productos-is-imgsoat" src="./../static/productos-is/soat.svg" alt="">
+                            <a  class="productos-is--enlace" target="_blank" href="https://www.interseguro.pe/soat?utm_source=google&utm_medium=search&utm_campaign=experimento_landing">
+                                <div class="productos-is-item  productos-is-soat">
+                                    <div class="productos-is-item--boxImg">
+                                        <img class="productos-is-imgsoat" src="./../static/productos-is/soat.svg" alt="">
+                                    </div>
+                                    
+                                    <p class="productos-is-item--titulo">
+                                        SOAT
+                                    </p>
+                                    <div class="productos-is-item--btn">COTIZAR</div>
+                                    <p class="productos-is-item--precio">
+                                        Desde <span class="monto">S/ 53</span>
+                                    </p>
                                 </div>
-                                
-                                <p class="productos-is-item--titulo">
-                                    SOAT
-                                </p>
-                                <a class="productos-is-item--btn" href="">COTIZAR</a>
-                                <p class="productos-is-item--precio">
-                                    Desde <span class="monto">S/ 53</span>
-                                </p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +96,20 @@ export default {
 <style lang="scss">
     
     .productos-is{
+        padding-top: 80px;
         background-color: #EFF2FA;
+        a{
+            text-decoration: none;
+        }
+        &--enlace{
+            display: inline-block;
+            transition: all 0.75s;
+            width: 100%;
+            &:hover{
+                box-shadow: 3px 4px 5px #bfbdbd61;
+                transition: all 0.75s;
+            }
+        }
         &__bienvenido{
             &--titulo{
                 color: #0854C4;
@@ -239,7 +256,10 @@ export default {
     }
     @media (min-width: 992px) {
         .productos-is{
-            padding-top: 48px;
+            &--enlace{
+                width: 100%;
+                max-width: 280px;
+            }
             &__bienvenido{
                 margin-bottom: 30px;
                 &--titulo{
@@ -335,6 +355,13 @@ export default {
             &--numeros{
             }
             &--texto{
+            }
+        }
+    }
+    @media (min-width: 1200px) {
+        .productos-is{
+            &--enlace{
+                max-width: 363px;
             }
         }
     }
