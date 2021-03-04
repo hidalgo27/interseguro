@@ -862,14 +862,19 @@ import { validationMixin } from 'vuelidate'
                             this.$store.dispatch('common/eventoErrores', errorDetectado)
                             break;
                     }
-                    
-                        this.$swal({
-                            title: 'Oops...',
-                            text: res.message,
-                            type: 'error',
-                            showCancelButton: false,
-                            confirmButtonColor: '#2177CC',
-                            confirmButtonText: 'OK'
+                    this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
+                    if(!this.htmlModal){
+                        this.htmlModal = document.getElementById('newModal');
+                        this.htmlModal.style.display = "";
+                    }
+                       this.$swal({
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
                         })
                 })
             },
