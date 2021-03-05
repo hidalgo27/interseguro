@@ -877,7 +877,6 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">              
-              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                   <span style="color : #ffffff; font-size: 18px">
