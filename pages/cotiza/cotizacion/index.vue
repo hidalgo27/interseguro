@@ -1391,7 +1391,7 @@
       </b-container>
     </b-modal>
 
-    <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1452,7 +1452,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>
@@ -1798,7 +1798,7 @@
     },
     methods: {
       contador(){
-            // var flipdown2 = new FlipDown(1614574799, 'contadorCyber5').start()
+            // var flipdown2 = new FlipDown(1615784399, 'contadorCyber5').start()
         },
       hideFlotante(){
         this.flotanteCovid = !this.flotanteCovid
