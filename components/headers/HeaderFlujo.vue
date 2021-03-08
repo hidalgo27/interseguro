@@ -10,8 +10,13 @@
                            ¡Por tiempo limitado! Asegura tu auto y participa <span style="color: #FFD527">del sorteo de S/ 1500</span>
                        </div>
                        </div>
-                    <div  class="example">            
-                        <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
+                    <div  class="example" style="position: relative;">            
+                        <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;
+                                                                                        right: 0;
+                                                                                        top: -25px;
+                                                                                        display: block;
+                                                                                        width: 184px !important;">
+                        </div>
                     </div>
                 </div>
                 

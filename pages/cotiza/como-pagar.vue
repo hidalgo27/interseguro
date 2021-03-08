@@ -58,7 +58,7 @@
             <b-row class="justify-content-center" style="position: relative;">
                 <div class="flotante-covid-3  d-none  d-md-block">
                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
-                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
+                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="380"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
                                 >¡Por tiempo limitado!
@@ -255,11 +255,11 @@
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                                                     
-                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="320">
+                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-mobile.svg" width="340">
                                                     
                                                     <div class="box-contador" >
                                                         <span  class="cuota-gratis-span"
-                                                            >¡Últimos días!
+                                                            >¡Por tiempo limitado!
                                                         </span>
                                                         <div  class="example  d-md-flex">
                                                             <div id="contadorCyber3" class="flipdown">
@@ -398,7 +398,7 @@
 
         <b-modal id="leavePayment" class=" leaveModal"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
-            <img class="img-close-modal" width="70" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
+            <img class="img-close-modal" width="60" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
 
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
@@ -406,7 +406,7 @@
                         <p class="mt-3">
                             <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                                 <span style="color : #ffffff; font-size: 18px">
-                                ¡No dejes pasar esta super oportunidad! <br> Asegura tu auto y participa del <br> 
+                                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y participa del<br> 
                                 <span style="color: #FFDD36;">
                                 sorteo de S/ 1500
                                 </span>

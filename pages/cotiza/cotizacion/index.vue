@@ -1434,11 +1434,11 @@
               <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-                <span style="color : #ffffff; font-size: 18px">
-                    ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> 
-                    <span style="color: #FFD527;">
-                      2da cuota mensual gratis
-                    </span>
+               <span style="color : #ffffff; font-size: 18px">
+                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y participa del<br> 
+                  <span style="color: #FFDD36;">
+                  sorteo de S/ 1500
+                  </span>
                 </span>
               </p>
             </b-col>
