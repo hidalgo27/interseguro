@@ -6,7 +6,7 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
-              <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.png" alt="">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
             </div>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
               
