@@ -3,8 +3,13 @@
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
-                    <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">                    
-                   <p ><strong>¡Últimos días!</strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                                       
+                   <div class="liston-mobile--parrafo"> 
+                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt=""> 
+                       <div>
+                           ¡Por tiempo limitado! Asegura tu auto y participa <span style="color: #FFD527">del sorteo de S/ 1500</span>
+                       </div>
+                       </div>
                     <div  class="example">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
                     </div>
@@ -13,7 +18,7 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                         <img src="./../../static/media/interseguroVehicular_v2/cuponazo_liston.png" alt="">          
-                        <p ><strong>¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #FFD527">2da cuota gratis</span></strong></p>
+                        <p ><strong>¡Por tiempo limitado! Asegura tu auto y participa </strong> <strong><span style="color: #FFD527">del sorteo de S/ 1500</span></strong></p>
                     </div>
                     <div id="contadorCyber2" class="flipdown"></div>
                     
@@ -202,8 +207,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1614574799, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1614574799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1615784399, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1615784399, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -298,20 +303,16 @@ export default {
         justify-content: center;
         padding-left: 16px;
         display: flex;
-        .liston-mobile{
+        .liston-black{
             display: flex;
             align-items: center;
+            margin-left: auto;
+            margin-right: auto;
             img{
                 position: relative;
-                width: 48px;
+                width: 31px;
                 height: auto;
                 left: -8px;
-            }
-            .example{
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: auto;
             }
         }
         .box-texto-img{
@@ -344,9 +345,26 @@ export default {
             width: 100%;
         }
         .logo-franja{
+            margin-left: auto;
+            margin-right: auto;
             img{
                 width: 31px;
             }
+        }
+    }
+
+    .liston-mobile{
+        display: flex;
+        align-items: center;
+        &--parrafo{
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+        }
+        .img-liston{
+            width: 40px;
+            height: auto;
         }
     }
 .footer-menu{
@@ -591,7 +609,7 @@ export default {
     @media (min-width: 992px){
         .logo-franja{
             img{
-                width: 90px !important;
+                width: 60px !important;
             }
         }
         .footer-menu{
@@ -620,7 +638,7 @@ export default {
     }
     @media (min-width: 1024px){
         .liston{
-            height: 42px;
+            height: 70px;
             .contadorCyber2{
                 margin-left: 30px;
             }
@@ -634,8 +652,7 @@ export default {
          }
     }
     @media (min-width: 1200px){
-        .liston{       
-            height: 72px;     
+        .liston{
             flex-direction: row;
             justify-content: space-between;
             display: flex;

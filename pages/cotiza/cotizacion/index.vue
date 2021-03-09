@@ -255,8 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>2da</span>
-                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                          10%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -339,8 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>2da</span>
-                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                          10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -440,8 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>2da</span>
-                          <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                          10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -569,8 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    <span>2da</span>
-                    <span @click="metodoFlotante()" class="cuota-gratis-span">cuota gratis</span>
+                    10%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1435,13 +1431,13 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
               <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
-              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
+              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
               <p class="mt-3">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                 <br> 
                 <span style="color : #ffffff; font-size: 18px">
-                    ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> 
-                    <span style="color: #FFD527;">
-                      2da cuota mensual gratis
+                    ¡No dejes pasar esta super oportunidad! <br> Asegura tu auto y participa del <br> 
+                    <span style="color: #FFDD36;">
+                    sorteo de S/ 1500
                     </span>
                 </span>
               </p>
@@ -1740,8 +1736,8 @@
               telefono: ""
             },
             remitente: {
-              correoRemitente: "segurovehicular@interseguro.com.pe",
-              correoRemitenteDisplay: "Interseguro Vehicular"
+              correoRemitente: "comunicaciones@interseguro.com.pe",
+              correoRemitenteDisplay: "Interseguro"
             },
             datosPago: {
               idFrecuencia: "",
@@ -1802,7 +1798,7 @@
     },
     methods: {
       contador(){
-            // var flipdown2 = new FlipDown(1614574799, 'contadorCyber5').start()
+            // var flipdown2 = new FlipDown(1615784399, 'contadorCyber5').start()
         },
       hideFlotante(){
         this.flotanteCovid = !this.flotanteCovid
@@ -3196,8 +3192,8 @@
               origenDatos: this.$store.state.common.origenCliente
             },
             remitente: {
-              correoRemitente: "segurovehicular@interseguro.com.pe",
-              correoRemitenteDisplay: "Interseguro Vehicular"
+              correoRemitente: "comunicaciones@interseguro.com.pe",
+              correoRemitenteDisplay: "Interseguro"
             },
             datosPago: {
               idFrecuencia: "",

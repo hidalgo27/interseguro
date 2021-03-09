@@ -67,7 +67,7 @@
                       <a
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
-                        href="https://www.interseguro.pe/conoce-interseguro/informacion-financiera"
+                        href="https://www.interseguro.pe/informacion-financiera"
                       >Clasificación de Riesgos</a>
                     </li>
                     <li class="acordeon-lista">
@@ -81,14 +81,14 @@
                       <a
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
-                        href="https://www.interseguro.pe/conoce-interseguro/gobierno-corporativo"
+                        href="https://www.interseguro.pe/gobierno-corporativo"
                       >Gobierno Corporativo</a>
                     </li>
                     <li class="acordeon-lista">
                       <a
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
-                        href="https://www.interseguro.pe/conoce-interseguro/memoria-anual"
+                        href="https://www.interseguro.pe/memoria-anual"
                       >Memoria Anual</a>
                     </li>
                   </ul>
@@ -157,13 +157,13 @@
                         href="https://www.interseguro.pe/asesorate/servicio-cliente"
                       >Servicio al Cliente</a>
                     </li>
-                    <li class="acordeon-lista">
+                    <!-- <li class="acordeon-lista">
                       <a
                         target="_blank" rel="noopener"
                         class="acordeon-enlace"
                         href="https://www.interseguro.pe/asesorate/enlaces-interes"
                       >Enlaces de Interés</a>
-                    </li>
+                    </li> -->
                     <li class="acordeon-lista">
                       <a
                         target="_blank" rel="noopener"
@@ -324,7 +324,7 @@
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
-                  href="https://www.interseguro.pe/conoce-interseguro/informacion-financiera"
+                  href="https://www.interseguro.pe/informacion-financiera"
                 >Clasificación de Riesgos</a>
               </li>
               <li class="acordeon-lista">
@@ -338,14 +338,14 @@
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
-                  href="https://www.interseguro.pe/conoce-interseguro/gobierno-corporativo"
+                  href="https://www.interseguro.pe/gobierno-corporativo"
                 >Gobierno Corporativo</a>
               </li>
               <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
-                  href="https://www.interseguro.pe/conoce-interseguro/memoria-anual"
+                  href="https://www.interseguro.pe/memoria-anual"
                 >Memoria Anual</a>
               </li>
             </ul>
@@ -393,13 +393,13 @@
                   href="https://www.interseguro.pe/asesorate/servicio-cliente"
                 >Servicio al Cliente</a>
               </li>
-              <li class="acordeon-lista">
+              <!-- <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
                   class="acordeon-enlace"
                   href="https://www.interseguro.pe/asesorate/enlaces-interes"
                 >Enlaces de Interés</a>
-              </li>
+              </li> -->
               <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"

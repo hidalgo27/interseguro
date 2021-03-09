@@ -1,11 +1,15 @@
 <template>
-  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+<div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
+            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
+            </div>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+              
               <div class="box-contador" >
                 <div  class="example  d-md-flex">
                     <div id="contadorCyber" class="flipdown">
@@ -55,8 +59,9 @@
         </div>
         <div class="home-banner__der">
           <div class="box-titulo  ml-5">
-            <img src="./../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
+            
             <div class="box-contador">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
               <div  class="example  d-none  d-md-flex">
                   <div id="contadorCyber2" class="flipdown">
                       
@@ -381,8 +386,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1614574799, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1614574799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1615784399, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1615784399, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -732,7 +737,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }
   }
   .home-is{
-    margin-top: 80px;
+    margin-top: 70px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
@@ -959,7 +964,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .boxHome-banner{
       position: relative;
       height: 414px;
-      background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+      background-image:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+      background-size: cover;
+      // height: 296px;
+      // background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
@@ -973,6 +981,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         align-items: center;
         height: 100%;
         flex-direction: column;
+        
         &__izq{
           // margin-top: 24px;
           // padding-top: 68px !important;
@@ -980,7 +989,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           display: flex;
           align-items: flex-start;
           width: 90%;
-          border-bottom: 1px solid white !important;
           input{
             max-width: 360px;
             width: 100%;
@@ -1033,7 +1041,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             .example{
               display: flex;
               align-items: center;
-              margin-top: 1px;
+              margin-top: 32px;
             }
             p{
               color: #ffffff;
@@ -1058,23 +1066,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             color: #0855c4;
           }
         }
-      }
-    }
-    .box-flotante-covid{
-      flex-direction: column;
-      background-image: url("./../static/media/interseguroVehicular_v2/cuponazo.png");      
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      margin: 0 -15px;
-      position: relative;
-      padding-left: 16px;
-      width: 100%;
-      height: 280px;
-      .box-contador {
-        position: absolute;
-        bottom: -10px;
-        left: 66px;
       }
     }
     .box-formCotizador{
@@ -1589,18 +1580,18 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         }
       }
       .boxHome-banner{
-        background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        background-color: #0181f0;
+        // background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+        // background-size: cover;
+        // background-repeat: no-repeat;
+        // background-position: center;
         height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          min-height: 445px;
           &__izq{
             // padding-top: 68px !important;
-            height: calc(85vh);
+            height: calc(75vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1641,24 +1632,32 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
           &__der{
-            padding-top: 0px !important;
+            padding-top: 50px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            // background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
             width: 100%;
-            justify-content: flex-start;
+            // justify-content: flex-start;
             align-items: flex-start;
-            flex-direction: column;
+            // flex-direction: column;
             // padding-left: 32px;
             .box-titulo{
-              padding-top: 150px;
               padding-left: 24px;
               position: relative;
+            }
+            .box-titulo{
+              .box-contador{
+                .example{
+                  margin-top: 0;
+                  position: relative;
+                  left: 121px;
+                }
+              }
             }
             p{
               font-weight: 500;
@@ -1847,6 +1846,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .home-is{
       .home-banner{
         padding-left: 65px;
+        min-height: 548px;
       }
       .home-beneficios2{
           padding-top: 48px;
@@ -1989,23 +1989,28 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }
     .home-is{
       .boxHome-banner{
-        .home-banner{  
-          background-size: 50%;
+        .home-banner{
+          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          // background-size: 50%;
+          background-size: contain;
           padding: 0 1.5rem;
           padding-left: 65px;
           &__der{
+            padding-top: 0px !important;
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
+            align-items: center;
             p{
               font-size: 2.6rem;
             }
             .box-titulo{
-              padding: 0;              
+              padding: 0;
               .box-contador{
-                position: absolute;
-                right: -100px;
-                bottom: -38px;
+                position: relative;
+                left: calc(530px - 417px);
+                bottom: -60px;
+                width: 530px;
               }
             }
           }
@@ -2187,7 +2192,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .home-is{
       .boxHome-banner{              
         .home-banner{
-          background-size: 50%;
+          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
           padding-left: 128px;
           max-width: 1440px;
           &__der{
@@ -2224,6 +2229,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   @media (min-height: 768px) and (min-width: 992px){
     .home-is{
         .boxHome-banner{
+          background-position: center;
+          background-repeat: no-repeat;
           .home-banner{
             // &__izq{
             //   height: calc(100vh - 290px);

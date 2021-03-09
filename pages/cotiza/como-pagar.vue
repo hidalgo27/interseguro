@@ -61,7 +61,7 @@
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="323"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
-                                >¡Últimos días!
+                                >¡Por tiempo limitado!
                             </span>
                             <div  class="example  d-md-flex">
                                 <div id="contadorCyber4" class="flipdown">                                    
@@ -228,31 +228,6 @@
                                                         
                                                     </button>
                                                 </b-col>
-                                                <b-col cols="12"  class="mt-2" style="background: #CBDBF2; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
-                                                    <img class="mr-2" src="./../../static/media/interseguroVehicular_v2/dscto-2dacuota.svg" alt="">
-                                                    <p style="color:#0855C4;text-align:left;">
-                                                        Termina tu compra hoy y aplicaremos un descuento a la 2da cuota mensual de tu seguro para que sea GRATIS
-                                                    </p>
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <div class=" box-btn testest  mt-4" >
-                                                        <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
-                                                            
-                                                            <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="320">
-                                                            
-                                                            <div class="box-contador" >
-                                                                <span  class="cuota-gratis-span"
-                                                                    >¡Últimos días!
-                                                                </span>
-                                                                <div  class="example  d-md-flex">
-                                                                    <div id="contadorCyber3" class="flipdown">
-                                                                        
-                                                                    </div> 
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </b-col>
                                             </b-row>
                                         </b-col>
                                         
@@ -274,6 +249,26 @@
                                                     <span class="text-secundario  text-center " style="font-size:12px">Recuerda que la <strong style="color: #0855C4">cuota gratis</strong> se aplicará al <br> segundo pago de tu cronograma</span>
                                                 </b-col>
                                             </b-row>
+                                        </b-col>
+
+                                        <b-col cols="12">
+                                            <div class=" box-btn testest  mt-4" >
+                                                <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
+                                                    
+                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="320">
+                                                    
+                                                    <div class="box-contador" >
+                                                        <span  class="cuota-gratis-span"
+                                                            >¡Últimos días!
+                                                        </span>
+                                                        <div  class="example  d-md-flex">
+                                                            <div id="contadorCyber3" class="flipdown">
+                                                                
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </b-col>
 
                                     </b-row>
@@ -407,13 +402,13 @@
 
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
-                        <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
+                        <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
                         <p class="mt-3">
                             <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-                            <span style="color : #ffffff; font-size: 18px">
-                                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> 
-                                <span style="color: #FFD527;">
-                                2da cuota mensual gratis
+                                <span style="color : #ffffff; font-size: 18px">
+                                ¡No dejes pasar esta super oportunidad! <br> Asegura tu auto y participa del <br> 
+                                <span style="color: #FFDD36;">
+                                sorteo de S/ 1500
                                 </span>
                             </span>
                         </p>
@@ -613,8 +608,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1614574799, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1614574799, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1615784399, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1615784399, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -1166,8 +1161,8 @@ import { validationMixin } from 'vuelidate'
                         "origenDatos": localStorage.getItem("origenDatos"),
                     },
                     "remitente": {
-                        "correoRemitente": "segurovehicular@interseguro.com.pe",
-                        "correoRemitenteDisplay": "Interseguro Vehicular"
+                        "correoRemitente": "comunicaciones@interseguro.com.pe",
+                        "correoRemitenteDisplay": "Interseguro"
                     },
                     "datosPago": {
                         "idFrecuencia": this.payment,
@@ -1328,21 +1323,17 @@ import { validationMixin } from 'vuelidate'
     color: #0855C4 !important;
     box-shadow: 0px 2px 10px -1px #949297 !important;  
 }
-.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
-    
-    color: #0854c4 !important;
+.flotante-covid-3 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  color: #0855C4!important;
 }
-.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
-    
-    color: #0854c4 !important;
+.flotante-covid-3 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  color: #0855C4!important;
 }
-.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
-    
-    color: #0854c4 !important;
+.flotante-covid-3 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  color: #0855C4!important;
 }
-.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
-    
-    color: #0854c4 !important;
+.flotante-covid-3 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  color: #0855C4!important;
 }
 .flotante-covid-boton{
     .img-close {

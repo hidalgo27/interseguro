@@ -5,42 +5,7 @@
                 <b-row class="justify-content-center">
                     <b-col cols="12" lg="6" class="d-none" v-bind:class="{'d-block': primeraPantalla}">
                         <p class="resumen-tu-seguro" >Resumen de tu Seguro Vehicular</p>
-                        <div class="mi-carro">
-                            <p class="item-titulo">Mi carro</p>
-                            <div class="carro-detalle">
-                                <div class="detalle-item">
-                                    <p>Placa:</p>
-                                    
-                                    <p>{{this.placaMayuscula}}</p>
-                                </div>
-                                <div class="detalle-item">
-                                    <p>Modelo:</p>
-                                    <p>{{this.respuestaPlaca.brand }} {{ this.respuestaPlaca.model}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="datos-personales">
-                            <p class="item-titulo">Mis datos personales</p>
-                            <div class="datos-detalle">
-                                <div class="detalle-item">
-                                    <p>DNI:</p>
-                                    <p>{{this.respuestaPlaca.client.documentNumber}}</p>
-                                </div>
-                                <div class="detalle-item">
-                                    <p>Nombre:</p>
-                                    <p>{{this.respuestaPlaca.client.firstName}} {{this.respuestaPlaca.client.firstLastName}}</p>
-                                </div>
-                                <div class="detalle-item">
-                                    <p>Correo:</p>
-                                    <p>{{this.cliente.emailAddress}}<img @click="showModalEditarCorreo()" class="edit_app" src="./../../static/media/img/root/edit_app.png" alt=""></p>
-                                    
-                                </div>
-                                <div class="detalle-item">
-                                    <p>Celular:</p>
-                                    <p>{{this.cliente.phoneNumber}}<img @click="showModalEditarCelular()" class="edit_app" src="./../../static/media/img/root/edit_app.png" alt=""></p>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="cotizacion">
                             <p class="item-titulo">Mi cotización</p>
                             <div class="detalle-item">
@@ -134,6 +99,44 @@
                             <router-link to="">exclusiones</router-link>
                             
                         </div>
+
+                        <div class="mi-carro">
+                            <p class="item-titulo">Mi carro</p>
+                            <div class="carro-detalle">
+                                <div class="detalle-item">
+                                    <p>Placa:</p>
+                                    
+                                    <p>{{this.placaMayuscula}}</p>
+                                </div>
+                                <div class="detalle-item">
+                                    <p>Modelo:</p>
+                                    <p>{{this.respuestaPlaca.brand }} {{ this.respuestaPlaca.model}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="datos-personales">
+                            <p class="item-titulo">Mis datos personales</p>
+                            <div class="datos-detalle">
+                                <div class="detalle-item">
+                                    <p>DNI:</p>
+                                    <p>{{this.respuestaPlaca.client.documentNumber}}</p>
+                                </div>
+                                <div class="detalle-item">
+                                    <p>Nombre:</p>
+                                    <p>{{this.respuestaPlaca.client.firstName}} {{this.respuestaPlaca.client.firstLastName}}</p>
+                                </div>
+                                <div class="detalle-item">
+                                    <p>Correo:</p>
+                                    <p>{{this.cliente.emailAddress}}<img @click="showModalEditarCorreo()" class="edit_app" src="./../../static/media/img/root/edit_app.png" alt=""></p>
+                                    
+                                </div>
+                                <div class="detalle-item">
+                                    <p>Celular:</p>
+                                    <p>{{this.cliente.phoneNumber}}<img @click="showModalEditarCelular()" class="edit_app" src="./../../static/media/img/root/edit_app.png" alt=""></p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div id="btnirapagar" class="box-btns" v-bind:class="{'opacityNone': opacityNone}">
                             <b-button  class="btn-principal  d-lg-none" @click="pagar_ahora()">IR A PAGAR AHORA</b-button>
                         </div>
@@ -1068,7 +1071,7 @@ export default {
                 this.opacidad =true
                 this.isDisabledPayment = false
                 this.card.expiration_year = '20'+this.expiration_year
-                // this.card.email = this.$store.state.common.email
+                this.$store.commit('common/setEmail', this.cliente.emailAddress)
                 this.card.email = this.cliente.emailAddress
                 this.$store.dispatch('payment/getTokenCulqi', this.card)
                 .then((res) =>{
@@ -1200,7 +1203,7 @@ export default {
                             confirmButtonText: 'OK'
                         })
                 })
-            },
+        },
     },
 }
 </script>

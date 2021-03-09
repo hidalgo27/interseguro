@@ -54,13 +54,16 @@
     width: 300px;
   }
 }
-.leaveModal {
+.leaveModal .modal-body{
+  background-image: url("./../../static/media/interseguroVehicular_v2/fondo-modal-regreso-clases.svg") ;
+  background-size: cover;
+  background-position: center;
   p{
     color: #0855C4 !important;
     font-family: 'Omnes Regular';
   }
   .modal-content{
-    background: url("./../../static/media/interseguroVehicular_v2/fondo_cuponazo_modal.svg") !important;
+    // background: url("./../../static/media/interseguroVehicular_v2/fondo_cuponazo_modal.svg") !important;
     background-size: cover !important;
   }
   .img-verano{

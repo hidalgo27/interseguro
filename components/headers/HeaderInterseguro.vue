@@ -15,7 +15,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>   -->
+        </div> -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
