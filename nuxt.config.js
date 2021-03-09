@@ -61,7 +61,7 @@ module.exports = {
     '~/plugins/bootstrap.js',    
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
-    // { src: '~/plugins/sentry.js', ssr: false },
+    { src: '~/plugins/sentry.js', ssr: false },
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
     { src: '~plugins/vue-carousel.js', sync: false },    
@@ -73,7 +73,7 @@ module.exports = {
     { src: '~plugins/vue-tab.js', ssr: false },    
     { src: '~plugins/vue-cliploader.js', ssr: false },
     { src: '~plugins/ga.js', ssr: false },
-    // { src: '~plugins/chat.js', ssr: false },
+    { src: '~plugins/chat.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
     { src: '~/plugins/localStorage.js', ssr: false }
   ],
