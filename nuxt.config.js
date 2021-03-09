@@ -47,7 +47,7 @@ module.exports = {
       { hid: 'fb:og:image:width', property: 'og:image:width', content: '800' },
       { hid: 'fb:og:image:height', property: 'og:image:height', content: '418' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],    
+    link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' }],    
   },
 
   loading: { color: '#fff' },
