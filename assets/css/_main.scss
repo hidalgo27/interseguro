@@ -1,5 +1,9 @@
-
-
+.spinner-sq {
+  top: 0 !important;
+}
+.home-ibk .box-flotante-covid .box-contador {
+  z-index: 9;
+}
 // ::-webkit-scrollbar {
 //   width: 15px;
 // }
@@ -20,14 +24,50 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #ebf1fb;
 // }
-.leaveModal {
+
+.home-ibk .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  color: #fff !important;
+}
+.home-ibk .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  color: #fff !important;
+}.home-ibk .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  color: #fff !important;
+}.home-ibk .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  color: #fff !important;
+}
+#contadorCyber13 .rotor-group:nth-child(1) .rotor-group-heading:before {
+  color: #fff !important;
+}
+#contadorCyber13 .rotor-group:nth-child(2) .rotor-group-heading:before {
+  color: #fff !important;
+}
+
+#contadorCyber13 .rotor-group:nth-child(3) .rotor-group-heading:before {
+  color: #fff !important;
+}
+#contadorCyber13 .rotor-group:nth-child(4) .rotor-group-heading:before {
+  color: #fff !important;
+}
+.home-ibk{
+  .flipdown{
+    margin-top: 24px;
+    width: 300px;
+  }
+}
+.leaveModal .modal-body{
+  background-image: url("./../../static/media/interseguroVehicular_v2/fondo-modal-regreso-clases.svg") ;
+  background-size: cover;
+  background-position: center;
   p{
-    
+    color: #0855C4 !important;
     font-family: 'Omnes Regular';
   }
   .modal-content{
-    padding-top: 24px;
-    background: url('./../../static/media/interseguroVehicular_v2/fondo-modal.png');
+    // background: url("./../../static/media/interseguroVehicular_v2/fondo_cuponazo_modal.svg") !important;
+    background-size: cover !important;
+  }
+  .img-verano{
+    max-width: 300px;
   }
 }
 .modal-blackWeek{
@@ -425,6 +465,7 @@
   }
 }
 #modalInicioVigencia2{
+  margin-top: 70px !important;
   .modal-titulo{
     width: 100%;
   }

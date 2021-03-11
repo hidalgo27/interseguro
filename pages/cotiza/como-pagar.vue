@@ -1,5 +1,22 @@
 <template>
     <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
+        <!-- v-bind:class="{'d-none': opacityNone}" -->
+        <div id="newModal" style="display:none" >
+        <div class="phoneContent">
+                 <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
+                  <img src="./../../static/media/interseguroVehicular_v2/cardImage.svg" alt="telefono">
+                 </a>
+          </div>
+            <br>
+            <p style="color : #0855C4; font-size : '23px'">Error en el pago</p>
+            <br>
+            <p style="color: #454A6C;
+    font-family: 'Omnes Regular';
+    opacity: 1;">{{textErrModal}}
+    <br>
+    {{textErrModalTwo}}</p>
+
+        </div>   
     <b-container class="steps-plan">
       <b-row>
         <b-col cols="12" lg="8" class=" m-auto">
@@ -39,6 +56,20 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
+                <div class="flotante-covid-3  d-none  d-md-block">
+                    <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
+                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="380"></span>
+                        <div class="box-contador " >
+                             <span  class="cuota-gratis-span"
+                                >¡Por tiempo limitado!
+                            </span>
+                            <div  class="example  d-md-flex">
+                                <div id="contadorCyber4" class="flipdown">                                    
+                                </div> 
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
@@ -86,12 +117,11 @@
                                                         Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                     </div>
                                                     <div class="input-group  iptGral editable  box-iptCard">
-                                                        <img src="../../static/media/img/flujo/como-pagar/icon-tarjeta.png" class="icon-tarjeta"/>
                                                         <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
                                                         id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
                                                         aria-label="Número de tarjeta" autocomplete="cc-number"
                                                         aria-describedby="numberDocumentFeedback"
-                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cartNumber"/>
+                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
                                                         
                                                         <img width="30" :src="creditCardImage" >
                                                         <span class="error-card">error momentaneo</span>
@@ -101,7 +131,6 @@
                                                     <div class="card-custom__date">
                                                         <div class="form-group-custom">                                                            
                                                             <div id="box-mes" class="input-group  iptGral editable">   
-                                                                <img src="../../static/media/img/flujo/como-pagar/icon-mes.png" class="icon-mes"/>
                                                                 <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
                                                                  class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
                                                                   v-model="card.expiration_month" type="tel" name="cardmes"/>
@@ -120,7 +149,6 @@
                                                     <div class="card-custom__cvv">
                                                         <div class="form-group-custom">
                                                             <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
-                                                                <img src="../../static/media/img/flujo/como-pagar/icon-ccv.png" class="icon-ccv"/>                                   
                                                                 <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
                                                                 id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
                                                                 aria-describedby="numberFeedback"
@@ -187,31 +215,28 @@
                                             </b-row>
                                         </b-col>
                                         
-                                        <b-col cols="12" lg="12" class="pt-5 pt-lg-2 mt-5  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                        <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
                                             <b-row class="justify-content-center">
-                                                
+                                                <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                </b-col>
                                                 <b-col cols="10" class="text-center">
-                                                    <div class="flotante-50dcto" v-if="this.$store.state.common.frecuenciaPago == 1">
-                                                        <div class="d-flex flex-direction-column">
-                                                            <img src="./../../static/media/interseguroVehicular_v2/dto-50.svg" alt="">
-                                                            <span style="">Recuerda que el 50% de dscto. <br> será aplicado a la 2da, 3ra y 4ta <br> cuota mensual de tu seguro</span>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
                                                         :disabled='this.isDisabledPayment'>
                                                         <span>PAGAR ${{this.monto_pagar}} </span>                                                        
                                                         
                                                     </button>
                                                 </b-col>
-                                                <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
-                                                </b-col>
                                             </b-row>
                                         </b-col>
+                                        
 
                                         <b-col cols="12" lg="12" class="" v-if="this.$store.state.common.frecuenciaPago != 1">
                                             <b-row class="justify-content-center">
-                                                
+                                                <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                </b-col>
                                                 <b-col cols="10" class="text-center">
                                                     
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
@@ -219,10 +244,31 @@
                                                         <span>PAGAR ${{this.monto_pagar}} </span> 
                                                     </button>
                                                 </b-col>
-                                                <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                
+                                                 <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Recuerda que la <strong style="color: #0855C4">cuota gratis</strong> se aplicará al <br> segundo pago de tu cronograma</span>
                                                 </b-col>
                                             </b-row>
+                                        </b-col>
+
+                                        <b-col cols="12">
+                                            <div class=" box-btn testest  mt-4" >
+                                                <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
+                                                    
+                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-mobile.svg" width="340">
+                                                    
+                                                    <div class="box-contador" >
+                                                        <span  class="cuota-gratis-span"
+                                                            >¡Por tiempo limitado!
+                                                        </span>
+                                                        <div  class="example  d-md-flex">
+                                                            <div id="contadorCyber3" class="flipdown">
+                                                                
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </b-col>
 
                                     </b-row>
@@ -304,7 +350,6 @@
         <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
-
         <!-- <b-modal id="leavePaymentPromocion" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
@@ -326,9 +371,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -351,86 +396,33 @@
             </b-container>
         </b-modal> -->
 
-        <!-- <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class=" leaveModal"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
+            <img class="img-close-modal" width="60" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
+
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
-                        <div class="banner-modal">
-                            <img src="./../../static/media/modalBlackWeek/modal.svg" alt="">
-                        </div>
-                    </b-col>                  
-                    <b-col cols="12" class="mb-2">
-                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, </h3> 
-                        <p>Aprovecha esta oferta y participa en el <br> sorteo de  <strong>2 Smart TV 50" <br> y 3 Nintendo Switch + 2 juegos </strong></p>
-                    </b-col>
-                    <b-col class="text-center mb-4" cols="12">
-                        <b-button @click="hideModalBlackWeek()">QUIERO CONTINUAR</b-button>
-                    </b-col>
-                </b-row>
-            </b-container>
-        </b-modal> -->
-
-        <!-- <b-modal id="leavePaymentAgora" class="modal-agora" size="lg"  static centered hide-footer hide-header>
-            <b-container>
-                
-                <b-row class="text-center">
-                    <b-col cols="12" class="mb-3">
-                        <h2><strong>¡POR TIEMPO LIMITADO!</strong></h2>
+                        <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
+                        <p class="mt-3">
+                            <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                                <span style="color : #ffffff; font-size: 18px">
+                                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y participa del<br> 
+                                <span style="color: #FFDD36;">
+                                sorteo de S/ 1500
+                                </span>
+                            </span>
+                        </p>
                     </b-col>
                 </b-row>
                 <b-row class="justify-content-center">
-                    <b-col class="text-center mb-3" cols="12">
-                        <img width="254" src="../../static/media/interseguroVehicular_v2/agora.png" alt="Abandonar Seguro Vehicular">
-                    </b-col>
-                </b-row>
-                <b-row>                    
-                    <b-col cols="12" class="mb-2">
-                        <h3><strong>{{this.$store.state.common.objCliente.firstName}}</strong>, <br> Te regalamos un <strong>vale de S/100 en Agora <br></strong> por comprar tu Seguro Vehicular</h3>
-                    </b-col>
-                </b-row>
-                <b-row class="justify-content-center">
-                    <b-col class="text-center mb-4" cols="12">
-                        <b-button @click="enviarParametroAgora()">IR A PAGAR</b-button>
-                    </b-col>
-                </b-row>
-                <b-row>                    
-                    <b-col cols="12" class="mb-2">
-                        <p>Agora es el nuevo medio de pago de Intercorp, lo podrás <br> usar para pagar Spotify, Plaza Vea y más.</p>
-                    </b-col>
-                </b-row>
-            </b-container>
-        </b-modal> -->
-         <b-modal
-        id="leavePayment"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              
-              <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-
-              <p class="mt-3" style="color : #ffffff; font-size: 19px">
-                  <strong>{{this.$store.state.common.objCliente.firstName}}</strong>,<br>
-                <strong>¡Por tiempo limitado! </strong> Asegura tu auto con <br> <strong>50% menos por 3 meses</strong> y participa de <br> nuestro sorteo de <strong>1 PS4 + 1 silla gamer</strong>
-              </p>
-            </b-col>
-          </b-row>
-          
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
+            <b-col class="text-center mt-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
-                >TERMINAR COMPRA</b-button
-              >
+                >CONTINUAR COMPRA</b-button>
             </b-col>
           </b-row>
-        </b-container>
-      </b-modal>
+            </b-container>
+        </b-modal>
+         
     </section>
 </template>
 
@@ -451,6 +443,10 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterseguroFlujo',
         data(){
             return {
+                htmlModal : '',
+                textErrModal : '',
+                textErrModalTwo : '',
+                flotanteCovid: true,
                 valeAgora: false,
                 urlLocal:'',
                 cobertura_is:{
@@ -605,6 +601,16 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            hidemetodoFlotante(){
+                this.$nuxt.$emit('bv::hide::modal','leavePayment')
+            },
+            metodoFlotante(){
+                this.$nuxt.$emit('bv::show::modal','leavePayment')
+            },
+            contador(){
+                var flipdown2 = new FlipDown(1615784399, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1615784399, 'contadorCyber3').start()
+            },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
             },
@@ -784,6 +790,7 @@ import { validationMixin } from 'vuelidate'
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
                         .then((res) =>{
+
                             if (res.code == 0) {
                                 this.opacidad =false
                                 // this.validarROOT()
@@ -798,13 +805,48 @@ import { validationMixin } from 'vuelidate'
                                 }
                                 this.$store.dispatch('common/eventoErrores', errorDetectado)
                                 this.opacidad =false
+                                const messageErr = JSON.parse(JSON.parse(res.body).body);
+
+
+                                const showMessageErr = () => {
+                                    const err = messageErr.decline_code;
+                                    this.textErrModalTwo = '';
+                                    if(err == 'stolen_card'){
+                                        return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'lost_card'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'insufficient_funds'){
+                                        return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
+                                    }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'incorrect_cvv'){
+                                        return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'issuer_not_available'){
+                                        return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'processing_error'){
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                                    }else {
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                                    }
+                                };
+
+                                this.textErrModal = showMessageErr();
+                                if(!this.htmlModal){
+                                    this.htmlModal = document.getElementById('newModal');
+                                    this.htmlModal.style.display = "";
+                                }
+
                                 this.$swal({
-                                    title: 'Oops...',
-                                    text: res.body.message,
-                                    type: 'error',
-                                    showCancelButton: false,
-                                    confirmButtonColor: '#2177CC',
-                                    confirmButtonText: 'OK'
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    text: showMessageErr(),
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
                                 })
                             }else{
                                 this.opacidad =false
@@ -840,14 +882,19 @@ import { validationMixin } from 'vuelidate'
                             this.$store.dispatch('common/eventoErrores', errorDetectado)
                             break;
                     }
-                    
-                        this.$swal({
-                            title: 'Oops...',
-                            text: res.message,
-                            type: 'error',
-                            showCancelButton: false,
-                            confirmButtonColor: '#2177CC',
-                            confirmButtonText: 'OK'
+                    this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
+                    if(!this.htmlModal){
+                        this.htmlModal = document.getElementById('newModal');
+                        this.htmlModal.style.display = "";
+                    }
+                       this.$swal({
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
                         })
                 })
             },
@@ -1114,8 +1161,8 @@ import { validationMixin } from 'vuelidate'
                         "origenDatos": localStorage.getItem("origenDatos"),
                     },
                     "remitente": {
-                        "correoRemitente": "segurovehicular@interseguro.com.pe",
-                        "correoRemitenteDisplay": "Interseguro Vehicular"
+                        "correoRemitente": "comunicaciones@interseguro.com.pe",
+                        "correoRemitenteDisplay": "Interseguro"
                     },
                     "datosPago": {
                         "idFrecuencia": this.payment,
@@ -1133,12 +1180,7 @@ import { validationMixin } from 'vuelidate'
               if (this.$store.state.common.leaveMessage == 0) {
                   if (e.clientX < 0 || e.clientY < 0) {
                         this.$store.commit('common/setLeaveMessage',1)
-                        if (this.urlLocal = "/promocion50") {
-                            // this.$nuxt.$emit('bv::show::modal','leavePaymentPromocion')
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
-                        }else{
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
-                        }
+                        this.$nuxt.$emit('bv::show::modal','leavePayment')
                         // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
                         //     this.$nuxt.$emit('bv::show::modal','leavePayment')
                         // }else{
@@ -1180,6 +1222,9 @@ import { validationMixin } from 'vuelidate'
             // if(localStorage.getItem('activoAgora')){
             //     this.valeAgora = true
             // }
+            setTimeout(() => {
+                this.contador()
+            }, 750);
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
@@ -1267,40 +1312,88 @@ import { validationMixin } from 'vuelidate'
     }
 </script>
 
-<style lang="scss">
-    .flotante-50dcto{
-        background: #CBDBF2;
+<style lang="scss" scope>
+.swal-buttonx .swal2-close{
+    border-radius: 50px !important;
+    display: flex !important;
+    /* border: 1px solid red; */
+    top: -22px !important;
+    right: -16px !important;
+    background: white !important;
+    color: #0855C4 !important;
+    box-shadow: 0px 2px 10px -1px #949297 !important;  
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-boton{
+    .img-close {
         position: absolute;
-        right: 0;
-        top: -92px;
+        right: -14px;
+    }
+    .box-contador{
+        position: absolute;
+        bottom: 6px !important;
+        right: 40px !important;
+        .cuota-gratis-span{
+            font-family: 'omnes SemiBold' !important;
+            font-size: 16px !important;
+            color: #0855c4;
+        }
+    }
+}
+.box-contador{
+        .cuota-gratis-span{
+            font-family: 'omnes SemiBold' !important;
+            font-size: 16px !important;
+            color: #0855c4;
+        }
+    }
+.box-btns-fixed{
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 12px;
+  position: fixed;
+  text-align: center;
+  width: 80%;
+  z-index: 999;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-custom{
+    .box-contador{
+        .example{
+            display: flex;
+            align-items: center;
+            margin-top: 1px;
+        }
+        p{
+            color: #ffffff;
+            font-size: 20px;
+            padding-right: 24px;
+        }
+    }
+}
+    .flotante-covid-3{
+        position: absolute;
+        right: 0px;
+        top: 200px;
         padding: 8px;
         border-radius: 3px;
-        left: 30px;
-        z-index: 999;
-        width: 254px;
-        &:after{
-            content: '';            
-            width: 0;
-            position: absolute;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 30px solid #CBDBF2;
-            left: 110px;
-        }
-        span{
-            text-transform: none;
-            color: #0855C4;
-            font-size: 13px;
-            font-family: 'Omnes Regular';
-            letter-spacing: 0;
-            display: inline-block;
-            text-align: left;
-            padding-left: 9px;
-        }
-        img{
-
-        }
+        z-index: 9;
+        width: 200px;
     }
         .liston-agora{
             display: none;
@@ -1365,7 +1458,7 @@ a.steps__item.paso1:after{
 }
 .steps-box{
     padding-top: 143px;;
-    background: #f7f4fc;
+    background: #ffffff;
     .steps-plan{
         margin-bottom: 26px;
         background: white;
@@ -1762,20 +1855,11 @@ a.steps__item.paso1:after{
         &__ingresatarjeta{
             padding: 24px 16px 12px;
             border-radius: 0 0 16px 16px;
-            background: #f7f4fc;
+            background: #fff;
             .box-ingresaTarjeta{
                 background: white;
                 padding: 18px 15px 0 15px;
             }
-            &:before{
-                content: "";
-                position: absolute;
-                left: 0;
-                background: #f7f4fc;
-                width: 2px;
-                height: 90%;
-                top: 5%;
-            }           
             .boxtitulo{
                 &__secundario{
                     color: #0BD360;
@@ -1877,6 +1961,14 @@ a.steps__item.paso1:after{
         font-size: 18px;
         font-weight: 500;
     }
+    .leaveModal{
+  .img-close-modal{
+        position: absolute;
+    top: -58px;
+    right: -20px;
+    cursor: pointer;
+  }
+}
     @media (min-width: 768px) {
         .leaveModal {
             .img-verano{
@@ -2008,7 +2100,6 @@ a.steps__item.paso1:after{
         display: none;
     }
     .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        background: #fff !important;
         border-radius: 4px;
     }
     #cardmes{
@@ -2102,29 +2193,186 @@ a.steps__item.paso1:after{
             font-size: 20px;
         }
     }
+    .iptGral.editable .iptGral__input {
+        padding-left: 38px;
+        max-width: 460px;
+        height: 48px;
+        border: 1px solid #D1D1D1 !important;
+        box-shadow: none;
+        line-height: 1;
+    }
+    .iptGral.editable ::placeholder {
+        color: #D1D1D1 !important;        
+    }
+    .box-iptCard{
+        position: relative;
+        display: flex;
+        align-items: center;
+        img{
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            padding-top: 8px;
+            right: 8px;
+
+        }
+        .icon-tarjeta{
+            position: absolute;
+            width: 18px;
+            left: 0;
+            padding-top: 0;
+            margin-left: 6px;
+        }
+        .ipt-cardNumber{            
+            background-image: url("./../../static/media/img/root/tarjeta.svg");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        .ipt-cardNumber:focus {
+            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+            border: 1.5px solid #0855c4!important;
+            box-shadow: none;
+        }        
+    }
+    .card-interseguro{
+        border-radius: 5px;
+        width: 100%;
+        max-width: 440px;
+        .form-label.col-form-label.label-completed{
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+        .subtitulo{
+            color: #0BD360;
+        }
+        label{
+            color: #0855c4;
+        }
+        .slash-symbol{
+            position: relative;
+            label{
+                position: absolute;
+                bottom: -4px;
+                z-index: 99;
+                font-size: 26px;
+                padding-bottom: 0;
+                color:#0855c4;
+            }
+        }
+        .ipt-month{
+            width: 40px;
+            padding-right: 8px !important;
+            background-image: url("./../../static/media/img/root/calendar.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+            text-align: left !important;
+            padding-left: 41px !important;
+        }
+        .ipt-month:focus {
+            background-image: url("./../../static/media/img/root/calendar.svg");
+            box-shadow: none;
+        }
+        
+        .img-activefocus{
+            position: absolute;
+            z-index: 9;
+            width: 20px;
+            left: 29px;
+        }
+        
+        .ipt-year{
+            width: 65px;
+            padding: 0 5px 0 0;
+            text-align: left !important;
+            padding-left: 0 !important;
+            padding-left: 6px !important;
+        }
+        .ipt-cvv{
+            width: 60px;
+            padding: 0 0 0 8px;
+            background-image: url("./../../static/media/img/root/ccv.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        #box-ccv .ipt-cvv:focus {
+            background-image: url("./../../static/media/img/root/cvv_focus.png");
+            border: 1.5px solid #0855c4 !important;
+            box-shadow: none;
+        }
+        .text-right-custom{
+            text-align: right;
+            label{
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+        }
+        .iptGral__input{
+            color: #616161;
+            font-size: 20px;
+        }
+    }
+    .metodo_pago_img{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        img{
+            height: 22px;
+            width: auto;
+        }
+    }
 
     .card-custom{
         display: flex;
         justify-content: space-between;
-        width: 100%;
-        margin-top: 16px;
+        max-width: 440px;
         &__cvv{
-            width: 40%;
+            max-width: 220px;
+            width: 50%;
             position: relative;
             z-index: 7;
-            margin-left: -4px;
-            left: -1px;
             box-sizing: content-box;
+            #box-ccv{
+                position: relative;
+                display: flex;
+                align-items: center;
+                .icon-ccv{
+                    position: absolute;
+                    width: 18px;
+                    left: 0;
+                    padding-top: 0;
+                    margin-left: 6px;
+                    z-index: 9;        
+                }
+                input{
+                    padding-left: 38px;
+                }
+            }
+        }
+        &__date.activeFocus{
+            border: 1px solid #0855c4;
         }
         &__date{    
-            width: 40%;
-            display: flex;
+            max-width: 220px;
+            width: 50%;
+            display: inline-flex;
             .form-group-custom{
                 &:nth-child(1){
-                    width: 50%;
+                    width: 92px;
                 }
                 &:nth-child(2){
-                    width: 50%;
+                    width: 70%;
                 }
                 &:nth-child(4){
                     width: 50%;
@@ -2144,7 +2392,7 @@ a.steps__item.paso1:after{
                     }
                     &:after{
                         width: 5px;
-                        height: 36px;
+                        height: 46px;
                         background: #fff;
                         content: "/";
                         top: 1px;
@@ -2152,10 +2400,37 @@ a.steps__item.paso1:after{
                         position: absolute;
                         z-index: 99;
                         font-size: 17px;
-                        line-height: 34px;
+                        line-height: 44px;
+                        color: #d3ddef;
                     }
                 }
             }
+        }
+    }
+    .card-custom__date{
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 94px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
+    @media (min-width: 1200px) {
+        .card-interseguro{
+            width: 100%;
+        }
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 112px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
         }
     }
     .modal-personal-title {
@@ -2332,6 +2607,19 @@ a.steps__item.paso1:after{
     }
 }
     @media (min-width: 992px) {
+        .contenedor-custom{
+            .box-contador{
+                position: absolute;
+                bottom: 12px;
+                right: 0px;
+                .flipdown{
+                    width: 225px !important;
+                }
+                img{                
+                    width: 324px;
+                }
+            }
+        }
         .flotante-50dcto{
             right: -278px;
             top: 0;

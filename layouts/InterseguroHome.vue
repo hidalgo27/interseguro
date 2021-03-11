@@ -49,7 +49,7 @@ export default {
       }
   },
   mounted() {
-    
+    console.log("LAYOUT 5")
     this.nuevoProducto = this.$store.state.common.nuevoProducto
     setTimeout(() => {
       this.urlLocal = localStorage.getItem("urlLocal")

@@ -1,19 +1,21 @@
 <template>
-  <div class="home"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+    <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
-            <!-- <p class="titulo-formulario">
-                <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
-                Manejar tranquilo <br> ahora es más fácil
-            </p> -->
-            <img class="d-lg-none" width="100%" src="./../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-            <div class="box-contador  d-lg-none  mt-2" style="padding-left: 32px;">
-              <div  class="example">
-                  <div id="contadorCyber" class="flipdown">
-                      
-                  </div> 
+            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
+            </div>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+              
+              <div class="box-contador" >
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyber" class="flipdown">
+                        
+                    </div> 
+                </div>
               </div>
             </div>
             <b-form class="formCotizador">                         
@@ -55,10 +57,11 @@
             </b-form>            
           </div>
         </div>
-        <div class="home-banner__der">          
-          <div class="box-titulo">
-            <img style="max-width: 658px;" width="100%" src="./../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-            <div class="box-contador" style="padding-left: 32px;">
+        <div class="home-banner__der">
+          <div class="box-titulo  ml-5">
+            
+            <div class="box-contador">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
               <div  class="example  d-none  d-md-flex">
                   <div id="contadorCyber2" class="flipdown">
                       
@@ -66,22 +69,7 @@
               </div>
             </div>
           </div>
-          <!-- <div class="box-titulo">
-            <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
-            </p>
-            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
-              <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
-            </p>
-          </div> -->
-          <!-- <img src="./../static/media/modalBlackWeek/banner-home.svg" alt="">
-          <div class="box-contador" style="padding-left: 32px;">
-            <div  class="example  d-none  d-md-flex">
-                <div id="contadorCyber2" class="flipdown">
-                    
-                </div> 
-            </div>
-          </div> -->
+          
         </div>
       </div>
     </div>
@@ -369,10 +357,12 @@
 </template>
 
 <script>
+import FadeLoader from '@/components/loaders/FadeLoader'
   export default {
     layout: "InterseguroHome",
       data () {
           return {
+            showLoader: true,
             loading: false,
             color: "#00ADEE",
             sizePulse: "45px",
@@ -388,13 +378,16 @@
             saveCliente:{}
           }
       },
-      components: {},
+      components: {
+        'fade-loader': FadeLoader
+      },
       created() {
+        this.showLoader = true
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1612155599, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1612155599, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1615784399, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1615784399, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -573,10 +566,14 @@
           
       },
       mounted () {
+        this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
+        this.$store.commit('common/setPromocion', true)
+        localStorage.setItem("urlLocal", "/promocion")
         setTimeout(() => {
           this.contador()
         }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
+        this.$store.commit('common/setPromocion', false)
         
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
@@ -599,6 +596,7 @@
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
         this.$store.commit('common/setBusinessId', 1)
+        this.showLoader = false
         // this.$store.commit('common/setObjVehiculo', {})
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
         if (document.location.hostname == "www.interseguro.pe"){
@@ -635,13 +633,22 @@
         //     this.flagCloseListon = 1
         // }
         this.createMail()
-        this.$store.commit('common/setLeaveMessage',0) 
+        this.$store.commit('common/setLeaveMessage',0);
+        this.showLoader = false
+        console.log("HOME BASE")
       }
   }
 </script>
 
 <style lang="scss" scope>
-
+.omnes-medium{
+  font-family: 'Omnes Medium';
+}
+.flipdown .rotor-group-heading:before {
+    font-size: 9px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+}
   .listonMobile{
     position: relative;
     img{
@@ -729,14 +736,14 @@
       text-decoration: none;
     }
   }
-  .home{
+  .home-is{
     margin-top: 70px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 260px;
+      padding-top: 170px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -861,10 +868,10 @@
           .plan--cabecera{  
             background-color: #b1b1b1;
             &:before{
-              background-image: url(../static/media/img/home/plata_dto.png);
+              background-image: url(./../static/media/img/home/plata_dto.png);
             } 
             &:after{
-              background-image: url(../static/media/img/home/plata.png);
+              background-image: url(./../static/media/img/home/plata.png);
               bottom: -9px;
             }            
           }
@@ -873,10 +880,10 @@
           .plan--cabecera{  
             background-color: #e6ac38;
             &:before{
-              background-image: url(../static/media/img/home/oro_dto.png);
+              background-image: url(./../static/media/img/home/oro_dto.png);
             }
             &:after{
-              background-image: url(../static/media/img/home/oro.png);
+              background-image: url(./../static/media/img/home/oro.png);
             } 
           }
         }
@@ -884,10 +891,10 @@
           .plan--cabecera{  
             background-color: #27362d;
             &:before{
-              background-image: url(../static/media/img/home/black_dto.png);
+              background-image: url(./../static/media/img/home/black_dto.png);
             }
             &:after{
-              background-image: url(../static/media/img/home/black.png);
+              background-image: url(./../static/media/img/home/black.png);
             } 
           }
         }
@@ -955,13 +962,14 @@
       }
     }  
     .boxHome-banner{
-      padding-top: 30px;
       position: relative;
-      height: 390px;
+      height: 414px;
+      background-image:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+      background-size: cover;
+      // height: 296px;
       // background-color:  rgba(8,85,196,.1);
-      background-image:url('./../static/media/interseguroVehicular_v2/fondo_banner_desktop.png');
+      // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
-        
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
@@ -973,6 +981,7 @@
         align-items: center;
         height: 100%;
         flex-direction: column;
+        
         &__izq{
           // margin-top: 24px;
           // padding-top: 68px !important;
@@ -980,7 +989,6 @@
           display: flex;
           align-items: flex-start;
           width: 90%;
-          border-bottom: 1px solid white !important;
           input{
             max-width: 360px;
             width: 100%;
@@ -1029,18 +1037,7 @@
           // display: flex;
           // flex-direction: column;
           align-items: center;
-          .box-titulo{
-            position: relative;
-          }
           .box-contador{
-            padding-left: 32px;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            .flipdown{
-              display: flex;
-              justify-content: flex-end;
-            }
             .example{
               display: flex;
               align-items: center;
@@ -1071,6 +1068,7 @@
         }
       }
     }
+
     .box-formCotizador{
       width: 100%;
       padding: 0;      
@@ -1105,7 +1103,7 @@
       }
     }
     .formCotizador{
-      padding: 2rem 1.5rem;      
+      padding:2rem 1.5rem;
       max-width: 438px;
       width: 100%;
       height: 280px;
@@ -1113,8 +1111,7 @@
       background: #fff;
       box-shadow: -3px 4px 12px -1px #ccc;
       position: relative;
-      margin: auto; 
-      margin-top: 24px;     
+      margin: auto;      
       h1{
         font-family: 'Omnes Medium';
         font-size: 1.1rem;
@@ -1219,7 +1216,6 @@
       margin: auto;
       flex-direction: column;
       .box-titulo{
-        position: relative;
         margin-bottom: 48px;
       }
       .titulo-clientes{
@@ -1565,17 +1561,8 @@
     border-width: 1.5px !important;
   }
   
-@media (min-width: 600px) {
-    .home .boxHome-banner {
-      height: 524px;
-    }
-    
-}
   @media (min-width: 992px) {
-    .home .boxHome-banner .home-banner__der .box-titulo img{
-      width: 450px;
-    }
-    .home{
+    .home-is{
       margin-top: 0px;
       // margin-top: 72px;
       .home-beneficios2{
@@ -1594,14 +1581,18 @@
         }
       }
       .boxHome-banner{
+        background-color: #0181f0;
+        // background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+        // background-size: cover;
+        // background-repeat: no-repeat;
+        // background-position: center;
         height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          min-height: 445px;
           &__izq{
             // padding-top: 68px !important;
-            height: calc(70vh);
+            height: calc(75vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1642,7 +1633,7 @@
             }
           }
           &__der{
-            padding-top: 0px !important;
+            padding-top: 50px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;
@@ -1652,12 +1643,22 @@
             background-position-y: bottom;
             background-position-x: right;
             width: 100%;
+            // justify-content: flex-start;
             align-items: flex-start;
+            // flex-direction: column;
             // padding-left: 32px;
             .box-titulo{
-              padding-top: 0px;
               padding-left: 24px;
-              height: 300px;
+              position: relative;
+            }
+            .box-titulo{
+              .box-contador{
+                .example{
+                  margin-top: 0;
+                  position: relative;
+                  left: 121px;
+                }
+              }
             }
             p{
               font-weight: 500;
@@ -1680,7 +1681,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 360px;
+        height: 300px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
@@ -1843,35 +1844,10 @@
     }
   }
   @media (min-width: 1024px) {
-    .home{    
-      .flipdown {
-        height: 60px !important;
-      }
-      .rotor-group-heading {
-          width: 63px !important;
-      }
-      .rotor-group {   
-        height: 60px !important;
-      }
-      .flipdown .rotor, .flipdown .rotor-leaf, .flipdown .rotor-leaf-front, .flipdown .rotor-leaf-rear, .flipdown .rotor-top, .flipdown .rotor-bottom, .flipdown .rotor:after {
-        width: 30px !important;
-      }
-      .flipdown .rotor-leaf, .flipdown .rotor {
-        height: 40px !important;
-      }
-      .flipdown .rotor {
-        font-size: 40px !important;
-      }
-      .flipdown .rotor-leaf-front, .flipdown .rotor-leaf-rear, .flipdown .rotor-top, .flipdown .rotor-bottom, .flipdown .rotor:after {
-        height: 20px !important;
-      }
-      .flipdown .rotor-leaf-front, .flipdown .rotor-top {
-        line-height: 40px !important;
-      }
-    }
-    .home{
+    .home-is{
       .home-banner{
         padding-left: 65px;
+        min-height: 548px;
       }
       .home-beneficios2{
           padding-top: 48px;
@@ -2003,9 +1979,6 @@
     }
   }
   @media (min-width: 1200px) {
-    .home .boxHome-banner .home-banner__der .box-titulo img{
-      width: 580px;
-    }
     .listonMobile{
       display: none;
     }
@@ -2015,40 +1988,38 @@
         width: 700px;
       }
     }
-    .home{
-      .boxHome-banner{  
-        // background-image: url('./../static/media/modalBlackWeek/fondo-modal-lg.svg');
-        // background-position-x: 0;
-        // background-position-y: 0;
-        // background-size: cover;    
+    .home-is{
+      .boxHome-banner{
         .home-banner{
           // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
-          // background: transparent;
-          background-size: 50%;
+          // background-size: 50%;
+          background-size: contain;
           padding: 0 1.5rem;
           padding-left: 65px;
           &__der{
+            padding-top: 0px !important;
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
             align-items: center;
-            // img{
-            //   width: 749px;
-            //   padding-left: 32px;
-            // }
             p{
               font-size: 2.6rem;
             }
             .box-titulo{
               padding: 0;
-              height: 350px;
+              .box-contador{
+                position: relative;
+                left: calc(530px - 417px);
+                bottom: -60px;
+                width: 530px;
+              }
             }
           }
         }
       }
       
       .formCotizador{
-        height: 310px;
+        height: 300px;
         margin-top: 40px;
       }
 
@@ -2197,7 +2168,7 @@
   }
 
   @media (min-width: 1366px) {
-    .home{
+    .home-is{
       .home-pasos{
         padding-top: 42px;
         .planes{
@@ -2219,11 +2190,10 @@
     outline: 0 none;
   }
   @media (min-width: 1440px) {
-    .home{
+    .home-is{
       .boxHome-banner{              
         .home-banner{
           // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
-          background-size: 50%;
           padding-left: 128px;
           max-width: 1440px;
           &__der{
@@ -2240,7 +2210,7 @@
   }
 
   @media (min-width: 1900px) {
-    .home{
+    .home-is{
       .boxHome-banner{              
         .home-banner{
           padding-left: 0;
@@ -2258,8 +2228,10 @@
   }
 
   @media (min-height: 768px) and (min-width: 992px){
-    .home{
+    .home-is{
         .boxHome-banner{
+          background-position: center;
+          background-repeat: no-repeat;
           .home-banner{
             // &__izq{
             //   height: calc(100vh - 290px);

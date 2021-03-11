@@ -47,6 +47,7 @@ export default {
       }
   },
   mounted() {
+    console.log("LAYOUT 6")
     this.cuentaSueldo = localStorage.getItem("urlLocal") == '/cuentasueldo'  || localStorage.getItem("urlLocal") == '/tarjetaoh'? true : false
     this.businessId = this.$store.state.common.businessId
     this.cotizadorId = localStorage.getItem("cotizadorId")

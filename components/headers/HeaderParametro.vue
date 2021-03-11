@@ -159,7 +159,7 @@ export default {
             this.flagCloseListon = 1
         }
         setTimeout(() => {
-            this.urlLocal = localStorage.getItem("urlLocal")
+            this.urlLocal = this.$store.state.common.urlGlobal
         }, 250);
         setTimeout(() => {
             if(this.$store.state.common.cuentasueldo == 'Y'){

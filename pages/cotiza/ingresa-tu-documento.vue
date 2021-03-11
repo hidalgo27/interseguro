@@ -865,9 +865,7 @@
           </div> -->
         </div>
       </b-modal>
-
-      <!-- Modal de abandono -->
-      <b-modal
+<b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -878,11 +876,15 @@
       >
         <b-container>
           <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              
-             <img class="img-verano" width="100%" src="./../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
-              <p class="mt-3" style="color : #ffffff; font-size: 19px">
-                <strong>¡Por tiempo limitado! </strong> Asegura tu auto con <br> <strong>50% menos por 3 meses</strong> y participa de <br> nuestro sorteo de <strong>1 PS4 + 1 silla gamer</strong>
+            <b-col class="text-center mb-3" cols="12">              
+              <p class="mt-3">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                  <span style="color : #ffffff; font-size: 18px">
+                      ¡No dejes pasar esta super oportunidad! <br> Asegura tu auto y participa del <br> 
+                      <span style="color: #FFDD36;">
+                      sorteo de S/ 1500
+                      </span>
+                  </span>
               </p>
             </b-col>
           </b-row>
@@ -896,11 +898,72 @@
           </b-row>
         </b-container>
       </b-modal>
+      <!-- Modal de abandono -->
+      <!-- <b-modal
+        id="leaveDocument"
+        class="leaveModal"
+        size="lg"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img
+                src="../../static/media/modal/leave-datos.png"
+                alt="Abandonar Seguro Vehicular"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="text-center">
+            <b-col cols="12" class="mb-3">
+              <h2 v-if="this.planSeleccionado == 4">
+                <span>¡Buena elección!</span> <br />
+                Tu auto estará <br />
+                protegido en caso lo roben
+              </h2>
+              <h2 v-if="this.planSeleccionado == 6">
+                <span>¡Buena elección!</span> <br />
+                Has elegido el plan <br />
+                perfecto para tu
+                {{ this.$store.state.common.itemElegido.brand }}
+              </h2>
+              <h2
+                v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
+              >
+                <span>¡Buena elección!</span> <br />
+                Has elegido el plan que te <br />
+                protege contra Todo Riesgo
+              </h2>
+            </b-col>
+            <b-col cols="12" class="mb-3">
+              <h3>
+                No lo dejes pasar, protege tu
+                {{ this.$store.state.common.itemElegido.brand }} <br />
+                hoy por solo ${{ this.$store.state.common.montoPagar }}.
+              </h3>
+            </b-col>
+            <b-col cols="12" class="mb-2">
+              <h3>Continúa tu cotización en el siguiente paso.</h3>
+            </b-col>
+          </b-row>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
+                >QUIERO CONTINUAR</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
 
 <style lang="scss" scoped>
+
 @media screen and (max-width: 767px) {
   input,
   select,
@@ -975,10 +1038,8 @@ a.steps__item.paso1:after {
   font-size: 14px;
 }
 .steps-box {
+  background: white;
   padding-top: 143px;
-  .steps-plan {
-    background: white;
-  }
 }
 .edit-input {
   cursor: auto !important;
@@ -1351,11 +1412,7 @@ input:focus {
 }
 
 @media (min-width: 768px) {
-  .leaveModal {
-    .img-verano{
-      max-width: 380px;
-    }
-  }
+
   .ml-2-mobile {
     margin-left: 8px;
   }
@@ -1494,9 +1551,6 @@ input[type="color"]:focus,
   background: #27362d;
 }
 .leaveModal {
-  .img-verano{
-
-  }
   .modal-content{
     background: #FFF188 !important;
   }
@@ -1980,13 +2034,8 @@ export default {
     volver(evt) {
       evt.preventDefault();
       if (this.$store.state.common.businessId == 2) {
-        this.$nuxt.$router.push({
-          path: "/cotiza/cotizacion-interbank",
-        });
-      } else {
-        this.$nuxt.$router.push({
-          path: "/cotiza/cotizacion",
-        });
+        this.$nuxt.$router.push({path: "/cotiza/cotizacion-interbank"});
+      } else {this.$nuxt.$router.push({path: "/cotiza/cotizacion"});
       }
     },
     clearPlaceholderDNI(eve) {
@@ -2559,8 +2608,8 @@ export default {
             origenDatos: localStorage.getItem("origenDatos"),
           },
           remitente: {
-            correoRemitente: "segurovehicular@interseguro.com.pe",
-            correoRemitenteDisplay: "Interseguro Vehicular",
+            correoRemitente: "comunicaciones@interseguro.com.pe",
+            correoRemitenteDisplay: "Interseguro",
           },
           datosPago: {
             idFrecuencia: 1,
@@ -2580,7 +2629,7 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0) {
+      if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
         if (e.clientX < 0 || e.clientY < 0) {
           this.$store.commit("common/setLeaveMessage", 1);
           this.$nuxt.$emit("bv::show::modal", "leaveDocument");

@@ -15,7 +15,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>   -->
+        </div> -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -158,7 +158,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        // this.contador()
         
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
@@ -288,7 +288,7 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        background: url('./../../static/media/interseguroVehicular_v2/fondo-liston-desktop.png');
+        background: #0855c4;
         width: 100%;
         height: 46px;
         left: 0;
@@ -640,7 +640,7 @@ export default {
     }
     @media (min-width: 1200px){
         .liston{       
-            height: 55px;     
+            height: 42px;     
             flex-direction: row;
             justify-content: space-between;
             display: flex;
