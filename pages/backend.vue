@@ -3,7 +3,7 @@
     <pulse-loader :loading="loading" :color="color" :size="size"></pulse-loader>
     <b-container>
       <div id="newModal" style="display: none">
-        <p style="color: #0855c4; font-size: '23px'">Error en el registro</p>
+        <p style="color: #0855c4; font-size: '23px'">Error en el ingreso</p>
         <br />
         <p style="color: #454a6c; font-family: 'Omnes Regular'; opacity: 1">
           {{ textErrModal }}
@@ -306,7 +306,7 @@ export default {
               this.listCotizacion = res.data.body;
               this.$swal({
                 title: "Listo!",
-                text: res.data.message,
+                text: 'La póliza fue ingresada correctamente.',
                 type: "success",
                 showCancelButton: false,
                 confirmButtonColor: "#2177CC",
@@ -336,7 +336,11 @@ export default {
             }
           })
           .catch((err) => {
-            this.textErrModal = err.data.body;
+            this.textErrModal =
+              err.data.body == "The date must not be null"
+                ? "La fecha no debe ser vacía."
+                : err.data.body;
+
             if (!this.htmlModal) {
               this.htmlModal = document.getElementById("newModal");
               this.htmlModal.style.display = "";
