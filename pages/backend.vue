@@ -2,17 +2,34 @@
   <section class="section_backend">
     <pulse-loader :loading="loading" :color="color" :size="size"></pulse-loader>
     <b-container>
+      <div id="newModal" style="display: none">
+        <p style="color: #0855c4; font-size: '23px'">Error en el ingreso</p>
+        <br />
+        <p style="color: #454a6c; font-family: 'Omnes Regular'; opacity: 1">
+          {{ textErrModal }}
+        </p>
+      </div>
       <b-row class="justify-content-center">
-        <b-col cols="6" v-bind:class="{ oculto : !isActive }">
+        <b-col cols="6" v-bind:class="{ oculto: !isActive }">
           <div class="login">
             <h2 class="text-center">Login Backend</h2>
             <b-form>
               <b-form-group label="Ingrese su Usuario">
-                <b-form-input class="input_backend" type="text" v-model="user.name" required></b-form-input>
+                <b-form-input
+                  class="input_backend"
+                  type="text"
+                  v-model="user.name"
+                  required
+                ></b-form-input>
               </b-form-group>
 
               <b-form-group label="Ingrese su Contraseña:">
-                <b-form-input class="input_backend" type="password" v-model="user.pass" required></b-form-input>
+                <b-form-input
+                  class="input_backend"
+                  type="password"
+                  v-model="user.pass"
+                  required
+                ></b-form-input>
               </b-form-group>
 
               <b-row class="box-btn row justify-content-center">
@@ -21,17 +38,19 @@
                     class="box-btn__button box-btn--primary offset-3"
                     type="submit"
                     @click="onLogin"
-                  >CONTINUAR</button>
+                  >
+                    CONTINUAR
+                  </button>
                 </b-col>
               </b-row>
             </b-form>
           </div>
         </b-col>
 
-        <b-col cols="6" v-bind:class="{ oculto : isActive }">
+        <b-col cols="6" v-bind:class="{ oculto: isActive }">
           <h2 class="text-center">Actualizar datos de la póliza</h2>
           <b-form>
-            <b-form-group class="grupo-form" id="exampleInputGroup2" >
+            <b-form-group class="grupo-form" id="exampleInputGroup2">
               <label>Número de Póliza:</label>
               <b-form-input
                 id="exampleInput2"
@@ -59,7 +78,7 @@
               ></b-form-input>
             </b-form-group>
 
-            <b-form-group class="grupo-form" id="exampleInputGroup4" >
+            <b-form-group class="grupo-form" id="exampleInputGroup4">
               <label for="">Color:</label>
               <b-form-input
                 id="exampleInput4"
@@ -93,8 +112,6 @@
               </b-form-select>
             </b-form-group>
 
-            
-
             <b-form-group class="grupo-form" id="exampleInputGroup6">
               <label for="">Fecha de nacimiento o Fecha de constitución:</label>
               <b-form-input
@@ -104,7 +121,7 @@
                 autocomplete="off"
                 autofocus
                 type="tel"
-                v-model="form.birthDate"                
+                v-model="form.birthDate"
                 maxlength="10"
                 placeholder="dd/mm/aaaa"
               ></b-form-input>
@@ -124,7 +141,6 @@
               ></b-form-input>
             </b-form-group>
 
-
             <b-form-group class="grupo-form" id="exampleInputGroup3">
               <label for="">Placa:</label>
               <b-form-input
@@ -139,7 +155,6 @@
                 required
               ></b-form-input>
             </b-form-group>
-
 
             <b-form-group class="grupo-form" id="exampleInputGroup3">
               <label for="">Documento:</label>
@@ -162,7 +177,9 @@
                   type="submit"
                   :disabled="isdisabled"
                   @click="onSubmit"
-                >CONTINUAR</button>
+                >
+                  CONTINUAR
+                </button>
               </b-col>
             </b-row>
           </b-form>
@@ -172,16 +189,15 @@
   </section>
 </template>
 <style lang="scss" scoped>
-.grupo-form  {
-  div{
+.grupo-form {
+  div {
     display: flex;
     background: green;
-  }    
-  label{
+  }
+  label {
     width: 220px;
     display: inline-block;
   }
-  
 }
 .main-nav {
   margin-bottom: 50px;
@@ -215,6 +231,8 @@ export default {
   layout: "InterseguroHome",
   data() {
     return {
+      htmlModal: "",
+      textErrModal: "",
       isdisabled: false,
       gender: null,
       loading: false,
@@ -224,7 +242,7 @@ export default {
       poliza: true,
       user: {
         name: "",
-        pass: ""
+        pass: "",
       },
       form: {
         poliza: "",
@@ -234,9 +252,9 @@ export default {
         birthDate: "",
         motor: "",
         placa: "",
-        documento: ""
+        documento: "",
       },
-      itemElegido:{
+      itemElegido: {
         poliza: "",
         vin: "",
         color: "",
@@ -244,12 +262,12 @@ export default {
         birthDate: "",
         motor: "",
         placa: "",
-        documento: ""
-      }
+        documento: "",
+      },
     };
   },
   components: {
-    PulseLoader
+    PulseLoader,
   },
   methods: {
     // this.objClients.phoneNumber = this.objClients.phoneNumber != null || undefined ? this.objClients.phoneNumber.replace(/[^0-9\s]/gi, '').replace(/[_\s]/g, '') : ""
@@ -269,34 +287,36 @@ export default {
           : "";
     },
     getbackend() {
-      this.itemElegido.vin = this.form.vin,
-      this.itemElegido.color = this.form.color,
-      this.itemElegido.address = this.form.address,
-      this.itemElegido.birthDate = this.form.birthDate,
-      this.itemElegido.gender = this.gender,
-      this.itemElegido.engineNumber = this.form.motor,
-      this.itemElegido.plateNumber = this.form.placa,
-      this.itemElegido.documentNumber = this.form.documento,
-      this.itemElegido.poliza = this.form.poliza
+      (this.itemElegido.vin = this.form.vin),
+        (this.itemElegido.color = this.form.color),
+        (this.itemElegido.address = this.form.address),
+        (this.itemElegido.birthDate = this.form.birthDate),
+        (this.itemElegido.gender = this.gender),
+        (this.itemElegido.engineNumber = this.form.motor),
+        (this.itemElegido.plateNumber = this.form.placa),
+        (this.itemElegido.documentNumber = this.form.documento),
+        (this.itemElegido.poliza = this.form.poliza);
       setTimeout(() => {
-        this.$store.dispatch('common/getbackend',this.itemElegido)
-      .then((res) => {
-        if (res.data.code == 0) {
-          this.isdisabled = false
+        this.$store
+          .dispatch("common/getbackend", this.itemElegido)
+          .then((res) => {
+            console.log(res);
+            if (res.data.code == 0) {
+              this.isdisabled = false;
               this.listCotizacion = res.data.body;
               this.$swal({
                 title: "Listo!",
-                text: res.data.message,
+                text: 'La póliza fue ingresada correctamente.',
                 type: "success",
                 showCancelButton: false,
                 confirmButtonColor: "#2177CC",
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
               });
               this.form.poliza = "";
               this.form.vin = "";
               this.form.color = "";
               this.form.address = "";
-              this.gender= null
+              this.gender = null;
               this.loading = false;
               this.poliza = true;
               this.form.motor = "";
@@ -310,16 +330,37 @@ export default {
                 type: "error",
                 showCancelButton: false,
                 confirmButtonColor: "#2177CC",
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
               });
               this.loading = false;
             }
-      })
-      .catch(()=>{
-        this.isdisabled = false
-        this.loading = false;
-      })
-      }, 0)
+          })
+          .catch((err) => {
+            this.textErrModal =
+              err.data.body == "The date must not be null"
+                ? "La fecha no debe ser vacía."
+                : err.data.body;
+
+            if (!this.htmlModal) {
+              this.htmlModal = document.getElementById("newModal");
+              this.htmlModal.style.display = "";
+            }
+            this.alertModal();
+            this.isdisabled = false;
+            this.loading = false;
+          });
+      }, 0);
+    },
+    alertModal() {
+      this.$swal({
+        html: this.htmlModal,
+        customClass: "swal-buttonx",
+        showCloseButton: true,
+        type: "error",
+        confirmButtonColor: "#EA0C90",
+        confirmButtonText:
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+      });
     },
     validacionInput(event) {
       var str = event.target.value;
@@ -356,10 +397,10 @@ export default {
       }
     },
     onSubmit(eve) {
-      this.isdisabled = true
-        this.loading = true;
-        eve.preventDefault();
-        this.getbackend()
+      this.isdisabled = true;
+      this.loading = true;
+      eve.preventDefault();
+      this.getbackend();
     },
     // documenta codigo
     onLogin(eve) {
@@ -373,18 +414,18 @@ export default {
           type: "error",
           showCancelButton: false,
           confirmButtonColor: "#2177CC",
-          confirmButtonText: "OK"
+          confirmButtonText: "OK",
         });
       }
-    }
+    },
   },
 
-  mounted: function() {},
+  mounted: function () {},
   computed: {
-    isActive: function() {
+    isActive: function () {
       return this.poliza;
-    }
-  }
+    },
+  },
 };
 </script>
 
