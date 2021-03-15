@@ -1,6 +1,8 @@
 const pkg = require('./package')
 require('dotenv').config()
 
+const SentryWebpackPlugin = require("@sentry/webpack-plugin");
+
 module.exports = {
 // BASE_URL      =     https://www.interseguro.pe/
 // API_BASE_URL  =     https://www.interseguro.pe/vehicular-api/
@@ -61,7 +63,7 @@ module.exports = {
     '~/plugins/bootstrap.js',    
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
-    // { src: '~/plugins/sentry.js', ssr: false },
+    { src: '~/plugins/sentry.js', ssr: false },
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
     { src: '~plugins/vue-carousel.js', sync: false },    
@@ -73,7 +75,7 @@ module.exports = {
     { src: '~plugins/vue-tab.js', ssr: false },    
     { src: '~plugins/vue-cliploader.js', ssr: false },
     { src: '~plugins/ga.js', ssr: false },
-    // { src: '~plugins/chat.js', ssr: false },
+    { src: '~plugins/chat.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
     { src: '~/plugins/localStorage.js', ssr: false }
   ],
@@ -95,11 +97,26 @@ module.exports = {
     }
   },
   env: {
+    
     environment: process.env.ENVIRONMENT,
     URL: process.env.BASE_URL,
     baseURL: process.env.API_BASE_URL,
     culqiPK: process.env.CULQI_PK,
     culqiURL: process.env.CULQI_URL,
     url_remarketing: process.env.API_BASE_URL_REMARKETING
-  }
+  },
+  configureWebpack: {
+    plugins: [
+      new SentryWebpackPlugin({
+        // sentry-cli configuration
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        org: "interseguro",
+        project: "interseguro-vehicular",
+
+        // webpack specific configuration
+        include: ".",
+        ignore: ["node_modules", "webpack.config.js"],
+      }),
+    ],
+  },
 }

@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
@@ -10,8 +10,13 @@
                            ¡Por tiempo limitado! Asegura tu auto y participa <span style="color: #FFD527">del sorteo de S/ 1500</span>
                        </div>
                        </div>
-                    <div  class="example">            
-                        <div id="contadorCyber" class="flipdown  flipdownMobile"></div>
+                    <div  class="example" style="position: relative;">            
+                        <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;
+                                                                                        right: 0;
+                                                                                        top: -25px;
+                                                                                        display: block;
+                                                                                        width: 184px !important;">
+                        </div>
                     </div>
                 </div>
                 
@@ -25,7 +30,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div> 
+        </div>  -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -174,7 +179,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        // this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -279,8 +284,7 @@ export default {
 <style lang="scss" scoped>
     
     
-    .closeListon{
-        
+    .closeListon{        
         cursor: pointer;
         position: absolute;
         right: 4px;
@@ -292,7 +296,6 @@ export default {
         text-align: center;
         color: #fff;
         font-size: 18px;
-
     }
     .liston{        
         flex-direction: column;

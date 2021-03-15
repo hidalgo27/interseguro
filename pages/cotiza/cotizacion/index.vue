@@ -766,7 +766,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+      </b-modal>
     <b-modal
         title="Bootstrap-Vue"
         hide-footer
@@ -1391,7 +1391,7 @@
       </b-container>
     </b-modal>
 
-    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal> -->
+    </b-modal>
 
-     <b-modal
+     <!-- <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1433,12 +1433,12 @@
               <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
               <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
               <p class="mt-3">
-                 <br> 
-                <span style="color : #ffffff; font-size: 18px">
-                    ¡No dejes pasar esta super oportunidad! <br> Asegura tu auto y participa del <br> 
-                    <span style="color: #FFDD36;">
-                    sorteo de S/ 1500
-                    </span>
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+               <span style="color : #ffffff; font-size: 18px">
+                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y participa del<br> 
+                  <span style="color: #FFDD36;">
+                  sorteo de S/ 1500
+                  </span>
                 </span>
               </p>
             </b-col>
@@ -1452,7 +1452,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
   </section>
 </template>
@@ -3409,7 +3409,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px;
+  padding-top: 80px;
   .img-close{
     position: absolute;
     right: -24px;
