@@ -538,7 +538,7 @@
             <img class="close-modal" src="./../../static/media/img/renovacion/close-modal.png" alt="" @click="hideModalRenovarPolizaExitosa()">
             <div class="modal-renovarPolizaExitosa">
                 <img class="exitosa-img" src="./../../static/media/img/renovacion/poliza-exitosa.png" alt="">
-                <p>¡Listo! La póliza de tu Seguro Vehicular se renovará con las condiciones indicadas</p>
+                <p>¡Listo! Hemos actualizado de manera conforme la tarjeta afiliada a tu Seguro Vehicular para tu nueva póliza.</p>
             </div>
         </b-modal>
 
