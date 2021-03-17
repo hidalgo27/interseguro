@@ -866,7 +866,7 @@
         </div>
       </b-modal>
 
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -877,15 +877,17 @@
       >
         <b-container>
           <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">              
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-close-modal" width="70" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
+              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-                  <span style="color : #ffffff; font-size: 18px">
-                      ¡No dejes pasar esta super oportunidad! <br> Asegura tu auto y participa del <br> 
-                      <span style="color: #FFDD36;">
-                      sorteo de S/ 1500
-                      </span>
-                  </span>
+               <span style="color : #ffffff; font-size: 18px">
+                ¡Solo por pocos días! <br>
+                Asegura tu {{this.$store.state.common.objVehiculo.brand}} <span style="color: #FFDD36;">con 15% de dscto.</span> <br> 
+                y accede a un diagnóstico gratuito <br> de las condiciones de tu auto
+                  
+                </span>
               </p>
             </b-col>
           </b-row>
@@ -893,14 +895,14 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
-                >CONTINUAR COMPRA</b-button
+                >TERMINAR COMPRA</b-button
               >
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
       <!-- Modal de abandono -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -958,7 +960,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
@@ -1040,7 +1042,7 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  padding-top: 80px;
+  padding-top: 128px;
 }
 .edit-input {
   cursor: auto !important;
@@ -2642,6 +2644,7 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
+    console.log("this.$store.state.common.objVeh",this.$store.state.common.objVehiculo.brand)
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);

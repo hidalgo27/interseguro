@@ -255,7 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -338,7 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                    15%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1391,7 +1391,7 @@
       </b-container>
     </b-modal>
 
-  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+  <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1430,15 +1430,15 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
-              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo_2.png" alt="">
+              <!-- <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()"> -->
+              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y participa del<br> 
-                  <span style="color: #FFDD36;">
-                  sorteo de S/ 1500
-                  </span>
+                ¡Solo por pocos días! <br>
+                Asegura tu {{this.itemElegido.brand}} <span style="color: #FFDD36;">con 15% de dscto.</span> <br> 
+                y accede a un diagnóstico gratuito <br> de las condiciones de tu auto
+                  
                 </span>
               </p>
             </b-col>
@@ -1452,7 +1452,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>
@@ -1798,7 +1798,7 @@
     },
     methods: {
       contador(){
-            // var flipdown2 = new FlipDown(1615784399, 'contadorCyber5').start()
+            // var flipdown2 = new FlipDown(1616389199, 'contadorCyber5').start()
         },
       hideFlotante(){
         this.flotanteCovid = !this.flotanteCovid
@@ -3409,7 +3409,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 80px;
+  padding-top: 128px;
   .img-close{
     position: absolute;
     right: -24px;
