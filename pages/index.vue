@@ -5,10 +5,19 @@
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
-            <p class="titulo-formulario">
-                <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
-                Manejar tranquilo <br> ahora es más fácil
-            </p>
+            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
+            </div>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+              
+              <div class="box-contador" >
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyber" class="flipdown">
+                        
+                    </div> 
+                </div>
+              </div>
+            </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
@@ -45,24 +54,26 @@
                   <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
                 </p>
               </div>
-            </b-form>
+            </b-form>            
           </div>
         </div>
         <div class="home-banner__der">
-          <div class="box-titulo  ml-5">
-            <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
-            </p>
-            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
-              <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
-            </p>
-          </div>
+
+            
+            <div class="box-contador">
+              <img src="./../static/media/interseguroVehicular_v2/cuponazo_2.svg" alt="">
+              <div  class="example  d-none  d-md-flex">
+                  <div id="contadorCyber2" class="flipdown">
+                      
+                  </div> 
+              </div>
+            </div>
           
         </div>
       </div>
     </div>
 
-    <div class="home-pasos" >
+    <div class="home-pasos">
       <div class="home-pasos__titulo">
       </div>
 
@@ -374,8 +385,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1615784399, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1615784399, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1616389199, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1616389199, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -557,9 +568,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
-        // setTimeout(() => {
-        //   this.contador()
-        // }, 750);
+        setTimeout(() => {
+          this.contador()
+        }, 750);
         this.$store.commit('common/setFlagCloseListon', 1)
         this.$store.commit('common/setPromocion', false)
         
@@ -629,6 +640,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
 </script>
 
 <style lang="scss" scope>
+.box-flotante-covid {
+  justify-content: flex-end;
+  position: relative;
+  bottom: 5px;
+}
 .omnes-medium{
   font-family: 'Omnes Medium';
 }
@@ -725,7 +741,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }
   }
   .home-is{
-    margin-top: 115px;
+    margin-top: 85px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
@@ -951,8 +967,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }  
     .boxHome-banner{
       position: relative;
-      height: 296px;
-      background-color:  rgba(8,85,196,.1);
+      height: 538px;
+      background-size: cover;
+      background-image: url('./../static/media/interseguroVehicular_v2/fondo_banner.svg');
+      // background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
@@ -1023,6 +1041,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           // flex-direction: column;
           align-items: center;
           .box-contador{
+            position: relative;
             .example{
               display: flex;
               align-items: center;
@@ -1547,6 +1566,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   }
   
   @media (min-width: 992px) {
+    .flipdown{
+      width: 230px !important;
+    }
     .home-is{
       margin-top: 0px;
       // margin-top: 72px;
@@ -1619,24 +1641,32 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
           &__der{
-            padding-top: 0px !important;
             height: calc(85vh);
             display: flex;
             -webkit-box-align: center;
-            background-size: 90%;
-            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            // background-image: url("./../static/media/interseguroVehicular_v2/cuponazo_2.svg");
             background-repeat: no-repeat;
-            background-position-y: bottom;
-            background-position-x: right;
+            background-position-y: center;
+            background-position-x: center;
             width: 100%;
             // justify-content: flex-start;
-            align-items: flex-start;
+              position: relative;
             // flex-direction: column;
             // padding-left: 32px;
-            .box-titulo{
-              padding-top: 150px;
-              padding-left: 24px;
-              position: relative;
+            background-size: 570px;
+            padding-top: 0px !important;
+            margin-left: 0;
+            padding-left: 1rem;
+            align-items: center;
+            .box-contador{
+              .example{
+                position: absolute;
+                bottom: -10px;
+                right: 37px;
+              }
+              img{
+                width: 100%;
+              }
             }
             p{
               font-weight: 500;
@@ -1975,20 +2005,19 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           padding: 0 1.5rem;
           padding-left: 65px;
           &__der{
+            background-size: 670px;
             padding-top: 0px !important;
             margin-left: 0;
             padding-left: 1rem;
             align-items: center;
+            position: relative;
             p{
               font-size: 2.6rem;
             }
-            .box-titulo{
+            .box-contador{
               padding: 0;
-              .box-contador{
-                position: relative;
-                left: calc(530px - 417px);
-                bottom: -60px;
-                width: 530px;
+              .example{
+                right: 77px;
               }
             }
           }

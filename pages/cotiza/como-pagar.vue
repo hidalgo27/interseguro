@@ -56,9 +56,9 @@
         <b-container class="contenedor-custom  mb-4">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <!-- <div class="flotante-covid-3  d-none  d-md-block">
+                <div class="flotante-covid-3  d-none  d-md-block">
                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
-                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota.svg" width="380"></span>
+                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/como-pagar-campania.svg" width="380"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
                                 >¡Por tiempo limitado!
@@ -69,7 +69,7 @@
                             </div>                            
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
@@ -251,11 +251,11 @@
                                             </b-row>
                                         </b-col>
 
-                                        <!-- <b-col cols="12">
+                                        <b-col cols="12">
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                                                     
-                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-mobile.svg" width="340">
+                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/como-pagar-campania-mobile.svg" width="340">
                                                     
                                                     <div class="box-contador" >
                                                         <span  class="cuota-gratis-span"
@@ -269,7 +269,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </b-col> -->
+                                        </b-col>
 
                                     </b-row>
                                 </div>
@@ -300,19 +300,30 @@
                             <div class="modal-divider"></div>
                         </div>
                         <p class="modal-description">
-                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares, Especiales y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros.
+                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro).
                             <br><br>
-                            A su vez, manifiesto que el automóvil asegurado bajo la presente póliza es de uso particular y que, de verificarse su uso comercial, Interseguro podrá proceder con la anulación de la póliza, por declaración inexacta; o el rechazo de la cobertura de siniestro, al configurarse una causal de exclusión.
+                            A su vez, declaro que brindaré las facilidades del caso para coordinar que mi vehículo pase por el proceso de inspección correspondiente y que, de no hacerlo, entiendo que Interseguro podrá proceder con la anulación de mi póliza conforme a lo indicado en los términos del contrato.
                             <br><br>
-                            Asimismo, autorizo a que se realicen - de acuerdo a la periodicidad escogida - cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
+                            Asimismo, manifiesto que el automóvil asegurado bajo la presente póliza existe y, según corresponda, cumple con los siguientes criterios:
                             <br><br>
-                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa hecha por el Contratante, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro Compañía de Seguros, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
-                            <br><br>
-                            El Contratante otorga su consentimiento para que su Póliza de seguro electrónica, endosos futuros, cartas y/u otra documentación, sean enviados vía correo electrónico desde el dominio @interseguro. Todas aquellos documentos y comunicaciones se entenderán por recibidos en la casilla de correo electrónica declarada por el Contratante, a través de la confirmación del servidor de destino. La póliza contendrá una firma digital y una contraseña de acceso para visualizar el documento, ello garantizará la autenticidad e integridad del documento, de acuerdo con lo estipulado en la Ley N° 27269 - Ley de Firmas y Certificados Digitales. Asimismo, declara conocer las medidas de seguridad que debe adoptar para la recepción de los citados documentos, las ventajas y riesgos asociados a esta modalidad de envío, garantiza haber suministrado un correo electrónico válido en la Solicitud de Seguro, el cual mantendrá activo y con espacio suficiente para recibir la Póliza y se compromete a informar su nuevo correo electrónico, en caso sea dado de baja o desee modificar la cuenta de correo declarada.
+                            <ol>
+                                <li>
+                                   es 0 Kilómetros y/o,
+                                </li>
+                                <li>
+                                    siendo usado, se encuentra en óptimas condiciones para su uso ordinario, buena conservación y aspecto. Asimismo, declara que el vehículo asegurado no ha sido adquirido producto de un salvamento, y,
+                                </li>
+                                <li>
+                                    Es de uso particular.
+                                </li>
+                            </ol>
+                            <br>
+                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa o inexacta hecha por el Contratante respecto al estado del vehículo o a su uso, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
+                            <br>
+                            El mecanismo de comunicación por el que Interseguro enviará la póliza electrónica, endosos futuros, cartas y/u otra documentación será el correo electrónico declarado por el Contratante.
+                            <br>
+                            Finalmente, autorizo a que se realicen -de acuerdo a la periodicidad escogida- cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
                         </p>
-                        <div class="row">
-                        
-                        </div>
                         
                     </div>
                 </b-modal>
@@ -372,7 +383,7 @@
                 </b-row>
             </b-container>
         </b-modal> -->
-
+<!-- 
         <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
@@ -394,34 +405,34 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class=" leaveModal"  static centered hide-footer hide-header>
-            <b-container  style="height: 100%;">
-            <img class="img-close-modal" width="60" src="./../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
-
-                <b-row class="align-items-center" style="height: 100%;">
-                    <b-col cols="12">
-                        <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.png" alt="">
-                        <p class="mt-3">
-                            <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-                                <span style="color : #ffffff; font-size: 18px">
-                                ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y participa del<br> 
-                                <span style="color: #FFDD36;">
-                                sorteo de S/ 1500
-                                </span>
-                            </span>
-                        </p>
+        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-3" cols="12">
+                    
+                    <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
+                    <p class="mt-3">
+                        <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                        <span style="color : #ffffff; font-size: 18px">
+                            ¡Solo por pocos días! <br>
+                            Asegura tu {{this.$store.state.common.objVehiculo.brand}} <span style="color: #FFDD36;">con 15% de dscto.</span> <br> 
+                            y accede a un diagnóstico gratuito <br> de las condiciones de tu auto                        
+                        </span>
+                    </p>
                     </b-col>
                 </b-row>
+                
                 <b-row class="justify-content-center">
-            <b-col class="text-center mt-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
-                >CONTINUAR COMPRA</b-button>
-            </b-col>
-          </b-row>
+                    <b-col class="text-center mb-4" cols="12">
+                    <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
+                        >TERMINAR COMPRA</b-button
+                    >
+                    </b-col>
+                </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
          
     </section>
 </template>
@@ -608,8 +619,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1615784399, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1615784399, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1616389199, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1616389199, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -1222,7 +1233,7 @@ import { validationMixin } from 'vuelidate'
             // if(localStorage.getItem('activoAgora')){
             //     this.valeAgora = true
             // }
-            // this.contador()
+            this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1456,7 +1467,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 80px;;
+    padding-top: 128px;;
     background: #ffffff;
     .steps-plan{
         margin-bottom: 26px;
@@ -1961,17 +1972,17 @@ a.steps__item.paso1:after{
         font-weight: 500;
     }
     .leaveModal{
-  .img-close-modal{
-        position: absolute;
-    top: -58px;
-    right: -20px;
-    cursor: pointer;
-  }
-}
+        .img-close-modal{
+                position: absolute;
+            top: -58px;
+            right: -20px;
+            cursor: pointer;
+        }
+    }
     @media (min-width: 768px) {
         .leaveModal {
             .img-verano{
-            max-width: 380px;
+                max-width: 380px;
             }
         }
         .metodo-pago{            
@@ -2471,16 +2482,16 @@ a.steps__item.paso1:after{
         color: #0BD360;
     }
     .leaveModal {
-    .modal-lg {
-        max-width: 660px;
-    }
-    font-family: 'Omnes Regular';
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: center;
+        .modal-lg {
+            max-width: 660px;
+        }
+        font-family: 'Omnes Regular';
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
     h2 {
         font-size: 32px;
         color: #0854c4;
