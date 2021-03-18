@@ -1998,7 +1998,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .home-is{
       .boxHome-banner{
         .home-banner{
-          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          background: transparent;
           // background-size: 50%;
           background-size: contain;
           padding: 0 1.5rem;
