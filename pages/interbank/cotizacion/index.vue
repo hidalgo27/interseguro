@@ -261,7 +261,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>10%</span>
+                          <span>15%</span>
                           
                         </div>
                       </div>
@@ -345,7 +345,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>10%</span>
+                          <span>15%</span>
                           
                         </div>
                       </div>
@@ -446,7 +446,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          <span>10%</span>
+                          <span>15%</span>
                           
                         </div>
                       </div>
@@ -575,7 +575,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    <span>10%</span>
+                    <span>15%</span>
                     
                   </div>
                 </div>
