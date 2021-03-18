@@ -1,6 +1,8 @@
 const pkg = require('./package')
 require('dotenv').config()
 
+const SentryWebpackPlugin = require("@sentry/webpack-plugin");
+
 module.exports = {
 // BASE_URL      =     https://www.interseguro.pe/
 // API_BASE_URL  =     https://www.interseguro.pe/vehicular-api/
@@ -95,11 +97,26 @@ module.exports = {
     }
   },
   env: {
+    
     environment: process.env.ENVIRONMENT,
     URL: process.env.BASE_URL,
     baseURL: process.env.API_BASE_URL,
     culqiPK: process.env.CULQI_PK,
     culqiURL: process.env.CULQI_URL,
     url_remarketing: process.env.API_BASE_URL_REMARKETING
-  }
+  },
+  configureWebpack: {
+    plugins: [
+      new SentryWebpackPlugin({
+        // sentry-cli configuration
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        org: "interseguro",
+        project: "interseguro-vehicular",
+
+        // webpack specific configuration
+        include: ".",
+        ignore: ["node_modules", "webpack.config.js"],
+      }),
+    ],
+  },
 }
