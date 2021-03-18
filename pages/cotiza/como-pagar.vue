@@ -53,7 +53,7 @@
         </b-col>  
       </b-row>  
     </b-container>  
-        <b-container class="contenedor-custom  mb-4">
+        <b-container class="contenedor-custom ">
             
             <b-row class="justify-content-center" style="position: relative;">
                 <div class="flotante-covid-3  d-none  d-md-block">
@@ -306,18 +306,17 @@
                             <br><br>
                             Asimismo, manifiesto que el automóvil asegurado bajo la presente póliza existe y, según corresponda, cumple con los siguientes criterios:
                             <br><br>
-                            <ol>
+                            <ul style="list-style: none;">
                                 <li>
-                                   es 0 Kilómetros y/o,
+                                   <strong>a)</strong> es 0 Kilómetros y/o,
                                 </li>
                                 <li>
-                                    siendo usado, se encuentra en óptimas condiciones para su uso ordinario, buena conservación y aspecto. Asimismo, declara que el vehículo asegurado no ha sido adquirido producto de un salvamento, y,
+                                    <strong>b)</strong> siendo usado, se encuentra en óptimas condiciones para su uso ordinario, buena conservación y aspecto. Asimismo, declara que el vehículo asegurado no ha sido adquirido producto de un salvamento, y,
                                 </li>
                                 <li>
-                                    Es de uso particular.
+                                    <strong>c)</strong> Es de uso particular.
                                 </li>
-                            </ol>
-                            <br>
+                            </ul>
                             Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa o inexacta hecha por el Contratante respecto al estado del vehículo o a su uso, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
                             <br><br>
                             El mecanismo de comunicación por el que Interseguro enviará la póliza electrónica, endosos futuros, cartas y/u otra documentación será el correo electrónico declarado por el Contratante.
@@ -572,7 +571,7 @@ import { validationMixin } from 'vuelidate'
                 creditCardImageCvv: '',
                 creditCardImage: '',
                 expirationDate: '',
-                isDisabledPayment: false,
+                isDisabledPayment: true,
                 isisplayNoneLoader: true,
                 cardValitor: false,
                 card_id:'',

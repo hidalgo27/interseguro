@@ -985,8 +985,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         height: 100%;
         flex-direction: column;
         &__izq{
-          // margin-top: 24px;
-          // padding-top: 68px !important;
           height: 500px;
           display: flex;
           align-items: flex-start;
