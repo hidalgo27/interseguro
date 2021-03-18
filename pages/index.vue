@@ -1,11 +1,11 @@
 <template>
-  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+<div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
-            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+            <div class="box-img-campania  d-flex  justify-content-center  d-lg-none">
               <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
             </div>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
@@ -151,7 +151,7 @@
               </div>
             </div>
           </div>
-          <div class="planes__item">
+          <div class="planes__item  mb-0">
             <div class="black  plan">
               <div class="plan--cabecera">
                 <p>BLACK</p>
@@ -747,7 +747,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 170px;
+      padding-top: 152px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -967,7 +967,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }  
     .boxHome-banner{
       position: relative;
-      height: 538px;
+      height: 430px;
       background-size: cover;
       background-image: url('./../static/media/interseguroVehicular_v2/fondo_banner.svg');
       // background-color:  rgba(8,85,196,.1);
@@ -991,7 +991,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           display: flex;
           align-items: flex-start;
           width: 90%;
-          border-bottom: 1px solid white !important;
+          border-bottom: none !important;
           input{
             max-width: 360px;
             width: 100%;
@@ -1072,7 +1072,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         }
       }
     }
-
     .box-formCotizador{
       width: 100%;
       padding: 0;      
@@ -1999,7 +1998,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .home-is{
       .boxHome-banner{
         .home-banner{
-          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          background: transparent;
           // background-size: 50%;
           background-size: contain;
           padding: 0 1.5rem;

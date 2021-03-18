@@ -778,4 +778,11 @@ export default {
             
         }
     }
+    @media (max-width: 405px) {
+        .liston-mobile--parrafo{
+            div{
+                display: none;
+            }
+        }
+    }
 </style>
