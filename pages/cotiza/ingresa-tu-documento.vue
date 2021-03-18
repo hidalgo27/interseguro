@@ -2632,8 +2632,10 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
+      if (this.$store.state.common.leaveMessage == 0 ) {
+        
         if (e.clientX < 0 || e.clientY < 0) {
+          
           this.$store.commit("common/setLeaveMessage", 1);
           this.$nuxt.$emit("bv::show::modal", "leaveDocument");
         }
