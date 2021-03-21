@@ -641,7 +641,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
 
 <style lang="scss" scope>
 .box-flotante-covid {
-  justify-content: flex-end;
+  justify-content: flex-start;
   position: relative;
   bottom: 5px;
 }
@@ -1658,11 +1658,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             .box-contador{
               .example{
                 position: absolute;
-                bottom: -10px;
-                right: 37px;
+                left: 21px;
+                bottom: -49px;
               }
               img{
-                width: 100%;
+                width: 500px;
               }
             }
             p{
@@ -2016,6 +2016,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               .example{
                 right: 77px;
               }
+              img{
+                width :680px
+              }
             }
           }
         }
@@ -2184,6 +2187,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         .home-talleresBox{
           width: 82%;
         }
+      }
+      .boxHome-banner .home-banner__der .box-contador img {
+          width: 780px;
       }
     }
   }

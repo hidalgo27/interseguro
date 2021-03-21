@@ -11,18 +11,14 @@
                        </div>
                        </div>
                     <div  class="example" style="position: relative;">            
-                        <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;
-                                                                                        right: 0;
-                                                                                        top: -25px;
-                                                                                        display: block;
-                                                                                        width: 184px !important;">
+                        <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
                         </div>
                     </div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img width="160" src="./../../static/media/interseguroVehicular_v2/cuponazo_liston.svg" alt="">          
+                        <img width="160" src="./../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt="">          
                         <p>
                             ¡Por pocos días! Asegura tu auto con <span style="color: #FFD527"> 15% de dscto.</span> en cualquiera de nuestros planes
                         </p>
@@ -368,26 +364,26 @@ export default {
             font-size: 11px;
         }
         .img-liston{
-            width: 100px;
+            width: 175px;
             height: auto;
         }
     }
-.footer-menu{
-    flex-direction: column;
-    width: 70%;
-    p{
-        margin-bottom: 12px;
-        color: white;
-    }
-    &__redes{
-        display: flex;
-        padding-bottom: 12px;
-        justify-content: space-between;
-        img{
-            width: 40px !important;
+    .footer-menu{
+        flex-direction: column;
+        width: 70%;
+        p{
+            margin-bottom: 12px;
+            color: white;
+        }
+        &__redes{
+            display: flex;
+            padding-bottom: 12px;
+            justify-content: space-between;
+            img{
+                width: 40px !important;
+            }
         }
     }
-}
 #nav-checkbox{
     display: none !important;
 }
