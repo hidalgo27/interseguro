@@ -385,8 +385,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1616389199, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1616389199, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1616993999, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1616993999, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -967,7 +967,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }  
     .boxHome-banner{
       position: relative;
-      height: 430px;
+      height: 350px;
       background-size: cover;
       background-image: url('./../static/media/interseguroVehicular_v2/fondo_banner.svg');
       // background-color:  rgba(8,85,196,.1);
@@ -1597,7 +1597,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           min-height: 445px;
           &__izq{
             // padding-top: 68px !important;
-            height: calc(85vh);
+            height: calc(75vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1638,7 +1638,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
           &__der{
-            height: calc(85vh);
+            height: calc(75vh);
             display: flex;
             -webkit-box-align: center;
             // background-image: url("./../static/media/interseguroVehicular_v2/cuponazo_2.svg");

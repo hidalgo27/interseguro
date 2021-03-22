@@ -1798,7 +1798,7 @@
     },
     methods: {
       contador(){
-            // var flipdown2 = new FlipDown(1616389199, 'contadorCyber5').start()
+            // var flipdown2 = new FlipDown(1617080399, 'contadorCyber5').start()
         },
       hideFlotante(){
         this.flotanteCovid = !this.flotanteCovid
