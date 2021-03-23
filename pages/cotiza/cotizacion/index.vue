@@ -1435,10 +1435,9 @@
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                ¡Solo por pocos días! <br>
-                Asegura tu {{this.itemElegido.brand}} <span style="color: #FFDD36;">con 15% de dscto.</span> <br> 
-                y accede a un diagnóstico gratuito <br> de las condiciones de tu auto
-                  
+
+                  Asegura tu  {{this.itemElegido.brand}}  <span style="color: #FFDD36;">con 15% de dscto.</span> <br> 
+                   y si compras el plan black participa <br> en el sorteo de una laptop
                 </span>
               </p>
             </b-col>
@@ -1798,7 +1797,7 @@
     },
     methods: {
       contador(){
-            // var flipdown2 = new FlipDown(1616389199, 'contadorCyber5').start()
+            // var flipdown2 = new FlipDown(1617080399, 'contadorCyber5').start()
         },
       hideFlotante(){
         this.flotanteCovid = !this.flotanteCovid

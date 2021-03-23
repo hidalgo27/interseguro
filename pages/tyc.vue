@@ -6,7 +6,7 @@
         <b-row>
           <b-col cols="12">
             <div class="section-header pd-b16">
-              <p class="text-center"><strong>Promoción “Home School”  </strong></p>              
+              <p class="text-center"><strong>Promoción “Cyber Interseguro” </strong></p>              
             </div>
           </b-col>
           <b-col cols="12" lg="12">
@@ -14,21 +14,13 @@
               <li>
                 <p>
                   <b>Alcance</b>
-                </p>                
+                </p>         
                 <p>
-                  Serán materia de la presente Promoción Comercial:
+                  Será materia de la presente Promoción Comercial el sorteo de un premio consistente en una (01) laptop, que se sortearán entre todos los clientes que efectúen una compra de cualquiera de los siguientes productos digitales que ofrece Interseguro Compañía de Seguros, en adelante Interseguro: Seguro Vehicular plan Black, Vida con Devolución o SOAT; haciendo uso de la página Web de Interseguro, accediendo directamente o a través de nuestros anuncios publicitarios. Los participantes deben cumplir con todos los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído, conocer y aceptar en su totalidad. Adicionalmente, durante la vigencia de la campaña cada seguro contará con un descuento promocional.
                 </p>
+                
                 <p>
-                  El sorteo de un premio consistente en diez (10) tarjetas virtuales por los siguientes valores: un (01) vale por un valor de S/300 (Trescientos y 00/100 soles), dos (02) vales de S/200 (Doscientos y 00/100 soles), tres (03) vales de S/100 (Cien y 00/100 soles) y cuatro (04) vales de S/50 (Cincuenta y 00/100 soles) que se sortearán entre los clientes que efectúen la compra de una nueva póliza de cualquier Seguro de Vida con Devolución haciendo uso de la página Web de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro), accediendo directamente o a través de nuestros anuncios publicitarios. Para acceder a la promoción, el monto mínimo de la suma asegurada deberá ser de 100,000 soles,el porcentaje de devolución contratado no debe ser menor al 100% y frecuencia de pago mensual, trimestral o anual. 
-                </p>
-                <p>
-                  El sorteo de un premio consistente diez (10) tarjetas virtuales por los siguientes valores: un (01) vale por un valor de S/ 300 (Trescientos y 00/100 soles), dos (02) vales de S/200 (Doscientos y 00/100 soles), tres (03) vales de S/100 (Cien y 00/100 soles) y cuatro (04) vales de S/50 (Cincuenta y 00/100 soles), que se sortearán entre los clientes que efectúen una compra de cualquier SOAT haciendo uso de la página Web de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro), accediendo directamente o a través de nuestros anuncios publicitarios.
-                </p>
-                <p>
-                  El sorteo de un premio consistente en una tarjeta virtual por un valor de S/1,500 (Mil quinientos y 00/100 soles), que se sortearán entre los clientes que efectúen una compra de cualquier Seguro Vehicular haciendo uso de la página Web de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro), accediendo directamente o a través de nuestros anuncios publicitarios. Para acceder a la promoción, el cliente debe adquirir el plan Black bajo cualquier modalidad de pago.
-                </p>
-                <p>
-                  Para hacerse acreedores de los premios, los participantes deben cumplir con los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído, conocer y aceptar en su totalidad. Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones o descuentos.
+                  Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones o descuentos.
 
                 </p>
               </li>
@@ -38,51 +30,39 @@
                   <b>Premios materia de la promoción</b>
                 </p>
                 <p>
-                  Por la compra de Seguro de Vida con Devolución
-                </p>
-                <p>
                   <ul>
-                    <li>Un (01) vale valorizado en: S/300 (Trescientos y 00/100 soles)</li>
-                    <li>Dos (02) vales valorizados en: S/200 (Doscientos y 00/100 soles)</li>
-                    <li>Tres (03) vales valorizados en: S/100 (Cien y 00/100 soles)</li>
-                    <li>Cuatro (04) vales valorizados en: S/100 (Cincuenta y 00/100 soles)</li>
-                  </ul>
-                </p>
-                <p>
-                  <b>Por la compra de Seguro Vehicular</b>
-                </p>
-                <p>
-                  <ul>
-                    <li>Una Tarjeta virtual de Agora, con la que puede realizar compras en cualquier establecimiento.</li>
-                    <li>Precio valorizado en: S/ 1,500 (Mil quinientos 00/100 Soles).</li>
-                  </ul>
-                </p>
-                <p>
-                  <b>	<b>Por la compra de SOAT</b></b>
-                </p>
-                <p>
-                  Diez (10) Tarjetas virtuales de Agora, con la que puede realizar compras en cualquier establecimiento. Las tarjetas virtuales se dividen de la siguiente manera:
-
-                </p>
-                <p>
-                  <ul>
-                    <li>Un (01) vale valorizado en: S/300 (Trescientos y 00/100 soles)</li>
-                    <li>Dos (02) vales valorizados en: S/200 (Doscientos y 00/100 soles)</li>
-                    <li>Tres (03) vales valorizados en: S/100 (Cien y 00/100 soles)</li>
-                    <li>Cuatro (04) vales valorizados en: S/50 (Cincuenta y 00/100 soles)</li>
+                    <li>Una (01) Laptop Marca Lenovo modelo IdeaPad 5i.</li>
+                    <li>Precio valorizado de la laptop: S/ 2,668.64 Soles (Dos Mil Seiscientos Sesenta y Ocho con 64/100 Soles).</li>
                   </ul>
                 </p>
               </li>
+              <li>
+                <p>
+                  <b>Descuentos promocionales</b>
+                </p>
+                <p>
+                  <ul>
+                    <li><strong>Seguro Vehicular:</strong> 15% descuento por la compra de un Seguro Vehicular en cualquier plan y eligiendo cualquier frecuencia de pago.</li>
+                    <li><strong>Seguro de Vida con Devolución:</strong> 70% de devolución en la segunda cuota del seguro. Aplica únicamente para clientes con frecuencia de pago mensual, coberturas mayores a S/100,000 y porcentajes de devolución a partir de 100%. La fecha de pago de la segunda cuota es el día 21 de Abril de 2021. Las devoluciones se realizarán a partir del 21 de Abril hasta 30 días hábiles posteriores a la fecha del segundo cobro. La devolución aplica únicamente a pólizas que se mantengan vigentes hasta la fecha de pago de la segunda cuota.</li>
+                    <li>
+                      <strong>SOAT: </strong>  Precio promocional desde S/ 53 (cincuenta y tres 00/100 soles).
+                    </li>
+                  </ul>
+                </p>
+              </li>
+
+              
               <br>
+
               <li>
                 <p>
                   <b>Vigencia de la Promoción</b>
                 </p>                
                 <p>
-                  Fecha de Inicio de la promoción: 01:00 horas del lunes 08 de marzo del 2021. 
+                  Fecha de Inicio de la promoción: 01:00 horas del lunes 22 de marzo del 2021. 
                 </p>
                 <p>
-                  Fecha de Finalización de la promoción: 23:59 horas del domingo 14 de marzo del 2021. 
+                  Fecha de Finalización de la promoción: 23:59 horas del domingo 28 de marzo del 2021. 
                 </p>
               </li>
               <br>
@@ -92,25 +72,29 @@
                   <b>Mecánica de la promoción</b>
                 </p>
                 <p>Para participar en la promoción, el cliente deberá efectuar una compra de cualquiera de los siguientes productos digitales, haciendo uso de la página Web de Interseguro.</p>
+                
+                <p>
+                  <b>Seguro Vehicular:</b>
+                </p>
+                <p>
+                  Para participar, se considerarán a las personas que hayan adquirido una póliza nueva del Seguro Vehicular plan Black bajo cualquier frecuencia de pago durante las fechas de vigencia de esta campaña. El cliente ingresa al sorteo automáticamente luego de realizar la compra
+                </p>
+
+                
                 <p>
                   <b>Seguro de Vida con Devolución:</b>
                 </p>
                 <p>
-                 Solo participan aquellas personas que hayan adquirido una póliza nueva en cualquier plan, empleando las frecuencias de pago mensual, trimestral o anual,  contratando coberturas mayores a S/100,000 y porcentajes de devolución a partir de 100% durante las fechas de vigencia de esta campaña.  
+                  Para participar se considerarán a las personas que hayan adquirido una póliza nueva en cualquier plan empleando la frecuencia de pago mensual, contratando coberturas mayores a S/100,000 y porcentajes de devolución a partir de 100% durante las fechas de vigencia de esta campaña. El cliente ingresa al sorteo automáticamente luego de realizar la compra. El 70% de devolución en la segunda cuota se verá reflejado en el estado de cuenta del cliente como extorno. La fecha de pago de la segunda cuota es el día 21 de Abril de 2021. Las devoluciones se realizarán a partir del 21 de Abril hasta 30 días hábiles posteriores a la fecha del segundo cobro. La devolución aplica únicamente a pólizas que se mantengan vigentes hasta la fecha de pago de la segunda cuota. El tiempo de proceso de los extornos depende exclusivamente de las entidades emisoras de las tarjetas.
 
                 </p>
                 <p>
                   <b>SOAT: </b>
                 </p>
                 <p>
-                  El cliente ingresa al sorteo automáticamente luego de realizar la compra durante las fechas de vigencia de esta campaña. 
+                  El cliente ingresa al sorteo automáticamente luego de realizar la compra. El SOAT puede ser contratado a precio promocional desde S/53. 
                 </p>
-                <p>
-                  <b>Seguro Vehicular:</b>
-                </p>
-                <p>
-                  Solo participan aquellas personas que hayan adquirido una póliza nueva bajo el plan BLACK, empleando cualquier modalidad de pago. La compra de la póliza debe realizarse durante las fechas de vigencia de esta campaña.
-                </p>
+                
               </li>
               <br>
               <li>
@@ -118,62 +102,63 @@
                   <b>Coordinación y recojo del premio:</b>
                 </p>
                 <p>
-                  <b>Seguro de Vida con Devolución:</b>
+                  Al finalizar la promoción, Interseguro validará los datos y se hará público por redes sociales el nombre de la persona ganadora. El cliente será notificado y la entrega del premio se realizará en un período de hasta 15 días útiles después de finalizada la campaña.
                 </p>
                 <p>
-Al finalizar la promoción, Interseguro validará los datos del contratante y se hará entrega de la tarjeta virtual vía correo electrónico. La entrega del premio se realizará en un período de hasta 15 días útiles después de finalizada la campaña. Posteriormente se publicará la lista de ganadores en redes sociales.
-
+                  Del mismo modo, se le indicará al ganador que deberá acudir a la Torre Interseguro ubicada en la Av. Javier Prado 492, Urb. Jardín, San Isidro, Lima-Perú, Piso 27, para el recojo del premio en el horario de las 9.00 horas a 13:00 horas.
                 </p>
                 <p>
-                  <b>SOAT: </b>
-                </p>
-                <p>
-Al finalizar la promoción, Interseguro validará los datos de los participantes y luego del sorteo se publicará el nombre de los ganadores a través de nuestras redes sociales; la entrega del premio se realizará vía correo electrónico, en un período de hasta 15 días útiles después de finalizada la campaña.
-                </p>
-                <p>
-                  <b>Seguro Vehicular:</b>
-                </p>
-                <p>
-Al finalizar la promoción, Interseguro validará los datos de los participantes y luego del sorteo se publicará el nombre del ganador a través de nuestras redes sociales; la entrega del premio se realizará vía correo electrónico, en un período de hasta 15 días útiles después de finalizada la campaña.
+                  Es importante precisar que para efectos de la entrega del premio es obligatoria la presentación de cualquiera de los siguientes documentos: DNI, Carnet Extranjería y/o Pasaporte, así como una copia del mismo, que deberá ser entregada por el ganador.  
                 </p>
               </li>
+
               <br>
+
               <li>
                 <p><b>Requisitos para participar de la promoción</b></p>
-                <p>Aplica únicamente para las personas naturales que adquieran una póliza nueva de: Vida con Devolución frecuencia de pago mensual, trimestral o anual; SOAT; Seguro Vehicular plan BLACK bajo cualquier modalidad de pago.</p>
+                <p>Aplica únicamente para las personas naturales que adquieran una póliza nueva de: Seguro Vehicular Plan Black, Vida con Devolución modalidad de pago mensual cobertura mayor a S/ 100,000 y porcentaje de devolución mayor al 100% o SOAT.</p>
                 <div>
                   Condiciones bajo las cuales los clientes podrán participar del sorteo al adquirir los siguientes seguros:
+
+                    <p><b>Seguro Vehicular</b>  </p>
+                    <ul>
+                      <li>
+                        <p>
+                        Participan todas las personas que compren una nueva póliza de Seguro Vehicular Interseguro Plan Black bajo cualquier frecuencia de pago durante las fechas de vigencia de esta campaña.
+                        </p>
+                      </li>
+                      <br>
+                    </ul>
+                    
                   <p><b>Seguro de Vida con Devolución</b> </p>
                 <ul>
                   <li>
                     <p>
-                      Participan todas las personas que compren una nueva póliza de Seguro de Vida con Devolución Interseguro con monto mínimo de suma asegurada de 100,000 soles y porcentaje de devolución no menor al 100%, con frecuencia de pago mensual, trimestral o anual durante las fechas de vigencia de esta campaña.
+                      Participan todas las personas que compren una nueva póliza de Seguro de Vida con Devolución Interseguro bajo la modalidad de pago mensual contratando coberturas mayores a S/100,000 y porcentajes de devolución a partir de 100% durante las fechas de vigencia de esta campaña.
                     </p>
                   </li>
                 </ul>
                 <p><b>SOAT</b> </p>
                 <ul>
                   <li>
-                    <p>Participan todas las personas que compren una nueva póliza de SOAT Interseguro bajo cualquier modalidad de pago durante las fechas de vigencia de esta campaña. No existen restricciones.</p>
+                    <p>Participan todas las personas que compren una nueva póliza de SOAT Interseguro bajo cualquier modalidad de pago. No existen restricciones.</p>
                   </li>
                 </ul>
-                <p><b>Seguro Vehicular</b>  </p>
-                <ul>
-                  <li>
-                    <p>
-                      Participan todas las personas que compren una nueva póliza de Seguro Vehicular Interseguro plan BLACK bajo cualquier modalidad de pago durante las fechas de vigencia de esta campaña.
-                    </p>
-                  </li>
-                  <br>
-                </ul>
+                
                 </div>
                 
                 <ul>
                   <li>
-                    Se considerarán solamente los productos de Seguro de Vida Devolución, SOAT y Seguro Vehicular adquiridos a través de la página web www.interseguro.pe desde las 01:00 horas del 08/03/2021 hasta las 23:59:59 horas del 14/03/2021.
+                    Se considerarán solamente los productos de Seguro Vehicular plan Black adquiridos a través de la página web www.interseguro.pe desde las 01:00 horas del 22/03/2021 hasta las 23:59:59 horas del 28/03/2021.
                   </li>
                   <li>
-                    Aplica exclusivamente para personas naturales con documento de identidad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes en Perú.
+                    Se considerarán solamente los productos de Seguro de Vida Devolución adquiridos a través de la página web www.interseguro.pe desde las 01:00 horas del 22/03/2021 hasta las 23:59:59 horas del 28/03/2021.
+                  </li>
+                  <li>
+                    Se considerarán solamente los productos de SOAT adquiridos a través de la página web www.interseguro.pe desde las 01:00 horas del 22/03/2021 hasta las 23:59:59 horas del 28/03/2021.  
+                  </li>
+                  <li>
+                    Aplica exclusivamente para personas naturales con documento nacional de identidad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes en Perú.
                   </li>
                   <li>
                     Los datos ingresados deben ser correctos y veraces, caso contrario no podrá hacerse acreedor del premio.
@@ -181,12 +166,10 @@ Al finalizar la promoción, Interseguro validará los datos de los participantes
                   <li>
                     La póliza adquirida deberá estar vigente a la fecha y hora de realización del sorteo; asimismo se verificará que la póliza se encuentre vigente a la fecha de entrega del premio.
                   </li>
-                  <li>
-                    Los ganadores de cada sorteo serán notificados a través de redes sociales y correo electrónico de contacto registrado al momento de su compra. La entrega de los premios se realizará en un período de hasta 15 días útiles después de finalizada la campaña.
-                  </li>
-                  <li>
-                    Es obligatorio que el ganador del sorteo se mantenga como asegurado durante la vigencia original de la póliza; caso contrario, junto con la anulación de la póliza se procederá a realizar el descuento del precio valorizado de los premios, si existiere algún monto a devolver. En caso de que no correspondiera devolución alguna, se le cobrará el íntegro del costo del premio, realizando el cargo en el medio de pago elegido para el pago de las primas.
-                  </li>
+                  <li>  El ganador será notificado a través de redes sociales y/o llamada al número de contacto registrado al momento de su compra y la entrega de los premios se realizará en un período de hasta 15 días útiles después de finalizada la campaña. El ganador deberá recoger el premio durante los 5 días hábiles posteriores a la notificación y en el horario de 9.00 am a 12:00 pm. De no hacerlo perderá la opción de recojo del premio, sin lugar a reclamo.</li>
+                  <li>En caso el ganador no pudiera acercarse a recoger su premio, un tercero podrá hacerlo por él dentro del plazo y horario indicado en el punto anterior, siempre que presente una carta poder con firma legalizada, su DNI, carnet de extranjería en original y copia, así como una copia del documento de identidad del ganador.</li>
+                  <li>Es obligatorio que el ganador del sorteo se mantenga como asegurado durante la vigencia original de la póliza; caso contrario, junto con la anulación de la póliza se procederá a realizar el descuento del precio valorizado de los premios si existiere algún monto a devolver. Caso contrario, se le cobrará el íntegro del costo del premio realizando el cargo en el medio de pago elegido para el pago de las primas.</li>
+
                 </ul>
               </li>
 
@@ -196,32 +179,30 @@ Al finalizar la promoción, Interseguro validará los datos de los participantes
                   <b>Restricciones del Premio:</b>
                 </p>
                 <p>
-                  Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones.
+                 Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones.
+
                 </p>
                 <p>
                  Todo intento de fraude o interferencia con el sistema de registro eliminará al participante del sorteo.
-
                 </p>
                 <p>
                   No participan colaboradores de Interseguro Compañía de Seguros S.A.
-
                 </p>
                 <p>
                   Los premios no son canjeables por dinero u otros bienes.  
-
                 </p>
 
-                <p> Los premios incluyen únicamente el concepto anunciado.  </p>
-                <p> Los premios no incluyen traslados u otro concepto distinto al indicado.  </p>
-                <p> Los premios son personales e intransferibles.</p>
-
+                <p>Los premios incluyen expresamente únicamente el concepto anunciado.   </p>
+                <p>Los premios no incluyen traslados u otro concepto distinto al indicado.  </p>
+                <p> Los premios no cuentan con garantía extendida e Interseguro no es responsable de sus gastos de reparación y mantenimiento.</p>
+                <p>Los premios son personales e intransferibles.</p>
               </li>
               <br>
               <li>
                 <p><b>Sobre Consentimiento y la Protección de Datos Personales:</b></p>
                 <ul>
                     <p>
-El solo hecho de participar supone el conocimiento y por tanto la total aceptación de las presentes Bases por parte de los participantes.
+                    El solo hecho de participar supone el conocimiento y por tanto la total aceptación de las presentes Bases por parte de los participantes.
                     </p>
                     <p>
 La aceptación del premio supondrá la expresa autorización del ganador a Interseguro Compañía de Seguros S.A. para la difusión pública, transmisión, retransmisión, reproducción o publicación de los datos personales, las filmaciones, fotografías, imágenes o grabaciones de las imágenes y voces de los participantes, en todos y cualesquiera medios de comunicación conocidos o por conocerse (incluyendo, pero sin limitarse, a gráficos, visuales, audiovisuales, televisión por aire, antena, cable o satélite, radio e Internet) con fines comerciales o con cualquier otra finalidad, sin que el participante tenga derecho a reclamo de indemnización, contraprestación o retribución alguna.
@@ -240,7 +221,9 @@ Toda información entregada a Interseguro Compañía de Seguros S.A. mediante su
                     <p>
 El usuario otorga autorización expresa e inequívoca a Interseguro Compañía de Seguros S.A. para realizar tratamiento y hacer uso de la información personal que éste proporcione a Interseguro Compañía de Seguros S.A. cuando acceda al sitio web www.interseguro.pe, participe en promociones comerciales, envíe consultas o comunique incidencias, y en general cualquier interacción web, además de la información que se derive del uso de productos y/o servicios que pudiera tener contratados con Interseguro Compañía de Seguros y de cualquier información pública o que pudiera recoger a través de fuentes de acceso público, incluyendo aquellos a los que Interseguro Compañía de Seguros S.A. tenga acceso como consecuencia de su navegación por esta página web (en adelante, la “Información”) para las finalidades de envío de comunicaciones comerciales, comercialización de productos y servicios, y del mantenimiento de su relación contractual con Interseguro Compañía. La navegación en la página web www.interseguro.pe, la participación en promociones comerciales, y cualquier otra interacción web implica el consentimiento expreso e inequívoco del usuario para la cesión de sus datos personales a Interseguro Compañía de Seguros S.A. El usuario reconoce y acepta que Interseguro Compañía de Seguros S.A. podrá ceder sus datos personales a cualquier tercero, siempre que sea necesaria su participación para cumplir con la prestación de servicios y comercialización de productos y servicios.
                     </p>
-                  
+                  <p>
+                    Interseguro Compañía de Seguros S.A. podrá ceder, en su caso, la Información a sus empresas subsidiarias, filiales, asociadas, afiliadas o miembros del grupo económico al cual pertenece y/o terceros con los que éstas mantengan una relación contractual, supuesto en el cual sus datos serán almacenados en los sistemas informáticos de cualquiera de ellos. En todo caso, Interseguro Compañía de Seguros S.A. garantiza el mantenimiento de la confidencialidad y el tratamiento seguro de la Información en estos 
+                  </p>
                   
                 </ul>
               </li>

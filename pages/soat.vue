@@ -1,13 +1,45 @@
 <template>
     <div class="productos-is">
+        <div class="container-custom  is-enNumeros">            
+            <p class="is-enNumeros--titulo">
+                Más de 2,000,000 de personas ya confían en Interseguro  para proteger lo que más quieren
+            </p>            
+            <div class="is-enNumeros__lista">
+                <div class="is-enNumeros__lista--item  uno">
+                    <img class="d-none  d-lg-block" src="./../static/productos-is/clientes.svg" alt="">
+                    <div class="is-enNumeros--datos  is-enNumeros--datos1">
+                        <p class="is-enNumeros--numeros">+2,000,000</p>
+                        <p class="is-enNumeros--texto">Clientes asegurados</p>
+                    </div>
+                </div>
+                <div class="is-enNumeros__lista--item  dos">
+                    <img class="d-none  d-lg-block" src="./../static/productos-is/asistencias.svg" alt="">
+                    <div class="is-enNumeros--datos is-enNumeros--datos2">
+                        <p class="is-enNumeros--numeros">+ 450,000</p>
+                        <p class="is-enNumeros--texto">Autos protegidos</p>
+                    </div>
+                </div>
+                <div class="is-enNumeros__lista--item  tres">
+                    <img class="d-none  d-lg-block" src="./../static/productos-is/cotizaciones.svg" alt="">
+                    <div class="is-enNumeros--datos">
+                        <p class="is-enNumeros--numeros">+ 3,000</p>
+                        <p class="is-enNumeros--texto">Asistencias brindadas</p>
+                    </div>
+                </div>
+                <div class="is-enNumeros__lista--item  d-none  d-lg-block  cuatro">
+                    <img class="d-none  d-lg-block"  src="./../static/productos-is/cotizaciones.svg" alt="">
+                    <div class="is-enNumeros--datos">
+                        <p class="is-enNumeros--numeros">+ 15,000</p>
+                        <p class="is-enNumeros--texto">Cotizaciones diarias</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row  productos-is__bienvenido">
                 <div class="col-12">
                     <p class="productos-is__bienvenido--titulo">
-                        ¡Bienvenido a Interseguro!
-                    </p>
-                    <p class="productos-is__bienvenido--subtitulo">
-                        Elige el seguro que quieres cotizar hoy
+                        Elige cómo quieres proteger tu auto
                     </p>
                 </div>
             </div>
@@ -21,13 +53,15 @@
                                         <img class="productos-is-item--imgvehicular" src="./../static/productos-is/vehicular.svg" alt="">
                                     </div>
                                     
-                                    <p class="productos-is-item--titulo">
-                                        SEGURO VEHICULAR
-                                    </p>
-                                    <div class="productos-is-item--btn">COTIZAR</div>
-                                    <p class="productos-is-item--precio">
-                                        Desde <span class="monto">US$ 12</span> / MES
-                                    </p>
+                                    <div class="productos-is-item--boxContent">
+                                        <p class="productos-is-item--titulo">
+                                            SEGURO VEHICULAR
+                                        </p>
+                                        <div class="productos-is-item--btn">COTIZAR</div>
+                                        <p class="productos-is-item--precio">
+                                            Desde <span class="monto">US$ 12</span> / MES
+                                        </p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -37,14 +71,15 @@
                                     <div class="productos-is-item--boxImg">
                                         <img class="productos-is-imgsoat" src="./../static/productos-is/soat.svg" alt="">
                                     </div>
-                                    
-                                    <p class="productos-is-item--titulo">
-                                        SOAT
-                                    </p>
-                                    <div class="productos-is-item--btn">COTIZAR</div>
-                                    <p class="productos-is-item--precio">
-                                        Desde <span class="monto">S/ 53</span>
-                                    </p>
+                                     <div class="productos-is-item--boxContent">
+                                        <p class="productos-is-item--titulo">
+                                            SOAT
+                                        </p>
+                                        <div class="productos-is-item--btn">COTIZAR</div>
+                                        <p class="productos-is-item--precio">
+                                            Desde <span class="monto">S/ 53</span>
+                                        </p>
+                                     </div>
                                 </div>
                             </a>
                         </div>
@@ -52,34 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-custom  is-enNumeros">            
-            <p class="is-enNumeros--titulo">
-                Interseguro en números
-            </p>            
-            <div class="is-enNumeros__lista">
-                <div class="is-enNumeros__lista--item">
-                    <img src="./../static/productos-is/clientes.svg" alt="">
-                    <div class="is-enNumeros--datos">
-                        <p class="is-enNumeros--numeros">+450,000</p>
-                        <p class="is-enNumeros--texto">Clientes asegurados</p>
-                    </div>
-                </div>
-                <div class="is-enNumeros__lista--item">
-                    <img src="./../static/productos-is/asistencias.svg" alt="">
-                    <div class="is-enNumeros--datos">
-                        <p class="is-enNumeros--numeros">+3,000</p>
-                        <p class="is-enNumeros--texto">Asistencias brindadas</p>
-                    </div>
-                </div>
-                <div class="is-enNumeros__lista--item">
-                    <img src="./../static/productos-is/cotizaciones.svg" alt="">
-                    <div class="is-enNumeros--datos">
-                        <p class="is-enNumeros--numeros">+6,000</p>
-                        <p class="is-enNumeros--texto">Cotizaciones diarias</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     
@@ -97,7 +105,7 @@ export default {
     
     .productos-is{
         padding-top: 80px;
-        background-color: #EFF2FA;
+        background-color: #ffffff;
         a{
             text-decoration: none;
         }
@@ -113,15 +121,9 @@ export default {
         &__bienvenido{
             &--titulo{
                 color: #0854C4;
-                font-family: 'Omnes Medium';
+                font-family: 'Omnes Regular';
                 text-align: center;
-                font-size: 26px;
-            }
-            &--subtitulo{
-                color: #454A6C;
-                font-family: 'Omnes Medium';
-                text-align: center;
-                font-size: 16px;
+                font-size: 20px;
             }
         }
         
@@ -129,7 +131,7 @@ export default {
             background: white;
             padding: 24px 0 16px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             img{
@@ -139,6 +141,7 @@ export default {
                 color: #454A6C;
                 font-family: 'Omnes SemiBold';
                 margin-top: 20px;
+                
             }
             &--btn{
                 background: #EA0F8F;
@@ -177,81 +180,96 @@ export default {
         padding-right: 12px;
         &--titulo{
             color: #0854C4;
-            font-family: 'Omnes Medium';
+            font-family: 'Omnes Regular';
             text-align: center;
-            font-size: 26px;
+            font-size: 20px;
             padding-bottom: 20px;
+            line-height: 26px;
+            width: 280px;
+            margin: auto;
         }
         &__lista{
-            background: #EFF2FA;
+            background: #ffffff;
             border: 1px solid #CAD6FA;
             display: flex;
-            flex-direction: column;            
+            flex-direction: row;            
             padding: 16px 0;
             align-items: center;
-            padding: 24px 0;
+            padding: 0;
+            height: 92px;
             &--item{
                 display: flex;
-                width: 300px;
                 position: relative;
-                
+                justify-content: center;
                 img{
                     margin-right: 12px;
                     width: 70px;
                 }
                 &:nth-child(1){
-                    // padding: 24px 0;
-                    // content: "";
-                    // height: 70px;
-                    // width: 1px;
-                    // background: #BBC8E8;
-                    // position: absolute;
-                    // right: 30px;
-                    &:after{
+                    &::after{
                         content: "";
-                        height: 1px;
-                        width: 100%;
+                        height: 70px;
+                        width: 1px;
                         background: #BBC8E8;
                         position: absolute;
-                        right: 0px;
-                        bottom: -15px;
+                        right: 8px;
+                        top: 0;
                     }
                 }
                 &:nth-child(2){
                     padding: 32px 0;
                     &:after{
                         content: "";
-                        height: 1px;
-                        width: 100%;
+                        height: 70px;
+                        width: 1px;
                         background: #BBC8E8;
                         position: absolute;
-                        right: 0px;
-                        bottom: 15px;
+                        right: 8px;
+                        top: 32px;
                     }
                 }
                 &:nth-child(3){
                     // padding: 24px 0;
                 }
-            }            
+
+            }
+            .uno{
+                width: 38%;
+            }
+            .dos{
+                width: 32%;
+            }
+            .tres{
+                width: 30%;
+            }
         }
         &--datos{
             display: flex;
             flex-direction: column;
             justify-content: space-around;
         }
+        &--datos1{
+            // width: 135px;
+            // padding-left: 12px;
+        }
+        &--datos2{
+            // width: 110px;
+            // padding-left: 4px;
+        }
         &--numeros{
             color: #454A6C;
             font-family: 'Omnes SemiBold';
-            font-size: 33px;
+            font-size: 18px;
             padding: 0;
             margin: 0;
         }
         &--texto{
             color: #454A6C;
             font-family: 'Omnes Medium';
-            font-size: 16px;
+            font-size: 15px;
             padding: 0;
             margin: 0;
+            width: 110px;
         }
     }
     @media (min-width: 992px) {
@@ -264,6 +282,7 @@ export default {
                 margin-bottom: 30px;
                 &--titulo{
                     font-size: 36px;
+                    line-height: 36px;
                     margin-bottom: 24px;
                 }
                 &--subtitulo{
@@ -305,12 +324,14 @@ export default {
             align-items: center;
             &--titulo{
                 font-size: 34px;
+                line-height: 44px;
             }
             &__lista{
                 max-width: 1047px;
                 width: 100%;
                 flex-direction: row;
                 justify-content: center;
+                flex-direction: row;
                 padding: 2px 0;
                 &--item{
                     img{
