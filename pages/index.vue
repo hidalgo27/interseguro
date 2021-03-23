@@ -11,7 +11,9 @@
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
               
               <div class="box-contador" >
+                
                 <div  class="example  d-md-flex">
+                  <p style="color: #ffffff">La oferta termina en:</p>
                     <div id="contadorCyber" class="flipdown">
                         
                     </div> 
@@ -63,6 +65,7 @@
             <div class="box-contador">
               <img src="./../static/media/interseguroVehicular_v2/cuponazo_2.svg" alt="">
               <div  class="example  d-none  d-md-flex">
+               <p>La oferta termina en:</p>
                   <div id="contadorCyber2" class="flipdown">
                       
                   </div> 
@@ -747,7 +750,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 152px;
+      padding-top: 190px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1041,14 +1044,16 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           .box-contador{
             position: relative;
             .example{
+              flex-direction: column;
+              justify-content: flex-start;
               display: flex;
-              align-items: center;
+              align-items: flex-start;
               margin-top: 32px;
             }
             p{
-              color: #ffffff;
+              color: #ffffff !important;
               font-size: 20px;
-              padding-right: 24px;
+              padding-left: 24px;
             }
           }
           .efecto-enlace{

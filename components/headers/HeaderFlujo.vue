@@ -5,10 +5,7 @@
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
-                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston.svg" alt=""> 
-                       <div style="min-width: 128px">
-                           ¡Por pocos días! Asegura tu auto con<span style="color: #FFD527"> 15% de dscto.</span>
-                       </div>
+                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt=""> 
                        </div>
                     <div  class="example" style="position: relative;">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
@@ -20,7 +17,7 @@
                     <div class="d-flex align-items-center logo-franja">
                         <img width="160" src="./../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt="">          
                         <p>
-                            ¡Por pocos días! Asegura tu auto con <span style="color: #FFD527"> 15% de dscto.</span> en cualquiera de nuestros planes
+                            <span style="color: #FFD527">¡Cyber Interseguro!</span>  Asegura tu auto con<span style="color: #FFD527"> 15% de dscto.</span> y participa en el sorteo de una laptop
                         </p>
                     </div>
                     <div id="contadorCyber2" class="flipdown"></div>
