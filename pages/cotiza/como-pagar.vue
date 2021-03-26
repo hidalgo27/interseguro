@@ -245,9 +245,6 @@
                                                     </button>
                                                 </b-col>
                                                 
-                                                 <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Recuerda que la <strong style="color: #0855C4">cuota gratis</strong> se aplicará al <br> segundo pago de tu cronograma</span>
-                                                </b-col>
                                             </b-row>
                                         </b-col>
 
@@ -327,6 +324,8 @@
                     </div>
                 </b-modal>
             </div>
+
+            
 
             <div>
                 <b-modal id="modalgps" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalgps" size="lg">
@@ -610,6 +609,7 @@ import { validationMixin } from 'vuelidate'
             }
         },
         methods: {
+            
             hidemetodoFlotante(){
                 this.$nuxt.$emit('bv::hide::modal','leavePayment')
             },
@@ -1231,6 +1231,7 @@ import { validationMixin } from 'vuelidate'
             // if(localStorage.getItem('activoAgora')){
             //     this.valeAgora = true
             // }
+            
             this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")

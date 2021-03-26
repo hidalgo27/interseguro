@@ -26,7 +26,7 @@
                         <p class="is-enNumeros--texto">Asistencias brindadas</p>
                     </div>
                 </div>
-                <div class="is-enNumeros__lista--item  d-none  d-lg-block  cuatro">
+                <div class="is-enNumeros__lista--item  d-none  d-lg-flex  cuatro">
                     <img class="d-none  d-lg-block"  src="./../static/productos-is/cotizaciones.svg" alt="">
                     <div class="is-enNumeros--datos">
                         <p class="is-enNumeros--numeros">+ 15,000</p>
@@ -86,10 +86,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div>        
     </div>
-
     
 </template>
 <script>
@@ -105,6 +103,7 @@ export default {
     
     .productos-is{
         padding-top: 80px;
+        padding-bottom:20px;
         background-color: #ffffff;
         a{
             text-decoration: none;
@@ -129,13 +128,16 @@ export default {
         
         .productos-is-item{
             background: white;
-            padding: 24px 0 16px;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            border: 1px solid #CBD6F5;
+            &--boxContent{
+                padding-left: 24px;
+            }
             img{
-                width: 210px;
+                width: 90px;
             }
             &--titulo{
                 color: #454A6C;
@@ -147,7 +149,7 @@ export default {
                 background: #EA0F8F;
                 color: #fff;
                 height: 49px;
-                width: 260px;
+                width: 185px;
                 text-align: center;
                 line-height: 49px;
                 font-size: 17px;
@@ -167,7 +169,7 @@ export default {
         .productos-is-soat{
             margin-top: 18px;
             img{
-                width: 100px;
+                width: 80px;
             }
         }
     }
@@ -293,21 +295,27 @@ export default {
             .productos-is-item{
                 width: 363px;
                 height: 351px;
+                flex-direction: column;
                 &--boxImg{
                     height: 120px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                 }
+                &--boxContent{
+                    padding-left: 0;
+                }
                 img{
                     width: 226px;
                 }
                 &--titulo{
                     margin-top: 20px;
+                    text-align: center;
                 }
                 &--btn{
                 }
                 &--precio{
+                    text-align: center;
                 }
             }
             .productos-is-soat{
@@ -325,6 +333,7 @@ export default {
             &--titulo{
                 font-size: 34px;
                 line-height: 44px;
+                width: 820px;
             }
             &__lista{
                 max-width: 1047px;
@@ -333,8 +342,10 @@ export default {
                 justify-content: center;
                 flex-direction: row;
                 padding: 2px 0;
+
                 &--item{
                     img{
+                        width: 50px;
                     }
                     // content: "";
                     // height: 1px;
@@ -367,7 +378,16 @@ export default {
                         }
                     }
                     &:nth-child(3){
-                        // padding: 24px 0;
+                        padding: 32px 0;
+                        &:after{
+                            content: "";
+                            height: 70px;
+                            width: 1px;
+                            background: #BBC8E8;
+                            position: absolute;
+                            right: 30px;
+                            top: 32px;
+                        }
                     }
                 }            
             }
@@ -377,12 +397,35 @@ export default {
             }
             &--texto{
             }
+            
         }
     }
     @media (min-width: 1200px) {
+        .is-enNumeros{
+            &--numeros{
+                font-size: 26px;
+            }
+            &--texto{
+                font-size: 17px;
+            }
+            &__lista{
+                
+                &--item{
+                    justify-content: flex-start;
+                    width: 25% !important;
+                }
+            }
+        }
+
+            
         .productos-is{
             &--enlace{
                 max-width: 363px;
+            }
+            .productos-is-item{
+                &--titulo{
+                    font-size: 20px;
+                }
             }
         }
     }

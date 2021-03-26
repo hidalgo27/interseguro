@@ -165,6 +165,7 @@
                 </p>
             </b-container>
             </div>
+            
     </div>
 </template>
 <script>
@@ -178,6 +179,15 @@ export default {
     },
   
     methods: {
+        evento1(){
+            window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'evento1',
+                'category': 'click evento 1',
+                'action': 'click',
+                'label': 'click evento 1'
+            })
+        },
         tabClicked (selectedTab) {
         },
         tabChanged (selectedTab) {
@@ -206,7 +216,13 @@ export default {
         // check.checked = false
 
         var div = document.getElementById("capa")
-    
+        window.dataLayer = window.dataLayer || [ ];
+        dataLayer.push({
+            'event': 'cargar_como_lo_uso',
+            'category': 'carga como lo uso',
+            'action': 'cargar',
+            'label': 'label cargar como lo uso'
+        })
     }
 }
 </script>
