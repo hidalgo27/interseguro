@@ -123,6 +123,52 @@
                 <p class="mt-3">En unos minutos nos comunicaremos contigo vía whatsapp al número <strong>{{this.numeroTelefono}}</strong> para realizar la inspección de tu auto</p>
               </div>
             </div>
+          <!-- <div class="" v-if="this.$store.state.common.placa01"> -->
+            <div class="d-none">
+              <div class="col-12  ">
+                <div class="inspecciones  row">
+                  <div class="col-12">
+                    <span class="pendiente">
+                      <img width="10" src="./../../static/media/interseguroVehicular_v2/campana.svg" alt="">
+                      pendiente
+                    </span>
+                  </div>
+                <div class="col-12  col-lg-6  d-flex  d-lg-none">
+                  <div class="box-img">
+                    <img class="inspecciones--img" src="./../../static/media/interseguroVehicular_v2/inspecciones.png" alt="">
+                  </div>
+                </div>
+                <div class="col-12  col-lg-6 ">
+                  <p class="inspecciones-vehicular">
+                    Inspección Vehicular
+                  </p>
+                  <p>
+                    Activa el 100% de tu inspección vehicular Hazlo a través del app, es fácil, seguro y rápido
+                  </p>
+                  <div class="box-btn">
+                    <button @click="showModalNumeroCelular()">
+                      Descargar
+                    </button>
+                  </div>
+                  <div class="botones-app">
+                    <div class="ios"  @click="showModalNumeroCelular()">
+                        <img src="./../../static/media/img/root/tienda_ios.png" alt="">
+                    </div>
+                    <div class="google  ml-4"  @click="showModalNumeroCelular()">
+                      <img src="./../../static/media/img/root/tienda_google.png" alt="">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12  col-lg-6  d-none  d-lg-flex">
+                  <div class="box-img">
+                    <img class="inspecciones--img" src="./../../static/media/interseguroVehicular_v2/inspecciones.png" alt="">
+                  </div>
+                </div>
+
+                </div>
+              </div>
+            </div>
 
             <div class="comparte">
               <div class="titulo">
@@ -164,15 +210,47 @@
           </b-col>
 
         </b-row>
-
+        <b-modal title="Bootstrap-Vue"
+                hide-footer
+                hide-header
+                ref="modalNumeroCelular"
+                id="modalNumeroCelular">
+                <div class="modal-content modal-root">
+                    
+                    <div class="modal-body">
+                    <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
+                        <img class="check-enviado" src="./../../static/media/img/root/check.png" alt="">
+                        <p>¡Listo! En breve recibirás el link de descarga al <span>{{this.inputNumeroCelular}}</span></p>
+                    </div>
+                        <img class="close-modal" src="./../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
+                        <div class="box-img">
+                        <img src="./../../static/media/img/root/descarga_modal.png" alt="">
+                        </div>
+                        <div class="box-titulo">
+                        <p class="titulo">Ahora nuestro Seguro Vehicular en tu celular</p>
+                        </div>
+                        <div class="box-input">
+                        <span>+51</span><b-form-input class="telefono" type="tel" maxlength="9" v-model="inputNumeroCelular" :placeholder="placeholderNumeroCelular"></b-form-input>
+                        <span class="enviar" @click="enviarNumeroCelular()">Descargar</span>
+                        </div>
+                        <div class="condiciones">
+                        <!-- <span>Al continuar acepto las <span class="enlaceTerminosCondiciones" @click="showModalTerminosCondiciones()">Condiciones de Uso y Política de Privacidad.</span></span> -->
+                        </div>
+                    </div>
+                </div>
+            </b-modal>
     </b-container>
   </section>
 </template>
 <script>
 export default {
-  layout: "InterseguroFlujo",
+  layout: "InterseguroPantallaPago",
   data() {
     return {
+      mostrarMensajeEnviado: false,
+      inputNumeroCelular: '',
+      placeholderNumeroCelular: 'Tu teléfono',
+
       emisionROOT: false,
       itemElegido: {},
       numeroTelefono:'',
@@ -221,7 +299,84 @@ export default {
   },
   
   computed: {},
+  created() {
+    // console.log("====================>",this.$store.state.common.plateNumber)
+    // let placa01 = this.$store.state.common.plateNumber
+    // console.log("====================>",placa01)
+    // if (placa01!= null) {
+    //   if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1) {
+    //     this.$store.commit('common/setPlaca01', true)
+    //     console.log("TRUE")  
+    //   }else{
+    //     console.log("FALSE")
+    //     this.$store.commit('common/setPlaca01', false)
+    //   }
+    // }
+  },
   methods: {
+    descargarApp() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
+      {
+          window.location.replace("https://apps.apple.com/pe/app/interseguro-vehicular/id1517921041?l=en");
+          return 'iOS';
+      }
+      else if( userAgent.match( /Android/i ) )
+      {
+      window.location.replace("https://play.google.com/store/apps/details?id=pe.interseguro.intersegurovehicular&hl=es_PE");
+          return 'Android';
+      }
+      else
+      {
+      
+      return 'unknown'; 
+      }
+  },
+  hideModalNumeroCelular(){
+
+  },
+    enviarNumeroCelular(){
+          if (this.inputNumeroCelular.length == 9) {
+            this.$store.dispatch('common/enviarMsjCelular',this.inputNumeroCelular).then((res)=>{
+            if (res.data.code == 0) {
+                this.mostrarMensajeEnviado = true
+                setTimeout(() => {
+                  this.mostrarMensajeEnviado = false
+                  this.$refs.modalNumeroCelular.hide();
+                  this.inputNumeroCelular = ''
+                }, 2000);
+            }else{
+                this.$swal({
+                        title: "Ok!",
+                        text: "No logramos enviar el mensaje, vuelve a intenarlo as tarde",
+                        type: "warning",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK"
+                    });
+              this.mostrarMensajeEnviado = false
+              this.inputNumeroCelular = ''
+            }
+          })
+          }else{
+            this.$swal({
+              title: "Ok!",
+              text: "Ingrese un número válido",
+              type: "warning",
+              showCancelButton: false,
+              confirmButtonColor: "#2177CC",
+              confirmButtonText: "OK"
+            })
+            this.inputNumeroCelular = ''
+          }
+          
+        },
+    showModalTerminosCondiciones(){
+
+    },
+    showModalNumeroCelular() {
+        this.$refs.modalNumeroCelular.show();
+    },
    PaginaVistaNuevoProducto() {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -274,100 +429,336 @@ export default {
     }
   },
   mounted: function() {
+    // this.showModalNumeroCelular()
+
     localStorage.setItem('activoAgora', false)
-    this.numeroTelefono = this.$store.state.common.numeroTelefono 
-    this.cobertura_is = this.$store.state.common.objectDigodat
-    this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
 
-    this.urlCompartirFacebook = "https://www.facebook.com/sharer/sharer.php?u="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source=facebook.com%26utm_medium=share%26utm_campaign=referidos"
-    this.urlCompartirWhatsApp = "https://api.whatsapp.com/send?text="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dreferidos"
-    this.urlCompartirTwitter = "http://twitter.com/share?text=¡Acabo de comprar mi Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado! Tú también cómpralo haciendo clic aquí: &url="+process.env.URL+"vehicular/"+this.$store.state.common.documentoLocal + "?utm_source=twitter.com%26utm_medium=share%26utm_campaign=referidos"
-    this.urlCompartir = process.env.URL+"vehicular/"+this.documentoLocal+"?utm_source=direct&utm_medium=share&utm_campaign=referidos"
-    this.urlpdf = require("./../../static/media/documentos/resumenCoberturas.pdf")
-    this.Plantilla = require("./../../static/media/documentos/Plantilla_Endoso_de_Cesion.pdf")
-    if (document.location.hostname == "www.interseguro.pe"){
-      window.criteo_q = window.criteo_q || [];
-      window.criteo_q.push(
-        { event: "setAccount", account: 64802}, // You should never update this line
-        { event: "setEmail", email: localStorage.getItem("email") }, // Can be an empty string 
-        { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
-        { event: "trackTransaction", id: this.listaTransaccion.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
-      )
-    }
-    if(this.$store.state.common.nuevoProducto){
-        this.PaginaVistaNuevoProducto();
-    }else{
-        this.PaginaVista();
-    }
-    this.emisionROOT = this.$store.state.common.emisionROOT
+    // this.numeroTelefono = this.$store.state.common.numeroTelefono 
+    // this.cobertura_is = this.$store.state.common.objectDigodat
+    // this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
+
+    // this.urlCompartirFacebook = "https://www.facebook.com/sharer/sharer.php?u="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source=facebook.com%26utm_medium=share%26utm_campaign=referidos"
+    // this.urlCompartirWhatsApp = "https://api.whatsapp.com/send?text="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dreferidos"
+    // this.urlCompartirTwitter = "http://twitter.com/share?text=¡Acabo de comprar mi Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado! Tú también cómpralo haciendo clic aquí: &url="+process.env.URL+"vehicular/"+this.$store.state.common.documentoLocal + "?utm_source=twitter.com%26utm_medium=share%26utm_campaign=referidos"
+    // this.urlCompartir = process.env.URL+"vehicular/"+this.documentoLocal+"?utm_source=direct&utm_medium=share&utm_campaign=referidos"
+    // this.urlpdf = require("./../../static/media/documentos/resumenCoberturas.pdf")
+    // this.Plantilla = require("./../../static/media/documentos/Plantilla_Endoso_de_Cesion.pdf")
+    // if (document.location.hostname == "www.interseguro.pe"){
+    //   window.criteo_q = window.criteo_q || [];
+    //   window.criteo_q.push(
+    //     { event: "setAccount", account: 64802}, // You should never update this line
+    //     { event: "setEmail", email: localStorage.getItem("email") }, // Can be an empty string 
+    //     { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
+    //     { event: "trackTransaction", id: this.listaTransaccion.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
+    //   )
+    // }
+    // if(this.$store.state.common.nuevoProducto){
+    //     this.PaginaVistaNuevoProducto();
+    // }else{
+    //     this.PaginaVista();
+    // }
+    // this.emisionROOT = this.$store.state.common.emisionROOT
 
 
-    let objJWT = JSON.parse(localStorage.getItem("jwt"))
-    if (objJWT == null || objJWT == undefined) {
-        this.$nuxt.$router.push("/")
-    }else{
-        let objJWT = JSON.parse(localStorage.getItem("jwt"))
-        this.itemElegido = objJWT.common.itemElegido
-        this.planSeleccionado = objJWT.common.planSeleccionado
-        this.listCotizacion = objJWT.common.listaCotizacion
-        this.monto_pagar = objJWT.common.frecuenciaPago
-        this.mensual = objJWT.common.listaCotizacion.policy.monthly
-        this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
-        this.anual = objJWT.common.listaCotizacion.policy.annual
-        this.bianual = objJWT.common.listaCotizacion.policy.twoYears
-    }
+    // let objJWT = JSON.parse(localStorage.getItem("jwt"))
+    // if (objJWT == null || objJWT == undefined) {
+    //     this.$nuxt.$router.push("/")
+    // }else{
+    //     let objJWT = JSON.parse(localStorage.getItem("jwt"))
+    //     this.itemElegido = objJWT.common.itemElegido
+    //     this.planSeleccionado = objJWT.common.planSeleccionado
+    //     this.listCotizacion = objJWT.common.listaCotizacion
+    //     this.monto_pagar = objJWT.common.frecuenciaPago
+    //     this.mensual = objJWT.common.listaCotizacion.policy.monthly
+    //     this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
+    //     this.anual = objJWT.common.listaCotizacion.policy.annual
+    //     this.bianual = objJWT.common.listaCotizacion.policy.twoYears
+    // }
     
     
-    this.entidadFinanciera = JSON.parse(localStorage.getItem("financialInstitution")) != null ? JSON.parse(localStorage.getItem("financialInstitution")) : {}    
-    if (this.entidadFinanciera.id === undefined  || this.entidadFinanciera.id === null || this.entidadFinanciera.id === 'null' ) {   
-      this.endosoActivo = false    
-    }else{            
-      this.endosoActivo = true
-    }
+    // this.entidadFinanciera = JSON.parse(localStorage.getItem("financialInstitution")) != null ? JSON.parse(localStorage.getItem("financialInstitution")) : {}    
+    // if (this.entidadFinanciera.id === undefined  || this.entidadFinanciera.id === null || this.entidadFinanciera.id === 'null' ) {   
+    //   this.endosoActivo = false    
+    // }else{            
+    //   this.endosoActivo = true
+    // }
             
-    this.cotizador_datalayer('transaction',this.$store.state.common.policy_id)
-    this.$store.dispatch('common/getPagoProcesado')
-      .then((res) =>{
-        this.listaTransaccion = res.data.body
+    // this.cotizador_datalayer('transaction',this.$store.state.common.policy_id)
+    // this.$store.dispatch('common/getPagoProcesado')
+    //   .then((res) =>{
+    //     this.listaTransaccion = res.data.body
 
-        this.$store.dispatch('common/enviarMailingConfirmacion', this.listaTransaccion.policyNumber)
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "EEtransaction",
-          ecommerce: {
-            purchase: {
-              actionField: {
-                id: this.$store.state.common.policy_id, // ID de la transaccion. Es obligatorio. No puede ser DNI o Datos Personal del CLiente
-                revenue: res.data.body.policyAmount // Total de la venta. Aqui tiene
-              },
-              products: [
-                {
-                  id: "SV001", // ID del Producto
-                  name: "Seguro Vehicular", // nombre de producto
-                  price: this.listaTransaccion.policyAmount, // precio final
-                  brand: this.listaTransaccion.brand, // marca de vehiculo
-                  category: this.$store.state.common.listaCotizacion.policy.risk, // Reisgo del Vehiculo
-                  variant: this.listaTransaccion.model, // modelo del vehiculo
-                  quantity: 1
-                }
-              ]
-            }
-          }
-        })
-        // setTimeout(() => {
-        //   this.$store.commit('common/resetState')
-        // }, 10000);
-      })
+    //     this.$store.dispatch('common/enviarMailingConfirmacion', this.listaTransaccion.policyNumber)
+    //     window.dataLayer = window.dataLayer || [];
+    //     window.dataLayer.push({
+    //       event: "EEtransaction",
+    //       ecommerce: {
+    //         purchase: {
+    //           actionField: {
+    //             id: this.$store.state.common.policy_id, // ID de la transaccion. Es obligatorio. No puede ser DNI o Datos Personal del CLiente
+    //             revenue: res.data.body.policyAmount // Total de la venta. Aqui tiene
+    //           },
+    //           products: [
+    //             {
+    //               id: "SV001", // ID del Producto
+    //               name: "Seguro Vehicular", // nombre de producto
+    //               price: this.listaTransaccion.policyAmount, // precio final
+    //               brand: this.listaTransaccion.brand, // marca de vehiculo
+    //               category: this.$store.state.common.listaCotizacion.policy.risk, // Reisgo del Vehiculo
+    //               variant: this.listaTransaccion.model, // modelo del vehiculo
+    //               quantity: 1
+    //             }
+    //           ]
+    //         }
+    //       }
+    //     })
+    //     // setTimeout(() => {
+    //     //   this.$store.commit('common/resetState')
+    //     // }, 10000);
+    //   })
     
   },
   destroyed() {
-    if (process.browser) {
-      this.$store.commit('common/resetState')
-    }
+    // if (process.browser) {
+    //   this.$store.commit('common/resetState')
+    // }
   }
 };
 </script>
 <style lang="scss" scoped>
+.inspecciones{
+  background: #ffffff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  .pendiente{
+    color: #FF8000;
+    font-family: 'Omnes Medium';
+    border: 1px solid #DC6F00;
+    border-radius: 4px;
+    height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 103px;
+    img{
+      margin-right: 4px;
+    }
+  }
+  &--img{
+    width: 100%;
+    max-width: 260px;
+    margin: auto;
+  }
+  .inspecciones-vehicular{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-family: 'Omnes Medium';
+    font-size: 20px;
+  }
+  p{
+    color: #454A6C;
+  }
+  .box-btn{
+    display: flex;
+    justify-content: center;
+    button{
+      background: #EA0B90;
+      border: none;
+      color: white;
+      height: 38px;
+      width: 140px;
+      border-radius: 6px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  .botones-app{
+    display: flex;
+    justify-content: center;
+    img{
+      width: 77px;
+    }
+  }
+}
+#modalNumeroCelular{
+    .telefono{
+      border: none;
+      border-bottom: 1px solid #A1A1A1;
+      border-radius: 0;
+      max-width: 180px;
+      margin-right: 40px;
+    }
+  .modal-footer{
+    justify-content: center;
+  }
+  .img-close-modal{
+        position: absolute;
+        top: -38px;
+        right: -38px;
+        cursor: pointer;
+        width: 50px;
+    }
+  .condiciones{
+    margin-top: 32px;
+    .enlaceTerminosCondiciones{
+      color: #0854c4;
+      cursor: pointer;
+    }
+      span{
+         font-family: 'Omnes Medium';
+          font-size: 14px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.21;
+          letter-spacing: normal;
+          text-align: center;
+          color: #656565;
+      }
+      a{
+        color: #0854c4
+      }
+    }
+  .close-modal{
+    position: absolute;
+    top: -59px;
+    right: -43px;
+    height: 61px;
+    cursor: pointer;
+  }
+  .box-mensajeEnviado{
+    opacity: 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .check-enviado{
+      height: 63px;
+    }
+    p{
+      font-family: 'Omnes Regular';
+      font-size: 30px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.27;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+      margin-top: 34px;
+    }
+  }
+  .mostrarMensajeEnviado{
+    display: flex;
+    opacity: 1;
+  }
+  .modal-body{
+    position: relative;
+  }
+  .modal-content{
+    border: none;
+  }
+  .box-img{
+    img{
+      width: 94px;
+    }
+  }
+  .box-condiciones{
+    a span{
+      font-family: 'Omnes Regular';
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.21;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+    }
+  }
+  .box-titulo{
+    .titulo{
+      font-family: 'Omnes Regular';
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+      margin: 12px 0;
+    }
+  }
+  .box-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    .input{
+      width: 200px;
+      height: 43px;
+      border-radius: 7px;
+      border: solid 0.2px #a7a7a7;
+
+    }
+    .enviar{
+      display: inline-block;
+      width: 180px;
+      height: 38px;
+      border-radius: 7px;
+      background-color: #ea0f90;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 38px;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      cursor: pointer;
+      font-family: 'Omnes Regular';
+    }
+  }
+}
+  .box-mensajeEnviado{
+    opacity: 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .check-enviado{
+      height: 63px;
+    }
+    p{
+      font-family: 'Omnes Regular';
+      font-size: 30px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.27;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0854c4;
+      margin-top: 34px;
+    }
+  }
+  .mostrarMensajeEnviado{
+    display: flex;
+    opacity: 1;
+  }
   .pago-procesado{
     background: #f0f2f6;
     color: #4a4a4a;
@@ -417,9 +808,8 @@ export default {
     background: white;
     padding: 16px;
     position: relative;
-    top: -16px;
     border-radius: 8px 8px 0 0;
-    margin-top: 8px;
+    margin-top: 24px;
     .pasa-la-voz{
       display: flex;
       align-items: center;

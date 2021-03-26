@@ -481,6 +481,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                       this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
                     }else{
                       this.loading = false;
+                      window.dataLayer = window.dataLayer || [ ];
+                      dataLayer.push({
+                          'event': 'auto_no_particular',
+                          'category': 'UI: home error',
+                          'action': 'error',
+                          'label': 'error en el servicio de soat, auto no particular'
+                      })
                       this.$swal({
                         // title: "Oops...",
                         html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
@@ -550,6 +557,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               
               else if(res.data.code === 307){
                   this.loading = false;
+                  window.dataLayer = window.dataLayer || [ ];
+                  dataLayer.push({
+                      'event': 'auto_lista_negra',
+                      'category': 'UI: home error',
+                      'action': 'error',
+                      'label': 'error la placa esta en la lista negra'
+                  })
                   this.$swal({
                   // title: "Oops...",
                   html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
@@ -568,6 +582,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
+      
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")

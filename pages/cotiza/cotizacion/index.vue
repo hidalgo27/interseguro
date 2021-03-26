@@ -2944,10 +2944,15 @@
                 confirmButtonText: "OK",
                 
               }).then(function () {
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                    'event': 'placa_rechazada',
+                    'category': 'UI: Cotizador error',
+                    'action': 'error',
+                    'label': 'error en el servicio'
+                })
                 goToVehicular();
               });
-        
-
             } 
             else {
               let errorDetectado = {
@@ -2965,9 +2970,7 @@
                 showCancelButton: false,
                 confirmButtonColor: "#2177CC",
                 confirmButtonText: "OK"
-              });
-              
-              
+              });              
             }
             
           })
@@ -2999,6 +3002,13 @@
         this.$refs.modalInicioVigencia.hide();
       },
       showModalGPS() {
+        window.dataLayer = window.dataLayer || [ ];
+        dataLayer.push({
+            'event': 'show_gps',
+            'category': 'UI: Cotizador gps',
+            'action': 'click',
+            'label': 'Tu auto necesita GPS'
+        })
         this.$refs.v2modalGPS.show();
       },
       hideModalGPS() {

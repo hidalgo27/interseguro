@@ -3,6 +3,7 @@
 const getDefaultState = () => {
     return {
     //GLOBALES
+    placa01: false,
     urlGlobal: '',
     montoPagar:0,
     code_sku:0,
@@ -125,6 +126,10 @@ const mutations = {
     },
     setUrlGlobal (state, payload){
         state.urlGlobal = payload
+    },
+    
+    setPlaca01 (state, payload){
+        state.placa01 = payload
     },
     setAppDiscount (state, payload){
         state.appDiscount = payload
