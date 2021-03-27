@@ -433,89 +433,89 @@ export default {
 
     localStorage.setItem('activoAgora', false)
 
-    // this.numeroTelefono = this.$store.state.common.numeroTelefono 
-    // this.cobertura_is = this.$store.state.common.objectDigodat
-    // this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
+    this.numeroTelefono = this.$store.state.common.numeroTelefono 
+    this.cobertura_is = this.$store.state.common.objectDigodat
+    this.cobertura_is.plan = this.$store.state.common.frecuenciaPago
 
-    // this.urlCompartirFacebook = "https://www.facebook.com/sharer/sharer.php?u="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source=facebook.com%26utm_medium=share%26utm_campaign=referidos"
-    // this.urlCompartirWhatsApp = "https://api.whatsapp.com/send?text="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dreferidos"
-    // this.urlCompartirTwitter = "http://twitter.com/share?text=¡Acabo de comprar mi Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado! Tú también cómpralo haciendo clic aquí: &url="+process.env.URL+"vehicular/"+this.$store.state.common.documentoLocal + "?utm_source=twitter.com%26utm_medium=share%26utm_campaign=referidos"
-    // this.urlCompartir = process.env.URL+"vehicular/"+this.documentoLocal+"?utm_source=direct&utm_medium=share&utm_campaign=referidos"
-    // this.urlpdf = require("./../../static/media/documentos/resumenCoberturas.pdf")
-    // this.Plantilla = require("./../../static/media/documentos/Plantilla_Endoso_de_Cesion.pdf")
-    // if (document.location.hostname == "www.interseguro.pe"){
-    //   window.criteo_q = window.criteo_q || [];
-    //   window.criteo_q.push(
-    //     { event: "setAccount", account: 64802}, // You should never update this line
-    //     { event: "setEmail", email: localStorage.getItem("email") }, // Can be an empty string 
-    //     { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
-    //     { event: "trackTransaction", id: this.listaTransaccion.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
-    //   )
-    // }
-    // if(this.$store.state.common.nuevoProducto){
-    //     this.PaginaVistaNuevoProducto();
-    // }else{
-    //     this.PaginaVista();
-    // }
-    // this.emisionROOT = this.$store.state.common.emisionROOT
+    this.urlCompartirFacebook = "https://www.facebook.com/sharer/sharer.php?u="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source=facebook.com%26utm_medium=share%26utm_campaign=referidos"
+    this.urlCompartirWhatsApp = "https://api.whatsapp.com/send?text="+process.env.URL+"vehicular/"+localStorage.getItem("documentoLocal")+"?utm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dreferidos"
+    this.urlCompartirTwitter = "http://twitter.com/share?text=¡Acabo de comprar mi Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado! Tú también cómpralo haciendo clic aquí: &url="+process.env.URL+"vehicular/"+this.$store.state.common.documentoLocal + "?utm_source=twitter.com%26utm_medium=share%26utm_campaign=referidos"
+    this.urlCompartir = process.env.URL+"vehicular/"+this.documentoLocal+"?utm_source=direct&utm_medium=share&utm_campaign=referidos"
+    this.urlpdf = require("./../../static/media/documentos/resumenCoberturas.pdf")
+    this.Plantilla = require("./../../static/media/documentos/Plantilla_Endoso_de_Cesion.pdf")
+    if (document.location.hostname == "www.interseguro.pe"){
+      window.criteo_q = window.criteo_q || [];
+      window.criteo_q.push(
+        { event: "setAccount", account: 64802}, // You should never update this line
+        { event: "setEmail", email: localStorage.getItem("email") }, // Can be an empty string 
+        { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
+        { event: "trackTransaction", id: this.listaTransaccion.policyNumber, item: [{id: "Pago procesado", price: "", quantity: 1 }]}
+      )
+    }
+    if(this.$store.state.common.nuevoProducto){
+        this.PaginaVistaNuevoProducto();
+    }else{
+        this.PaginaVista();
+    }
+    this.emisionROOT = this.$store.state.common.emisionROOT
 
 
-    // let objJWT = JSON.parse(localStorage.getItem("jwt"))
-    // if (objJWT == null || objJWT == undefined) {
-    //     this.$nuxt.$router.push("/")
-    // }else{
-    //     let objJWT = JSON.parse(localStorage.getItem("jwt"))
-    //     this.itemElegido = objJWT.common.itemElegido
-    //     this.planSeleccionado = objJWT.common.planSeleccionado
-    //     this.listCotizacion = objJWT.common.listaCotizacion
-    //     this.monto_pagar = objJWT.common.frecuenciaPago
-    //     this.mensual = objJWT.common.listaCotizacion.policy.monthly
-    //     this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
-    //     this.anual = objJWT.common.listaCotizacion.policy.annual
-    //     this.bianual = objJWT.common.listaCotizacion.policy.twoYears
-    // }
+    let objJWT = JSON.parse(localStorage.getItem("jwt"))
+    if (objJWT == null || objJWT == undefined) {
+        this.$nuxt.$router.push("/")
+    }else{
+        let objJWT = JSON.parse(localStorage.getItem("jwt"))
+        this.itemElegido = objJWT.common.itemElegido
+        this.planSeleccionado = objJWT.common.planSeleccionado
+        this.listCotizacion = objJWT.common.listaCotizacion
+        this.monto_pagar = objJWT.common.frecuenciaPago
+        this.mensual = objJWT.common.listaCotizacion.policy.monthly
+        this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
+        this.anual = objJWT.common.listaCotizacion.policy.annual
+        this.bianual = objJWT.common.listaCotizacion.policy.twoYears
+    }
     
     
-    // this.entidadFinanciera = JSON.parse(localStorage.getItem("financialInstitution")) != null ? JSON.parse(localStorage.getItem("financialInstitution")) : {}    
-    // if (this.entidadFinanciera.id === undefined  || this.entidadFinanciera.id === null || this.entidadFinanciera.id === 'null' ) {   
-    //   this.endosoActivo = false    
-    // }else{            
-    //   this.endosoActivo = true
-    // }
+    this.entidadFinanciera = JSON.parse(localStorage.getItem("financialInstitution")) != null ? JSON.parse(localStorage.getItem("financialInstitution")) : {}    
+    if (this.entidadFinanciera.id === undefined  || this.entidadFinanciera.id === null || this.entidadFinanciera.id === 'null' ) {   
+      this.endosoActivo = false    
+    }else{            
+      this.endosoActivo = true
+    }
             
-    // this.cotizador_datalayer('transaction',this.$store.state.common.policy_id)
-    // this.$store.dispatch('common/getPagoProcesado')
-    //   .then((res) =>{
-    //     this.listaTransaccion = res.data.body
+    this.cotizador_datalayer('transaction',this.$store.state.common.policy_id)
+    this.$store.dispatch('common/getPagoProcesado')
+      .then((res) =>{
+        this.listaTransaccion = res.data.body
 
-    //     this.$store.dispatch('common/enviarMailingConfirmacion', this.listaTransaccion.policyNumber)
-    //     window.dataLayer = window.dataLayer || [];
-    //     window.dataLayer.push({
-    //       event: "EEtransaction",
-    //       ecommerce: {
-    //         purchase: {
-    //           actionField: {
-    //             id: this.$store.state.common.policy_id, // ID de la transaccion. Es obligatorio. No puede ser DNI o Datos Personal del CLiente
-    //             revenue: res.data.body.policyAmount // Total de la venta. Aqui tiene
-    //           },
-    //           products: [
-    //             {
-    //               id: "SV001", // ID del Producto
-    //               name: "Seguro Vehicular", // nombre de producto
-    //               price: this.listaTransaccion.policyAmount, // precio final
-    //               brand: this.listaTransaccion.brand, // marca de vehiculo
-    //               category: this.$store.state.common.listaCotizacion.policy.risk, // Reisgo del Vehiculo
-    //               variant: this.listaTransaccion.model, // modelo del vehiculo
-    //               quantity: 1
-    //             }
-    //           ]
-    //         }
-    //       }
-    //     })
-    //     // setTimeout(() => {
-    //     //   this.$store.commit('common/resetState')
-    //     // }, 10000);
-    //   })
+        this.$store.dispatch('common/enviarMailingConfirmacion', this.listaTransaccion.policyNumber)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "EEtransaction",
+          ecommerce: {
+            purchase: {
+              actionField: {
+                id: this.$store.state.common.policy_id, // ID de la transaccion. Es obligatorio. No puede ser DNI o Datos Personal del CLiente
+                revenue: res.data.body.policyAmount // Total de la venta. Aqui tiene
+              },
+              products: [
+                {
+                  id: "SV001", // ID del Producto
+                  name: "Seguro Vehicular", // nombre de producto
+                  price: this.listaTransaccion.policyAmount, // precio final
+                  brand: this.listaTransaccion.brand, // marca de vehiculo
+                  category: this.$store.state.common.listaCotizacion.policy.risk, // Reisgo del Vehiculo
+                  variant: this.listaTransaccion.model, // modelo del vehiculo
+                  quantity: 1
+                }
+              ]
+            }
+          }
+        })
+        // setTimeout(() => {
+        //   this.$store.commit('common/resetState')
+        // }, 10000);
+      })
     
   },
   destroyed() {
