@@ -411,12 +411,11 @@
                     <b-col class="text-center mb-3" cols="12">
                     
                     <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
-                    <p class="mt-3">
+                    <p class="mt-3" style="max-width: 360px;">
                         <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                         <span style="color : #ffffff; font-size: 18px">
-                            Asegura tu  {{this.itemElegido.brand}}  <span style="color: #FFDD36;">con 15% de dscto.</span> <br> 
-                                y si compras el plan black participa <br> en el sorteo de una laptop                       
-                        </span>
+                            ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
+                            </span>
                     </p>
                     </b-col>
                 </b-row>
@@ -617,8 +616,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1616993999, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1616993999, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1617598799, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1617598799, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')

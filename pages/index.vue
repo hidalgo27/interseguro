@@ -6,14 +6,14 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class="box-img-campania  d-flex  justify-content-center  d-lg-none">
-              <img src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
+              <img class="mt-3" src="./../static/media/interseguroVehicular_v2/cuponazo_mobile.svg" alt="">
             </div>
-            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none mt-3" >
               
               <div class="box-contador" >
                 
                 <div  class="example  d-md-flex">
-                  <p style="color: #ffffff">La oferta termina en:</p>
+                  <!-- <p style="color: #ffffff">La oferta termina en:</p> -->
                     <div id="contadorCyber" class="flipdown">
                         
                     </div> 
@@ -65,7 +65,7 @@
             <div class="box-contador">
               <img src="./../static/media/interseguroVehicular_v2/cuponazo_2.svg" alt="">
               <div  class="example  d-none  d-md-flex">
-               <p>La oferta termina en:</p>
+               <!-- <p>La oferta termina en:</p> -->
                   <div id="contadorCyber2" class="flipdown">
                       
                   </div> 
@@ -388,8 +388,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1616993999, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1616993999, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1617598799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1617598799, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -2033,8 +2033,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
             .box-contador{
               padding: 0;
+            
               .example{
-                right: 77px;
+                left: 67px;
+                bottom: -57px;
+                right: 0;
               }
               img{
                 width :680px

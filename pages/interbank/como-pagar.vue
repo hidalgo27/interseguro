@@ -522,8 +522,8 @@ import { validationMixin } from 'vuelidate'
 
         },
             contador(){
-                var flipdown = new FlipDown(1616993999, 'contadorCyber14').start();
-                var flipdown = new FlipDown(1616993999, 'contadorCyber15').start()
+                var flipdown = new FlipDown(1617598799, 'contadorCyber14').start();
+                var flipdown = new FlipDown(1617598799, 'contadorCyber15').start()
             },
             cotizador_datalayer(evento,step_valor){
                 this.cobertura_is.content_ids =  this.$store.state.common.code_sku

@@ -5,7 +5,7 @@
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
-                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt=""> 
+                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston_mobile.svg" alt=""> 
                        </div>
                     <div  class="example" style="position: relative;">            
                         <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
@@ -17,7 +17,7 @@
                     <div class="d-flex align-items-center logo-franja">
                         <img width="160" src="./../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt="">          
                         <p>
-                            <span style="color: #FFD527">¡Cyber Interseguro!</span>  Asegura tu auto con<span style="color: #FFD527"> 15% de dscto.</span> y participa en el sorteo de una laptop
+                            ¡Últimos días! Protege tu auto hoy con <span style="color: #FFD527"> 15% de dscto.</span> y lleváte la <span style="color: #FFD527">2da cuota gratis</span>
                         </p>
                     </div>
                     <div id="contadorCyber2" class="flipdown"></div>
@@ -207,8 +207,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1616993999, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1616993999, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1617598799, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1617598799, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
