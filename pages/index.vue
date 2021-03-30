@@ -388,8 +388,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1617598799, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1617598799, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];

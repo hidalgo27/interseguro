@@ -616,8 +616,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1617598799, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1617598799, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1617253199, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1617253199, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
