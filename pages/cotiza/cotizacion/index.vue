@@ -255,7 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          15%
+                          10%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -338,7 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          15%
+                          10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          15%
+                          10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    15%
+                    10%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1358,7 +1358,7 @@
     </b-modal>
 
     <!-- Modal de abandono  -->
-    <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1389,9 +1389,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-  <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal> -->
+    </b-modal>
 
-     <b-modal
+     <!-- <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1430,7 +1430,6 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <!-- <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()"> -->
               <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
@@ -1449,7 +1448,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
   </section>
 </template>
@@ -3416,7 +3415,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 128px;
+  padding-top: 70px;
   .img-close{
     position: absolute;
     right: -24px;
