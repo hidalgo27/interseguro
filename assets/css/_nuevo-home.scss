@@ -1,0 +1,59 @@
+$vehicular_primario: #0855c4;
+$vehicular_secundario: #ea0c90;
+$vehicular_parrafo: #454A6C;
+$vehicular_titulo_seccion: #0855C4;
+$vehicular_subtitulo: #454A6C;
+
+$vehicular_parrafo_v2: #383C5A;
+.nuevo-home{
+    padding-top: 70px;
+    color: $vehicular_parrafo_v2;
+    // p,h1,h2,h3,div,span,section,article,strong{
+    //     padding: 0;
+    //     margin: 0;
+    //     box-sizing: border-box;
+    //     position: relative;
+    // }
+    
+    .section-title{
+        p{
+            color: $vehicular_primario;
+            text-align: center;
+            font-size: 1.69rem;
+            line-height: 2.19rem;
+            max-width: 290px;
+            margin: auto;
+        }
+    }
+    .client{
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    .client-numbers{
+        border: #DDE0E9 1px solid;
+        &__item{
+            position: relative;
+            &:after{
+                background-color: #DDE0E9;
+                bottom: 0;
+                content: "";                
+                height: 1px;
+                left: 5%;
+                position: absolute;
+                width: 90%;
+                
+            }
+            &--numbers{
+                font-size: 1.75rem;
+                padding: 0;
+                font-family: 'Omnes Medium';                
+            }
+            &--text{
+                font-size: 1.12rem;
+                padding: 0;
+                font-family: 'Omnes regular';
+            }
+        }
+
+    }
+}
