@@ -29,7 +29,7 @@
               <template>
                 <router-link
                   class="steps__item"
-                  to="/interbank/ingresa-tu-documento/"
+                  to="/intercorp/ingresa-tu-documento/"
                   style="cursor: auto"
                   ><li></li
                 ></router-link>
@@ -38,18 +38,18 @@
                 <router-link
                   v-if="documento_steps2 != ''"
                   class="steps__item steps--active paso2"
-                  to="/interbank/ingresa-tu-documento/"
+                  to="/intercorp/ingresa-tu-documento/"
                   ><li></li
                 ></router-link>
                 <router-link
                   v-else
                   class="steps__item steps--active paso2"
-                  to="/interbank/ingresa-tu-documento/"
+                  to="/intercorp/ingresa-tu-documento/"
                   ><li></li
                 ></router-link>
               </template>
               <template>
-                <router-link class="steps__item paso1" to="/interbank/cotizacion/"
+                <router-link class="steps__item paso1" to="/intercorp/cotizacion/"
                   ><li></li
                 ></router-link>
               </template>
@@ -135,14 +135,7 @@
                   </div>
                 </b-col>
               </b-row>
-              <!-- 
-              <b-row class="d-flex justify-content-center">
-                <div v-if="this.itemElegido.documentoLocal.length == 10">
-                  <span style="font-size: 12px; color: rgb(214, 4, 17)"
-                    >Ingrese un número de documento válido</span
-                  >
-                </div>
-              </b-row> -->
+
             </b-col>
 
             <b-col cols="12" class="box-datos">
@@ -662,6 +655,30 @@
       </b-row>
 
       <b-modal
+      title="Bootstrap-Vue"
+      hide-footer
+      hide-header
+      ref="modalNoIntercorp"
+      id="modalNoIntercorp"
+    >
+      <img
+        src="./../../static/media/img/root/close.png"
+        width="30"
+        alt="icon close"
+        class="modal-close"
+        style="    position: absolute;right: -18px;top: -19px;"
+        @click="hideModalNoIntercorp()"/>
+      <div class="modal-content fechaVigenciaCotizador" style="display: flex; align-items: center; flex-direction:column; justify-content: center;">
+        <img width="80" src="./../../static/media/interseguroVehicular_v2/intercorp.svg" alt="">
+        <p class="modal-titulo" style="font-size: 21px;text-align: center;width: 315px;margin: 24px;">Solo para colaboradores Intercorp</p>
+        <p style="text-align:center;">
+          Lo sentimos, el descuento y la compra a través de esta web especial es únicamente para colaboradores del Grupo Intercorp. Puedes hacer la compra de nuestro seguro a través de 
+          <a style="color: #454A6C; font-size:18px;text-decoration:underline;" href="https://www.interseguro.pe/vehicular/">www.interseguro.pe/vehicular</a>
+        </p>
+      </div>
+    </b-modal>
+
+      <b-modal
         id="leaveBlackWeek"
         class="modal-blackWeek"
         static
@@ -979,7 +996,7 @@
     font-family: "Montserrat Medium";
   }
   .btn {
-    background-color: #00C450;
+    background-color: #FF0773;
     color: white;
     height: 50px;
     width: 300px;
@@ -1201,7 +1218,7 @@ input:focus {
   position: relative;
   width: 100%;
   &__titulo {
-    color: #333333;
+    color: #005DAB;
     font-size: 16px;
     font-weight: 500;
     padding-left: 0;
@@ -1213,11 +1230,11 @@ input:focus {
     position: absolute;
     right: 16px;
     z-index: 99;
-    border: 1px solid #333333;
+    border: 1px solid #005DAB;
     border-radius: 6px;
     padding: 0 4px 0 4px;
     text-align: left;
-    color: #333333;
+    color: #005DAB;
     font-size: 14px;
     top: 8px;
     cursor: pointer;
@@ -1313,7 +1330,7 @@ input:focus {
 .box-row {
   position: relative;
   .box-btn--dni {
-    background: #00C450;
+    background: #FF0773;
     color: #ffffff;
     height: 50px;
     width: 270px;
@@ -1403,7 +1420,7 @@ input:focus {
   padding-left: 6px;
 }
 .titulo-flujo {
-    color: #333;
+    color: #005DAB;
 }
 @media (min-width: 768px) {
 
@@ -1435,7 +1452,7 @@ input:focus {
       font-style: normal;
       line-height: 1;
       letter-spacing: 1px;
-      color: #333333 !important;
+      color: #005DAB !important;
       font-weight: 600;
     }
   }
@@ -1573,7 +1590,7 @@ input[type="color"]:focus,
     margin-top: 30px;
   }
   .btn {
-    background-color: #00C450;
+    background-color: #FF0773;
     color: white;
     height: 50px;
     width: 250px;
@@ -1592,7 +1609,7 @@ input[type="color"]:focus,
 <script>
 import modalTerminosCondiciones from "./../../components/modals/CondicionesUsoPoliticaPrivacidad";
 export default {
-  layout: "InterbankHome",
+  layout: "InterseguroFlujo",
   data() {
     return {
       fechaVigencia: "",
@@ -1743,6 +1760,12 @@ export default {
     };
   },
   methods: {
+    showModalNoIntercorp() {
+      this.$refs.modalNoIntercorp.show();
+    },
+    hideModalNoIntercorp() {
+      this.$refs.modalNoIntercorp.hide();
+    },
     pixelfacebook(){
           console.log("PRUEBAS");
           !function(f,b,e,v,n,t,s)
@@ -1777,7 +1800,7 @@ export default {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "pagina_vista",
-        "page-url": "/vehicular/interbank/ingresa-tu-documento",
+        "page-url": "/vehicular/intercorp/ingresa-tu-documento",
         "page-title": "interbank Ingresa Tu Documento",
         ecommerce: {
           checkout: {
@@ -1791,7 +1814,7 @@ export default {
       window.dataLayer.push({
         event: "pagina_vista",
         "page-url": "/vehicular-app/cotiza/ingresa-tu-documento/",
-        "page-title": "Interbank Ingresa Tu Documento",
+        "page-title": "Intercorp Ingresa Tu Documento",
       });
     },
     validarEmail() {
@@ -1842,8 +1865,6 @@ export default {
         "common/setNumeroTelefono",
         this.objClients.phoneNumber
       );
-      this.remarketingv2();
-      this.$nuxt.$router.push({path: "/interbank/como-pagar/"})
     },
 
     cotizador_datalayer(evento, step_valor) {
@@ -1874,6 +1895,7 @@ export default {
       this.$refs.ingresaTuPlaca.hide();
     },
     detectar_documento() {
+      console.log(this.itemElegido.documentoLocalSinEspacios,this.itemElegido.documentoLocal)
       this.itemElegido.documentoLocalSinEspacios = this.itemElegido.documentoLocal
         .replace(/[^0-9\s]/gi, "")
         .replace(/[_\s]/g, "");
@@ -1887,7 +1909,7 @@ export default {
         if (this.validarClient() && this.checkPoliticasPrivacidad == true) {
           this.aceptaterminos = false;
           this.isDisableButton = false;
-          this.remarketingv2();
+          
           if (
             this.objClients.phoneNumber.charAt(0) == 9 &&
             this.objClients.phoneNumber.length == 9
@@ -1907,7 +1929,7 @@ export default {
         if (this.validarRUC() && this.checkPoliticasPrivacidad == true) {
           this.aceptaterminos = false;
           this.isDisableButton = false;
-          this.remarketingv2();
+          
           if (
             this.objClients.phoneNumber.charAt(0) == 9 &&
             this.objClients.phoneNumber.length == 9
@@ -1940,12 +1962,15 @@ export default {
    **** VOLVER CUANDO SI ES CUENTA SUELDO EN EL COTIZADOR CAMBIA EL MONTO
     */
     continuar(evt) {
+      console.log("1")
+      evt.preventDefault()
       console.log("item documento", this.itemElegido)
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia;
       // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true;
-      evt.preventDefault();
+      console.log("1.1")
       this.detectar_documento();
+      console.log("2")
       this.$store.commit("common/setObjectDigodat", this.cobertura_is);
       if (this.tamaño == 8 || this.tamaño == 9) {
         if (this.$store.state.common.clientState == 0) {
@@ -1954,10 +1979,16 @@ export default {
           this.updateClient();
           this.isDisableButton = false;
           this.$store.commit('common/setEmail', this.objClients.emailAddress)
-                                                                         
-          // this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
-          this.$nuxt.$router.push({path: "/interbank/como-pagar/"})
-        } else {
+
+          if (this.objClients.intercorp == 'N') {
+            this.showModalNoIntercorp()
+          }else if(this.objClients.intercorp == 'Y'){
+            
+            this.$nuxt.$router.push({path: "/intercorp/como-pagar/"})
+          }else{
+            this.$nuxt.$router.push({path: "/intercorp/como-pagar/"})
+          }
+          
         }
         this.$store.commit(
           "common/setNumeroTelefono",
@@ -1980,7 +2011,6 @@ export default {
       } else {
       }
       this.pantalla = 3;
-      // this.remarketingv2()
       if (this.objClients.validCtaSueldo == "N") {
         this.$swal({
           title: "Oops...",
@@ -1997,8 +2027,7 @@ export default {
       dataLayer.push({
         event: "userData",
         firstname: this.objClients.firstName,
-        lastname:
-          this.objClients.firstLastName + " " + this.objClients.secondLastName,
+        lastname: this.objClients.firstLastName + " " + this.objClients.secondLastName,
         email: this.objClients.emailAddress,
         phone: this.objClients.phoneNumber,
         monto: localStorage.getItem("monthly"),
@@ -2006,7 +2035,7 @@ export default {
     },
     volver(evt) {
       evt.preventDefault();      
-      this.$nuxt.$router.push({path: "/interbank/cotizacion/"});
+      this.$nuxt.$router.push({path: "/intercorp/cotizacion/"});
     },
     clearPlaceholderDNI(eve) {
       eve.target.placeholder = "";
@@ -2338,16 +2367,10 @@ export default {
           this.estado_cliente = 1;
           if (parametro == 1) {
             setTimeout(() => {
-              // setTimeout(() => {
-              //   this.$refs.nombre.focus();
-              // }, 500);
               this.validarClienteVuex();
             }, 500);
           } else if (parametro == 2) {
             setTimeout(() => {
-              // setTimeout(() => {
-              //   this.$refs["razon-social"].focus();
-              // }, 500);
               this.validarEmpresaVuex();
             }, 500);
           } else {
@@ -2385,11 +2408,9 @@ export default {
       });
     },
     updateClient() {
-      this.$store.commit(
-        "common/setDocumentoLocal",
-        this.itemElegido.documentoLocal
-      );
-      this.itemElegido = this.objClients;
+      this.$store.commit("common/setDocumentoLocal",this.itemElegido.documentoLocal);
+      this.itemElegido = this.objClients
+       this.itemElegido.documentoLocal = this.objClients.documentNumber
       this.$store
         .dispatch("common/updateClient", this.itemElegido)
         .then((res) => {
@@ -2415,6 +2436,8 @@ export default {
         this.itemElegido.documentoLocal
       );
       this.itemElegido = this.objClients;
+      this.itemElegido.documentoLocal = this.objClients.documentNumber
+      
       this.$store.dispatch("common/updateRuc", this.itemElegido).then((res) => {
         if (res.data.code == 0) {
           this.como_pagar();
@@ -2436,7 +2459,8 @@ export default {
         "common/setDocumentoLocal",
         this.itemElegido.documentoLocal
       );
-      this.itemElegido = this.objClients;
+      this.itemElegido = this.objClients
+      this.itemElegido.documentoLocal = this.objClients.documentNumber
       this.$store.dispatch("common/createRuc", this.itemElegido).then((res) => {
         if (res.data.code == 0) {
           this.isDisableButton = false;
@@ -2460,6 +2484,7 @@ export default {
         this.itemElegido.documentoLocal
       );
       this.itemElegido = this.objClients;
+      this.itemElegido.documentoLocal = this.objClients.documentNumber
       this.$store
         .dispatch("common/createClient", this.itemElegido)
         .then((res) => {
@@ -2494,110 +2519,7 @@ export default {
         },
       });
     },
-    remarketingv2() {
-      if (this.$store.state.common.businessId == 2) {
-        this.objPlantilla = {
-          1: "00-ibk-dias.html",
-          2: "03-ibk-dias.html",
-          3: "07-ibk-dias.html",
-          4: "15-ibk-dias.html",
-        };
-        this.objUtm = {
-          1: "utm_campaign=IBK_remarketingCN_1",
-          2: "utm_campaign=IBK_remarketingCN_2",
-          3: "utm_campaign=IBK_remarketingCN_3",
-          4: "utm_campaign=IBK_remarketingCN_4",
-        };
-      } else if (this.$store.state.common.nuevoProducto == true) {
-        this.objPlantilla = {};
-        this.objUtm = {};
-      }
-      this.abjVehicleSelect = JSON.parse(
-        localStorage.getItem("abjVehicleSelect")
-      );
-      this.objVehicle = JSON.parse(localStorage.getItem("objVeh"));
-      this.objRemarketing = {
-        codigoRemarketing:
-          this.$store.state.common.codigoRemarketingGenerado == null
-            ? ""
-            : this.$store.state.common.codigoRemarketingGenerado,
-        producto: this.$store.state.common.businessId,
-        identificador: this.$store.state.common.plateNumber,
-        detalle: {
-          correo: this.$store.state.common.email.trim().replace(/ /g, ""),
-          codigoVenta: this.$store.state.common.codeRmkt,
-          pantalla: this.pantalla,
-          enviarCorreo: 0,
-          datosCorreo: {
-            url:
-              process.env.URL +
-              (this.$store.state.common.businessId == 1
-                ? "vehicular"
-                : "vehicular/interbank"),
-            plantilla: this.objPlantilla,
-            utm: this.objUtm,
-          },
-          datosProducto: {
-            marca: this.$store.state.common.itemElegido.brand,
-            modelo: this.$store.state.common.itemElegido.model,
-            planSeleccionado: this.planSeleccionado + "",
-            valorComercial: this.$store.state.common.current,
-            pagoMensual: this.listCotizacion.policy.monthly,
-            desde: null,
-            /*********************************************************/
-            businessId: this.$store.state.common.businessId,
-            idEndosoSeleccionado: this.endosoSeleccionado.id,
-            endosoSeleccionado: this.endosoSeleccionado.name,
-            placa: this.$store.state.common.plateNumber,
-            anio: this.$store.state.common.itemElegido.modelYear,
-            gps: this.listCotizacion.vehicle.gps,
-            riesgo: this.listCotizacion.policy.risk,
-            fechaInicio: this.$store.state.common.fechaVigencia,
-            discountType: this.discountType,
-            /******************************************************** */
-            itemElegido: this.$store.state.common.itemElegido,
-            listCotizacion: this.$store.state.common.listaCotizacion,
-            nuevoProducto: this.$store.state.common.nuevoProducto,
-            /******************************************************** */
-            /******************************************************** */
-            // idMarca: this.objectVehicle.brandId,
-            // idModelo: this.objectVehicle.modelId,
-            // idUso: 1,
-            // uso: "particular",
-            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
-            // pagoTrimestral: this.listCotizacion.policy.quarterly,
-            // pagoAnual: this.listCotizacion.policy.annual,
-          },
-          datosTitular: {
-            numeroDocumento: this.$store.state.common.documentoLocal,
-            nombre: this.objClients.firstName,
-            apellidoPaterno: this.objClients.firstLastName,
-            apellidoMaterno: this.objClients.secondLastName,
-            telefono: this.objClients.phoneNumber,
-            originDocumentNumber: localStorage.getItem("originDocumentNumber"),
-            origenDatos: localStorage.getItem("origenDatos"),
-          },
-          remitente: {
-            correoRemitente: "comunicaciones@interseguro.com.pe",
-            correoRemitenteDisplay: "Interseguro",
-          },
-          datosPago: {
-            idFrecuencia: 1,
-            fechaInicioSeguro: "",
-          },
-        },
-      };
-      this.$store
-        .dispatch("common/sendRemarketing", this.objRemarketing)
-        .then((res) => {
-          if (res) {
-            this.$store.commit(
-              "common/setCodigoRemarketingGenerado",
-              res.data.codigoRemarketing
-            );
-          }
-        });
-    },
+    
     mouseLeave(e) {
       if (this.$store.state.common.leaveMessage == 0 && this.$store.state.common.promocion == true) {
 
@@ -2608,6 +2530,7 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
+    console.log("MOUNTEDS")
     this.pixelfacebook()
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
@@ -2668,9 +2591,7 @@ export default {
     this.urlCondicionado = require("../../static/media/documentos/Condicionado_General.pdf");
     if (localStorage.getItem("documentoLocal") !== null) {
       if (process.browser) {
-        this.itemElegido.documentoLocal = window.localStorage.getItem(
-          "documentoLocal"
-        );
+        this.itemElegido.documentoLocal = window.localStorage.getItem("documentoLocal");
         this.procesar(localStorage.getItem("documentoLocal"));
       }
     }

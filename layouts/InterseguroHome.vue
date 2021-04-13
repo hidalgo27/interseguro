@@ -1,7 +1,8 @@
+
 <template>
     <div>      
-      
-      <header-is-ibk v-if="this.businessId == 2"></header-is-ibk>
+      <header-intercorp v-if="this.businessId == 3"></header-intercorp>
+      <header-is-ibk v-else-if="this.businessId == 2"></header-is-ibk>
       <header-is v-else></header-is>
         <div>
           <nuxt/>
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+import HeaderIntercorp from '@/components/headers/HeaderIntercorp'
 import HeaderIBK from '@/components/headers/HeaderInterbank'
 import Header from '@/components/headers/HeaderInterseguro'
 import Footer from '@/components/footers/Footer'
@@ -36,6 +38,7 @@ export default {
     
   },
   components: {
+    'header-intercorp' : HeaderIntercorp,
     'header-is-ibk': HeaderIBK,
     'header-is': Header,
     'footer-is': Footer,

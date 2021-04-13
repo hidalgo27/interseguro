@@ -1,8 +1,8 @@
 <template>
     <div>
-      <header-is-ibk v-if="this.businessId == 2"></header-is-ibk>
-      <!-- <header-cotizador v-else-if="this.cotizadorId == 1" class="cotizadorId"></header-cotizador> -->
-      <header-is v-else></header-is>      
+      <header-intercorp v-if="this.businessId == 3"></header-intercorp>
+      <header-is-ibk v-else-if="this.businessId == 2"></header-is-ibk>
+      <header-is v-else></header-is>     
         <div>
           <nuxt/>
         </div>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import HeaderIntercorp from '@/components/headers/HeaderFlujoIntercorp'
 import HeaderIBK from '@/components/headers/HeaderInterbank'
 import Header from '@/components/headers/HeaderFlujo'
 // import Header from '@/components/headers/HeaderInterseguro'
@@ -34,6 +35,7 @@ export default {
     
   },
   components: {
+    'header-intercorp' : HeaderIntercorp,
     'header-is-ibk': HeaderIBK,
     'header-is': Header,
     'footer-is': Footer,
