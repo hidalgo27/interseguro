@@ -431,8 +431,8 @@
 
         },
         contador(){
-            var flipdown2 = new FlipDown(1618203599, 'contadorCyber10').start()
-            var flipdown = new FlipDown(1618203599, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1618808399, 'contadorCyber10').start()
+            var flipdown = new FlipDown(1618808399, 'contadorCyber11').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];

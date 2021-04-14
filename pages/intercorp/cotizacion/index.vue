@@ -1190,7 +1190,7 @@
           />
 
       <div class="modal-content fechaVigenciaCotizador">
-        <p class="modal-titulo">¿Cuándo inicia tu Seguro?</p>
+        <p class="modal-titulo">¿Cuándo quieres que inicie tu seguro?</p>
 
           <div id="input-group-3" class="inicioVigencia">
             
@@ -3528,7 +3528,7 @@ button:focus{
     justify-content: center;
     align-items: center;
     span{
-      background: #005DAB;
+      background: #FF0773;
       color: #ffffff;
       height: 50px;
       width: 270px;

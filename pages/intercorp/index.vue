@@ -185,9 +185,9 @@
             <img src="./../../static/media/interseguroVehicular_v2/intercorp-1.svg" alt="choferes">
           </div>
           <div class="beneficios-desc">
-            <p class="beneficios-titulo">Inspección Digital </p>
+            <p class="beneficios-titulo">Revisión técnica</p>
         
-            <p  class="">Desde tu celular <br> y en solo 5 minutos <span></span></p>
+            <p  class="">50% de dscto. en <br> diagnóstico previo<span></span></p>
           </div>
           
         </div>
@@ -238,7 +238,7 @@
         </div>
       </div>
     </div>
-
+<!-- 
       <div class="home-clientes2 p-47px d-none  d-lg-flex">
         <div class="box-titulo">
           <p class="titulo-clientes">Estos colaboradores ya ahorran con el <br> Seguro Vehicular del grupo Intercorp</p>
@@ -249,7 +249,6 @@
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <img src="./../../static/media/img/ibk/cliente1.png" alt="">
             <p class="cliente">Manuela Augusto</p>
-            <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
             <p class="protegido">
               Carro protegido <br> <strong>KIA CERATO</strong>
@@ -259,8 +258,7 @@
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <img src="./../../static/media/img/ibk/cliente2.png" alt="">
-            <p class="cliente">Carolina Chavez</p>
-            <!-- <p class="ahorro">---</p> -->
+            <p class="cliente"></p>Carolina Chavez</p>            
             <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
             <p class="protegido">
               Carro protegido <br> <strong>MAZDA 3</strong>
@@ -269,8 +267,7 @@
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <img src="./../../static/media/img/ibk/cliente3.png" alt="">
-            <p class="cliente">Enrique Quispe</p>
-            <!-- <p class="ahorro">---</p> -->
+            <p class="cliente">Enrique Quispe</p>            
             <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"</p>
             <p class="protegido">
               Carro protegido <br> <strong>SUZUKI VITARA</strong>
@@ -301,8 +298,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente1.png" alt="">
-                <p class="cliente">Manuela Augusto</p>
-                <!-- <p class="ahorro">---</p> -->
+                <p class="cliente">Manuela Augusto</p>                
                 <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
                 <p class="protegido">
                   Carro protegido <br> <strong>KIA CERATO</strong>
@@ -316,8 +312,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente2.png" alt="">
-                <p class="cliente">Carolina Chavez</p>
-                <!-- <p class="ahorro">---</p> -->
+                <p class="cliente">Carolina Chavez</p>                
                 <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
                 <p class="protegido">
                   Carro protegido <br> <strong>MAZDA 3</strong>
@@ -331,8 +326,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente3.png" alt="">
-                <p class="cliente">Enrique Quispe</p>
-                <!-- <p class="ahorro">---</p> -->
+                <p class="cliente">Enrique Quispe</p>                
                 <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!‘’</p>
                 <p class="protegido">
                   Carro protegido <br> <strong>SUZUKI VITARA</strong>
@@ -344,7 +338,7 @@
         </b-carousel>
       </div>
      </div>
-
+ -->
 
     <b-modal
       id="modalHomeVideo"
