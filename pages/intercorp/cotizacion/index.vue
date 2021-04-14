@@ -18,14 +18,14 @@
             <div class="box-steps">
               <ul class="steps" style="display:inline-flex">
                 <template>
-                  <router-link class="steps__item " to="/interbank/cotizacion/"   style="cursor: auto;"><li></li></router-link>
+                  <router-link class="steps__item " to="/intercorp/cotizacion/"   style="cursor: auto;"><li></li></router-link>
                 </template>              
                 <template >
                   <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
-                  <router-link v-else class="steps__item " to="/interbank/cotizacion/" style="cursor: auto;"><li></li></router-link>
+                  <router-link v-else class="steps__item " to="/intercorp/cotizacion/" style="cursor: auto;"><li></li></router-link>
                 </template>
                 <template >
-                  <router-link  class="steps__item   steps--active  paso1" to="/interbank/cotizacion/"><li></li></router-link>                
+                  <router-link  class="steps__item   steps--active  paso1" to="/intercorp/cotizacion/"><li></li></router-link>                
                 </template>                              
                   <li class="steps--progressBar" style="background-color: #0133A1 !important;"></li>                
               </ul>
@@ -2142,14 +2142,14 @@
         if (this.$store.state.common.nuevoProducto == true) {
           url = "/vehicular-app/cotiza/cotizacion/"
         }else if (this.$store.state.common.nuevoProducto == false){
-          url = "/vehicular/interbank/cotizacion/"
+          url = "/vehicular/intercorp/cotizacion/"
         }
           
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
             "page-url": url,
-            "page-title": "Interbank Cotizacion",
+            "page-title": "intercorp Cotizacion",
             datos_vehicular_encontrado: valor, // podria ser false
             ecommerce: {
               checkout: {
@@ -2913,7 +2913,7 @@
                 confirmButtonColor: "#2177CC",
                 confirmButtonText: "OK"
               });
-              this.$nuxt.$router.push({path: "./../../interbank/"})
+              this.$nuxt.$router.push({path: "./../../intercorp/"})
             }
             else if(res.data.code === 200){
               if(!this.htmlModal){
@@ -3152,7 +3152,7 @@
       }
       let objJWT = JSON.parse(localStorage.getItem("jwt"))
       if (objJWT == null || objJWT == undefined) {
-        this.$nuxt.$router.push("./../../interbank/")
+        this.$nuxt.$router.push("./../../intercorp/")
       }else{
         this.itemElegido.assignedPrice = objJWT.common.current
         this.item.plateNumber = objJWT.common.plateNumber

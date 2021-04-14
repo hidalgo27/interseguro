@@ -125,7 +125,7 @@
                 <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>      
+                <p style="width: 100%"><nuxt-link class=""  to="/intercorp/cobertura/">Ver detalle</nuxt-link></p>      
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@
                 <p><span class="check">&#10004;</span> <span>Pérdida parcial en caso choques hasta por el 75% del valor de tu carro</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Accidente de Ocupantes</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/intercorp/cobertura/">Ver detalle</nuxt-link></p>
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@
                 <p><span class="check">&#10004;</span> <span>Protección frente a riegos de naturaleza, incendios y huelgas</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Hasta 5 choferes de reemplazo al año</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/interbank/cobertura/">Ver detalle</nuxt-link></p>
+                <p style="width: 100%"><nuxt-link class=""  to="/intercorp/cobertura/">Ver detalle</nuxt-link></p>
               </div>
             </div>
           </div>
@@ -429,8 +429,8 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/interbank",
-            "page-title": "interbank Home",
+            "page-url": "/vehicular/intercorp",
+            "page-title": "intercorp Home",
             ecommerce: {
               checkout: {
                 actionField: { step: 1 } // esto marca el primer paso en el embudo
@@ -522,7 +522,11 @@
                
 
                 if (respuesta.appDiscount == true) {
-                  this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                  if (respuesta.activePolicy === true) {
+                        this.$nuxt.$router.push({path: "/placa-registrada"})
+                  }else{
+                    this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                  }
                 }else{
                   /* Existe en nuestra base de datos */
                     this.$store.commit('common/setObjVehiculo', res.data.body)

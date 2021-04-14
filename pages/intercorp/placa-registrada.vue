@@ -51,8 +51,8 @@ export default {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'pagina_vista',
-            'page-url': '/vehicular/interbank/placa-registrada', 
-            'page-title': 'Interbank Placa Registrada'
+            'page-url': '/vehicular/intercorp/placa-registrada', 
+            'page-title': 'intercorp Placa Registrada'
         });
     }
   }

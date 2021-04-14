@@ -296,8 +296,8 @@ export default {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "pagina_vista",
-        "page-url": "/vehicular/interbank/pago-procesado",
-        "page-title": "interbank Pago Procesado"
+        "page-url": "/vehicular/intercorp/pago-procesado",
+        "page-title": "intercorp Pago Procesado"
       });
     },
     pagoProcesadoDataLayer() {

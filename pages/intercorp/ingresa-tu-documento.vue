@@ -1801,7 +1801,7 @@ export default {
       window.dataLayer.push({
         event: "pagina_vista",
         "page-url": "/vehicular/intercorp/ingresa-tu-documento",
-        "page-title": "interbank Ingresa Tu Documento",
+        "page-title": "intercrop Ingresa Tu Documento",
         ecommerce: {
           checkout: {
             actionField: { step: 3 }, // esto marca el primer paso en el embudo
@@ -2537,7 +2537,7 @@ export default {
     this.cotizador_datalayer("checkout", 1);
     let objJWT = JSON.parse(localStorage.getItem("jwt"));
     if (objJWT == null || objJWT == undefined) {
-      this.$nuxt.$router.push("./../interbank");
+      this.$nuxt.$router.push("./../intercorp");
     } else {
       let objJWT = JSON.parse(localStorage.getItem("jwt"));
       this.documento_steps2 = objJWT.common.documentoLocal;

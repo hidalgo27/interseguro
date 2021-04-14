@@ -543,7 +543,11 @@
                
 
                 if (respuesta.appDiscount == true) {
-                  this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                  if (respuesta.activePolicy === true) {
+                        this.$nuxt.$router.push({path: "/placa-registrada"})
+                  }else{
+                    this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                  }
                 }else{
                   /* Existe en nuestra base de datos */
                     this.$store.commit('common/setObjVehiculo', res.data.body)
