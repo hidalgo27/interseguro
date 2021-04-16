@@ -368,11 +368,11 @@
 
 <script>
   export default {
-    layout: "InterseguroHome",
+    layout: "InterbankHome2",
       data () {
           return {
             loading: false,
-            color: "#005DAB",
+            color: "#00C450",
             sizePulse: "45px",
             size: "30px",
             slideBeneficios:0,
@@ -429,8 +429,8 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/intercorp",
-            "page-title": "intercorp Home",
+            "page-url": "/vehicular/interbank",
+            "page-title": "interbank Home",
             ecommerce: {
               checkout: {
                 actionField: { step: 1 } // esto marca el primer paso en el embudo
@@ -595,7 +595,7 @@
       },
       mounted () {
         this.pixelfacebook()
-        this.$store.commit('common/setBusinessId',3)
+        this.$store.commit('common/setBusinessId', 2)
         this.$store.commit('common/setFlagCloseListon', 1)        
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
@@ -628,7 +628,11 @@
           )
         }
         var url = window.location.pathname
-          localStorage.setItem("urlLocal", "/intercorp/")
+        if(url == "/vehicular/" || url == "/vehicular" || url == "/vehicular/" || url == "/vehicular"){
+          setTimeout(() => {
+            localStorage.setItem("urlLocal", "/")
+          }, 150);
+        }
         /************************************************************************ */
         /************************************************************************ */
         /************************************************************************ */

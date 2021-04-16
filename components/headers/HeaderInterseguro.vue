@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>
+        </div> -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -158,7 +158,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
@@ -194,8 +194,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            // var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1619413199, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1619413199, 'contadorCyber').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -471,7 +471,7 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 padding-left: 15px;
-                border-bottom: 1px solid white;
+                
                 background: white;
             }
             &__der{

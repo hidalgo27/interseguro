@@ -56,9 +56,9 @@
         <b-container class="contenedor-custom ">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <!-- <div class="flotante-covid-3  d-none  d-md-block">
+                <div class="flotante-covid-3  d-none  d-md-block">
                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
-                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/como-pagar-campania.svg" width="380"></span>
+                        <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/img/campania/como-pagar-desktop.svg" width="380"></span>
                         <div class="box-contador " >
                              <span  class="cuota-gratis-span"
                                 >¡Por tiempo limitado!
@@ -69,7 +69,7 @@
                             </div>                            
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
@@ -248,11 +248,11 @@
                                             </b-row>
                                         </b-col>
 
-                                        <!-- <b-col cols="12">
+                                        <b-col cols="12">
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                                                     
-                                                    <img @click="metodoFlotante()" src="./../../static/media/interseguroVehicular_v2/como-pagar-campania-mobile.svg" width="340">
+                                                    <img @click="metodoFlotante()" src="./../../static/media/img/campania/como-pagar-mobile.svg" width="340">
                                                     
                                                     <div class="box-contador" >
                                                         <span  class="cuota-gratis-span"
@@ -266,7 +266,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </b-col> -->
+                                        </b-col>
 
                                     </b-row>
                                 </div>
@@ -382,7 +382,7 @@
             </b-container>
         </b-modal> -->
 
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -403,19 +403,19 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
-<!-- 
+        </b-modal> -->
+
         <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
                     
-                    <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
+                    <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
                     <p class="mt-3" style="max-width: 360px;">
                         <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                         <span style="color : #ffffff; font-size: 18px">
-                            ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
-                            </span>
+                            ¡Solo por pocos días! Asegura tu auto  <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
+                        </span>
                     </p>
                     </b-col>
                 </b-row>
@@ -429,7 +429,7 @@
                 </b-row>
             </b-container>
         </b-modal>
-          -->
+         
     </section>
 </template>
 
@@ -615,10 +615,10 @@ import { validationMixin } from 'vuelidate'
             metodoFlotante(){
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
-            // contador(){
-            //     var flipdown2 = new FlipDown(1617253199, 'contadorCyber4').start()
-            //     var flipdown = new FlipDown(1617253199, 'contadorCyber3').start()
-            // },
+            contador(){
+                var flipdown2 = new FlipDown(1619413199, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1619413199, 'contadorCyber3').start()
+            },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
             },
@@ -1230,7 +1230,7 @@ import { validationMixin } from 'vuelidate'
             //     this.valeAgora = true
             // }
             
-            // this.contador()
+            this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1464,7 +1464,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 70px;
+    padding-top: 140px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{

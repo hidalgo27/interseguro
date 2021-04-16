@@ -715,7 +715,7 @@
         </div>
       </b-modal>
 
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -727,11 +727,11 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
+              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
               <p class="mt-3" style="max-width: 360px;">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                   ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
+                   ¡Solo por pocos días! Asegura tu auto  <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
                 </span>
               </p>
             </b-col>
@@ -745,9 +745,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal> 
       <!-- Modal de abandono -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -805,7 +805,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
@@ -887,7 +887,7 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  padding-top: 70px;
+  padding-top: 140px;
 }
 .edit-input {
   cursor: auto !important;

@@ -1,31 +1,35 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
-                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston_mobile.svg" alt=""> 
-                       </div>
-                    <div  class="example" style="position: relative;">            
-                        <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
+                        <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> 
+                        <div>
+                            ¡Por pocos días! Asegura tu auto con <span style="color: #FFD527">15% de dscto.</span> 
+                        </div>
+                        </div>
+                        <div  class="example" style="position: relative;">            
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
                         </div>
                     </div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img width="160" src="./../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt="">          
+                        <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">          
                         <p>
-                            ¡Últimos días! Protege tu auto hoy con <span style="color: #FFD527"> 15% de dscto.</span> y lleváte la <span style="color: #FFD527">2da cuota gratis</span>
+                            ¡Por pocos días! Asegura tu auto con <span style="color: #FFD527">15% de dscto.</span>  en cualquiera de nuestros planes
+                            
                         </p>
                     </div>
-                    <div id="contadorCyber2" class="flipdown"></div>
+                    <div id="contadorCyber12" class="flipdown"></div>
                     
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  -->
+        </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -174,7 +178,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -207,8 +211,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1619413199, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1619413199, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -642,7 +646,7 @@ export default {
         }
         .liston{
             height: 70px;
-            .contadorCyber2{
+            .contadorCyber12{
                 margin-left: 30px;
             }
         }
@@ -773,9 +777,6 @@ export default {
     }
     @media (max-width: 405px) {
         .liston-mobile--parrafo{
-            div{
-                display: none;
-            }
         }
     }
 </style>

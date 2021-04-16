@@ -255,7 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -338,7 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                          15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                    15%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -755,7 +755,7 @@
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
                         <div class="banner-modal">
-                            <img src="./../../../static/media/modalBlackWeek/modal.svg" alt="">
+                            <img src="./../../../static/media/img/campania/img-modal.svg" alt="">
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
@@ -1390,7 +1390,7 @@
         </b-row>
       </b-container>
     </b-modal> -->
-
+<!-- 
   <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1430,11 +1430,11 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
+              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.svg" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                   ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
+                 ¡Solo por pocos días! Asegura tu {{this.itemElegido.brand}} <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
                 </span>
               </p>
             </b-col>
@@ -1443,12 +1443,12 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
-                >TERMINAR COMPRA</b-button
+                >CONTINUAR COMPRA</b-button
               >
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>
@@ -3415,7 +3415,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  padding-top: 140px;
   .img-close{
     position: absolute;
     right: -24px;
