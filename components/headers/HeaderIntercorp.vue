@@ -3,7 +3,8 @@
 
         <div class="menu-nav">
             <div class="menu-nav__izq">
-                <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
+                
+                <nuxt-link :to=" '/intercorp/'" class="main-nav__logo">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
@@ -143,7 +144,6 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
         
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
@@ -178,10 +178,6 @@ export default {
     },
     computed: {},
     methods:{
-        contador(){
-            // var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
-            // var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
-        },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
             this.flagCloseListon = 0            

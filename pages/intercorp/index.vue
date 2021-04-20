@@ -12,7 +12,7 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class=" box-flotante-covid  d-flex  d-md-none " >
-              <p><span style="background: rgb(221, 122, 134);display: inline-block;padding: 6px;border: 1px;"> Ahorra 20%</span> en tu Seguro <br> Vehicular por ser <br> parte del Grupo <br> Intercorp</p>
+              <p><span style="background: rgb(221, 122, 134);display: inline-block;padding: 6px;border: 1px;"> Ahorra 35%</span> en tu Seguro <br> Vehicular por ser <br> parte del Grupo <br> Intercorp</p>
             </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
@@ -56,7 +56,7 @@
         <div class="home-banner__der">
           <div class="box-titulo  ml-5">
             <p>
-              <span style="background: rgb(221, 122, 134);display: inline-block;padding: 6px;border: 1px;"> Ahorra 20%</span> en tu Seguro Vehicular por ser parte del grupo <br> Intercorp
+              <span style="background: rgb(221, 122, 134);display: inline-block;padding: 6px;border: 1px;"> Ahorra 35%</span> en tu Seguro Vehicular por ser parte del grupo <br> Intercorp
             </p>
           </div>
         </div>
@@ -368,7 +368,7 @@
 
 <script>
   export default {
-    layout: "InterbankHome2",
+    layout: "InterseguroIntercorp",
       data () {
           return {
             loading: false,
@@ -594,8 +594,7 @@
           
       },
       mounted () {
-        this.pixelfacebook()
-        this.$store.commit('common/setBusinessId', 2)
+        this.$store.commit('common/setBusinessId', 3)
         this.$store.commit('common/setFlagCloseListon', 1)        
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)

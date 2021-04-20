@@ -210,7 +210,7 @@ export default {
             })
         }else{
         }
-        this.urlpdf = "require('../static/media/documentos/FAQs.pdf')"
+        this.urlpdf = require('../static/media/documentos/FAQs.pdf')
         this.PaginaVista()
         // var check = document.getElementById("nav-checkbox")
         // check.checked = false

@@ -120,7 +120,7 @@
         <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
             <div class="campaniatv-home__texto">
                 <div class="campania-lado-izq">
-                    <h2>15% de descuento con cuenta sueldo</h2>
+                    <h2>35% de descuento con cuenta sueldo</h2>
                 </div>
                 <div class="campania-lado-der">
                     <img class="logo-interbank" src="../../static/media/img/Interbank.png" alt="logo interbank">
@@ -131,7 +131,7 @@
         <div v-if="this.tarjetaoh" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
             <div class="campaniatv-home__texto">
                 <div class="campania-lado-izq">
-                    <h2>15% de descuento con tarjetaoh!</h2>
+                    <h2>35% de descuento con tarjetaoh!</h2>
                 </div>
                 <div class="campania-lado-der">
                     <img  class="logo-tarjetaoh" src="../../static/media/img/oh.png" alt="logo tarjeta oh">
@@ -199,8 +199,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            var flipdown2 = new FlipDown(1618808399, 'contadorCyber13').start()
-            var flipdown = new FlipDown(1618808399, 'contadorCyber12').start()
+            var flipdown2 = new FlipDown(1619845199, 'contadorCyber13').start()
+            var flipdown = new FlipDown(1619845199, 'contadorCyber12').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

@@ -8,7 +8,7 @@
                        <img width="60" class="img-liston" src="../../static/media/interseguroVehicular_v2/icon-header-flujo-intercorp.svg" alt=""> 
                     </div>
                     <div  class="pl-3" style="position: relative;">
-                        <p><strong>Protege tu auto pagando 20% menos</strong> <br> por ser parte del Grupo Intercorp</p>
+                        <p><strong>Protege tu auto pagando 35% menos</strong> <br> por ser parte del Grupo Intercorp</p>
                     </div>
                 </div>
                 
@@ -16,7 +16,7 @@
                     <div class="d-flex align-items-center logo-franja">
                         <img width="65" class="ml-2" src="./../../static/media/interseguroVehicular_v2/icon-header-flujo-intercorp.svg" alt="">          
                         <p>
-                           <strong>Protege tu auto pagando 20% menos </strong> por ser parte del Grupo Intercorp
+                           <strong>Protege tu auto pagando 35% menos </strong> por ser parte del Grupo Intercorp
                         </p>
                     </div>
                    
@@ -26,7 +26,7 @@
         </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
-                <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
+                <nuxt-link :to=" '/intercorp/'" class="main-nav__logo">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
