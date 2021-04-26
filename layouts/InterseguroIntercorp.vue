@@ -13,6 +13,17 @@
 import Header from '@/components/headers/HeaderIntercorp'
 import Footer from '@/components/footers/Footer'
 export default {
+  head () {
+    return {
+      // title: this.carDetails.title,
+      meta: [
+        { hid: 'fb-og-title', property: 'og:title', content: '¡Ahorra 35% en tu Seguro Vehicular por ser parte del Grupo Intercorp!' },
+        { hid: 'fb-og-description', property: 'og:description', content: 'Un Seguro Vehicular con todas las coberturas 100% digital' },
+        { hid: 'fb:og:image', property: 'og:image', content: 'https://www.interseguro.pe/vehicular/resources/share/interseguro_intercorp_facebook.png' },
+        // other meta
+      ]
+    }
+  },
   data () {
     return {
       appDiscountURL:'',

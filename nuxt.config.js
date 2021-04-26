@@ -39,13 +39,12 @@ module.exports = {
       { hid: 'author', name: 'author', content: 'Seguro vehicular | Interseguro' },     
       { hid: 'copyright', name: 'copyright', content: 'Seguro vehicular | Interseguro' },
       //Facebook
-      { hid: 'fb:og:title', property: 'og:title', content: '¡Compra tu Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado!' },
+      
       { hid: 'fb:og:type', property: 'og:type', content: 'seguros' },
       { hid: 'fb:og:type', property: 'og:locale', content: 'es_PE' },
-      { hid: 'fb:og:image', property: 'og:image', content: 'https://www.interseguro.pe/vehicular/resources/share/interseguro_facebook.png' },
-      { hid: 'fb:og:url', property: 'og:url', content: 'https://www.interseguro.pe/vehicular/' },
-      { hid: 'fb:og:description', property: 'og:description', content: 'Seguro Vehicular contra Todo Riesgo 100% Digital' },
+      
       { hid: 'fb:og:site_name', property: 'og:site_name', content: 'Seguro Vehicular | Interseguro' },
+      { hid: 'fb:og:url', property: 'og:url', content: 'https://www.interseguro.pe/vehicular/' },
       { hid: 'fb:og:image:width', property: 'og:image:width', content: '800' },
       { hid: 'fb:og:image:height', property: 'og:image:height', content: '418' }
     ],
@@ -78,7 +77,7 @@ module.exports = {
     { src: '~plugins/ga.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
     { src: '~plugins/bing.js', ssr: false },
-    { src: '~/plugins/sentry.js', ssr: false },
+    // { src: '~/plugins/sentry.js', ssr: false },
     
   ],
   axios: {

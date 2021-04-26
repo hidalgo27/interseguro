@@ -19,6 +19,17 @@ import Header from '@/components/headers/HeaderInterseguro'
 import Footer from '@/components/footers/Footer'
 import FooteraApp from '@/components/footers/FooterApp'
 export default {
+  head () {
+    return {
+      // title: this.carDetails.title,
+      meta: [
+        { hid: 'fb:og:title', property: 'og:title', content: '¡Compra tu Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado!' },
+        { hid: 'fb:og:image', property: 'og:image', content: 'https://www.interseguro.pe/vehicular/resources/share/interseguro_facebook.png' },      
+        { hid: 'fb:og:description', property: 'og:description', content: 'Seguro Vehicular contra Todo Riesgo 100% Digital' }
+        // other meta
+      ]
+    }
+  },
   data () {
     return {
       appDiscountURL:'',
@@ -52,7 +63,7 @@ export default {
       }
   },
   mounted() {
-    console.log("LAYOUT 5")
+    console.log("LAYOUT Is")
     this.nuevoProducto = this.$store.state.common.nuevoProducto
     setTimeout(() => {
       this.urlLocal = localStorage.getItem("urlLocal")

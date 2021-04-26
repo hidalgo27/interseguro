@@ -349,11 +349,13 @@
         <div class="row"></div>
       </div>
     </b-modal>
-
+    <div id="addComponent"></div>
   </div>
 </template>
 
 <script>
+
+
 import FadeLoader from '@/components/loaders/FadeLoader'
   export default {
     layout: "InterseguroHome",
@@ -383,8 +385,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1619413199, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1619413199, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1619845199, 'contadorCyber2').start()
+            var flipdown = new FlipDown(1619845199, 'contadorCyber').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -582,7 +584,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-      
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")

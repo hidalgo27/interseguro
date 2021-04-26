@@ -23,6 +23,17 @@ export default {
       cuentaSueldo: false
     }
   },
+   head () {
+    return {
+      // title: this.carDetails.title,
+      meta: [
+        { hid: 'fb:og:title', property: 'og:title', content: '¡Compra tu Seguro Vehicular en menos de 3 minutos y al mejor precio del mercado!' },
+        { hid: 'fb:og:image', property: 'og:image', content: 'https://www.interseguro.pe/vehicular/resources/share/interseguro_facebook.png' },      
+        { hid: 'fb:og:description', property: 'og:description', content: 'Seguro Vehicular contra Todo Riesgo 100% Digital' }
+        // other meta
+      ]
+    }
+  },
  
   methods: {
     
@@ -39,7 +50,7 @@ export default {
       }
   },
   mounted() {
-    console.log("LAYOUT 7")
+    console.log("LAYOUT IBK HOME 2")
     this.cuentaSueldo = localStorage.getItem("urlLocal") == '/cuentasueldo'  || localStorage.getItem("urlLocal") == '/tarjetaoh'? true : false
   }
 }
