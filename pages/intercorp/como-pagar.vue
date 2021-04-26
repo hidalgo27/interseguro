@@ -187,7 +187,7 @@
                                         
 
 
-                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" >
                                             <b-row class="justify-content-center">
                                                 <b-col cols="12">
                                                     <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
