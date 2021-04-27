@@ -187,7 +187,7 @@
                                         
 
 
-                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0">
                                             <b-row class="justify-content-center">
                                                 <div class="flotante-covid-3  d-none  d-md-block">
                                                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">

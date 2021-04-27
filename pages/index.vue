@@ -349,7 +349,6 @@
         <div class="row"></div>
       </div>
     </b-modal>
-    <div id="addComponent"></div>
   </div>
 </template>
 
