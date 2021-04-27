@@ -150,7 +150,7 @@
                     </div>
                     </b-col>
                     <b-col class="pd-t16">
-                    <a v-bind:href="urlpdf" target="_blank" rel="noopener" class="button">Descargar plantilla</a>
+                    <a href="https://docs.google.com/document/d/1e5_3qjHqf3JtOJN9pMRRYXB8ajUFS3Q6dW-x2w3zbVM/edit?usp=sharing" target="_blank" rel="noopener" class="button">Descargar plantilla</a>
                     </b-col>
                 </b-row>
                 </div>
@@ -175,6 +175,7 @@ export default {
     data () {
         return {
             urlpdf: "",
+            cartaanulacion: ""
         }
     },
   
@@ -211,6 +212,7 @@ export default {
         }else{
         }
         this.urlpdf = require('../static/media/documentos/FAQs.pdf')
+        this.cartaanulacion = require('../static/media/documentos/carta_anulación.docx')
         this.PaginaVista()
         // var check = document.getElementById("nav-checkbox")
         // check.checked = false
