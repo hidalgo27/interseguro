@@ -472,7 +472,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               
                 if(respuesta.useType){
                    const useType = respuesta.useType.toString().toLowerCase();
-                    if(useType === 'particular' || useType === 'escolar' || useType === 'personal'){
+                    if(useType === 'particular' || useType === 'escolar' || useType === 'Personal'){
                       this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
                     }else{
                       this.loading = false;
