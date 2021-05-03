@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
@@ -29,7 +29,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div> 
+        </div>  -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -178,7 +178,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        // this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -211,8 +211,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1619845199, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1619845199, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1620104399, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1620104399, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

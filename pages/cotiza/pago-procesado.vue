@@ -566,7 +566,7 @@ export default {
       border: none;
       color: white;
       height: 38px;
-      width: 140px;
+      width: 70px;
       border-radius: 6px;
       margin-top: 16px;
       margin-bottom: 16px;

@@ -715,7 +715,7 @@
         </div>
       </b-modal>
 
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -745,9 +745,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> 
+      </b-modal>  -->
       <!-- Modal de abandono -->
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -805,7 +805,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
     </b-container>
   </section>
 </template>
@@ -887,7 +887,7 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  padding-top: 140px;
+  padding-top: 70px;
 }
 .edit-input {
   cursor: auto !important;

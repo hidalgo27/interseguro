@@ -56,7 +56,7 @@
         <b-container class="contenedor-custom ">
             
             <b-row class="justify-content-center" style="position: relative;">
-                <div class="flotante-covid-3  d-none  d-md-block">
+                <!-- <div class="flotante-covid-3  d-none  d-md-block">
                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/img/campania/como-pagar-desktop.svg" width="380"></span>
                         <div class="box-contador " >
@@ -69,7 +69,7 @@
                             </div>                            
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="liston-agora" v-if="this.valeAgora == true && this.$store.state.common.planSeleccionado == '3' || this.$store.state.common.planSeleccionado == '10'  ">
                     <div>
                         <span class="titulo">TARJETA DE REGALO </span><span class="para-ti">¡PARA TI!</span>
@@ -248,7 +248,7 @@
                                             </b-row>
                                         </b-col>
 
-                                        <b-col cols="12">
+                                        <!-- <b-col cols="12">
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                                                     
@@ -266,7 +266,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </b-col>
+                                        </b-col> -->
 
                                     </b-row>
                                 </div>
@@ -382,7 +382,7 @@
             </b-container>
         </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -403,9 +403,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
-        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -428,7 +428,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
          
     </section>
 </template>
@@ -616,8 +616,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1619845199, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1619845199, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1620104399, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1620104399, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -1230,7 +1230,7 @@ import { validationMixin } from 'vuelidate'
             //     this.valeAgora = true
             // }
             
-            this.contador()
+            // this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1464,7 +1464,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 140px;
+    padding-top: 70px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{
