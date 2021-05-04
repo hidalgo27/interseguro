@@ -3409,7 +3409,7 @@ a.steps__item.paso1:after {
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px;
+  padding-top: 70px;
   font-family: 'Montserrat Medium';
   .img-close{
     position: absolute;

@@ -189,7 +189,7 @@
 
                                          <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" >
                                             <b-row class="justify-content-center">
-                                                <div class="flotante-covid-3  d-none  d-md-block">
+                                                <!-- <div class="flotante-covid-3  d-none  d-md-block">
                                                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
                                                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="370"></span>
                                                         <div class="box-contador " >
@@ -202,7 +202,7 @@
                                                             </div>                            
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <b-col cols="12">
                                                     <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
                                                 </b-col>
@@ -214,13 +214,13 @@
                                                         
                                                     </button>
                                                 </b-col>
-                                                <b-col cols="12"  class="mt-2" style="background: #D2F5E0; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
+                                                <!-- <b-col cols="12"  class="mt-2" style="background: #D2F5E0; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
                                                     <img class="mr-2" src="./../../static/media/interseguroVehicular_v2/dscto-2dacuota.svg" alt="">
                                                     <p style="color:#05BE50;text-align:left;">
                                                         Termina tu compra hoy y aplicaremos un descuento a la 2da cuota mensual de tu seguro para que sea GRATIS
                                                     </p>
-                                                </b-col>
-                                                <b-col cols="12">
+                                                </b-col> -->
+                                                <!-- <b-col cols="12">
                                                     <div class=" box-btn testest  mt-4" >
                                                         <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                                                             
@@ -238,7 +238,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </b-col>
+                                                </b-col> -->
                                             </b-row>
                                         </b-col>
                                     </b-row>
@@ -1072,7 +1072,7 @@ import { validationMixin } from 'vuelidate'
         },
         mounted: function () {
             this.pixelfacebook()
-            this.contador()
+            // this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1237,7 +1237,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 120px;
+    padding-top: 70px;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;
