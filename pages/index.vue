@@ -456,8 +456,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             this.item.plateNumber = this.item.plateNumber.toUpperCase();
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
-              
-
               const respuesta = res.data.body;
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
