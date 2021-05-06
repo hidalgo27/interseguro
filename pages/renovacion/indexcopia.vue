@@ -90,7 +90,8 @@
                                                 Para cambiar el plan de tu Seguro Vehicular por favor comunícate con nuestro equipo de atención al cliente al (01) 500-0000
                                             </b-tooltip>
                                         </p>
-                                        <p class="item-descripcion">Plata</p>
+                                        <p class="item-descripcion" v-if="objRenovacion.policy.planId ==  undefined">Todo riesgo</p>
+                                        <p class="item-descripcion" v-else>jgdjhgd</p>
                                     </div>
                                     <div class="nueva-poliza--item  vigencia-poliza">
                                         <p class="item-titulo">Vigencia de póliza:</p>

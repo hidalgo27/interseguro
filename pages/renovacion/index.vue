@@ -90,7 +90,10 @@
                                                 Para cambiar el plan de tu Seguro Vehicular por favor comunícate con nuestro equipo de atención al cliente al (01) 500-0000
                                             </b-tooltip>
                                         </p>
-                                        <p class="item-descripcion">Plata</p>
+                                       <p class="item-descripcion" v-if="objRenovacion.policy.planId ==  undefined">Todo riesgo</p>
+                                        <p class="item-descripcion" v-else-if="objRenovacion.policy.planId ==  3 || objRenovacion.policy.planId == 10">Black</p>
+                                        <p class="item-descripcion" v-else-if="objRenovacion.policy.planId ==  4">Plata</p>
+                                        <p class="item-descripcion" v-else-if="objRenovacion.policy.planId ==  6">Oro</p>
                                     </div>
                                     <div class="nueva-poliza--item  vigencia-poliza">
                                         <p class="item-titulo">Vigencia de póliza:</p>
@@ -1101,6 +1104,7 @@ export default {
             this.$store.dispatch('common/obtenerDatos', this.placa).then((res) =>{          
                 if (res.data.code == 0) {
                     this.objRenovacion = res.data.body
+                    console.log(this.objRenovacion.policy.planId)
                     this.$store.commit('common/setFechaVigenciaRenovacion', this.objRenovacion.policy.fromDate)
                     if (this.objRenovacion.policy.renew == "Y") {
                             this.$store.commit('common/setPlacaNoRenovar', '')
