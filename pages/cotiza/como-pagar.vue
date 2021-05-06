@@ -1110,9 +1110,9 @@ import { validationMixin } from 'vuelidate'
                 this.objRemarketing = {
                     "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
                     "producto": this.$store.state.common.businessId,
-                    "identificador": this.$store.state.common.plateNumber,
+                    "identificador": this.$store.state.common.plateNumber.toUpperCase(),
                     "detalle": {
-                    "correo": this.$store.state.common.email.trim().replace(/ /g,''),
+                    "correo": this.$store.state.common.email.trim().replace(/ /g,'').toLowerCase(),
                     "codigoVenta": this.$store.state.common.codeRmkt,
                     "pantalla": 3,
                     "enviarCorreo":0,

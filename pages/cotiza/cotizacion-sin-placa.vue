@@ -2010,9 +2010,9 @@
         this.objRemarketing = {
           codigoRemarketing: "",
           producto: this.$store.state.common.businessId,
-          identificador: this.$store.state.common.plateNumber,
+          identificador: this.$store.state.common.plateNumber.toUpperCase(),
           detalle: {
-            correo: parametroEmail,
+            correo: parametroEmail.toLowerCase(),
             codigoVenta: this.$store.state.common.codeRmkt,
             enviarCorreo: parametroEnviarMail,
             pantalla: 1,
