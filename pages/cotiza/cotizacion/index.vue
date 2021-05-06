@@ -1390,7 +1390,7 @@
         </b-row>
       </b-container>
     </b-modal> -->
-
+<!-- 
   <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1434,7 +1434,7 @@
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                 ¡Solo por pocos días! Asegura tu {{this.itemElegido.brand}} <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
+                 ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
                 </span>
               </p>
             </b-col>
@@ -1448,7 +1448,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>
@@ -3415,7 +3415,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  padding-top: 140px;
   .img-close{
     position: absolute;
     right: -24px;

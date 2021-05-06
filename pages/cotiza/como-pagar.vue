@@ -248,13 +248,13 @@
                                             </b-row>
                                         </b-col>
 
-                                        <!-- <b-col cols="12">
+                                        <b-col cols="12">
                                             <div class=" box-btn testest  mt-4" >
-                                                <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
+                                                <div class="flotante-covid-boton " v-if="flotanteCovid"  style="position: relative;background:#D3E1F5;display:flex;padding: 12px;border-radius: 6px;">
                                                     
-                                                    <img @click="metodoFlotante()" src="./../../static/media/img/campania/como-pagar-mobile.svg" width="340">
+                                                    <img @click="metodoFlotante()" width="52" src="./../../static/media/img/campania/como-pagar-mobile.svg" >
                                                     
-                                                    <div class="box-contador" >
+                                                    <!-- <div class="box-contador" >
                                                         <span  class="cuota-gratis-span"
                                                             >¡Por tiempo limitado!
                                                         </span>
@@ -263,10 +263,14 @@
                                                                 
                                                             </div> 
                                                         </div>
+                                                    </div> -->
+                                                    <div class="pago-descripcion-oferta" style="display: flex;flex-direction: column;padding-left: 14px;">
+                                                        <p style="color: #0855C4;font-size: 16px; font-family: 'Omnes Medium'; text-align:left;">Termina tu compra y llévate un vale <br> virtual gratis de S/ 100.</p>
+                                                        <span style="font-size: 13px; text-align:left;">*Solo para compras en plan Black.</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </b-col> -->
+                                        </b-col>
 
                                     </b-row>
                                 </div>
@@ -382,7 +386,7 @@
             </b-container>
         </b-modal> -->
 
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -403,32 +407,29 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
-                    <b-col class="text-center mb-3" cols="12">
-                    
-                    <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
-                    <p class="mt-3" style="max-width: 360px;">
-                        <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-                        <span style="color : #ffffff; font-size: 18px">
-                            ¡Solo por pocos días! Asegura tu auto  <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
-                        </span>
-                    </p>
+                    <b-col class="text-center mb-3" cols="12">                    
+                        <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
+                        <p class="mt-3" style="max-width: 360px;">
+                            <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                            <span style="color : #ffffff; font-size: 18px">
+                                ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
+                            </span>
+                        </p>
                     </b-col>
                 </b-row>
                 
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-4" cols="12">
-                    <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
-                        >TERMINAR COMPRA</b-button
-                    >
+                        <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')">TERMINAR COMPRA</b-button>
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
          
     </section>
 </template>

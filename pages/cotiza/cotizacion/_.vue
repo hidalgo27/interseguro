@@ -255,7 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -338,7 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                   10%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1390,7 +1390,7 @@
         </b-row>
       </b-container>
     </b-modal> -->
-
+<!-- 
   <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1430,11 +1430,11 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
+              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.svg" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                 ¡Solo por pocos días! Asegura tu {{this.itemElegido.brand}} <span style="color: #FFDD36;">con 10% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
+                 ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
                 </span>
               </p>
             </b-col>
@@ -1448,11 +1448,10 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>
-
 <script>
   import moment from "moment/moment.js"
 
