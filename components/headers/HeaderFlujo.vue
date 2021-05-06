@@ -1,13 +1,13 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
-                        <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> 
-                        <div>
-                            ¡Por pocos días! Asegura tu auto con <span style="color: #FFD527">15% de dscto.</span> 
+                        <!-- <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt="">  -->
+                        <div style="font-size: 12px;padding-left: 18px;">
+                            Compra hoy y llévate un vale virtual <span style="color: #FFD527"> gratis de S/ 100</span>
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
@@ -18,9 +18,9 @@
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">          
-                        <p>
-                            ¡Por pocos días! Asegura tu auto con <span style="color: #FFD527">15% de dscto.</span>  en cualquiera de nuestros planes
+                        <!-- <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">           -->
+                        <p style="font-size: 20px;">
+                            <span style="color: #FFD527"> Llévate un vale virtual gratis de S/ 100</span>  por la compra del seguro en plan Black
                             
                         </p>
                     </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  -->
+        </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -178,7 +178,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -211,8 +211,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1620104399, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1620104399, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1620622799, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1620622799, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
