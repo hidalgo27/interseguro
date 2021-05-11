@@ -1707,7 +1707,8 @@ export default {
               }
               */
             this.$store.commit("common/setObjCliente", this.objClients);
-            this.$nuxt.$router.push({ path: "/cotiza/descargar" });
+            // this.$nuxt.$router.push({ path: "/cotiza/descargar" });
+            this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
           } else {
             this.$store.commit("common/setObjCliente", this.objClients);
             this.$store.commit("common/setEmisionROOT", false);

@@ -148,15 +148,21 @@
                       <button @click="showModalNumeroCelular()">
                         Descargar
                       </button>
+                      
                     </div>
+                    
                     <div class="botones-app">
-                      <div class="ios"  @click="showModalNumeroCelular()">
-                          <img src="./../../static/media/img/root/tienda_ios.png" alt="">
-                      </div>
-                      <div class="google  ml-4"  @click="showModalNumeroCelular()">
+                      <div class="google"  @click="showModalNumeroCelular()">
                         <img src="./../../static/media/img/root/tienda_google.png" alt="">
                       </div>
+                      <!-- <div class="ios  d-lg-none"  @click="showModalNumeroCelular()">
+                          <img src="./../../static/media/img/root/tienda_ios.png" alt="">
+                      </div> -->
+                      
                     </div>
+                    <p style="margin-top:14px;color:#454A6C;font-size:12px;text-align:center;margin-bottom:9px;line-height:14px;">¿Tienes Iphone?
+                        Aún estamos desarrollando el app para iOS, te contactaremos para realizar la inspección por Whatsapp. 
+                    </p>
                   </div>
                   <div class="col-12  col-lg-6  d-none  d-lg-flex">
                     <div class="box-img">
@@ -230,8 +236,8 @@
                   <!-- <span>Al continuar acepto las <span class="enlaceTerminosCondiciones" @click="showModalTerminosCondiciones()">Condiciones de Uso y Política de Privacidad.</span></span> -->
                 </div>
               </div>
-              <div class="modal-body molde-celular d-flex  d-lg-none">
-                <img src="./../../static/media/appPagoProcesado/icon.PNG" alt="">
+              <div class="molde-celular d-flex  d-lg-none">
+                <img style="margin-top: 38px;" src="./../../static/media/appPagoProcesado/icon.PNG" alt="">
                 <p>{{this.$store.state.common.objCliente.firstName}},Bienvenido a tu <br> Seguro Vehicular</p>
                 <br>
                 <p>
@@ -343,7 +349,7 @@ export default {
       }
   },
   hideModalNumeroCelular(){
-
+    $nuxt.$emit("bv::hide::modal", "modalNumeroCelular");
   },
     enviarNumeroCelular(){
           if (this.inputNumeroCelular.length == 9) {
@@ -539,20 +545,32 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+#modalNumeroCelular{
+  .modal-body{
+    padding-bottom: 0;
+  }
+  .inspecciones-detalle{
+    color: #454a6c85;
+    font-size: 15px;
+    line-height: 17px;
+    margin-top: 24px;
+    padding-bottom: 28px;
+  }
+  .modal-content{
+    background: transparent;
+    
+  }
+}
 .molde-celular{
-  background: url('./../../static/media/appPagoProcesado/model-celular.svg');
+  background: url('./../../static/media/appPagoProcesado/model-celular.png');
   background-repeat: no-repeat;
   background-position: top;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-size: cover;
-  .inspecciones-detalle{
-    color: #454a6c85;
-    font-size: 15px;
-    line-height: 17px;
-    margin-top: 24px;
-  }
+  
+  
   p{
     color: #454A6C;
     font-size: 18px;
