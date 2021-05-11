@@ -14,6 +14,12 @@ module.exports = {
 // CULQI_PK      =     pk_test_RrlEyfOK587sZBN0
 // CULQI_URL     =     https://test.interseguro.pe/vehicular/cotiza/como-pagar
 
+// BASE_URL      =     https://dev.interseguro.pe/
+// API_BASE_URL  =     https://dev.interseguro.pe/vehicular-api/
+// CULQI_PK      =     pk_test_RrlEyfOK587sZBN0
+// CULQI_URL     =     https://dev.interseguro.pe/vehicular/cotiza/como-pagar
+// API_BASE_URL_REMARKETING =  https://dev.interseguro.pe/
+
 // NODE_ENV      =     'test'
 // BASE_URL      =     http://localhost:3000/
 // API_BASE_URL  =     http://35.230.0.222:8080/
