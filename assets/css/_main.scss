@@ -54,6 +54,17 @@
     width: 300px;
   }
 }
+#modalNumeroCelular{
+  .modal-body{
+    padding-bottom: 0;
+  }
+  
+  .modal-body{
+    padding-bottom: 0 !important;
+    background: rgb(13,103,230);
+    background: linear-gradient(177deg, rgba(13,103,230,1) 0%, rgba(33,200,213,1) 83%);
+  }
+}
 .leaveModal .modal-body{
   background: url("./../../static/media/img/campania/fondo-modal.svg") ;
   background-size: cover;
@@ -770,6 +781,13 @@
   align-items: flex-start !important;
 }
 @media (min-width: 992px) {
+  #modalNumeroCelular{
+    
+    .modal-body{
+      padding-bottom: 0 !important;
+      background: #fff;
+    }
+  }
   #modalEntidadFinanciera2{
     .modal-titulo{
       font-size: 32px;

@@ -123,8 +123,7 @@
                 <p class="mt-3">En unos minutos nos comunicaremos contigo vía whatsapp al número <strong>{{this.numeroTelefono}}</strong> para realizar la inspección de tu auto</p>
               </div>
             </div>
-          <!-- <div class="" v-if="this.$store.state.common.placa01"> -->
-            <div class="d-none">
+            <div class="pagoProcesado-inspecciones" v-if="this.$store.state.common.placa01">
               <div class="col-12  ">
                 <div class="inspecciones  row">
                   <div class="col-12">
@@ -133,39 +132,43 @@
                       pendiente
                     </span>
                   </div>
-                <div class="col-12  col-lg-6  d-flex  d-lg-none">
-                  <div class="box-img">
-                    <img class="inspecciones--img" src="./../../static/media/interseguroVehicular_v2/inspecciones.png" alt="">
-                  </div>
-                </div>
-                <div class="col-12  col-lg-6 ">
-                  <p class="inspecciones-vehicular">
-                    Inspección Vehicular
-                  </p>
-                  <p>
-                    Activa el 100% de tu inspección vehicular Hazlo a través del app, es fácil, seguro y rápido
-                  </p>
-                  <div class="box-btn">
-                    <button @click="showModalNumeroCelular()">
-                      Descargar
-                    </button>
-                  </div>
-                  <div class="botones-app">
-                    <div class="ios"  @click="showModalNumeroCelular()">
-                        <img src="./../../static/media/img/root/tienda_ios.png" alt="">
-                    </div>
-                    <div class="google  ml-4"  @click="showModalNumeroCelular()">
-                      <img src="./../../static/media/img/root/tienda_google.png" alt="">
+                  <div class="col-12  col-lg-6  d-flex  d-lg-none">
+                    <div class="box-img">
+                      <img class="inspecciones--img" src="./../../static/media/appPagoProcesado/banner.png" alt="">
                     </div>
                   </div>
-                </div>
-
-                <div class="col-12  col-lg-6  d-none  d-lg-flex">
-                  <div class="box-img">
-                    <img class="inspecciones--img" src="./../../static/media/interseguroVehicular_v2/inspecciones.png" alt="">
+                  <div class="col-12  col-lg-6 ">
+                    <p class="inspecciones-vehicular">
+                      Inspección Vehicular
+                    </p>
+                    <p>
+                      Activa el 100% de tu inspección vehicular Hazlo a través del app, es fácil, seguro y rápido
+                    </p>
+                    <div class="box-btn">
+                      <button @click="showModalNumeroCelular()">
+                        Descargar
+                      </button>
+                      
+                    </div>
+                    
+                    <div class="botones-app">
+                      <div class="google"  @click="showModalNumeroCelular()">
+                        <img src="./../../static/media/img/root/tienda_google.png" alt="">
+                      </div>
+                      <!-- <div class="ios  d-lg-none"  @click="showModalNumeroCelular()">
+                          <img src="./../../static/media/img/root/tienda_ios.png" alt="">
+                      </div> -->
+                      
+                    </div>
+                    <p style="margin-top:14px;color:#454A6C;font-size:12px;text-align:center;margin-bottom:9px;line-height:14px;">¿Tienes Iphone?
+                        Aún estamos desarrollando el app para iOS, te contactaremos para realizar la inspección por Whatsapp. 
+                    </p>
                   </div>
-                </div>
-
+                  <div class="col-12  col-lg-6  d-none  d-lg-flex">
+                    <div class="box-img">
+                      <img class="inspecciones--img" src="./../../static/media/interseguroVehicular_v2/inspecciones.png" alt="">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -181,12 +184,7 @@
                       <span>Facebook</span>
                     </a>
                   </div>
-                  <!-- <div class="redes__item">
-                    <a class="enlace_item"  target="_blank" :href="urlCompartirWhatsApp" >
-                      <img src="../../static/media/interseguroVehicular_v2/wapp_pago.png" width="25" alt="wapp_pago">
-                      <span>Whatsapp</span>
-                    </a>
-                  </div> -->
+
                   <div class="redes__item">
                     <a class="enlace_item"  target="_blank" :href="urlCompartirTwitter" >
                       <img src="../../static/media/interseguroVehicular_v2/tweet_pago.png" width="25" alt="tweet_pago">
@@ -207,38 +205,55 @@
             <div class="msj">
               <p></p>
             </div>
-          </b-col>
 
+          </b-col>
         </b-row>
+
         <b-modal title="Bootstrap-Vue"
-                hide-footer
-                hide-header
-                ref="modalNumeroCelular"
-                id="modalNumeroCelular">
-                <div class="modal-content modal-root">
-                    
-                    <div class="modal-body">
-                    <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
-                        <img class="check-enviado" src="./../../static/media/img/root/check.png" alt="">
-                        <p>¡Listo! En breve recibirás el link de descarga al <span>{{this.inputNumeroCelular}}</span></p>
-                    </div>
-                        <img class="close-modal" src="./../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
-                        <div class="box-img">
-                        <img src="./../../static/media/img/root/descarga_modal.png" alt="">
-                        </div>
-                        <div class="box-titulo">
-                        <p class="titulo">Ahora nuestro Seguro Vehicular en tu celular</p>
-                        </div>
-                        <div class="box-input">
-                        <span>+51</span><b-form-input class="telefono" type="tel" maxlength="9" v-model="inputNumeroCelular" :placeholder="placeholderNumeroCelular"></b-form-input>
-                        <span class="enviar" @click="enviarNumeroCelular()">Descargar</span>
-                        </div>
-                        <div class="condiciones">
-                        <!-- <span>Al continuar acepto las <span class="enlaceTerminosCondiciones" @click="showModalTerminosCondiciones()">Condiciones de Uso y Política de Privacidad.</span></span> -->
-                        </div>
-                    </div>
+          hide-footer
+          hide-header
+          ref="modalNumeroCelular"
+          id="modalNumeroCelular">
+          <div class="modal-content modal-root">
+              
+              <div class="modal-body  d-none  d-lg-block">
+                <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
+                  <img class="check-enviado" src="./../../static/media/img/root/check.png" alt="">
+                  <p>¡Listo! En breve recibirás el link de descarga al <span>{{this.inputNumeroCelular}}</span></p>
                 </div>
-            </b-modal>
+                  <img class="close-modal" src="./../../static/media/img/root/close.png" alt="" @click="hideModalNumeroCelular()">
+                <div class="box-img">
+                  <img src="./../../static/media/img/root/descarga_modal.png" alt="">
+                </div>
+                <div class="box-titulo">
+                  <p class="titulo">Ahora nuestro Seguro Vehicular en tu celular</p>
+                </div>
+                <div class="box-input">
+                  <span>+51</span><b-form-input class="telefono" type="tel" maxlength="9" v-model="inputNumeroCelular" :placeholder="placeholderNumeroCelular"></b-form-input>
+                  <span class="enviar" @click="enviarNumeroCelular()">Descargar</span>
+                </div>
+                <div class="condiciones">
+                  <!-- <span>Al continuar acepto las <span class="enlaceTerminosCondiciones" @click="showModalTerminosCondiciones()">Condiciones de Uso y Política de Privacidad.</span></span> -->
+                </div>
+              </div>
+              <div class="molde-celular d-flex  d-lg-none">
+                <img style="margin-top: 38px;" src="./../../static/media/appPagoProcesado/icon.PNG" alt="">
+                <p>{{this.$store.state.common.objCliente.firstName}},Bienvenido a tu <br> Seguro Vehicular</p>
+                <br>
+                <p>
+                  Para comenzar debes <br>
+                  <span>realizar la inspeccion vehicular,</span> <br>
+                  fácil y rápida desde el app.
+                </p>
+                <div class="box-input  mt-5">
+                  <span class="enviar" @click="descargarApp()">Descargar</span>
+                </div>
+                <p class="inspecciones-detalle">
+                  La inspección es un proceso <br> obligatorio para activar el 100% de tu <br> Seguro Vehicular
+                </p>
+              </div>
+          </div>
+        </b-modal>
     </b-container>
   </section>
 </template>
@@ -300,20 +315,21 @@ export default {
   
   computed: {},
   created() {
-    // console.log("====================>",this.$store.state.common.plateNumber)
-    // let placa01 = this.$store.state.common.plateNumber
-    // console.log("====================>",placa01)
-    // if (placa01!= null) {
-    //   if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1) {
-    //     this.$store.commit('common/setPlaca01', true)
-    //     console.log("TRUE")  
-    //   }else{
-    //     console.log("FALSE")
-    //     this.$store.commit('common/setPlaca01', false)
-    //   }
-    // }
+    console.log("====================>",this.$store.state.common.plateNumber)
+    let placa01 = this.$store.state.common.plateNumber
+    console.log("====================>",placa01)
+    if (placa01!= null) {
+      if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1) {
+        this.$store.commit('common/setPlaca01', true)
+        console.log("TRUE")  
+      }else{
+        console.log("FALSE")
+        this.$store.commit('common/setPlaca01', false)
+      }
+    }
   },
   methods: {
+    
     descargarApp() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
       if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
@@ -333,7 +349,7 @@ export default {
       }
   },
   hideModalNumeroCelular(){
-
+    $nuxt.$emit("bv::hide::modal", "modalNumeroCelular");
   },
     enviarNumeroCelular(){
           if (this.inputNumeroCelular.length == 9) {
@@ -429,7 +445,10 @@ export default {
     }
   },
   mounted: function() {
-    // this.showModalNumeroCelular()
+    if (this.$store.state.common.placa01) {
+      this.showModalNumeroCelular()
+    }
+    
 
     localStorage.setItem('activoAgora', false)
 
@@ -526,6 +545,50 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+#modalNumeroCelular{
+  .modal-body{
+    padding-bottom: 0;
+  }
+  .inspecciones-detalle{
+    color: #454a6c85;
+    font-size: 15px;
+    line-height: 17px;
+    margin-top: 24px;
+    padding-bottom: 28px;
+  }
+  .modal-content{
+    background: transparent;
+    
+  }
+}
+.molde-celular{
+  background: url('./../../static/media/appPagoProcesado/model-celular.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  
+  
+  p{
+    color: #454A6C;
+    font-size: 18px;
+    text-align: center;
+    line-height: 24px;
+  }
+  span{
+    color: #0754c4;
+  }
+}
+  .inspecciones {
+    .box-img{
+      width: 100%;
+      img{
+        width: 100%;
+      }
+    }
+  }
 .inspecciones{
   background: #ffffff;
   padding-top: 12px;
@@ -566,7 +629,7 @@ export default {
       border: none;
       color: white;
       height: 38px;
-      width: 70px;
+      width: 120px;
       border-radius: 6px;
       margin-top: 16px;
       margin-bottom: 16px;
@@ -576,7 +639,7 @@ export default {
     display: flex;
     justify-content: center;
     img{
-      width: 77px;
+      width: 110px;
     }
   }
 }
@@ -664,11 +727,7 @@ export default {
   .modal-content{
     border: none;
   }
-  .box-img{
-    img{
-      width: 94px;
-    }
-  }
+
   .box-condiciones{
     a span{
       font-family: 'Omnes Regular';
