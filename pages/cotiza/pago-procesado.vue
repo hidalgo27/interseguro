@@ -216,7 +216,7 @@
           id="modalNumeroCelular">
           <div class="modal-content modal-root">
               
-              <div class="modal-body  d-none  d-lg-block">
+              <div class="d-none  d-lg-block">
                 <div class="box-mensajeEnviado" v-bind:class="{mostrarMensajeEnviado : mostrarMensajeEnviado}">
                   <img class="check-enviado" src="./../../static/media/img/root/check.png" alt="">
                   <p>¡Listo! En breve recibirás el link de descarga al <span>{{this.inputNumeroCelular}}</span></p>
@@ -236,7 +236,17 @@
                   <!-- <span>Al continuar acepto las <span class="enlaceTerminosCondiciones" @click="showModalTerminosCondiciones()">Condiciones de Uso y Política de Privacidad.</span></span> -->
                 </div>
               </div>
-              <div class="molde-celular d-flex  d-lg-none">
+
+              
+          </div>
+        </b-modal>
+        <b-modal  title="Bootstrap-Vue"
+          hide-footer
+          hide-header
+          ref="modalNumeroCelular2"
+          id="modalNumeroCelular2">
+          <div class="modal-content modal-root" style="border: none;">
+            <div class="molde-celular d-flex ">
                 <img style="margin-top: 38px;" src="./../../static/media/appPagoProcesado/icon.PNG" alt="">
                 <p>{{this.$store.state.common.objCliente.firstName}},Bienvenido a tu <br> Seguro Vehicular</p>
                 <br>
@@ -245,8 +255,11 @@
                   <span>realizar la inspeccion vehicular,</span> <br>
                   fácil y rápida desde el app.
                 </p>
-                <div class="box-input  mt-5">
+                <div class="box-input  mt-5   d-block  d-lg-none">
                   <span class="enviar" @click="descargarApp()">Descargar</span>
+                </div>
+                <div class="box-input  mt-5  d-none  d-lg-block">
+                  <span class="enviar" @click="showModalNumeroCelular()">Descargar</span>
                 </div>
                 <p class="inspecciones-detalle">
                   La inspección es un proceso <br> obligatorio para activar el 100% de tu <br> Seguro Vehicular
@@ -334,22 +347,24 @@ export default {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
       if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
       {
-          window.location.replace("https://apps.apple.com/pe/app/interseguro-vehicular/id1517921041?l=en");
-          return 'iOS';
+          // window.location.replace("https://apps.apple.com/pe/app/interseguro-vehicular/id1517921041?l=en");
+          // return 'iOS';
       }
       else if( userAgent.match( /Android/i ) )
       {
-      window.location.replace("https://play.google.com/store/apps/details?id=pe.interseguro.intersegurovehicular&hl=es_PE");
+        window.location.replace("https://play.google.com/store/apps/details?id=pe.interseguro.intersegurovehicular&hl=es_PE");
           return 'Android';
       }
       else
       {
-      
-      return 'unknown'; 
+        return 'unknown'; 
       }
   },
   hideModalNumeroCelular(){
     $nuxt.$emit("bv::hide::modal", "modalNumeroCelular");
+  },
+  hideModalNumeroCelular2(){
+    $nuxt.$emit("bv::hide::modal", "modalNumeroCelular2");
   },
     enviarNumeroCelular(){
           if (this.inputNumeroCelular.length == 9) {
@@ -391,7 +406,11 @@ export default {
 
     },
     showModalNumeroCelular() {
-        this.$refs.modalNumeroCelular.show();
+      this.hideModalNumeroCelular2()
+      this.$refs.modalNumeroCelular.show();
+    },
+    showModalNumeroCelular2() {
+        this.$refs.modalNumeroCelular2.show();
     },
    PaginaVistaNuevoProducto() {
         window.dataLayer = window.dataLayer || [];
@@ -446,7 +465,7 @@ export default {
   },
   mounted: function() {
     if (this.$store.state.common.placa01) {
-      this.showModalNumeroCelular()
+      this.showModalNumeroCelular2()
     }
     
 
@@ -545,7 +564,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-#modalNumeroCelular{
+#modalNumeroCelular, #modalNumeroCelular2{
   .modal-body{
     padding-bottom: 0;
   }
@@ -569,8 +588,6 @@ export default {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  
-  
   p{
     color: #454A6C;
     font-size: 18px;

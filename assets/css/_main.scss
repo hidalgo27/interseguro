@@ -54,6 +54,33 @@
     width: 300px;
   }
 }
+#modalNumeroCelular2{
+  .modal-body{
+    padding-bottom: 0;
+  }
+  .modal-body{
+    padding-bottom: 0 !important;
+    background: rgb(13,103,230);
+    background: linear-gradient(177deg, rgba(13,103,230,1) 0%, rgba(33,200,213,1) 83%);
+  }
+  .box-input  span {
+      display: inline-block;
+      width: 180px;
+      height: 38px;
+      border-radius: 7px;
+      background-color: #ea0f90;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 38px;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      cursor: pointer;
+      font-family: 'Omnes Regular';
+  }
+}
 #modalNumeroCelular{
   .modal-body{
     padding-bottom: 0;
@@ -781,6 +808,12 @@
   align-items: flex-start !important;
 }
 @media (min-width: 992px) {
+  #modalNumeroCelular2{
+    
+    .modal-body{
+      padding-bottom: 0 !important;
+    }
+  }
   #modalNumeroCelular{
     
     .modal-body{
