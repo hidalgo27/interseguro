@@ -21,7 +21,6 @@ Será materia de la presente Promoción Comercial otorgar de regalo un vale virt
                 
                 <p>
 Esta promoción no aplica para otros canales de venta, ni es acumulable con otras promociones o descuentos.
-
                 </p>
               </li>
               <br>
@@ -42,8 +41,8 @@ Esta promoción no aplica para otros canales de venta, ni es acumulable con otra
                 </p>
                 <p>
                   <ul>
-                    <li>Fecha de Inicio de la promoción: 18:00 horas del jueves 06 de mayo del 2021.</li>
-                    <li>Fecha de Finalización de la promoción: 23:59 horas del lunes 10 de mayo del 2021.</li>
+                    <li>Fecha de Inicio de la promoción: 18:00 horas del jueves 06 de mayo del 2021.
+Fecha de Finalización de la promoción: 23:59 horas del domingo 16 de mayo del 2021.</li>
                   </ul>
                 </p>
               </li>
@@ -67,7 +66,7 @@ Esta promoción no aplica para otros canales de venta, ni es acumulable con otra
                 <p>
                   <ul>
                     <li>Aplica únicamente para las personas naturales que adquieran una póliza nueva de Seguro Vehicular Plan Black.</li>
-                    <li>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe desde las 18:00 horas del 06/05/2021 hasta las 23:59:59 horas del 10/05/2021.</li>
+                    <li>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe desde las 18:00 horas del 06/05/2021 hasta las 23:59:59 horas del 16/05/2021.</li>
                     <li>Aplica únicamente para personas naturales con documento de identidiad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.
   </li>
                     <li>Los datos ingresados deben ser correctos y veraces, caso contrario no podrá hacerse acreedor del premio.
