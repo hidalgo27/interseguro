@@ -1,6 +1,11 @@
 <template>
 <section class="footer  home-2 ">
-      <b-container>
+<div class="writeme d-none d-xl-block" data-v-d5c59bf2="">
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=51961805915" rel="noopener" data-v-d5c59bf2="">
+        <img src="./../../static/media/interseguroVehicular_v2/chat-whatsapp.svg" alt="Escribir algún contacto" class="call d-lg-none" style="width:60px" data-v-d5c59bf2="">
+        <img src="./../../static/media/interseguroVehicular_v2/chat-whatsapp.svg" alt="Escribir algún contacto" class="call d-none d-lg-block" data-v-d5c59bf2="">
+        </a></div>
+    <b-container>
         <b-row>
           <div class="col-12  col-sm-4">
             <img src="../../static/media/img/IS-logo.svg" width="160" alt="logo interseguro vehicular" class="image-19" style="margin-bottom: 16px;">
