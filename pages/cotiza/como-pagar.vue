@@ -248,13 +248,13 @@
                                             </b-row>
                                         </b-col>
 
-                                        <b-col cols="12">
+                                        <!-- <b-col cols="12">
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton " v-if="flotanteCovid"  style="position: relative;background:#D3E1F5;display:flex;padding: 12px;border-radius: 6px;">
                                                     
                                                     <img @click="metodoFlotante()" width="52" src="./../../static/media/img/campania/como-pagar-mobile.svg" >
                                                     
-                                                    <!-- <div class="box-contador" >
+                                                     <div class="box-contador" >
                                                         <span  class="cuota-gratis-span"
                                                             >¡Por tiempo limitado!
                                                         </span>
@@ -264,13 +264,13 @@
                                                             </div> 
                                                         </div>
                                                     </div> -->
-                                                    <div class="pago-descripcion-oferta" style="display: flex;flex-direction: column;padding-left: 14px;">
+                                                    <!-- <div class="pago-descripcion-oferta" style="display: flex;flex-direction: column;padding-left: 14px;">
                                                         <p style="color: #0855C4;font-size: 16px; font-family: 'Omnes Medium'; text-align:left;">Termina tu compra y llévate un vale <br> virtual gratis de S/ 100.</p>
                                                         <span style="font-size: 13px; text-align:left;">*Solo para compras en plan Black.</span>
-                                                    </div>
+                                                    </div> 
                                                 </div>
                                             </div>
-                                        </b-col>
+                                        </b-col> -->
 
                                     </b-row>
                                 </div>
@@ -386,7 +386,7 @@
             </b-container>
         </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -407,9 +407,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
-        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">                    
@@ -429,7 +429,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
          
     </section>
 </template>
@@ -1465,7 +1465,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 140px;
+    padding-top: 70px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{

@@ -2740,7 +2740,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 140px;
+  padding-top: 70px;
   .img-close{
     position: absolute;
     right: -24px;

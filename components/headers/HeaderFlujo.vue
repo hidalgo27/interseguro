@@ -1,11 +1,11 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
-                        <!-- <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt="">  -->
+                       <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> 
                         <div style="font-size: 12px;padding-left: 18px;">
                             Compra hoy y llévate un vale virtual <span style="color: #FFD527"> gratis de S/ 100</span>
                         </div>
@@ -18,7 +18,7 @@
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <!-- <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">           -->
+                         <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">         
                         <p style="font-size: 20px;">
                             <span style="color: #FFD527"> Llévate un vale virtual gratis de S/ 100</span>  por la compra del seguro en plan Black
                             
@@ -29,7 +29,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div> 
+        </div>  -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -178,7 +178,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        // this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
