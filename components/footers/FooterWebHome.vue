@@ -1,4 +1,5 @@
 <template>
+
 <section class="footer  home-2 ">
     <b-container>
         <b-row>
