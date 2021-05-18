@@ -4,13 +4,7 @@
 .home-ibk .box-flotante-covid .box-contador {
   z-index: 9;
 }
-.writeme img, .writeme svg {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 99;
-  cursor: pointer;
-}
+
 // ::-webkit-scrollbar {
 //   width: 15px;
 // }
@@ -31,6 +25,14 @@
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #ebf1fb;
 // }
+
+.writeme img, .writeme svg {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  cursor: pointer;
+}
 
 .home-ibk .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
   color: #fff !important;
@@ -871,6 +873,9 @@
       width: 420px;
       height: 305px;
     }
+  }
+  .writeme img {
+        width: 13.5rem;
   }
   
 }
