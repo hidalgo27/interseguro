@@ -1,7 +1,5 @@
 <template>
 
-<section class="footer  home-2 ">
-    <b-container>
         <b-row>
           <div class="col-12  col-sm-4">
             <img src="../../static/media/img/IS-logo.svg" width="160" alt="logo interseguro vehicular" class="image-19" style="margin-bottom: 16px;">
