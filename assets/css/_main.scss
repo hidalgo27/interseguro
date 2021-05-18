@@ -26,6 +26,14 @@
 //   background: #ebf1fb;
 // }
 
+.writeme img, .writeme svg {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  cursor: pointer;
+}
+
 .home-ibk .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
   color: #fff !important;
 }
