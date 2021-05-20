@@ -255,7 +255,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                         10%
+                         15%
                         </div>
                       </div>
                       <div class="box-importante" style="height: 40px;">
@@ -338,7 +338,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                         10%
+                         15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +438,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                         10%
+                         15%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +566,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                   10%
+                   15%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -1997,6 +1997,7 @@
       },
       continuar(e,id) {
         console.log(id)
+        //console.log('frecuencia .. '+this.selected)
         event.stopPropagation();
         this.seleccionarPLanDesktop(id)
         this.$store.commit('common/setFrecuenciaPago', this.selected)
@@ -3415,7 +3416,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  padding-top: 120px;
   .img-close{
     position: absolute;
     right: -24px;

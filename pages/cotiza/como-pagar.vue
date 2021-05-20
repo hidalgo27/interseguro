@@ -292,7 +292,7 @@
                                             </div>
                                         </b-col> -->
 
-                                        <b-col cols="12">
+                                        <b-col cols="12" v-if="this.payment==1">
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton " v-if="flotanteCovid"  style="position: relative;background:#D3E1F5;display:flex;padding: 12px;border-radius: 6px;">
                                                     
@@ -1295,6 +1295,7 @@ import { validationMixin } from 'vuelidate'
                         // this.vehicleState = objJWT.common.vehicleState                
                         
                         this.payment = objJWT.common.frecuenciaPago
+                        //console.log('frecuencia de pago '+objJWT.common.frecuenciaPago)
                         this.businessId = this.$store.state.common.businessId
                         if (this.payment > 0 ) {
                             if(this.payment == 1){
@@ -1499,7 +1500,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 70px;
+    padding-top: 125px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{

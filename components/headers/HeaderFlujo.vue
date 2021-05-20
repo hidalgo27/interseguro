@@ -6,8 +6,8 @@
                                        
                    <div class="liston-mobile--parrafo"> 
                        <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> 
-                        <div style="font-size: 10px;padding-left: 6px;">
-                            ¡Por tiempo limitado! Compra hoy y llévate la<span style="color: #FFD527">  2da cuota gratis</span>
+                        <div style="font-size: 10px;padding-left: 10px;width: 159px;">
+                            ¡Por tiempo limitado! Compra hoy <br> y llévate la<span style="color: #FFD527">  2da cuota gratis</span>
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
@@ -287,10 +287,10 @@ export default {
         position: absolute;
         right: 4px;
         height: 30px;
-        top: 5px;
+        top: 0px;
         border-radius: 45px;
         width: 30px;
-        line-height: 30px;
+        line-height: 20px;
         text-align: center;
         color: #fff;
         font-size: 18px;
@@ -299,7 +299,7 @@ export default {
         flex-direction: column;
         background-color: #0855C4;
         width: 100%;
-        height: 70px;
+        height: 60px;
         left: 0;
         justify-content: center;
         padding-left: 4px;
@@ -364,7 +364,7 @@ export default {
             font-size: 11px;
         }
         .img-liston{
-            width: 120px;
+            width: 65px;
             height: auto;
         }
     }
@@ -641,6 +641,7 @@ export default {
         .logo-franja{
             img{
                 width: 160px !important;
+                height: 60px;
             }
         }
         .liston{
