@@ -11,7 +11,7 @@
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -11px;display: block;width: 158px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 173px !important;">
                         </div>
                     </div>
                 </div>
@@ -210,8 +210,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1622437199, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1622437199, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1621832399, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1621832399, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -285,8 +285,8 @@ export default {
     .closeListon{        
         cursor: pointer;
         position: absolute;
-        right: 4px;
-        height: 30px;
+        right: 0px;
+        height: 20px;
         top: 0px;
         border-radius: 45px;
         width: 30px;
