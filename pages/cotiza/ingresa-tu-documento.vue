@@ -715,7 +715,7 @@
         </div>
       </b-modal>
 
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -731,7 +731,7 @@
               <p class="mt-3" style="max-width: 360px;">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                 ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
+                  ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> <span style="color: #FFDD36;"> 2da cuota mensual gratis</span>
                 </span>
               </p>
             </b-col>
@@ -745,9 +745,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>  -->
+      </b-modal> 
       <!-- Modal de abandono -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -805,7 +805,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>

@@ -272,6 +272,40 @@
                                             </div>
                                         </b-col> -->
 
+                                        <!-- <b-col cols="12">
+                                            <div class=" box-btn testest  mt-4" >
+                                                <div class="flotante-covid-boton " v-if="flotanteCovid"  style="position: relative;background:#D3E1F5;display:flex;padding: 12px;border-radius: 6px;">
+                                                    
+                                                    <img @click="metodoFlotante()" width="52" src="./../../static/media/img/campania/como-pagar-mobile.svg" >
+                                                    
+                                                     <div class="box-contador" >
+                                                        <span  class="cuota-gratis-span"
+                                                            >¡Por tiempo limitado!
+                                                        </span>
+                                                        <div  class="example  d-md-flex">
+                                                            <div id="contadorCyber3" class="flipdown">
+                                                                
+                                                            </div> 
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </b-col> -->
+
+                                        <b-col cols="12">
+                                            <div class=" box-btn testest  mt-4" >
+                                                <div class="flotante-covid-boton " v-if="flotanteCovid"  style="position: relative;background:#D3E1F5;display:flex;padding: 12px;border-radius: 6px;">
+                                                    
+                                                    <img @click="metodoFlotante()" width="52" src="./../../static/media/img/campania/como-pagar-mobile.svg" >                                                    
+                                                     <div class="pago-descripcion-oferta" style="display: flex;flex-direction: column;padding-left: 14px;">
+                                                        <p style="color: #0855C4;font-size: 15px; font-family: 'Omnes Medium'; text-align:left;">
+                                                            Termina tu compra hoy y aplicaremos un <br> descuento a la 2da cuota mensual de tu <br> seguro para que sea <b>GRATIS</b> 
+                                                        </p>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </b-col>
+
                                     </b-row>
                                 </div>
                             </b-col>
@@ -386,7 +420,7 @@
             </b-container>
         </b-modal> -->
 
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -407,9 +441,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">                    
@@ -417,8 +451,8 @@
                         <p class="mt-3" style="max-width: 360px;">
                             <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                             <span style="color : #ffffff; font-size: 18px">
-                                ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
-                            </span>
+                            ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> <span style="color: #FFDD36;"> 2da cuota mensual gratis</span>
+                            </span> 
                         </p>
                     </b-col>
                 </b-row>
@@ -429,7 +463,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
          
     </section>
 </template>
@@ -617,8 +651,8 @@ import { validationMixin } from 'vuelidate'
                 this.$nuxt.$emit('bv::show::modal','leavePayment')
             },
             contador(){
-                var flipdown2 = new FlipDown(1620104399, 'contadorCyber4').start()
-                var flipdown = new FlipDown(1620104399, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1622437199, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1622437199, 'contadorCyber3').start()
             },
             hideModalBlackWeek(){
                 $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -1231,7 +1265,7 @@ import { validationMixin } from 'vuelidate'
             //     this.valeAgora = true
             // }
             
-            // this.contador()
+            //this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat

@@ -1391,7 +1391,7 @@
       </b-container>
     </b-modal> -->
 
-  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+  <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1417,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1434,8 +1434,8 @@
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                 ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
-                </span>
+                 ¡No dejes pasar esta super oportunidad! <br> Protege tu auto hoy y llévate la <br> <span style="color: #FFDD36;"> 2da cuota mensual gratis</span>
+                </span>                 
               </p>
             </b-col>
           </b-row>
@@ -1443,12 +1443,12 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
-                >CONTINUAR COMPRA</b-button
+                >TERMINAR COMPRA</b-button
               >
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>

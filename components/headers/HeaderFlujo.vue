@@ -1,27 +1,26 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
                        <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> 
-                        <div style="font-size: 12px;padding-left: 18px;">
-                            Compra hoy y llévate un vale virtual <span style="color: #FFD527"> gratis de S/ 100</span>
+                        <div style="font-size: 10px;padding-left: 6px;">
+                            ¡Por tiempo limitado! Compra hoy y llévate la<span style="color: #FFD527">  2da cuota gratis</span>
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -11px;display: block;width: 158px !important;">
                         </div>
                     </div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                         <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">         
+                         <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
                         <p style="font-size: 20px;">
-                            <span style="color: #FFD527"> Llévate un vale virtual gratis de S/ 100</span>  por la compra del seguro en plan Black
-                            
+                            <b>¡Por tiempo limitado!</b> Protege tu auto hoy y llévate la<span style="color: #FFD527"> <b> 2da cuota gratis</b></span>                              
                         </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -29,7 +28,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>  -->
+        </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -178,7 +177,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -211,8 +210,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1621227599, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1621227599, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1622437199, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1622437199, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -365,7 +364,7 @@ export default {
             font-size: 11px;
         }
         .img-liston{
-            width: 175px;
+            width: 120px;
             height: auto;
         }
     }
