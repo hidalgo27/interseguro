@@ -102,7 +102,7 @@
   }
 }
 .leaveModal .modal-body{
-  // background: url("./../../static/media/img/campania/fondo-modal.svg") ;
+  background: url("./../../static/media/img/campania/fondo-modal.svg") ;
   background-size: cover;
   // background-position: center;
   p{
@@ -279,7 +279,7 @@
 }
 .rotor-group{
   position: relative !important;
-  height: 46px !important;
+  height: 45px !important;
 }
 .rotor-group-heading {
   position: absolute !important;
@@ -356,7 +356,7 @@
 
 .flipdown {  
   width: 100% !important;
-  height: 50px !important;
+  height: 45px !important;
   padding: 4px !important;
   border-radius: 12px !important;
   overflow: hidden !important;
@@ -379,7 +379,7 @@
 }
 
 .flipdown .rotor-group {
-  padding-right: 8px !important;
+  padding-right:2px !important;
 }
 
 .flipdown .rotor-group:last-child {
