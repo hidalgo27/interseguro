@@ -332,7 +332,7 @@ export default {
     let placa01 = this.$store.state.common.plateNumber
     console.log("====================>",placa01)
     if (placa01!= null) {
-      if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1) {
+      if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1 || placa01.substr(5,1) == 2 || placa01.substr(5,1) == 3 || placa01.substr(5,1) == 4) {
         this.$store.commit('common/setPlaca01', true)
         console.log("TRUE")  
       }else{
