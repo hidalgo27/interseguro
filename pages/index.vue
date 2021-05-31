@@ -449,8 +449,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1622437199, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1622437199, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1622696399, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1622696399, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -1758,7 +1758,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
         position: relative;
-        
+      
         h1{
           font-size: 1.35rem;
           font-weight: 500;
