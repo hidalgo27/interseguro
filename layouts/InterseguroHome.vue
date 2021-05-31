@@ -63,7 +63,11 @@ export default {
       }
   },
   mounted() {
-    console.log("LAYOUT Is")
+    this.$nuxt.$emit('whatsapp', {
+      wapp : {
+          valor :true
+      }
+    })
     this.nuevoProducto = this.$store.state.common.nuevoProducto
     setTimeout(() => {
       this.urlLocal = localStorage.getItem("urlLocal")

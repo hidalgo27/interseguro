@@ -646,6 +646,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
+        
         this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
