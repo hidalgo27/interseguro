@@ -507,10 +507,18 @@ export default {
         this.planSeleccionado = objJWT.common.planSeleccionado
         this.listCotizacion = objJWT.common.listaCotizacion
         this.monto_pagar = objJWT.common.frecuenciaPago
-        this.mensual = objJWT.common.listaCotizacion.policy.monthly
-        this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
-        this.anual = objJWT.common.listaCotizacion.policy.annual
-        this.bianual = objJWT.common.listaCotizacion.policy.twoYears
+        if (objJWT.common.listaCotizacion.discount.intercorp == 5 ) {
+          this.mensual = objJWT.common.listaCotizacion.policy.monthlyDiscount
+          this.trimestral = objJWT.common.listaCotizacion.policy.quarterlyDiscount
+          this.anual = objJWT.common.listaCotizacion.policy.annualDiscount
+          this.bianual = objJWT.common.listaCotizacion.policy.twoYearsDiscount
+        }else{
+          this.mensual = objJWT.common.listaCotizacion.policy.monthly
+          this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
+          this.anual = objJWT.common.listaCotizacion.policy.annual
+          this.bianual = objJWT.common.listaCotizacion.policy.twoYears
+        }
+        
     }
     
     

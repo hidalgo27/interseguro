@@ -16,7 +16,7 @@
           
             <b-card no-body>
             <b-card-header header-tag="header" class="p-0" role="tab">
-              <b-button block href="#" v-b-toggle.accordion-1>SEGURO VEHICULAR {{this.urllocal}}</b-button>
+              <b-button block href="#" v-b-toggle.accordion-1>SEGURO VEHICULAR</b-button>
             </b-card-header>
             <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
               <b-card-body class="acordeon-boxLista">
