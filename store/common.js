@@ -871,7 +871,7 @@ const actions = {
     *********************************************************/
      getGeolocationUser ({ commit, state }) {
         return new Promise((resolve, reject) => {
-            this.$axios.get('http://ip-api.com/json').then((res) => {
+            this.$axios.get('https://api.ipify.org/?format=json').then((res) => {
                 if (res) {
                     resolve(res)
                 } else {
