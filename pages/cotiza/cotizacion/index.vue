@@ -3202,9 +3202,10 @@
               /******************************************************** */   
               itemElegido: this.itemElegido,
               listCotizacion: this.listCotizacion,
-              nuevoProducto: this.$store.state.common.nuevoProducto                  
+              nuevoProducto: this.$store.state.common.nuevoProducto,                  
               /******************************************************** */      
               /******************************************************** */
+              geolocalizacion: this.$store.state.common.geolocation 
 
             },
             datosTitular: {

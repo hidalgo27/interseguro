@@ -441,7 +441,8 @@
               this.item.plateNumber = this.item.plateNumber.slice(0, 6)
             } else if (longitudDePlaca == 6) {
               event.preventDefault()
-
+              
+              this.getGeolocation()
               this.createMail()
               this.updateFields()
               this.getVehicle()  
@@ -557,6 +558,13 @@
               }
             })
 
+          },
+          getGeolocation () {
+            this.$store.dispatch('common/getGeolocationUser')
+            .then(res => {
+              const respuesta = res.data
+              this.$store.commit('common/setGeolocation',respuesta)
+            })
           },
       },
       computed: {

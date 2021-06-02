@@ -2489,7 +2489,7 @@
               discountType: this.discountType,
               /******************************************************** */   
               itemElegido: this.itemElegido,
-              listCotizacion: this.listCotizacion                    
+              listCotizacion: this.listCotizacion,                    
               /******************************************************** */      
               /******************************************************** */
               // idMarca: this.objectVehicle.brandId,
@@ -2499,7 +2499,7 @@
               // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
               // pagoTrimestral: this.listCotizacion.policy.quarterly,
               // pagoAnual: this.listCotizacion.policy.annual,
-
+              geolocalizacion: this.$store.state.common.geolocation 
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,

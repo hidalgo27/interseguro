@@ -95,7 +95,9 @@ const getDefaultState = () => {
 
     // Modal de abandono
     leaveMessage: 0,
-    leaveMessage1: 0
+    leaveMessage1: 0,
+    //Geolocalizacion
+    geolocation: {}
     }
 }
 
@@ -258,7 +260,10 @@ const mutations = {
     },
     setLeaveMessage1 (state, payload) {
         state.leaveMessage1 = payload
-    }
+    },
+    setGeolocation(state, payload){
+        state.geolocation = payload
+    },
 }
 
 const actions = {
@@ -859,6 +864,22 @@ const actions = {
               resolve(response)
             })
             .catch(function(error) {})
+        })
+    },
+    /*********************************************************
+                * Obtener IP Publica del usuario
+    *********************************************************/
+     getGeolocationUser ({ commit, state }) {
+        return new Promise((resolve, reject) => {
+            this.$axios.get('http://ip-api.com/json').then((res) => {
+                if (res) {
+                    resolve(res)
+                } else {
+                    reject(res)
+                }
+            }).catch(err => {
+                reject(err)
+            })
         })
     },
 }
