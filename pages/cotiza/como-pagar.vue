@@ -1502,7 +1502,7 @@ a.steps__item.paso1:after{
 }
 .steps-box{
     //padding-top: 125px;
-    padding-top: 70px;
+    padding-top: 50px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{
