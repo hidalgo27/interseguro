@@ -292,7 +292,7 @@
                                             </div>
                                         </b-col> -->
 
-                                        <b-col cols="12" v-if="this.payment==1">
+                                        <!-- <b-col cols="12" v-if="this.payment==1">
                                             <div class=" box-btn testest  mt-4" >
                                                 <div class="flotante-covid-boton " v-if="flotanteCovid"  style="position: relative;background:#D3E1F5;display:flex;padding: 12px;border-radius: 6px;">
                                                     
@@ -304,7 +304,7 @@
                                                     </div> 
                                                 </div>
                                             </div>
-                                        </b-col>
+                                        </b-col> -->
 
                                     </b-row>
                                 </div>
@@ -420,7 +420,7 @@
             </b-container>
         </b-modal> -->
 
-        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -441,9 +441,9 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
-        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">                    
@@ -463,7 +463,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
          
     </section>
 </template>

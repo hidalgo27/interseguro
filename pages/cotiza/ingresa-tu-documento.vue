@@ -712,7 +712,7 @@
         </div>
       </b-modal>
 
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -742,9 +742,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> 
+      </b-modal>  -->
       <!-- Modal de abandono -->
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -802,7 +802,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
     </b-container>
   </section>
 </template>
@@ -2480,7 +2480,6 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
-    
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);
