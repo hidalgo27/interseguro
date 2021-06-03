@@ -884,7 +884,8 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  padding-top: 125px;
+  //padding-top: 125px;
+  padding-top: 70px;
 }
 .edit-input {
   cursor: auto !important;
