@@ -3435,7 +3435,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  padding-top: 50px;
   //padding-top: 120px;
   .img-close{
     position: absolute;
