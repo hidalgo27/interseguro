@@ -102,7 +102,7 @@
   }
 }
 .leaveModal .modal-body{
-  background: url("./../../static/media/img/campania/fondo-modal.svg") ;
+  //background: url("./../../static/media/img/campania/fondo-modal.svg") ;
   background-size: cover;
   // background-position: center;
   p{
@@ -289,7 +289,7 @@
   z-index: 9999 !important;
 }
 .flipdown .rotor-group-heading:before {
-  height: 20px !important;
+  height: 2px !important;
 }
 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
   content: 'DIAS' !important;
