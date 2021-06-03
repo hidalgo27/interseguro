@@ -258,7 +258,25 @@
                          10%
                         </div>
                       </div>
-                      <div class="box-importante" style="height: 40px;">
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <div class="que-me-cubre">
                         <div class="titulo">
@@ -2471,7 +2489,7 @@
               discountType: this.discountType,
               /******************************************************** */   
               itemElegido: this.itemElegido,
-              listCotizacion: this.listCotizacion                    
+              listCotizacion: this.listCotizacion,                    
               /******************************************************** */      
               /******************************************************** */
               // idMarca: this.objectVehicle.brandId,
@@ -2481,7 +2499,7 @@
               // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
               // pagoTrimestral: this.listCotizacion.policy.quarterly,
               // pagoAnual: this.listCotizacion.policy.annual,
-
+              geolocalizacion: this.$store.state.common.geolocation 
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,
