@@ -1054,7 +1054,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       height: 296px;
       background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
-      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
@@ -1670,8 +1670,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       }
       .boxHome-banner{
         background-color:  rgba(8,85,196,.1);
-        //background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
-        background-size: cover;
+        //background-size: cover;
         // background-size: cover;
         //background-repeat: no-repeat;
         //background-position: center;
