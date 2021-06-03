@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
@@ -28,7 +28,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div> 
+        </div>  -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -177,7 +177,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        //this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -287,10 +287,10 @@ export default {
         position: absolute;
         right: 0px;
         height: 20px;
-        top: 0px;
+        top: 5px;
         border-radius: 45px;
         width: 30px;
-        line-height: 20px;
+        line-height: 30px;
         text-align: center;
         color: #fff;
         font-size: 18px;
@@ -299,7 +299,7 @@ export default {
         flex-direction: column;
         background-color: #0855C4;
         width: 100%;
-        height: 60px;
+        height: 70px;
         left: 0;
         justify-content: center;
         padding-left: 4px;
@@ -364,7 +364,7 @@ export default {
             font-size: 11px;
         }
         .img-liston{
-            width: 65px;
+            width: 120px;
             height: auto;
         }
     }
@@ -641,7 +641,7 @@ export default {
         .logo-franja{
             img{
                 width: 160px !important;
-                height: 60px;
+                //height: 60px;
             }
         }
         .liston{
