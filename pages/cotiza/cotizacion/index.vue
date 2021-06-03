@@ -258,7 +258,25 @@
                          10%
                         </div>
                       </div>
-                      <div class="box-importante" style="height: 40px;">
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <div class="que-me-cubre">
                         <div class="titulo">
@@ -1391,7 +1409,7 @@
       </b-container>
     </b-modal> -->
 
-  <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1435,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal> -->
+    </b-modal>
 
-     <b-modal
+     <!-- <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1448,7 +1466,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
   </section>
 </template>
@@ -3184,9 +3202,10 @@
               /******************************************************** */   
               itemElegido: this.itemElegido,
               listCotizacion: this.listCotizacion,
-              nuevoProducto: this.$store.state.common.nuevoProducto                  
+              nuevoProducto: this.$store.state.common.nuevoProducto,                  
               /******************************************************** */      
               /******************************************************** */
+              geolocalizacion: this.$store.state.common.geolocation 
 
             },
             datosTitular: {

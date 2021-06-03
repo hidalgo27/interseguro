@@ -1,9 +1,9 @@
 <template>
   <section class="footer  home-2 ">
-      <div class="writeme d-none d-xl-block" data-v-d5c59bf2="">
+      <div class="writeme" data-v-d5c59bf2=""  v-if="urllocal">
         <a target="_blank" href="https://api.whatsapp.com/send?phone=51934792742&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">
-        <img src="./../../static/media/interseguroVehicular_v2/chat-whatsapp.svg" alt="Escribir algún contacto" class="call d-lg-none" style="width:60px" data-v-d5c59bf2="">
-        <img src="./../../static/media/interseguroVehicular_v2/chat-whatsapp.svg" alt="Escribir algún contacto" class="call d-none d-lg-block" data-v-d5c59bf2="">
+          <img src="./../../static/media/interseguroVehicular_v2/whatsapp.png" alt="Escribir algún contacto" class="call d-lg-none" style="width:50px;border-radius: 50px;" data-v-d5c59bf2="">
+          <img src="./../../static/media/interseguroVehicular_v2/chat-whatsapp.svg" alt="Escribir algún contacto" class="call d-none d-lg-block" data-v-d5c59bf2="">
         </a>
       </div>
        <b-container>
@@ -59,6 +59,7 @@
 export default {
   data () {
     return { 
+      urllocal: "",
       urlCondicionado: "",
       urlParticular: "",
       urlpdf: "",
@@ -71,6 +72,11 @@ export default {
       PoliticaGPS: "",
       businessId: "",
     }
+  },
+  created() {
+    this.$nuxt.$on('whatsapp', ({wapp}) => {
+      this.urllocal = wapp.valor
+    })
   },
   mounted(){
     this.businessId = this.$store.state.common.businessId

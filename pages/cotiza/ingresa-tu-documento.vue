@@ -393,10 +393,7 @@
                               id="celular"
                               ref="celular"
                               name="phone"
-                              @keyup.native="
-                                validarCelular();
-                                validacionInput($event);
-                              "
+                              @keyup.native="validarCelular();validacionInput($event);"
                               v-on:focus.native="
                                 isIconPhoneNumber = !isIconPhoneNumber
                               "
@@ -715,7 +712,7 @@
         </div>
       </b-modal>
 
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -745,9 +742,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> 
+      </b-modal>  -->
       <!-- Modal de abandono -->
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -805,7 +802,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
     </b-container>
   </section>
 </template>
@@ -1628,18 +1625,10 @@ export default {
     validarEmail() {
       if (this.validate()) {
         this.msgErrorEmail = false;
+        this.validarClient()
       } else {
-        // this.$swal({
-        //   title: "Oops...",
-        //   text: "Por favor ingresa un email válido",
-        //   type: "warning",
-        //   showCancelButton: false,
-        //   confirmButtonColor: "#2177CC",
-        //   confirmButtonText: "OK",
-        // });
         this.isDisableButton = true;
         this.msgErrorEmail = true;
-        // this.$refs["correo-electronico"].focus();
       }
     },
     validarCelular() {
@@ -1649,18 +1638,13 @@ export default {
           this.objClients.phoneNumber.charAt(0) == 9 &&
           this.objClients.phoneNumber.length == 9
         ) {
+          
           this.msgErrorCelular = false;
+          this.validarClient()
         } else {
-          // this.$swal({
-          //   title: "Oops...",
-          //   text: "Por favor ingresa un número de celular válido",
-          //   type: "warning",
-          //   showCancelButton: false,
-          //   confirmButtonColor: "#2177CC",
-          //   confirmButtonText: "OK",
-          // });
           this.isDisableButton = true;
           this.msgErrorCelular = true;
+          
         }
     },
     como_pagar() {
@@ -1925,6 +1909,7 @@ export default {
           }
         }
         if (camposRellenados == true) {
+          
           if (
             this.objClients.phoneNumber.charAt(0) == 9 &&
             this.objClients.phoneNumber.length == 9
@@ -1932,10 +1917,15 @@ export default {
             this.$store.commit("common/setCheckgss", 1);
             this.$store.commit("common/setEmail", this.objClients.emailAddress);
           }
+          this.msgErrorEmail = false
           this.msgCompletaDatos = false;
+          this.isDisableButton = false;
           return true;
         } else {
+          
           this.msgCompletaDatos = true;
+          this.msgErrorEmail = true
+          this.isDisableButton = true;
           this.$store.commit("common/setCheckgss", 0);
           return false;
         }
@@ -2149,11 +2139,9 @@ export default {
       }, ms);
     },
     validacionInput(event) {
-      if (
-        (this.tamaño == 8 || this.tamaño == 9) &&
-        !this.msgErrorEmail &&
-        !this.msgErrorCelular
-      ) {
+      
+      if ((this.tamaño == 8 || this.tamaño == 9) && !this.msgErrorEmail &&!this.msgErrorCelular) {
+        
         this.isDisableButton = true;
         this.objClients.phoneNumber =
           this.objClients.phoneNumber != null || undefined
@@ -2164,13 +2152,9 @@ export default {
         if (this.validarClient()) {
           
           this.msgCompletaDatos = false;
-          if (this.checkPoliticasPrivacidad == true) {
-            this.isDisableButton = false;
-            this.aceptaterminos = false;
-          } else {
-            this.aceptaterminos = true;
-          }
+          
         } else {
+          
           this.aceptaterminos = false;
           this.msgCompletaDatos = true;
 
@@ -2181,6 +2165,7 @@ export default {
         !this.msgErrorEmail &&
         !this.msgErrorCelular
       ) {
+        
         this.isDisableButton = true;
         if (this.validarRUC()) {
           this.msgCompletaDatos = false;
@@ -2195,6 +2180,8 @@ export default {
           this.msgCompletaDatos = true;
           this.isDisableButton = true;
         }
+      }else{
+        
       }
     },
     processTags(nextInputToFocus) {
@@ -2446,6 +2433,7 @@ export default {
             // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
             // pagoTrimestral: this.listCotizacion.policy.quarterly,
             // pagoAnual: this.listCotizacion.policy.annual,
+            geolocalizacion: this.$store.state.common.geolocation 
           },
           datosTitular: {
             numeroDocumento: this.$store.state.common.documentoLocal,
@@ -2492,7 +2480,6 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
-    console.log("this.$store.state.common.objVeh",this.$store.state.common.objVehiculo.brand)
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);

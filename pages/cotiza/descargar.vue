@@ -761,7 +761,8 @@ export default {
             /******************************************************** */   
             itemElegido: this.$store.state.common.itemElegido,
             listCotizacion: this.$store.state.common.listaCotizacion,
-            nuevoProducto: this.$store.state.common.nuevoProducto
+            nuevoProducto: this.$store.state.common.nuevoProducto,
+            geolocalizacion: this.$store.state.common.geolocation 
           },
         "datosTitular": {
             numeroDocumento: this.$store.state.common.documentoLocal,

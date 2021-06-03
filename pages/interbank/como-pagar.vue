@@ -1001,7 +1001,7 @@ import { validationMixin } from 'vuelidate'
                         /******************************************************** */   
                         itemElegido: this.$store.state.common.itemElegido,
                         listCotizacion: this.$store.state.common.listaCotizacion,
-                        nuevoProducto: this.$store.state.common.nuevoProducto                
+                        nuevoProducto: this.$store.state.common.nuevoProducto,                
                         /******************************************************** */      
                         /******************************************************** */
                         // idMarca: this.objectVehicle.brandId,
@@ -1011,6 +1011,7 @@ import { validationMixin } from 'vuelidate'
                         // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
                         // pagoTrimestral: this.listCotizacion.policy.quarterly,
                         // pagoAnual: this.listCotizacion.policy.annual
+                        geolocalizacion: this.$store.state.common.geolocation 
                     },
                     "datosTitular": {
                         "numeroDocumento": this.$store.state.common.documentoLocal,

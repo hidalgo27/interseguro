@@ -2,7 +2,7 @@
   <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
 
-    <!-- <div class="boxHome-banner">      
+    <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -61,8 +61,9 @@
           
         </div>
       </div>
-    </div> -->
-
+    </div>
+    
+    <!--
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -72,7 +73,6 @@
             </div>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 22px;">              
               <div class="box-contador"  >
-                <!-- <p style="color:#fff;">La oferta termina en:</p> -->
                 <div  class="example  d-md-flex">
                     <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;">                        
                     </div> 
@@ -124,7 +124,6 @@
             <div class="box-contador" >
               <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="">
               <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-start;justify-content: flex-end;position: relative;top: -24px;right: -118px;">
-                  <!-- <p>La oferta termina en:</p> -->
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
                       
                   </div> 
@@ -134,6 +133,7 @@
         </div>
       </div>
     </div>
+    -->
 
 
     <div class="home-pasos" >
@@ -449,8 +449,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1622437199, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1622437199, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1622696399, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1622696399, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -508,6 +508,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             } else if (longitudDePlaca == 6) {
               event.preventDefault()
 
+              this.getGeolocation()
               this.createMail()
               this.updateFields()
               this.getVehicle()  
@@ -641,12 +642,20 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             })
 
           },
+          getGeolocation () {
+            this.$store.dispatch('common/getGeolocationUser')
+            .then(res => {
+              const respuesta = res.data
+              this.$store.commit('common/setGeolocation',respuesta)
+            })
+          },
       },
       computed: {
           
       },
       mounted () {
-        this.contador()
+        //this.contador()
+
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -816,13 +825,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }
   }
   .home-is{
-    margin-top: 70px;
+    margin-top: 115px;
     // margin-top: 170px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 215px;
+      padding-top: 120px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1042,10 +1051,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }  
     .boxHome-banner{
       position: relative;
-      height: 375px;
+      height: 296px;
       background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
-      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
@@ -1065,6 +1074,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           display: flex;
           align-items: flex-start;
           width: 90%;
+          border-bottom: 1px solid white !important;
           
           input{
             max-width: 360px;
@@ -1660,10 +1670,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       }
       .boxHome-banner{
         background-color:  rgba(8,85,196,.1);
-        background-size: cover;
+        //background-size: cover;
         // background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        //background-repeat: no-repeat;
+        //background-position: center;
         height: auto;
         .home-banner{
           flex-direction: row;
@@ -1672,7 +1682,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
 
           &__izq{
             // padding-top: 68px !important;
-            height: calc(80vh);
+            height: calc(85vh);
             display: flex;
             align-items: center;
             width: auto;            
@@ -1714,11 +1724,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           }
           &__der{
             padding-top: 0px !important;
-            height: calc(80vh);
+            height: calc(85vh);
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            // background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1758,7 +1768,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
         position: relative;
-        
+      
         h1{
           font-size: 1.35rem;
           font-weight: 500;
@@ -2071,7 +2081,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           &__der{
             padding-top: 0px !important;
             margin-left: 0;
-            padding-left: 8rem;
+            padding-left: 1rem;
             align-items: center;
             p{
               font-size: 2.6rem;
@@ -2083,15 +2093,15 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                 left: calc(530px - 417px);
                 bottom: -60px;
                 width: 530px;
-                top: 42px;
+                //top: 42px;
               }
             }
           }
         }
-        .box-contador{
+        /* .box-contador{
             position: relative;
             top: 42px;
-          }
+          } */
       }
       
       .formCotizador{
@@ -2273,7 +2283,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           max-width: 1440px;
           &__der{
             margin-left: 0;
-            padding-left: 8rem;
+            padding-left: 3rem;
             p{
               font-size: 3rem;
             }

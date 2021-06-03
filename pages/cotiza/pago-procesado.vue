@@ -332,7 +332,7 @@ export default {
     let placa01 = this.$store.state.common.plateNumber
     console.log("====================>",placa01)
     if (placa01!= null) {
-      if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1) {
+      if (placa01.substr(5,1) == 0 || placa01.substr(5,1) == 1 || placa01.substr(5,1) == 2 || placa01.substr(5,1) == 3 || placa01.substr(5,1) == 4) {
         this.$store.commit('common/setPlaca01', true)
         console.log("TRUE")  
       }else{
@@ -507,10 +507,18 @@ export default {
         this.planSeleccionado = objJWT.common.planSeleccionado
         this.listCotizacion = objJWT.common.listaCotizacion
         this.monto_pagar = objJWT.common.frecuenciaPago
-        this.mensual = objJWT.common.listaCotizacion.policy.monthly
-        this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
-        this.anual = objJWT.common.listaCotizacion.policy.annual
-        this.bianual = objJWT.common.listaCotizacion.policy.twoYears
+        if (objJWT.common.listaCotizacion.discount.intercorp == 5 ) {
+          this.mensual = objJWT.common.listaCotizacion.policy.monthlyDiscount
+          this.trimestral = objJWT.common.listaCotizacion.policy.quarterlyDiscount
+          this.anual = objJWT.common.listaCotizacion.policy.annualDiscount
+          this.bianual = objJWT.common.listaCotizacion.policy.twoYearsDiscount
+        }else{
+          this.mensual = objJWT.common.listaCotizacion.policy.monthly
+          this.trimestral = objJWT.common.listaCotizacion.policy.quarterly
+          this.anual = objJWT.common.listaCotizacion.policy.annual
+          this.bianual = objJWT.common.listaCotizacion.policy.twoYears
+        }
+        
     }
     
     
