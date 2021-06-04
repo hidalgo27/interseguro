@@ -2911,6 +2911,7 @@
               this.listaFull = res.data.body.allRisk
               this.listCotizacion = res.data.body.allRisk
               this.clonado = Object.assign({}, this.listCotizacion)
+              console.log("THIS.LISTCOTIZACION",this.listCotizacion)
               this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
               this.cobertura_is.name = this.itemElegido.brand + ' - ' + this.itemElegido.model + ' - ' + this.itemElegido.modelYear
               this.cobertura_is.discount = '10'

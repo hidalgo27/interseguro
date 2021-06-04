@@ -140,9 +140,8 @@ export default {
       }
   },
   mounted() {
-    
     this.urlLocal = localStorage.getItem("urlLocal")
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>
