@@ -294,13 +294,13 @@
           <p class="d-none  d-md-block"><strong> Repara tu auto </strong> <br> en nuestra red <br> de talleres</p>
         </div>
         <div class="home-talleres__boxBtn  d-block  d-lg-none">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf">TALLERES AFILIADOS</a>
         </div>
         <div class="home-talleres__img">
           <img src="./../static/media/img/home/talleres.png" alt="talleres">
         </div>
         <div class="home-talleres__btn  d-none  d-lg-block">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf">TALLERES AFILIADOS</a>
         </div>
       </div>
     </div>
