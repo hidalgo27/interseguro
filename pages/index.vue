@@ -35,8 +35,7 @@
                 <button
                   type="button"
                   @click="onSubmit"
-                  class="btn-home-cotizar"
-                >
+                  class="btn-home-cotizar">
                   COTIZAR
                     <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
                 </button>
@@ -134,8 +133,6 @@
       </div>
     </div>
     -->
-
-
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
       </div>
@@ -236,8 +233,6 @@
         </div>
       </div>
     </div>
-
-    
 
     <div class="home-beneficios2  p-47px">
       <div class="home-beneficios2__titulo">
@@ -448,6 +443,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.showLoader = true
       },
       methods: {
+        onSubmit(){
+        },
         contador(){
             var flipdown2 = new FlipDown(1622696399, 'contadorCyberDesktop').start()
             var flipdown = new FlipDown(1622696399, 'contadorCyberMobile').start()
@@ -477,9 +474,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           });
         },
-          onSubmit() {
-
-          },
           resetearPlaca(eve) {
             eve.preventDefault();
             this.$store.dispatch('common/getcreateRemarketing', this.item.email).then(res  => {
