@@ -16,7 +16,7 @@
                   <b>Alcance</b>
                 </p>         
                 <p>
-Será materia de la presente Promoción Comercial otorgar de regalo un vale virtual por un valor de S/100 a aquellos clientes que realicen la compra del Seguro Vehicular en Plan Black que ofrece Interseguro Compañía de Seguros, en adelante Interseguro, haciendo uso de la página Web de Interseguro. Los clientes que realicen la compra del seguro deben cumplir con todos los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído, conocer y aceptar en su totalidad.
+Será materia de la presente Promoción Comercial otorgar de regalo un vale virtual por un valor de S/100 a aquellos clientes que realicen la compra del Seguro Vehicular en Plan Black que ofrece Interseguro Compañía de Seguros, en adelante Interseguro, bajo la página web de nuestro comercializador Banco Internacional de Perú, en adelante Interbank. Los clientes que realicen la compra del seguro deben cumplir con todos los requisitos establecidos en los presentes términos y condiciones, los cuales declaran haber leído, conocer y aceptar en su totalidad.
                 </p>
                 
                 <p>
@@ -41,8 +41,8 @@ Esta promoción no aplica para otros canales de venta, ni es acumulable con otra
                 </p>
                 <p>
                   <ul>
-                    <li>Fecha de Inicio de la promoción: 18:00 horas del jueves 06 de mayo del 2021.
-Fecha de Finalización de la promoción: 23:59 horas del domingo 16 de mayo del 2021.</li>
+                    <li>Fecha de Inicio de la promoción: 12:00 horas del martes 08 de junio del 2021.
+Fecha de Finalización de la promoción: 23:59 horas del miércoles 30 de junio del 2021.</li>
                   </ul>
                 </p>
               </li>
@@ -53,8 +53,8 @@ Fecha de Finalización de la promoción: 23:59 horas del domingo 16 de mayo del 
                 <p>
                   <b>Mecánica de la promoción</b>
                 </p>
-                <p>Para participar en la promoción, el cliente deberá efectuar una compra de nuestro producto digital Seguro Vehicular haciendo uso de la página web de Interseguro; solo aplican las compras del plan Black, en cualquier frecuencia de pago y haciendo uso de cualquier modalidad de pago. También es requisito indispensable que la póliza haya concluido de manera conforme nuestro proceso de evaluación digital.</p>
-                <p>Al finalizar la promoción, Interseguro validará los datos y enviará un mailing a los clientes premiados con el código de activación de la tarjeta virtual y los detalles del premio.</p>
+                <p>Para participar en la promoción, el cliente deberá efectuar una compra de nuestro producto digital Seguro Vehicular haciendo uso de la página web de Interbank (www.interseguro.pe/vehicular/interbank); solo aplican las compras del plan Black, en cualquier frecuencia de pago y haciendo uso de cualquier modalidad de pago. También es requisito indispensable que la póliza haya concluido de manera conforme nuestro proceso de evaluación digital.</p>
+                <p>Para participar en la promoción, el cliente deberá efectuar una compra de nuestro producto digital Seguro Vehicular haciendo uso de la página web de Interbank (www.interseguro.pe/vehicular/interbank); solo aplican las compras del plan Black, en cualquier frecuencia de pago y haciendo uso de cualquier modalidad de pago. También es requisito indispensable que la póliza haya concluido de manera conforme nuestro proceso de evaluación digital.</p>
               
                 
               </li>
@@ -65,21 +65,14 @@ Fecha de Finalización de la promoción: 23:59 horas del domingo 16 de mayo del 
                 </p>
                 <p>
                   <ul>
-                    <li>Aplica únicamente para las personas naturales que adquieran una póliza nueva de Seguro Vehicular Plan Black.</li>
-                    <li>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe desde las 18:00 horas del 06/05/2021 hasta las 23:59:59 horas del 16/05/2021.</li>
-                    <li>Aplica únicamente para personas naturales con documento de identidiad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.
-  </li>
-                    <li>Los datos ingresados deben ser correctos y veraces, caso contrario no podrá hacerse acreedor del premio.
-</li>
-                    <li>Es indispensable que las pólizas hayan concluido de manera conforme nuestro proceso de evaluación digital.
-</li>
-                    <li>La póliza adquirida debe estar vigente a la fecha y hora de la entrega del premio.
-</li>
-                    <li>Los clientes serán notificados a través de un mailing y la entrega de los premios se realizará en un periodo de hasta 15 días útiles después de finalizada la campaña.
-</li>
-                    <li>
-                      Es obligatorio que los clientes se mantengan como asegurados durante la vigencial de la póliza. Caso contrario, se procederá a realizar el cargo a cuenta del asegurado por el valor de la tarjeta virtual.
-                    </li>
+                    <li>Aplica únicamente para las personas naturales que adquieran una póliza nueva de Seguro Vehicular Plan Black en la web de Interbank.</li>
+                    <li>Se considerarán solamente los productos adquiridos a través de la página web www.interseguro.pe/vehicular/interbank desde las 12:00 horas del 08/06/2021 hasta las 23:59:59 horas del 30/06/2021.</li>
+                    <li>Aplica únicamente para personas naturales con documento de identidiad (DNI), carnet de extranjería o pasaporte, mayores de 18 años de edad y residentes de Perú.</li>
+                    <li>Los datos ingresados deben ser correctos y veraces, caso contrario no podrá hacerse acreedor del premio.</li>
+                    <li>Es indispensable que las pólizas hayan concluido de manera conforme nuestro proceso de evaluación digital.</li>
+                    <li>La póliza adquirida debe estar vigente a la fecha y hora de la entrega del premio.</li>
+                    <li>Los clientes serán notificados a través de un mailing y la entrega de los premios se realizará en un periodo de hasta 15 días útiles después de finalizada la campaña.</li>
+                    <li>Es obligatorio que los clientes se mantengan como asegurados durante la vigencial de la póliza. Caso contrario, se procederá a realizar el cargo a cuenta del asegurado por el valor de la tarjeta virtual.</li>
                   </ul>
                 </p>
                 
@@ -91,7 +84,7 @@ Fecha de Finalización de la promoción: 23:59 horas del domingo 16 de mayo del 
 
               <li>
                 <p><b>Coordinación y entrega del premio</b></p>
-                <p>Al finalizar la promoción, Interseguro validará los datos y de haber concluido de manera conforme con el proceso de evaluación digital y mantener el seguro aún vigente, el cliente será notificado y la entrega del premio se realizará en un período de hasta 15 días útiles después de finalizada la campaña.</p>
+                <p>Al finalizar la promoción, el 01 de julio del 2021, Interseguro validará los datos y de haber concluido de manera conforme con el proceso de evaluación digital y mantener el seguro aún vigente, el cliente será notificado y la entrega del premio se realizará en un período de hasta 15 días útiles después de finalizada la campaña.</p>
 
               </li>
               <li>
