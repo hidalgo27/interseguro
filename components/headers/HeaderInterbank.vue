@@ -1,25 +1,39 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
 
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
-                   <p ><strong>¡Últimos días! </strong> <br> Protege tu auto hoy y llévate <br> la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
-                    <div  class="example">            
-                        <div id="contadorCyber12" class="flipdown  flipdownMobile" style="max-width: 256px !important;"></div>
+                                       
+                    <div class="liston-mobile--parrafo"> 
+                       <img  class="img-liston" src="../../static/media/img/campania/ibk/liston-mobile.svg" alt="" style="width: 140px;height: 40px;">                         
                     </div>
+                    <div>
+                        <div style="padding-left: 10px;width: 200px;margin-top: -24px;margin-bottom: 15px;">
+                            <p style="font-size: 11px;">
+                                <b>Te premiamos por asegurarte<br> con nuestro Plan Black</b>
+                            </p>
+                        </div> 
+                        <div  class="example" style="position: relative;">            
+                            <div id="contadorMobile" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 193px !important;"/>
+                        </div>                       
+                    </div>
+                    
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <p ><strong>¡Últimos días!</strong> Protege tu auto hoy y llévate la <strong><span style="color: #02339E">2da cuota gratis</span></strong></p>
+                         <img width="160px" src="./../../static/media/img/campania/ibk/liston-desktop.svg" alt="">  
+                        <p style="font-size: 17px;">
+                            <b>Asegura tu auto HOY con nuestro plan black y llévate un vale virtual de S/ 100</b>                              
+                        </p>
                     </div>
-                    <div id="contadorCyber13" class="flipdown" style="max-width: 256px !important;"></div>
+                    <div id="contadorDesktop" class="flipdown"></div>
                     
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>   -->
+        </div>  
 
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -163,7 +177,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
@@ -199,8 +213,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            var flipdown2 = new FlipDown(1620104399, 'contadorCyber13').start()
-            var flipdown = new FlipDown(1620104399, 'contadorCyber12').start()
+            var flipdown2 = new FlipDown(1623646799, 'contadorMobile').start()
+            var flipdown = new FlipDown(1623646799, 'contadorDesktop').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -360,7 +374,7 @@ a.nuxt-link-exact-active.nuxt-link-active {
         .logo-franja{
             
             img{
-                width: 31px;
+                width: 110px;
             }
         }
     }
