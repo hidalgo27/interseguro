@@ -1,6 +1,7 @@
 <template>
   <div class="home  home-ibk"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
-    <div class="boxHome-banner">      
+    
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -50,6 +51,76 @@
             </p>
           </div>
         </div>
+        
+      </div>
+    </div> -->
+    <!-- Campania -->
+    <div class="boxHome-banner">      
+      <div  class="home-banner"  >
+        <div class="home-banner__izq">
+          <div class="box-formCotizador">
+            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+              <img src="../../static/media/img/campania/ibk/banner-home-mobile.svg" alt="">
+            </div>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 22px;">
+            <div class="box-contador"  >
+                <!-- <p style="color:#fff;">La oferta termina en:</p> -->
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;margin-top:-7px;margin-left: -14px;">                        
+                    </div> 
+                </div>
+              </div>
+              </div>
+            <b-form class="formCotizador">                         
+              <div class="formCotizador__msg">
+                Desde US$ 12 al mes
+              </div>
+              <h1>Cotiza tu seguro vehicular ahora</h1>
+              <b-form-group label-for="placa">
+                  <b-form-input
+                    id="vehicleModelPlate"
+                    class="text-uppercase form-control"
+                    @keyup.native="consultarPlaca($event,750)"
+                    maxlength="6"
+                    autocomplete="off"
+                    type="text"
+                    v-model="item.plateNumber"                    
+                    required
+                    placeholder="Ingresa tu Placa"
+                    name="Placa"
+                    aria-label="placa"                
+                    autofocus
+                ></b-form-input>
+              </b-form-group>
+              <div class="box-btn-homeForm">
+                <button
+                  type="button"
+                  @click="onSubmit"
+                  class="btn-home-cotizar"
+                >
+                  COTIZAR
+                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                </button>
+                <p class="no-tengo-placa"></p>
+                <p class="respaldo-intercorp">
+                  <span> Con el respaldo del grupo</span>
+                  <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+                </p>
+              </div>
+            </b-form>            
+          </div>
+        </div>
+        <div class="home-banner__der">
+            <div class="box-contador" >
+              <img src="../../static/media/img/campania/ibk/banner-home-desktop.svg" alt="">
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -25px;right: 5px;">
+                  <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
+                      
+                  </div> 
+              </div>
+            </div>
+        </div>
+        
       </div>
     </div>
 
@@ -364,7 +435,7 @@
 
 <script>
   export default {
-    layout: "InterbankHome",
+    layout: "InterbankHome2",
       data () {
           return {
             loading: false,
@@ -386,6 +457,10 @@
       created() {
       },
       methods: {
+        contador(){
+            var flipdown2 = new FlipDown(1623646799, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1623646799, 'contadorCyberMobile').start()
+        },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
@@ -571,6 +646,7 @@
           
       },
       mounted () {
+        this.contador()
         this.$store.commit('common/setBusinessId', 2)
         this.$store.commit('common/setFlagCloseListon', 1)        
         // this.$store.commit('common/resetState')
@@ -635,6 +711,12 @@
 </script>
 
 <style lang="scss" scope>
+
+  .flipdown .rotor-group-heading:before {
+    font-size: 9px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+  }
 
   .listonMobile{
     position: relative;
@@ -730,7 +812,7 @@
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 42px;
+      padding-top: 92px;
       
       .parrafo-video{
         font-size: 30px; 
@@ -981,7 +1063,7 @@
           display: flex;
           align-items: center;
           width: 90%;
-          border-bottom: 1px solid white !important;
+          border-bottom: 0px solid white !important;
           input{
             max-width: 360px;
             width: 100%;
@@ -1051,7 +1133,7 @@
     }
     .box-flotante-covid{
       flex-direction: column;
-      background-image: url("./../../static/media/interseguroVehicular_v2/banner_img.svg");      
+      //background-image: url("./../../static/media/interseguroVehicular_v2/banner_img.svg");      
       background-size: contain;
       background-repeat: no-repeat;
       background-position: 175px;
@@ -1638,7 +1720,7 @@
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            //background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1997,7 +2079,7 @@
     .home-ibk{
       .boxHome-banner{
         .home-banner{
-          background-image: url('./../../static/media/img/ibk/banner.svg');          
+          //background-image: url('./../../static/media/img/ibk/banner.svg');          
           background-size: 100%;
           padding: 0;
           padding-left: 65px;
