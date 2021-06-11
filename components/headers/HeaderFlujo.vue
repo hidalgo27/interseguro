@@ -1,17 +1,17 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo"> 
-                       <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> 
-                        <div style="font-size: 10px;padding-left: 10px;width: 159px;">
-                            ¡Por tiempo limitado! Compra hoy <br> y llévate la<span style="color: #FFD527">  2da cuota gratis</span>
+                       <!-- <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> --> 
+                        <div style="font-size: 10px;padding-left: 10px;width: 217px;">
+                            <p><span style="color: #FFD527">  2da cuota gratis + 10%</span> y si compras <br> en plan black un <span style="color: #FFD527"> vale de S/50</span></p>
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 173px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 177px !important;">
                         </div>
                     </div>
                 </div>
@@ -19,16 +19,16 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
-                        <p style="font-size: 20px;">
-                            <b>¡Por tiempo limitado!</b> Protege tu auto hoy y llévate la<span style="color: #FFD527"> <b> 2da cuota gratis</b></span>                              
+                        <p style="width: 635px;font-size: 20px;">
+                            <b><span style="color: #FFD527"> <b> Y por la compra del Plan Black llévate un vale por S/50</b></span> ¡No lo dejes pasar!</b>                             
                         </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
                     
                 </div>
-                <div class="closeListon" @click="closeListon()">X</div>
+                <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
-        </div>  -->
+        </div> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -177,7 +177,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -210,8 +210,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1622696399, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1622696399, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1623646799, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1623646799, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

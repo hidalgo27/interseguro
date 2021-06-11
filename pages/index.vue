@@ -1,8 +1,8 @@
 <template>
-  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+  <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
 
-    <div class="boxHome-banner">      
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -60,9 +60,9 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     
-    <!--
+    
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -121,8 +121,8 @@
 
             
             <div class="box-contador" >
-              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="">
-              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-start;justify-content: flex-end;position: relative;top: -24px;right: -118px;">
+              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 100px;">
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -57px;right: 89px;">
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
                       
                   </div> 
@@ -132,7 +132,7 @@
         </div>
       </div>
     </div>
-    -->
+   
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
       </div>
@@ -446,8 +446,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1622696399, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1622696399, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1623646799, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1623646799, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -648,7 +648,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        //this.contador()
+        this.contador()
 
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
@@ -819,13 +819,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }
   }
   .home-is{
-    margin-top: 115px;
-    // margin-top: 170px;
+    //margin-top: 115px;
+    margin-top: 60px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 120px;
+      padding-top: 150px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1045,10 +1045,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }  
     .boxHome-banner{
       position: relative;
-      height: 296px;
+      height: 400px;
       background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
-      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
         // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
@@ -1068,7 +1068,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           display: flex;
           align-items: flex-start;
           width: 90%;
-          border-bottom: 1px solid white !important;
+          //border-bottom: 1px solid white !important;
           
           input{
             max-width: 360px;
@@ -1646,7 +1646,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   @media (min-width: 992px) {
     .home-is{
       margin-top: 0px;
-      // margin-top: 72px;
+      //margin-top: 15px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1668,11 +1668,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         // background-size: cover;
         //background-repeat: no-repeat;
         //background-position: center;
-        height: auto;
+        height: 480px;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          min-height: 445px;
+          min-height: 485px;
 
           &__izq{
             // padding-top: 68px !important;
@@ -1717,12 +1717,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
           &__der{
-            padding-top: 0px !important;
+            padding-top: 80px !important;
             height: calc(85vh);
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            //Auto
+            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -2073,7 +2074,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           padding: 0 1.5rem;
           padding-left: 65px;
           &__der{
-            padding-top: 0px !important;
+            padding-top: 120px !important;
             margin-left: 0;
             padding-left: 1rem;
             align-items: center;
