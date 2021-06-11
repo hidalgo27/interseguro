@@ -1153,7 +1153,6 @@ export default {
         continuar(evt) {            
             evt.preventDefault()
             this.isDisabledPayment = true
-            this.estamosProcesandoTuPago = true
             this.card.expiration_year = "20" + this.expiration_year
             this.card.email = this.objRenovacion.client.email
             this.isisplayNoneLoader = false
@@ -1240,6 +1239,67 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
     }
   }
   @return $val;
+}
+.modal .modal-content {
+    display: flex;
+    min-width: 338px;
+    min-height: 425px;
+    .msj-procesando-pago {
+        display: none;
+        font-size: 14px;
+        font-family: 'Omnes Medium';
+        color: #ffffff;
+    }
+    .msj-procesando-pag-activo{
+        display: block;
+    }
+    .parpadea {
+        
+        animation-name: parpadeo;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-name:parpadeo;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @-moz-keyframes parpadeo{  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes parpadeo {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes parpadeo {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1.0; }
+    }
+    .box-btn-renovaciones{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .btn-primario-renovaciones{
+        width: 285px;
+        height: 45px;
+        margin: auto;
+        padding: 0;
+        background-color: #ea0c90;
+        color: white;
+        border-radius: 3px;
+        outline: none;
+        box-shadow: none;
+        border: none;
+    }
 }
 
 #modalCambiarFrecuencia{
