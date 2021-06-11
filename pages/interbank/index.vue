@@ -388,10 +388,7 @@
     layout: "InterbankHome2",
       data () {
           return {
-            loading: false,
-            color: "#00C450",
-            sizePulse: "45px",
-            size: "30px",
+            
             slideBeneficios:0,
             slide:0,
             flagCloseListon: 0,
@@ -399,6 +396,10 @@
               plateNumber:'',
               email:''
             },
+            loading: false,
+            color: "#00C450",
+            sizePulse: "45px",
+            size: "30px",
             saveVehicle:{},
             saveCliente:{}
           }

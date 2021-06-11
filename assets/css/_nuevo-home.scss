@@ -6,7 +6,8 @@ $vehicular_subtitulo: #454A6C;
 
 $vehicular_parrafo_v2: #383C5A;
 .nuevo-home{
-    padding-top: 70px;
+    font-size: 18px;
+    padding-top: 120px;
     color: $vehicular_parrafo_v2;
     // p,h1,h2,h3,div,span,section,article,strong{
     //     padding: 0;
@@ -14,15 +15,164 @@ $vehicular_parrafo_v2: #383C5A;
     //     box-sizing: border-box;
     //     position: relative;
     // }
-    
+    p{
+        padding: 0;
+        margin: 0;
+    }
+    .home-seccion{
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
     .section-title{
+        font-family: 'Omnes Regular';
         p{
             color: $vehicular_primario;
             text-align: center;
-            font-size: 1.69rem;
+            font-size: 1.65rem;
             line-height: 2.19rem;
             max-width: 290px;
             margin: auto;
+        }
+        margin-bottom: 24px;
+    }
+    
+    /**********************************************************/
+    /**********************************************************/
+    /**********************************************************/
+    .banner{
+        background-color: transparent;
+        height: 480px;
+        width: 100%;
+        position: relative;
+        .banner-blue{
+            position: absolute;
+            height: 350px;
+            background-color: $vehicular_primario;
+            width: 100%;
+            z-index: 9;
+        }
+        .banner-textos{
+            color: #fff;            
+            padding-top: 28px;
+            position: relative;
+            z-index: 9;
+            .titulo{
+                font-family: 'Omnes Medium';
+                font-size: 34px;
+                line-height: 40px;
+                text-align: center;
+            }
+            .subtitulo{
+                color: #fff;
+                text-align: center;
+                font-size: 22px;
+                font-family: 'Omnes Regular';
+                line-height: 30px;
+                margin-top: 16px;
+                margin-bottom: 50px;
+            }
+        }
+        .box-formCotizador{
+            width: 100%;
+            padding: 0;      
+            .titulo-formulario{
+                font-size: 1.5rem;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
+                text-align: center;
+                
+                margin-top: 25px;
+                padding: 0;
+                margin: auto;
+                padding-top: 18px;
+                padding-bottom: 28px;
+                position: relative;
+                max-width: 438px;
+                width: 100%;
+            .img-form{
+                position: absolute;
+                bottom: -32px;
+                left: 7px;
+                z-index: 0;
+                height: 82px;
+                display: none;
+                img{
+                    height: 82px;
+                }
+              }
+            }
+        }
+        .formCotizador{
+            padding:2rem 1.5rem;
+            max-width: 438px;
+            width: 100%;
+            max-width: 340px;
+            height: 280px;
+            border-radius: 3rem 0 3rem 0;
+            background: #fff;
+            box-shadow: -3px 4px 12px -1px #ccc;
+            position: relative;
+            margin: auto;
+            z-index: 9;  
+            h1{
+                font-family: 'Omnes Regular';
+                font-size: 1.1rem;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
+                text-align: center;
+                color: $vehicular_parrafo;
+                margin-top: 25px;
+                margin: 0;
+                padding: 0;
+                padding-top: 8px;
+                padding-bottom: 18px;
+            }
+            &__msg{
+                padding: 7px 14px;
+                position: absolute;
+                right: -1rem;
+                top: -1rem;
+                border-radius: 8px 0 8px 0;
+                box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
+                background-color: #0133A1!important;
+                color: white !important;
+                font-family: 'Omnes Regular';
+            }
+            .box-btn-homeForm{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                button{
+                    font-family: 'Omnes Regular';
+                    border-color: #EA0F8F !important;
+                    background-color: #EA0F8F !important;
+                    color: #fff;
+                    max-width: 360px;
+                    width: 100%;
+                    max-width: 275px;
+                    height: 40px;
+                    margin: 0 auto !important;
+                    position: relative;
+                }
+            }
+            .respaldo-intercorp{
+                span{
+                    font-family: 'Omnes Regular';
+                    font-size: 11px;
+                }
+            }
+        }
+        .cliploader{
+            width: 100%;
+            right: 0;
+            height: 51px;
+            top: 0px;
         }
     }
     .client{
@@ -31,29 +181,396 @@ $vehicular_parrafo_v2: #383C5A;
     }
     .client-numbers{
         border: #DDE0E9 1px solid;
+        padding: 2px 16px;
         &__item{
+            display: flex;
+            align-items: center;
             position: relative;
+            padding: 12px 0;
+            img{
+                margin-right: 12px;
+            }
             &:after{
                 background-color: #DDE0E9;
                 bottom: 0;
                 content: "";                
                 height: 1px;
-                left: 5%;
+                left: 2%;
                 position: absolute;
-                width: 90%;
-                
+                width: 98%;                
             }
             &--numbers{
                 font-size: 1.75rem;
                 padding: 0;
-                font-family: 'Omnes Medium';                
+                font-family: 'Omnes Medium';
+                margin: 0;
             }
             &--text{
                 font-size: 1.12rem;
                 padding: 0;
                 font-family: 'Omnes regular';
+                margin: 0;
+                margin-top: 8px;
+            }
+            &:last-child{                
+                &:after{
+                    background-color: transparent;
+                }
             }
         }
 
     }
+    .beneficios{
+        border: #DDE0E9 1px solid;
+        padding: 0px 16px; 
+        &__item{
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 12px 0;
+            .caja{
+                display: flex;
+                align-items: center;
+                position: relative;
+                padding: 12px 0;
+            }
+            img{
+                margin-right: 12px;
+                width: 67px;
+            }
+            &--texto{
+                line-height: 25px;
+            }
+            &:after{
+                background-color: #DDE0E9;
+                bottom: 0;
+                content: "";                
+                height: 1px;
+                left: 2%;
+                position: absolute;
+                width: 98%;                
+            }
+            &:last-child{                
+                &:after{
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+    .home-video{
+        padding: 44px 0;
+        .text-video{
+            font-size: 1.125rem;
+            text-align: center;
+            line-height: 25px;
+            font-family: 'Omnes Regular';
+        }
+        .box2-btn{
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .btn-azulVehicular{
+            background-color: $vehicular_primario;
+            border: none;
+            color: #fff;
+            width: 263px;
+            height: 49px;
+            cursor: pointer;
+        }
+    }
+    .elegirnos{
+        padding: 16px 18px;
+        background-color: #F9F9FB;
+        &__item{
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 12px 0;
+            img{
+                margin-right: 20px;
+                width: 67px;
+            }
+            &--titulo{
+                color: #383C5A;
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 8px;
+                font-family: 'Omnes SemiBold';
+            }
+            &--text{
+                line-height: 23px;
+                font-family: 'Omnes Regular';
+            }
+        }
+    }
+
+    .testimonios{
+        .VueCarousel-slide{
+            img{
+                width: 59px;
+                height: 59px;
+                margin-right: 12px;
+            }
+            display: flex;
+            font-size: 16px;
+        }
+    }
+    .box-planes{
+        background-color: #F9F9FB;
+    }
+    .seccion-planes{
+        &__head{
+            display: flex;
+            justify-content: space-between;
+            .plan-item{
+                width: 110px;
+                text-align: center;
+                background-color: #E5E8EF;
+                color: #454A6C;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &__body{
+            margin-top: 12px;
+            .planes-detalle{
+                border: 2px solid $vehicular_primario;
+                padding-bottom: 1.7rem;
+                background-color: #fff;
+            }
+            .plan-monto{
+                font-size: 1.5rem;
+                text-align: center;
+                color: $vehicular_primario;
+                padding: 16px 0;
+            }
+            .plan-incluye{
+                color: #454A6C;
+                font-family: 'Omnes SemiBold';
+                padding-left: 1.5rem;
+            }
+            .plan-nombre{
+                text-align: center;
+                font-size: 1.25rem;
+                font-family: 'Omnes Regular';
+                padding: 16px 0;
+                position: relative;
+                &:after{
+                    background-color: #DDE0E9;
+                    bottom: 0;
+                    content: "";                
+                    height: 1px;
+                    left: 15%;
+                    position: absolute;
+                    width: 70%; 
+                }
+            }
+            ul{
+                padding-top: 14px;
+                padding-left: 1.5rem;
+                li{
+                    list-style: none;
+                    font-family: 'Omnes Regular';
+                    font-size: 1rem;
+                }
+            }
+            .ver-detalle{
+                text-align: center;
+                display: inline-block;
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+        .active{
+            border: 2px solid $vehicular_primario;
+        }
+    }
+
+    .tab-personalizado{
+        color: #383C5A;
+        border: none;
+        text-align: left;
+    }
+    .tab-personalizado.focus, .tab-personalizado:focus, .tab-personalizado:hover {
+        color: #383C5A;
+        background-color: #fff;
+        border: none;
+    }
+    .tab-personalizado:not(:disabled):not(.disabled):active, .tab-personalizado:not(:disabled):not(.disabled).active, .show > .tab-personalizado.dropdown-toggle {
+        color: #383C5A !important;
+        background-color: #fff !important;
+        border: none !important;
+    }
+    .card-personalizado{
+        color: #383C5A !important;
+        background-color: #fff !important;
+        border: none !important;
+    }
+}
+
+@media (min-width: 600px) {
+    .nuevo-home{
+        .client{
+            .client-numbers{
+                border: none;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                &__item{
+                    border: 1px solid #DDE0E9;
+                    padding-left: 18px;
+                    min-width: 252px;
+                    min-height: 118px;
+                    margin-bottom: 24px;
+                    &--numbers{
+                        font-size: 2.18rem;
+                    }
+                }
+            }
+        }
+        .beneficios{
+            display: flex;
+            flex-wrap: wrap;
+            border: none;
+            &__item{
+                width: 50%;
+                padding: 8px;
+                &:after{
+                    background-color: transparent;
+                }
+                &:nth-child(1){
+                    width: 100%;
+                    .caja{
+                        padding-left: 24px;
+                        flex-direction: row;
+                    }
+                    p{
+                        text-align: left;
+                    }
+                }
+                img{
+                    width: 100px;
+                    margin: 12px 0;
+                }
+                .caja{
+                    border: 1px solid #DDE0E9;
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 0;
+                    width: 100%;
+                    flex-direction: column;
+                }
+                &--texto{
+                    font-size: 1rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        .seccion-planes{
+            &__body{
+                .planes-detalle{
+                    border: none;
+                    border: 1px solid #CCD1DD;
+                    &:last-child{
+                        border: $vehicular_primario 2px solid
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {
+    
+    .nuevo-home{
+        .section-title{
+            p{
+                font-size: 2.44rem;
+                line-height:3.125rem;
+                max-width: 640px;                
+            }
+        }
+        .client{
+        }
+        .beneficios{
+            &__item{
+                width: 25%;
+                min-width: 265px;
+                margin-bottom: 0px;
+                &:nth-child(1){
+                    width: 50%;
+                    .caja{
+                        flex-direction: row;
+                    }
+                }
+                img{
+                }
+                .caja{
+                    min-height: 216px;
+                }
+            }
+        }
+        .elegirnos{
+            display: flex;
+            &__item{
+                flex-direction: column;
+                width: 25%;
+                .box-img{
+                    height: 130px;
+                    margin-bottom: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                }
+                img{
+                    width: 108px;
+                    height: auto;                   
+                }
+                &--titulo{
+                    font-size: 1.25rem;
+                }
+                &--text{
+                    font-size: 18px;
+                }
+            }
+            &--box{
+                p{
+                    text-align: center;
+                }
+            }
+        }
+        .seccion-planes{
+            &__body{
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                .plan-nombre{
+                    font-size: 1.2rem;
+                }
+                .planes-detalle{
+                    width: 360px;
+                    height: 560px;
+                }
+                .planes-detalle{
+                    position: relative;
+                }
+                .plan-incluye{
+                    padding-left: 2rem;
+                }
+                ul{
+                    padding-left: 2rem;
+                }
+                .ver-detalle{
+                    position: absolute;
+                    bottom: 24px;
+                    font-size: 1.125rem !important;
+                }
+            }
+        }
+    }
+    
 }
