@@ -1,49 +1,58 @@
 <template>
   <div class="nuevo-home">
     <div class="banner">
-      <div class="banner-blue"></div>
-      <div class="banner-textos">
-        <p class="titulo">Proteger tu auto no <span><br></span> tiene porque ser caro.</p>
-        <p class="subtitulo">
-          Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
-        </p>
-      </div>
-      <b-form class="formCotizador">                         
-        <div class="formCotizador__msg">
-          Desde US$ 12 al mes
-        </div>
-        <h1>Cotiza tu seguro vehicular ahora</h1>
-        <b-form-group>
-            <b-form-input
-              id="vehicleModelPlate"
-              class="text-uppercase form-control"
-              @keyup.native="consultarPlaca($event,750)"
-              maxlength="6"
-              autocomplete="off"
-              type="text"
-              v-model="item.plateNumber"                    
-              required
-              placeholder="Ingresa tu Placa"
-              name="Placa"
-              aria-label="placa"                
-              autofocus
-          ></b-form-input>
-        </b-form-group>
-        <div class="box-btn-homeForm">
-          <button
-            type="button"
-            class="btn-home-cotizar"
-          >
-            COTIZAR
-              <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
-          </button>
-          <p class="no-tengo-placa"></p>
-          <p class="respaldo-intercorp">
-            <span> Con el respaldo del grupo</span>
-            <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+      <div class="banner-blue    d-xl-none"></div>
+      <div class="container">
+        <div class="banner-textos  d-xl-none">
+          <p class="titulo">Proteger tu auto no <span><br></span> tiene porque ser caro.</p>
+          <p class="subtitulo">
+            Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
           </p>
         </div>
-      </b-form>
+        <b-form class="formCotizador">                         
+          <div class="formCotizador__msg">
+            Desde US$ 12 al mes
+          </div>
+          <h1>Cotiza tu seguro vehicular ahora</h1>
+          <b-form-group>
+              <b-form-input
+                id="vehicleModelPlate"
+                class="text-uppercase form-control"
+                @keyup.native="consultarPlaca($event,750)"
+                maxlength="6"
+                autocomplete="off"
+                type="text"
+                v-model="item.plateNumber"                    
+                required
+                placeholder="Ingresa tu Placa"
+                name="Placa"
+                aria-label="placa"                
+                autofocus
+            ></b-form-input>
+          </b-form-group>
+          <div class="box-btn-homeForm">
+            <button
+              type="button"
+              class="btn-home-cotizar"
+            >
+              COTIZAR
+                <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+            </button>
+            <p class="asegurados"><strong>Más de 2,000,000</strong> de asegurados</p>
+            <p class="respaldo-intercorp">
+              <span> Con el respaldo del grupo</span>
+              <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+            </p>
+          </div>
+        </b-form>
+        <div class="banner-textos  d-none  d-lg-inline-block">
+          <p class="titulo">Proteger tu auto no <span><br></span> tiene porque ser caro.</p>
+          <p class="subtitulo">
+            Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
+          </p>
+        </div>
+      </div>
+      
     </div>
     <b-container class="home-seccion  client">
       <b-row>
@@ -90,14 +99,31 @@
     </b-container>
 
     <b-container class="home-seccion">
-      <b-row>
-        <b-col cols="12">
+      <b-row class="justify-content-center">
+        <b-col cols="12" xl="6">
           <div class="testimonios">
-            <carousel :perPageCustom="[[368, 1], [1024, 1]]" :perPage="4" :navigationEnabled="true" :paginationEnabled="false">
-              <slide v-for="(item, index) in listCategories" v-bind:key="index" >
-                <img :src="item.img"/>
+            <carousel :perPageCustom="[[368, 1], [1024, 1]]" 
+             :navigationEnabled="false" 
+             :paginationEnabled="false">
+              <slide>
+                <img src="./../static/media/imagenes/home/testimonio.png"/>
                 <p class="categoria" v-bind:class="'categoria-'+index">
-                {{item.testimonio}}
+                Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” <strong>Rosario P. Gamarra</strong>
+                </p>
+                <!--
+                <div class="stars">
+                  <img src="./../static/media/imagenes/home/testimonio.png"/>
+                  <img src="./../static/media/imagenes/home/testimonio.png"/>
+                  <img src="./../static/media/imagenes/home/testimonio.png"/>
+                  <img src="./../static/media/imagenes/home/testimonio.png"/>
+                  <img src="./../static/media/imagenes/home/testimonio.png"/>
+                </div>
+                -->
+              </slide>
+              <slide v-for="(item, index) in listCategories" v-bind:key="index" >
+                <img src="./../static/media/imagenes/home/testimonio.png"/>
+                <p class="categoria" v-bind:class="'categoria-'+index">
+                Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” <strong>Rosario P. Gamarra</strong>
                 </p>
               </slide>
             </carousel>
@@ -128,6 +154,10 @@
                 <div class="plan-item" @click="seleccionarPlan(1)">
                   <p>Medio</p>
                 </div>
+              </div>
+              <div class="plan-recomendado   d-lg-none" v-if="planSeleccionado == 2">
+                <img src="@/static/media/imagenes/home/star-white.svg" alt="" class="beneficios__item--icon">
+                <span>¡Plan recomendado!</span>
               </div>
               <div class="seccion-planes__body   d-lg-none">
                 <div class="planes-detalle">
@@ -177,6 +207,10 @@
 
               <div class="seccion-planes__body  d-none  d-lg-flex">
                 <div class="planes-detalle" v-for="(item, index) in listTest" :key="index">
+                  <div class="plan-recomendado" v-if="index == 2">
+                    <img src="@/static/media/imagenes/home/star-white.svg" alt="" class="beneficios__item--icon">
+                    <span>¡Plan recomendado!</span>
+                  </div>
                   <p class="plan-nombre"><strong>{{item.plan}} </strong>{{item.proteccion}} </p>
                   <p class="plan-monto">
                     <span>Desde </span> <span> US$ {{item.precio}}</span> <span>AL MES</span>
@@ -239,7 +273,7 @@
           <div class="beneficios">
             <div class="beneficios__item">
               <div class="caja">
-                <img src="@/static/media/imagenes/home/beneficio-dcto.svg" alt="" class="beneficios__item--icon">
+                <img src="@/static/media/imagenes/home/beneficio-atencion.svg" alt="" class="beneficios__item--icon">
                 <div class="beneficios__item--texto">
                   <p class="d-block  d-xl-none">Dscto de S/50 en <strong>atención médica </strong>covid-19 a domicilio</p>
                   <p class="d-none  d-xl-block" style="padding-left: 24px;"><strong>Atenciónes médica,</strong> Descuentos <br> y beneficios en Atención médica:</p>
@@ -296,7 +330,7 @@
             </div>
             <div class="beneficios__item">
               <div class="caja">
-                <img src="@/static/media/imagenes/home/beneficio-auxilio.svg" alt="" class="beneficios__item--icon">
+                <img src="@/static/media/imagenes/home/beneficio-delivery.svg" alt="" class="beneficios__item--icon">
                 <p class="beneficios__item--texto">
                 Hasta 25% dscto. en <br> <strong>comida por delivery</strong>
                 </p>
@@ -311,7 +345,7 @@
       <b-row>
         <div class="col-12">
           <p class="text-video">
-            Mira nuestro video y descubre <br> nuestro programa de beneficios VIVE+
+            Mira nuestro video y descubre <br class="d-xl-none"> nuestro programa de beneficios VIVE+
           </p>
           <div class="box2-btn">
             <button class="btn-azulVehicular ver-video">VER VIDEO</button>
@@ -374,11 +408,49 @@
       </b-container>
     </div>
 
-    <b-container class="home-seccion">
+    <b-container class="home-seccion  preguntas">
+
+    <div class="row  dudas-consultas d-block d-xl-none">
+      <div class="col-12  col-lg-4">
+        <div class="dudas-consultas__item">
+          <carousel :perPageCustom="[[368, 1], [1024, 1]]" 
+            :navigationEnabled="false" 
+            :paginationEnabled="false">
+            <slide class="slide-dudas">
+              <img src="@/static/media/imagenes/home/tiempo-emergencia.svg"/>
+              <div class="dudas-consultas--box">
+                <p class="titulo">¡Tengo una emergencia!</p>
+                <p>¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
+                <span>Llamanos: (01) 500 0000</span>
+              </div>
+            </slide>
+
+            <slide class="slide-dudas">
+              <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
+              <div class="dudas-consultas--box">
+                <p  class="titulo">¿Dónde llevo mi carro ?</p>
+                <p>Visita nuestra red de talleres afiliados</p>
+                <span>Ver talleres afiliados</span>
+              </div>
+            </slide>
+
+            <slide class="slide-dudas">
+              <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
+              <div class="dudas-consultas--box">
+                <p  class="titulo">Necesito un asesor</p>
+                <p>¿Necesitas ayuda o consulta de un asesor?</p>
+                <span>Llamanos: (01) 500 0000</span>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+      </div>
+    </div>
+    
       <b-row>
         <b-col cols="12" lg="5">
           <div class="section-title">
-            <p>¿Necesitas ayuda o tienes preguntas sobre nuestro seguro vehicular?</p>
+            <p>¿Necesitas ayuda o <br class="d-none  d-xl-block"> tienes  preguntas <br class="d-none  d-xl-block"> sobre nuestro <br class="d-none  d-xl-block"> seguro vehicular?</p>
           </div>
           
         </b-col>
@@ -442,6 +514,39 @@
           </div>
         </b-col>
       </b-row>
+
+      <div class="row  dudas-consultas d-none d-xl-flex">
+        <div class="col-12  col-lg-4">
+          <div class="dudas-consultas__item">
+            <img src="@/static/media/imagenes/home/tiempo-emergencia.svg"/>
+            <div class="dudas-consultas--box">
+              <p class="titulo">¡Tengo una emergencia!</p>
+              <p>¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
+              <span>Llamanos: (01) 500 0000</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12  col-lg-4">
+          <div class="dudas-consultas__item">
+            <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
+            <div class="dudas-consultas--box">
+              <p  class="titulo">¿Dónde llevo mi carro ?</p>
+              <p>Visita nuestra red de talleres afiliados</p>
+              <span>Ver talleres afiliados</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12  col-lg-4">
+          <div class="dudas-consultas__item">
+            <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
+            <div class="dudas-consultas--box">
+              <p  class="titulo">Necesito un asesor</p>
+              <p>¿Necesitas ayuda o consulta de un asesor?</p>
+              <span>Llamanos: (01) 500 0000</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </b-container>
 
   </div>
@@ -463,7 +568,7 @@ export default {
       sizePulse: "45px",
       size: "30px",
       /************************************* */
-      planSeleccionado: "Full",
+      planSeleccionado: 2,
       proteccion: "Protección total",
       precio: 33,
       listTest: [

@@ -320,7 +320,22 @@ $vehicular_parrafo_v2: #383C5A;
         background-color: #F9F9FB;
     }
     .seccion-planes{
+        .plan-recomendado{
+            background: $vehicular_primario;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 17px;
+            font-family: 'Omnes Medium';
+            border-radius: 3px 3px 0 0;
+            img{
+                margin-right: 12px;
+            }
+        }
         &__head{
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             .plan-item{
@@ -335,7 +350,6 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
         &__body{
-            margin-top: 12px;
             .planes-detalle{
                 border: 2px solid $vehicular_primario;
                 padding-bottom: 1.7rem;
@@ -409,6 +423,39 @@ $vehicular_parrafo_v2: #383C5A;
         background-color: #fff !important;
         border: none !important;
     }
+    .dudas-consultas{
+        padding: 48px 0;
+        &__item{
+            border: #CCD1DD 1px solid;
+            height: 180px;
+            display: flex;
+            padding: 0 12px;
+            img{
+                width: 87px;
+            }
+            span{
+                color: #0855C4;
+                font-size: 14px;
+                font-family: 'Omnes SemiBold';
+                text-transform: uppercase;
+            }
+        }
+        &--box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 8px;
+            p{
+                margin-bottom: 12px;
+            }
+            .titulo{
+                color: #383C5A;
+                font-family: 'Omnes SemiBold';
+                font-size: 20px;
+            }
+            
+        }
+    }
 }
 
 @media (min-width: 600px) {
@@ -463,6 +510,8 @@ $vehicular_parrafo_v2: #383C5A;
                     padding: 12px 0;
                     width: 100%;
                     flex-direction: column;
+                    justify-content: center;
+                    
                 }
                 &--texto{
                     font-size: 1rem;
@@ -472,6 +521,15 @@ $vehicular_parrafo_v2: #383C5A;
         }
 
         .seccion-planes{
+            .plan-recomendado{
+                width: 261px;
+                margin: auto;
+                position: absolute;
+                top: -36px;
+                display: flex;
+                justify-content: center;
+                left: 51px;
+            }
             &__body{
                 .planes-detalle{
                     border: none;
@@ -487,6 +545,54 @@ $vehicular_parrafo_v2: #383C5A;
 @media (min-width: 1200px) {
     
     .nuevo-home{
+        .banner{
+            height: 468px;
+            background-color: $vehicular_primario;
+            .container{
+                height: 100%;
+                align-items: center;
+                display: flex;            
+            }
+            .formCotizador{
+                margin: 0;
+                display: inline-block;
+                width: 438px;
+                max-width: 438px;
+                height: 340px;
+                input{
+                    height: 51px;
+                    width: 360px;
+                    margin: auto;
+                    text-align: center;
+                }
+                .asegurados{
+                    color: #0855C4;
+                    font-family: 'Omnes Regular';
+                }
+                h1{
+                    font-size: 23px;
+                }
+                &__msg{
+                }
+                .box-btn-homeForm{
+                    button{
+                    }
+                }
+                .respaldo-intercorp{
+                    span{
+                    }
+                }
+            }
+            .banner-textos{
+                display: inline-block;
+                .titulo{
+                    text-align: left;
+                }
+                .subtitulo{
+                    text-align: left;
+                }
+            }
+        }
         .section-title{
             p{
                 font-size: 2.44rem;
@@ -503,14 +609,25 @@ $vehicular_parrafo_v2: #383C5A;
                 margin-bottom: 0px;
                 &:nth-child(1){
                     width: 50%;
+                    ul{
+                        padding-top: 18px;
+                    }
                     .caja{
                         flex-direction: row;
+                        img{
+                            width: 150px;
+                        }
                     }
                 }
+                &--texto{
+                    font-size: 1.125rem;
+                }
                 img{
+                    width: 120px;
                 }
                 .caja{
-                    min-height: 216px;
+                    min-height: 270px;
+                    justify-content: center;
                 }
             }
         }
@@ -563,11 +680,40 @@ $vehicular_parrafo_v2: #383C5A;
                 }
                 ul{
                     padding-left: 2rem;
+                    li{
+                        line-height: 20px;
+                    }
                 }
                 .ver-detalle{
                     position: absolute;
                     bottom: 24px;
                     font-size: 1.125rem !important;
+                }
+            }
+        }
+        .testimonios{
+            max-width: 475px;
+            overflow: hidden;
+            background: #F9F9FB;
+            height: 112px;
+            display: flex;
+            align-items: center;
+            p{
+                font-size: 18px;
+            }
+            .VueCarousel-inner{
+                flex-basis: 475px !important;
+            }
+        }
+        .home-video{
+            .text-video{
+                font-size: 26px;
+            }
+        }
+        .preguntas{
+            .section-title{
+                p {
+                    text-align: left;
                 }
             }
         }
