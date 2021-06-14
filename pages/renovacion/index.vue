@@ -884,7 +884,13 @@ export default {
                         // this.msgMontos = "";
                         // this.msgMontosActive = false;
                         //REVISAR DESPUES EL CALL
-                        this.listCotizacion = res.data.body.allRisk
+                        if (this.objRenovacion.policy.planId == 4){
+                            this.listCotizacion = res.data.body.basic
+                        } else if (this.objRenovacion.policy.planId == 6){
+                            this.listCotizacion = res.data.body.medium
+                        } else {
+                            this.listCotizacion = res.data.body.allRisk    
+                        }
                         this.clonado.policy.risk = this.listCotizacion.policy.risk;
                         this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
                         this.clonado.policy.annual = this.listCotizacion.policy.annual;
@@ -1113,7 +1119,13 @@ export default {
                             this.itemElegido.assignedPrice = this.objRenovacion.priceModel.vehicle.current
                             this.$store.dispatch('common/getCotizacionRenovacion', this.itemElegido)
                             .then((res) => {
-                                this.listCotizacion = res.data.body.allRisk
+                                if (this.objRenovacion.policy.planId == 4){
+                                    this.listCotizacion = res.data.body.basic
+                                } else if (this.objRenovacion.policy.planId == 6){
+                                    this.listCotizacion = res.data.body.medium
+                                } else {
+                                    this.listCotizacion = res.data.body.allRisk    
+                                }
                                 this.mostrarPrimeraPantalla = false
                                 this.mostrarSegundaPantalla = true
                                 this.clonado = Object.assign({}, this.listCotizacion);
