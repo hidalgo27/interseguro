@@ -120,9 +120,10 @@
         <div class="home-banner__der" >
 
             
-            <div class="box-contador" >
+            <div class="box-contador" >              
               <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 100px;">
-              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -57px;right: 89px;">
+              <!-- <p style="margin-left:220px;">La oferta termina en: </p> -->
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -57px;right: 134px;">
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
                       
                   </div> 
@@ -446,8 +447,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1623733199, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1623733199, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1623905999, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1623905999, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
