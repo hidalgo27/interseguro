@@ -7,7 +7,8 @@
                    <div class="liston-mobile--parrafo"> 
                        <!-- <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> --> 
                         <div style="font-size: 10px;padding-left: 10px;width: 217px;">
-                            <p><span style="color: #FFD527">  2da cuota gratis + 10%</span> y si compras <br> en plan black un <span style="color: #FFD527"> vale de S/50</span></p>
+                            <p><span style="color: #FFD527"> Paga 11 meses</span> por un seguro vehicular anual</p>
+                             
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
@@ -20,7 +21,8 @@
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
                         <p style="width: 635px;font-size: 20px;">
-                            <b><span style="color: #FFD527"> <b> Y por la compra del Plan Black llévate un vale por S/50</b></span> ¡No lo dejes pasar!</b>                             
+                            <b> ¡Aniversario Interseguro!<span style="color: #FFD527"> <b> Paga 11 meses por un seguro vehicular anual</b></span></b>
+                                                          
                         </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -210,8 +212,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1623733199, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1623733199, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1623905999, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1623905999, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
