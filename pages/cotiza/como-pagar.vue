@@ -451,7 +451,7 @@
                         <p class="mt-3">
                             <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>
                             <span style="color : #ffffff; font-size: 18px">
-                            ¡Por pocos días! Paga solo 11 meses <br> por un seguro anual. Además, <br> <span style="color: #FFDD36;"> aprovecha nuestro 10% de dscto.</span>
+                            ¡Por pocos días! Paga solo 11 meses <br> por un seguro anual. Además, <br> aprovecha nuestro<span style="color: #FFDD36;"> 10% de dscto.</span>
                             </span> 
                         </p>
                     </b-col>
