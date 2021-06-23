@@ -1,6 +1,6 @@
 <template>
   <div>
-  <!--
+
     <div class="writeme" data-v-d5c59bf2="" v-if="urllocal">
       <a target="_blank" href="https://api.whatsapp.com/send?phone=51934792742&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">
         <img src="./../../static/media/interseguroVehicular_v2/whatsapp.png" alt="Escribir algún contacto" class="call d-lg-none" style="width:50px;border-radius: 50px;" data-v-d5c59bf2="">
@@ -8,14 +8,10 @@
       </a>
     </div>
 
-    -->
     <section class="footerv2 d-block d-md-none">
-      
       <div class="footerv2__acordeon">
         
         <div role="tablist">
-          
-          
             <b-card no-body>
             <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button block href="#" v-b-toggle.accordion-1>SEGURO VEHICULAR</b-button>
