@@ -3,8 +3,8 @@
     <div class="banner">
       <div class="banner-blue    d-xl-none"></div>
       <div class="container">
-        <div class="banner-textos  d-xl-none">
-          <p class="titulo">Proteger tu auto no <span><br></span> tiene porque ser caro.</p>
+        <div class="banner-textos  d-xl-none">         
+          <p class="titulo">Todas las coberturas para <span><br></span> tu auto al mejor precio.</p>
           <p class="subtitulo">
             Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
           </p>
@@ -46,7 +46,7 @@
           </div>
         </b-form>
         <div class="banner-textos  d-none  d-lg-inline-block">
-          <p class="titulo">Proteger tu auto no <span><br></span> tiene porque ser caro.</p>
+          <p class="titulo">Todas las coberturas para <span><br></span> tiene porque ser caro.</p>
           <p class="subtitulo">
             Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
           </p>
@@ -348,7 +348,7 @@
             Mira nuestro video y descubre <br class="d-xl-none"> nuestro programa de beneficios VIVE+
           </p>
           <div class="box2-btn">
-            <button class="btn-azulVehicular ver-video">VER VIDEO</button>
+            <a class="btn-azulVehicular ver-video" href="https://www.youtube.com/watch?v=Bff41WXOtak">VER VIDEO</a>
           </div>
         </div>
       </b-row>
@@ -554,19 +554,26 @@
 <style lang="scss">
   
 </style>
+
 <script>
 export default {
   layout: "InterseguroHome",
   data() {
     return {
+      showLoader: true,
+      loading: false,
+      color: "#00ADEE",
+      sizePulse: "45px",
+      size: "30px",
+      slideBeneficios:0,
+      slide:0,
+      flagCloseListon: 0,
       item:{
         plateNumber:'',
         email:''
       },
-      loading: false,
-      color: "#00C450",
-      sizePulse: "45px",
-      size: "30px",
+      saveVehicle:{},
+      saveCliente:{},
       /************************************* */
       planSeleccionado: 2,
       proteccion: "Protección total",
@@ -624,6 +631,10 @@ export default {
           break;
       }
     },
+    pageContinue(){
+      
+      this.$nuxt.$router.push("/cotizacion/seleccion/")
+    },
     consultarPlaca(event, ms) {  
       if(this.item.plateNumber.length == 6){
         this.loading = true
@@ -649,10 +660,138 @@ export default {
         this.updateFields()
         this.getVehicle()  
       }
-    }
+    },
+    updateFields () {
+      this.$store.commit('common/setPlateNumber', this.item.plateNumber)
+      this.$store.commit('common/setEmail', this.item.email)
+    },
+    createMail () {
+      const fecha = new Date()
+      const fechaEnNumeros = fecha.getTime()
+      const aleatorio = Math.random() * (10000 - 0) + 0
+      const aleatorioFinal = fechaEnNumeros + parseInt(aleatorio)
+      const mailGenerado = 'test_' + aleatorioFinal.toString() + '@test.com'
+      this.item.email = mailGenerado
+      this.$store.commit('common/setEmail', mailGenerado)
+    },
+    getVehicle () {
+      this.item.plateNumber = this.item.plateNumber.toUpperCase();
+      this.$store.dispatch('common/getVehicle', this.item)
+      .then((res) =>{
+        
+
+        const respuesta = res.data.body;
+        /* Code 0 = > el servicio respondio correctamente */
+        if (res.data.code == 0) {
+        
+          if(respuesta.useType){
+              const useType = respuesta.useType.toString().toLowerCase();
+              if(useType === 'particular' || useType === 'escolar'){
+                this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+              }else{
+                this.loading = false;
+                window.dataLayer = window.dataLayer || [ ];
+                dataLayer.push({
+                    'event': 'auto_no_particular',
+                    'category': 'UI: home error',
+                    'action': 'error',
+                    'label': 'error en el servicio de soat, auto no particular'
+                })
+                this.$swal({
+                  // title: "Oops...",
+                  html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
+                  La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                    ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
+                  <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
+                  type: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#2177CC",
+                  confirmButtonText: "OK",
+                });
+                return;
+              };
+          }else{
+            this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
+          }
+          
+
+          if (respuesta.appDiscount == true) {
+            this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+          }else{
+            /* Existe en nuestra base de datos */
+              
+              if (respuesta.exists == true) {
+                this.$store.commit('common/setVehicleState', 1)
+                if(respuesta.client.externalId > 0 ){
+                  this.$store.commit('common/setOrigenCliente', 2)
+                  this.$store.commit('common/setClienteSOAT', respuesta.client)
+                  this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
+                  this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
+                  
+                }else {
+                  this.$store.commit('common/setOrigenCliente', 1)
+                }
+                /* Tiene una poliza activa */
+                if (respuesta.activePolicy === true) {
+                  this.$nuxt.$router.push({path: "/placa-registrada"})
+                } else {             
+                  this.loading = false
+                  if (document.location.hostname == "www.interseguro.pe"){
+                    fbq('track', 'CompleteResgistration');
+                  }else{
+                  }
+                  this.$store.commit('common/setPantallaFlujo', 1)
+
+                  this.$store.commit('common/setObjVehicle', respuesta )
+                  console.log("RESPUESTA HOME ", respuesta)
+                  this.pageContinue()
+                }
+              }else {
+                if(respuesta.client.externalId > 0 ){
+                  this.$store.commit('common/setOrigenCliente', 2)
+                }else{
+                  this.$store.commit('common/setOrigenCliente', 1)
+                }          
+                this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
+                this.$store.commit('common/setVehicleState', 0)
+                this.loading = false
+                if (document.location.hostname == "www.interseguro.pe"){
+                  fbq('track', 'CompleteResgistration');
+                }else{
+                }
+                this.$store.commit('common/setPantallaFlujo', 1)
+                this.pageContinue()
+              }
+          }
+          
+          
+        }
+        
+        else if(res.data.code === 307){
+            this.loading = false;
+            window.dataLayer = window.dataLayer || [ ];
+            dataLayer.push({
+                'event': 'auto_lista_negra',
+                'category': 'UI: home error',
+                'action': 'error',
+                'label': 'error la placa esta en la lista negra'
+            })
+            this.$swal({
+            // title: "Oops...",
+            html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+            Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
+            type: "warning",
+            showCancelButton: false,
+            confirmButtonColor: "#2177CC",
+            confirmButtonText: "OK",
+          });
+        }
+      })
+
+    },
   },
   created() {
-    
+    this.createMail()
   },
 }
 </script>

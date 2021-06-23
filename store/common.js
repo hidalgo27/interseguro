@@ -2,6 +2,8 @@
 
 const getDefaultState = () => {
     return {
+    objVehicle : {
+    },
     //GLOBALES
     placa01: false,
     urlGlobal: '',
@@ -220,6 +222,10 @@ const mutations = {
     },
     setObjVehiculo(state, payload){
         state.objVehiculo = JSON.parse(JSON.stringify(payload))
+    },
+    
+    setObjVehicle(state, payload){
+        state.objVehicle = JSON.parse(JSON.stringify(payload))
     },
     setListaCotizacion(state, payload){
         state.listaCotizacion = JSON.parse(JSON.stringify(payload))

@@ -15,6 +15,12 @@ $vehicular_parrafo_v2: #383C5A;
     //     box-sizing: border-box;
     //     position: relative;
     // }
+    .asegurados{
+        color: $vehicular_primario;
+        font-size: 16px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
     p{
         padding: 0;
         margin: 0;
@@ -72,39 +78,7 @@ $vehicular_parrafo_v2: #383C5A;
                 margin-bottom: 50px;
             }
         }
-        .box-formCotizador{
-            width: 100%;
-            padding: 0;      
-            .titulo-formulario{
-                font-size: 1.5rem;
-                font-weight: 500;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: 1.25;
-                letter-spacing: normal;
-                text-align: center;
-                
-                margin-top: 25px;
-                padding: 0;
-                margin: auto;
-                padding-top: 18px;
-                padding-bottom: 28px;
-                position: relative;
-                max-width: 438px;
-                width: 100%;
-            .img-form{
-                position: absolute;
-                bottom: -32px;
-                left: 7px;
-                z-index: 0;
-                height: 82px;
-                display: none;
-                img{
-                    height: 82px;
-                }
-              }
-            }
-        }
+
         .formCotizador{
             padding:2rem 1.5rem;
             max-width: 438px;
@@ -116,7 +90,10 @@ $vehicular_parrafo_v2: #383C5A;
             box-shadow: -3px 4px 12px -1px #ccc;
             position: relative;
             margin: auto;
-            z-index: 9;  
+            z-index: 9; 
+            input{
+                text-align: center;
+            }
             h1{
                 font-family: 'Omnes Regular';
                 font-size: 1.1rem;
@@ -269,6 +246,7 @@ $vehicular_parrafo_v2: #383C5A;
             display: flex;
             justify-content: center;
             margin-top: 32px;
+            
         }
         .btn-azulVehicular{
             background-color: $vehicular_primario;
@@ -277,6 +255,9 @@ $vehicular_parrafo_v2: #383C5A;
             width: 263px;
             height: 49px;
             cursor: pointer;
+            text-align: center;
+            line-height: 49px;
+            text-decoration: none;
         }
     }
     .elegirnos{
@@ -402,7 +383,8 @@ $vehicular_parrafo_v2: #383C5A;
             border: 2px solid $vehicular_primario;
         }
     }
-
+    .card-header{
+    }
     .tab-personalizado{
         color: #383C5A;
         border: none;
@@ -422,6 +404,10 @@ $vehicular_parrafo_v2: #383C5A;
         color: #383C5A !important;
         background-color: #fff !important;
         border: none !important;
+        
+        header{
+            background-color: #ffffff00;
+        }
     }
     .dudas-consultas{
         padding: 48px 0;

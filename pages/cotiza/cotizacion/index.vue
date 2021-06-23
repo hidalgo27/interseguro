@@ -1477,11 +1477,9 @@
         maximoImgDisabled: false,
         minimoImgDisabled: false,
         monto_pagar_plata :'',
-        monto_antes_plata :'',
-            
+        monto_antes_plata :'',            
         monto_pagar_oro :'',
         monto_antes_oro :'',
-
         monto_pagar_black :'',
         monto_antes_black :'',
         valorSeleccionado: false,
