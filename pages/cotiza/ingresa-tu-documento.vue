@@ -727,9 +727,13 @@
               <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>
-                <span style="color : #ffffff; font-size: 18px">
+                <!-- <span style="color : #ffffff; font-size: 18px">
                 ¡Por pocos días! Paga solo 11 meses <br> por un seguro anual. Además, <br> aprovecha nuestro<span style="color: #FFDD36;"> 10% de dscto.</span>
-                </span> 
+                </span> --> 
+                <span style="color : #ffffff; font-size: 18px">
+                ¡Celebra con nosotros!<br> Compra tu Seguro Vehicular con <span style="color: #FFDD36;"> 10% de dscto.</span> <br> 
+                y llévate una cuota gratis y participa en el sorteo <br><span style="color: #FFDD36;"> de un Smart TV de 50’’</span>
+                </span>  
                 </p>
             </b-col>
           </b-row>
