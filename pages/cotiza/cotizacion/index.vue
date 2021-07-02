@@ -1409,7 +1409,7 @@
       </b-container>
     </b-modal> -->
 
- <!--  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+ <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1435,8 +1435,8 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal> -->
-
+    </b-modal>
+    <!--
      <b-modal
         id="leaveQuote2"
         class="leaveModal"
@@ -1451,9 +1451,7 @@
               <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.svg" alt="">              
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>
-                <!-- <span style="color : #ffffff; font-size: 18px">
-                ¡Por pocos días! Paga solo 11 meses <br> por un seguro anual. Además, <br> aprovecha nuestro<span style="color: #FFDD36;"> 10% de dscto.</span>
-                </span> --> 
+                f
                 <span style="color : #ffffff; font-size: 18px">
                 ¡Celebra con nosotros!<br> Compra tu Seguro Vehicular con <span style="color: #FFDD36;"> 10% de dscto.</span> <br> 
                 y llévate una cuota gratis y participa en el sorteo <br><span style="color: #FFDD36;"> de un Smart TV de 50’’</span>
@@ -1472,7 +1470,7 @@
           </b-row>
         </b-container>
       </b-modal>
-
+      -->
   </section>
 </template>
 
@@ -3441,8 +3439,8 @@
 }
 .page-cotizador{
   background: white;
-  //padding-top: 50px;
-  padding-top: 120px;
+  padding-top: 50px;
+  //padding-top: 120px;
   .img-close{
     position: absolute;
     right: -24px;

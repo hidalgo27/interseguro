@@ -1,17 +1,13 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
+        <!--
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
-                   <div class="liston-mobile--parrafo"> 
-                       <!-- <img  class="img-liston" src="../../static/media/img/campania/liston-mobile.svg" alt=""> --> 
-                        <div style="font-size: 10px;padding-left: 10px;width: 217px;">
-                             
-                            <p>1 cuota gratis + 10% de dscto. <br> <span style="color: #FFD527"> + Sorteo de Smart TV de 50’’</span></p>
-                            <!-- <p><span style="color: #FFD527"> Paga 11 meses</span> por un seguro vehicular anual</p> -->
-                             <!-- <p><span style="color: #FFD527"> 2da cuota gratis + 10%</span> y si compras en plan black un <span style="color: #FFD527"> vale de S/100</span></p> -->
-                               
+                   <div class="liston-mobile--parrafo">
+                       <div style="font-size: 10px;padding-left: 10px;width: 217px;">                             
+                            <p>1 cuota gratis + 10% de dscto. <br> <span style="color: #FFD527"> + Sorteo de Smart TV de 50’’</span></p>                               
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
@@ -25,9 +21,7 @@
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
                         <p style="width: 693px;font-size: 20px;">
                             <b> ¡Aniversario Interseguro!<span style="color: #FFD527"> <b> 1 cuota gratis + 10% de dscto. + Sorteo de Smart TV 50’’</b></span></b>
-                            <!-- <b> ¡Aniversario Interseguro!<span style="color: #FFD527"> <b> Paga 11 meses por un seguro vehicular anual</b></span></b> -->
-                            <!-- <b> <span style="color: #FFD527"> <b>Y por la compra del Plan Black llévate un vale por S/100</b></span>  ¡No lo dejes pasar!</b> -->                                                          
-                        </p>
+                            </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
                     
@@ -35,6 +29,7 @@
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
         </div> 
+        -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -183,7 +178,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        //this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)

@@ -2,7 +2,7 @@
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
 
-    <!-- <div class="boxHome-banner">      
+    <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -60,10 +60,10 @@
           
         </div>
       </div>
-    </div> -->
+    </div>
     
     
-    <div class="boxHome-banner">      
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -121,8 +121,7 @@
 
             
             <div class="box-contador" >              
-              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 100px;">
-              <!-- <p style="margin-left:220px;">La oferta termina en: </p> -->
+              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 100px;">              
               <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 130px;">
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
                       
@@ -132,7 +131,7 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
    
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
@@ -649,8 +648,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        this.contador()
-
+        //this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -826,7 +824,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 150px;
+      padding-top: 140px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1046,12 +1044,12 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }  
     .boxHome-banner{
       position: relative;
-      height: 400px;
+      height: 296px;
       background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
-      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
-        // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
+        //background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
         background-size: 700px;
@@ -1166,7 +1164,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         margin-top: 25px;
         padding: 0;
         margin: auto;
-        padding-top: 18px;
+        padding-top: 60px;
         padding-bottom: 28px;
         position: relative;
         max-width: 438px;
@@ -1646,8 +1644,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   
   @media (min-width: 992px) {
     .home-is{
+      //margin-top: 115px;
       margin-top: 0px;
-      //margin-top: 15px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1669,11 +1667,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         // background-size: cover;
         //background-repeat: no-repeat;
         //background-position: center;
-        height: 485px;
+        height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          min-height: 485px;
+          min-height: 445px;
 
           &__izq{
             // padding-top: 68px !important;
@@ -1718,13 +1716,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
           &__der{
-            padding-top: 80px !important;
+            padding-top: 50px !important;
             height: calc(85vh);
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
             //Auto
-            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -2075,7 +2073,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           padding: 0 1.5rem;
           padding-left: 65px;
           &__der{
-            padding-top: 120px !important;
+            padding-top: 50px !important;
             margin-left: 0;
             padding-left: 1rem;
             align-items: center;
