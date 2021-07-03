@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-         <div>
+         <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div> 
+        </div> --> 
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -24,11 +24,11 @@
                 </nuxt-link>
                 <div class="nav-contacto  d-flex  d-xl-none">                
                     
-                        <!-- <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
+                        <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
                             <a style="text-decoration: none;" href="tel:015000000">               
-                                <img src="../../static/media/img/aste/telefono-header.png" alt="email">
+                                <img src="../../static/media/img/home/telefono-header.png" alt="email">
                             </a>
-                        </div> -->
+                        </div>
                         <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div>
