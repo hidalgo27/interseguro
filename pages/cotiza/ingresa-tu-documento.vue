@@ -711,44 +711,9 @@
 
         </div>
       </b-modal>
-      <!--
-      <b-modal
-        id="leaveDocument"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
-              <p class="mt-3">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>
-                
-                <span style="color : #ffffff; font-size: 18px">
-                ¡Celebra con nosotros!<br> Compra tu Seguro Vehicular con <span style="color: #FFDD36;"> 10% de dscto.</span> <br> 
-                y llévate una cuota gratis y participa en el sorteo <br><span style="color: #FFDD36;"> de un Smart TV de 50’’</span>
-                </span>  
-                </p>
-            </b-col>
-          </b-row>
-          
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
-                >TERMINAR COMPRA</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal>
-      -->
-
+      
       <!-- Modal de abandono-->
-
+      <!--
       <b-modal
         id="leaveDocument"
         class="leaveModal"
@@ -808,6 +773,41 @@
           </b-row>
         </b-container>
       </b-modal>
+      -->
+      <!--Modal campaña -->
+      <b-modal
+        id="leaveDocument"
+        class="leaveModal"
+        size="lg"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
+              <p class="mt-3">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
+                <span style="color : #ffffff; font-size: 18px">
+                ¡Cyber Interseguro!<br> Compra con <b>10% de dscto</b>. y llévate una <br><b>cuota gratis. Además, un vale de S/100</b><br>
+                por comprar el Plan Black 
+                </span>
+                </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
+                >TERMINAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
+      
 
     </b-container>
   </section>
@@ -890,8 +890,8 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  //padding-top: 125px;
-  padding-top: 50px;
+  padding-top: 125px;
+  //padding-top: 50px;
 }
 .edit-input {
   cursor: auto !important;

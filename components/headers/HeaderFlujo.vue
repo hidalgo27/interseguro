@@ -1,17 +1,17 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!--
+        <!--Cintillo campaña-->
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo">
                        <div style="font-size: 10px;padding-left: 10px;width: 217px;">                             
-                            <p>1 cuota gratis + 10% de dscto. <br> <span style="color: #FFD527"> + Sorteo de Smart TV de 50’’</span></p>                               
+                            <p><b>1 cuota gratis y vale virtual de S/100</b><br>por comprar el Plan Black</p>                               
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 177px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 176px !important;">
                         </div>
                     </div>
                 </div>
@@ -19,8 +19,9 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
-                        <p style="width: 693px;font-size: 20px;">
-                            <b> ¡Aniversario Interseguro!<span style="color: #FFD527"> <b> 1 cuota gratis + 10% de dscto. + Sorteo de Smart TV 50’’</b></span></b>
+                            <p style="width: 712px;font-size: 20px;">
+                                <b> ¡Cyber Interseguro! Llévate<span style="color: #C7E5FF"> <b> 1 cuota gratis y vale de S/100</b></span> por comprar el Plan Black</b>
+                                  
                             </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -29,7 +30,7 @@
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
         </div> 
-        -->
+        
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -178,7 +179,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -211,8 +212,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1625115599, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1625115599, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1625633999, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1625633999, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
