@@ -3235,7 +3235,7 @@
   },
 
   mounted: function () {
-
+    
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto

@@ -1,78 +1,9 @@
 <template >
   <section
-    class="steps-box"
-    v-bind:class="{
-      'pt-sinBlack': this.$store.state.common.flagCloseListon == 0,
-    }"
-  >
-    <b-container class="steps-plan">
-      <b-row>
-        <b-col cols="12" lg="8" class="m-auto">
-          <div class="box-steps">
-            <div class="backcotizacion" @click="volver($event)">
-              <img
-                width="35"
-                src="../../static/media/img/flujo/cotizacion/back.svg"
-                alt="volver"
-              />
-            </div>
-
-            <ul class="steps" style="display: inline-flex">
-              <template>
-                <router-link
-                  class="steps__item"
-                  to="/cotiza/ingresa-tu-documento"
-                  style="cursor: auto"
-                  ><li></li
-                ></router-link>
-              </template>
-              <template>
-                <router-link
-                  v-if="documento_steps2 != ''"
-                  class="steps__item steps--active paso2"
-                  to="/cotiza/ingresa-tu-documento"
-                  ><li></li
-                ></router-link>
-                <router-link
-                  v-else
-                  class="steps__item steps--active paso2"
-                  to="/cotiza/ingresa-tu-documento"
-                  ><li></li
-                ></router-link>
-              </template>
-              <template>
-                <router-link class="steps__item paso1" to="/cotiza/cotizacion"
-                  ><li></li
-                ></router-link>
-              </template>
-              <li class="steps--progressBar"></li>
-            </ul>
-
-            <div v-if="this.planSeleccionado == 4" class="plan-titulo">
-              <p class="roboTotal">PLAN SELECCIONADO: <span>PLATA </span></p>
-            </div>
-            <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
-              <p class="semiFull">PLAN SELECCIONADO: <span>ORO </span></p>
-            </div>
-            <div
-              v-else-if="
-                this.planSeleccionado == 3 || this.planSeleccionado == 10
-              "
-              class="plan-titulo"
-            >
-              <p class="full">PLAN SELECCIONADO: <span> BLACK </span></p>
-            </div>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+    class="steps-box">
 
     <b-container>
-      <b-row class="justify-content-center box-ingresaDocumento">
-        <b-col cols="12" sm="10" md="12" class="pb-2">
-          <p class="titulo-flujo">DATOS PERSONALES O DE LA EMPRESA</p>
-        </b-col>
-
+      <b-row class="box-ingresaDocumento">
         <div class="maestra d-block d-lg-none">
           <b-col
             cols="12"
@@ -91,9 +22,9 @@
           </b-col>
         </div>
 
-        <b-col cols="12" lg="4" class="box-principal">
+        <b-col cols="12" lg="8" class="box-principal">
           <b-row>
-            <b-col cols="12" v-bind:class="{ 'd-none': ocultarInputDocumento }">
+            <b-col cols="12">
               <b-row
                 class="box-documento first-box justify-content-center"
                 style="border-radius: 20px 20px 0 0"
@@ -127,117 +58,13 @@
                   </div>
                 </b-col>
               </b-row>
-              <!-- 
-              <b-row class="d-flex justify-content-center">
-                <div v-if="this.itemElegido.documentoLocal.length == 10">
-                  <span style="font-size: 12px; color: rgb(214, 4, 17)"
-                    >Ingrese un número de documento válido</span
-                  >
-                </div>
-              </b-row> -->
             </b-col>
 
             <b-col cols="12" class="box-datos">
               <b-row style="background: white; border-radius: 0 0 24px 24px">
-                <div>
-                  <span
-                    class="titulo-datosPersonales__editarCancelar"
-                    @click="editarCancelar"
-                    v-bind:class="{
-                      mostrarEditarCancelar: mostrarEditarCancelar,
-                    }"
-                  >
-                    {{ mostrarPrimerBox == true ? "Editar" : "Cerrar" }}
-
-                    <img
-                      class="flecha_edicion"
-                      src="../../static/media/interseguroVehicular_v2/flecha_edicion.png"
-                      alt="flecha_edicion"
-                    />
-                  </span>
-                </div>
-                <b-col
-                  cols="12"
-                  class="d-none"
-                  v-bind:class="{
-                    mostrarDatosPersonales: mostrarDatosPersonales,
-                  }"
-                >
-                  <div class="d-none d-lg-flex">
-                    <div
-                      class="row boxUsuarioEncontrado"
-                      v-bind:class="{ mostrarPrimerBox: mostrarPrimerBox }"
-                    >
-                      <ul>
-                        <li>
-                          <span>
-                            {{ this.objClients.firstName }}&nbsp;{{
-                              this.objClients.firstLastName
-                            }}&nbsp;{{ this.objClients.secondLastName }}
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            {{ this.objClients.documentNumber }}
-                          </span>
-                        </li>
-
-                        <li>
-                          <span>
-                            {{ this.objClients.phoneNumber }}
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            {{ this.objClients.emailAddress }}
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <b-col
-                    cols="12"
-                    lg="8"
-                    class="d-flex d-lg-none mt-2"
-                    style="padding-left: 0"
-                  >
-                    <div
-                      class="row boxUsuarioEncontrado"
-                      v-bind:class="{ mostrarPrimerBox: mostrarPrimerBox }"
-                    >
-                      <ul>
-                        <li>
-                          <span> {{ this.objClients.firstName }}</span
-                          >&nbsp;<span>{{ this.objClients.firstLastName }}</span
-                          >&nbsp;<span
-                            >{{ this.objClients.secondLastName }}
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            {{ this.objClients.documentNumber }}
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            {{ this.objClients.phoneNumber }}
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            {{ this.objClients.emailAddress }}
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </b-col>
-                </b-col>
-
                 <div class="">
                   <b-row
                     class="second-box mt-2"
-                    v-bind:class="{ mostrarSegundoBox: mostrarSegundoBox }"
                   >
                     <b-col cols="12">
                       <b-row
@@ -273,15 +100,11 @@
                               placeholder="Nombres"
                               v-on:keyup.enter="processTags('apellido-paterno')"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono primer apellido"
-                            />
+                            
                           </div>
                         </b-col>
 
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" lg="6" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="apellido-paterno"
@@ -303,15 +126,10 @@
                               placeholder="Apellido Paterno"
                               v-on:keyup.enter="processTags('apellido-materno')"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono apellido paterno"
-                            />
                           </div>
                         </b-col>
 
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12"  lg="6"  class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="apellido-materno"
@@ -335,15 +153,10 @@
                                 processTags('correo-electronico')
                               "
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono apellido  materno"
-                            />
                           </div>
                         </b-col>
 
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" lg="6" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="correo-electronico"
@@ -369,14 +182,9 @@
                               placeholder="Correo Electrónico"
                               v-on:keyup.enter="processTags('celular')"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono email"
-                            />
                           </div>
                         </b-col>
-                        <b-col v-if="this.msgErrorEmail">
+                        <!-- <b-col v-if="this.msgErrorEmail">
                           <b-row class="d-flex justify-content-center pb-2">
                             <div>
                               <span
@@ -385,9 +193,9 @@
                               >
                             </div>
                           </b-row>
-                        </b-col>
+                        </b-col> -->
 
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" lg="6" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="celular"
@@ -414,15 +222,10 @@
                               placeholder="Celular"
                               v-on:keyup.enter="validarCelular($event)"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono celular"
-                            />
                           </div>
                         </b-col>
 
-                        <b-col v-if="this.msgErrorCelular">
+                        <!-- <b-col v-if="this.msgErrorCelular">
                           <b-row class="d-flex justify-content-center pb-2">
                             <div>
                               <span
@@ -432,7 +235,7 @@
                               >
                             </div>
                           </b-row>
-                        </b-col>
+                        </b-col> -->
                       </b-row>
 
                       <b-row
@@ -460,11 +263,6 @@
                               placeholder="Razón social"
                               v-on:keyup.enter="processTags('direccion')"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono rezon social"
-                            />
                           </div>
                         </b-col>
                         <b-col cols="12" class="p-0">
@@ -484,11 +282,6 @@
                               placeholder="Dirección"
                               v-on:keyup.enter="processTags('celularEmpresa')"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono direccion"
-                            />
                           </div>
                         </b-col>
                         <b-col cols="12" class="p-0">
@@ -519,11 +312,6 @@
                                 processTags('correo-electronicoEmpresa')
                               "
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono celular empresa"
-                            />
                           </div>
                         </b-col>
 
@@ -563,11 +351,6 @@
                               required
                               placeholder="Correo Electrónico"
                             ></b-form-input>
-                            <img
-                              class="edit-input"
-                              src="../../static/media/img/flujo/cotizacion/edit.png"
-                              alt="icono email empresa"
-                            />
                           </div>
                         </b-col>
 
@@ -590,9 +373,22 @@
           </b-row>
         </b-col>
 
+        <b-col cols="12" lg="4">
+          <div class="suma-asegurada">
+              <p>Ingresa la suma asegurada</p>
+              <div class="datos-carro">
+                  <span>{{this.$store.state.common.objVehicle.brand}}</span>
+                  <span>{{this.$store.state.common.objVehicle.model}}</span>
+                  <span>{{this.$store.state.common.objVehicle.modelYear}}</span>
+                  <span>LAPIZ</span>
+              </div>
+              
+          </div>
+        </b-col>
+
         <b-col cols="12">
-          <b-row class="justify-content-center box_aceptoTerminos">
-            <b-col cols="12" lg="4">
+          <b-row class=" box_aceptoTerminos">
+            <b-col cols="12" lg="6">
               <b-row class="box-row">
                 <b-col
                   cols="12"
@@ -601,19 +397,6 @@
                     mostrarDatosyCheckbox: mostrarDatosyCheckbox,
                   }"
                 >
-                  <div class="checkbox-aux font-nunito check-ip mb-0">
-                    <label class="col box-checkbox text-center">
-                      <span class="checkbox-aux__descripcion pr-0">
-                        Al continuar
-                        <a
-                          href="javascript:void(0);"
-                          @click="eventoModalTerminosCondiciones()"
-                          >acepto las Condiciones de Uso y Política de
-                          Privacidad</a
-                        >.
-                      </span>
-                    </label>
-                  </div>
                 </b-col>
 
                 <div class="maestra d-none d-lg-block">
@@ -1119,11 +902,7 @@ input:focus {
   left: 0;
 }
 .box-btn {
-  margin: 4px 0 12px 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    
   a {
     width: 80px;
     margin: 0;
@@ -1143,15 +922,6 @@ input:focus {
 .form-group {
   position: relative;
   padding: 0px;
-  &:before {
-    content: "";
-    background: url("../../static/media/img/flujo/cotizacion/edit.png");
-    height: 30px;
-    width: 25px;
-    position: absolute;
-    right: 0;
-    z-index: 0;
-  }
   .icon-datos {
     position: absolute;
     margin-left: 8px;
@@ -1173,7 +943,7 @@ input:focus {
   position: relative;
   .box-btn--dni {
     margin-top: 16px;
-    background-color: #ea0c90;
+    background-color: #000;
     color: white;
     height: 45px;
     line-height: 0.5;
@@ -1224,7 +994,6 @@ input:focus {
   padding: 0px 12px 8px;
   background: #fff;
   border-radius: 10px 10px;
-  display: none;
   .form-group {
     display: flex;
     align-items: center;
@@ -1244,7 +1013,7 @@ input:focus {
   border-radius: 4px;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 2 px solid #000;
   border-radius: 0.25rem;
   height: 3rem;
 }
@@ -1294,8 +1063,6 @@ input:focus {
     }
   }
   .box-btn {
-    flex-direction: row;
-    align-items: center;
   }
   .first-box {
     margin-top: 0px;
@@ -1326,7 +1093,6 @@ input:focus {
 @media (min-width: 990px) {
   .box-datos {
     .box-btn {
-      padding-right: 16px;
     }
   }
 }
@@ -1508,7 +1274,7 @@ export default {
       endosoSeleccionado: {},
       mostrarDatosyCheckbox: false,
       mostrarEditarCancelar: false,
-      mostrarSegundoBox: false,
+      mostrarSegundoBox: true,
       mostrarPrimerBox: false,
       cuentaSueldo: null,
       urlDp: "",
@@ -1629,8 +1395,17 @@ export default {
       if (this.validate()) {
         this.msgErrorEmail = false;
       } else {
+        // this.$swal({
+        //   title: "Oops...",
+        //   text: "Por favor ingresa un email válido",
+        //   type: "warning",
+        //   showCancelButton: false,
+        //   confirmButtonColor: "#2177CC",
+        //   confirmButtonText: "OK",
+        // });
         this.isDisableButton = true;
         this.msgErrorEmail = true;
+        // this.$refs["correo-electronico"].focus();
       }
     },
     validarCelular() {
@@ -1642,6 +1417,14 @@ export default {
         ) {
           this.msgErrorCelular = false;
         } else {
+          // this.$swal({
+          //   title: "Oops...",
+          //   text: "Por favor ingresa un número de celular válido",
+          //   type: "warning",
+          //   showCancelButton: false,
+          //   confirmButtonColor: "#2177CC",
+          //   confirmButtonText: "OK",
+          // });
           this.isDisableButton = true;
           this.msgErrorCelular = true;
         }
@@ -1657,8 +1440,55 @@ export default {
         this.objClients.phoneNumber
       );
       this.remarketingv2();
+      this.validarROOT();
     },
-
+    validarROOT() {
+      if (this.$store.state.common.nuevoProducto == true) {
+        if (
+          this.$store.state.common.planSeleccionado == 6 ||
+          this.$store.state.common.planSeleccionado == 3
+        ) {
+          if (this.$store.state.common.entidadFinanciera.id == 0) {
+            let respuesta = this.fechaVigencia.split("/");
+            let inputDate = Date.parse(
+              respuesta[2] + "/" + respuesta[1] + "/" + respuesta[0]
+            );
+            inputDate = new Date(inputDate);
+            let fecha = new Date();
+            let dia = fecha.getDate();
+            let mes = fecha.getMonth() + 1;
+            let año = fecha.getFullYear();
+            let fechaActual = año + "/" + mes + "/" + dia;
+            let todaysDate = Date.parse(fechaActual);
+            todaysDate = new Date(fechaActual);
+            this.$store.commit("common/setEmisionROOT", true);
+            /*
+              if(inputDate.getTime() ===  todaysDate.getTime()) {                 
+                this.$store.commit('common/setEmisionROOT', true)
+                this.$nuxt.$router.push({path: "/cotiza/descargar"})
+                this.$nuxt.$router.push({path: "/cotiza/descargar"})
+              }else{
+                  this.$store.commit('common/setEmisionROOT', false)
+                  this.$nuxt.$router.push({path: "/cotizacion/pagar"})
+              }
+              */
+            this.$store.commit("common/setObjCliente", this.objClients);
+            this.$nuxt.$router.push({ path: "/cotiza/descargar" });
+          } else {
+            this.$store.commit("common/setObjCliente", this.objClients);
+            this.$store.commit("common/setEmisionROOT", false);
+            this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+          }
+        } else {
+          this.$store.commit("common/setObjCliente", this.objClients);
+          this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+          this.$store.commit("common/setEmisionROOT", false);
+        }
+      } else {
+        this.$store.commit("common/setObjCliente", this.objClients);
+        this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+      }
+    },
     cotizador_datalayer(evento, step_valor) {
       this.cobertura_is.content_ids =  this.$store.state.common.code_sku
       window.dataLayer = window.dataLayer || [];
@@ -1666,6 +1496,21 @@ export default {
         event: evento,
         step: step_valor,
         product: this.cobertura_is,
+      });
+    },
+    horaError() {
+      let fecha = new Date();
+      let horaError =
+        fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+      return horaError;
+    },
+    pago_datalayer(error_detectado) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "Errores",
+        category: "ErroresPago",
+        action: error_detectado + " Ocurrio a las " + this.horaError(),
+        error_detectado: error_detectado + " Ocurrio a las " + this.horaError(),
       });
     },
     hideModal() {
@@ -1676,9 +1521,7 @@ export default {
         .replace(/[^0-9\s]/gi, "")
         .replace(/[_\s]/g, "");
       let documento = this.itemElegido.documentoLocalSinEspacios;
-      // let tamaño = documento.length
       this.tamaño = documento.length;
-      // return tamaño
     },
     validarCampos() {
       if (this.tamaño == 8 || this.tamaño == 9) {
@@ -1745,7 +1588,7 @@ export default {
           this.createClient();
         } else if (this.$store.state.common.clientState == 1) {
           this.updateClient();
-        }else{}
+        } else {}
         this.$store.commit(
           "common/setNumeroTelefono",
           this.objClients.phoneNumber
@@ -1767,6 +1610,7 @@ export default {
       } else {
       }
       this.pantalla = 3;
+      // this.remarketingv2()
       if (this.objClients.validCtaSueldo == "N") {
         this.$swal({
           title: "Oops...",
@@ -1783,7 +1627,8 @@ export default {
       dataLayer.push({
         event: "userData",
         firstname: this.objClients.firstName,
-        lastname: this.objClients.firstLastName + " " + this.objClients.secondLastName,
+        lastname:
+          this.objClients.firstLastName + " " + this.objClients.secondLastName,
         email: this.objClients.emailAddress,
         phone: this.objClients.phoneNumber,
         monto: localStorage.getItem("monthly"),
@@ -1901,7 +1746,7 @@ export default {
           this.loading = false;
           this.isOculto = false;
           this.mostrarPrimerBox = false;
-          this.mostrarSegundoBox = false;
+          this.mostrarSegundoBox = true;
           this.objClients.firstName = "";
           this.objClients.firstLastName = "";
           this.objClients.secondLastName = "";
@@ -1933,7 +1778,7 @@ export default {
             self.mostrarRuc = false;
             self.loading = false;
             self.mostrarPrimerBox = false;
-            self.mostrarSegundoBox = false;
+            self.mostrarSegundoBox = true;
             self.mostrarEditarCancelar = false;
           } else if (self.tamaño == 11) {
             self.getClient(2);
@@ -1959,7 +1804,7 @@ export default {
           this.msgCompletaDatos = false;
           this.mostrar = true;
           this.mostrarPrimerBox = true;
-          this.mostrarSegundoBox = false;
+          this.mostrarSegundoBox = true;
           this.mostrarEditarCancelar = true;
           if (this.checkPoliticasPrivacidad == true) {
             this.isDisableButton = false;
@@ -2047,7 +1892,7 @@ export default {
     delay(event, ms) {
       this.isDisableButton = true;
       this.mostrarDatosPersonales = false;
-      this.mostrarSegundoBox = false;
+      this.mostrarSegundoBox = true;
       this.mostrarPrimerBox = false;
       this.mostrarDatosyCheckbox = false;
 
@@ -2141,16 +1986,10 @@ export default {
           this.objClients = {};
           if (parametro == 1) {
             setTimeout(() => {
-              // setTimeout(() => {
-              //   this.$refs.nombre.focus();
-              // }, 500);
               this.validarClienteVuex();
             }, 500);
           } else if (parametro == 2) {
             setTimeout(() => {
-              // setTimeout(() => {
-              //   this.$refs["razon-social"].focus();
-              // }, 500);
               this.validarEmpresaVuex();
             }, 500);
           }
@@ -2237,10 +2076,7 @@ export default {
       });
     },
     createClient() {
-      this.$store.commit(
-        "common/setDocumentoLocal",
-        this.itemElegido.documentoLocal
-      );
+      this.$store.commit("common/setDocumentoLocal",this.itemElegido.documentoLocal);
       this.itemElegido = this.objClients;
       this.$store
         .dispatch("common/createClient", this.itemElegido)
@@ -2336,10 +2172,19 @@ export default {
             riesgo: this.listCotizacion.policy.risk,
             fechaInicio: this.$store.state.common.fechaVigencia,
             discountType: this.discountType,
+            /******************************************************** */
             itemElegido: this.$store.state.common.itemElegido,
             listCotizacion: this.$store.state.common.listaCotizacion,
             nuevoProducto: this.$store.state.common.nuevoProducto,
-
+            /******************************************************** */
+            /******************************************************** */
+            // idMarca: this.objectVehicle.brandId,
+            // idModelo: this.objectVehicle.modelId,
+            // idUso: 1,
+            // uso: "particular",
+            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
+            // pagoTrimestral: this.listCotizacion.policy.quarterly,
+            // pagoAnual: this.listCotizacion.policy.annual,
           },
           datosTitular: {
             numeroDocumento: this.$store.state.common.documentoLocal,

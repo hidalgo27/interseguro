@@ -21,20 +21,6 @@
                                 </div>
                             </div>  
 
-                            <!-- <div class="activador  d-none  d-lg-block"  v-if="activeBox_2">
-                                <div class="itemElegido" v-bind:class="{mostrarItemMarca: mostrarItemMarca}">
-                                <span>{{this.itemElegido.brand }}</span>
-                                <div class="box-close" @click="closeMarca()"><img src="./../../static/media/imagenes/seleccion/close.png" alt="x"></div>
-                                </div>
-                                <div class="itemElegido" v-bind:class="{mostrarItemAnio: mostrarItemAnio}">
-                                <span>{{this.itemElegido.year }}</span>
-                                <div class="box-close" @click="closeAnio()" ><img src="./../../static/media/imagenes/seleccion/close.png" alt="x"></div>
-                                </div>
-                                <div class="itemElegido" v-bind:class="{mostrarItemModelo: mostrarItemModelo}">
-                                <span>{{this.itemElegido.model }}</span>
-                                <div class="box-close" @click="closeModelo()"><img  src="./../../static/media/imagenes/seleccion/close.png" alt="x"></div>
-                                </div>
-                            </div> -->
 
                             <div class="listas">
                                 <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
@@ -198,6 +184,7 @@ export default {
             this.mostrarListaMarca = false
             this.mostrarListaAnio = false
             this.mostrarListaModelo = true
+            this.$store.commit('common/setObjVehicle', this.itemElegido )
             
         },
 
@@ -256,6 +243,7 @@ export default {
         },
     },
     async mounted() {
+        alert("HOLA")
         this.objVehicle = this.$store.state.common.objVehicle
         await this.$store.dispatch('common/getBrand').then((res)=>{
             this.listBrands = res.data.body
@@ -274,9 +262,10 @@ export default {
                             this.mostrarModelo()
                         }
                         if (this.listModels.filter(item => item.id == this.objVehicle.modelId)) {
-                            
+                            console.log("if")
+                            this.getCotizacion()
                         }else{
-                            
+                            console.log("else")
                         }
                     }else{
                         this.mostrarAnio()
@@ -290,7 +279,9 @@ export default {
                 this.mostrarMarca()
             }
         }else if (this.objVehicle.exists == false) {
+
         }else{
+            this.mostrarMarca()
             console.log("TRUE /  FALSE")
         }
         

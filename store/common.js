@@ -444,8 +444,8 @@ const actions = {
     getCotizacion ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
             let url = item.assignedPrice == null
-            ? 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt
-            : 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt + '&assignedPrice=' + item.assignedPrice +'&documentNumber='+state.documentoLocal
+            ? 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + state.objVehicle.modelYear  + '?remarketingId=' + state.codeRmkt
+            : 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + state.objVehicle.modelYear + '?remarketingId=' + state.codeRmkt + '&assignedPrice=' + item.assignedPrice +'&documentNumber='+state.documentoLocal
             this.$axios.get( url + "&discountType=" + item.discountType + "&businessId=" + item.businessId ).then( res => {
                 if ( res ) {
                     resolve(res)

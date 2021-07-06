@@ -793,5 +793,8 @@ export default {
   created() {
     this.createMail()
   },
+  mounted() {
+    this.$store.commit('common/resetState')
+  }
 }
 </script>
