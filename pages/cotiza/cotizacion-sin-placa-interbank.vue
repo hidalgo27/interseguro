@@ -1410,7 +1410,7 @@
           detalle: {
             correo: parametroEmail.toLowerCase(),
             codigoVenta: this.$store.state.common.codeRmkt,
-            enviarCorreo: parametroEnviarMail,
+            enviarCorreo: this.$store.state.common.agent != ''? 2:parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
               url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
@@ -1451,7 +1451,8 @@
               // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
               // pagoTrimestral: this.listCotizacion.policy.quarterly,
               // pagoAnual: this.listCotizacion.policy.annual,
-              geolocalizacion: this.$store.state.common.geolocation 
+              geolocalizacion: this.$store.state.common.geolocation,
+              agente: this.$store.state.common.agent
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,

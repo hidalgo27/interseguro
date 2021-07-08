@@ -1131,7 +1131,7 @@ import { validationMixin } from 'vuelidate'
                     "correo": this.$store.state.common.email.trim().replace(/ /g,'').toLowerCase(),
                     "codigoVenta": this.$store.state.common.codeRmkt,
                     "pantalla": 3,
-                    "enviarCorreo":0,
+                    "enviarCorreo":this.$store.state.common.agent != ''? 2:0,
                     "datosCorreo":{
                         "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
                         "plantilla": this.objPlantilla,
@@ -1173,7 +1173,8 @@ import { validationMixin } from 'vuelidate'
                         // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
                         // pagoTrimestral: this.listCotizacion.policy.quarterly,
                         // pagoAnual: this.listCotizacion.policy.annual
-                        geolocalizacion: this.$store.state.common.geolocation   
+                        geolocalizacion: this.$store.state.common.geolocation,
+                        agente: this.$store.state.common.agent
                     },
                     "datosTitular": {
                         "numeroDocumento": this.$store.state.common.documentoLocal,

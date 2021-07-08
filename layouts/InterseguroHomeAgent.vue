@@ -1,23 +1,23 @@
+
 <template>
-    <div>
+    <div>      
       <header-intercorp v-if="this.businessId == 3"></header-intercorp>
       <header-is-ibk v-else-if="this.businessId == 2"></header-is-ibk>
-      <header-is v-else></header-is>     
+      <header-is v-else></header-is>
         <div>
           <nuxt/>
         </div>
-      <footer-is></footer-is>
+      <footer-is-app v-if="this.nuevoProducto == true"></footer-is-app>
+      <footer-is v-else></footer-is>
     </div>
 </template>
 
 <script>
-import HeaderIntercorp from '@/components/headers/HeaderFlujoIntercorp'
+import HeaderIntercorp from '@/components/headers/HeaderIntercorp'
 import HeaderIBK from '@/components/headers/HeaderInterbank'
-import Header from '@/components/headers/HeaderFlujo'
-// import Header from '@/components/headers/HeaderInterseguro'
-import HeaderCotizador from '@/components/headers/HeaderInterseguroCotizador'
-import Footer from '@/components/footers/Footer'
-import FooterAgent from '@/components/footers/FooterAgent'
+import Header from '@/components/headers/HeaderInterseguro'
+import Footer from '@/components/footers/FooterAgent'
+import FooteraApp from '@/components/footers/FooterApp'
 export default {
   head () {
     return {
@@ -32,6 +32,7 @@ export default {
   },
   data () {
     return {
+      appDiscountURL:'',
       businessId: "",
       cotizadorId: 0,
       loadinggss:true,
@@ -41,6 +42,7 @@ export default {
       size: "30px",
       ocultoAcctivador:false,
       cuentaSueldo: false,
+      nuevoProducto: false
     }
   },
   methods: {
@@ -51,7 +53,7 @@ export default {
     'header-is-ibk': HeaderIBK,
     'header-is': Header,
     'footer-is': Footer,
-    'header-cotizador':HeaderCotizador,
+    'footer-is-app': FooteraApp,
   },
   created() {      
       if(this.$route.name == "pagogss-pagogss"){        
@@ -66,8 +68,13 @@ export default {
           valor :true
       }
     })
+    this.nuevoProducto = this.$store.state.common.nuevoProducto
+    setTimeout(() => {
+      this.urlLocal = localStorage.getItem("urlLocal")
+    }, 0)
     this.cuentaSueldo = localStorage.getItem("urlLocal") == '/cuentasueldo'  || localStorage.getItem("urlLocal") == '/tarjetaoh'? true : false
     this.businessId = this.$store.state.common.businessId
+    this.appDiscountURL = this.$store.state.common.appDiscountURL
     this.cotizadorId = localStorage.getItem("cotizadorId")
   }
 }

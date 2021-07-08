@@ -97,7 +97,8 @@ const getDefaultState = () => {
     leaveMessage: 0,
     leaveMessage1: 0,
     //Geolocalizacion
-    geolocation: {}
+    geolocation: {},
+    agent: ""
     }
 }
 
@@ -263,6 +264,9 @@ const mutations = {
     },
     setGeolocation(state, payload){
         state.geolocation = payload
+    },
+    setAgent(state, payload){
+        state.agent = payload
     },
 }
 

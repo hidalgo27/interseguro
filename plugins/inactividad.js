@@ -24,7 +24,7 @@ function logout() {
 
     if (objJWT.common.nuevoProducto == false) {
         if (objJWT.common.email !== null) {
-            if (objJWT.common.email.includes("test_")) {
+            if (objJWT.common.email.includes("test_") || objJWT.common.agent.includes("partner")) {
                 console.log("ooooooooooo");
             } else {
                 if (objJWT.common.codigoRemarketingGenerado) {

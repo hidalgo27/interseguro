@@ -3139,7 +3139,7 @@
           detalle: {
             correo: parametroEmail.toLowerCase(),
             codigoVenta: this.$store.state.common.codeRmkt,
-            enviarCorreo: parametroEnviarMail,
+            enviarCorreo: this.$store.state.common.agent != ''? 2:parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
               url: process.env.URL + (this.$store.state.common.promocion == true ? "vehicular/promocion/" : this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
@@ -3175,8 +3175,8 @@
               nuevoProducto: this.$store.state.common.nuevoProducto,                  
               /******************************************************** */      
               /******************************************************** */
-              geolocalizacion: this.$store.state.common.geolocation 
-
+              geolocalizacion: this.$store.state.common.geolocation, 
+              agente: this.$store.state.common.agent
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,
@@ -3216,7 +3216,7 @@
       },
       mouseLeave(e) {
         if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-          if (this.$store.state.common.leaveMessage == 0 ) {
+          if (this.$store.state.common.leaveMessage == 0) {
             if (e.clientX < 0 || e.clientY < 0) {
               this.$store.commit('common/setLeaveMessage',1)
               this.$nuxt.$emit('bv::show::modal','leaveQuote2')

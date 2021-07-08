@@ -1703,7 +1703,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 360px;
+        height: 300px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
@@ -1980,7 +1980,7 @@
         }
       }
       .formCotizador{
-        height: 360px;
+        height: 300px;
         margin-top: 40px;
       }
 

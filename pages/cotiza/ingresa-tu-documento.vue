@@ -2400,7 +2400,7 @@ export default {
           correo: this.$store.state.common.email.trim().replace(/ /g, "").toLowerCase(),
           codigoVenta: this.$store.state.common.codeRmkt,
           pantalla: this.pantalla,
-          enviarCorreo: 0,
+          enviarCorreo: this.$store.state.common.agent != ''? 2:0,
           datosCorreo: {
             url:
               process.env.URL +
@@ -2440,7 +2440,8 @@ export default {
             // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
             // pagoTrimestral: this.listCotizacion.policy.quarterly,
             // pagoAnual: this.listCotizacion.policy.annual,
-            geolocalizacion: this.$store.state.common.geolocation 
+            geolocalizacion: this.$store.state.common.geolocation,
+            agente: this.$store.state.common.agent 
           },
           datosTitular: {
             numeroDocumento: this.$store.state.common.documentoLocal,
@@ -2473,7 +2474,7 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0 ) {
+      if (this.$store.state.common.leaveMessage == 0) {
         
         if (e.clientX < 0 || e.clientY < 0) {
           
