@@ -10,7 +10,9 @@ const state = () => ({
     securityCode: '',
     numeroPoliza: '',
     plateNumber: '',
-    
+    sessionKey:'',
+    provider:'NIUBIZ',
+    transactionToken: ''
   })
   /* ============
    * Getters for the common module
@@ -36,6 +38,12 @@ const state = () => ({
     setToken (state, payload) {
       state.token = payload
     },
+    setSessionKey (state, payload) {
+      state.sessionKey = payload
+    },
+    setTransactionToken (state, payload) {
+      state.transactionToken = payload
+    },
     setSecurityCode (state, payload) {
       state.securityCode = payload
     },
@@ -49,6 +57,32 @@ const state = () => ({
 
   
   const actions = {
+    getSessionKey  ({ commit }, item) {
+      return new Promise((resolve, reject) => {
+          this.$axios.post('payment-api/api/v2/session',item,{ headers: { 'X-Apikey': 'bf689704-622d-4697-a338-15544c7836a2','X-Provider': 'NIUBIZ' } }).then((res) => {
+              if (res) {
+                  resolve(res)
+              } else {
+                  reject(res)
+              }
+          }).catch(err => {
+              reject(err)
+          })
+      })
+  },
+    makeSale  ({ commit }, item) {
+      return new Promise((resolve, reject) => {
+          this.$axios.post('vehicular-api/provider/v3/payment/execute',item ).then((res) => {
+              if (res) {
+                  resolve(res)
+              } else {
+                  reject(res)
+              }
+          }).catch(err => {
+              reject(err)
+          })
+      })
+  },
     getTokenCulqi ({ commit }, item) {
       return new Promise((resolve, reject) => {
         this.$axios.$post('https://secure.culqi.com/v2/tokens', item, { headers: { 'Authorization': 'bearer ' + process.env.culqiPK } }).then(res => {
@@ -65,7 +99,7 @@ const state = () => ({
     },
     getCard ({ commit }, item) {
       return new Promise((resolve, reject) => {
-        this.$axios.$post('culqi/v1/cards', {
+        this.$axios.$post('vehicular-api/culqi/v1/cards', {
             customer_id: item.customer_id,
             details: {
                 card_brand: item.card_brand,
@@ -90,7 +124,7 @@ const state = () => ({
     },
     updatePolicy ({ commit,state }, item) {
         return new Promise((resolve, reject) => {
-            this.$axios.$post('/provider/v2/policy/update/'+ item.numeroPoliza,{
+            this.$axios.$post('vehicular-api/provider/v2/policy/update/'+ item.numeroPoliza,{
                 "paymentAmount": item.monto_pagar,
                 "commercialValue": item.current,
                 "paymentMethodId": item.payment,
@@ -109,7 +143,7 @@ const state = () => ({
     },
     paymentExecute ({ commit,state }, item) {
       return new Promise((resolve, reject) => {
-          this.$axios.$post('/provider/v2/payment/execute',item).then( res => {
+          this.$axios.$post('vehicular-api/provider/v2/payment/execute',item).then( res => {
           if (res) {
             resolve(res)
           } else {

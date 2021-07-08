@@ -2,95 +2,101 @@
 
 const getDefaultState = () => {
     return {
-
-        //GLOBALES
-        placa01: false,
-        urlGlobal: '',
-        montoPagar:0,
-        code_sku:0,
-        flagCloseListon: 1,
-        appDiscountURL: false,
+    //GLOBALES
+    channel : "IS",
+    placa01: false,
+    urlGlobal: '',
+    montoPagar:0,
+    code_sku:0,
+    flagCloseListon: 1,
+    appDiscountURL: false,
+    appDiscount: false,
+    flujoDetectado: 'interseguro',
+    codeRmkt: 0,
+    plateNumber: null,
+    email: null,
+    documentoLocal: null,
+    numeroTelefono: null,
+    itemElegido: {},
+    checkgss: 0,
+    emisionROOT: false,
+    cuentasueldo: 'N',
+    tarjetaoh: 'N',
+    discountType: '',
+    nuevoProducto: false,
+    //  SOAT
+    origenCliente: 1,/* NORMAL ES 1 | - | SOAT ES 2 |  */
+    clienteSOAT : {}, /* CUANDO VIENE DE SOAT LO GUARDAMOS ACA POR SI NO LLEGA A ID */
+    //ESTADOS
+    vehicleState: 0,
+    clientState: 0,
+    clientStateGA: false,
+    //COTIZADOR
+    entidadFinanciera: {
+        id: 0,
+        name: ''
+    },
+    planSeleccionado: 3,    
+    current: null,
+    pantallaFlujo: 0,
+    fechaVigencia: '',
+    businessId: 1,
+    promocion : false,
+    objVehiculo : {
+        activePolicy: false,
         appDiscount: false,
-        flujoDetectado: 'interseguro',
-        codeRmkt: 0,
-        plateNumber: null,
-        email: null,
-        documentoLocal: null,
-        numeroTelefono: null,
-        itemElegido: {},
-        checkgss: 0,
-        emisionROOT: false,
-        cuentasueldo: 'N',
-        tarjetaoh: 'N',
-        discountType: '',
-        nuevoProducto: false,
-        //  SOAT
-        origenCliente: 1,/* NORMAL ES 1 | - | SOAT ES 2 |  */
-        clienteSOAT : {}, /* CUANDO VIENE DE SOAT LO GUARDAMOS ACA POR SI NO LLEGA A ID */
-        //ESTADOS
-        vehicleState: 0,
-        clientState: 0,
-        clientStateGA: false,
-        //COTIZADOR
-        entidadFinanciera: {
-            id: 0,
-            name: ''
-        },
-        planSeleccionado: 3,    
-        current: null,
-        pantallaFlujo: 0,
-        fechaVigencia: '',
-        businessId: 1,
-        promocion : false,
-        objVehiculo : {
-            activePolicy: false,
-            appDiscount: false,
-            brand: "",
-            brandId: 0,
-            category: "",
-            categoryId: 0,
-            client: Object,
-            exists: false,
-            id: 0,
-            model: '',
-            modelId: 0,
-            modelYear: 0,
-            plateNumber: '',
-            remarketingId: 0,
-            serialNumber: 0,
-            useType: 0,
-            useTypeId: 0,
-            vehicleIBK: 0
-        },
-        objCliente: {
-            address: '',
-            birthDate: '',
-            documentNumber: '',
-            documentType: '',
-            emailAddress: '',
-            externalId: '',
-            firstLastName: '',
-            firstName: '',
-            id: '',
-            intercorp: '',
-            phoneNumber: '',
-            secondLastName: ''
-        },
-        listaCotizacion: {
-            policy: {
+        brand: "",
+        brandId: 0,
+        category: "",
+        categoryId: 0,
+        client: Object,
+        exists: false,
+        id: 0,
+        model: '',
+        modelId: 0,
+        modelYear: 0,
+        plateNumber: '',
+        remarketingId: 0,
+        serialNumber: 0,
+        useType: 0,
+        useTypeId: 0,
+        vehicleIBK: 0
+    },
+    objCliente: {
+        address: '',
+        birthDate: '',
+        documentNumber: '',
+        documentType: '',
+        emailAddress: '',
+        externalId: '',
+        firstLastName: '',
+        firstName: '',
+        id: '',
+        intercorp: '',
+        phoneNumber: '',
+        secondLastName: ''
+    },
+    // monthly: 0,
+    // quarterly: 0,
+    // annual: 0,
+    //LISTAS
+    listaCotizacion: {
+        policy: {}
+    },
+    policy_id : '',
+    objectDigodat: {},
+    frecuenciaPago: 1,
+    //ACTIALIZACION Y RENOVACION
+    // placaNoRenovar: '',
+    // objrenovacion: {},
+    // fechaVigenciaRenovacion: '',
+    
+    //CODIGO REMARKETING
+    codigoRemarketingGenerado: '',
 
-            },
-            vehicle:{
-                current:''
-            }
-        },
-        policy_id : '',
-        objectDigodat: {},
-        frecuenciaPago: 1,
-        codigoRemarketingGenerado: '',
-
-        leaveMessage: 0,
-        leaveMessage1: 0
+    // Modal de abandono
+    leaveMessage: 0,
+    leaveMessage1: 0
     }
 }
 
@@ -108,6 +114,9 @@ const mutations = {
     },
     setAppDiscountURL (state, payload){
         state.appDiscountURL = payload
+    },
+    setChannel (state, payload){
+        state.channel = payload
     },
     setCode_sku (state, payload){
         state.code_sku = payload
@@ -216,10 +225,6 @@ const mutations = {
     setObjVehiculo(state, payload){
         state.objVehiculo = JSON.parse(JSON.stringify(payload))
     },
-    
-    setObjVehicle(state, payload){
-        state.objVehicle = JSON.parse(JSON.stringify(payload))
-    },
     setListaCotizacion(state, payload){
         state.listaCotizacion = JSON.parse(JSON.stringify(payload))
     },
@@ -261,12 +266,13 @@ const mutations = {
 }
 
 const actions = {
+    
     /*********************************************************
                             * FLUJO BASICO
     *********************************************************/
    enviarMsjCelular  ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-            this.$axios.post('provider/v2/sms/send-message/'+item).then((res) => {
+            this.$axios.post('vehicular-api/provider/v2/sms/send-message/'+item).then((res) => {
                 if (res) {
                     resolve(res)
                 } else {
@@ -279,7 +285,7 @@ const actions = {
     },
     getVehicle ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-            this.$axios.post('provider/v1/vehicle/plate/' + item.plateNumber, {
+            this.$axios.post('vehicular-api/provider/v1/vehicle/plate/' + item.plateNumber, {
                 email: item.email
             }).then(res => {
                 if (res) {                                      
@@ -292,7 +298,7 @@ const actions = {
     },
     createVehicle ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-          this.$axios.put("provider/v1/vehicle", {
+          this.$axios.put("vehicular-api/provider/v1/vehicle", {
               brandId: item.brandId,
               modelId: item.modelId,
               modelYear: item.modelYear,
@@ -362,7 +368,7 @@ const actions = {
     },
     updateVehicle ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-          this.$axios.put("provider/v1/vehicle", {
+          this.$axios.put("vehicular-api/provider/v1/vehicle", {
               brandId: item.brandId,
               modelId: item.modelId,
               modelYear: item.modelYear,
@@ -437,8 +443,8 @@ const actions = {
     getCotizacion ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
             let url = item.assignedPrice == null
-            ? 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + state.objVehiculo.modelYear  + '?remarketingId=' + state.codeRmkt
-            : 'provider/v2/policy/price-plans/' + state.plateNumber + '/' + state.objVehiculo.modelYear + '?remarketingId=' + state.codeRmkt + '&assignedPrice=' + item.assignedPrice +'&documentNumber='+state.documentoLocal
+            ? 'vehicular-api/provider/v2/policy/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt
+            : 'vehicular-api/provider/v2/policy/price-plans/' + state.plateNumber + '/' + item.year + '?remarketingId=' + state.codeRmkt + '&assignedPrice=' + item.assignedPrice +'&documentNumber='+state.documentoLocal
             this.$axios.get( url + "&discountType=" + item.discountType + "&businessId=" + item.businessId ).then( res => {
                 if ( res ) {
                     resolve(res)
@@ -470,7 +476,7 @@ const actions = {
     },
     getBrand ({ commit, dispatch }) {
         return new Promise((resolve, reject) => {
-            this.$axios.get('provider/v1/other/brand/group')
+            this.$axios.get('vehicular-api/provider/v1/other/brand/group')
             .then(res => {
                 if (res) {
                     resolve(res)
@@ -484,7 +490,7 @@ const actions = {
     },
     getYear ({ commit, dispatch }) {
         return new Promise((resolve, reject) => {
-            this.$axios.get('provider/v1/other/years').then(res => {
+            this.$axios.get('vehicular-api/provider/v1/other/years').then(res => {
                 if (res) {
                     resolve(res)
                 } else {
@@ -497,7 +503,7 @@ const actions = {
     },
     getFinancialInstitution ({ commit, dispatch }) {
         return new Promise((resolve, reject) => {
-            this.$axios.get('provider/v1/other/financial-institution').then(res => {
+            this.$axios.get('vehicular-api/provider/v1/other/financial-institution').then(res => {
                 if (res) {
                     resolve(res)
                 } else {
@@ -510,7 +516,7 @@ const actions = {
     },
     enviarMailing  ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-            this.$axios.post('manage/v1/email/price-to-client/'+ state.plateNumber+'/'+ state.businessId,{
+            this.$axios.post('vehicular-api/manage/v1/email/price-to-client/'+ state.plateNumber+'/'+ state.businessId,{
                 email: state.email
             }).then(res => {
                 if (res) {
@@ -525,7 +531,7 @@ const actions = {
     },
     enviarMailingConfirmacion({commit, state}, item){
         return new Promise((resolve, reject) => {
-            this.$axios.post('manage/v1/email/confirm-to-client/'+ item +'/'+ state.businessId,{
+            this.$axios.post('vehicular-api/manage/v1/email/confirm-to-client/'+ item +'/'+ state.businessId,{
             }).then(res => {
                 if (res) {
                     resolve(res)
@@ -585,7 +591,7 @@ const actions = {
     /*************************************************************/
     getModelLocal ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-            this.$axios.post('provider/v1/other/models-available/' + item.brandId + '/' + item.year).then( res => {
+            this.$axios.post('vehicular-api/provider/v1/other/models-available/' + item.brandId + '/' + item.year).then( res => {
                 if (res) {
                     resolve(res)
                 } else {
@@ -598,7 +604,7 @@ const actions = {
     },
     getModel ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-            this.$axios.post('provider/v1/other/models-available/' + item.brandId + '/' + item.modelYear,
+            this.$axios.post('vehicular-api/provider/v1/other/models-available/' + item.brandId + '/' + item.modelYear,
             {
                 externalModel: item.model
             }).then(res => {
@@ -615,7 +621,7 @@ const actions = {
     
     getUses ({ commit }) {
         return new Promise((resolve, reject) => {
-            this.$axios.get('provider/v1/other/uses').then( res => {
+            this.$axios.get('vehicular-api/provider/v1/other/uses').then( res => {
                 if (res) {
                     resolve(res)
                 } else {
@@ -629,7 +635,7 @@ const actions = {
     },
     getClient ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-            this.$axios.get("provider/v1/client/" + item.documentoLocal+"?discountType="+item.discountType )
+            this.$axios.get("vehicular-api/provider/v1/client/" + item.documentoLocal+"?discountType="+item.discountType )
             .then(res => {
                 if (res) {                                      
                     resolve(res)
@@ -641,7 +647,7 @@ const actions = {
     },
     updateClient ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
-          this.$axios.put("provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
+          this.$axios.put("vehicular-api/provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
             {
                 clientModel:{
                     firstName: item.firstName,
@@ -668,7 +674,7 @@ const actions = {
     },
     updateRuc ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-            this.$axios.put("provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
+            this.$axios.put("vehicular-api/provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
             {
                 clientModel:{
                     firstName: item.firstName,
@@ -699,7 +705,7 @@ const actions = {
             ERA POR EL METODO CAPITALIZE QUE NO ERA ENCONTRADO PERO EL NAVEGADOR NO MOSTRABA ERROR
             firstName: this.capitalize(item.firstName),
             */
-           this.$axios.put("provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
+           this.$axios.put("vehicular-api/provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
             {
                 clientModel:{
                     firstName: item.firstName,
@@ -725,7 +731,7 @@ const actions = {
     },
     createClient ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-            this.$axios.put("provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
+            this.$axios.put("vehicular-api/provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
                 {
                     clientModel:{
                         firstName: item.firstName,
@@ -774,7 +780,7 @@ const actions = {
     },
     getPagoProcesado ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-            this.$axios.get("manage/v1/policy/details/" + state.policy_id )
+            this.$axios.get("vehicular-api/manage/v1/policy/details/" + state.policy_id )
             .then(res => {
               if (res.data.code == 0) {
                 resolve(res);
@@ -791,7 +797,7 @@ const actions = {
     *********************************************************/
     obtenerDatos ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-        this.$axios.get("provider/v2/policy/renew/find/"+ item)
+        this.$axios.get("vehicular-api/provider/v2/policy/renew/find/"+ item)
             .then(res => {
                 if (res) {
                     commit('setObjRenovacion', res.data.body)
@@ -807,7 +813,7 @@ const actions = {
     },
     obtenerDatosRenovaciones ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-        this.$axios.get("provider/v2/policy/renew/price-plans/"+ item.placa +"/"+item.anio)
+        this.$axios.get("vehicular-api/provider/v2/policy/renew/price-plans/"+ item.placa +"/"+item.anio)
             .then(res => {
                 if (res) {
                     commit('setObjRenovacion', res.data.body)
