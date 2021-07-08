@@ -1,0 +1,2787 @@
+<template>
+
+    <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
+        <div id="newModal" style="display:none" >
+            <div class="phoneContent">
+                <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
+                    <img src="./../../static/media/interseguroVehicular_v2/cardImage.svg" alt="telefono">
+                </a>
+            </div>
+            <br>
+                    <p style="color : #0855C4; font-size : '23px'">Error en el pago</p>
+                    <br>
+                    <p style="color: #454A6C;
+            font-family: 'Omnes Regular';
+            opacity: 1;">{{textErrModal}}
+            <br>
+            {{textErrModalTwo}}</p>
+        </div>
+
+        <b-container class="steps-plan">
+            <b-row>
+                <b-col cols="12" lg="8" class=" m-auto">
+                <div class="box-steps">
+                    <div class="backcotizacion " @click="volver($event)">
+                    <img width="35" src="../../static/media/img/flujo/cotizacion/back.svg" alt="volver">
+                    </div>
+                
+                    <ul class="steps" style="display: inline-flex">
+                    <template>
+                        <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  steps--active  paso3" to="/cotiza/como-pagar"><li></li></router-link>
+                        <router-link v-else class="steps__item  steps--active  paso3" to="/cotiza/ingresa-tu-documento"  style="cursor: auto;"><li></li></router-link>
+                    </template>              
+                    <template >
+                        <router-link v-if="documento_steps2 != ''" class="steps__item  paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
+                        <router-link v-else class="steps__item   paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
+                    </template>
+                    <template >
+                        <router-link  class="steps__item  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
+                    </template>
+                        <li class="steps--progressBar"></li>
+                    </ul>
+
+                    <div v-if="this.planSeleccionado == 4" class="plan-titulo">
+                    <p class="roboTotal">PLAN SELECCIONADO: <span>PLATA </span></p>
+                    </div>
+                    <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
+                    <p class="semiFull">PLAN SELECCIONADO: <span>ORO </span></p>
+                    </div>
+                    <div v-else-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" class="plan-titulo">
+                    <p class="full">PLAN SELECCIONADO: <span> BLACK </span></p>
+                    </div>
+                </div> 
+                </b-col>  
+            </b-row>  
+        </b-container>
+
+        <b-container id="pago" class="contenedor-custom">            
+            <b-row class="justify-content-center" style="position: relative;">            
+                <b-col cols="12" md="8" >
+                    <div class="metodo-pago">
+                        <b-row class="justify-content-center">
+                            <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta" style="position: relative;">
+                                
+                                
+                                <div v-if="listCotizacion.discount !== undefined" >
+                                    <span class="boxtitulo-intercorp"  v-if="listCotizacion.discount.intercorp == 5">
+                                        ¡Felicitaciones! Hemos aplicado 5% de descuento por pertenecer al Club Intercorp
+                                    </span>
+                                </div>
+                                <div class="panel-custom">
+                                    <b-row>
+                                        <b-col cols="12" md="12">
+                                            <div class="boxtitulo">
+                                                <p class="boxtitulo__principal texto-candado">INGRESA TU TARJETA <img class="img-candado" src="../../static/media/img/candado.png" alt="candado"> <span v-if="this.businessId == 2">Interbank</span> </p>
+                                                <p class="boxtitulo__principal"></p>
+                                            </div>
+                                        </b-col>
+                                        <b-col cols="12" md="12">                                            
+                                            <div class="imgs">
+                                                <span class="msg-alterno">Pago online 100% seguro</span>
+                                                <div class="tarjetas">
+                                                    <span><img width="25" src="../../static/media/img/flujo/metodo-pago/visa.png" alt="visa"></span>
+                                                    <span><img width="25" src="../../static/media/img/flujo/metodo-pago/mastercard.png" alt="mastercard"></span>
+                                                    <span><img width="23" src="../../static/media/img/flujo/metodo-pago/american.png" alt="amex"></span>
+                                                    <span v-if="this.businessId == 1"><img width="25" src="../../static/media/img/flujo/metodo-pago/dinners.png" alt="dinners"></span>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        </b-col>                                         
+                                    </b-row>
+                                </div>
+                                <div class="panel-custom pt-3 pb-0">
+                                    <b-row>
+                                        <div class="loader-pay">
+                                            <loader-pay v-if="showLoader"></loader-pay>
+                                        </div>
+                                        <b-col v-if="pay.digitalPayment.provider === 'NIUBIZ'">
+                                             <payment-niubiz :payment="paymentForm">
+
+                                            </payment-niubiz>
+                                            <b-col cols="12">
+                                                <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                            </b-col>
+                                        </b-col>
+                                        <b-col v-else-if="pay.digitalPayment.provider === 'CULQI'" cols="12" class="box-ingresaTarjeta">
+                                            <form class="card-interseguro">   
+                                                <div class="form-group-custom">                                                        
+                                                    <div id="focusTarjeta">
+                                                        Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
+                                                    </div>
+                                                    <div class="input-group  iptGral editable  box-iptCard">
+                                                        <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
+                                                        id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
+                                                        aria-label="Número de tarjeta" autocomplete="cc-number"
+                                                        aria-describedby="numberDocumentFeedback"
+                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
+                                                        
+                                                        <img width="30" :src="creditCardImage" >
+                                                        <span class="error-card">error momentaneo</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-custom">
+                                                    <div class="card-custom__date">
+                                                        <div class="form-group-custom">                                                            
+                                                            <div id="box-mes" class="input-group  iptGral editable">   
+                                                                <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
+                                                                 class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
+                                                                  v-model="card.expiration_month" type="tel" name="cardmes"/>
+                                                            </div>
+                                                            <div id="focusMES">
+                                                                Fecha de vencimiento de tu tarjeta.
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group-custom  text-right-custom">
+                                                            <div class="input-group  iptGral editable">
+                                                                <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-custom__cvv">
+                                                        <div class="form-group-custom">
+                                                            <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
+                                                                <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
+                                                                id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
+                                                                aria-describedby="numberFeedback"
+                                                                 :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
+                                                            </div>
+                                                        </div>     
+                                                    </div>  
+                                                    <div  id="focusCVV" >
+                                                        <img class="img-fluid" :src="creditCardImageCvv" >
+                                                    </div>  
+                                                </div>
+                                                <div class="error-gral">Error momentáneo</div>                 
+                                                <br>
+                                            </form>
+                                            <div class="checkbox-aux font-nunito">
+                                                <label  class="box-checkbox"  id="show-modal">
+                                                    <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
+                                                    <span class=checkbox-aux__span>
+                                                        <i class="checkbox-aux__span--icon fa fa-check"></i>
+                                                    </span>
+
+                                                    <template v-if="tabIndex == 1">
+                                                        <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                            y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                        </span>
+
+                                                        <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
+                                                        </span>
+                                                    </template>
+                                                    <template v-else>
+                                                        <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                            y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                        </span>
+
+                                                        <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
+                                                        </span>
+                                                    </template>
+
+                                                </label>
+                                            </div>
+                                            <b-row class="justify-content-center">
+                                                <b-col cols="10" class="text-center">
+                                                    
+                                                    <button type="submit" @click="goconfirm()" class="btn box-btn__button box-btn--primary" 
+                                                        :disabled='this.isDisabledPayment'>
+                                                        <span>PAGAR ${{this.monto_pagar}} </span>                                                        
+                                                        
+                                                    </button>
+                                                </b-col>
+                                                <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                </b-col>
+                                            </b-row>                
+                                        </b-col>
+                                    </b-row>
+                                </div>
+                                
+                                <div class="panel-custom pt-0">
+                                    <b-row  class="text-center justify-content-center">
+                                        <b-col cols="12" lg="5"  class="text-center">
+                                            <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
+                                                <b-col cols="12">
+                                                    <div class="spinner-tarjeta">
+                                                        <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                                                    </div>
+                                                </b-col>
+                                                <b-col cols="12">
+                                                    <p class="spinner-descripcion">Estamos procesando tu pago</p>
+                                                </b-col>                    
+                                            </b-row>
+                                        </b-col>
+                                        
+                                        <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0">
+                                            
+                                        </b-col>
+                                        
+
+
+                                        <!-- <b-col cols="12">
+                                            <div class=" box-btn testest  mt-4" >
+                                                <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
+                                                    
+                                                    <img @click="metodoFlotante()" src="./../../static/media/img/campania/como-pagar-mobile.svg" width="340">
+                                                    
+                                                    <div class="box-contador" >
+                                                        <span  class="cuota-gratis-span"
+                                                            >¡Por tiempo limitado!
+                                                        </span>
+                                                        <div  class="example  d-md-flex">
+                                                            <div id="contadorCyber3" class="flipdown">
+                                                                
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-col> -->
+
+                                    </b-row>
+                                </div>
+                            </b-col>
+
+                        </b-row>
+
+                    </div>
+                </b-col>            
+            </b-row>
+        </b-container>
+        <b-container>        
+            <div>
+                <b-modal id="modal1" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalAutoorizacionPoliza" size="lg">
+                    <div class="modal-content  modal-confirmaTusDatos">
+                        <b-btn class="mt-3 btn-secondary" @click="hideModalAutoorizacionPoliza()"  style="background: white; border: none;">
+                            <img src="https://uploads-ssl.webflow.com/5b29b333e01a7071fadb2f1c/5b5f46206abb673bc5374fdb_icon-close.svg" width="40" alt="icon close" class="image-9">
+                        </b-btn>
+                        <div class="modal-head">
+                            <div class="row">
+                                <h2 class="modal-personal-title col-8 offset-2">
+                                    <span class="tag-0">Declaración jurada</span>
+                                    <span class="tag-2">del contratante</span>
+                                </h2>
+                            </div>
+                            <div class="modal-divider"></div>
+                        </div>
+                        <p class="modal-description">
+                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro).
+                            <br><br>
+                            A su vez, declaro que brindaré las facilidades del caso para coordinar que mi vehículo pase por el proceso de inspección correspondiente y que, de no hacerlo, entiendo que Interseguro podrá proceder con la anulación de mi póliza conforme a lo indicado en los términos del contrato.
+                            <br><br>
+                            Asimismo, manifiesto que el automóvil asegurado bajo la presente póliza existe y, según corresponda, cumple con los siguientes criterios:
+                            <br><br>
+                            <ul style="list-style: none;">
+                                <li>
+                                   <strong>a)</strong> es 0 Kilómetros y/o,
+                                </li>
+                                <li>
+                                    <strong>b)</strong> siendo usado, se encuentra en óptimas condiciones para su uso ordinario, buena conservación y aspecto. Asimismo, declara que el vehículo asegurado no ha sido adquirido producto de un salvamento, y,
+                                </li>
+                                <li>
+                                    <strong>c)</strong> Es de uso particular.
+                                </li>
+                            </ul>
+                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa o inexacta hecha por el Contratante respecto al estado del vehículo o a su uso, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
+                            <br><br>
+                            El mecanismo de comunicación por el que Interseguro enviará la póliza electrónica, endosos futuros, cartas y/u otra documentación será el correo electrónico declarado por el Contratante.
+                            <br><br>
+                            Finalmente, autorizo a que se realicen -de acuerdo a la periodicidad escogida- cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
+                        </p>
+                        
+                    </div>
+                </b-modal>
+            </div>
+
+            
+
+            <div>
+                <b-modal id="modalgps" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalgps" size="lg">
+                    <div class="modal-content  modal-confirmaTusDatos">
+                        <b-btn class="mt-3 btn-secondary" @click="hideModalgps()"  style="background: white; border: none;">
+                            <img src="https://uploads-ssl.webflow.com/5b29b333e01a7071fadb2f1c/5b5f46206abb673bc5374fdb_icon-close.svg" width="40" alt="icon close" class="image-9">
+                        </b-btn>
+                        <div class="modal-head">
+                            <div class="row">
+                                <h2 class="modal-personal-title col-8 offset-2">
+                                    <span class="tag-0">CONDICIONES DEL SERVICIO DE RASTREO</span>
+                                </h2>
+                            </div>
+                            <div class="modal-divider"></div>
+                        </div>
+                        <p class="modal-description">
+                           El cliente autoriza expresamente a que PROTEMAX pueda entregar a INTERSEGURO, el historial del recorrido del vehículo, 
+                           el estado de la batería del vehículo, el reporte del kilometraje por periodo y acumulado del vehículo, el Reporte 
+                           histórico de recorrido, el Reporte gráfico de posiciones, la ubicación en tiempo real, el reporte de alerta de velocidad máxima,
+                            batería baja y botón de pánico del vehículo  que tiene instalado el dispositivo GPS, siempre y cuando este lo solicite formalmente,
+                             con la finalidad de que sea adjuntado en el Expediente del siniestro reportado. Por su parte PROTEMAX será el único responsable
+                              por la entrega de la información solicitada respecto el vehículo de EL CLIENTE a INTERSEGURO.
+                        </p>
+                        
+                        
+                    </div>
+                </b-modal>
+
+            </div>
+        </b-container>
+
+        <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
+            <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
+        </div>
+
+        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-3" cols="12">
+                    
+                    <!-- <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt=""> -->
+                    <p class="mt-3" style="max-width: 360px;">
+                        <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+                        <span style="color : #ffffff; font-size: 18px">
+                            ¡Solo por pocos días! Asegura tu auto  <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
+                        </span>
+                    </p>
+                    </b-col>
+                </b-row>
+                
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-4" cols="12">
+                    <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
+                        >TERMINAR COMPRA</b-button
+                    >
+                    </b-col>
+                </b-row>
+            </b-container>
+        </b-modal>
+         
+    </section>
+</template>
+
+<script>
+import loaderPago from '@/components/loaders/LoaderPay'
+import PaymentNiubiz from '@/components/FormPaymentNiubiz'
+import { validationMixin } from 'vuelidate'
+    
+    var cardNumber;
+    var fechaActual = new Date()
+    const state = {
+        date: new Date(),
+        disabledDates: {
+            to: new Date(Date.now() - 8640000),
+            from: new Date(fechaActual.getTime() + 3.888e+9)
+        }
+    };
+    export default {
+        layout: 'InterseguroFlujo',
+        
+        data(){
+            return {
+                showLoader: true,
+                paymentForm: {
+                    email: this.$store.state.common.email,
+                    card_number: '',
+                    public_key: process.env.culqiPK,
+                    url: process.env.culqiURL,
+                    cvv: '',
+                    expiration_date: null,
+                    expiration_year: null,
+                    expiration_month: null
+                },
+                pay: {
+                    businessId:1,
+                    sellCode: this.$store.state.common.codeRmkt,
+                    planId: this.$store.state.common.planSeleccionado,
+                    plateNumber: this.$store.state.common.plateNumber,
+                    documentNumber: this.$store.state.common.objCliente.documentNumber,
+                    discountType:"",
+                    policy:{
+                        startDate:this.$store.state.common.fechaVigencia,
+                        zeroKm:"N",
+                        frequency:this.$store.state.common.frecuenciaPago,                        
+                        financialInstitution:this.$store.state.common.entidadFinanciera.name,
+
+                        // 
+                        calculated:this.$store.state.common.listaCotizacion.policy.calculated,
+                        monthly:this.$store.state.common.listaCotizacion.policy.monthly,
+                        monthlyDiscount:this.$store.state.common.listaCotizacion.policy.monthlyDiscount,
+                        quarterly:this.$store.state.common.listaCotizacion.policy.quarterly,
+                        quarterlyDiscount:this.$store.state.common.listaCotizacion.policy.quarterlyDiscount,
+                        annual:this.$store.state.common.listaCotizacion.policy.annual,
+                        annualDiscount:this.$store.state.common.listaCotizacion.policy.annualDiscount,
+                        sumAssured: 0,
+                        discount:false
+                    },
+                    digitalPayment:{
+                        // provider: 'NIUBIZ',
+                        provider: this.$store.state.payment.provider,
+                        token: null
+                    }
+                },
+                /********************************************************************************** */
+
+                /********************************************************************************** */
+                htmlModal : '',
+                textErrModal : '',
+                textErrModalTwo : '',
+                flotanteCovid: true,
+                valeAgora: false,
+                urlLocal:'',
+                cobertura_is:{
+                    plan:'',
+                    content_ids:''
+                },
+                frecuenciaPago:0,
+                itemElegido: {
+                    year: '',
+                    brandId:'',
+                    brand:'',
+                    modelYear: '',
+                    model: '',
+                    modelId:'',
+                    remarketingId:'',
+                    assignedPrice:null,
+                    businessId:1,
+                    discountType: '',
+                },
+                objPaymentExecute:{},
+                documento_steps2 : '',
+                monto_pagar_steps3 : '',
+                planSeleccionado: 0,
+                pruebabandera:true,
+                contadorNoTeVayas: 0,
+                objError:{
+                    "page":'',
+                    "flow":'',
+                    "path":'',
+                    "messageError": '',
+                    "documentNumber":'',
+                    "plateNumber": '',
+                    "detail":{
+                    "objServicio":{
+                        "nombre":'',
+                        "tipo": '',
+                        "ruta": '',
+                        "msj": '',
+                        "solucion": ''
+                    },
+                    "objCliente":{
+                        "documento": '',
+                        "nombre":'',
+                        "celular": '',
+                        "correo": ''
+                    },
+                    "objAuto":{
+                        "placa": '',
+                        "marca": '',
+                        "modelo": '',
+                        "anio": '',
+                        "valorComercial": ''
+                    }
+                    }
+                },
+                endosoSeleccionado: {},
+                discountType: '',
+                opacidad:false,            
+                isEnableURL: true,
+                registrogss:"",
+                urlCompartir: '',
+                urlCompartirWhatsApp: "",
+                capa_planes: true,
+                tabIndex: 0,
+                campaniaTV: '1',
+                gpsExiste:"",
+                numberTest:'',
+                // es: es,
+                state: state,
+                fechaVigencia: '',
+                vModelExample: null,
+                loading:true,
+                loadingPulse: true,
+                color: '#00ADEE',
+                sizePulse: '45px',
+                zeroKm:  'N',                                
+                margin: '2px',
+                radius: '2px',
+                payment: 1,
+                //pendiente el volver atras
+                listCotizacion:{
+                    'policy':{
+                        'discount':false
+                    },
+                    'financialInstitution':''
+
+                },
+                payment_datalayer:'',
+                isDisableButton: false,
+                documentoLocal:'',
+                policy_id:'',
+                objPagoProcesado:{
+                    "id":null,
+                    "monto":null
+                },
+                monto_pagar: null,
+                /**************************************************************
+                 * ********************INGRESA TU TARJETA *********************
+                 * ***********************************************************/
+                cardCompleto:true,
+                size: '45px',
+                objClient:{},
+                nombreCliente:'',
+                objCardNumber:{
+                    number: ''
+                },
+                
+                tamañoCCV:0,
+                cvvcci:'CCV',
+                checkDocs: false,
+                baseUrlImage: '',
+                creditCardImageCvv: '',
+                creditCardImage: '',
+                expirationDate: '',
+                isDisabledPayment: true,
+                isisplayNoneLoader: true,
+                cardValitor: false,
+                card_id:'',
+                expiration_year: '',
+                card:{
+                    email: '',
+                    card_number:'',
+                    public_key: process.env.culqiPK,
+                    url: process.env.culquiURL,
+                    cvv:'',
+                    expiration_year: '',
+                    expiration_month: '',                    
+                },
+                tipoTarjetaDatalayer:'',
+                objCulqi:{},
+                objVehicleSelect:{},
+                numberValidation:{
+                    isValid:''
+                },
+                objCulqi:{},
+                /**************************************************************
+                 * *********************** REMARKETING ************************
+                 * ***********************************************************/
+                businessId : "",
+                objPlantilla : {
+                    "1":"00-dias.html",
+                    "2":"03-dias.html",
+                    "3":"07-dias.html",
+                    "4":"15-dias.html"
+                },
+                objUtm: {
+                    "1":"utm_campaign=remarketingCN_1",
+                    "2":"utm_campaign=remarketingCN_2",
+                    "3":"utm_campaign=remarketingCN_3",
+                    "4":"utm_campaign=remarketingCN_4"
+                }
+            }
+        },
+        created () {
+            let self = this
+            this.$nuxt.$on('show-loader', ({loader}) => {
+                console.log(loader, "LOADER")
+                this.showLoader = loader
+                // this.showLoader = true
+            })
+            this.$nuxt.$on('show-payment', ({payment}) => {
+                console.log("PAYMENT",payment)
+                self.pay.digitalPayment.provider = payment
+                self.$store.commit('payment/setSessionKey', payment)
+            })
+
+            
+        },
+        methods: {
+            
+                hidemetodoFlotante(){
+                    this.$nuxt.$emit('bv::hide::modal','leavePayment')
+                },
+                metodoFlotante(){
+                    this.$nuxt.$emit('bv::show::modal','leavePayment')
+                },
+                contador(){
+                    var flipdown2 = new FlipDown(1619845199, 'contadorCyber4').start()
+                    var flipdown = new FlipDown(1619845199, 'contadorCyber3').start()
+                },
+                hideModalBlackWeek(){
+                    $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+                },
+
+                cotizador_datalayer(evento,step_valor){
+                    this.cobertura_is.content_ids =  this.$store.state.common.code_sku
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: evento,
+                        step: step_valor,
+                        product: this.cobertura_is,
+                    });
+                },
+                /* *********************************************************************************** */
+                PaginaVista(e){
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'pagina_vista',
+                        'page-url': '/vehicular/cotiza/como-pagar', 
+                        'page-title': 'Como Pagar',
+                        'dni-encontrado': this.$store.state.common.clientStateGA, // true of false
+                        'ecommerce': {
+                            'checkout': {
+                                'actionField': {'step': 4}, // esto marca el primer paso en el embudo
+                            }
+                        }
+                    });
+                },
+                PaginaVistaNuevoProducto() {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: "pagina_vista",
+                        "page-url": "/vehicular-app/cotiza/como-pagar/",
+                        "page-title": "como pagar",
+                    });
+                },
+                /* *********************************************************************************** */
+                validarROOT(){
+                    if(this.$store.state.common.planSeleccionado == 6 || this.$store.state.common.planSeleccionado == 4){
+                        if(!this.$store.state.common.entidadFinanciera.id > 0){
+                            let inputDate = Date.parse(this.fechaVigencia)
+                            inputDate = new Date(this.fechaVigencia)
+                            
+                            let fecha = new Date()
+                            let dia = fecha.getDate()
+                            let mes = fecha.getMonth()+1
+                            let año = fecha.getFullYear()
+                            let fechaActual = dia+'/'+mes+'/'+año
+                            
+                            let todaysDate = Date.parse(fechaActual)
+                            todaysDate = new Date(fechaActual)
+
+                            if(inputDate.getTime() ===  todaysDate.getTime()) {
+                                if (this.$store.state.common.frecuenciaPago == 1) {
+                                    this.$store.commit('common/setEmisionROOT', true)
+                                } else {
+                                    this.$store.commit('common/setEmisionROOT', false)
+                                }
+                            }else{
+                                this.$store.commit('common/setEmisionROOT', false)
+                            }
+                        }else{
+                            this.$store.commit('common/setEmisionROOT', false)
+                        }
+                    }else{
+                        this.$store.commit('common/setEmisionROOT', false)
+                    }
+                },
+                onCopy: function (e) {      
+                    this.isEnableURL = false;
+                    var self = this;
+                    setTimeout(function() {
+                        self.isEnableURL = true;
+                    }, 1800);    
+                },
+                copyURL(event) {     
+                    e.preventDefault();
+                    this.isEnableURL = true;
+                    var copyText  = document.getElementById("copyText");
+                    copyText.select();
+                    document.execCommand("copy");
+                    var self = this;
+                    setTimeout(function() {
+                        self.isEnableURL = true;
+                    }, 1800);
+                },
+                mostrarTooltip(){
+                    if(process.client){
+                        document.getElementById("msg-valor").style.display = "block"
+                    }
+                    
+                },
+                ocultarTooltip(){
+                    if(process.client){
+                        document.getElementById("msg-valor").style.display = "none"
+                    }
+                },
+                goconfirm(evt) {
+                    let self = this        
+                    this.opacidad =true
+                    this.isDisabledPayment = false
+
+                    this.isDisabledPayment = true
+                    this.card.expiration_year = '20'+this.expiration_year
+                    this.card.email = this.$store.state.common.email
+                    this.$store.dispatch('payment/getTokenCulqi', this.card)
+                    .then((res) =>{
+                        
+                        if (res.object === 'error') {
+                            let errorDetectado = {
+                                url : 'GET TOKEN CULQI',
+                                page : 4,
+                                message : 'ERROR CULQI',
+                                objEnviado : this.card
+                            }
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            this.$swal({
+                                title: 'Oops...',
+                                text: res.data.user_message,
+                                type: 'error',
+                                showCancelButton: false,
+                                confirmButtonColor: '#2177CC',
+                                confirmButtonText: 'OK'
+                            })
+                            this.opacidad =false
+                        }else{
+                            console.log("========1")
+                            this.objCulqi = res;
+                            this.objPaymentExecute = {
+                                tokenId: this.objCulqi.id,
+                                planId: this.$store.state.common.planSeleccionado,
+                                plateNumber: this.$store.state.common.plateNumber,
+                                documentNumber: this.$store.state.common.documentoLocal,
+                                remarketingId: this.$store.state.common.codeRmkt,
+                                referredDocumentNumber:null,
+                                discountType: this.discountType,
+                                businessId: this.$store.state.common.businessId,
+                                details: {
+                                    policy: {
+                                        riskName: this.listCotizacion.policy.riskName,
+                                        risk: this.listCotizacion.policy.risk,
+                                        calculated: this.listCotizacion.policy.calculated,
+                                        twoYears: this.listCotizacion.policy.twoYears,
+                                        annual: this.listCotizacion.policy.annual,
+                                        quarterly: this.listCotizacion.policy.quarterly,
+                                        monthly: this.listCotizacion.policy.monthly,
+                                        twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
+                                        annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                        quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                        monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                        discount: false,
+                                        startDate: this.$store.state.common.fechaVigencia
+                                    },
+                                    vehicle: {
+                                        current: this.listCotizacion.vehicle.current,
+                                        maximum: this.listCotizacion.vehicle.maximum,
+                                        minimum: this.listCotizacion.vehicle.minimum,
+                                        gps: this.listCotizacion.vehicle.gps
+                                    },
+                                    zeroKm: "N",
+                                    paymentMethodId: this.payment,
+                                    financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                                },
+                                card: {
+                                    brand: this.objCulqi.iin.card_brand,
+                                    category: this.objCulqi.iin.card_category,
+                                    number: this.objCulqi.card_number,
+                                    type: this.objCulqi.iin.card_type,
+                                    bank : this.objCulqi.iin.issuer.name
+                                }
+                            }
+                            console.log("========2",self.pay)
+                            console.log("========2.1",res)
+                            self.pay.digitalPayment.token = res.id
+                            this.goGeneratePoliza(res.id)
+                            // this.$store.dispatch('payment/makeSale', this.objPaymentExecute)
+                            // .then((res) =>{
+                                
+                                
+                            // })
+                        }
+                        
+                    }).catch((res)=>{
+                        this.opacidad =false
+                        let status = res.response.status
+                        
+                        let errorDetectado = {
+                            url : 'https://secure.culqi.com/v2/tokens',
+                            page : 4,
+                            message : 'ERROR CULQI'+ res.message,
+                            objEnviado : this.card
+                        }
+
+                        switch (status) {
+                            case 500:
+                                this.$store.dispatch('common/eventoErrores', errorDetectado)
+                                break;
+                            default:
+                                this.$store.dispatch('common/eventoErrores', errorDetectado)
+                                break;
+                        }
+                        this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
+                        if(!this.htmlModal){
+                            this.htmlModal = document.getElementById('newModal');
+                            this.htmlModal.style.display = "";
+                        }
+                        this.$swal({
+                                        // title: 'Oops...',
+                                        html: this.htmlModal,
+                                        // type: 'error',
+                                        customClass: 'swal-buttonx',
+                                        showCloseButton: true,
+                                        confirmButtonColor: '#EA0C90',
+                                        confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                            })
+                    })
+                },
+            
+                volver (evt) {
+                    evt.preventDefault();
+                    this.$nuxt.$router.push("/cotiza/ingresa-tu-documento");              
+                },
+            
+                comoPagarDatalayer(){
+                    if(this.frecuenciaPago == 1){
+                        this.frecuenciaPago_datalayer ='mensual'
+                    }else if(this.frecuenciaPago == 2){
+                        this.frecuenciaPago_datalayer ='trimestral'
+                    }else if(this.frecuenciaPago == 3){
+                        this.frecuenciaPago_datalayer = 'annual'
+                    }else if(this.frecuenciaPago == 4){
+                        this.frecuenciaPago_datalayer = 'biannual '
+                    }
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'como_pagar',
+                        'cuota': this.frecuenciaPago_datalayer, // mensual, trimestral, annual (string)
+                        'ecommerce': {
+                            'checkout_option': { // nota el cambio aqui en codigo "checkout_option"
+                                'actionField': {
+                                    'option':this.frecuenciaPago_datalayer
+                                }, // 4to paso en el embudo. En el option enviar tipo de cuota.
+                            }
+                        }
+                    });
+                },            
+
+            
+
+                /*******************************************************************************************
+                 *  ****************************INGRESA TU TARJETA*****************************************
+                *******************************************************************************************/
+                focusCVV(){      
+                    if(process.client){  
+                        document.getElementById("focusCVV").style.display = "block"
+                    }
+                },
+                blurCVV(){        
+                    if(process.client){
+                        document.getElementById("focusCVV").style.display = "none"
+                    }
+                },
+                focusMES(){        
+                    // document.getElementById("focusMES").style.display = "flex"
+                },
+                blurMES(){ 
+                    if(process.client){       
+                        document.getElementById("focusMES").style.display = "none"
+                    }
+                }, 
+                focusTarjeta(){  
+                    if(process.client){      
+                        document.getElementById("focusTarjeta").style.display = "flex"
+                    }
+                },
+                blurTarjeta(){    
+                    if(process.client){    
+                        document.getElementById("focusTarjeta").style.display = "none"
+                    }
+                },           
+
+                hideModalAutoorizacionPoliza(){
+                    this.$refs.hideModalAutoorizacionPoliza.hide()
+                },
+                hideModalgps(){
+                    this.$refs.hideModalgps.hide()
+                },
+            
+
+                isTrueTerminos(){
+                    if(process.client){
+                        if(this.cardValitor){                        
+                            let mes = document.querySelector("#cardmes").value.length
+                            let año = document.querySelector("#cardaño").value.length
+                            let ccv = document.querySelector("#cardccv").value.length
+                            if(mes == 2 && año == 2 &&  ccv > 2 && this.checkDocs == true){                
+                                this.isDisabledPayment = false
+                            }else{
+                                this.isDisabledPayment = true
+                            }
+                        }
+                    }
+                },
+
+                addingBlankSpaces (ev) {
+                    let valid = require('card-validator')
+                    cardNumber = ev.target.value
+                    let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                    this.numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                    //this.tipoTarjetaDatalayer = numberValidation.card.type
+                    if (numberValidation.card !== null) {
+                        
+                        this.numberTest = numberValidation.card.code.size
+                        this.cvvcci = numberValidation.card.code.name
+                        let cardType = numberValidation.card.type !== 'american-express' ? numberValidation.card.type : 'amex'
+                        this.creditCardImage = require('../../static/media/img/flujo/metodo-pago/' + cardType + '.png')
+                        this.creditCardImageCvv = require('../../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
+                    } else {
+                        this.creditCardImage = ''
+                        this.creditCardImageCvv = ''
+                    }
+                    if (ev.keyCode !== 8) {
+                        this.objCardNumber.number = this.objCardNumber.number.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ')               
+                    }
+                    this.card.card_number = cardNumber.split(" ").join("");
+                    if(numberValidation.isValid){
+                        this.cardCompleto = false
+                        this.cardValitor = true;
+                        if(numberValidation.card.code.name == "CVV" || numberValidation.card.code.name == "CVC" && this.checkDocs == true){
+                            if(process.client){
+                                let mes = document.querySelector("#cardmes").value.length
+                                let año = document.querySelector("#cardaño").value.length
+                                let ccv = document.querySelector("#cardccv").value.length
+                                if(mes == 2 && año == 2 && ccv == 3 ){
+                                    this.isDisabledPayment = false
+                                }
+                            }
+                            
+                        }else if(numberValidation.card.code.name == "CID"){
+                            if(mes == 2 && año == 2 && ccv == 3 ){
+                                this.isDisabledPayment = false
+                            }
+                        }
+                        if (process.client) {
+                            document.getElementById('cardmes').focus()
+                        }
+                        
+                    }else{
+                        this.isDisabledPayment = true
+                        this.cardCompleto = true
+                    }
+                },
+            
+                keyUpMes(){
+                    let mes = document.querySelector("#cardmes").value.length
+                    if(mes == 2){
+                        document.getElementById('cardaño').focus()
+                        if(this.cardValitor){
+                            let mes = document.querySelector("#cardmes").value.length
+                            let año = document.querySelector("#cardaño").value.length
+                            let ccv = document.querySelector("#cardccv").value.length
+                            if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
+                                this.isDisabledPayment = false
+                            }else{
+                                this.isDisabledPayment = true
+                            }
+                        }
+                    }else{
+                        this.isDisabledPayment = true
+                    }
+                },
+                keyUpCard(){
+                    let año = document.querySelector("#cardaño").value.length
+                    if(año == 2){
+                        document.getElementById('cardccv').focus()
+                    }
+                    if(this.cardValitor){
+                        let mes = document.querySelector("#cardmes").value.length
+                        let año = document.querySelector("#cardaño").value.length
+                        let ccv = document.querySelector("#cardccv").value.length
+                        if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
+                            this.isDisabledPayment = false
+                        }else{
+                            this.isDisabledPayment = true
+                        }
+                    }
+                },
+                validCard(){
+                    if(!this.numberValidation.isValid){
+                        this.$swal({
+                        title: 'Oops...',
+                        text: 'Debe ser una tarjeta válida',
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonColor: '#2177CC',
+                        confirmButtonText: 'OK'
+                    })
+                    }
+                },
+                remarketingv2(){
+                    if (this.$store.state.common.businessId == 2){
+                        this.objPlantilla = {
+                        "1":"00-ibk-dias.html",
+                        "2":"03-ibk-dias.html",
+                        "3":"07-ibk-dias.html",
+                        "4":"15-ibk-dias.html"
+                        }
+                        this.objUtm = {
+                        "1": "utm_campaign=IBK_remarketingCN_1",
+                        "2": "utm_campaign=IBK_remarketingCN_2",
+                        "3": "utm_campaign=IBK_remarketingCN_3",
+                        "4": "utm_campaign=IBK_remarketingCN_4"
+                        }
+                    }else if(this.$store.state.common.nuevoProducto == true){
+                        this.objPlantilla = {}
+                        this.objUtm = {}
+                    }
+                    this.abjVehicleSelect = JSON.parse(localStorage.getItem("abjVehicleSelect"))
+                    this.objVehicle = JSON.parse(localStorage.getItem("objVeh"))
+                    this.objRemarketing = {
+                        "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
+                        "producto": this.$store.state.common.businessId,
+                        "identificador": this.$store.state.common.plateNumber,
+                        "detalle": {
+                        "correo": this.$store.state.common.email.trim().replace(/ /g,''),
+                        "codigoVenta": this.$store.state.common.codeRmkt,
+                        "pantalla": 3,
+                        "enviarCorreo":0,
+                        "datosCorreo":{
+                            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+                            "plantilla": this.objPlantilla,
+                            "utm": this.objUtm
+                        },
+                        "datosProducto": {
+                            // valeAgora: this.valeAgora,
+                            marca : this.$store.state.common.itemElegido.brand,
+                            modelo : this.$store.state.common.itemElegido.model,
+                            planSeleccionado : this.$store.state.common.planSeleccionado,
+                            valorComercial : this.$store.state.common.current,
+                            pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
+                            // desde : localStorage.getItem("monthly") == null
+                            //     ? this.objectVehicle.minimumPolicyAmount
+                            //     : null,
+                            // montoMensualBasico:  this.listaBasica.policy.monthly,
+                            // montoMensualMedio: this.listaMedia.policy.monthly,
+                            // montoMensualFull: this.listaFull.policy.monthly,
+                            /*********************************************************/
+                            businessId: this.$store.state.common.businessId,
+                            idEndosoSeleccionado: this.endosoSeleccionado.id,
+                            endosoSeleccionado: this.endosoSeleccionado.name,
+                            placa: this.$store.state.common.plateNumber,              
+                            anio: this.$store.state.common.itemElegido.modelYear,
+                            gps: this.$store.state.common.listaCotizacion.vehicle.gps,
+                            riesgo: this.$store.state.common.listaCotizacion.policy.risk,
+                            fechaInicio: this.$store.state.common.fechaVigencia,
+                            
+                            /******************************************************** */   
+                            itemElegido: this.$store.state.common.itemElegido,
+                            listCotizacion: this.$store.state.common.listaCotizacion,
+                            nuevoProducto: this.$store.state.common.nuevoProducto                
+                            /******************************************************** */      
+                            /******************************************************** */
+                            // idMarca: this.objectVehicle.brandId,
+                            // idModelo: this.objectVehicle.modelId,
+                            // idUso: 1,
+                            // uso: "particular",    
+                            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
+                            // pagoTrimestral: this.listCotizacion.policy.quarterly,
+                            // pagoAnual: this.listCotizacion.policy.annual
+                        },
+                        "datosTitular": {
+                            "numeroDocumento": this.$store.state.common.documentoLocal,
+                            "nombre": this.$store.state.common.objCliente.firstName,
+                            "apellidoPaterno": this.$store.state.common.objCliente.firstLastName,
+                            "apellidoMaterno": this.$store.state.common.objCliente.secondLastName,
+                            "telefono": this.$store.state.common.objCliente.phoneNumber,
+                            "originDocumentNumber": localStorage.getItem("originDocumentNumber"),
+                            "origenDatos": localStorage.getItem("origenDatos"),
+                        },
+                        "remitente": {
+                            "correoRemitente": "comunicaciones@interseguro.com.pe",
+                            "correoRemitenteDisplay": "Interseguro"
+                        },
+                        "datosPago": {
+                            "idFrecuencia": this.payment,
+                            "fechaInicioSeguro": ""
+                        }
+                    }
+                }
+                this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
+                if (res) {
+                    this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
+                }        
+                })
+            },
+            mouseLeave(e) {
+                if (this.$store.state.common.leaveMessage == 0) {
+                    if (e.clientX < 0 || e.clientY < 0) {
+                            this.$store.commit('common/setLeaveMessage',1)
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
+                            //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            // }else{
+                            //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            // }
+                    }
+                }
+            },
+            parseDecimal(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            },
+            goGeneratePoliza (token) {
+                let self = this
+                self.pay.digitalPayment.token = token
+
+                this.$store.dispatch('payment/makeSale', self.pay)
+                .then((res) => {
+                    if (res.data.code == 0) {
+                        this.$store.commit('payment/setTransactionToken', '')
+                        // res.response.data.message = (res.response.data.code) ? ((res.response.data.message).split(' ')[0] === 'Error') ? ((res.response.data.message).split('[')[1].split(']')[0]) : res.response.data.message : 'Estamos teniendo problemas para realizar la venta. Para mayor información puedes comunicarte al +51 933559693'
+                        // if (this.pay.digitalPayment.provider == 'NIUBIZ' && res.data.code === '87') {
+                        //     this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
+                        // }
+                        //VEHICULAR ANTERIOR
+                        this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
+                        this.opacidad =false
+                        this.$store.commit('common/setPolicy_id',res.data.body.policyId)
+                        this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
+                    }else if(res.data.code == 100){
+                        let errorDetectado = {
+                            url : 'EXECUTE',
+                            page : 4,
+                            message : 'CODE 100',
+                            objEnviado : this.objPaymentExecute
+                        }
+                        this.$store.dispatch('common/eventoErrores', errorDetectado)
+                        this.opacidad =false
+                        const messageErr = JSON.parse(JSON.parse(res.body).body)
+                        const showMessageErr = () => {
+                            const err = messageErr.decline_code;
+                            this.textErrModalTwo = '';
+                            if(err == 'stolen_card'){
+                                return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                            }else if( err == 'lost_card'){
+                                return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                            }else if( err == 'insufficient_funds'){
+                                return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
+                            }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
+                                return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                            }else if( err == 'incorrect_cvv'){
+                                return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                            }else if( err == 'issuer_not_available'){
+                                return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                            }else if( err == 'processing_error'){
+                                this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                            }else {
+                                this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                            }
+                        };
+
+                        this.textErrModal = showMessageErr()
+                        if(!this.htmlModal){
+                            this.htmlModal = document.getElementById('newModal');
+                            this.htmlModal.style.display = "";
+                        }
+
+                        this.$swal({
+                            // title: 'Oops...',
+                            html: this.htmlModal,
+                            text: showMessageErr(),
+                            // type: 'error',
+                            customClass: 'swal-buttonx',
+                            showCloseButton: true,
+                            confirmButtonColor: '#EA0C90',
+                            confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                        })
+                    }else{
+                        console.log("666")
+                        this.opacidad =false
+                        this.$swal({
+                            title: 'Oops...',
+                            text: res.message,
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonColor: '#2177CC',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                })
+            },
+        },
+        computed:{
+            appDiscount: function(){
+                let appDiscount = this.$store.state.common.appDiscount
+                return appDiscount
+            },
+            isEnable: function(){
+                return this.cardCompleto;                
+            },
+        },
+        validations: {
+            payment: {
+            card_number: {
+                mustBeCreditCard: cardNumber => {
+                let valid = require('card-validator')
+                let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                if (numberValidation.isPotentiallyValid && numberValidation.isValid) {
+                    return true
+                } else {
+                    return false
+                }
+                }
+            },
+
+            }
+        },
+        mounted: function () {
+            // 4919148107859067
+            this.pay.digitalPayment.provider  = this.$store.state.payment.provider
+            this.pay.policy.sumAssured =  this.$store.state.common.listaCotizacion.vehicle.current
+            
+
+            this.urlLocal = localStorage.getItem("urlLocal")
+            this.cobertura_is = this.$store.state.common.objectDigodat
+            
+            this.cotizador_datalayer("checkout",3)
+            let objJWT = JSON.parse(localStorage.getItem("jwt"))
+            if (objJWT == null || objJWT == undefined) {
+                this.$nuxt.$router.push("/")
+            }else{
+                let objJWT = JSON.parse(localStorage.getItem("jwt"))
+                this.itemElegido.assignedPrice = this.$store.state.common.current
+                this.itemElegido.year = this.$store.state.common.itemElegido.year
+                this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+                    if (res.data.code == 0) {
+                        if (this.$store.state.common.planSeleccionado == 4) {
+                          this.$store.commit('common/setListaCotizacion', res.data.body.basic)
+                        }else if(this.$store.state.common.planSeleccionado == 6){
+                          this.$store.commit('common/setListaCotizacion', res.data.body.medium)
+                        }else if (this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10) {
+                          this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                        }else{
+                          this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                        }
+                        this.listCotizacion = this.$store.state.common.listaCotizacion
+
+                        this.planSeleccionado = objJWT.common.planSeleccionado
+                        // this.vehicleState = objJWT.common.vehicleState                
+                        
+                        this.payment = objJWT.common.frecuenciaPago
+                        this.businessId = this.$store.state.common.businessId
+                        if (this.payment > 0 ) {
+                            if(this.payment == 1){
+                                this.monto_pagar = this.listCotizacion.policy.monthlyDiscount > 0 ? this.listCotizacion.policy.monthlyDiscount : this.listCotizacion.policy.monthly                                
+                            }else if(this.payment == 2){
+                                this.monto_pagar =  this.listCotizacion.policy.quarterlyDiscount > 0 ? this.listCotizacion.policy.quarterlyDiscount : this.listCotizacion.policy.quarterly                             
+                            }else if(this.payment == 3){
+                                this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
+                            }else{
+                                this.isDisableButton = true
+                            } 
+                        }
+
+                        if(this.$store.state.common.cuentasueldo == "Y"  ){
+                            this.discountType = "cta-sueldo"
+                        }else if (this.$store.state.common.tarjetaoh == "Y" ) {
+                            this.discountType = "tarjeta-oh"
+                        }else{
+                            this.discountType = ""
+                        }
+                        this.$store.state.common.listaCotizacion.paymentMethodId = this.$store.state.common.frecuenciaPago
+                    }
+                })
+                
+                
+            }
+
+            /* DETECTAMOS SI ENDOSO DE SESION ESTA EN EL OBJ LOCAL */
+
+            if(objJWT.common.entidadFinanciera !== null){      
+                let entidadFinanciera = objJWT.common.entidadFinanciera
+                this.endosoSeleccionado = objJWT.common.entidadFinanciera
+                if (entidadFinanciera.id > 0) {        
+                this.endosoSeleccionado = objJWT.common.entidadFinanciera
+                }
+            }else{
+                this.$store.commit('common/setEntidadFinanciera', this.endosoSeleccionado)
+            }
+            /* FIN DE  ENDOSO DE SESION */
+
+            if(this.$store.state.common.nuevoProducto){
+                this.PaginaVistaNuevoProducto();
+            }else{
+                this.PaginaVista();
+            }
+            this.fechaVigencia = this.$store.state.common.fechaVigencia
+    
+            // this.remarketingv2()
+            // this.validarROOT()
+            document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
+            this.$store.commit('payment/setTransactionToken', this.$route.query.transactionToken)
+            if (this.$route.query.transactionToken) {
+                this.goGeneratePoliza(this.$store.state.payment.transactionToken)
+            } else {
+                console.log("NO ENTROOOOOOOOOOO")
+            }
+        },
+        components: {
+            PaymentNiubiz,
+            'loader-pay': loaderPago
+        },
+        destroyed() {
+            if (process.browser) {
+                document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
+            }
+            this.$nuxt.$off('show-payment')
+        }
+    }
+</script>
+
+<style lang="scss" scope>
+.loader-pay{
+    position: absolute;
+    left: 0;
+    z-index: 9;
+    background: white;
+    height: 100%;
+    opacity: 0.8;
+}
+#pago #inputFechaExpiracion {
+    background-image: url("./../../static/media/img/root/calendar.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: .6rem;
+    background-size: 21px;
+    padding-left: 2.5rem;
+    border-right: 1px solid #c4c4c4;
+}
+#pago #inputCvv {
+    background-image: url("./../../static/media/img/root/ccv.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: .7rem;
+    background-size: 21px;
+    padding-left: 2.5rem;
+}
+.swal-buttonx .swal2-close{
+    border-radius: 50px !important;
+    display: flex !important;
+    /* border: 1px solid red; */
+    top: -22px !important;
+    right: -16px !important;
+    background: white !important;
+    color: #0855C4 !important;
+    box-shadow: 0px 2px 10px -1px #949297 !important;  
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-3 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  color: #0855C4!important;
+}
+.flotante-covid-boton{
+    .img-close {
+        position: absolute;
+        right: -14px;
+    }
+    .box-contador{
+        position: absolute;
+        bottom: 6px !important;
+        right: 40px !important;
+        .cuota-gratis-span{
+            font-family: 'omnes SemiBold' !important;
+            font-size: 16px !important;
+            color: #0855c4;
+        }
+    }
+}
+.box-contador{
+        .cuota-gratis-span{
+            font-family: 'omnes SemiBold' !important;
+            font-size: 16px !important;
+            color: #0855c4;
+        }
+    }
+.box-btns-fixed{
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 12px;
+  position: fixed;
+  text-align: center;
+  width: 80%;
+  z-index: 999;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-custom{
+    p span{
+        font-size: 16px;
+    }
+    .box-contador{
+        .example{
+            display: flex;
+            align-items: center;
+            margin-top: 1px;
+        }
+        p{
+            color: #ffffff;
+            font-size: 20px;
+            padding-right: 24px;
+        }
+    }
+}
+    .flotante-covid-3{
+        position: absolute;
+        right: 0px;
+        top: 200px;
+        padding: 8px;
+        border-radius: 3px;
+        z-index: 9;
+        width: 200px;
+    }
+        .liston-agora{
+            display: none;
+            position: absolute;
+            left: 0;
+            width: 282px;
+            padding: 12px 4px;
+            background: #fff;
+            top: 16px;
+            border-radius: 4px;
+            padding-left: 12px;
+            .titulo{
+                font-size: 18px;
+                color: #0855c4;
+                font-family: 'Omnes Medium';
+                margin-right: 8px;
+            }
+            .subtitulo{
+                color: #454A6C;
+                font-size: 18px;
+                font-family: 'Omnes Medium';
+            }
+            .para-ti{
+                background: #EA0F90;
+                color: #ffffff;
+                border-radius: 4px;
+                padding: 4px;
+            }
+        }
+a.steps__item.paso3:after{
+  content: "3" !important;
+  background: #0754c4 !important;
+  color: white !important;
+  text-align: center;
+  font-size: 14px;
+}
+a.steps__item.paso2:after{
+  content: "2" !important;
+  background: #0754c4 !important;
+  color: white !important;
+  text-align: center;
+  font-size: 14px;
+}
+a.steps__item.paso1:after{
+  content: "1" !important;
+  background: #0754c4 !important;
+  color: white !important;
+  text-align: center;
+  font-size: 14px;
+}
+.card-body{
+    padding-bottom: 0;
+}
+.roboTotal{
+  background: #b1b1b1;
+}
+.semiFull{
+  background: #e6ac38;
+}
+.full{
+  background: #27362d;
+}
+.steps-box{
+    padding-top: 140px;
+    padding-bottom: 40px;
+    background: #ffffff;
+    .steps-plan{
+        margin-bottom: 26px;
+        background: white;
+    }
+}
+.pruebabandera{
+  transform: scale(1.2);
+}
+.banderaSliderMobile{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, #fed650 0%, #febc2f 100%);
+  height: 90px;
+  z-index: 999;
+  img{
+    position: absolute;
+    //left: 15px;
+    left: 1px;
+    //height: 105px;
+    height: 109px;
+    //top: -10px;
+    top: -20px;
+    transition: transform 1s;
+  }
+  p{
+    font-family: 'Omnes Regular';
+    margin: 0;
+    color: #0855c4;
+    padding-left: 70px;
+        position: relative;
+    left: 38px;
+    top: 16px;
+  }
+}
+.banderaSlider{
+  position: fixed;
+    right: 0%;
+    background: linear-gradient(to bottom, #fed650 0%, #febc2f 100%);
+    width: 292px;
+    height: 100px;
+    background-size: contain;
+    border-radius: 1rem 5px 1rem 5px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-left: 100px;
+    top: 72px;
+    z-index: 999;
+  img{
+    position: absolute;
+    //left: 15px;
+    left: -33px;
+    //height: 105px;
+    height: 132px;
+    //top: -10px;
+    top: -21px;
+    transition: transform 1s;
+  }
+  p{
+    font-family: 'Omnes Regular';
+    margin: 0;
+    color: #0855c4;
+  }
+}
+.btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#box-ccv{
+    position: relative;
+    display: flex;
+    align-items: center;
+    .icon-ccv{
+        position: absolute;
+        width: 18px;
+        left: 0;
+        padding-top: 0;
+        margin-left: 6px;
+        z-index: 9;        
+    }
+    input{
+        padding-left: 34px;
+    }
+}
+    .capadecarga{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        z-index: 999;
+        background: #cae1f9f0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 1s, opacity 1s linear;        
+        img{
+            max-width: 500px;
+            width: 100%;
+        }
+    }
+    .opacidad{        
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+    }
+.copiar-enlace{
+    display: inline-block;
+    padding: 4px 16px;
+    border: 2px solid #0055c8;
+    border-radius: 14px;
+    color: #0055c8;
+    width: 340px;
+    overflow: hidden;
+    height: 30px;
+}
+ .dnone{
+    display: none;
+    }
+
+    .btn-copy{
+        position: relative;
+    }
+    .msg-copy{
+        position: absolute;
+        right: -19px;
+        top: -24px;
+        font-size: 12px;
+        width: 89px;
+        background: #0055C8;
+        border-radius: 5px;
+        color: white;
+    }
+    .pago-procesado {
+        padding-top: 140px;
+        .content{
+            background-color: rgba(7, 84, 196, 0.05);
+        }  
+    }
+    .checkbox-aux label input[type="checkbox"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon,
+    .radio label input[type="radio"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon{
+    content: url('../../static/media/img/check_white.png');
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        left: 1px;
+        top: 1px;
+        z-index: 999;
+    }
+    .card{
+        border: none;
+        background: #fff;
+        width: 100%;
+    }
+    .planes-tabs{
+        border: none;
+        a{
+            font-family: omnes !important;
+        }
+        .tab-pane:focus{
+            outline: 0px;
+        }
+        ul{
+            justify-content: center;
+        }
+        .tab-pane{
+            padding-left: 0;
+        }
+        .card-header{
+            padding-top: 0;
+            background: #fff;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+            justify-content: center;
+            li.nav-item {
+                width: 50%;
+            }
+        }
+        .nav-pills .nav-link, .nav-pills .show > .nav-link {
+            color: #919191;
+            margin-right: 10px;
+            font-size: 17px;
+            text-transform: capitalize;
+            border-radius: 4px;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 4px;
+            padding-bottom: 4px;
+
+        }
+        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            border-radius: 4px;
+            box-shadow: 0 3px 6px 0 rgba(8, 85, 196, 0.44);
+            background-color: #0855c4;
+            color: white;
+        }
+    }
+    .cliploader {
+        right: 0;   
+    }    
+    .steps-allRisk-box {
+        padding-top: 0;
+        margin-top: 70px;
+    }
+    .montoTachado{
+        color: #A7A7A7; text-decoration:line-through; font-weight: 500;
+        font-size: 13px;
+    }
+    #msg-valor {
+        display: none;
+        position: absolute;
+        background: #002e75;
+        color: white;
+        bottom: 25px;
+        left: -118px;
+        width: 240px;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        z-index: 9;
+    }
+
+    .info_detalle {
+        position: relative;
+        font-size: 15px;
+        width: 18px;
+        background: transparent;
+        height: 18px;
+        display: inline-block;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 17px;
+        color: #00ADEE;
+        font-weight: 600;
+        border: 1px solid #00ADEE;
+    }
+    .contenedor-custom{
+        padding: 0;
+    }
+    .btn-movil{
+        position: sticky;
+        bottom: 5px;
+        z-index: 100;
+        width: 100%;
+        height: 50px;
+        display: flex; 
+        background: transparent;
+        &__volver{
+            
+            width: 80px;
+            border-radius: 5px 0 0 5px;
+            border: none;
+            i{
+                color: #333;
+            }
+        }
+        &__pagar{
+            
+            position: relative;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border-radius: 0 5px 5px 0;
+            opacity: 1 !important;
+            &:disabled{
+                background: #777777;
+            }
+        }
+    }
+    .boxtitulo-intercorp{
+        position: absolute;
+        height: 36px;
+        background: #0754c4;
+        color: white;
+        font-size: 12px;
+        left: 0;
+        top: -20px;
+        line-height: 32px;
+        text-align: center;
+        width: 100%;
+    }
+    .boxtitulo{
+        width: 100%;
+        .texto-candado{
+            display: flex;
+            align-items: center;
+        }
+        .img-candado{
+            width: 14px;
+            margin-left: 8px;
+        }
+        &__dto5{
+            position: absolute;
+            top: 10px;
+            right: 4px;
+            z-index: 9;
+        }
+        &__principal{
+            color: #0855c4;
+            font-size: 16px;
+            margin: 0;
+            line-height: 1;
+            font-weight: bold;
+            line-height: 24px;
+        }
+        &__secundario{
+            color: #616161;
+            font-size: 14px;
+            line-height: 15px;
+            display: inline-block;
+            margin: 0;
+            padding-top: 8px;
+        }
+    }
+    .metodo-pago{
+        border-radius: 20px;
+        margin: 0 16px;
+        margin-bottom: 24px;
+        
+        .imgs{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .msg-alterno{
+            font-size: 13px;
+            line-height: 16px;            
+            font-weight: 500;
+            color: #0855c4;
+        }
+        .cliploader{
+            background: transparent;
+        }
+        .box-btn__button{
+            height: 50px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .pago_seguro{
+                color: #fff;
+                font-size: 11px;
+                text-transform: initial;
+            }
+        }
+        .box-btn__button.enlace-back{
+            text-transform: capitalize;
+            color: #616161;
+            position: relative;
+            text-align: left;
+            padding-left: 32px;
+            font-weight: 500;
+            img{
+                position: absolute;
+                left: 0;
+                top: 12px;
+            }
+        }
+        .spinner-tarjeta{
+            position: relative;
+            height: 50px;
+        }
+        .spinner-descripcion{
+            font-size: 11px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .iptGral__input{
+            text-align: center;
+        }
+        .panel-custom{
+            // padding: 18px;
+            // margin: 0 -15px;
+            position: relative;
+            .text-secundario{
+                font-size: 14px;
+                color: #3b3131;
+                width: 100%;
+                display: inline-block;
+            }
+            .text-secundario__movil{
+                color: #3b3131;
+            }
+        }
+        &__comoPagar{
+            padding: 0px 16px;
+        }  
+        &__ingresatarjeta{
+            min-height: 450px;
+            padding: 24px 16px 12px;
+            border-radius: 0 0 16px 16px;
+            background: #fff;
+            .box-ingresaTarjeta{
+                background: white;
+                padding: 18px 15px 0 15px;
+            }
+            .boxtitulo{
+                &__secundario{
+                    color: #0BD360;
+                }
+            }
+            .checkbox-aux__span {
+                width: 18px;
+                height: 18px;
+            }  
+            .checkbox-aux__span--icon{
+                font-size: 14px;
+                position: absolute;
+            }     
+            .checkbox-aux__descripcion{
+                margin-left: -12px;
+                width: 86%;
+                a{
+                    color: #0855C4;
+                }
+            }
+        }
+    }
+    .fechaVigencia{
+        display: block;
+        position: relative;
+        flex-direction: column;
+        .text-inicio{
+            padding-right: 15px;
+            color: #0855c4;
+            font-weight: bold;
+        }
+        img{
+            position: absolute;
+            left: 20px;
+            width: 24px;
+            z-index: 9;
+            bottom: 22px;
+        }
+        #fechaCustom{
+            color: #0855c4;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #0855c4;
+            margin-bottom: 15px;
+            font-weight: 500;
+            box-shadow: none;
+            position: relative;
+            z-index: 9;
+            background: transparent;
+            width: 80%;
+            padding-left: 40px;
+            border-radius: 4px;
+        }
+
+        .vdp-datepicker__calendar {
+            background: #fff;
+            left: 0px;
+            border-radius: 10px;
+            color: #6c757d;
+            border: 1px solid #dde1e2;
+        }
+        .vdp-datepicker__calendar .cell.selected {
+            background: #0055c8;
+            color: white;
+        }
+        .vdp-datepicker__calendar .cell.selected:hover {
+            background: #0055c8;
+            color: white;
+        }
+
+    }
+    #filter{
+        label{
+            text-transform: initial;
+        }
+    }
+    #monthly-radio:checked ~ #filter .monthly .igv_aux1, #quarterly-radio:checked ~ #filter .quarterly .igv_aux2, #annual-radio:checked ~ #filter .annual .igv_aux3, #biannual-radio:checked ~ #filter .biannual .igv_aux4{
+        display: block !important;
+        font-weight: 500;
+    }
+    .igv_aux{
+        display: none;
+        
+    }
+    
+    #inicioVigencia{
+        height: 45px;
+        width: 200px;
+        text-align: center;
+        border: 2px solid #9e9e9e57;
+        border-radius: 5px;
+        color: #757575;
+    }
+    #inicioVigencia:focus{
+        border: 2px solid #9e9e9e57;
+        box-shadow: none;
+    }
+    .texto-inferior{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .leaveModal{
+        .img-close-modal{
+                position: absolute;
+            top: -58px;
+            right: -20px;
+            cursor: pointer;
+        }
+    }
+    @media (min-width: 768px) {
+        .leaveModal {
+            .img-verano{
+                max-width: 380px;
+            }
+        }
+        .metodo-pago{            
+            &__comoPagar{
+                // padding: 4px 15px;
+                padding: 22px 28px;
+            }  
+            &__ingresatarjeta{
+                // padding: 4px 15px;
+                padding: 22px 28px;
+            }
+        }
+        .btn-movil{
+            display: none;
+        }
+        .fechaVigencia{
+            display: flex;
+            .text-inicio{
+                padding-right: 15px;
+            }
+        }
+    }
+
+    /****************************************************************
+    ************************INGRESA TU TARJETA***********************
+    ****************************************************************/
+    #focusCVV{
+    position: absolute;
+    right: 15px;
+    display: none;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 170px;
+    height: 115px;
+    bottom: 105px;
+    // background: #005EA1;
+    z-index: 99;
+    img{
+        width: 100%;
+    }
+}
+#focusMES{
+    position: absolute;
+    left: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #005EA1;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 170px;
+    height: 85px;
+    bottom: 110px;
+    padding: 5px;
+    color: white;
+    z-index: 99;
+    img{
+        width: 100%;
+    }
+}
+#focusTarjeta{
+    position: absolute;
+    left: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #005EA1;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 249px;
+    height: 70px;
+    bottom: 180px;
+    padding: 5px;
+    color: white;
+    z-index: 99;
+    font-size: 13px;
+    img{
+        width: 100%;
+    }
+}
+
+#button-download a{
+    color: #0BD360;
+}
+.modal-confirmaTusDatos{
+    border: 0 !important;
+    padding: 8px 24px;
+    .btn-secondary{
+        background: white;
+        border: none;
+        position: relative;
+        height: 26px;
+    }
+    img{
+        position: absolute;
+        right: 0;
+        top: -10px;
+    }
+    .modal-description{
+        text-align: justify;
+    }
+    .btn-secondary:focus,  .btn-secondary:not(:disabled):not(.disabled).active:focus {
+        box-shadow: none !important;
+    }
+    .btn:focus {
+        box-shadow: none !important;
+    }
+}
+    .error-gral{
+        background: red;
+        width: 100%;
+        text-align: center;
+        padding-top: 15px;
+        height: 40px;
+        display: none;
+    }
+    .error-card{
+        background: red;
+        width: 100%;
+        text-align: center;
+        padding-top: 15px;
+        height: 40px;
+        display: none;
+    }
+    .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
+        border-radius: 4px;
+    }
+    #cardmes{
+        border-radius: 4px 0 0 4px;
+        text-align: right;
+        padding-right: 10px;
+
+    }
+    #cardaño{
+        border-radius:  0 4px 4px 0;
+        padding-left: 10px;
+    }
+    .box-checkbox{
+        display: flex;
+        align-items: center;
+    }
+    .ipt-cartNumber{
+        padding-left: 34px;
+    }
+    .box-iptCard{
+        position: relative;
+        display: flex;
+        align-items: center;
+        img{
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            padding-top: 8px;
+            right: 8px;
+
+        }
+        .icon-tarjeta{
+            position: absolute;
+            width: 18px;
+            left: 0;
+            padding-top: 0;
+            margin-left: 6px;
+        }
+        
+    }
+    .isActivePayment{
+        display: none;
+    }
+    input.form-control.text-uppercase.iptGral__input:focus {
+        box-shadow: none;
+    }
+    .card-interseguro{
+        border-radius: 5px;
+        .form-label.col-form-label.label-completed{
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+        .subtitulo{
+            color: #0BD360;
+        }
+        label{
+            color: #0855c4;
+        }
+        .slash-symbol{
+            position: relative;
+            label{
+                position: absolute;
+                bottom: -4px;
+                z-index: 99;
+                font-size: 26px;
+                padding-bottom: 0;
+                color:#0855c4;
+            }
+        }
+        .ipt-month{
+            width: 40px;
+            padding: 0 0px 0px 4px;
+        }
+        .ipt-year{
+            width: 65px;
+            padding: 0 5px 0 0;
+        }
+        .ipt-cvv{
+            width: 60px;
+            padding: 0 0 0 8px;
+        }
+        .text-right-custom{
+            text-align: right;
+            label{
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+        }
+        .iptGral__input{
+            color: #616161;
+            font-size: 20px;
+        }
+    }
+    .iptGral.editable .iptGral__input {
+        padding-left: 38px;
+        max-width: 460px;
+        height: 48px;
+        border: 1px solid #D1D1D1 !important;
+        box-shadow: none;
+        line-height: 1;
+    }
+    .iptGral.editable ::placeholder {
+        color: #D1D1D1 !important;        
+    }
+    .box-iptCard{
+        position: relative;
+        display: flex;
+        align-items: center;
+        img{
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            padding-top: 8px;
+            right: 8px;
+
+        }
+        .icon-tarjeta{
+            position: absolute;
+            width: 18px;
+            left: 0;
+            padding-top: 0;
+            margin-left: 6px;
+        }
+        .ipt-cardNumber{            
+            background-image: url("./../../static/media/img/root/tarjeta.svg");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        .ipt-cardNumber:focus {
+            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+            border: 1.5px solid #0855c4!important;
+            box-shadow: none;
+        }        
+    }
+    .card-interseguro{
+        border-radius: 5px;
+        width: 100%;
+        max-width: 440px;
+        .form-label.col-form-label.label-completed{
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+        .subtitulo{
+            color: #0BD360;
+        }
+        label{
+            color: #0855c4;
+        }
+        .slash-symbol{
+            position: relative;
+            label{
+                position: absolute;
+                bottom: -4px;
+                z-index: 99;
+                font-size: 26px;
+                padding-bottom: 0;
+                color:#0855c4;
+            }
+        }
+        .ipt-month{
+            width: 40px;
+            padding-right: 8px !important;
+            background-image: url("./../../static/media/img/root/calendar.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+            text-align: left !important;
+            padding-left: 41px !important;
+        }
+        .ipt-month:focus {
+            background-image: url("./../../static/media/img/root/calendar.svg");
+            box-shadow: none;
+        }
+        
+        .img-activefocus{
+            position: absolute;
+            z-index: 9;
+            width: 20px;
+            left: 29px;
+        }
+        
+        .ipt-year{
+            width: 65px;
+            padding: 0 5px 0 0;
+            text-align: left !important;
+            padding-left: 0 !important;
+            padding-left: 6px !important;
+        }
+        .ipt-cvv{
+            width: 60px;
+            padding: 0 0 0 8px;
+            background-image: url("./../../static/media/img/root/ccv.png");
+            background-repeat: no-repeat;
+            background-position-x: 12px;
+            background-position-y: 14px;
+            background-size: 35px;
+            padding-top: 4px;
+            padding-bottom: 5px;
+        }
+        #box-ccv .ipt-cvv:focus {
+            background-image: url("./../../static/media/img/root/cvv_focus.png");
+            border: 1.5px solid #0855c4 !important;
+            box-shadow: none;
+        }
+        .text-right-custom{
+            text-align: right;
+            label{
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+        }
+        .iptGral__input{
+            color: #616161;
+            font-size: 20px;
+        }
+    }
+    .metodo_pago_img{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        img{
+            height: 22px;
+            width: auto;
+        }
+    }
+
+    .card-custom{
+        display: flex;
+        justify-content: space-between;
+        max-width: 440px;
+        &__cvv{
+            max-width: 220px;
+            width: 50%;
+            position: relative;
+            z-index: 7;
+            box-sizing: content-box;
+            #box-ccv{
+                position: relative;
+                display: flex;
+                align-items: center;
+                .icon-ccv{
+                    position: absolute;
+                    width: 18px;
+                    left: 0;
+                    padding-top: 0;
+                    margin-left: 6px;
+                    z-index: 9;        
+                }
+                input{
+                    padding-left: 38px;
+                }
+            }
+        }
+        &__date.activeFocus{
+            border: 1px solid #0855c4;
+        }
+        &__date{    
+            max-width: 220px;
+            width: 50%;
+            display: inline-flex;
+            .form-group-custom{
+                &:nth-child(1){
+                    width: 92px;
+                }
+                &:nth-child(2){
+                    width: 70%;
+                }
+                &:nth-child(4){
+                    width: 50%;
+                }
+                
+                #box-mes{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    .icon-mes{                    
+                        position: absolute;
+                        width: 18px;
+                        left: 0;
+                        padding-top: 0;
+                        margin-left: 6px;
+                        z-index: 9;
+                    }
+                    &:after{
+                        width: 5px;
+                        height: 46px;
+                        background: #fff;
+                        content: "/";
+                        top: 1px;
+                        right: -2px;
+                        position: absolute;
+                        z-index: 99;
+                        font-size: 17px;
+                        line-height: 44px;
+                        color: #d3ddef;
+                    }
+                }
+            }
+        }
+    }
+    .card-custom__date{
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 94px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
+    @media (min-width: 1200px) {
+        .card-interseguro{
+            width: 100%;
+        }
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 112px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
+    .modal-personal-title {
+        font-family: 'Omnes Medium';
+        font-size: 24px;
+        font-weight: 900;
+        text-align: center;
+        
+    }
+    .modal-description {
+        text-align: left;
+        font-family: 'Omnes Medium';
+        font-size: 16px;
+        font-weight: 300;
+        color: #373737;
+        border: 0;
+        margin-top: 10px;
+    }
+    .modal-personal-title {
+        font-family: 'Omnes Medium';
+        font-size: 24px;
+        font-weight: 900;
+        text-align: center;
+        
+    }
+    .cart-button-download {
+        border: solid 1px #0BD360;
+        outline: 0;
+        padding: 15px 24px 15px 43px;
+        margin: .5rem auto;
+        border-radius: 6px;
+        
+        font-family: 'Omnes Medium';
+        font-size: 16px;
+        letter-spacing: 1px;
+        font-weight: 900;
+        text-align: center;
+        cursor: pointer;
+        color: #0BD360;
+    }
+    .leaveModal {
+        .modal-lg {
+            max-width: 660px;
+        }
+        font-family: 'Omnes Regular';
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+    h2 {
+        font-size: 32px;
+        color: #0854c4;
+    }
+    h3 {
+        font-size: 20px;
+        color: #454a6c;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    img {
+        margin-top: 30px;
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+}
+.modal-blackWeek{
+    max-width: 472px;
+    width: 100%;
+    height: 509px;
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .banner-modal{
+        img{
+            width: 100%;
+        }
+    }
+    h3 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .modal-dialog{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+    }
+    .modal-content{
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        background: url('./../../static/media/modalBlackWeek/fondo-modal.jpg');
+    } 
+}
+.modal-agora{
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .modal-lg {
+        max-width: 660px;
+    }    
+    h2 {
+        font-size: 18px;
+        color: #114FFF;
+        font-family: 'Omnes SemiBold';
+    }
+    h3 {
+        font-size: 17px;
+        color: #10B0FF;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    img {
+        margin-top: 0px;
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    p{
+        color: #454A6C;
+        font-size: 12px;
+    }
+}
+    @media (min-width: 992px) {
+        .contenedor-custom{
+            .box-contador{
+                position: absolute;
+                bottom: 12px;
+                right: 0px;
+                .flipdown{
+                    width: 225px !important;
+                }
+                img{                
+                    width: 324px;
+                }
+            }
+        }
+        .flotante-50dcto{
+            right: -278px;
+            top: 0;
+            padding: 8px;
+            border-radius: 3px;
+            left: initial;
+            width: 254px;
+            &:after{
+                border-bottom: 15px solid transparent;
+                border-right: 30px solid #CBDBF2;
+                border-top: 15px solid transparent;                
+                left: -40px;
+                top: 24px;
+            }
+            span{
+            }
+            img{
+
+            }
+        }
+        .steps-box{
+            .steps-plan{
+                margin-bottom: 12px;
+            }
+        }
+        .modal-agora{
+            h3 {
+                font-size: 23px;
+            }
+            p{
+                font-size: 15px;
+            }
+        }
+        .metodo-pago{            
+            &__comoPagar{                
+                border-radius: 5px 5px 0 0;
+            }  
+            &__ingresatarjeta{
+                border-radius:  0 5px  5px 0;
+                padding: 22px 28px;
+            }
+        }
+        .contenedor-custom{
+            padding: 0 15px;
+        }
+        
+        .metodo-pago{
+            margin: 0;
+            margin-top: 16px;
+        }
+        #focusCVV{
+            right: -147px;
+            bottom: 45px;
+            img{
+                width: 100%;
+            }
+        }
+        #focusMES{
+            left: -147px;
+            bottom: 45px;
+            img{
+                width: 100%;
+            }
+        }
+        #focusTarjeta{
+            left: -239px;
+            bottom: 63px;
+            img{
+                width: 100%;
+            }
+        }
+        
+    }
+    @media (min-width: 990px){
+        .steps-allRisk-box {
+            margin-top: 90px;
+        }
+    }
+    @media (min-width: 1024px){
+        .modal-blackWeek{
+            h3{
+                font-size: 30px;
+            }
+            p{
+                font-size: 20px;
+            }
+        }
+        .liston-agora{
+            display: block;
+        }
+        .metodo-pago__ingresatarjeta{
+            background: white;
+        }
+        .steps-allRisk-box {
+            padding-top: 0;
+            margin-top: 90px;
+        }
+        .steps-box{      
+            .steps-plan{
+                background: transparent;
+            }
+        }
+        .planes-tabs .nav-pills .nav-link, .planes-tabs .nav-pills .show > .nav-link {
+            font-weight: 500;
+        }
+    }
+// @media (min-width: 1024px){
+//     .banderaSlider{
+//     width: 320px;
+//     }
+// }
+
+</style>
+

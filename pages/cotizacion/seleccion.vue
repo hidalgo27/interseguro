@@ -90,7 +90,7 @@ export default {
         return {
             /* NUEVOS */
             anioActual: 0,
-            objVehicle: {},
+            objVehiculo: {},
             /*********************************/
             ocultarItemsSeleccionados: false,
             mostrarItemMarca: false,
@@ -184,8 +184,6 @@ export default {
             this.mostrarListaMarca = false
             this.mostrarListaAnio = false
             this.mostrarListaModelo = true
-            this.$store.commit('common/setObjVehicle', this.itemElegido )
-            
         },
 
         seleccionaMarca(item){
@@ -211,6 +209,7 @@ export default {
             this.ocultarItemsSeleccionados = true
             this.detalle()
             this.validateCreateOrUpdateVehicle()
+            this.$store.commit('common/setObjVehiculo', this.itemElegido )
         },
         validateCreateOrUpdateVehicle () {
             if(this.$store.state.common.vehicleState == 1){   
@@ -243,25 +242,24 @@ export default {
         },
     },
     async mounted() {
-        alert("HOLA")
-        this.objVehicle = this.$store.state.common.objVehicle
+        this.objVehiculo = this.$store.state.common.objVehiculo
         await this.$store.dispatch('common/getBrand').then((res)=>{
             this.listBrands = res.data.body
             console.log("MODELOS", this.listModels)
         })
 
-        if (this.objVehicle.exists == true) {
-            if (this.objVehicle.brandId > 0) {
-                if (this.listBrands.filter(item => item.id == this.objVehicle.brandId)) {
-                    this.itemElegido.brandId = this.objVehicle.brandId
-                    this.itemElegido.brand = this.objVehicle.brand
-                    if (this.objVehicle.modelYear >= this.anioActual-11) {
-                        this.itemElegido.year = this.objVehicle.modelYear
-                        await this.getModelLocal(this.objVehicle.brandId,this.objVehicle.modelYear)
-                        if(this.objVehicle.modelId == -1){
+        if (this.objVehiculo.exists == true) {
+            if (this.objVehiculo.brandId > 0) {
+                if (this.listBrands.filter(item => item.id == this.objVehiculo.brandId)) {
+                    this.itemElegido.brandId = this.objVehiculo.brandId
+                    this.itemElegido.brand = this.objVehiculo.brand
+                    if (this.objVehiculo.modelYear >= this.anioActual-11) {
+                        this.itemElegido.year = this.objVehiculo.modelYear
+                        await this.getModelLocal(this.objVehiculo.brandId,this.objVehiculo.modelYear)
+                        if(this.objVehiculo.modelId == -1){
                             this.mostrarModelo()
                         }
-                        if (this.listModels.filter(item => item.id == this.objVehicle.modelId)) {
+                        if (this.listModels.filter(item => item.id == this.objVehiculo.modelId)) {
                             console.log("if")
                             this.getCotizacion()
                         }else{
@@ -278,8 +276,8 @@ export default {
             }else{
                 this.mostrarMarca()
             }
-        }else if (this.objVehicle.exists == false) {
-
+        }else if (this.objVehiculo.exists == false) {
+            this.mostrarMarca()
         }else{
             this.mostrarMarca()
             console.log("TRUE /  FALSE")

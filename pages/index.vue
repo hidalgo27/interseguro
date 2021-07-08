@@ -713,55 +713,52 @@ export default {
           }else{
             this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
           }
-          
 
           if (respuesta.appDiscount == true) {
             this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
           }else{
             /* Existe en nuestra base de datos */
               
-              if (respuesta.exists == true) {
-                this.$store.commit('common/setVehicleState', 1)
-                if(respuesta.client.externalId > 0 ){
-                  this.$store.commit('common/setOrigenCliente', 2)
-                  this.$store.commit('common/setClienteSOAT', respuesta.client)
-                  this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
-                  this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
-                  
-                }else {
-                  this.$store.commit('common/setOrigenCliente', 1)
-                }
-                /* Tiene una poliza activa */
-                if (respuesta.activePolicy === true) {
-                  this.$nuxt.$router.push({path: "/placa-registrada"})
-                } else {             
-                  this.loading = false
-                  if (document.location.hostname == "www.interseguro.pe"){
-                    fbq('track', 'CompleteResgistration');
-                  }else{
-                  }
-                  this.$store.commit('common/setPantallaFlujo', 1)
-
-                  this.$store.commit('common/setObjVehicle', respuesta )
-                  console.log("RESPUESTA HOME ", respuesta)
-                  this.pageContinue()
-                }
+            if (respuesta.exists == true) {
+              this.$store.commit('common/setVehicleState', 1)
+              if(respuesta.client.externalId > 0 ){
+                this.$store.commit('common/setOrigenCliente', 2)
+                this.$store.commit('common/setClienteSOAT', respuesta.client)
+                this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
+                this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
+                
               }else {
-                if(respuesta.client.externalId > 0 ){
-                  this.$store.commit('common/setOrigenCliente', 2)
-                }else{
-                  this.$store.commit('common/setOrigenCliente', 1)
-                }          
-                this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
-                this.$store.commit('common/setVehicleState', 0)
+                this.$store.commit('common/setOrigenCliente', 1)
+              }
+              /* Tiene una poliza activa */
+              if (respuesta.activePolicy === true) {
+                this.$nuxt.$router.push({path: "/placa-registrada"})
+              } else {             
                 this.loading = false
                 if (document.location.hostname == "www.interseguro.pe"){
                   fbq('track', 'CompleteResgistration');
                 }else{
                 }
-                this.$store.commit('common/setPantallaFlujo', 1)
+
+                this.$store.commit('common/setObjVehiculo', respuesta )
+                console.log("RESPUESTA HOME ", respuesta)
                 this.pageContinue()
               }
+            }else {
+              if(respuesta.client.externalId > 0 ){
+                this.$store.commit('common/setOrigenCliente', 2)
+              }else{
+                this.$store.commit('common/setOrigenCliente', 1)
+              }          
+              this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
+              this.$store.commit('common/setVehicleState', 0)
+              this.loading = false
+              if (document.location.hostname == "www.interseguro.pe"){
+                fbq('track', 'CompleteResgistration');
+              }else{
+              }
+              this.pageContinue()
+            }
           }
           
           

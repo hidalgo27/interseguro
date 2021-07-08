@@ -32,6 +32,21 @@ $is-v-azul: #0855c4;
 .vehicular_primario{
     color: $vehicular_primario !important;
 }
+.flujo-titulo{
+    color: $vehicular_primario;
+    font-size: 21px;
+    font-family: 'Omnes Regular';
+}
+.flujo-boton{
+    background: $vehicular_secundario;
+    height: 50px;
+    color: #fff;
+}
+
+p,div,section{
+    padding: 0;
+    margin: 0;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { 
 
@@ -50,5 +65,9 @@ $is-v-azul: #0855c4;
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-
+    .flujo-titulo{
+        font-size: 36px;
+    }
+    .flujo-boton{
+    }
 }

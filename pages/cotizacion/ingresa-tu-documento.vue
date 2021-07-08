@@ -1,9 +1,78 @@
 <template >
   <section
-    class="steps-box">
+    class="steps-box"
+    v-bind:class="{
+      'pt-sinBlack': this.$store.state.common.flagCloseListon == 0,
+    }"
+  >
+    <b-container class="steps-plan">
+      <b-row>
+        <b-col cols="12" lg="8" class="m-auto">
+          <div class="box-steps">
+            <div class="backcotizacion" @click="volver($event)">
+              <img
+                width="35"
+                src="../../static/media/img/flujo/cotizacion/back.svg"
+                alt="volver"
+              />
+            </div>
+
+            <ul class="steps" style="display: inline-flex">
+              <template>
+                <router-link
+                  class="steps__item"
+                  to="/cotiza/ingresa-tu-documento"
+                  style="cursor: auto"
+                  ><li></li
+                ></router-link>
+              </template>
+              <template>
+                <router-link
+                  v-if="documento_steps2 != ''"
+                  class="steps__item steps--active paso2"
+                  to="/cotiza/ingresa-tu-documento"
+                  ><li></li
+                ></router-link>
+                <router-link
+                  v-else
+                  class="steps__item steps--active paso2"
+                  to="/cotiza/ingresa-tu-documento"
+                  ><li></li
+                ></router-link>
+              </template>
+              <template>
+                <router-link class="steps__item paso1" to="/cotiza/cotizacion"
+                  ><li></li
+                ></router-link>
+              </template>
+              <li class="steps--progressBar"></li>
+            </ul>
+
+            <div v-if="this.planSeleccionado == 4" class="plan-titulo">
+              <p class="roboTotal">PLAN SELECCIONADO: <span>PLATA </span></p>
+            </div>
+            <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
+              <p class="semiFull">PLAN SELECCIONADO: <span>ORO </span></p>
+            </div>
+            <div
+              v-else-if="
+                this.planSeleccionado == 3 || this.planSeleccionado == 10
+              "
+              class="plan-titulo"
+            >
+              <p class="full">PLAN SELECCIONADO: <span> BLACK </span></p>
+            </div>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
 
     <b-container>
-      <b-row class="box-ingresaDocumento">
+      <b-row class="justify-content-center box-ingresaDocumento">
+        <b-col cols="12" sm="10" md="12" class="pb-2">
+          <p class="titulo-flujo">DATOS PERSONALES O DE LA EMPRESA</p>
+        </b-col>
+
         <div class="maestra d-block d-lg-none">
           <b-col
             cols="12"
@@ -22,10 +91,15 @@
           </b-col>
         </div>
 
-        <b-col cols="12" lg="8" class="box-principal">
+        <b-col cols="12" lg="4" class="box-principal">
           <b-row>
-            <b-col cols="12">
-                  <div class="box-documento">
+            <b-col cols="12" v-bind:class="{ 'd-none': ocultarInputDocumento }">
+              <b-row
+                class="box-documento first-box justify-content-center"
+                style="border-radius: 20px 20px 0 0"
+              >
+                <b-col cols="12">
+                  <div class="box-documento__input">
                     <b-form-input
                       id="documento-identidad"
                       ref="myBtn"
@@ -51,16 +125,129 @@
                       :size="size"
                     ></clip-loader>
                   </div>
+                </b-col>
+              </b-row>
+              <!-- 
+              <b-row class="d-flex justify-content-center">
+                <div v-if="this.itemElegido.documentoLocal.length == 10">
+                  <span style="font-size: 12px; color: rgb(214, 4, 17)"
+                    >Ingrese un número de documento válido</span
+                  >
+                </div>
+              </b-row> -->
             </b-col>
 
             <b-col cols="12" class="box-datos">
               <b-row style="background: white; border-radius: 0 0 24px 24px">
+                <div>
+                  <span
+                    class="titulo-datosPersonales__editarCancelar"
+                    @click="editarCancelar"
+                    v-bind:class="{
+                      mostrarEditarCancelar: mostrarEditarCancelar,
+                    }"
+                  >
+                    {{ mostrarPrimerBox == true ? "Editar" : "Cerrar" }}
 
+                    <img
+                      class="flecha_edicion"
+                      src="../../static/media/interseguroVehicular_v2/flecha_edicion.png"
+                      alt="flecha_edicion"
+                    />
+                  </span>
+                </div>
+                <b-col
+                  cols="12"
+                  class="d-none"
+                  v-bind:class="{
+                    mostrarDatosPersonales: mostrarDatosPersonales,
+                  }"
+                >
+                  <div class="d-none d-lg-flex">
+                    <div
+                      class="row boxUsuarioEncontrado"
+                      v-bind:class="{ mostrarPrimerBox: mostrarPrimerBox }"
+                    >
+                      <ul>
+                        <li>
+                          <span>
+                            {{ this.objClients.firstName }}&nbsp;{{
+                              this.objClients.firstLastName
+                            }}&nbsp;{{ this.objClients.secondLastName }}
+                          </span>
+                        </li>
+                        <li>
+                          <span>
+                            {{ this.objClients.documentNumber }}
+                          </span>
+                        </li>
+
+                        <li>
+                          <span>
+                            {{ this.objClients.phoneNumber }}
+                          </span>
+                        </li>
+                        <li>
+                          <span>
+                            {{ this.objClients.emailAddress }}
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <b-col
+                    cols="12"
+                    lg="8"
+                    class="d-flex d-lg-none mt-2"
+                    style="padding-left: 0"
+                  >
+                    <div
+                      class="row boxUsuarioEncontrado"
+                      v-bind:class="{ mostrarPrimerBox: mostrarPrimerBox }"
+                    >
+                      <ul>
+                        <li>
+                          <span> {{ this.objClients.firstName }}</span
+                          >&nbsp;<span>{{ this.objClients.firstLastName }}</span
+                          >&nbsp;<span
+                            >{{ this.objClients.secondLastName }}
+                          </span>
+                        </li>
+                        <li>
+                          <span>
+                            {{ this.objClients.documentNumber }}
+                          </span>
+                        </li>
+                        <li>
+                          <span>
+                            {{ this.objClients.phoneNumber }}
+                          </span>
+                        </li>
+                        <li>
+                          <span>
+                            {{ this.objClients.emailAddress }}
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </b-col>
+                </b-col>
+
+                <div class="">
+                  <b-row
+                    class="second-box mt-2"
+                    v-bind:class="{ mostrarSegundoBox: mostrarSegundoBox }"
+                  >
                     <b-col cols="12">
                       <b-row
                         class="dni-ce"
                         v-bind:class="{ mostrarDni: mostrarDni }"
                       >
+                        <div
+                          class="capa"
+                          v-bind:class="{ isOculto: isOculto }"
+                        ></div>
 
                         <b-col cols="12" md="12" class="p-0">
                           <div class="form-group text-center mb-2 mt-3">
@@ -86,11 +273,15 @@
                               placeholder="Nombres"
                               v-on:keyup.enter="processTags('apellido-paterno')"
                             ></b-form-input>
-                            
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono primer apellido"
+                            />
                           </div>
                         </b-col>
 
-                        <b-col cols="12" lg="6" class="p-0">
+                        <b-col cols="12" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="apellido-paterno"
@@ -112,10 +303,15 @@
                               placeholder="Apellido Paterno"
                               v-on:keyup.enter="processTags('apellido-materno')"
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono apellido paterno"
+                            />
                           </div>
                         </b-col>
 
-                        <b-col cols="12"  lg="6"  class="p-0">
+                        <b-col cols="12" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="apellido-materno"
@@ -139,12 +335,15 @@
                                 processTags('correo-electronico')
                               "
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono apellido  materno"
+                            />
                           </div>
                         </b-col>
-                        <b-col cols="12">
-                          <p>Por estos medios te enviaremos tu póliza al terminar tu compra</p>
-                        </b-col>
-                        <b-col cols="12" lg="6" class="p-0">
+
+                        <b-col cols="12" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="correo-electronico"
@@ -170,9 +369,14 @@
                               placeholder="Correo Electrónico"
                               v-on:keyup.enter="processTags('celular')"
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono email"
+                            />
                           </div>
                         </b-col>
-                        <!-- <b-col v-if="this.msgErrorEmail">
+                        <b-col v-if="this.msgErrorEmail">
                           <b-row class="d-flex justify-content-center pb-2">
                             <div>
                               <span
@@ -181,9 +385,9 @@
                               >
                             </div>
                           </b-row>
-                        </b-col> -->
+                        </b-col>
 
-                        <b-col cols="12" lg="6" class="p-0">
+                        <b-col cols="12" class="p-0">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="celular"
@@ -210,10 +414,15 @@
                               placeholder="Celular"
                               v-on:keyup.enter="validarCelular($event)"
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono celular"
+                            />
                           </div>
                         </b-col>
 
-                        <!-- <b-col v-if="this.msgErrorCelular">
+                        <b-col v-if="this.msgErrorCelular">
                           <b-row class="d-flex justify-content-center pb-2">
                             <div>
                               <span
@@ -223,7 +432,7 @@
                               >
                             </div>
                           </b-row>
-                        </b-col> -->
+                        </b-col>
                       </b-row>
 
                       <b-row
@@ -251,6 +460,11 @@
                               placeholder="Razón social"
                               v-on:keyup.enter="processTags('direccion')"
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono rezon social"
+                            />
                           </div>
                         </b-col>
                         <b-col cols="12" class="p-0">
@@ -270,6 +484,11 @@
                               placeholder="Dirección"
                               v-on:keyup.enter="processTags('celularEmpresa')"
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono direccion"
+                            />
                           </div>
                         </b-col>
                         <b-col cols="12" class="p-0">
@@ -300,6 +519,11 @@
                                 processTags('correo-electronicoEmpresa')
                               "
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono celular empresa"
+                            />
                           </div>
                         </b-col>
 
@@ -339,6 +563,11 @@
                               required
                               placeholder="Correo Electrónico"
                             ></b-form-input>
+                            <img
+                              class="edit-input"
+                              src="../../static/media/img/flujo/cotizacion/edit.png"
+                              alt="icono email empresa"
+                            />
                           </div>
                         </b-col>
 
@@ -354,41 +583,16 @@
                         </b-col>
                       </b-row>
                     </b-col>
+                  </b-row>
+                </div>
               </b-row>
             </b-col>
           </b-row>
         </b-col>
 
-        <b-col cols="12" lg="4">
-          <div class="resumen-proteccion">
-            <div class="resumen-proteccion__cabecera">
-              <p>RESUMEN DE TU PROTECCIÓN</p>
-            </div>
-            <div class="resumen-proteccion__cuerpo">
-              <div class="datos-carro">
-                <p>DATOS DE TU CARRO</p>
-                <div class="datos-carro--detalle">
-                  <p>Mi carro <span>{{this.$store.state.common.objVehiculo.brand}}</span>
-                              <span>{{this.$store.state.common.objVehiculo.model}}</span>
-                              <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
-                  </p>
-                </div>
-
-                <div class="datos-poliza">
-                  <p>DATOS DE MI PÓLIZA</p>
-                  <p>Plan <span>{{this.$store.state.common.planSeleccionado}}</span></p>
-                  <p>Cobertura <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
-                  <p>Frecuencia <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
-                  <p>F. DE INICIO <span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </b-col>
-
         <b-col cols="12">
-          <b-row class=" box_aceptoTerminos">
-            <b-col cols="12" lg="6">
+          <b-row class="justify-content-center box_aceptoTerminos">
+            <b-col cols="12" lg="4">
               <b-row class="box-row">
                 <b-col
                   cols="12"
@@ -397,6 +601,19 @@
                     mostrarDatosyCheckbox: mostrarDatosyCheckbox,
                   }"
                 >
+                  <div class="checkbox-aux font-nunito check-ip mb-0">
+                    <label class="col box-checkbox text-center">
+                      <span class="checkbox-aux__descripcion pr-0">
+                        Al continuar
+                        <a
+                          href="javascript:void(0);"
+                          @click="eventoModalTerminosCondiciones()"
+                          >acepto las Condiciones de Uso y Política de
+                          Privacidad</a
+                        >.
+                      </span>
+                    </label>
+                  </div>
                 </b-col>
 
                 <div class="maestra d-none d-lg-block">
@@ -498,7 +715,7 @@
         </div>
       </b-modal>
 
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -510,11 +727,11 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
+              <!-- <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt=""> -->
               <p class="mt-3" style="max-width: 360px;">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">
-                   ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
+                   ¡Solo por pocos días! Asegura tu auto  <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
                 </span>
               </p>
             </b-col>
@@ -528,9 +745,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal> 
       <!-- Modal de abandono -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -588,7 +805,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
@@ -670,15 +887,15 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  padding-top: 70px;
+  padding-top: 140px;
 }
 .edit-input {
   cursor: auto !important;
 }
 .box-principal {
-  border: 1px solid #CCD1DD;
+  box-shadow: 0 2px 10px 0 rgba(0, 40, 80, 0.07);
   background: white;
-  border-radius: 3px;
+  border-radius: 24px;
 }
 .maestra {
   width: 100%;
@@ -902,7 +1119,11 @@ input:focus {
   left: 0;
 }
 .box-btn {
-    
+  margin: 4px 0 12px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   a {
     width: 80px;
     margin: 0;
@@ -922,6 +1143,15 @@ input:focus {
 .form-group {
   position: relative;
   padding: 0px;
+  &:before {
+    content: "";
+    background: url("../../static/media/img/flujo/cotizacion/edit.png");
+    height: 30px;
+    width: 25px;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+  }
   .icon-datos {
     position: absolute;
     margin-left: 8px;
@@ -943,7 +1173,7 @@ input:focus {
   position: relative;
   .box-btn--dni {
     margin-top: 16px;
-    background-color: #000;
+    background-color: #ea0c90;
     color: white;
     height: 45px;
     line-height: 0.5;
@@ -994,6 +1224,7 @@ input:focus {
   padding: 0px 12px 8px;
   background: #fff;
   border-radius: 10px 10px;
+  display: none;
   .form-group {
     display: flex;
     align-items: center;
@@ -1013,7 +1244,7 @@ input:focus {
   border-radius: 4px;
   background-color: #fff;
   background-clip: padding-box;
-  border: 2 px solid #000;
+  border: 1px solid #ced4da;
   border-radius: 0.25rem;
   height: 3rem;
 }
@@ -1063,6 +1294,8 @@ input:focus {
     }
   }
   .box-btn {
+    flex-direction: row;
+    align-items: center;
   }
   .first-box {
     margin-top: 0px;
@@ -1093,6 +1326,7 @@ input:focus {
 @media (min-width: 990px) {
   .box-datos {
     .box-btn {
+      padding-right: 16px;
     }
   }
 }
@@ -1274,7 +1508,7 @@ export default {
       endosoSeleccionado: {},
       mostrarDatosyCheckbox: false,
       mostrarEditarCancelar: false,
-      mostrarSegundoBox: true,
+      mostrarSegundoBox: false,
       mostrarPrimerBox: false,
       cuentaSueldo: null,
       urlDp: "",
@@ -1332,7 +1566,7 @@ export default {
       loading: false,
       color: "#00ADEE",
       timer: null,
-      objVehiculo: {
+      objVehicle: {
         brand: "",
         brandId: 0,
         model: "",
@@ -1439,7 +1673,7 @@ export default {
         "common/setNumeroTelefono",
         this.objClients.phoneNumber
       );
-      this.remarketingv2();
+      // this.remarketingv2();
       this.validarROOT();
     },
     validarROOT() {
@@ -1469,7 +1703,7 @@ export default {
                 this.$nuxt.$router.push({path: "/cotiza/descargar"})
               }else{
                   this.$store.commit('common/setEmisionROOT', false)
-                  this.$nuxt.$router.push({path: "/cotizacion/pagar"})
+                  this.$nuxt.$router.push({path: "/cotiza/como-pagar"})
               }
               */
             this.$store.commit("common/setObjCliente", this.objClients);
@@ -1477,16 +1711,16 @@ export default {
           } else {
             this.$store.commit("common/setObjCliente", this.objClients);
             this.$store.commit("common/setEmisionROOT", false);
-            this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+            this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
           }
         } else {
           this.$store.commit("common/setObjCliente", this.objClients);
-          this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+          this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
           this.$store.commit("common/setEmisionROOT", false);
         }
       } else {
         this.$store.commit("common/setObjCliente", this.objClients);
-        this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+        this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
       }
     },
     cotizador_datalayer(evento, step_valor) {
@@ -1521,14 +1755,16 @@ export default {
         .replace(/[^0-9\s]/gi, "")
         .replace(/[_\s]/g, "");
       let documento = this.itemElegido.documentoLocalSinEspacios;
+      // let tamaño = documento.length
       this.tamaño = documento.length;
+      // return tamaño
     },
     validarCampos() {
       if (this.tamaño == 8 || this.tamaño == 9) {
         if (this.validarClient() && this.checkPoliticasPrivacidad == true) {
           this.aceptaterminos = false;
           this.isDisableButton = false;
-          this.remarketingv2();
+          // this.remarketingv2();
           if (
             this.objClients.phoneNumber.charAt(0) == 9 &&
             this.objClients.phoneNumber.length == 9
@@ -1548,7 +1784,7 @@ export default {
         if (this.validarRUC() && this.checkPoliticasPrivacidad == true) {
           this.aceptaterminos = false;
           this.isDisableButton = false;
-          this.remarketingv2();
+          // this.remarketingv2();
           if (
             this.objClients.phoneNumber.charAt(0) == 9 &&
             this.objClients.phoneNumber.length == 9
@@ -1576,9 +1812,13 @@ export default {
       this.tamaño = this.objClients.documentNumber.length;
       
     },
-
+    /*OBS CLICK ACAY SI NOO ES CUENTA SUELDO MODAL
+    http://localhost:3000/vehicular/vehicular/cuentasueldo
+   **** VOLVER CUANDO SI ES CUENTA SUELDO EN EL COTIZADOR CAMBIA EL MONTO
+    */
     continuar(evt) {
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia;
+      // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true;
       evt.preventDefault();
       this.detectar_documento();
@@ -1588,7 +1828,12 @@ export default {
           this.createClient();
         } else if (this.$store.state.common.clientState == 1) {
           this.updateClient();
-        } else {}
+          // this.isDisableButton = false;
+          // this.$store.commit('common/setEmail', this.objClients.emailAddress)
+          // this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
+          // this.$nuxt.$router.push({path: "/cotiza/como-pagar"})
+        } else {
+        }
         this.$store.commit(
           "common/setNumeroTelefono",
           this.objClients.phoneNumber
@@ -1746,7 +1991,7 @@ export default {
           this.loading = false;
           this.isOculto = false;
           this.mostrarPrimerBox = false;
-          this.mostrarSegundoBox = true;
+          this.mostrarSegundoBox = false;
           this.objClients.firstName = "";
           this.objClients.firstLastName = "";
           this.objClients.secondLastName = "";
@@ -1778,7 +2023,7 @@ export default {
             self.mostrarRuc = false;
             self.loading = false;
             self.mostrarPrimerBox = false;
-            self.mostrarSegundoBox = true;
+            self.mostrarSegundoBox = false;
             self.mostrarEditarCancelar = false;
           } else if (self.tamaño == 11) {
             self.getClient(2);
@@ -1804,7 +2049,7 @@ export default {
           this.msgCompletaDatos = false;
           this.mostrar = true;
           this.mostrarPrimerBox = true;
-          this.mostrarSegundoBox = true;
+          this.mostrarSegundoBox = false;
           this.mostrarEditarCancelar = true;
           if (this.checkPoliticasPrivacidad == true) {
             this.isDisableButton = false;
@@ -1892,7 +2137,7 @@ export default {
     delay(event, ms) {
       this.isDisableButton = true;
       this.mostrarDatosPersonales = false;
-      this.mostrarSegundoBox = true;
+      this.mostrarSegundoBox = false;
       this.mostrarPrimerBox = false;
       this.mostrarDatosyCheckbox = false;
 
@@ -1971,10 +2216,16 @@ export default {
           this.estado_cliente = 1;
           if (parametro == 1) {
             setTimeout(() => {
+              // setTimeout(() => {
+              //   this.$refs.nombre.focus();
+              // }, 500);
               this.validarClienteVuex();
             }, 500);
           } else if (parametro == 2) {
             setTimeout(() => {
+              // setTimeout(() => {
+              //   this.$refs["razon-social"].focus();
+              // }, 500);
               this.validarEmpresaVuex();
             }, 500);
           } else {
@@ -1986,10 +2237,16 @@ export default {
           this.objClients = {};
           if (parametro == 1) {
             setTimeout(() => {
+              // setTimeout(() => {
+              //   this.$refs.nombre.focus();
+              // }, 500);
               this.validarClienteVuex();
             }, 500);
           } else if (parametro == 2) {
             setTimeout(() => {
+              // setTimeout(() => {
+              //   this.$refs["razon-social"].focus();
+              // }, 500);
               this.validarEmpresaVuex();
             }, 500);
           }
@@ -2076,7 +2333,10 @@ export default {
       });
     },
     createClient() {
-      this.$store.commit("common/setDocumentoLocal",this.itemElegido.documentoLocal);
+      this.$store.commit(
+        "common/setDocumentoLocal",
+        this.itemElegido.documentoLocal
+      );
       this.itemElegido = this.objClients;
       this.$store
         .dispatch("common/createClient", this.itemElegido)
@@ -2133,7 +2393,7 @@ export default {
       this.abjVehicleSelect = JSON.parse(
         localStorage.getItem("abjVehicleSelect")
       );
-      this.objVehiculo = JSON.parse(localStorage.getItem("objVeh"));
+      this.objVehicle = JSON.parse(localStorage.getItem("objVeh"));
       this.objRemarketing = {
         codigoRemarketing:
           this.$store.state.common.codigoRemarketingGenerado == null
@@ -2231,6 +2491,7 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
+    console.log(" this.$store.common.plateNumber =========>>>", this.$store.state.common.plateNumber)
     console.log("this.$store.state.common.objVeh",this.$store.state.common.objVehiculo.brand)
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
