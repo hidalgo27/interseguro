@@ -9,11 +9,11 @@
                        <img  class="img-liston" src="../../static/media/img/campania/ibk/liston-mobile.svg" alt="" style="width: 140px;height: 40px;">                         
                     </div>
                     <div>
-                        <div style="padding-left: 10px;width: 200px;margin-top: -24px;margin-bottom: 15px;">
-                            <p style="font-size: 11px;">
-                                <b>Te premiamos por asegurarte<br> con nuestro Plan Black</b>
-                            </p>
-                        </div> 
+                        <div style="padding-left: -9px;width: 378px;margin-top: -20px;margin-bottom: -17px;">
++                            <p style="font-size: 14px;">
++                                <b>15% de dscto. y un vale de S/50</b><br>por comprar en Plan Black                                
+                             </p>
+                         </div>
                         <div  class="example" style="position: relative;">            
                             <div id="contadorMobile" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 193px !important;"/>
                         </div>                       
@@ -24,9 +24,9 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160px" src="./../../static/media/img/campania/ibk/liston-desktop.svg" alt="">  
-                        <p style="font-size: 17px;">
-                            <b>Asegura tu auto HOY con nuestro plan black y llévate un vale virtual de S/ 100</b>                              
-                        </p>
+                        <p style="font-size: 17px;width: 720px;">
++                            ¡Llegó el Cyber! Compra hoy con <b>15% de dscto</b>. y llévate un <b>vale de S/50</b> por comprar en Plan Black+
+                         </p>
                     </div>
                     <div id="contadorDesktop" class="flipdown"></div>
                     
@@ -213,8 +213,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            var flipdown2 = new FlipDown(1625115599, 'contadorMobile').start()
-            var flipdown = new FlipDown(1625115599, 'contadorDesktop').start()
+            var flipdown2 = new FlipDown(1625893199, 'contadorMobile').start()
+            var flipdown = new FlipDown(1625893199, 'contadorDesktop').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

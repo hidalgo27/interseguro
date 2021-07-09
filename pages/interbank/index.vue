@@ -110,11 +110,11 @@
             </b-form>            
           </div>
         </div>
-        <div class="home-banner__der">
+        <div class="home-banner__der" style="margin-left: 38px;margin-top: -60px;">
             <div class="box-contador" >
               <img src="../../static/media/img/campania/ibk/banner-home-desktop.svg" alt="">
               <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -25px;right: 5px;">
-                  <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
+                  <div id="contadorCyberDesktop" class="flipdown" style="width: 372px !important;margin-top: -5px;">
                       
                   </div> 
               </div>
@@ -458,8 +458,8 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1625115599, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1625115599, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1625893199, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1625893199, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
