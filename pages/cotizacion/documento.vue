@@ -1475,7 +1475,7 @@ export default {
                 this.$nuxt.$router.push({path: "/cotiza/descargar"})
               }else{
                   this.$store.commit('common/setEmisionROOT', false)
-                  this.$nuxt.$router.push({path: "/cotizacion/pagar"})
+                  this.$nuxt.$router.push({path: "/cotizacion/como-pagar"})
               }
               */
             this.$store.commit("common/setObjCliente", this.objClients);
@@ -1483,16 +1483,16 @@ export default {
           } else {
             this.$store.commit("common/setObjCliente", this.objClients);
             this.$store.commit("common/setEmisionROOT", false);
-            this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+            this.$nuxt.$router.push({ path: "/cotizacion/como-pagar" });
           }
         } else {
           this.$store.commit("common/setObjCliente", this.objClients);
-          this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+          this.$nuxt.$router.push({ path: "/cotizacion/como-pagar" });
           this.$store.commit("common/setEmisionROOT", false);
         }
       } else {
         this.$store.commit("common/setObjCliente", this.objClients);
-        this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+        this.$nuxt.$router.push({ path: "/cotizacion/como-pagar" });
       }
     },
     cotizador_datalayer(evento, step_valor) {
