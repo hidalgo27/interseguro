@@ -1110,7 +1110,6 @@ import { validationMixin } from 'vuelidate'
             if (objJWT == null || objJWT == undefined) {
                 this.$nuxt.$router.push("/")
             }else{
-                console.log("ELSE");
                 let objJWT = JSON.parse(localStorage.getItem("jwt"))
                 this.itemElegido.assignedPrice = this.$store.state.common.current
                 this.itemElegido.year = this.$store.state.common.itemElegido.year

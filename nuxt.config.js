@@ -27,6 +27,11 @@ module.exports = {
     base: '/testvehicular/'
   },  
   head: {
+  
+      script: [
+          { src: 'https://pocpaymentserve.s3.amazonaws.com/payform.min.js'}
+      ],
+  
     title: 'Seguro Vehicular | Interseguro',
     htmlAttrs: {
       lang: 'es',
@@ -49,7 +54,10 @@ module.exports = {
       { hid: 'fb:og:image:width', property: 'og:image:width', content: '800' },
       { hid: 'fb:og:image:height', property: 'og:image:height', content: '418' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' }],    
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' },
+      
+    ],    
   },
 
   loading: { color: '#fff' },
@@ -63,28 +71,29 @@ module.exports = {
     '~/plugins/bootstrap.js',    
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
-    // { src: '~/plugins/sentry.js', ssr: false },
+    
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
-    { src: '~plugins/vue-carousel.js', sync: false },    
-    { src: '~plugins/clipboard.js', ssr: false },
-    { src: '~plugins/hotjar.js', ssr: false },
-    { src: '~plugins/bing.js', ssr: false },
+    { src: '~plugins/vue-carousel.js', sync: false },           
     { src: '~plugins/vue-slide.js', sync: false },
     { src: '~plugins/vue-tabs.js', ssr: false },
-    { src: '~plugins/vue-tab.js', ssr: false },    
+    { src: '~plugins/vue-tab.js', ssr: false },
+    { src: '~/plugins/localStorage.js', ssr: false },
     { src: '~plugins/vue-cliploader.js', ssr: false },
-    { src: '~plugins/ga.js', ssr: false },
+    { src: '~plugins/clipboard.js', ssr: false }, 
+    { src: '~plugins/hotjar.js', ssr: false },
     { src: '~plugins/chat.js', ssr: false },
+    { src: '~plugins/ga.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
-    { src: '~/plugins/localStorage.js', ssr: false }
+    { src: '~plugins/bing.js', ssr: false },
+    // { src: '~/plugins/sentry.js', ssr: false },
+    
   ],
   axios: {
     baseURL: process.env.API_BASE_URL,
     browserBaseURL: process.env.API_BASE_URL,
     credentials: false
   },
-
   build: {
     extend(config, ctx) {
         // config.output.publicPath = 'https://cdn.interseguro.pe/vehicular/_nuxt/',
@@ -106,15 +115,6 @@ module.exports = {
     culqiURL: process.env.CULQI_URL,
     url_remarketing: process.env.API_BASE_URL_REMARKETING
   },
-  // env: {
-    
-  //   environment: process.env.ENVIRONMENT,
-  //   URL: process.env.BASE_URL,
-  //   baseURL: process.env.API_BASE_URL,
-  //   culqiPK: process.env.CULQI_PK,
-  //   culqiURL: process.env.CULQI_URL,
-  //   url_remarketing: process.env.API_BASE_URL_REMARKETING
-  // },
   configureWebpack: {
     plugins: [
       new SentryWebpackPlugin({
