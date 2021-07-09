@@ -1097,59 +1097,63 @@ import { validationMixin } from 'vuelidate'
             // 4919148107859067
             this.pay.digitalPayment.provider  = this.$store.state.payment.provider
             this.pay.policy.sumAssured =  this.$store.state.common.listaCotizacion.vehicle.current
-            
+            console.log(this.pay.policy.sumAssured);
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
             
             this.cotizador_datalayer("checkout",3)
             let objJWT = JSON.parse(localStorage.getItem("jwt"))
+
+            console.log(objJWT);
+
             if (objJWT == null || objJWT == undefined) {
                 this.$nuxt.$router.push("/")
             }else{
+                console.log("ELSE");
                 let objJWT = JSON.parse(localStorage.getItem("jwt"))
                 this.itemElegido.assignedPrice = this.$store.state.common.current
                 this.itemElegido.year = this.$store.state.common.itemElegido.year
-                this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
-                    if (res.data.code == 0) {
-                        if (this.$store.state.common.planSeleccionado == 4) {
-                          this.$store.commit('common/setListaCotizacion', res.data.body.basic)
-                        }else if(this.$store.state.common.planSeleccionado == 6){
-                          this.$store.commit('common/setListaCotizacion', res.data.body.medium)
-                        }else if (this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10) {
-                          this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
-                        }else{
-                          this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
-                        }
-                        this.listCotizacion = this.$store.state.common.listaCotizacion
+                // this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
+                //     if (res.data.code == 0) {
+                //         if (this.$store.state.common.planSeleccionado == 4) {
+                //           this.$store.commit('common/setListaCotizacion', res.data.body.basic)
+                //         }else if(this.$store.state.common.planSeleccionado == 6){
+                //           this.$store.commit('common/setListaCotizacion', res.data.body.medium)
+                //         }else if (this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10) {
+                //           this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                //         }else{
+                //           this.$store.commit('common/setListaCotizacion', res.data.body.allRisk)
+                //         }
+                //         this.listCotizacion = this.$store.state.common.listaCotizacion
 
-                        this.planSeleccionado = objJWT.common.planSeleccionado
-                        // this.vehicleState = objJWT.common.vehicleState                
+                //         this.planSeleccionado = objJWT.common.planSeleccionado
+                //         // this.vehicleState = objJWT.common.vehicleState                
                         
-                        this.payment = objJWT.common.frecuenciaPago
-                        this.businessId = this.$store.state.common.businessId
-                        if (this.payment > 0 ) {
-                            if(this.payment == 1){
-                                this.monto_pagar = this.listCotizacion.policy.monthlyDiscount > 0 ? this.listCotizacion.policy.monthlyDiscount : this.listCotizacion.policy.monthly                                
-                            }else if(this.payment == 2){
-                                this.monto_pagar =  this.listCotizacion.policy.quarterlyDiscount > 0 ? this.listCotizacion.policy.quarterlyDiscount : this.listCotizacion.policy.quarterly                             
-                            }else if(this.payment == 3){
-                                this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
-                            }else{
-                                this.isDisableButton = true
-                            } 
-                        }
+                //         this.payment = objJWT.common.frecuenciaPago
+                //         this.businessId = this.$store.state.common.businessId
+                //         if (this.payment > 0 ) {
+                //             if(this.payment == 1){
+                //                 this.monto_pagar = this.listCotizacion.policy.monthlyDiscount > 0 ? this.listCotizacion.policy.monthlyDiscount : this.listCotizacion.policy.monthly                                
+                //             }else if(this.payment == 2){
+                //                 this.monto_pagar =  this.listCotizacion.policy.quarterlyDiscount > 0 ? this.listCotizacion.policy.quarterlyDiscount : this.listCotizacion.policy.quarterly                             
+                //             }else if(this.payment == 3){
+                //                 this.monto_pagar = this.listCotizacion.policy.annualDiscount > 0 ? this.listCotizacion.policy.annualDiscount : this.listCotizacion.policy.annual   
+                //             }else{
+                //                 this.isDisableButton = true
+                //             } 
+                //         }
 
-                        if(this.$store.state.common.cuentasueldo == "Y"  ){
-                            this.discountType = "cta-sueldo"
-                        }else if (this.$store.state.common.tarjetaoh == "Y" ) {
-                            this.discountType = "tarjeta-oh"
-                        }else{
-                            this.discountType = ""
-                        }
-                        this.$store.state.common.listaCotizacion.paymentMethodId = this.$store.state.common.frecuenciaPago
-                    }
-                })
+                //         if(this.$store.state.common.cuentasueldo == "Y"  ){
+                //             this.discountType = "cta-sueldo"
+                //         }else if (this.$store.state.common.tarjetaoh == "Y" ) {
+                //             this.discountType = "tarjeta-oh"
+                //         }else{
+                //             this.discountType = ""
+                //         }
+                //         this.$store.state.common.listaCotizacion.paymentMethodId = this.$store.state.common.frecuenciaPago
+                //     }
+                // })
                 
                 
             }
