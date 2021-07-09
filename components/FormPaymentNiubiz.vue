@@ -100,17 +100,16 @@ export default {
         self.niubizConfig.callbackurl = 'https://test.interseguro.pe/payment-api/api/v2/token?protocol=https&host=test.interseguro.pe/'+'&path='+ channelPay
 
         self.niubizConfig.sessionkey = respuesta.data.data.sessionKey
-        console.log(self.niubizConfig.sessionkey);
         // probando solo CULQI
-        setTimeout(function () {
-          // ocultar el formulario de niubiz
-          if (document.querySelectorAll("#inputFechaExpiracion")[0].children[0].children.length < 1) {
+        // setTimeout(function () {
+        //   // ocultar el formulario de niubiz
+        //   if (document.querySelectorAll("#inputFechaExpiracion")[0].children[0].children.length < 1) {
             
-            self.$nuxt.$emit('show-payment',{
-              payment: 'CULQI'
-            })
-          }
-        }, 10500)
+        //     self.$nuxt.$emit('show-payment',{
+        //       payment: 'CULQI'
+        //     })
+        //   }
+        // }, 12500)
         self.$nuxt.$emit('show-loader',{loader:false})
       } else {
         self.niubizConfig.sessionkey = ''
