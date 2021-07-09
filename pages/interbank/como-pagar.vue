@@ -314,8 +314,39 @@
                         
                     </div>
                 </b-modal>
-
             </div>
+
+            <!-- Modal campania  -->
+            <b-modal
+                id="leaveQuote2"
+                class="leaveModalIbk"
+                static
+                centered
+                hide-footer
+                hide-header
+            >
+                <b-container>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-3" cols="12">
+                    <img class="img-verano" width="100%"  src="../../static/media/img/campania/ibk/img-modal.svg" alt="">              
+                    <p class="mt-3">
+                        <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
+                        <span style="color : #ffffff; font-size: 18px">
+                        ¡Llegó el Cyber! <b>Compra con 15% de dscto.</b> <br> y si compras en Plan Black llévate <br> <b>un vale virtual de S/50.</b> 
+                        </span>
+                        </p>
+                        
+                    </b-col>
+                </b-row>
+                
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-4" cols="12">
+                    <b-button style="background-color: #FFFFFF; color: #05BE50;" @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')">TERMINAR COMPRA</b-button>
+                    </b-col>
+                </b-row>
+                </b-container>
+            </b-modal>
+
         </b-container>
         <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
@@ -360,7 +391,7 @@ import { validationMixin } from 'vuelidate'
                     modelId:'',
                     remarketingId:'',
                     assignedPrice:null,
-                    businessId:1,
+                    businessId:2,
                     discountType: '',
                 },
                 objPaymentExecute:{},
@@ -1072,6 +1103,16 @@ import { validationMixin } from 'vuelidate'
 
             }
         },
+        mouseLeave(e) {
+        if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
+          if (this.$store.state.common.leaveMessage == 0 ) {
+            if (e.clientX < 0 || e.clientY < 0) {
+              this.$store.commit('common/setLeaveMessage',1)
+              this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+            }
+          }
+        }
+      },
         mounted: function () {
             this.pixelfacebook()
             // this.contador()
