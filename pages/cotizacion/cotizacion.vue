@@ -1534,15 +1534,15 @@ export default {
         passive: true
       });
     }
-    this.$store.dispatch("common/getFinancialInstitution").then(res => {
-      this.listEndoso = res.data.body;
-      let arregloUno = [];
-      arregloUno = this.listaNuevaDeEndoso
-        .concat(this.listEndoso.banks)
-        .concat(this.listEndoso.financial)
-        .concat(this.listEndoso.cajas);
-      this.listaNuevaDeEndoso = arregloUno;
-    });
+    // this.$store.dispatch("common/getFinancialInstitution").then(res => {
+    //   this.listEndoso = res.data.body;
+    //   let arregloUno = [];
+    //   arregloUno = this.listaNuevaDeEndoso
+    //     .concat(this.listEndoso.banks)
+    //     .concat(this.listEndoso.financial)
+    //     .concat(this.listEndoso.cajas);
+    //   this.listaNuevaDeEndoso = arregloUno;
+    // });
   },
 
   components: {
@@ -1826,13 +1826,7 @@ export default {
             this.$store.commit("common/setObjVehiculo", res.data.body);
             this.mostrarCapa = false;
           } else {
-            let errorDetectado = {
-              url: "getVehicle",
-              page: 2,
-              message: res.data.message,
-              objEnviado: this.item
-            };
-            this.$store.dispatch("common/eventoErrores", errorDetectado);
+
           }
         }, 1000);
       });
@@ -2646,13 +2640,7 @@ export default {
             this.clonado.vehicle.current = null;
             this.getCotizacion();
           } else {
-            let errorDetectado = {
-              url: "createVehicle",
-              page: 2,
-              message: res.data.message,
-              objEnviado: this.itemElegido
-            };
-            this.$store.dispatch("common/eventoErrores", errorDetectado);
+
           }
         });
     },
@@ -2665,13 +2653,7 @@ export default {
             this.clonado.vehicle.current = null;
             this.getCotizacion();
           } else {
-            let errorDetectado = {
-              url: "updateVehicle",
-              page: 2,
-              message: res.data.message,
-              objEnviado: this.itemElegido
-            };
-            this.$store.dispatch("common/eventoErrores", errorDetectado);
+
           }
         });
     },
@@ -2697,13 +2679,7 @@ export default {
             this.segundaPantalla();
             this.seleccionarFrecuencia();
           } else if (res.data.code == 213) {
-            let errorDetectado = {
-              url: "getcotizacion",
-              page: 2,
-              message: res.data.message,
-              objEnviado: this.itemElegido
-            };
-            this.$store.dispatch("common/eventoErrores", errorDetectado);
+
             this.$swal({
               title: "Oops...",
               text: res.data.message,
@@ -2740,13 +2716,7 @@ export default {
               goToVehicular();
             });
           } else {
-            let errorDetectado = {
-              url: "getcotizacion",
-              page: 2,
-              message: res.data.message,
-              objEnviado: this.itemElegido
-            };
-            this.$store.dispatch("common/eventoErrores", errorDetectado);
+
 
             this.$swal({
               title: "Oops...",
@@ -2766,13 +2736,7 @@ export default {
           if (res.data.code == 0) {
             this.listModels = res.data.body;
           } else {
-            let errorDetectado = {
-              url: "getModelLocal",
-              page: 2,
-              message: res.data.message,
-              objEnviado: this.itemElegido
-            };
-            this.$store.dispatch("common/eventoErrores", errorDetectado);
+     
           }
         });
     },
@@ -3057,7 +3021,7 @@ export default {
   },
 
   mounted: function() {
-    this.getCotizacion();
+    
     this.urlpdf = require("./../../static/media/documentos/resumenCoberturas.pdf");
     this.selected = this.$store.state.common.frecuenciaPago;
     this.nuevoProducto = this.$store.state.common.nuevoProducto;

@@ -2034,13 +2034,7 @@
             this.$store.commit('common/setObjVehiculo', res.data.body)
             this.mostrarCapa = false
           }else{
-            let errorDetectado = {
-              url : 'getVehicle',
-              page : 2,
-              message : res.data.message,
-              objEnviado : this.item
-            }
-            this.$store.dispatch('common/eventoErrores', errorDetectado)
+
           }
           }, 1000);
           
@@ -2851,13 +2845,7 @@
             this.clonado.vehicle.current  = null
             this.getCotizacion()
           }else{
-            let errorDetectado = {
-              url : 'createVehicle',
-              page : 2,
-              message : res.data.message,
-              objEnviado : this.itemElegido
-            }
-            this.$store.dispatch('common/eventoErrores', errorDetectado)
+
           }
           
         })
@@ -2869,13 +2857,7 @@
             this.clonado.vehicle.current  = null
             this.getCotizacion()
           }else{
-            let errorDetectado = {
-              url : 'updateVehicle',
-              page : 2,
-              message : res.data.message,
-              objEnviado : this.itemElegido
-            }
-            this.$store.dispatch('common/eventoErrores', errorDetectado)
+
           }
           
         })
@@ -2902,13 +2884,7 @@
               this.segundaPantalla()
               this.seleccionarFrecuencia()
             } else if (res.data.code == 213) {
-              let errorDetectado = {
-                url : 'getcotizacion',
-                page : 2,
-                message : res.data.message,
-                objEnviado : this.itemElegido
-              }                
-              this.$store.dispatch('common/eventoErrores', errorDetectado)
+
               this.$swal({
                 title: "Oops...",
                 text: res.data.message,
@@ -2950,13 +2926,7 @@
               });
             } 
             else {
-              let errorDetectado = {
-                url : 'getcotizacion',
-                page : 2,
-                message : res.data.message,
-                objEnviado : this.itemElegido
-              }
-              this.$store.dispatch('common/eventoErrores', errorDetectado)
+
 
               this.$swal({
                 title: "Oops...",
@@ -2976,13 +2946,7 @@
           if (res.data.code == 0) {
             this.listModels = res.data.body            
           }else{
-            let errorDetectado = {
-              url : 'getModelLocal',
-              page : 2,
-              message : res.data.message,
-              objEnviado : this.itemElegido
-            }
-            this.$store.dispatch('common/eventoErrores', errorDetectado)
+
           }
         })
       },

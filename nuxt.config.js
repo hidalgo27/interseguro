@@ -97,14 +97,24 @@ module.exports = {
     }
   },
   env: {
-    
+    urlPago: process.env.urlPago,
     environment: process.env.ENVIRONMENT,
     URL: process.env.BASE_URL,
     baseURL: process.env.API_BASE_URL,
+    pagosURL: process.env.API_PAGOS_URL,
     culqiPK: process.env.CULQI_PK,
     culqiURL: process.env.CULQI_URL,
     url_remarketing: process.env.API_BASE_URL_REMARKETING
   },
+  // env: {
+    
+  //   environment: process.env.ENVIRONMENT,
+  //   URL: process.env.BASE_URL,
+  //   baseURL: process.env.API_BASE_URL,
+  //   culqiPK: process.env.CULQI_PK,
+  //   culqiURL: process.env.CULQI_URL,
+  //   url_remarketing: process.env.API_BASE_URL_REMARKETING
+  // },
   configureWebpack: {
     plugins: [
       new SentryWebpackPlugin({

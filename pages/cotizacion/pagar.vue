@@ -33,7 +33,18 @@
                                 
                                 <div class="panel-custom pt-3 pb-0">
                                     <b-row>                                        
-                                        <b-col cols="12" class="box-ingresaTarjeta">
+                                        <div class="loader-pay">
+                                            <loader-pay v-if="showLoader"></loader-pay>
+                                        </div>
+                                        <b-col v-if="pay.digitalPayment.provider === 'NIUBIZ'">
+                                             <payment-niubiz :payment="paymentForm">
+
+                                            </payment-niubiz>
+                                            <b-col cols="12">
+                                                <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                            </b-col>
+                                        </b-col>
+                                        <b-col v-else-if="pay.digitalPayment.provider === 'CULQI'" cols="12" class="box-ingresaTarjeta">
                                             <form class="card-interseguro">   
                                                 <div class="form-group-custom">                                                        
                                                     <div id="focusTarjeta">
@@ -244,7 +255,8 @@
 </template>
 
 <script>
-
+import loaderPago from '@/components/loaders/LoaderPay'
+import PaymentNiubiz from '@/components/FormPaymentNiubiz'
 import { validationMixin } from 'vuelidate'
     
     var cardNumber;
@@ -258,8 +270,53 @@ import { validationMixin } from 'vuelidate'
     };
     export default {
         layout: 'InterseguroFlujo',
+        
         data(){
             return {
+                showLoader: true,
+                paymentForm: {
+                    email: this.$store.state.common.email,
+                    card_number: '',
+                    public_key: process.env.culqiPK,
+                    url: process.env.culqiURL,
+                    cvv: '',
+                    expiration_date: null,
+                    expiration_year: null,
+                    expiration_month: null
+                },
+                pay: {
+                    businessId:1,
+                    sellCode: this.$store.state.common.codeRmkt,
+                    planId: this.$store.state.common.planSeleccionado,
+                    plateNumber: this.$store.state.common.plateNumber,
+                    documentNumber: this.$store.state.common.objCliente.documentNumber,
+                    discountType:"",
+                    policy:{
+                        startDate:this.$store.state.common.fechaVigencia,
+                        zeroKm:"N",
+                        frequency:this.$store.state.common.frecuenciaPago,                        
+                        financialInstitution:this.$store.state.common.entidadFinanciera.name,
+
+                        // 
+                        calculated:this.$store.state.common.listaCotizacion.policy.calculated,
+                        monthly:this.$store.state.common.listaCotizacion.policy.monthly,
+                        monthlyDiscount:this.$store.state.common.listaCotizacion.policy.monthlyDiscount,
+                        quarterly:this.$store.state.common.listaCotizacion.policy.quarterly,
+                        quarterlyDiscount:this.$store.state.common.listaCotizacion.policy.quarterlyDiscount,
+                        annual:this.$store.state.common.listaCotizacion.policy.annual,
+                        annualDiscount:this.$store.state.common.listaCotizacion.policy.annualDiscount,
+                        sumAssured: 0,
+                        discount:false
+                    },
+                    digitalPayment:{
+                        // provider: 'NIUBIZ',
+                        provider: this.$store.state.payment.provider,
+                        token: null
+                    }
+                },
+                /********************************************************************************** */
+
+                /********************************************************************************** */
                 htmlModal : '',
                 textErrModal : '',
                 textErrModalTwo : '',
@@ -289,6 +346,36 @@ import { validationMixin } from 'vuelidate'
                 planSeleccionado: 0,
                 pruebabandera:true,
                 contadorNoTeVayas: 0,
+                objError:{
+                    "page":'',
+                    "flow":'',
+                    "path":'',
+                    "messageError": '',
+                    "documentNumber":'',
+                    "plateNumber": '',
+                    "detail":{
+                    "objServicio":{
+                        "nombre":'',
+                        "tipo": '',
+                        "ruta": '',
+                        "msj": '',
+                        "solucion": ''
+                    },
+                    "objCliente":{
+                        "documento": '',
+                        "nombre":'',
+                        "celular": '',
+                        "correo": ''
+                    },
+                    "objAuto":{
+                        "placa": '',
+                        "marca": '',
+                        "modelo": '',
+                        "anio": '',
+                        "valorComercial": ''
+                    }
+                    }
+                },
                 endosoSeleccionado: {},
                 discountType: '',
                 opacidad:false,            
@@ -387,67 +474,92 @@ import { validationMixin } from 'vuelidate'
                 }
             }
         },
+        created () {
+            let self = this
+            this.$nuxt.$on('show-loader', ({loader}) => {
+                console.log(loader, "LOADER")
+                this.showLoader = loader
+                // this.showLoader = true
+            })
+            this.$nuxt.$on('show-payment', ({payment}) => {
+                console.log("PAYMENT",payment)
+                self.pay.digitalPayment.provider = payment
+                self.$store.commit('payment/setSessionKey', payment)
+            })
+
+            
+        },
         methods: {
             
-            hidemetodoFlotante(){
-                this.$nuxt.$emit('bv::hide::modal','leavePayment')
-            },
-            metodoFlotante(){
-                this.$nuxt.$emit('bv::show::modal','leavePayment')
-            },
+                hidemetodoFlotante(){
+                    this.$nuxt.$emit('bv::hide::modal','leavePayment')
+                },
+                metodoFlotante(){
+                    this.$nuxt.$emit('bv::show::modal','leavePayment')
+                },
+                contador(){
+                    var flipdown2 = new FlipDown(1619845199, 'contadorCyber4').start()
+                    var flipdown = new FlipDown(1619845199, 'contadorCyber3').start()
+                },
+                hideModalBlackWeek(){
+                    $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
+                },
 
-            cotizador_datalayer(evento,step_valor){
-                this.cobertura_is.content_ids =  this.$store.state.common.code_sku
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: evento,
-                    step: step_valor,
-                    product: this.cobertura_is,
-                });
-            },
-            /* *********************************************************************************** */
-            PaginaVista(e){
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    'event': 'pagina_vista',
-                    'page-url': '/vehicular/cotiza/como-pagar', 
-                    'page-title': 'Como Pagar',
-                    'dni-encontrado': this.$store.state.common.clientStateGA, // true of false
-                    'ecommerce': {
-                        'checkout': {
-                            'actionField': {'step': 4}, // esto marca el primer paso en el embudo
+                cotizador_datalayer(evento,step_valor){
+                    this.cobertura_is.content_ids =  this.$store.state.common.code_sku
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: evento,
+                        step: step_valor,
+                        product: this.cobertura_is,
+                    });
+                },
+                /* *********************************************************************************** */
+                PaginaVista(e){
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'pagina_vista',
+                        'page-url': '/vehicular/cotiza/como-pagar', 
+                        'page-title': 'Como Pagar',
+                        'dni-encontrado': this.$store.state.common.clientStateGA, // true of false
+                        'ecommerce': {
+                            'checkout': {
+                                'actionField': {'step': 4}, // esto marca el primer paso en el embudo
+                            }
                         }
-                    }
-                });
-            },
-            PaginaVistaNuevoProducto() {
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: "pagina_vista",
-                    "page-url": "/vehicular-app/cotiza/como-pagar/",
-                    "page-title": "como pagar",
-                });
-            },
-            /* *********************************************************************************** */
-            validarROOT(){
-                if(this.$store.state.common.planSeleccionado == 6 || this.$store.state.common.planSeleccionado == 4){
-                    if(!this.$store.state.common.entidadFinanciera.id > 0){
-                        let inputDate = Date.parse(this.fechaVigencia)
-                        inputDate = new Date(this.fechaVigencia)
-                        
-                        let fecha = new Date()
-                        let dia = fecha.getDate()
-                        let mes = fecha.getMonth()+1
-                        let año = fecha.getFullYear()
-                        let fechaActual = dia+'/'+mes+'/'+año
-                        
-                        let todaysDate = Date.parse(fechaActual)
-                        todaysDate = new Date(fechaActual)
+                    });
+                },
+                PaginaVistaNuevoProducto() {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: "pagina_vista",
+                        "page-url": "/vehicular-app/cotiza/como-pagar/",
+                        "page-title": "como pagar",
+                    });
+                },
+                /* *********************************************************************************** */
+                validarROOT(){
+                    if(this.$store.state.common.planSeleccionado == 6 || this.$store.state.common.planSeleccionado == 4){
+                        if(!this.$store.state.common.entidadFinanciera.id > 0){
+                            let inputDate = Date.parse(this.fechaVigencia)
+                            inputDate = new Date(this.fechaVigencia)
+                            
+                            let fecha = new Date()
+                            let dia = fecha.getDate()
+                            let mes = fecha.getMonth()+1
+                            let año = fecha.getFullYear()
+                            let fechaActual = dia+'/'+mes+'/'+año
+                            
+                            let todaysDate = Date.parse(fechaActual)
+                            todaysDate = new Date(fechaActual)
 
-                        if(inputDate.getTime() ===  todaysDate.getTime()) {
-                            if (this.$store.state.common.frecuenciaPago == 1) {
-                                this.$store.commit('common/setEmisionROOT', true)
-                            } else {
+                            if(inputDate.getTime() ===  todaysDate.getTime()) {
+                                if (this.$store.state.common.frecuenciaPago == 1) {
+                                    this.$store.commit('common/setEmisionROOT', true)
+                                } else {
+                                    this.$store.commit('common/setEmisionROOT', false)
+                                }
+                            }else{
                                 this.$store.commit('common/setEmisionROOT', false)
                             }
                         }else{
@@ -456,361 +568,295 @@ import { validationMixin } from 'vuelidate'
                     }else{
                         this.$store.commit('common/setEmisionROOT', false)
                     }
-                }else{
-                    this.$store.commit('common/setEmisionROOT', false)
-                }
-            },
-            onCopy: function (e) {      
-                this.isEnableURL = false;
-                var self = this;
-                setTimeout(function() {
-                    self.isEnableURL = true;
-                }, 1800);    
-            },
-            copyURL(event) {     
-                e.preventDefault();
-                this.isEnableURL = true;
-                var copyText  = document.getElementById("copyText");
-                copyText.select();
-                document.execCommand("copy");
-                var self = this;
-                setTimeout(function() {
-                    self.isEnableURL = true;
-                }, 1800);
                 },
-            mostrarTooltip(){
-                if(process.client){
-                    document.getElementById("msg-valor").style.display = "block"
-                }
-                
-            },
-            ocultarTooltip(){
-                if(process.client){
-                    document.getElementById("msg-valor").style.display = "none"
-                }
-            },
-            continuar(evt) {                
-                this.opacidad =true
-                this.isDisabledPayment = false
-                evt.preventDefault();
-
-                this.isDisabledPayment = true
-                this.card.expiration_year = '20'+this.expiration_year
-                this.card.email = this.$store.state.common.email
-                this.$store.dispatch('payment/getTokenCulqi', this.card)
-                .then((res) =>{
-                    if (res.object === 'error') {
-                        let errorDetectado = {
-                            url : 'GET TOKEN CULQI',
-                            page : 4,
-                            message : 'ERROR CULQI',
-                            objEnviado : this.card
-                        }
-                        this.$store.dispatch('common/eventoErrores', errorDetectado)
-                        this.$swal({
-                            title: 'Oops...',
-                            text: res.data.user_message,
-                            type: 'error',
-                            showCancelButton: false,
-                            confirmButtonColor: '#2177CC',
-                            confirmButtonText: 'OK'
-                        })
-                        this.opacidad =false
-                    }else{
-                        this.objCulqi = res;
-                        this.objPaymentExecute = {
-                            tokenId: this.objCulqi.id,
-                            planId: this.$store.state.common.planSeleccionado,
-                            plateNumber: this.$store.state.common.plateNumber,
-                            documentNumber: this.$store.state.common.documentoLocal,
-                            remarketingId: this.$store.state.common.codeRmkt,
-                            referredDocumentNumber:null,
-                            discountType: this.discountType,
-                            businessId: this.$store.state.common.businessId,
-                            details: {
-                                policy: {
-                                    riskName: this.listCotizacion.policy.riskName,
-                                    risk: this.listCotizacion.policy.risk,
-                                    calculated: this.listCotizacion.policy.calculated,
-                                    twoYears: this.listCotizacion.policy.twoYears,
-                                    annual: this.listCotizacion.policy.annual,
-                                    quarterly: this.listCotizacion.policy.quarterly,
-                                    monthly: this.listCotizacion.policy.monthly,
-                                    twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
-                                    annualDiscount: this.listCotizacion.policy.annualDiscount,
-                                    quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
-                                    monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
-                                    discount: false,
-                                    startDate: this.$store.state.common.fechaVigencia
-                                },
-                                vehicle: {
-                                    current: this.listCotizacion.vehicle.current,
-                                    maximum: this.listCotizacion.vehicle.maximum,
-                                    minimum: this.listCotizacion.vehicle.minimum,
-                                    gps: this.listCotizacion.vehicle.gps
-                                },
-                                zeroKm: "N",
-                                paymentMethodId: this.payment,
-                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
-                            },
-                            card: {
-                                brand: this.objCulqi.iin.card_brand,
-                                category: this.objCulqi.iin.card_category,
-                                number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type,
-                                bank : this.objCulqi.iin.issuer.name
-                            }
-                        }
-                        this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
-                        .then((res) =>{
-
-                            if (res.code == 0) {
-                                this.opacidad =false
-                                // this.validarROOT()
-                                this.$store.commit('common/setPolicy_id',res.body.policyId)
-                                this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
-                            }else if(res.code == 100){
-                                let errorDetectado = {
-                                    url : 'EXECUTE',
-                                    page : 4,
-                                    message : 'CODE 100',
-                                    objEnviado : this.objPaymentExecute
-                                }
-                                this.$store.dispatch('common/eventoErrores', errorDetectado)
-                                this.opacidad =false
-                                const messageErr = JSON.parse(JSON.parse(res.body).body);
-
-
-                                const showMessageErr = () => {
-                                    const err = messageErr.decline_code;
-                                    this.textErrModalTwo = '';
-                                    if(err == 'stolen_card'){
-                                        return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
-                                    }else if( err == 'lost_card'){
-                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
-                                    }else if( err == 'insufficient_funds'){
-                                        return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
-                                    }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
-                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
-                                    }else if( err == 'incorrect_cvv'){
-                                        return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
-                                    }else if( err == 'issuer_not_available'){
-                                        return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
-                                    }else if( err == 'processing_error'){
-                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
-                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
-                                    }else {
-                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
-                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
-                                    }
-                                };
-
-                                this.textErrModal = showMessageErr();
-                                if(!this.htmlModal){
-                                    this.htmlModal = document.getElementById('newModal');
-                                    this.htmlModal.style.display = "";
-                                }
-
-                                this.$swal({
-                                    // title: 'Oops...',
-                                    html: this.htmlModal,
-                                    text: showMessageErr(),
-                                    // type: 'error',
-                                    customClass: 'swal-buttonx',
-                                    showCloseButton: true,
-                                    confirmButtonColor: '#EA0C90',
-                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
-                                })
-                            }else{
-                                this.opacidad =false
-                                this.$swal({
-                                    title: 'Oops...',
-                                    text: res.message,
-                                    type: 'error',
-                                    showCancelButton: false,
-                                    confirmButtonColor: '#2177CC',
-                                    confirmButtonText: 'OK'
-                                })
-                            }
-                            
-                        })
+                onCopy: function (e) {      
+                    this.isEnableURL = false;
+                    var self = this;
+                    setTimeout(function() {
+                        self.isEnableURL = true;
+                    }, 1800);    
+                },
+                copyURL(event) {     
+                    e.preventDefault();
+                    this.isEnableURL = true;
+                    var copyText  = document.getElementById("copyText");
+                    copyText.select();
+                    document.execCommand("copy");
+                    var self = this;
+                    setTimeout(function() {
+                        self.isEnableURL = true;
+                    }, 1800);
+                },
+                mostrarTooltip(){
+                    if(process.client){
+                        document.getElementById("msg-valor").style.display = "block"
                     }
                     
-                }).catch((res)=>{
-                    this.opacidad =false
-                    let status = res.response.status
-                    
-                    let errorDetectado = {
-                        url : 'https://secure.culqi.com/v2/tokens',
-                        page : 4,
-                        message : 'ERROR CULQI'+ res.message,
-                        objEnviado : this.card
+                },
+                ocultarTooltip(){
+                    if(process.client){
+                        document.getElementById("msg-valor").style.display = "none"
                     }
+                },
+                goconfirm(evt) {
+                    let self = this        
+                    this.opacidad =true
+                    this.isDisabledPayment = false
 
-                    switch (status) {
-                        case 500:
-                            this.$store.dispatch('common/eventoErrores', errorDetectado)
-                            break;
-                        default:
-                            this.$store.dispatch('common/eventoErrores', errorDetectado)
-                            break;
-                    }
-                    this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
-                    if(!this.htmlModal){
-                        this.htmlModal = document.getElementById('newModal');
-                        this.htmlModal.style.display = "";
-                    }
-                       this.$swal({
-                                    // title: 'Oops...',
-                                    html: this.htmlModal,
-                                    // type: 'error',
-                                    customClass: 'swal-buttonx',
-                                    showCloseButton: true,
-                                    confirmButtonColor: '#EA0C90',
-                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
-                        })
-                })
-            },
-            
-            volver (evt) {
-                evt.preventDefault();
-                this.$nuxt.$router.push("/cotiza/ingresa-tu-documento");              
-            },
-            
-            comoPagarDatalayer(){
-                if(this.frecuenciaPago == 1){
-                    this.frecuenciaPago_datalayer ='mensual'
-                }else if(this.frecuenciaPago == 2){
-                    this.frecuenciaPago_datalayer ='trimestral'
-                }else if(this.frecuenciaPago == 3){
-                    this.frecuenciaPago_datalayer = 'annual'
-                }else if(this.frecuenciaPago == 4){
-                    this.frecuenciaPago_datalayer = 'biannual '
-                }
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    'event': 'como_pagar',
-                    'cuota': this.frecuenciaPago_datalayer, // mensual, trimestral, annual (string)
-                    'ecommerce': {
-                        'checkout_option': { // nota el cambio aqui en codigo "checkout_option"
-                            'actionField': {
-                                'option':this.frecuenciaPago_datalayer
-                            }, // 4to paso en el embudo. En el option enviar tipo de cuota.
-                        }
-                    }
-                });
-            },            
-
-            
-
-            /*******************************************************************************************
-             *  ****************************INGRESA TU TARJETA*****************************************
-            *******************************************************************************************/
-            focusCVV(){      
-                if(process.client){  
-                    document.getElementById("focusCVV").style.display = "block"
-                }
-            },
-            blurCVV(){        
-                if(process.client){
-                    document.getElementById("focusCVV").style.display = "none"
-                }
-            },
-            focusMES(){        
-                // document.getElementById("focusMES").style.display = "flex"
-            },
-            blurMES(){ 
-                if(process.client){       
-                    document.getElementById("focusMES").style.display = "none"
-                }
-            }, 
-            focusTarjeta(){  
-                if(process.client){      
-                    document.getElementById("focusTarjeta").style.display = "flex"
-                }
-            },
-            blurTarjeta(){    
-                if(process.client){    
-                    document.getElementById("focusTarjeta").style.display = "none"
-                }
-            },           
-
-            hideModalAutoorizacionPoliza(){
-                this.$refs.hideModalAutoorizacionPoliza.hide()
-            },
-            hideModalgps(){
-                this.$refs.hideModalgps.hide()
-            },
-            
-
-            isTrueTerminos(){
-                if(process.client){
-                    if(this.cardValitor){                        
-                        let mes = document.querySelector("#cardmes").value.length
-                        let año = document.querySelector("#cardaño").value.length
-                        let ccv = document.querySelector("#cardccv").value.length
-                        if(mes == 2 && año == 2 &&  ccv > 2 && this.checkDocs == true){                
-                            this.isDisabledPayment = false
+                    this.isDisabledPayment = true
+                    this.card.expiration_year = '20'+this.expiration_year
+                    this.card.email = this.$store.state.common.email
+                    this.$store.dispatch('payment/getTokenCulqi', this.card)
+                    .then((res) =>{
+                        
+                        if (res.object === 'error') {
+    
+                            this.$swal({
+                                title: 'Oops...',
+                                text: res.data.user_message,
+                                type: 'error',
+                                showCancelButton: false,
+                                confirmButtonColor: '#2177CC',
+                                confirmButtonText: 'OK'
+                            })
+                            this.opacidad =false
                         }else{
-                            this.isDisabledPayment = true
+                            console.log("========1")
+                            this.objCulqi = res;
+                            this.objPaymentExecute = {
+                                tokenId: this.objCulqi.id,
+                                planId: this.$store.state.common.planSeleccionado,
+                                plateNumber: this.$store.state.common.plateNumber,
+                                documentNumber: this.$store.state.common.documentoLocal,
+                                remarketingId: this.$store.state.common.codeRmkt,
+                                referredDocumentNumber:null,
+                                discountType: this.discountType,
+                                businessId: this.$store.state.common.businessId,
+                                details: {
+                                    policy: {
+                                        riskName: this.listCotizacion.policy.riskName,
+                                        risk: this.listCotizacion.policy.risk,
+                                        calculated: this.listCotizacion.policy.calculated,
+                                        twoYears: this.listCotizacion.policy.twoYears,
+                                        annual: this.listCotizacion.policy.annual,
+                                        quarterly: this.listCotizacion.policy.quarterly,
+                                        monthly: this.listCotizacion.policy.monthly,
+                                        twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
+                                        annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                        quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                        monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                        discount: false,
+                                        startDate: this.$store.state.common.fechaVigencia
+                                    },
+                                    vehicle: {
+                                        current: this.listCotizacion.vehicle.current,
+                                        maximum: this.listCotizacion.vehicle.maximum,
+                                        minimum: this.listCotizacion.vehicle.minimum,
+                                        gps: this.listCotizacion.vehicle.gps
+                                    },
+                                    zeroKm: "N",
+                                    paymentMethodId: this.payment,
+                                    financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                                },
+                                card: {
+                                    brand: this.objCulqi.iin.card_brand,
+                                    category: this.objCulqi.iin.card_category,
+                                    number: this.objCulqi.card_number,
+                                    type: this.objCulqi.iin.card_type,
+                                    bank : this.objCulqi.iin.issuer.name
+                                }
+                            }
+                            console.log("========2",self.pay)
+                            console.log("========2.1",res)
+                            self.pay.digitalPayment.token = res.id
+                            this.goGeneratePoliza(res.id)
+                            // this.$store.dispatch('payment/makeSale', this.objPaymentExecute)
+                            // .then((res) =>{
+                                
+                                
+                            // })
                         }
+                        
+                    }).catch((res)=>{
+                        this.opacidad =false
+                        let status = res.response.status
+                        
+                        
+                        this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
+                        if(!this.htmlModal){
+                            this.htmlModal = document.getElementById('newModal');
+                            this.htmlModal.style.display = "";
+                        }
+                        this.$swal({
+                                        // title: 'Oops...',
+                                        html: this.htmlModal,
+                                        // type: 'error',
+                                        customClass: 'swal-buttonx',
+                                        showCloseButton: true,
+                                        confirmButtonColor: '#EA0C90',
+                                        confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                            })
+                    })
+                },
+            
+                volver (evt) {
+                    evt.preventDefault();
+                    this.$nuxt.$router.push("/cotiza/ingresa-tu-documento");              
+                },
+            
+                comoPagarDatalayer(){
+                    if(this.frecuenciaPago == 1){
+                        this.frecuenciaPago_datalayer ='mensual'
+                    }else if(this.frecuenciaPago == 2){
+                        this.frecuenciaPago_datalayer ='trimestral'
+                    }else if(this.frecuenciaPago == 3){
+                        this.frecuenciaPago_datalayer = 'annual'
+                    }else if(this.frecuenciaPago == 4){
+                        this.frecuenciaPago_datalayer = 'biannual '
                     }
-                }
-            },
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'como_pagar',
+                        'cuota': this.frecuenciaPago_datalayer, // mensual, trimestral, annual (string)
+                        'ecommerce': {
+                            'checkout_option': { // nota el cambio aqui en codigo "checkout_option"
+                                'actionField': {
+                                    'option':this.frecuenciaPago_datalayer
+                                }, // 4to paso en el embudo. En el option enviar tipo de cuota.
+                            }
+                        }
+                    });
+                },            
 
-            addingBlankSpaces (ev) {
-                let valid = require('card-validator')
-                cardNumber = ev.target.value
-                let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
-                this.numberValidation = valid.number(cardNumber.replace(/ /g, ''))
-                //this.tipoTarjetaDatalayer = numberValidation.card.type
-                if (numberValidation.card !== null) {
-                    
-                    this.numberTest = numberValidation.card.code.size
-                    this.cvvcci = numberValidation.card.code.name
-                    let cardType = numberValidation.card.type !== 'american-express' ? numberValidation.card.type : 'amex'
-                    this.creditCardImage = require('../../static/media/img/flujo/metodo-pago/' + cardType + '.png')
-                    this.creditCardImageCvv = require('../../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
-                } else {
-                    this.creditCardImage = ''
-                    this.creditCardImageCvv = ''
-                }
-                if (ev.keyCode !== 8) {
-                    this.objCardNumber.number = this.objCardNumber.number.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ')               
-                }
-                this.card.card_number = cardNumber.split(" ").join("");
-                if(numberValidation.isValid){
-                    this.cardCompleto = false
-                    this.cardValitor = true;
-                    if(numberValidation.card.code.name == "CVV" || numberValidation.card.code.name == "CVC" && this.checkDocs == true){
-                        if(process.client){
+            
+
+                /*******************************************************************************************
+                 *  ****************************INGRESA TU TARJETA*****************************************
+                *******************************************************************************************/
+                focusCVV(){      
+                    if(process.client){  
+                        document.getElementById("focusCVV").style.display = "block"
+                    }
+                },
+                blurCVV(){        
+                    if(process.client){
+                        document.getElementById("focusCVV").style.display = "none"
+                    }
+                },
+                focusMES(){        
+                    // document.getElementById("focusMES").style.display = "flex"
+                },
+                blurMES(){ 
+                    if(process.client){       
+                        document.getElementById("focusMES").style.display = "none"
+                    }
+                }, 
+                focusTarjeta(){  
+                    if(process.client){      
+                        document.getElementById("focusTarjeta").style.display = "flex"
+                    }
+                },
+                blurTarjeta(){    
+                    if(process.client){    
+                        document.getElementById("focusTarjeta").style.display = "none"
+                    }
+                },           
+
+                hideModalAutoorizacionPoliza(){
+                    this.$refs.hideModalAutoorizacionPoliza.hide()
+                },
+                hideModalgps(){
+                    this.$refs.hideModalgps.hide()
+                },
+            
+
+                isTrueTerminos(){
+                    if(process.client){
+                        if(this.cardValitor){                        
                             let mes = document.querySelector("#cardmes").value.length
                             let año = document.querySelector("#cardaño").value.length
                             let ccv = document.querySelector("#cardccv").value.length
+                            if(mes == 2 && año == 2 &&  ccv > 2 && this.checkDocs == true){                
+                                this.isDisabledPayment = false
+                            }else{
+                                this.isDisabledPayment = true
+                            }
+                        }
+                    }
+                },
+
+                addingBlankSpaces (ev) {
+                    let valid = require('card-validator')
+                    cardNumber = ev.target.value
+                    let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                    this.numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                    //this.tipoTarjetaDatalayer = numberValidation.card.type
+                    if (numberValidation.card !== null) {
+                        
+                        this.numberTest = numberValidation.card.code.size
+                        this.cvvcci = numberValidation.card.code.name
+                        let cardType = numberValidation.card.type !== 'american-express' ? numberValidation.card.type : 'amex'
+                        this.creditCardImage = require('../../static/media/img/flujo/metodo-pago/' + cardType + '.png')
+                        this.creditCardImageCvv = require('../../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
+                    } else {
+                        this.creditCardImage = ''
+                        this.creditCardImageCvv = ''
+                    }
+                    if (ev.keyCode !== 8) {
+                        this.objCardNumber.number = this.objCardNumber.number.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ')               
+                    }
+                    this.card.card_number = cardNumber.split(" ").join("");
+                    if(numberValidation.isValid){
+                        this.cardCompleto = false
+                        this.cardValitor = true;
+                        if(numberValidation.card.code.name == "CVV" || numberValidation.card.code.name == "CVC" && this.checkDocs == true){
+                            if(process.client){
+                                let mes = document.querySelector("#cardmes").value.length
+                                let año = document.querySelector("#cardaño").value.length
+                                let ccv = document.querySelector("#cardccv").value.length
+                                if(mes == 2 && año == 2 && ccv == 3 ){
+                                    this.isDisabledPayment = false
+                                }
+                            }
+                            
+                        }else if(numberValidation.card.code.name == "CID"){
                             if(mes == 2 && año == 2 && ccv == 3 ){
                                 this.isDisabledPayment = false
                             }
                         }
-                        
-                    }else if(numberValidation.card.code.name == "CID"){
-                        if(mes == 2 && año == 2 && ccv == 3 ){
-                            this.isDisabledPayment = false
+                        if (process.client) {
+                            document.getElementById('cardmes').focus()
                         }
+                        
+                    }else{
+                        this.isDisabledPayment = true
+                        this.cardCompleto = true
                     }
-                    if (process.client) {
-                        document.getElementById('cardmes').focus()
-                    }
-                    
-                }else{
-                    this.isDisabledPayment = true
-                    this.cardCompleto = true
-                }
-            },
+                },
             
-            keyUpMes(){
-                let mes = document.querySelector("#cardmes").value.length
-                if(mes == 2){
-                    document.getElementById('cardaño').focus()
+                keyUpMes(){
+                    let mes = document.querySelector("#cardmes").value.length
+                    if(mes == 2){
+                        document.getElementById('cardaño').focus()
+                        if(this.cardValitor){
+                            let mes = document.querySelector("#cardmes").value.length
+                            let año = document.querySelector("#cardaño").value.length
+                            let ccv = document.querySelector("#cardccv").value.length
+                            if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
+                                this.isDisabledPayment = false
+                            }else{
+                                this.isDisabledPayment = true
+                            }
+                        }
+                    }else{
+                        this.isDisabledPayment = true
+                    }
+                },
+                keyUpCard(){
+                    let año = document.querySelector("#cardaño").value.length
+                    if(año == 2){
+                        document.getElementById('cardccv').focus()
+                    }
                     if(this.cardValitor){
                         let mes = document.querySelector("#cardmes").value.length
                         let año = document.querySelector("#cardaño").value.length
@@ -821,150 +867,206 @@ import { validationMixin } from 'vuelidate'
                             this.isDisabledPayment = true
                         }
                     }
-                }else{
-                    this.isDisabledPayment = true
-                }
-            },
-            keyUpCard(){
-                let año = document.querySelector("#cardaño").value.length
-                if(año == 2){
-                    document.getElementById('cardccv').focus()
-                }
-                if(this.cardValitor){
-                    let mes = document.querySelector("#cardmes").value.length
-                    let año = document.querySelector("#cardaño").value.length
-                    let ccv = document.querySelector("#cardccv").value.length
-                    if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
-                        this.isDisabledPayment = false
-                    }else{
-                        this.isDisabledPayment = true
+                },
+                validCard(){
+                    if(!this.numberValidation.isValid){
+                        this.$swal({
+                        title: 'Oops...',
+                        text: 'Debe ser una tarjeta válida',
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonColor: '#2177CC',
+                        confirmButtonText: 'OK'
+                    })
+                    }
+                },
+                remarketingv2(){
+                    if (this.$store.state.common.businessId == 2){
+                        this.objPlantilla = {
+                        "1":"00-ibk-dias.html",
+                        "2":"03-ibk-dias.html",
+                        "3":"07-ibk-dias.html",
+                        "4":"15-ibk-dias.html"
+                        }
+                        this.objUtm = {
+                        "1": "utm_campaign=IBK_remarketingCN_1",
+                        "2": "utm_campaign=IBK_remarketingCN_2",
+                        "3": "utm_campaign=IBK_remarketingCN_3",
+                        "4": "utm_campaign=IBK_remarketingCN_4"
+                        }
+                    }else if(this.$store.state.common.nuevoProducto == true){
+                        this.objPlantilla = {}
+                        this.objUtm = {}
+                    }
+                    this.abjVehicleSelect = JSON.parse(localStorage.getItem("abjVehicleSelect"))
+                    this.objVehicle = JSON.parse(localStorage.getItem("objVeh"))
+                    this.objRemarketing = {
+                        "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
+                        "producto": this.$store.state.common.businessId,
+                        "identificador": this.$store.state.common.plateNumber,
+                        "detalle": {
+                        "correo": this.$store.state.common.email.trim().replace(/ /g,''),
+                        "codigoVenta": this.$store.state.common.codeRmkt,
+                        "pantalla": 3,
+                        "enviarCorreo":0,
+                        "datosCorreo":{
+                            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+                            "plantilla": this.objPlantilla,
+                            "utm": this.objUtm
+                        },
+                        "datosProducto": {
+                            // valeAgora: this.valeAgora,
+                            marca : this.$store.state.common.itemElegido.brand,
+                            modelo : this.$store.state.common.itemElegido.model,
+                            planSeleccionado : this.$store.state.common.planSeleccionado,
+                            valorComercial : this.$store.state.common.current,
+                            pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
+                            // desde : localStorage.getItem("monthly") == null
+                            //     ? this.objectVehicle.minimumPolicyAmount
+                            //     : null,
+                            // montoMensualBasico:  this.listaBasica.policy.monthly,
+                            // montoMensualMedio: this.listaMedia.policy.monthly,
+                            // montoMensualFull: this.listaFull.policy.monthly,
+                            /*********************************************************/
+                            businessId: this.$store.state.common.businessId,
+                            idEndosoSeleccionado: this.endosoSeleccionado.id,
+                            endosoSeleccionado: this.endosoSeleccionado.name,
+                            placa: this.$store.state.common.plateNumber,              
+                            anio: this.$store.state.common.itemElegido.modelYear,
+                            gps: this.$store.state.common.listaCotizacion.vehicle.gps,
+                            riesgo: this.$store.state.common.listaCotizacion.policy.risk,
+                            fechaInicio: this.$store.state.common.fechaVigencia,
+                            
+                            /******************************************************** */   
+                            itemElegido: this.$store.state.common.itemElegido,
+                            listCotizacion: this.$store.state.common.listaCotizacion,
+                            nuevoProducto: this.$store.state.common.nuevoProducto                
+                            /******************************************************** */      
+                            /******************************************************** */
+                            // idMarca: this.objectVehicle.brandId,
+                            // idModelo: this.objectVehicle.modelId,
+                            // idUso: 1,
+                            // uso: "particular",    
+                            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
+                            // pagoTrimestral: this.listCotizacion.policy.quarterly,
+                            // pagoAnual: this.listCotizacion.policy.annual
+                        },
+                        "datosTitular": {
+                            "numeroDocumento": this.$store.state.common.documentoLocal,
+                            "nombre": this.$store.state.common.objCliente.firstName,
+                            "apellidoPaterno": this.$store.state.common.objCliente.firstLastName,
+                            "apellidoMaterno": this.$store.state.common.objCliente.secondLastName,
+                            "telefono": this.$store.state.common.objCliente.phoneNumber,
+                            "originDocumentNumber": localStorage.getItem("originDocumentNumber"),
+                            "origenDatos": localStorage.getItem("origenDatos"),
+                        },
+                        "remitente": {
+                            "correoRemitente": "comunicaciones@interseguro.com.pe",
+                            "correoRemitenteDisplay": "Interseguro"
+                        },
+                        "datosPago": {
+                            "idFrecuencia": this.payment,
+                            "fechaInicioSeguro": ""
+                        }
                     }
                 }
-            },
-            validCard(){
-                if(!this.numberValidation.isValid){
-                    this.$swal({
-                    title: 'Oops...',
-                    text: 'Debe ser una tarjeta válida',
-                    type: 'error',
-                    showCancelButton: false,
-                    confirmButtonColor: '#2177CC',
-                    confirmButtonText: 'OK'
+                this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
+                if (res) {
+                    this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
+                }        
                 })
+            },
+            mouseLeave(e) {
+                if (this.$store.state.common.leaveMessage == 0) {
+                    if (e.clientX < 0 || e.clientY < 0) {
+                            this.$store.commit('common/setLeaveMessage',1)
+                            this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
+                            //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            // }else{
+                            //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                            // }
+                    }
                 }
             },
-            remarketingv2(){
-                if (this.$store.state.common.businessId == 2){
-                    this.objPlantilla = {
-                    "1":"00-ibk-dias.html",
-                    "2":"03-ibk-dias.html",
-                    "3":"07-ibk-dias.html",
-                    "4":"15-ibk-dias.html"
-                    }
-                    this.objUtm = {
-                    "1": "utm_campaign=IBK_remarketingCN_1",
-                    "2": "utm_campaign=IBK_remarketingCN_2",
-                    "3": "utm_campaign=IBK_remarketingCN_3",
-                    "4": "utm_campaign=IBK_remarketingCN_4"
-                    }
-                }else if(this.$store.state.common.nuevoProducto == true){
-                    this.objPlantilla = {}
-                    this.objUtm = {}
-                }
-                this.abjVehicleSelect = JSON.parse(localStorage.getItem("abjVehicleSelect"))
-                this.objVehicle = JSON.parse(localStorage.getItem("objVeh"))
-                this.objRemarketing = {
-                    "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
-                    "producto": this.$store.state.common.businessId,
-                    "identificador": this.$store.state.common.plateNumber,
-                    "detalle": {
-                    "correo": this.$store.state.common.email.trim().replace(/ /g,''),
-                    "codigoVenta": this.$store.state.common.codeRmkt,
-                    "pantalla": 3,
-                    "enviarCorreo":0,
-                    "datosCorreo":{
-                        "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
-                        "plantilla": this.objPlantilla,
-                        "utm": this.objUtm
-                    },
-                    "datosProducto": {
-                        // valeAgora: this.valeAgora,
-                        marca : this.$store.state.common.itemElegido.brand,
-                        modelo : this.$store.state.common.itemElegido.model,
-                        planSeleccionado : this.$store.state.common.planSeleccionado,
-                        valorComercial : this.$store.state.common.current,
-                        pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
-                        // desde : localStorage.getItem("monthly") == null
-                        //     ? this.objectVehicle.minimumPolicyAmount
-                        //     : null,
-                        // montoMensualBasico:  this.listaBasica.policy.monthly,
-                        // montoMensualMedio: this.listaMedia.policy.monthly,
-                        // montoMensualFull: this.listaFull.policy.monthly,
-                        /*********************************************************/
-                        businessId: this.$store.state.common.businessId,
-                        idEndosoSeleccionado: this.endosoSeleccionado.id,
-                        endosoSeleccionado: this.endosoSeleccionado.name,
-                        placa: this.$store.state.common.plateNumber,              
-                        anio: this.$store.state.common.itemElegido.modelYear,
-                        gps: this.$store.state.common.listaCotizacion.vehicle.gps,
-                        riesgo: this.$store.state.common.listaCotizacion.policy.risk,
-                        fechaInicio: this.$store.state.common.fechaVigencia,
-                        
-                        /******************************************************** */   
-                        itemElegido: this.$store.state.common.itemElegido,
-                        listCotizacion: this.$store.state.common.listaCotizacion,
-                        nuevoProducto: this.$store.state.common.nuevoProducto                
-                        /******************************************************** */      
-                        /******************************************************** */
-                        // idMarca: this.objectVehicle.brandId,
-                        // idModelo: this.objectVehicle.modelId,
-                        // idUso: 1,
-                        // uso: "particular",    
-                        // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
-                        // pagoTrimestral: this.listCotizacion.policy.quarterly,
-                        // pagoAnual: this.listCotizacion.policy.annual
-                    },
-                    "datosTitular": {
-                        "numeroDocumento": this.$store.state.common.documentoLocal,
-                        "nombre": this.$store.state.common.objCliente.firstName,
-                        "apellidoPaterno": this.$store.state.common.objCliente.firstLastName,
-                        "apellidoMaterno": this.$store.state.common.objCliente.secondLastName,
-                        "telefono": this.$store.state.common.objCliente.phoneNumber,
-                        "originDocumentNumber": localStorage.getItem("originDocumentNumber"),
-                        "origenDatos": localStorage.getItem("origenDatos"),
-                    },
-                    "remitente": {
-                        "correoRemitente": "comunicaciones@interseguro.com.pe",
-                        "correoRemitenteDisplay": "Interseguro"
-                    },
-                    "datosPago": {
-                        "idFrecuencia": this.payment,
-                        "fechaInicioSeguro": ""
-                    }
-                }
-            }
-            this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
-              if (res) {
-                this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
-              }        
-            })
-          },
-          mouseLeave(e) {
-              if (this.$store.state.common.leaveMessage == 0) {
-                  if (e.clientX < 0 || e.clientY < 0) {
-                        this.$store.commit('common/setLeaveMessage',1)
-                        this.$nuxt.$emit('bv::show::modal','leavePayment')
-                        // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
-                        //     this.$nuxt.$emit('bv::show::modal','leavePayment')
-                        // }else{
-                        //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+            parseDecimal(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            },
+            goGeneratePoliza (token) {
+                let self = this
+                self.pay.digitalPayment.token = token
+
+                this.$store.dispatch('payment/makeSale', self.pay)
+                .then((res) => {
+                    if (res.data.code == 0) {
+                        this.$store.commit('payment/setTransactionToken', '')
+                        // res.response.data.message = (res.response.data.code) ? ((res.response.data.message).split(' ')[0] === 'Error') ? ((res.response.data.message).split('[')[1].split(']')[0]) : res.response.data.message : 'Estamos teniendo problemas para realizar la venta. Para mayor información puedes comunicarte al +51 933559693'
+                        // if (this.pay.digitalPayment.provider == 'NIUBIZ' && res.data.code === '87') {
+                        //     this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
                         // }
-                  }
-              }
-          },
-          parseDecimal(number) {
-              return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          },
+                        //VEHICULAR ANTERIOR
+                        this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
+                        this.opacidad =false
+                        this.$store.commit('common/setPolicy_id',res.data.body.policyId)
+                        this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
+                    }else if(res.data.code == 100){
+
+                        this.opacidad =false
+                        const messageErr = JSON.parse(JSON.parse(res.body).body)
+                        const showMessageErr = () => {
+                            const err = messageErr.decline_code;
+                            this.textErrModalTwo = '';
+                            if(err == 'stolen_card'){
+                                return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                            }else if( err == 'lost_card'){
+                                return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                            }else if( err == 'insufficient_funds'){
+                                return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
+                            }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
+                                return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                            }else if( err == 'incorrect_cvv'){
+                                return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                            }else if( err == 'issuer_not_available'){
+                                return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                            }else if( err == 'processing_error'){
+                                this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                            }else {
+                                this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                            }
+                        };
+
+                        this.textErrModal = showMessageErr()
+                        if(!this.htmlModal){
+                            this.htmlModal = document.getElementById('newModal');
+                            this.htmlModal.style.display = "";
+                        }
+
+                        this.$swal({
+                            // title: 'Oops...',
+                            html: this.htmlModal,
+                            text: showMessageErr(),
+                            // type: 'error',
+                            customClass: 'swal-buttonx',
+                            showCloseButton: true,
+                            confirmButtonColor: '#EA0C90',
+                            confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                        })
+                    }else{
+                        console.log("666")
+                        this.opacidad =false
+                        this.$swal({
+                            title: 'Oops...',
+                            text: res.message,
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonColor: '#2177CC',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                })
+            },
         },
         computed:{
             appDiscount: function(){
@@ -992,11 +1094,10 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            // if(localStorage.getItem('activoAgora')){
-            //     this.valeAgora = true
-            // }
+            // 4919148107859067
+            this.pay.digitalPayment.provider  = this.$store.state.payment.provider
+            this.pay.policy.sumAssured =  this.$store.state.common.listaCotizacion.vehicle.current
             
-            // this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1073,17 +1174,30 @@ import { validationMixin } from 'vuelidate'
             }
             this.fechaVigencia = this.$store.state.common.fechaVigencia
     
-            this.remarketingv2()
+            // this.remarketingv2()
             // this.validarROOT()
             document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
+            this.$store.commit('payment/setTransactionToken', this.$route.query.transactionToken)
+            if (this.$route.query.transactionToken) {
+                this.goGeneratePoliza(this.$store.state.payment.transactionToken)
+            } else {
+                console.log("NO ENTROOOOOOOOOOO")
+            }
+        },
+        components: {
+            PaymentNiubiz,
+            'loader-pay': loaderPago
         },
         destroyed() {
             if (process.browser) {
                 document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
             }
+            this.$nuxt.$off('show-payment')
         }
     }
 </script>
+
+
 
 <style lang="scss" scope>
     $vehicular_primario: #0855c4;
@@ -1095,68 +1209,7 @@ import { validationMixin } from 'vuelidate'
         padding-top: 80px;
         padding-bottom: 80px;
     }
-    .resumen-proteccion{
-        border: 1px solid #CCD1DD;
-        &--subtitulo{
-            color: #383C5A;
-            font-size: 15px;
-            font-family: 'Omnes SemiBold';
-        }
-        &__cabecera{
-            border-bottom: 1px solid #CCD1DD;
-            
-            p{
-                font-size: 16px;
-                padding: 20px 16px;
-                color: $vehicular_primario;
-                font-family: 'Omnes SemiBold';
-            }
-        }
-        &__cuerpo{
-            padding-bottom: 24px;
-            .datos-pago{
-                color: #383C5A;
-                font-size: 15px;
-                font-family: 'Omnes SemiBold';
-                .monto{
-                    color: $vehicular_primario;
-                    font-size: 40px;
-                    font-family: 'Omnes Medium';
-                    vertical-align: middle;
-                }
-                .antes{
-                    color: #454A6C;
-                    font-size: 18px;
-                    font-family: 'Omnes Regular';
-                    line-height: 40px;
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-            }
-            .datos-carro, .datos-personales,.datos-poliza,.datos-pago{
-                padding-left: 24px;
-                padding-top: 24px;
-                p{
-                    
-                    .campo{
-                        color: #A4A7BC;
-                        font-size: 15px;
-                        font-family: 'Omnes Regular';
-                        display: inline-block;
-                        width: 80px;
-                    }
-                    span{
-                        color: #383C5A;
-                        font-size: 15px;
-                        font-family: 'Omnes Regular';
-                    }
-                }
-            }
-            .datos-pago{
-                padding-top: 36px;
-            }
-        }
-    }
+    
 
     .capadecarga{
         display: none;

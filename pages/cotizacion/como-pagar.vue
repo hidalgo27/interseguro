@@ -719,13 +719,7 @@ import { validationMixin } from 'vuelidate'
                     .then((res) =>{
                         
                         if (res.object === 'error') {
-                            let errorDetectado = {
-                                url : 'GET TOKEN CULQI',
-                                page : 4,
-                                message : 'ERROR CULQI',
-                                objEnviado : this.card
-                            }
-                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+    
                             this.$swal({
                                 title: 'Oops...',
                                 text: res.data.user_message,
@@ -796,21 +790,7 @@ import { validationMixin } from 'vuelidate'
                         this.opacidad =false
                         let status = res.response.status
                         
-                        let errorDetectado = {
-                            url : 'https://secure.culqi.com/v2/tokens',
-                            page : 4,
-                            message : 'ERROR CULQI'+ res.message,
-                            objEnviado : this.card
-                        }
-
-                        switch (status) {
-                            case 500:
-                                this.$store.dispatch('common/eventoErrores', errorDetectado)
-                                break;
-                            default:
-                                this.$store.dispatch('common/eventoErrores', errorDetectado)
-                                break;
-                        }
+                        
                         this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
                         if(!this.htmlModal){
                             this.htmlModal = document.getElementById('newModal');
@@ -1139,13 +1119,7 @@ import { validationMixin } from 'vuelidate'
                         this.$store.commit('common/setPolicy_id',res.data.body.policyId)
                         this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
                     }else if(res.data.code == 100){
-                        let errorDetectado = {
-                            url : 'EXECUTE',
-                            page : 4,
-                            message : 'CODE 100',
-                            objEnviado : this.objPaymentExecute
-                        }
-                        this.$store.dispatch('common/eventoErrores', errorDetectado)
+
                         this.opacidad =false
                         const messageErr = JSON.parse(JSON.parse(res.body).body)
                         const showMessageErr = () => {

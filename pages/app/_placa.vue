@@ -1076,13 +1076,7 @@ export default {
                 this.$store.dispatch('payment/getTokenCulqi', this.card)
                 .then((res) =>{
                     if (res.object === 'error') {
-                        let errorDetectado = {
-                            url : 'GET TOKEN CULQI',
-                            page : 4,
-                            message : 'ERROR CULQI',
-                            objEnviado : this.card
-                        }
-                        this.$store.dispatch('common/eventoErrores', errorDetectado)
+                       
                         this.$swal({
                             title: 'Oops...',
                             text: res.data.user_message,
@@ -1144,13 +1138,7 @@ export default {
                                 this.$store.commit('common/setPolicy_id',res.body.policyId)
                                 this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
                             }else if(res.code == 100){
-                                let errorDetectado = {
-                                    url : 'EXECUTE',
-                                    page : 4,
-                                    message : 'CODE 100',
-                                    objEnviado : this.objPaymentExecute
-                                }
-                                this.$store.dispatch('common/eventoErrores', errorDetectado)
+
                                 this.opacidad =false
                                 this.$swal({
                                     title: 'Oops...',
@@ -1178,21 +1166,7 @@ export default {
                 }).catch((res)=>{
                     this.opacidad =false
                     // let status = res.response.status
-                    let errorDetectado = {
-                        url : 'https://secure.culqi.com/v2/tokens',
-                        page : 4,
-                        message : 'ERROR CULQI'+ res.message,
-                        objEnviado : this.card
-                    }
 
-                    switch (status) {
-                        case 500:
-                            this.$store.dispatch('common/eventoErrores', errorDetectado)
-                            break;
-                        default:
-                            this.$store.dispatch('common/eventoErrores', errorDetectado)
-                            break;
-                    }
                     
                         this.$swal({
                             title: 'Oops...',

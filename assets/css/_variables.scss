@@ -17,6 +17,70 @@ $v2gris_claro: #BAB9B9;
 $v2gris_oscuro: #333;
 $is-v-azul: #0855c4;
 
+
+.resumen-proteccion{
+    border: 1px solid #CCD1DD;
+    &--subtitulo{
+        color: #383C5A;
+        font-size: 15px;
+        font-family: 'Omnes SemiBold';
+    }
+    &__cabecera{
+        border-bottom: 1px solid #CCD1DD;
+        
+        p{
+            font-size: 16px;
+            padding: 20px 16px;
+            color: $vehicular_primario;
+            font-family: 'Omnes SemiBold';
+        }
+    }
+    &__cuerpo{
+        padding-bottom: 24px;
+        .datos-pago{
+            color: #383C5A;
+            font-size: 15px;
+            font-family: 'Omnes SemiBold';
+            .monto{
+                color: $vehicular_primario;
+                font-size: 40px;
+                font-family: 'Omnes Medium';
+                vertical-align: middle;
+            }
+            .antes{
+                color: #454A6C;
+                font-size: 18px;
+                font-family: 'Omnes Regular';
+                line-height: 40px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        .datos-carro, .datos-personales,.datos-poliza,.datos-pago{
+            padding-left: 24px;
+            padding-top: 24px;
+            p{
+                
+                .campo{
+                    color: #A4A7BC;
+                    font-size: 15px;
+                    font-family: 'Omnes Regular';
+                    display: inline-block;
+                    width: 80px;
+                }
+                span{
+                    color: #383C5A;
+                    font-size: 15px;
+                    font-family: 'Omnes Regular';
+                }
+            }
+        }
+        .datos-pago{
+            padding-top: 36px;
+        }
+    }
+}
+
 .span-primario {
     color: $primario;
 }

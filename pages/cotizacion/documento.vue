@@ -361,30 +361,36 @@
 
         <b-col cols="12" lg="4">
           <div class="resumen-proteccion">
-            <div class="resumen-proteccion__cabecera">
-              <p>RESUMEN DE TU PROTECCIÓN</p>
-            </div>
-            <div class="resumen-proteccion__cuerpo">
-              <div class="datos-carro">
-                <p>DATOS DE TU CARRO</p>
-                <div class="datos-carro--detalle">
-                  <p>Mi carro <span>{{this.$store.state.common.objVehiculo.brand}}</span>
-                              <span>{{this.$store.state.common.objVehiculo.model}}</span>
-                              <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
-                  </p>
-                </div>
-
-                <div class="datos-poliza">
-                  <p>DATOS DE MI PÓLIZA</p>
-                  <p>Plan <span>{{this.$store.state.common.planSeleccionado}}</span></p>
-                  <p>Cobertura <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
-                  <p>Frecuencia <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
-                  <p>F. DE INICIO <span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
-                </div>
+              <div class="resumen-proteccion__cabecera">
+                  <p>RESUMEN DE TU PROTECCIÓN</p>
               </div>
-            </div>
+              <div class="resumen-proteccion__cuerpo">
+                  <div class="datos-carro">
+                      <h3 class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</h3>
+                      <div class="datos-carro--detalle">
+                          <p><span class="campo">Mi carro </span><span>{{this.$store.state.common.objVehiculo.brand}}</span>
+                                      <span>{{this.$store.state.common.objVehiculo.model}}</span>
+                                      <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
+                          </p>
+                      </div>
+                  </div>
+
+                  <div class="datos-poliza">
+                      <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
+                      <p><span class="campo">Plan</span> <span>{{this.$store.state.common.planSeleccionado}}</span></p>
+                      <p><span class="campo">Cobertura</span> <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+                      <p><span class="campo">Frecuencia</span> <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
+                      <p><span class="campo">F. DE INICIO </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                  </div>
+
+                  <div class="datos-pago">
+                      <p class="total">
+                          TOTAL: <span class="monto">${{this.monto_pagar}}</span> <span class="antes">Antes us$ {{}}</span>
+                      </p>
+                  </div>
+              </div>
           </div>
-        </b-col>
+      </b-col>
 
         <b-col cols="12">
           <b-row class=" box_aceptoTerminos">
