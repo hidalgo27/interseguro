@@ -17,6 +17,9 @@ $v2gris_claro: #BAB9B9;
 $v2gris_oscuro: #333;
 $is-v-azul: #0855c4;
 
+/*******************************************************
+        INICIO DE ESTILOS REUTILIZABLES
+*******************************************************/
 
 .resumen-proteccion{
     border: 1px solid #CCD1DD;
@@ -80,22 +83,6 @@ $is-v-azul: #0855c4;
         }
     }
 }
-
-.span-primario {
-    color: $primario;
-}
-.span-secundario {
-    color: $secundario;
-}
-.span-primario-alterno{
-    color: #0855C4;
-}
-.span-alterno{
-    color: #002e75;
-}
-.vehicular_primario{
-    color: $vehicular_primario !important;
-}
 .flujo-titulo{
     color: $vehicular_primario;
     font-size: 21px;
@@ -111,6 +98,26 @@ p,div,section{
     padding: 0;
     margin: 0;
 }
+
+/*******************************************************
+        FIN DE ESTILOS REUTILIZABLES
+*******************************************************/
+.span-primario {
+    color: $primario;
+}
+.span-secundario {
+    color: $secundario;
+}
+.span-primario-alterno{
+    color: #0855C4;
+}
+.span-alterno{
+    color: #002e75;
+}
+.vehicular_primario{
+    color: $vehicular_primario !important;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { 
 

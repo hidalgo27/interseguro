@@ -1,6 +1,6 @@
 <template >
   <section
-    class="steps-box">
+    class="pagina-documento">
 
     <b-container>
       <b-row class="box-ingresaDocumento">
@@ -562,625 +562,10 @@
   </section>
 </template>
 
-<style lang="scss" scoped>
-
-@media screen and (max-width: 767px) {
-  input,
-  select,
-  textarea {
-    font-size: 16px;
-  }
-}
-.modal-blackWeek {
-  max-width: 472px;
-  width: 100%;
-  height: 509px;
-  font-family: "Omnes Regular";
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  .banner-modal {
-    img {
-      width: 100%;
-    }
-  }
-  h3 {
-    font-size: 24px;
-    color: #ffffff;
-  }
-  span {
-    font-family: "Omnes Medium";
-  }
-  .btn {
-    background-color: #ea0c90;
-    color: white;
-    height: 50px;
-    width: 300px;
-    line-height: 0.5;
-    font-size: 16px;
-    border-radius: 3px;
-    border: none;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-  p {
-    color: #ffffff;
-    font-size: 16px;
-  }
-  .modal-dialog {
-    max-width: 472px;
-    width: 100%;
-    height: 509px;
-  }
-  .modal-content {
-    max-width: 472px;
-    width: 100%;
-    height: 509px;
-    background: url("./../../static/media/modalBlackWeek/fondo-modal.jpg");
-  }
-}
-a.steps__item.paso2:after {
-  content: "2" !important;
-  background: #0754c4 !important;
-  color: white !important;
-  text-align: center;
-  font-size: 14px;
-}
-a.steps__item.paso1:after {
-  content: "1" !important;
-  background: #0754c4 !important;
-  color: white !important;
-  text-align: center;
-  font-size: 14px;
-}
-.steps-box {
-  background: white;
-  padding-top: 70px;
-}
-.edit-input {
-  cursor: auto !important;
-}
-.box-principal {
-  border: 1px solid #CCD1DD;
-  background: white;
-  border-radius: 3px;
-}
-.maestra {
-  width: 100%;
-  span {
-    text-align: center;
-  }
-}
-.edit-input {
-  position: absolute;
-  right: 8px;
-  width: 19px;
-  cursor: pointer;
-  z-index: 0;
-}
-#documento-identidad {
-  padding-left: 12px;
-}
-.checkbox-aux
-  label
-  input[type="checkbox"]:checked
-  + .checkbox-aux__span
-  > .checkbox-aux__span--icon,
-.radio
-  label
-  input[type="radio"]:checked
-  + .checkbox-aux__span
-  > .checkbox-aux__span--icon {
-  content: url("../../static/media/img/check_white.png");
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 1px;
-  top: 1px;
-  z-index: 999;
-}
-.box-checkbox {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0;
-}
-.steps-allRisk-box {
-  padding-top: 0;
-  margin-top: 70px;
-  background: #f7f4fc;
-}
-
-.tabla_modal {
-  td {
-    border: 1px solid #666666;
-  }
-  tr {
-    &:first-child {
-      color: #263238;
-      font-weight: bold;
-      background: #bdbdbd;
-    }
-    td {
-      &:nth-child(1) {
-        width: 15%;
-      }
-      &:nth-child(2) {
-        width: 15%;
-      }
-      &:nth-child(3) {
-        width: 40%;
-      }
-    }
-  }
-}
-.modal-datosPersonales {
-  border: 0 !important;
-  .modal-personal-title {
-    text-align: center;
-  }
-  .btn-secondary {
-    background: white;
-    border: none;
-    position: relative;
-    height: 26px;
-  }
-  img {
-    position: absolute;
-    right: 0;
-    top: -10px;
-  }
-  .modal-description {
-    text-align: justify;
-  }
-  .btn-secondary:focus,
-  .btn-secondary:not(:disabled):not(.disabled).active:focus {
-    box-shadow: none !important;
-  }
-  .btn:focus {
-    box-shadow: none !important;
-  }
-}
-.mostrarDni {
-  display: flex !important;
-}
-.msgCompletaDatosInicialbase {
-  color: red;
-  font-size: 13px;
-  text-align: center;
-  padding-bottom: 4px;
-  width: 100%;
-}
-.msgCompletaDatosInicial {
-  color: red;
-  font-size: 12px;
-  text-align: center;
-  display: none;
-  padding-top: 12px;
-  padding-bottom: 4px;
-}
-.msgCompletaDatos {
-  display: inline-block !important;
-}
-.aceptaterminos {
-  display: inline-block !important;
-}
-.mostrarRuc {
-  display: flex !important;
-}
-.dni-ce {
-  display: none;
-}
-.ruc {
-  display: none;
-}
-.isIconFirstName,
-.isIconIconFirstLastName,
-.isIconSecondLastName,
-.isIconBirthDate,
-.isIconPhoneNumber,
-.isIconEmailAddress,
-.isIconDni,
-.isRazonSocial,
-.isDireccion,
-.isIconRuc {
-  display: none;
-}
-.box-ingresaDocumento {
-  margin: 0;
-  padding-top: 12px;
-}
-input:focus {
-  border-bottom: #a5a5a9 2px solid;
-}
-.mostrarDatosPersonales {
-  display: flex !important;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 28px;
-}
-.mostrarDatosyCheckbox {
-  display: flex !important;
-  align-items: center;
-}
-.mostrarEditarCancelar {
-  display: flex !important;
-  align-items: center;
-}
-.titulo-datosPersonales {
-  position: relative;
-  width: 100%;
-  &__titulo {
-    color: #0855c4;
-    font-size: 16px;
-    font-weight: 500;
-    padding-left: 0;
-    margin-top: 22px;
-    margin-bottom: 8px;
-  }
-  &__editarCancelar {
-    display: none;
-    position: absolute;
-    right: 16px;
-    z-index: 99;
-    border: 1px solid #0855c4;
-    border-radius: 6px;
-    padding: 0 4px 0 4px;
-    text-align: left;
-    color: #0855c4;
-    font-size: 14px;
-    top: 8px;
-    cursor: pointer;
-    img {
-      width: 12px;
-      margin-left: 11px;
-    }
-  }
-}
-.mostrar {
-  display: flex;
-  align-items: center;
-}
-.boxUsuarioEncontrado {
-  display: none;
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  span {
-    display: inline-block;
-    color: #484848;
-    font-size: 17px;
-    font-family: "Omnes Regular";
-  }
-}
-.isUsuarioEncontrado {
-  display: block !important;
-}
-.capa {
-  background: #f7fafb94;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 5;
-  left: 0;
-}
-.box-btn {
-    
-  a {
-    width: 80px;
-    margin: 0;
-  }
-  button {
-    margin: 0;
-  }
-}
-.box-btn__button.box-btn--back {
-  padding-left: 0;
-  padding: 0;
-}
-
-.isOculto {
-  display: none;
-}
-.form-group {
-  position: relative;
-  padding: 0px;
-  .icon-datos {
-    position: absolute;
-    margin-left: 8px;
-  }
-}
-
-.pd_b50 {
-  padding-bottom: 50px !important;
-}
-.v-spinner {
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: 20px;
-  top: 4px;
-  background: transparent;
-}
-.box-row {
-  position: relative;
-  .box-btn--dni {
-    margin-top: 16px;
-    background-color: #000;
-    color: white;
-    height: 45px;
-    line-height: 0.5;
-    font-size: 15px;
-    width: 300px;
-    border-radius: 3px;
-    &:disabled {
-      background: #9b9b9b;
-    }
-  }
-
-  input {
-    background: transparent !important;
-    &:focus {
-      box-shadow: none;
-      outline: 0 none;
-    }
-  }
-}
-.first-box {
-  background: #fff;
-  border-radius: 7px;
-  padding: 16px 0 0 0;
-  .form-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-}
-.checkbox-aux {
-  margin-top: 16px;
-  padding-top: 0px;
-  &__descripcion {
-    position: relative;
-    line-height: 12px;
-    padding-top: 0px;
-    font-size: 12px;
-    left: 0;
-    padding-left: 16px;
-    a {
-      color: #0055c8;
-      font-weight: 500;
-      letter-spacing: -0.25px;
-    }
-  }
-}
-.second-box {
-  padding: 0px 12px 8px;
-  background: #fff;
-  border-radius: 10px 10px;
-  .form-group {
-    display: flex;
-    align-items: center;
-  }
-  .checkbox-aux__descripcion {
-    width: 310px;
-    font-size: 14px;
-  }
-  .box-autoriza {
-    height: 60px;
-    margin: 5px 0;
-    position: relative;
-  }
-}
-.input-id {
-  text-align: left;
-  border-radius: 4px;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 2 px solid #000;
-  border-radius: 0.25rem;
-  height: 3rem;
-}
-.mostrarPrimerBox {
-  display: flex !important;
-}
-.mostrarSegundoBox {
-  display: flex !important;
-  margin: 0;
-}
-.iptGral__input {
-  padding-left: 6px;
-}
-
-@media (min-width: 768px) {
-
-  .ml-2-mobile {
-    margin-left: 8px;
-  }
-  .checkbox-aux {
-    margin: auto;
-  }
-}
-@media (min-width: 992px) {
-  .modal-blackWeek {
-    h3 {
-      font-size: 30px;
-    }
-    p {
-      font-size: 20px;
-    }
-  }
-  .box_aceptoTerminos {
-    margin-top: 16px;
-  }
-  .box-ingresaDocumento {
-    margin: 0 -15px;
-    .titulo-flujo {
-      font-family: "Omnes Regular";
-      font-size: 17px;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1;
-      letter-spacing: 1px;
-      color: #0754c4 !important;
-      font-weight: 600;
-    }
-  }
-  .box-btn {
-  }
-  .first-box {
-    margin-top: 0px;
-    border-radius: 7px 7px 0 0;
-    .form-group {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-  }
-  .mostrarDatosPersonales {
-    margin-top: 0;
-  }
-  .second-box {
-    padding: 0 16px;
-  }
-  .titulo-datosPersonales__editarCancelar {
-    right: 16px;
-  }
-  .titulo-datosPersonales__titulo {
-    padding-left: 16px;
-  }
-}
-.box-datos {
-  padding-top: 18px;
-  padding-bottom: 10px;
-}
-@media (min-width: 990px) {
-  .box-datos {
-    .box-btn {
-    }
-  }
-}
-@media (min-width: 1024px) {
-  .steps-box {
-    .steps-plan {
-      background: transparent;
-    }
-  }
-  .pr-lg-7 {
-    padding-right: 7px;
-  }
-  .pl-lg-7 {
-    padding-left: 7px !important;
-  }
-}
-@media (min-width: 1200px) {
-  .form-content__title {
-    font-size: 24px;
-  }
-  .first-box {
-    font-size: 16px;
-    padding-bottom: 0px;
-  }
-
-  .iptGral__input {
-    font-size: 15px;
-  }
-}
-.iptGral__input.dni-segundo {
-  background: #e2e2e2 !important;
-  color: #7d7c7c !important;
-}
-select:focus,
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {
-  // border-color: #dcdcde;
-  border: 1.5px solid #0855c4;
-  background-image: none;
-  box-shadow: none;
-  padding-right: 0;
-  // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #d9d9dc;
-  outline: 0 none;
-  // border-bottom: 1px solid #dcdcde;
-}
-.errorInput {
-  border-color: #dc3545 !important;
-}
-.roboTotal {
-  background: #b1b1b1;
-}
-.semiFull {
-  background: #e6ac38;
-}
-.full {
-  background: #27362d;
-}
-.leaveModal {
-  .modal-content{
-    background: #FFF188 !important;
-  }
-  .modal-lg {
-    max-width: 660px;
-  }
-  font-family: "Omnes Regular";
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  h2 {
-    font-size: 32px;
-    color: #0854c4;
-  }
-  h3 {
-    font-size: 20px;
-    color: #454a6c;
-  }
-  span {
-    font-family: "Omnes Medium";
-  }
-  img {
-    margin-top: 30px;
-  }
-  .btn {
-    background-color: #ea0c90;
-    color: white;
-    height: 50px;
-    width: 250px;
-    line-height: 0.5;
-    font-size: 16px;
-    border-radius: 3px;
-    border: none;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-}
-</style>
-
 
 <script>
-import modalTerminosCondiciones from "./../../components/modals/CondicionesUsoPoliticaPrivacidad";
-export default {
+  import modalTerminosCondiciones from "./../../components/modals/CondicionesUsoPoliticaPrivacidad";
+  export default {
   layout: "InterseguroFlujo",
   data() {
     return {
@@ -1206,7 +591,6 @@ export default {
         personType: "",
         content_ids:""
       },
-      documento_steps2: "",
       monto_pagar_steps3: "",
       ocultarInputDocumento: false,
       planSeleccionado: 0,
@@ -1243,8 +627,6 @@ export default {
       endosoSeleccionado: {},
       mostrarDatosyCheckbox: false,
       mostrarEditarCancelar: false,
-      mostrarSegundoBox: true,
-      mostrarPrimerBox: false,
       cuentaSueldo: null,
       urlDp: "",
       checkPoliticasPrivacidad: true,
@@ -1256,11 +638,10 @@ export default {
       mostrarRuc: false,
       nombre: "",
       expirationDate: "",
-      isUsuarioEncontrado: false,
+
       isSecondBox: false,
       todoCompleto: false,
       msgCompletaDatos: false,
-      aceptaterminos: false,
       isIconFirstName: false,
       isIconIconFirstLastName: false,
       isIconSecondLastName: false,
@@ -1413,32 +794,22 @@ export default {
             let fechaActual = año + "/" + mes + "/" + dia;
             let todaysDate = Date.parse(fechaActual);
             todaysDate = new Date(fechaActual);
-            this.$store.commit("common/setEmisionROOT", true);
-            /*
-              if(inputDate.getTime() ===  todaysDate.getTime()) {                 
-                this.$store.commit('common/setEmisionROOT', true)
-                this.$nuxt.$router.push({path: "/cotiza/descargar"})
-                this.$nuxt.$router.push({path: "/cotiza/descargar"})
-              }else{
-                  this.$store.commit('common/setEmisionROOT', false)
-                  this.$nuxt.$router.push({path: "/cotizacion/pagar"})
-              }
-              */
-            this.$store.commit("common/setObjCliente", this.objClients);
-            this.$nuxt.$router.push({ path: "/cotiza/descargar" });
+            this.$store.commit("common/setEmisionROOT", true)
+            this.$store.commit("common/setObjCliente", this.objClients)
+            this.$nuxt.$router.push({ path: "/cotiza/descargar" })
           } else {
-            this.$store.commit("common/setObjCliente", this.objClients);
-            this.$store.commit("common/setEmisionROOT", false);
-            this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+            this.$store.commit("common/setObjCliente", this.objClients)
+            this.$store.commit("common/setEmisionROOT", false)
+            this.$nuxt.$router.push({ path: "/cotizacion/pagar" })
           }
         } else {
-          this.$store.commit("common/setObjCliente", this.objClients);
-          this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
-          this.$store.commit("common/setEmisionROOT", false);
+          this.$store.commit("common/setObjCliente", this.objClients)
+          this.$nuxt.$router.push({ path: "/cotizacion/pagar" })
+          this.$store.commit("common/setEmisionROOT", false)
         }
       } else {
-        this.$store.commit("common/setObjCliente", this.objClients);
-        this.$nuxt.$router.push({ path: "/cotizacion/pagar" });
+        this.$store.commit("common/setObjCliente", this.objClients)
+        this.$nuxt.$router.push({ path: "/cotizacion/pagar" })
       }
     },
     cotizador_datalayer(evento, step_valor) {
@@ -1451,26 +822,24 @@ export default {
       });
     },
     horaError() {
-      let fecha = new Date();
-      let horaError =
-        fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
-      return horaError;
+      let fecha = new Date()
+      let horaError = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds()
+      return horaError
     },
    
     hideModal() {
-      this.$refs.ingresaTuPlaca.hide();
+      this.$refs.ingresaTuPlaca.hide()
     },
     detectar_documento() {
       this.itemElegido.documentoLocalSinEspacios = this.itemElegido.documentoLocal
         .replace(/[^0-9\s]/gi, "")
-        .replace(/[_\s]/g, "");
-      let documento = this.itemElegido.documentoLocalSinEspacios;
-      this.tamaño = documento.length;
+        .replace(/[_\s]/g, "")
+      let documento = this.itemElegido.documentoLocalSinEspacios
+      this.tamaño = documento.length
     },
     validarCampos() {
       if (this.tamaño == 8 || this.tamaño == 9) {
         if (this.validarClient() && this.checkPoliticasPrivacidad == true) {
-          this.aceptaterminos = false;
           this.isDisableButton = false;
           this.remarketingv2();
           if (
@@ -1481,16 +850,11 @@ export default {
             this.$store.commit("common/setEmail", this.objClients.emailAddress);
           }
         } else {
-          this.aceptaterminos = true;
           this.$store.commit("common/setCheckgss", 0);
           this.isDisableButton = true;
-          if (!this.validarClient()) {
-            this.aceptaterminos = false;
-          }
         }
       } else if (this.tamaño == 11) {
         if (this.validarRUC() && this.checkPoliticasPrivacidad == true) {
-          this.aceptaterminos = false;
           this.isDisableButton = false;
           this.remarketingv2();
           if (
@@ -1501,20 +865,14 @@ export default {
             this.$store.commit("common/setEmail", this.objClients.emailAddress);
           }
         } else {
-          this.aceptaterminos = true;
           this.$store.commit("common/setCheckgss", 0);
           this.isDisableButton = true;
-          if (!this.validarRUC()) {
-            this.aceptaterminos = false;
-          }
         }
       } else {
       }
     },
     editarCancelar() {
       this.ocultarInputDocumento = !this.ocultarInputDocumento;
-      this.mostrarPrimerBox = !this.mostrarPrimerBox;
-      this.mostrarSegundoBox = !this.mostrarSegundoBox;
       this.mostrarDatosPersonales = !this.mostrarDatosPersonales;
       
       this.tamaño = this.objClients.documentNumber.length;
@@ -1689,8 +1047,7 @@ export default {
           this.todoCompleto = false;
           this.loading = false;
           this.isOculto = false;
-          this.mostrarPrimerBox = false;
-          this.mostrarSegundoBox = true;
+
           this.objClients.firstName = "";
           this.objClients.firstLastName = "";
           this.objClients.secondLastName = "";
@@ -1698,7 +1055,6 @@ export default {
           this.objClients.emailAddress = "";
           this.objClients.address = "";
           this.mostrarDni = false;
-          this.isUsuarioEncontrado = false;
           this.mostrarDatosyCheckbox = false;
           this.mostrarEditarCancelar = false;
         }
@@ -1721,8 +1077,7 @@ export default {
             self.mostrarDni = false;
             self.mostrarRuc = false;
             self.loading = false;
-            self.mostrarPrimerBox = false;
-            self.mostrarSegundoBox = true;
+
             self.mostrarEditarCancelar = false;
           } else if (self.tamaño == 11) {
             self.getClient(2);
@@ -1747,8 +1102,6 @@ export default {
           this.mostrarDatosyCheckbox = true;
           this.msgCompletaDatos = false;
           this.mostrar = true;
-          this.mostrarPrimerBox = true;
-          this.mostrarSegundoBox = true;
           this.mostrarEditarCancelar = true;
           if (this.checkPoliticasPrivacidad == true) {
             this.isDisableButton = false;
@@ -1761,11 +1114,8 @@ export default {
           this.ocultarInputDocumento = false;
           this.mostrarDatosPersonales = false;
           this.mostrarDatosyCheckbox = true;
-          this.aceptaterminos = false;
           this.msgCompletaDatos = true;
           this.mostrar = false;
-          this.mostrarPrimerBox = false;
-          this.mostrarSegundoBox = true;
           this.isSecondBox = true;
           this.isDisableButton = true;
         }
@@ -1774,9 +1124,7 @@ export default {
         this.mostrarEditarCancelar = false;
         this.mostrarDatosPersonales = false;
         this.mostrarDatosyCheckbox = true;
-        this.mostrarSegundoBox = true;
         this.mostrar = false;
-        this.aceptaterminos = false;
         this.msgCompletaDatos = true;
         this.cobertura_is.personType = null;
         this.cotizador_datalayer("checkout", 2);
@@ -1797,9 +1145,6 @@ export default {
           this.mostrarDatosyCheckbox = true;
           this.msgCompletaDatos = false;
           this.mostrar = true;
-          this.mostrarPrimerBox = true;
-          this.mostrarSegundoBox = false;
-          this.aceptaterminos = true;
           this.cobertura_is.personType = "juridica";
           this.cotizador_datalayer("checkout", 2);
           if (this.checkPoliticasPrivacidad == true) {
@@ -1812,11 +1157,8 @@ export default {
           this.mostrarEditarCancelar = false;
           this.mostrarDatosPersonales = false;
           this.mostrarDatosyCheckbox = true;
-          this.aceptaterminos = false;
           this.msgCompletaDatos = true;
           this.mostrar = false;
-          this.mostrarPrimerBox = false;
-          this.mostrarSegundoBox = true;
           this.isSecondBox = true;
           this.isDisableButton = true;
         }
@@ -1825,9 +1167,7 @@ export default {
         this.mostrarEditarCancelar = false;
         this.mostrarDatosPersonales = false;
         this.mostrarDatosyCheckbox = true;
-        this.mostrarSegundoBox = true;
         this.mostrar = false;
-        this.aceptaterminos = false;
         this.msgCompletaDatos = true;
         this.cobertura_is.personType = null;
         this.cotizador_datalayer("checkout", 2);
@@ -1836,8 +1176,7 @@ export default {
     delay(event, ms) {
       this.isDisableButton = true;
       this.mostrarDatosPersonales = false;
-      this.mostrarSegundoBox = true;
-      this.mostrarPrimerBox = false;
+
       this.mostrarDatosyCheckbox = false;
 
       var self = this;
@@ -1864,12 +1203,9 @@ export default {
           this.msgCompletaDatos = false;
           if (this.checkPoliticasPrivacidad == true) {
             this.isDisableButton = false;
-            this.aceptaterminos = false;
           } else {
-            this.aceptaterminos = true;
           }
         } else {
-          this.aceptaterminos = false;
           this.msgCompletaDatos = true;
 
           this.isDisableButton = true;
@@ -1884,12 +1220,9 @@ export default {
           this.msgCompletaDatos = false;
           if (this.checkPoliticasPrivacidad == true) {
             this.isDisableButton = false;
-            this.aceptaterminos = false;
           } else {
-            this.aceptaterminos = true;
           }
         } else {
-          this.aceptaterminos = false;
           this.msgCompletaDatos = true;
           this.isDisableButton = true;
         }
@@ -2175,7 +1508,6 @@ export default {
       this.$nuxt.$router.push("/");
     } else {
       let objJWT = JSON.parse(localStorage.getItem("jwt"));
-      this.documento_steps2 = objJWT.common.documentoLocal;
       this.planSeleccionado = objJWT.common.planSeleccionado;
       this.listCotizacion = this.$store.state.common.listaCotizacion;
 
@@ -2200,8 +1532,6 @@ export default {
         }
       }
     }
-
-    this.aceptaterminos = true;
 
     if (objJWT.common.entidadFinanciera !== null) {
       let entidadFinanciera = objJWT.common.entidadFinanciera;

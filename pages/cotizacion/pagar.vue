@@ -1032,11 +1032,6 @@ import { validationMixin } from 'vuelidate'
 </script>
 
 <style lang="scss" scope>
-    $vehicular_primario: #0855c4;
-    $vehicular_secundario: #ea0c90;
-    $vehicular_parrafo: #454A6C;
-    $vehicular_titulo_seccion: #0855C4;
-    $vehicular_subtitulo: #454A6C;
     .pagina-pagar{
         padding-top: 80px;
         padding-bottom: 80px;

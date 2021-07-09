@@ -15,14 +15,17 @@
 @import "_stepsPrice";
 @import "nuevo-home";
 @import "_media";
-@import "v2_renovaciones";
-@import "_v2_cotizador";
+@import "v1_renovaciones";
+@import "_v1_cotizador";
 @import "_nuevaPantalla";
 // AllRisk Styles
 @import "_steps_allRisk";
-@import "_v2_cotizador_allRisk";
-@import "v2_renovaciones_allRisk";
+@import "v1_cotizador_allRisk";
+@import "v1_renovaciones_allRisk";
 
+@import "_v2_seleccion";
+@import "_v2_cotizador";
+@import  "_v2_documento";
 #modalcampaniatv,#modalEndoso,#modalgps,#modal1{
   .modal-dialog{
     max-height: 430px;

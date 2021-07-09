@@ -1,0 +1,395 @@
+.pagina-documento{
+    padding-top: 140px;
+    .modal-blackWeek {
+        max-width: 472px;
+        width: 100%;
+        height: 509px;
+        font-family: "Omnes Regular";
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        .banner-modal {
+          img {
+            width: 100%;
+          }
+        }
+        h3 {
+          font-size: 24px;
+          color: #ffffff;
+        }
+        span {
+          font-family: "Omnes Medium";
+        }
+        .btn {
+          background-color: #ea0c90;
+          color: white;
+          height: 50px;
+          width: 300px;
+          line-height: 0.5;
+          font-size: 16px;
+          border-radius: 3px;
+          border: none;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        p {
+          color: #ffffff;
+          font-size: 16px;
+        }
+        .modal-dialog {
+          max-width: 472px;
+          width: 100%;
+          height: 509px;
+        }
+        .modal-content {
+          max-width: 472px;
+          width: 100%;
+          height: 509px;
+          background: url("./../../static/media/modalBlackWeek/fondo-modal.jpg");
+        }
+      }
+      
+      
+      .box-principal {
+        border: 1px solid #CCD1DD;
+        background: white;
+        border-radius: 3px;
+      }
+      .maestra {
+        width: 100%;
+        span {
+          text-align: center;
+        }
+      }
+      .edit-input {
+        position: absolute;
+        right: 8px;
+        width: 19px;
+        cursor: pointer;
+        z-index: 0;
+      }
+      #documento-identidad {
+        padding-left: 12px;
+      }
+      
+      
+      .modal-datosPersonales {
+        border: 0 !important;
+        .modal-personal-title {
+          text-align: center;
+        }
+        .btn-secondary {
+          background: white;
+          border: none;
+          position: relative;
+          height: 26px;
+        }
+        img {
+          position: absolute;
+          right: 0;
+          top: -10px;
+        }
+        .modal-description {
+          text-align: justify;
+        }
+        .btn-secondary:focus,
+        .btn-secondary:not(:disabled):not(.disabled).active:focus {
+          box-shadow: none !important;
+        }
+        .btn:focus {
+          box-shadow: none !important;
+        }
+      }
+      .mostrarDni {
+        display: flex !important;
+      }
+      .msgCompletaDatosInicialbase {
+        color: red;
+        font-size: 13px;
+        text-align: center;
+        padding-bottom: 4px;
+        width: 100%;
+      }
+      .msgCompletaDatosInicial {
+        color: red;
+        font-size: 12px;
+        text-align: center;
+        display: none;
+        padding-top: 12px;
+        padding-bottom: 4px;
+      }
+      .msgCompletaDatos {
+        display: inline-block !important;
+      }
+      
+      .mostrarRuc {
+        display: flex !important;
+      }
+      .dni-ce {
+        display: none;
+      }
+      .ruc {
+        display: none;
+      }
+      .isIconFirstName,
+      .isIconIconFirstLastName,
+      .isIconSecondLastName,
+      .isIconBirthDate,
+      .isIconPhoneNumber,
+      .isIconEmailAddress,
+      .isIconDni,
+      .isRazonSocial,
+      .isDireccion,
+      .isIconRuc {
+        display: none;
+      }
+      .box-ingresaDocumento {
+        margin: 0;
+        padding-top: 12px;
+      }
+      input:focus {
+        border-bottom: #a5a5a9 2px solid;
+      }
+      .mostrarDatosPersonales {
+        display: flex !important;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 28px;
+      }
+      .mostrarDatosyCheckbox {
+        display: flex !important;
+        align-items: center;
+      }
+      .mostrarEditarCancelar {
+        display: flex !important;
+        align-items: center;
+      }
+      
+      .mostrar {
+        display: flex;
+        align-items: center;
+      }
+      
+      
+      .capa {
+        background: #f7fafb94;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 5;
+        left: 0;
+      }
+      .box-btn {
+          
+        a {
+          width: 80px;
+          margin: 0;
+        }
+        button {
+          margin: 0;
+        }
+      }
+      .box-btn__button.box-btn--back {
+        padding-left: 0;
+        padding: 0;
+      }
+      
+      .isOculto {
+        display: none;
+      }
+      .form-group {
+        position: relative;
+        padding: 0px;
+        .icon-datos {
+          position: absolute;
+          margin-left: 8px;
+        }
+      }
+      
+      .box-row {
+        position: relative;
+        .box-btn--dni {
+          margin-top: 16px;
+          background-color: #000;
+          color: white;
+          height: 45px;
+          line-height: 0.5;
+          font-size: 15px;
+          width: 300px;
+          border-radius: 3px;
+          &:disabled {
+            background: #9b9b9b;
+          }
+        }
+      
+        input {
+          background: transparent !important;
+          &:focus {
+            box-shadow: none;
+            outline: 0 none;
+          }
+        }
+      }
+      
+      .checkbox-aux {
+        margin-top: 16px;
+        padding-top: 0px;
+        &__descripcion {
+          position: relative;
+          line-height: 12px;
+          padding-top: 0px;
+          font-size: 12px;
+          left: 0;
+          padding-left: 16px;
+          a {
+            color: #0055c8;
+            font-weight: 500;
+            letter-spacing: -0.25px;
+          }
+        }
+      }
+      .input-id {
+        text-align: left;
+        border-radius: 4px;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 2 px solid #000;
+        border-radius: 0.25rem;
+        height: 3rem;
+      }
+      
+      .iptGral__input {
+        padding-left: 6px;
+      }
+      
+      
+      .box-datos {
+        padding-top: 18px;
+        padding-bottom: 10px;
+      }
+      
+      
+      .iptGral__input.dni-segundo {
+        background: #e2e2e2 !important;
+        color: #7d7c7c !important;
+      }
+    select:focus,
+      textarea:focus,
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      input[type="datetime"]:focus,
+      input[type="datetime-local"]:focus,
+      input[type="date"]:focus,
+      input[type="month"]:focus,
+      input[type="time"]:focus,
+      input[type="week"]:focus,
+      input[type="number"]:focus,
+      input[type="email"]:focus,
+      input[type="url"]:focus,
+      input[type="search"]:focus,
+      input[type="tel"]:focus,
+      input[type="color"]:focus,
+      .uneditable-input:focus {
+        border: 1.5px solid #0855c4;
+        background-image: none;
+        box-shadow: none;
+        padding-right: 0;
+        outline: 0 none;
+    }
+    .errorInput {
+        border-color: #dc3545 !important;
+    }
+      
+    .leaveModal {
+        .modal-content{
+          background: #FFF188 !important;
+        }
+        .modal-lg {
+          max-width: 660px;
+        }
+        font-family: "Omnes Regular";
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        h2 {
+          font-size: 32px;
+          color: #0854c4;
+        }
+        h3 {
+          font-size: 20px;
+          color: #454a6c;
+        }
+        span {
+          font-family: "Omnes Medium";
+        }
+        img {
+          margin-top: 30px;
+        }
+        .btn {
+          background-color: #ea0c90;
+          color: white;
+          height: 50px;
+          width: 250px;
+          line-height: 0.5;
+          font-size: 16px;
+          border-radius: 3px;
+          border: none;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+    }
+}
+
+
+@media (min-width: 992px) {
+    .pagina-documento{
+        .modal-blackWeek {
+            h3 {
+              font-size: 30px;
+            }
+            p {
+              font-size: 20px;
+            }
+          }
+          .box_aceptoTerminos {
+            margin-top: 16px;
+          }
+          .box-ingresaDocumento {
+            margin: 0 -15px;
+            .titulo-flujo {
+              font-family: "Omnes Regular";
+              font-size: 17px;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1;
+              letter-spacing: 1px;
+              color: #0754c4 !important;
+              font-weight: 600;
+            }
+          }
+          .box-btn {
+          }
+          .mostrarDatosPersonales {
+            margin-top: 0;
+          }
+          .titulo-datosPersonales__editarCancelar {
+            right: 16px;
+          }
+          .titulo-datosPersonales__titulo {
+            padding-left: 16px;
+          }
+
+    }
+    
+  }
+  @media (min-width: 1200px) {
+    
+  }
