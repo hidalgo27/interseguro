@@ -91,7 +91,7 @@ export default {
     
     self.$store.commit('payment/setSessionKey', '')
     this.$store.dispatch('payment/getSessionKey', self.session).then(respuesta => {
-      let channelPay = (self.$store.state.common.channel === 'IBK') ? 'testvehicular/interbank/como-pagar' : (self.$store.state.common.channel === 'ITC')? 'testvehicular/intercorp/como-pagar' :'testvehicular/cotiza/como-pagar'
+      let channelPay = (self.$store.state.common.channel === 'IBK') ? 'testvehicular/interbank/como-pagar' : (self.$store.state.common.channel === 'ITC')? 'testvehicular/intercorp/como-pagar' :'testvehicular/cotizacion/pagar'
       // if (respuesta.code === '01') {
       //   self.niubizConfig.callbackurl = process.env.base + 'payment-api/api/v2/token?protocol=https&host='+process.env.url+'&path='+ channelPay
       // let channelPay = 'testvehicular/cotiza/como-pagar'

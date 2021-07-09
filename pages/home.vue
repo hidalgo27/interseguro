@@ -373,19 +373,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.showLoader = true
       },
       methods: {
-        // contador(){
-        //     var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
-        //     var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
-        // },
-        pago_datalayer(error_detectado){
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-              event:'Errores',
-              category: 'ErroresPago',
-              action: error_detectado, 
-              error_detectado: error_detectado
-          });
-        },
         hidemodalHomeVideo() {
           this.$refs.hidemodalHomeVideo.hide();
         },
@@ -617,24 +604,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             localStorage.setItem("urlLocal", "/")
           }, 150);
         }
-        /************************************************************************ */
-        /************************************************************************ */
-        /************************************************************************ */
 
-        
-        // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
-
-        /* RESET DE ESTADOS */        
-        // if (localStorage.getItem("flagCloseListon") == 0) {
-        //     this.flagCloseListon = 0
-        //     localStorage.setItem("flagCloseListon", 0)
-        // }else if  (localStorage.getItem("flagCloseListon") == 1) {           
-        //     this.flagCloseListon = 1
-        //     localStorage.setItem("flagCloseListon", 1)
-        // }else{
-        //     localStorage.setItem("flagCloseListon", 1)
-        //     this.flagCloseListon = 1
-        // }
         this.createMail()
         this.$store.commit('common/setLeaveMessage',0);
         this.showLoader = false

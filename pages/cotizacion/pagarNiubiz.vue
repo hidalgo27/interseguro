@@ -1,97 +1,40 @@
 <template>
-
-    <section class="steps-box" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
+    <section class="pagina-pagar" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
+        <!-- v-bind:class="{'d-none': opacityNone}" -->
         <div id="newModal" style="display:none" >
             <div class="phoneContent">
-                <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
-                    <img src="./../../static/media/interseguroVehicular_v2/cardImage.svg" alt="telefono">
-                </a>
+                 <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
+                  <img src="./../../static/media/interseguroVehicular_v2/cardImage.svg" alt="telefono">
+                 </a>
             </div>
             <br>
-                    <p style="color : #0855C4; font-size : '23px'">Error en el pago</p>
-                    <br>
-                    <p style="color: #454A6C;
-            font-family: 'Omnes Regular';
-            opacity: 1;">{{textErrModal}}
+            <p style="color : #0855C4; font-size : '23px'">Error en el pago</p>
             <br>
-            {{textErrModalTwo}}</p>
-        </div>
+            <p style="color: #454A6C;
+                font-family: 'Omnes Regular';
+                opacity: 1;">{{textErrModal}}
+            <br>{{textErrModalTwo}}</p>
 
-        <b-container class="steps-plan">
+        </div>   
+
+        <b-container>
+            
             <b-row>
-                <b-col cols="12" lg="8" class=" m-auto">
-                <div class="box-steps">
-                    <div class="backcotizacion " @click="volver($event)">
-                    <img width="35" src="../../static/media/img/flujo/cotizacion/back.svg" alt="volver">
+                <b-col cols="12" class="m-4">
+                    <div class="boxtitulo">
+                        <p class="flujo-titulo">Ingresa tu tarjeta crédito o débito </p>
                     </div>
-                
-                    <ul class="steps" style="display: inline-flex">
-                    <template>
-                        <router-link  v-if="monto_pagar_steps3 != undefined "  class="steps__item  steps--active  paso3" to="/cotiza/como-pagar"><li></li></router-link>
-                        <router-link v-else class="steps__item  steps--active  paso3" to="/cotiza/ingresa-tu-documento"  style="cursor: auto;"><li></li></router-link>
-                    </template>              
-                    <template >
-                        <router-link v-if="documento_steps2 != ''" class="steps__item  paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
-                        <router-link v-else class="steps__item   paso2" to="/cotiza/ingresa-tu-documento"><li></li></router-link>
-                    </template>
-                    <template >
-                        <router-link  class="steps__item  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
-                    </template>
-                        <li class="steps--progressBar"></li>
-                    </ul>
-
-                    <div v-if="this.planSeleccionado == 4" class="plan-titulo">
-                    <p class="roboTotal">PLAN SELECCIONADO: <span>PLATA </span></p>
-                    </div>
-                    <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
-                    <p class="semiFull">PLAN SELECCIONADO: <span>ORO </span></p>
-                    </div>
-                    <div v-else-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" class="plan-titulo">
-                    <p class="full">PLAN SELECCIONADO: <span> BLACK </span></p>
-                    </div>
-                </div> 
-                </b-col>  
-            </b-row>  
-        </b-container>
-
-        <b-container id="pago" class="contenedor-custom">            
-            <b-row class="justify-content-center" style="position: relative;">            
-                <b-col cols="12" md="8" >
+                </b-col>
+                <b-col cols="12" md="8">
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">
-                            <b-col cols="12" lg="7"  class="metodo-pago__ingresatarjeta" style="position: relative;">
+                            <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;">
+
                                 
-                                
-                                <div v-if="listCotizacion.discount !== undefined" >
-                                    <span class="boxtitulo-intercorp"  v-if="listCotizacion.discount.intercorp == 5">
-                                        ¡Felicitaciones! Hemos aplicado 5% de descuento por pertenecer al Club Intercorp
-                                    </span>
-                                </div>
-                                <div class="panel-custom">
-                                    <b-row>
-                                        <b-col cols="12" md="12">
-                                            <div class="boxtitulo">
-                                                <p class="boxtitulo__principal texto-candado">INGRESA TU TARJETA <img class="img-candado" src="../../static/media/img/candado.png" alt="candado"> <span v-if="this.businessId == 2">Interbank</span> </p>
-                                                <p class="boxtitulo__principal"></p>
-                                            </div>
-                                        </b-col>
-                                        <b-col cols="12" md="12">                                            
-                                            <div class="imgs">
-                                                <span class="msg-alterno">Pago online 100% seguro</span>
-                                                <div class="tarjetas">
-                                                    <span><img width="25" src="../../static/media/img/flujo/metodo-pago/visa.png" alt="visa"></span>
-                                                    <span><img width="25" src="../../static/media/img/flujo/metodo-pago/mastercard.png" alt="mastercard"></span>
-                                                    <span><img width="23" src="../../static/media/img/flujo/metodo-pago/american.png" alt="amex"></span>
-                                                    <span v-if="this.businessId == 1"><img width="25" src="../../static/media/img/flujo/metodo-pago/dinners.png" alt="dinners"></span>
-                                                </div>
-                                                
-                                            </div>
-                                            
-                                        </b-col>                                         
-                                    </b-row>
-                                </div>
                                 <div class="panel-custom pt-3 pb-0">
                                     <b-row>
+                                        <!-- ACA INICIA NIUBIZ -->
+
                                         <div class="loader-pay">
                                             <loader-pay v-if="showLoader"></loader-pay>
                                         </div>
@@ -117,7 +60,7 @@
                                                         maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
                                                         
                                                         <img width="30" :src="creditCardImage" >
-                                                        <span class="error-card">error momentaneo</span>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="card-custom">
@@ -153,56 +96,15 @@
                                                         <img class="img-fluid" :src="creditCardImageCvv" >
                                                     </div>  
                                                 </div>
-                                                <div class="error-gral">Error momentáneo</div>                 
                                                 <br>
-                                            </form>
-                                            <div class="checkbox-aux font-nunito">
-                                                <label  class="box-checkbox"  id="show-modal">
-                                                    <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
-                                                    <span class=checkbox-aux__span>
-                                                        <i class="checkbox-aux__span--icon fa fa-check"></i>
-                                                    </span>
-
-                                                    <template v-if="tabIndex == 1">
-                                                        <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
-                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
-                                                            y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
-                                                        </span>
-
-                                                        <span v-else class="checkbox-aux__descripcion">He leído y acepto
-                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
-                                                        </span>
-                                                    </template>
-                                                    <template v-else>
-                                                        <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
-                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
-                                                            y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
-                                                        </span>
-
-                                                        <span v-else class="checkbox-aux__descripcion">He leído y acepto
-                                                            <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
-                                                        </span>
-                                                    </template>
-
-                                                </label>
-                                            </div>
-                                            <b-row class="justify-content-center">
-                                                <b-col cols="10" class="text-center">
-                                                    
-                                                    <button type="submit" @click="goconfirm()" class="btn box-btn__button box-btn--primary" 
-                                                        :disabled='this.isDisabledPayment'>
-                                                        <span>PAGAR ${{this.monto_pagar}} </span>                                                        
-                                                        
-                                                    </button>
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
-                                                </b-col>
-                                            </b-row>                
+                                            </form>                    
                                         </b-col>
+
+                                         <!-- ACA TERMINA NIUBIZ -->
+
+                                         
                                     </b-row>
                                 </div>
-                                
                                 <div class="panel-custom pt-0">
                                     <b-row  class="text-center justify-content-center">
                                         <b-col cols="12" lg="5"  class="text-center">
@@ -218,31 +120,21 @@
                                             </b-row>
                                         </b-col>
                                         
-                                        <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0">
-                                            
+                                        <b-col cols="12" lg="12" class="">
+                                            <b-row class="justify-content-center">
+                                                <!-- <b-col cols="12">
+                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
+                                                </b-col> -->
+                                                <b-col cols="4" class="text-center">
+                                                    
+                                                    <button type="submit" @click="continuar()" class="btn box-btn__button box-btn--primary" 
+                                                        :disabled='this.isDisabledPayment'>
+                                                        <span>PAGAR ${{this.monto_pagar}} </span>                                                        
+                                                        
+                                                    </button>
+                                                </b-col>
+                                            </b-row>
                                         </b-col>
-                                        
-
-
-                                        <!-- <b-col cols="12">
-                                            <div class=" box-btn testest  mt-4" >
-                                                <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
-                                                    
-                                                    <img @click="metodoFlotante()" src="./../../static/media/img/campania/como-pagar-mobile.svg" width="340">
-                                                    
-                                                    <div class="box-contador" >
-                                                        <span  class="cuota-gratis-span"
-                                                            >¡Por tiempo limitado!
-                                                        </span>
-                                                        <div  class="example  d-md-flex">
-                                                            <div id="contadorCyber3" class="flipdown">
-                                                                
-                                                            </div> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </b-col> -->
 
                                     </b-row>
                                 </div>
@@ -251,118 +143,122 @@
                         </b-row>
 
                     </div>
-                </b-col>            
+                </b-col>
+                
+                <b-col cols="12" lg="4">
+                    <div class="resumen-proteccion">
+                        <div class="resumen-proteccion__cabecera">
+                            <p>RESUMEN DE TU PROTECCIÓN</p>
+                        </div>
+                        <div class="resumen-proteccion__cuerpo">
+                            <div class="datos-carro">
+                                <h3 class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</h3>
+                                <div class="datos-carro--detalle">
+                                    <p><span class="campo">Mi carro </span><span>{{this.$store.state.common.objVehiculo.brand}}</span>
+                                                <span>{{this.$store.state.common.objVehiculo.model}}</span>
+                                                <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="datos-personales">
+                                <h3 class="resumen-proteccion--subtitulo">DATOS PERSONALES</h3>
+                                <p><span class="campo">DNI</span> <span>{{this.$store.state.common.objCliente.documentNumber}}</span></p>
+                                <p><span class="campo">Nombre</span> <span>{{this.$store.state.common.objCliente.firstName}}</span></p>
+                                <p><span class="campo">Teléfono</span> <span>{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
+                                <p><span class="campo">Correo</span> <span>{{this.$store.state.common.objCliente.emailAddress}}</span></p>
+                            </div>
+
+                            <div class="datos-poliza">
+                                <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
+                                <p><span class="campo">Plan</span> <span>{{this.$store.state.common.planSeleccionado}}</span></p>
+                                <p><span class="campo">Cobertura</span> <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+                                <p><span class="campo">Frecuencia</span> <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
+                                <p><span class="campo">F. DE INICIO </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                            </div>
+
+                            <div class="datos-pago">
+                                <p class="total">
+                                    TOTAL: <span class="monto">${{this.monto_pagar}}</span> <span class="antes">Antes us$ {{}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </b-col>
             </b-row>
         </b-container>
-        <b-container>        
-            <div>
-                <b-modal id="modal1" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalAutoorizacionPoliza" size="lg">
-                    <div class="modal-content  modal-confirmaTusDatos">
-                        <b-btn class="mt-3 btn-secondary" @click="hideModalAutoorizacionPoliza()"  style="background: white; border: none;">
-                            <img src="https://uploads-ssl.webflow.com/5b29b333e01a7071fadb2f1c/5b5f46206abb673bc5374fdb_icon-close.svg" width="40" alt="icon close" class="image-9">
-                        </b-btn>
-                        <div class="modal-head">
-                            <div class="row">
-                                <h2 class="modal-personal-title col-8 offset-2">
-                                    <span class="tag-0">Declaración jurada</span>
-                                    <span class="tag-2">del contratante</span>
-                                </h2>
-                            </div>
-                            <div class="modal-divider"></div>
-                        </div>
-                        <p class="modal-description">
-                            Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro).
-                            <br><br>
-                            A su vez, declaro que brindaré las facilidades del caso para coordinar que mi vehículo pase por el proceso de inspección correspondiente y que, de no hacerlo, entiendo que Interseguro podrá proceder con la anulación de mi póliza conforme a lo indicado en los términos del contrato.
-                            <br><br>
-                            Asimismo, manifiesto que el automóvil asegurado bajo la presente póliza existe y, según corresponda, cumple con los siguientes criterios:
-                            <br><br>
-                            <ul style="list-style: none;">
-                                <li>
-                                   <strong>a)</strong> es 0 Kilómetros y/o,
-                                </li>
-                                <li>
-                                    <strong>b)</strong> siendo usado, se encuentra en óptimas condiciones para su uso ordinario, buena conservación y aspecto. Asimismo, declara que el vehículo asegurado no ha sido adquirido producto de un salvamento, y,
-                                </li>
-                                <li>
-                                    <strong>c)</strong> Es de uso particular.
-                                </li>
-                            </ul>
-                            Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa o inexacta hecha por el Contratante respecto al estado del vehículo o a su uso, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
-                            <br><br>
-                            El mecanismo de comunicación por el que Interseguro enviará la póliza electrónica, endosos futuros, cartas y/u otra documentación será el correo electrónico declarado por el Contratante.
-                            <br><br>
-                            Finalmente, autorizo a que se realicen -de acuerdo a la periodicidad escogida- cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
-                        </p>
-                        
+
+        <b-modal id="modal1" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalAutoorizacionPoliza" size="lg">
+            <div class="modal-content  modal-confirmaTusDatos">
+                <b-btn class="mt-3 btn-secondary" @click="hideModalAutoorizacionPoliza()"  style="background: white; border: none;">
+                    <img src="https://uploads-ssl.webflow.com/5b29b333e01a7071fadb2f1c/5b5f46206abb673bc5374fdb_icon-close.svg" width="40" alt="icon close" class="image-9">
+                </b-btn>
+                <div class="modal-head">
+                    <div class="row">
+                        <h2 class="modal-personal-title col-8 offset-2">
+                            <span class="tag-0">Declaración jurada</span>
+                            <span class="tag-2">del contratante</span>
+                        </h2>
                     </div>
-                </b-modal>
+                    <div class="modal-divider"></div>
+                </div>
+                <p class="modal-description">
+                    Declaro que tengo conocimiento y acepto las Condiciones Generales, Particulares y Cláusulas Adicionales relacionadas con la Póliza de Seguros de Interseguro Compañía de Seguros S.A. (en adelante, Interseguro).
+                    <br><br>
+                    A su vez, declaro que brindaré las facilidades del caso para coordinar que mi vehículo pase por el proceso de inspección correspondiente y que, de no hacerlo, entiendo que Interseguro podrá proceder con la anulación de mi póliza conforme a lo indicado en los términos del contrato.
+                    <br><br>
+                    Asimismo, manifiesto que el automóvil asegurado bajo la presente póliza existe y, según corresponda, cumple con los siguientes criterios:
+                    <br><br>
+                    <ul style="list-style: none;">
+                        <li>
+                            <strong>a)</strong> es 0 Kilómetros y/o,
+                        </li>
+                        <li>
+                            <strong>b)</strong> siendo usado, se encuentra en óptimas condiciones para su uso ordinario, buena conservación y aspecto. Asimismo, declara que el vehículo asegurado no ha sido adquirido producto de un salvamento, y,
+                        </li>
+                        <li>
+                            <strong>c)</strong> Es de uso particular.
+                        </li>
+                    </ul>
+                    Certifico que las respuestas y declaraciones realizadas en este sitio web son verídicas y que se ajustan a la realidad y, de no serlo, cualquier declaración falsa o inexacta hecha por el Contratante respecto al estado del vehículo o a su uso, voluntaria o involuntariamente, invalida esta solicitud y libera de toda responsabilidad y compromiso indemnizatorio a Interseguro, quedando el seguro emitido en virtud de esta solicitud nulo y sin efecto.
+                    <br><br>
+                    El mecanismo de comunicación por el que Interseguro enviará la póliza electrónica, endosos futuros, cartas y/u otra documentación será el correo electrónico declarado por el Contratante.
+                    <br><br>
+                    Finalmente, autorizo a que se realicen -de acuerdo a la periodicidad escogida- cargos de forma automática por el concepto de prima de Seguro Vehicular contratado en mi tarjeta de crédito o débito declarada.
+                </p>
+                
             </div>
-
-            
-
-            <div>
-                <b-modal id="modalgps" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalgps" size="lg">
-                    <div class="modal-content  modal-confirmaTusDatos">
-                        <b-btn class="mt-3 btn-secondary" @click="hideModalgps()"  style="background: white; border: none;">
-                            <img src="https://uploads-ssl.webflow.com/5b29b333e01a7071fadb2f1c/5b5f46206abb673bc5374fdb_icon-close.svg" width="40" alt="icon close" class="image-9">
-                        </b-btn>
-                        <div class="modal-head">
-                            <div class="row">
-                                <h2 class="modal-personal-title col-8 offset-2">
-                                    <span class="tag-0">CONDICIONES DEL SERVICIO DE RASTREO</span>
-                                </h2>
-                            </div>
-                            <div class="modal-divider"></div>
-                        </div>
-                        <p class="modal-description">
-                           El cliente autoriza expresamente a que PROTEMAX pueda entregar a INTERSEGURO, el historial del recorrido del vehículo, 
-                           el estado de la batería del vehículo, el reporte del kilometraje por periodo y acumulado del vehículo, el Reporte 
-                           histórico de recorrido, el Reporte gráfico de posiciones, la ubicación en tiempo real, el reporte de alerta de velocidad máxima,
-                            batería baja y botón de pánico del vehículo  que tiene instalado el dispositivo GPS, siempre y cuando este lo solicite formalmente,
-                             con la finalidad de que sea adjuntado en el Expediente del siniestro reportado. Por su parte PROTEMAX será el único responsable
-                              por la entrega de la información solicitada respecto el vehículo de EL CLIENTE a INTERSEGURO.
-                        </p>
-                        
-                        
-                    </div>
-                </b-modal>
-
-            </div>
-        </b-container>
+        </b-modal>
 
         <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
 
-        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
-                    
-                    <!-- <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt=""> -->
-                    <p class="mt-3" style="max-width: 360px;">
-                        <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-                        <span style="color : #ffffff; font-size: 18px">
-                            ¡Solo por pocos días! Asegura tu auto  <span style="color: #FFDD36;">con 15% de dscto.</span> y accede a un diagnóstico gratuito de las condiciones de tu auto
-                        </span>
-                    </p>
+                        <img src="../../static/media/modal/leave-pago.png" alt="Abandonar Seguro Vehicular">
                     </b-col>
                 </b-row>
-                
+                <b-row class="text-center">
+                    <b-col cols="12" class="mb-3">
+                        <h2><span>¡Estás a un paso de asegurar tu <br> {{this.$store.state.common.itemElegido.brand}} por ${{parseDecimal(parseFloat(this.$store.state.common.current)) }}!</span></h2>
+                    </b-col>
+                    <b-col cols="12" class="mb-2">
+                        <h3>Por tan solo ${{this.$store.state.common.listaCotizacion.policy.monthly}} mensuales estás protegiendo tu auto <br> hasta por un monto de ${{parseDecimal(parseFloat(this.$store.state.common.current))}}</h3>
+                    </b-col>
+                </b-row>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-4" cols="12">
-                    <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')"
-                        >TERMINAR COMPRA</b-button
-                    >
+                        <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')">QUIERO TERMINAR MI COMPRA</b-button>
                     </b-col>
                 </b-row>
             </b-container>
         </b-modal>
-         
+
     </section>
 </template>
-
 <script>
 import loaderPago from '@/components/loaders/LoaderPay'
 import PaymentNiubiz from '@/components/FormPaymentNiubiz'
@@ -418,7 +314,6 @@ import { validationMixin } from 'vuelidate'
                         discount:false
                     },
                     digitalPayment:{
-                        // provider: 'NIUBIZ',
                         provider: this.$store.state.payment.provider,
                         token: null
                     }
@@ -720,14 +615,6 @@ import { validationMixin } from 'vuelidate'
                         
                         if (res.object === 'error') {
                             
-                            this.$swal({
-                                title: 'Oops...',
-                                text: res.data.user_message,
-                                type: 'error',
-                                showCancelButton: false,
-                                confirmButtonColor: '#2177CC',
-                                confirmButtonText: 'OK'
-                            })
                             this.opacidad =false
                         }else{
                             console.log("========1")
@@ -789,7 +676,6 @@ import { validationMixin } from 'vuelidate'
                     }).catch((res)=>{
                         this.opacidad =false
                         let status = res.response.status
-                        
                         
                         this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
                         if(!this.htmlModal){
@@ -899,7 +785,6 @@ import { validationMixin } from 'vuelidate'
                     cardNumber = ev.target.value
                     let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
                     this.numberValidation = valid.number(cardNumber.replace(/ /g, ''))
-                    //this.tipoTarjetaDatalayer = numberValidation.card.type
                     if (numberValidation.card !== null) {
                         
                         this.numberTest = numberValidation.card.code.size
@@ -1024,19 +909,13 @@ import { validationMixin } from 'vuelidate'
                             "utm": this.objUtm
                         },
                         "datosProducto": {
-                            // valeAgora: this.valeAgora,
                             marca : this.$store.state.common.itemElegido.brand,
                             modelo : this.$store.state.common.itemElegido.model,
                             planSeleccionado : this.$store.state.common.planSeleccionado,
                             valorComercial : this.$store.state.common.current,
                             pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
-                            // desde : localStorage.getItem("monthly") == null
                             //     ? this.objectVehicle.minimumPolicyAmount
-                            //     : null,
-                            // montoMensualBasico:  this.listaBasica.policy.monthly,
-                            // montoMensualMedio: this.listaMedia.policy.monthly,
-                            // montoMensualFull: this.listaFull.policy.monthly,
-                            /*********************************************************/
+
                             businessId: this.$store.state.common.businessId,
                             idEndosoSeleccionado: this.endosoSeleccionado.id,
                             endosoSeleccionado: this.endosoSeleccionado.name,
@@ -1046,19 +925,9 @@ import { validationMixin } from 'vuelidate'
                             riesgo: this.$store.state.common.listaCotizacion.policy.risk,
                             fechaInicio: this.$store.state.common.fechaVigencia,
                             
-                            /******************************************************** */   
                             itemElegido: this.$store.state.common.itemElegido,
                             listCotizacion: this.$store.state.common.listaCotizacion,
-                            nuevoProducto: this.$store.state.common.nuevoProducto                
-                            /******************************************************** */      
-                            /******************************************************** */
-                            // idMarca: this.objectVehicle.brandId,
-                            // idModelo: this.objectVehicle.modelId,
-                            // idUso: 1,
-                            // uso: "particular",    
-                            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
-                            // pagoTrimestral: this.listCotizacion.policy.quarterly,
-                            // pagoAnual: this.listCotizacion.policy.annual
+                            nuevoProducto: this.$store.state.common.nuevoProducto           
                         },
                         "datosTitular": {
                             "numeroDocumento": this.$store.state.common.documentoLocal,
@@ -1090,11 +959,6 @@ import { validationMixin } from 'vuelidate'
                     if (e.clientX < 0 || e.clientY < 0) {
                             this.$store.commit('common/setLeaveMessage',1)
                             this.$nuxt.$emit('bv::show::modal','leavePayment')
-                            // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
-                            //     this.$nuxt.$emit('bv::show::modal','leavePayment')
-                            // }else{
-                            //     this.$nuxt.$emit('bv::show::modal','leavePayment')
-                            // }
                     }
                 }
             },
@@ -1109,10 +973,7 @@ import { validationMixin } from 'vuelidate'
                 .then((res) => {
                     if (res.data.code == 0) {
                         this.$store.commit('payment/setTransactionToken', '')
-                        // res.response.data.message = (res.response.data.code) ? ((res.response.data.message).split(' ')[0] === 'Error') ? ((res.response.data.message).split('[')[1].split(']')[0]) : res.response.data.message : 'Estamos teniendo problemas para realizar la venta. Para mayor información puedes comunicarte al +51 933559693'
-                        // if (this.pay.digitalPayment.provider == 'NIUBIZ' && res.data.code === '87') {
-                        //     this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
-                        // }
+
                         //VEHICULAR ANTERIOR
                         this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
                         this.opacidad =false
@@ -1203,7 +1064,6 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            // 4919148107859067
             this.pay.digitalPayment.provider  = this.$store.state.payment.provider
             this.pay.policy.sumAssured =  this.$store.state.common.listaCotizacion.vehicle.current
             
@@ -1232,9 +1092,7 @@ import { validationMixin } from 'vuelidate'
                         }
                         this.listCotizacion = this.$store.state.common.listaCotizacion
 
-                        this.planSeleccionado = objJWT.common.planSeleccionado
-                        // this.vehicleState = objJWT.common.vehicleState                
-                        
+                        this.planSeleccionado = objJWT.common.planSeleccionado                        
                         this.payment = objJWT.common.frecuenciaPago
                         this.businessId = this.$store.state.common.businessId
                         if (this.payment > 0 ) {
@@ -1283,8 +1141,7 @@ import { validationMixin } from 'vuelidate'
             }
             this.fechaVigencia = this.$store.state.common.fechaVigencia
     
-            // this.remarketingv2()
-            // this.validarROOT()
+
             document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
             this.$store.commit('payment/setTransactionToken', this.$route.query.transactionToken)
             if (this.$route.query.transactionToken) {
@@ -1305,507 +1162,25 @@ import { validationMixin } from 'vuelidate'
         }
     }
 </script>
-
 <style lang="scss" scope>
-.loader-pay{
-    position: absolute;
-    left: 0;
-    z-index: 9;
-    background: white;
-    height: 100%;
-    opacity: 0.8;
-}
-#pago #inputFechaExpiracion {
-    background-image: url("./../../static/media/img/root/calendar.png");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: .6rem;
-    background-size: 21px;
-    padding-left: 2.5rem;
-    border-right: 1px solid #c4c4c4;
-}
-#pago #inputCvv {
-    background-image: url("./../../static/media/img/root/ccv.png");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: .7rem;
-    background-size: 21px;
-    padding-left: 2.5rem;
-}
-.swal-buttonx .swal2-close{
-    border-radius: 50px !important;
-    display: flex !important;
-    /* border: 1px solid red; */
-    top: -22px !important;
-    right: -16px !important;
-    background: white !important;
-    color: #0855C4 !important;
-    box-shadow: 0px 2px 10px -1px #949297 !important;  
-}
-.flotante-covid-3 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
-  color: #0855C4!important;
-}
-.flotante-covid-3 .flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
-  color: #0855C4!important;
-}
-.flotante-covid-3 .flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
-  color: #0855C4!important;
-}
-.flotante-covid-3 .flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
-  color: #0855C4!important;
-}
-.flotante-covid-boton{
-    .img-close {
-        position: absolute;
-        right: -14px;
+    $vehicular_primario: #0855c4;
+    $vehicular_secundario: #ea0c90;
+    $vehicular_parrafo: #454A6C;
+    $vehicular_titulo_seccion: #0855C4;
+    $vehicular_subtitulo: #454A6C;
+    .pagina-pagar{
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
-    .box-contador{
-        position: absolute;
-        bottom: 6px !important;
-        right: 40px !important;
-        .cuota-gratis-span{
-            font-family: 'omnes SemiBold' !important;
-            font-size: 16px !important;
-            color: #0855c4;
-        }
-    }
-}
-.box-contador{
-        .cuota-gratis-span{
-            font-family: 'omnes SemiBold' !important;
-            font-size: 16px !important;
-            color: #0855c4;
-        }
-    }
-.box-btns-fixed{
-  bottom: 0;
-  margin: auto;
-  padding-bottom: 12px;
-  position: fixed;
-  text-align: center;
-  width: 80%;
-  z-index: 999;
-  left: 10%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+    
 
-.contenedor-custom{
-    p span{
-        font-size: 16px;
-    }
-    .box-contador{
-        .example{
-            display: flex;
-            align-items: center;
-            margin-top: 1px;
-        }
-        p{
-            color: #ffffff;
-            font-size: 20px;
-            padding-right: 24px;
-        }
-    }
-}
-    .flotante-covid-3{
-        position: absolute;
-        right: 0px;
-        top: 200px;
-        padding: 8px;
-        border-radius: 3px;
-        z-index: 9;
-        width: 200px;
-    }
-        .liston-agora{
-            display: none;
-            position: absolute;
-            left: 0;
-            width: 282px;
-            padding: 12px 4px;
-            background: #fff;
-            top: 16px;
-            border-radius: 4px;
-            padding-left: 12px;
-            .titulo{
-                font-size: 18px;
-                color: #0855c4;
-                font-family: 'Omnes Medium';
-                margin-right: 8px;
-            }
-            .subtitulo{
-                color: #454A6C;
-                font-size: 18px;
-                font-family: 'Omnes Medium';
-            }
-            .para-ti{
-                background: #EA0F90;
-                color: #ffffff;
-                border-radius: 4px;
-                padding: 4px;
-            }
-        }
-a.steps__item.paso3:after{
-  content: "3" !important;
-  background: #0754c4 !important;
-  color: white !important;
-  text-align: center;
-  font-size: 14px;
-}
-a.steps__item.paso2:after{
-  content: "2" !important;
-  background: #0754c4 !important;
-  color: white !important;
-  text-align: center;
-  font-size: 14px;
-}
-a.steps__item.paso1:after{
-  content: "1" !important;
-  background: #0754c4 !important;
-  color: white !important;
-  text-align: center;
-  font-size: 14px;
-}
-.card-body{
-    padding-bottom: 0;
-}
-.roboTotal{
-  background: #b1b1b1;
-}
-.semiFull{
-  background: #e6ac38;
-}
-.full{
-  background: #27362d;
-}
-.steps-box{
-    padding-top: 140px;
-    padding-bottom: 40px;
-    background: #ffffff;
-    .steps-plan{
-        margin-bottom: 26px;
-        background: white;
-    }
-}
-.pruebabandera{
-  transform: scale(1.2);
-}
-.banderaSliderMobile{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to bottom, #fed650 0%, #febc2f 100%);
-  height: 90px;
-  z-index: 999;
-  img{
-    position: absolute;
-    //left: 15px;
-    left: 1px;
-    //height: 105px;
-    height: 109px;
-    //top: -10px;
-    top: -20px;
-    transition: transform 1s;
-  }
-  p{
-    font-family: 'Omnes Regular';
-    margin: 0;
-    color: #0855c4;
-    padding-left: 70px;
-        position: relative;
-    left: 38px;
-    top: 16px;
-  }
-}
-.banderaSlider{
-  position: fixed;
-    right: 0%;
-    background: linear-gradient(to bottom, #fed650 0%, #febc2f 100%);
-    width: 292px;
-    height: 100px;
-    background-size: contain;
-    border-radius: 1rem 5px 1rem 5px;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding-left: 100px;
-    top: 72px;
-    z-index: 999;
-  img{
-    position: absolute;
-    //left: 15px;
-    left: -33px;
-    //height: 105px;
-    height: 132px;
-    //top: -10px;
-    top: -21px;
-    transition: transform 1s;
-  }
-  p{
-    font-family: 'Omnes Regular';
-    margin: 0;
-    color: #0855c4;
-  }
-}
-.btn:hover {
-    color: #fff;
-    text-decoration: none;
-}
-#box-ccv{
-    position: relative;
-    display: flex;
-    align-items: center;
-    .icon-ccv{
-        position: absolute;
-        width: 18px;
-        left: 0;
-        padding-top: 0;
-        margin-left: 6px;
-        z-index: 9;        
-    }
-    input{
-        padding-left: 34px;
-    }
-}
     .capadecarga{
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        z-index: 999;
-        background: #cae1f9f0;
         display: none;
-        justify-content: center;
-        align-items: center;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 1s, opacity 1s linear;        
-        img{
-            max-width: 500px;
-            width: 100%;
-        }
-    }
-    .opacidad{        
-        display: flex;
-        visibility: visible;
-        opacity: 1;
-    }
-.copiar-enlace{
-    display: inline-block;
-    padding: 4px 16px;
-    border: 2px solid #0055c8;
-    border-radius: 14px;
-    color: #0055c8;
-    width: 340px;
-    overflow: hidden;
-    height: 30px;
-}
- .dnone{
-    display: none;
     }
 
-    .btn-copy{
-        position: relative;
-    }
-    .msg-copy{
-        position: absolute;
-        right: -19px;
-        top: -24px;
-        font-size: 12px;
-        width: 89px;
-        background: #0055C8;
-        border-radius: 5px;
-        color: white;
-    }
-    .pago-procesado {
-        padding-top: 140px;
-        .content{
-            background-color: rgba(7, 84, 196, 0.05);
-        }  
-    }
-    .checkbox-aux label input[type="checkbox"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon,
-    .radio label input[type="radio"]:checked + .checkbox-aux__span > .checkbox-aux__span--icon{
-    content: url('../../static/media/img/check_white.png');
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        left: 1px;
-        top: 1px;
-        z-index: 999;
-    }
-    .card{
-        border: none;
-        background: #fff;
-        width: 100%;
-    }
-    .planes-tabs{
-        border: none;
-        a{
-            font-family: omnes !important;
-        }
-        .tab-pane:focus{
-            outline: 0px;
-        }
-        ul{
-            justify-content: center;
-        }
-        .tab-pane{
-            padding-left: 0;
-        }
-        .card-header{
-            padding-top: 0;
-            background: #fff;
-            font-size: 16px;
-            border: none;
-            width: 100%;
-            justify-content: center;
-            li.nav-item {
-                width: 50%;
-            }
-        }
-        .nav-pills .nav-link, .nav-pills .show > .nav-link {
-            color: #919191;
-            margin-right: 10px;
-            font-size: 17px;
-            text-transform: capitalize;
-            border-radius: 4px;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding-top: 4px;
-            padding-bottom: 4px;
 
-        }
-        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-            border-radius: 4px;
-            box-shadow: 0 3px 6px 0 rgba(8, 85, 196, 0.44);
-            background-color: #0855c4;
-            color: white;
-        }
-    }
-    .cliploader {
-        right: 0;   
-    }    
-    .steps-allRisk-box {
-        padding-top: 0;
-        margin-top: 70px;
-    }
-    .montoTachado{
-        color: #A7A7A7; text-decoration:line-through; font-weight: 500;
-        font-size: 13px;
-    }
-    #msg-valor {
-        display: none;
-        position: absolute;
-        background: #002e75;
-        color: white;
-        bottom: 25px;
-        left: -118px;
-        width: 240px;
-        padding: 8px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-weight: 500;
-        z-index: 9;
-    }
-
-    .info_detalle {
-        position: relative;
-        font-size: 15px;
-        width: 18px;
-        background: transparent;
-        height: 18px;
-        display: inline-block;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 17px;
-        color: #00ADEE;
-        font-weight: 600;
-        border: 1px solid #00ADEE;
-    }
-    .contenedor-custom{
-        padding: 0;
-    }
-    .btn-movil{
-        position: sticky;
-        bottom: 5px;
-        z-index: 100;
-        width: 100%;
-        height: 50px;
-        display: flex; 
-        background: transparent;
-        &__volver{
-            
-            width: 80px;
-            border-radius: 5px 0 0 5px;
-            border: none;
-            i{
-                color: #333;
-            }
-        }
-        &__pagar{
-            
-            position: relative;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border-radius: 0 5px 5px 0;
-            opacity: 1 !important;
-            &:disabled{
-                background: #777777;
-            }
-        }
-    }
-    .boxtitulo-intercorp{
-        position: absolute;
-        height: 36px;
-        background: #0754c4;
-        color: white;
-        font-size: 12px;
-        left: 0;
-        top: -20px;
-        line-height: 32px;
-        text-align: center;
-        width: 100%;
-    }
-    .boxtitulo{
-        width: 100%;
-        .texto-candado{
-            display: flex;
-            align-items: center;
-        }
-        .img-candado{
-            width: 14px;
-            margin-left: 8px;
-        }
-        &__dto5{
-            position: absolute;
-            top: 10px;
-            right: 4px;
-            z-index: 9;
-        }
-        &__principal{
-            color: #0855c4;
-            font-size: 16px;
-            margin: 0;
-            line-height: 1;
-            font-weight: bold;
-            line-height: 24px;
-        }
-        &__secundario{
-            color: #616161;
-            font-size: 14px;
-            line-height: 15px;
-            display: inline-block;
-            margin: 0;
-            padding-top: 8px;
-        }
-    }
     .metodo-pago{
-        border-radius: 20px;
-        margin: 0 16px;
-        margin-bottom: 24px;
+        border: 1px solid #CCD1DD;
         
         .imgs{
             display: flex;
@@ -1862,7 +1237,6 @@ a.steps__item.paso1:after{
         .panel-custom{
             // padding: 18px;
             // margin: 0 -15px;
-            position: relative;
             .text-secundario{
                 font-size: 14px;
                 color: #3b3131;
@@ -1877,12 +1251,9 @@ a.steps__item.paso1:after{
             padding: 0px 16px;
         }  
         &__ingresatarjeta{
-            min-height: 450px;
             padding: 24px 16px 12px;
             border-radius: 0 0 16px 16px;
-            background: #fff;
             .box-ingresaTarjeta{
-                background: white;
                 padding: 18px 15px 0 15px;
             }
             .boxtitulo{
@@ -1907,317 +1278,69 @@ a.steps__item.paso1:after{
             }
         }
     }
-    .fechaVigencia{
-        display: block;
-        position: relative;
-        flex-direction: column;
-        .text-inicio{
-            padding-right: 15px;
-            color: #0855c4;
-            font-weight: bold;
-        }
-        img{
-            position: absolute;
-            left: 20px;
-            width: 24px;
-            z-index: 9;
-            bottom: 22px;
-        }
-        #fechaCustom{
-            color: #0855c4;
-            font-size: 16px;
-            padding: 5px;
-            border: 1px solid #0855c4;
-            margin-bottom: 15px;
-            font-weight: 500;
-            box-shadow: none;
-            position: relative;
-            z-index: 9;
-            background: transparent;
-            width: 80%;
-            padding-left: 40px;
-            border-radius: 4px;
-        }
-
-        .vdp-datepicker__calendar {
-            background: #fff;
-            left: 0px;
-            border-radius: 10px;
-            color: #6c757d;
-            border: 1px solid #dde1e2;
-        }
-        .vdp-datepicker__calendar .cell.selected {
-            background: #0055c8;
-            color: white;
-        }
-        .vdp-datepicker__calendar .cell.selected:hover {
-            background: #0055c8;
-            color: white;
-        }
-
-    }
-    #filter{
-        label{
-            text-transform: initial;
-        }
-    }
-    #monthly-radio:checked ~ #filter .monthly .igv_aux1, #quarterly-radio:checked ~ #filter .quarterly .igv_aux2, #annual-radio:checked ~ #filter .annual .igv_aux3, #biannual-radio:checked ~ #filter .biannual .igv_aux4{
-        display: block !important;
-        font-weight: 500;
-    }
-    .igv_aux{
-        display: none;
-        
-    }
     
-    #inicioVigencia{
-        height: 45px;
-        width: 200px;
-        text-align: center;
-        border: 2px solid #9e9e9e57;
-        border-radius: 5px;
-        color: #757575;
-    }
-    #inicioVigencia:focus{
-        border: 2px solid #9e9e9e57;
-        box-shadow: none;
-    }
-    .texto-inferior{
-        font-size: 18px;
-        font-weight: 500;
-    }
-    .leaveModal{
-        .img-close-modal{
-                position: absolute;
-            top: -58px;
-            right: -20px;
-            cursor: pointer;
-        }
-    }
-    @media (min-width: 768px) {
-        .leaveModal {
-            .img-verano{
-                max-width: 380px;
-            }
-        }
-        .metodo-pago{            
-            &__comoPagar{
-                // padding: 4px 15px;
-                padding: 22px 28px;
-            }  
-            &__ingresatarjeta{
-                // padding: 4px 15px;
-                padding: 22px 28px;
-            }
-        }
-        .btn-movil{
-            display: none;
-        }
-        .fechaVigencia{
-            display: flex;
-            .text-inicio{
-                padding-right: 15px;
-            }
-        }
-    }
 
-    /****************************************************************
-    ************************INGRESA TU TARJETA***********************
-    ****************************************************************/
-    #focusCVV{
-    position: absolute;
-    right: 15px;
-    display: none;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 170px;
-    height: 115px;
-    bottom: 105px;
-    // background: #005EA1;
-    z-index: 99;
-    img{
-        width: 100%;
-    }
-}
-#focusMES{
-    position: absolute;
-    left: 15px;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #005EA1;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 170px;
-    height: 85px;
-    bottom: 110px;
-    padding: 5px;
-    color: white;
-    z-index: 99;
-    img{
-        width: 100%;
-    }
-}
-#focusTarjeta{
-    position: absolute;
-    left: 15px;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #005EA1;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 249px;
-    height: 70px;
-    bottom: 180px;
-    padding: 5px;
-    color: white;
-    z-index: 99;
-    font-size: 13px;
-    img{
-        width: 100%;
-    }
-}
-
-#button-download a{
-    color: #0BD360;
-}
-.modal-confirmaTusDatos{
-    border: 0 !important;
-    padding: 8px 24px;
-    .btn-secondary{
-        background: white;
-        border: none;
-        position: relative;
-        height: 26px;
-    }
-    img{
+    #focusTarjeta{
         position: absolute;
-        right: 0;
-        top: -10px;
-    }
-    .modal-description{
-        text-align: justify;
-    }
-    .btn-secondary:focus,  .btn-secondary:not(:disabled):not(.disabled).active:focus {
-        box-shadow: none !important;
-    }
-    .btn:focus {
-        box-shadow: none !important;
-    }
-}
-    .error-gral{
-        background: red;
-        width: 100%;
-        text-align: center;
-        padding-top: 15px;
-        height: 40px;
+        left: 15px;
         display: none;
-    }
-    .error-card{
-        background: red;
-        width: 100%;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        padding-top: 15px;
-        height: 40px;
-        display: none;
+        background: #005EA1;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 249px;
+        height: 70px;
+        bottom: 180px;
+        padding: 5px;
+        color: white;
+        z-index: 99;
+        font-size: 13px;
+        img{
+            width: 100%;
+        }
     }
-    .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        border-radius: 4px;
-    }
-    #cardmes{
-        border-radius: 4px 0 0 4px;
-        text-align: right;
-        padding-right: 10px;
 
+    #button-download a{
+        color: #0BD360;
     }
-    #cardaño{
-        border-radius:  0 4px 4px 0;
-        padding-left: 10px;
-    }
-    .box-checkbox{
-        display: flex;
-        align-items: center;
-    }
-    .ipt-cartNumber{
-        padding-left: 34px;
-    }
-    .box-iptCard{
-        position: relative;
-        display: flex;
-        align-items: center;
+    .modal-confirmaTusDatos{
+        border: 0 !important;
+        padding: 8px 24px;
+        .btn-secondary{
+            background: white;
+            border: none;
+            position: relative;
+            height: 26px;
+        }
         img{
             position: absolute;
             right: 0;
-            z-index: 99;
-            padding-top: 8px;
-            right: 8px;
-
+            top: -10px;
         }
-        .icon-tarjeta{
-            position: absolute;
-            width: 18px;
-            left: 0;
-            padding-top: 0;
-            margin-left: 6px;
+        .modal-description{
+            text-align: justify;
         }
-        
+        .btn-secondary:focus,  .btn-secondary:not(:disabled):not(.disabled).active:focus {
+            box-shadow: none !important;
+        }
+        .btn:focus {
+            box-shadow: none !important;
+        }
     }
+    
+    .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
+        border-radius: 4px;
+    }
+
     .isActivePayment{
         display: none;
     }
     input.form-control.text-uppercase.iptGral__input:focus {
         box-shadow: none;
     }
-    .card-interseguro{
-        border-radius: 5px;
-        .form-label.col-form-label.label-completed{
-            padding-left: 0;
-            padding-bottom: 0;
-        }
-        .subtitulo{
-            color: #0BD360;
-        }
-        label{
-            color: #0855c4;
-        }
-        .slash-symbol{
-            position: relative;
-            label{
-                position: absolute;
-                bottom: -4px;
-                z-index: 99;
-                font-size: 26px;
-                padding-bottom: 0;
-                color:#0855c4;
-            }
-        }
-        .ipt-month{
-            width: 40px;
-            padding: 0 0px 0px 4px;
-        }
-        .ipt-year{
-            width: 65px;
-            padding: 0 5px 0 0;
-        }
-        .ipt-cvv{
-            width: 60px;
-            padding: 0 0 0 8px;
-        }
-        .text-right-custom{
-            text-align: right;
-            label{
-                padding-right: 0;
-                padding-bottom: 0;
-            }
-        }
-        .iptGral__input{
-            color: #616161;
-            font-size: 20px;
-        }
-    }
+    
     .iptGral.editable .iptGral__input {
         padding-left: 38px;
         max-width: 460px;
@@ -2267,25 +1390,44 @@ a.steps__item.paso1:after{
         border-radius: 5px;
         width: 100%;
         max-width: 440px;
+        margin: auto;
         .form-label.col-form-label.label-completed{
             padding-left: 0;
             padding-bottom: 0;
         }
-        .subtitulo{
-            color: #0BD360;
+        #focusCVV{
+            position: absolute;
+            right: 15px;
+            display: none;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 170px;
+            height: 115px;
+            bottom: 105px;
+            // background: #005EA1;
+            z-index: 99;
+            img{
+                width: 100%;
+            }
         }
-        label{
-            color: #0855c4;
-        }
-        .slash-symbol{
-            position: relative;
-            label{
-                position: absolute;
-                bottom: -4px;
-                z-index: 99;
-                font-size: 26px;
-                padding-bottom: 0;
-                color:#0855c4;
+        #focusMES{
+            position: absolute;
+            left: 15px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #005EA1;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 170px;
+            height: 85px;
+            bottom: 110px;
+            padding: 5px;
+            color: white;
+            z-index: 99;
+            img{
+                width: 100%;
             }
         }
         .ipt-month{
@@ -2346,15 +1488,6 @@ a.steps__item.paso1:after{
         .iptGral__input{
             color: #616161;
             font-size: 20px;
-        }
-    }
-    .metodo_pago_img{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        img{
-            height: 22px;
-            width: auto;
         }
     }
 
@@ -2435,7 +1568,75 @@ a.steps__item.paso1:after{
     .card-custom__date{
         align-items: center;
     }
+    .modal-description {
+        text-align: left;
+        font-family: 'Omnes Medium';
+        font-size: 16px;
+        font-weight: 300;
+        color: #373737;
+        border: 0;
+    }
+    .modal-personal-title {
+        font-family: 'Omnes Medium';
+        font-size: 24px;
+        font-weight: 900;
+        text-align: center;
+        
+    }
+    .leaveModal {
+        font-family: 'Omnes Regular';
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+        .modal-lg {
+            max-width: 660px;
+        }
+        h2 {
+            font-size: 32px;
+            color: #0854c4;
+        }
+        h3 {
+            font-size: 20px;
+            color: #454a6c;
+        }
+        span {
+            font-family: 'Omnes Medium';
+        }
+        img {
+            margin-top: 30px;
+        }
+        .btn{
+            background-color: #ea0c90;
+            color: white;
+            height: 50px;
+            width: 300px;
+            line-height: 0.5;
+            font-size: 16px;
+            border-radius: 3px;
+            border: none;
+            &:hover{
+                opacity: .7;
+            }
+        }
+    }
+   
     @media (min-width: 768px) {
+        .leaveModal {
+            .img-verano{
+                max-width: 380px;
+            }
+        }
+        .metodo-pago{            
+            &__comoPagar{
+                padding: 22px 28px;
+            }  
+            &__ingresatarjeta{
+                padding: 22px 28px;
+            }
+        }
         .card-custom__date .form-group-custom:nth-child(1) {
             width: 94px;
             position: relative;
@@ -2445,240 +1646,12 @@ a.steps__item.paso1:after{
             position: relative;
         }
     }
-    @media (min-width: 1200px) {
-        .card-interseguro{
-            width: 100%;
-        }
-        .card-custom__date .form-group-custom:nth-child(1) {
-            width: 112px;
-            position: relative;
-        }
-        .card-custom__date .form-group-custom:nth-child(2) {
-            width: initial;
-            position: relative;
-        }
-    }
-    .modal-personal-title {
-        font-family: 'Omnes Medium';
-        font-size: 24px;
-        font-weight: 900;
-        text-align: center;
-        
-    }
-    .modal-description {
-        text-align: left;
-        font-family: 'Omnes Medium';
-        font-size: 16px;
-        font-weight: 300;
-        color: #373737;
-        border: 0;
-        margin-top: 10px;
-    }
-    .modal-personal-title {
-        font-family: 'Omnes Medium';
-        font-size: 24px;
-        font-weight: 900;
-        text-align: center;
-        
-    }
-    .cart-button-download {
-        border: solid 1px #0BD360;
-        outline: 0;
-        padding: 15px 24px 15px 43px;
-        margin: .5rem auto;
-        border-radius: 6px;
-        
-        font-family: 'Omnes Medium';
-        font-size: 16px;
-        letter-spacing: 1px;
-        font-weight: 900;
-        text-align: center;
-        cursor: pointer;
-        color: #0BD360;
-    }
-    .leaveModal {
-        .modal-lg {
-            max-width: 660px;
-        }
-        font-family: 'Omnes Regular';
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.25;
-        letter-spacing: normal;
-        text-align: center;
-    h2 {
-        font-size: 32px;
-        color: #0854c4;
-    }
-    h3 {
-        font-size: 20px;
-        color: #454a6c;
-    }
-    span {
-        font-family: 'Omnes Medium';
-    }
-    img {
-        margin-top: 30px;
-    }
-    .btn{
-        background-color: #ea0c90;
-        color: white;
-        height: 50px;
-        width: 300px;
-        line-height: 0.5;
-        font-size: 16px;
-        border-radius: 3px;
-        border: none;
-        &:hover{
-            opacity: .7;
-        }
-    }
-}
-.modal-blackWeek{
-    max-width: 472px;
-    width: 100%;
-    height: 509px;
-    font-family: 'Omnes Regular';
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: center;
-    .banner-modal{
-        img{
-            width: 100%;
-        }
-    }
-    h3 {
-        font-size: 24px;
-        color: #ffffff;
-    }
-    span {
-        font-family: 'Omnes Medium';
-    }
-    .btn{
-        background-color: #ea0c90;
-        color: white;
-        height: 50px;
-        width: 300px;
-        line-height: 0.5;
-        font-size: 16px;
-        border-radius: 3px;
-        border: none;
-        &:hover{
-            opacity: .7;
-        }
-    }
-    p{
-        color: #ffffff;
-        font-size: 16px;
-    }
-    .modal-dialog{
-        max-width: 472px;
-        width: 100%;
-        height: 509px;
-    }
-    .modal-content{
-        max-width: 472px;
-        width: 100%;
-        height: 509px;
-        background: url('./../../static/media/modalBlackWeek/fondo-modal.jpg');
-    } 
-}
-.modal-agora{
-    font-family: 'Omnes Regular';
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: center;
-    .modal-lg {
-        max-width: 660px;
-    }    
-    h2 {
-        font-size: 18px;
-        color: #114FFF;
-        font-family: 'Omnes SemiBold';
-    }
-    h3 {
-        font-size: 17px;
-        color: #10B0FF;
-    }
-    span {
-        font-family: 'Omnes Medium';
-    }
-    img {
-        margin-top: 0px;
-    }
-    .btn{
-        background-color: #ea0c90;
-        color: white;
-        height: 50px;
-        width: 300px;
-        line-height: 0.5;
-        font-size: 16px;
-        border-radius: 3px;
-        border: none;
-        &:hover{
-            opacity: .7;
-        }
-    }
-    p{
-        color: #454A6C;
-        font-size: 12px;
-    }
-}
+    
     @media (min-width: 992px) {
-        .contenedor-custom{
-            .box-contador{
-                position: absolute;
-                bottom: 12px;
-                right: 0px;
-                .flipdown{
-                    width: 225px !important;
-                }
-                img{                
-                    width: 324px;
-                }
-            }
-        }
-        .flotante-50dcto{
-            right: -278px;
-            top: 0;
-            padding: 8px;
-            border-radius: 3px;
-            left: initial;
-            width: 254px;
-            &:after{
-                border-bottom: 15px solid transparent;
-                border-right: 30px solid #CBDBF2;
-                border-top: 15px solid transparent;                
-                left: -40px;
-                top: 24px;
-            }
-            span{
-            }
-            img{
 
-            }
-        }
-        .steps-box{
-            .steps-plan{
-                margin-bottom: 12px;
-            }
-        }
-        .modal-agora{
-            h3 {
-                font-size: 23px;
-            }
-            p{
-                font-size: 15px;
-            }
-        }
-        .metodo-pago{            
+
+        .metodo-pago{     
+                   
             &__comoPagar{                
                 border-radius: 5px 5px 0 0;
             }  
@@ -2687,14 +1660,8 @@ a.steps__item.paso1:after{
                 padding: 22px 28px;
             }
         }
-        .contenedor-custom{
-            padding: 0 15px;
-        }
         
-        .metodo-pago{
-            margin: 0;
-            margin-top: 16px;
-        }
+       
         #focusCVV{
             right: -147px;
             bottom: 45px;
@@ -2718,44 +1685,27 @@ a.steps__item.paso1:after{
         }
         
     }
-    @media (min-width: 990px){
-        .steps-allRisk-box {
-            margin-top: 90px;
-        }
-    }
+   
     @media (min-width: 1024px){
-        .modal-blackWeek{
-            h3{
-                font-size: 30px;
-            }
-            p{
-                font-size: 20px;
-            }
-        }
-        .liston-agora{
-            display: block;
-        }
-        .metodo-pago__ingresatarjeta{
-            background: white;
-        }
-        .steps-allRisk-box {
-            padding-top: 0;
-            margin-top: 90px;
-        }
-        .steps-box{      
-            .steps-plan{
-                background: transparent;
-            }
-        }
+        
+
         .planes-tabs .nav-pills .nav-link, .planes-tabs .nav-pills .show > .nav-link {
             font-weight: 500;
         }
     }
-// @media (min-width: 1024px){
-//     .banderaSlider{
-//     width: 320px;
-//     }
-// }
+    @media (min-width: 1200px) {
+        .card-interseguro{
+            width: 100%;
+        }
+        .card-custom__date .form-group-custom:nth-child(1) {
+            width: 112px;
+            position: relative;
+        }
+        .card-custom__date .form-group-custom:nth-child(2) {
+            width: initial;
+            position: relative;
+        }
+    }
 
 </style>
 

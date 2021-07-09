@@ -118,12 +118,6 @@
                       placeholder="Ingresa tu DNI, CE o RUC"
                       style="text-transform: initial"
                     ></b-form-input>
-                    <clip-loader
-                      class="cliploader"
-                      :loading="loading"
-                      :color="color"
-                      :size="size"
-                    ></clip-loader>
                   </div>
                 </b-col>
               </b-row>
@@ -1737,15 +1731,6 @@ export default {
       let horaError =
         fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
       return horaError;
-    },
-    pago_datalayer(error_detectado) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "Errores",
-        category: "ErroresPago",
-        action: error_detectado + " Ocurrio a las " + this.horaError(),
-        error_detectado: error_detectado + " Ocurrio a las " + this.horaError(),
-      });
     },
     hideModal() {
       this.$refs.ingresaTuPlaca.hide();

@@ -143,7 +143,7 @@
             })
         },
         methods: {
-            getCotizacion(){
+            continuarAlCotizador(){
                 this.$nuxt.$router.push("/cotizacion/cotizacion")
             },
             volver(){
@@ -229,7 +229,7 @@
                 this.$store.dispatch('common/createVehicle', this.itemElegido).then((res)=>{
                 if (res.data.code == 0) { 
                     this.itemElegido.assignedPrice = null
-                    this.getCotizacion()
+                    this.continuarAlCotizador()
                 }else{
 
                 }
@@ -240,7 +240,7 @@
                 this.$store.dispatch('common/updateVehicle', this.itemElegido).then((res)=>{
                     if (res.data.code == 0) { 
                     this.itemElegido.assignedPrice = null
-                    this.getCotizacion()
+                    this.continuarAlCotizador()
                     }else{
 
                     }
@@ -268,7 +268,7 @@
                             }
                             if (this.listModels.filter(item => item.id == this.objVehiculo.modelId)) {
                                 console.log("if")
-                                this.getCotizacion()
+                                this.continuarAlCotizador()
                             }else{
                                 console.log("else")
                             }
@@ -296,8 +296,7 @@
 <style lang="scss">
     .pagina-seleccion{
         padding-top: 120px;
-    }
-    .lista1, .lista2, .lista3{
+        .lista1, .lista2, .lista3{
         display: none;
         
     }
@@ -348,5 +347,7 @@
     .mostrarItemMarca, .mostrarItemAnio, .mostrarItemModelo{
         display: inline-flex;  
     }
+    }
+    
 
 </style>

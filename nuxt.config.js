@@ -106,6 +106,8 @@ module.exports = {
     }
   },
   env: {
+    apikeySession: process.env.SESSIONKEY,
+    provider : process.env.PROVIDER,
     urlPago: process.env.urlPago,
     environment: process.env.ENVIRONMENT,
     URL: process.env.BASE_URL,

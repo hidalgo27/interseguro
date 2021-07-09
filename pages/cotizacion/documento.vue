@@ -44,12 +44,6 @@
                       placeholder="Ingresa tu DNI, CE o RUC"
                       style="text-transform: initial"
                     ></b-form-input>
-                    <clip-loader
-                      class="cliploader"
-                      :loading="loading"
-                      :color="color"
-                      :size="size"
-                    ></clip-loader>
                   </div>
             </b-col>
 
@@ -504,38 +498,7 @@
         </div>
       </b-modal>
 
-      <!-- <b-modal
-        id="leaveDocument"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
-              <p class="mt-3" style="max-width: 360px;">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-               <span style="color : #ffffff; font-size: 18px">
-                   ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
-                </span>
-              </p>
-            </b-col>
-          </b-row>
-          
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
-                >TERMINAR COMPRA</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal> -->
-      <!-- Modal de abandono -->
+   
       <b-modal
         id="leaveDocument"
         class="leaveModal"
@@ -1401,17 +1364,8 @@ export default {
       if (this.validate()) {
         this.msgErrorEmail = false;
       } else {
-        // this.$swal({
-        //   title: "Oops...",
-        //   text: "Por favor ingresa un email válido",
-        //   type: "warning",
-        //   showCancelButton: false,
-        //   confirmButtonColor: "#2177CC",
-        //   confirmButtonText: "OK",
-        // });
         this.isDisableButton = true;
         this.msgErrorEmail = true;
-        // this.$refs["correo-electronico"].focus();
       }
     },
     validarCelular() {
@@ -1423,14 +1377,6 @@ export default {
         ) {
           this.msgErrorCelular = false;
         } else {
-          // this.$swal({
-          //   title: "Oops...",
-          //   text: "Por favor ingresa un número de celular válido",
-          //   type: "warning",
-          //   showCancelButton: false,
-          //   confirmButtonColor: "#2177CC",
-          //   confirmButtonText: "OK",
-          // });
           this.isDisableButton = true;
           this.msgErrorCelular = true;
         }
@@ -1510,15 +1456,7 @@ export default {
         fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
       return horaError;
     },
-    pago_datalayer(error_detectado) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "Errores",
-        category: "ErroresPago",
-        action: error_detectado + " Ocurrio a las " + this.horaError(),
-        error_detectado: error_detectado + " Ocurrio a las " + this.horaError(),
-      });
-    },
+   
     hideModal() {
       this.$refs.ingresaTuPlaca.hide();
     },
@@ -2182,15 +2120,6 @@ export default {
             itemElegido: this.$store.state.common.itemElegido,
             listCotizacion: this.$store.state.common.listaCotizacion,
             nuevoProducto: this.$store.state.common.nuevoProducto,
-            /******************************************************** */
-            /******************************************************** */
-            // idMarca: this.objectVehicle.brandId,
-            // idModelo: this.objectVehicle.modelId,
-            // idUso: 1,
-            // uso: "particular",
-            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
-            // pagoTrimestral: this.listCotizacion.policy.quarterly,
-            // pagoAnual: this.listCotizacion.policy.annual,
           },
           datosTitular: {
             numeroDocumento: this.$store.state.common.documentoLocal,

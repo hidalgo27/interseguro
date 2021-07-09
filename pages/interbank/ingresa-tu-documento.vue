@@ -1860,15 +1860,7 @@ export default {
         fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
       return horaError;
     },
-    pago_datalayer(error_detectado) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "Errores",
-        category: "ErroresPago",
-        action: error_detectado + " Ocurrio a las " + this.horaError(),
-        error_detectado: error_detectado + " Ocurrio a las " + this.horaError(),
-      });
-    },
+    
     hideModal() {
       this.$refs.ingresaTuPlaca.hide();
     },

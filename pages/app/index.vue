@@ -772,15 +772,7 @@
         hideModalQuieroCotizar(){
           this.$refs.modalQuieroCotizar.hide()
         },
-        pago_datalayer(error_detectado){
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-              event:'Errores',
-              category: 'ErroresPago',
-              action: error_detectado, 
-              error_detectado: error_detectado
-          });
-        },
+        
         hidemodalHomeVideo() {
           this.$refs.modalHomeVideo.hide()
         },
