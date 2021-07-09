@@ -43,7 +43,7 @@ export default {
       niubizConfig: {
         sessionkey: '', // dato obtenido desde la API del backend
         channel: 'paycard' ,
-        merchantid:  115015006,
+        merchantid:  522591303,
        // merchantid: process.env.configNiubiz.comercioNiubiz, // código del comercio por producto TEST
         purchasenumber: '0780000001', // Ejemplo: Número de póliza, número de Venta, etc
         // amount: parseFloat(this.$store.state.common.montoPagar), // El precio a cobrar
