@@ -29,7 +29,7 @@ export default {
     return {
       // showLoader: true,
       session: {
-        currency: 'USD',
+        currency: 'PEN',
         // amount: parseFloat(33.03),
         amount: this.$store.state.common.montoPagar,
         // amount: parseFloat(this.$store.state.common.montoPagar),
@@ -100,6 +100,7 @@ export default {
         self.niubizConfig.callbackurl = 'https://test.interseguro.pe/payment-api/api/v2/token?protocol=https&host=test.interseguro.pe/'+'&path='+ channelPay
 
         self.niubizConfig.sessionkey = respuesta.data.data.sessionKey
+        console.log(self.niubizConfig.sessionkey);
         // probando solo CULQI
         setTimeout(function () {
           // ocultar el formulario de niubiz

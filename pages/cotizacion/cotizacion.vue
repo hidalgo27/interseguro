@@ -1257,7 +1257,7 @@ const state = {
 };
 
 export default {
-  // layout: "InterseguroFlujo",
+  layout: "InterseguroFlujo",
   data() {
     return {
       flotanteCovid: true,

@@ -59,7 +59,7 @@ const state = () => ({
   const actions = {
     getSessionKey  ({ commit }, item) {
       return new Promise((resolve, reject) => {
-          this.$axios.post('payment-api/api/v2/session',item,{ headers: { 'X-Apikey': 'bf689704-622d-4697-a338-15544c7836a2','X-Provider': 'NIUBIZ' } }).then((res) => {
+          this.$axios.post('payment-api/api/v2/session',item,{ headers: { 'X-Apikey': 'd717ebcf-d7d9-4173-82e7-2955040df1b7','X-Provider': 'NIUBIZ' } }).then((res) => {
               if (res) {
                   resolve(res)
               } else {
