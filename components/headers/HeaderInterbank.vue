@@ -213,8 +213,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            var flipdown2 = new FlipDown(1625893199, 'contadorMobile').start()
-            var flipdown = new FlipDown(1625893199, 'contadorDesktop').start()
+            var flipdown2 = new FlipDown(1626152399, 'contadorMobile').start()
+            var flipdown = new FlipDown(1626152399, 'contadorDesktop').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
