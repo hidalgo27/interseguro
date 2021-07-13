@@ -458,8 +458,8 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1626152399, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1626152399, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1626670799, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1626670799, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -812,8 +812,8 @@
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 92px;
-      
+      //padding-top: 92px;
+      padding-top: 170px;
       .parrafo-video{
         font-size: 30px; 
         font-weight: normal;
