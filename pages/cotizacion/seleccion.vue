@@ -3,48 +3,44 @@
         <div class="container">
             <div class="row">
                 <div class="col-12  col-xl-8">
-                    <b-container >
-                        <b-row class="d-flex justify-content-center" >
-                            <b-col cols="11" lg="7" class="h-auto">   
-                            <div class="d-block  d-lg-none"  v-bind:class="{ocultarItemsSeleccionados: ocultarItemsSeleccionados}">
-                                <div class="itemElegido" v-bind:class="{mostrarItemMarca: mostrarItemMarca}">
-                                <span>{{this.itemElegido.brand }}</span>
-                                <div class="box-close" @click="closeMarca()"><img src="./../../static/media/imagenes/seleccion/close.png" alt="x"></div>
-                                </div>
-                                <div class="itemElegido" v-bind:class="{mostrarItemAnio: mostrarItemAnio}">
-                                <span>{{this.itemElegido.year }}</span>
-                                <div class="box-close" @click="closeAnio()" ><img src="./../../static/media/imagenes/seleccion/close.png" alt="x"></div>
-                                </div>
-                                <div class="itemElegido" v-bind:class="{mostrarItemModelo: mostrarItemModelo}">
-                                <span>{{this.itemElegido.model }}</span>
-                                <div class="box-close" @click="closeModelo()"><img  src="./../../static/media/imagenes/seleccion/close.png" alt="x"></div>
-                                </div>
-                            </div>  
+                    <b-row class="d-flex  d-lg-none">
+                        <b-col cols="12">
+                            <div class="accordion" role="tablist">
+                                <b-card no-body class="mb-1">
+                                    <b-card-header header-tag="header" class="p-1" role="tab">
+                                        <b-button block v-b-toggle.accordion-proteccion >Ver resumen</b-button>
+                                    </b-card-header>
+                                    <b-collapse id="accordion-proteccion" visible accordion="my-accordion" role="tabpanel">
+                                        <b-card-body>
+                                            
+                                        </b-card-body>
+                                    </b-collapse>
+                                </b-card>
+                            </div>
+                        </b-col>
+                    </b-row>
+                    <b-row class="d-flex justify-content-center" >
+                        <b-col cols="11" lg="7" class="h-auto">   
+                            
 
 
                             <div class="listas">
                                 <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
                                 
-
-                                <p class="listas--titulo ">
-                                    <img src="" alt="<">Selecciona la marca
-                                </p>
-                                <div class="listas--box">
-                                    <div  class="item" v-for="(item, index) in listBrands" :key="index">                      
-                                    <p v-if="item.name == '----'" class="guiones" style="cursor: auto;">--------------</p>
-                                    <p :id="item.name" v-else @click="seleccionaMarca(item)">{{item.name}}</p>
-                                    </div>  
-                                </div>
-                                <div class="inputMarcaHide">
-                                    <input autocomplete="off" id="ingresaLetraMarca" class="ingresaLetraMarca" type="text" autofocus @keypress="detectarkey($event)">        
-                                </div> 
+                                    <p class="flujo-titulo  mb-4">Selecciona la marca</p>
+                                
+                                    <div class="listas--box">
+                                        <div  class="item" v-for="(item, index) in listBrands" :key="index">                      
+                                        <p v-if="item.name == '----'" class="guiones" style="cursor: auto;">--------------</p>
+                                        <p :id="item.name" v-else @click="seleccionaMarca(item)">{{item.name}}</p>
+                                        </div>  
+                                    </div>
                                     
                                 </div>
 
                                 <div class="lista2" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
-                                    <p class="listas--titulo  mt-3  mb-3"> 
-                                        <img src="" alt="<">Seleciona el año
-                                    </p>
+    
+                                    <p class="flujo-titulo  mb-4">Seleciona el año</p>
                                     <div class="listas--box">
                                     <div class="item" v-for="(item, index) in listYears" :key="index">                    
                                         <p @click="seleccionaAnio(item)">{{item.name}}</p>
@@ -53,9 +49,8 @@
                                 </div>
 
                                 <div class="lista2" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
-                                    <p class="listas--titulo   mt-3  mb-3">
-                                        <img src="" alt="<">Seleciona el modelo
-                                    </p>
+                                    <p class="flujo-titulo  mb-4">Seleciona el modelo</p>
+                        
                                     <div class="listas--box">
                                     <div class="item" v-for="(item, index) in listModels" :key="index">                    
                                         <p @click="seleccionaModelo(item)">{{item.name}}</p>
@@ -64,12 +59,11 @@
                                 </div>
 
                             </div>
-                            </b-col>
-                        </b-row>
-                    </b-container>
+                        </b-col>
+                    </b-row>
                 </div>
                 <div class="col-12  col-lg-4">
-                    <div class="resumen-proteccion">
+                    <div class="resumen-proteccion  d-none  d-lg-block">
                         <div class="resumen-proteccion__cabecera">
                             <p>RESUMEN DE TU PROTECCIÓN</p>
                         </div>
@@ -99,7 +93,6 @@
                 anioActual: 0,
                 objVehiculo: {},
                 /*********************************/
-                ocultarItemsSeleccionados: false,
                 mostrarItemMarca: false,
                 mostrarItemAnio: false,
                 mostrarItemModelo: false,
@@ -199,7 +192,7 @@
                 this.itemElegido.brand = item.name
                 this.activadorItem = 1
                 this.mostrarAnio()
-                this.ocultarItemsSeleccionados = false
+                
             },
             seleccionaAnio(item){
                 this.mostrarItemAnio = true
@@ -213,7 +206,7 @@
                 this.itemElegido.model = item.name
                 this.itemElegido.modelId = item.id
                 this.activadorItem = 4
-                this.ocultarItemsSeleccionados = true
+                
                 this.detalle()
                 this.validateCreateOrUpdateVehicle()
                 this.$store.commit('common/setObjVehiculo', this.itemElegido )

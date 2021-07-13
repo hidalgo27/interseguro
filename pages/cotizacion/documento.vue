@@ -1,8 +1,11 @@
 <template >
-  <section
-    class="pagina-documento">
-
+  <section class="pagina-documento">
     <b-container>
+      <b-row>
+        <b-col cols="12">
+          <p class="flujo-titulo mt-3 mb-4">Completa tus datos personales</p>
+        </b-col>
+      </b-row>
       <b-row class="box-ingresaDocumento">
         <div class="maestra d-block d-lg-none">
           <b-col
@@ -25,7 +28,7 @@
         <b-col cols="12" lg="8" class="box-principal">
           <b-row>
             <b-col cols="12">
-                  <div class="box-documento">
+                  <div class="box-documento  mt-5">
                     <b-form-input
                       id="documento-identidad"
                       ref="myBtn"
@@ -51,12 +54,9 @@
               <b-row style="background: white; border-radius: 0 0 24px 24px">
 
                     <b-col cols="12">
-                      <b-row
-                        class="dni-ce"
-                        v-bind:class="{ mostrarDni: mostrarDni }"
-                      >
+                      <b-row class="dni-ce">
 
-                        <b-col cols="12" md="12" class="p-0">
+                        <b-col cols="12" md="12" class="">
                           <div class="form-group text-center mb-2 mt-3">
                             <b-form-input
                               id="nombre"
@@ -84,7 +84,7 @@
                           </div>
                         </b-col>
 
-                        <b-col cols="12" lg="6" class="p-0">
+                        <b-col cols="12" lg="6" class="mt-4">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="apellido-paterno"
@@ -109,7 +109,7 @@
                           </div>
                         </b-col>
 
-                        <b-col cols="12"  lg="6"  class="p-0">
+                        <b-col cols="12"  lg="6"  class="mt-4">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="apellido-materno"
@@ -136,9 +136,9 @@
                           </div>
                         </b-col>
                         <b-col cols="12">
-                          <p>Por estos medios te enviaremos tu póliza al terminar tu compra</p>
+                          <p class="mt-4  mb-4">Por estos medios te enviaremos tu póliza al terminar tu compra</p>
                         </b-col>
-                        <b-col cols="12" lg="6" class="p-0">
+                        <b-col cols="12" lg="6" class="mb-4">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="correo-electronico"
@@ -177,7 +177,7 @@
                           </b-row>
                         </b-col> -->
 
-                        <b-col cols="12" lg="6" class="p-0">
+                        <b-col cols="12" lg="6" class="">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="celular"
@@ -228,7 +228,7 @@
                           class="capa"
                           v-bind:class="{ isOculto: isOculto }"
                         ></div>
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" class="">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="razon-social"
@@ -247,7 +247,7 @@
                             ></b-form-input>
                           </div>
                         </b-col>
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" class="">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="direccion"
@@ -266,7 +266,7 @@
                             ></b-form-input>
                           </div>
                         </b-col>
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" class="">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="celularEmpresa"
@@ -309,7 +309,7 @@
                           </b-row>
                         </b-col>
 
-                        <b-col cols="12" class="p-0">
+                        <b-col cols="12" class="">
                           <div class="form-group text-center mb-2">
                             <b-form-input
                               id="correo-electronicoEmpresa"
@@ -392,7 +392,7 @@
               <b-row class="box-row">
                 <b-col
                   cols="12"
-                  class="p-0 box-row d-none"
+                  class=" box-row d-none"
                   v-bind:class="{
                     mostrarDatosyCheckbox: mostrarDatosyCheckbox,
                   }"
@@ -634,7 +634,6 @@
       camposRellenados: false,
       mostrarDatosPersonales: false,
       mostrar: false,
-      mostrarDni: false,
       mostrarRuc: false,
       nombre: "",
       expirationDate: "",
@@ -1054,7 +1053,6 @@
           this.objClients.phoneNumber = "";
           this.objClients.emailAddress = "";
           this.objClients.address = "";
-          this.mostrarDni = false;
           this.mostrarDatosyCheckbox = false;
           this.mostrarEditarCancelar = false;
         }
@@ -1066,7 +1064,6 @@
           self.msgCompletaDatos = false;
 
           self.isOculto = true;
-          self.mostrarDni = false;
           self.mostrarRuc = true;
 
           if (self.tamaño == 8 || self.tamaño == 9) {
@@ -1074,7 +1071,6 @@
           } else if (self.tamaño == 10) {
             self.mostrarDatosPersonales = false;
             self.mostrarDatosyCheckbox = false;
-            self.mostrarDni = false;
             self.mostrarRuc = false;
             self.loading = false;
 
@@ -1093,7 +1089,6 @@
       this.mostrarDatosPersonales = false;
       this.loading = false;
       this.isOculto = true;
-      this.mostrarDni = true;
       this.mostrarRuc = false;
       if (this.estado_cliente == 1) {
         if (this.validarClient()) {
@@ -1135,7 +1130,7 @@
       this.msgCompletaDatos = false;
       this.loading = false;
       this.isOculto = true;
-      this.mostrarDni = false;
+      
       this.mostrarRuc = true;
       if (this.estado_cliente == 1) {
         if (this.validarRUC()) {

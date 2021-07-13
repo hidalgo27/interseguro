@@ -1,6 +1,6 @@
 <template>
   <section class="pagina-cotizador">
-    <div class="container-fluid  bg-vehicular-gris">
+    <div class="container-fluid  bg-vehicular-gris  pt-5">
       <b-row class="justify-content-center" style="position: relative;">
         <b-col xs="12" lg="6">
           <div class="suma-asegurada">
