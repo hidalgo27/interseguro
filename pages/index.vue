@@ -1,7 +1,7 @@
 <template>
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
-    <!--
+    
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -61,9 +61,9 @@
         </div>
       </div>
     </div>
-    -->
+    
     <!--Habilitar  en campaña-->
-    <div class="boxHome-banner">      
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -131,7 +131,7 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
    
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
@@ -648,7 +648,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        this.contador()
+        //this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -824,7 +824,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 250px;
+      padding-top: 140px;
+      //padding-top: 250px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1046,7 +1047,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       position: relative;
       height: 296px;
       background-color:  rgba(8,85,196,.1);
-      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
         //background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
@@ -1643,8 +1644,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   
   @media (min-width: 992px) {
     .home-is{
-      margin-top: 50px;
-      //margin-top: 0px;
+      //margin-top: 50px;
+      margin-top: 0px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1667,12 +1668,12 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         //background-repeat: no-repeat;
         //background-position: center;
         height: auto;
-        height: 485px;
+        //height: 485px;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          //min-height: 445px;
-          min-height: 485px;
+          min-height: 445px;
+          //min-height: 485px;
 
           &__izq{
             // padding-top: 68px !important;
@@ -1722,8 +1723,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            //Auto
-            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            //mostrar Automovil
+            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;

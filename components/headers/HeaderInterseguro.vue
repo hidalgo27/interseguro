@@ -1,21 +1,20 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-         <!-- <div>
-            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+        <div>
+            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0}">
                 <div class="d-md-none  liston-black">
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
                     <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
-                </div>
-                
+                </div>                
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                         <img src="./../../static/media/modal/logo-franja-10.svg" alt="">          
-                        <p >Compra con 10% de dscto. en todos nuestros planes</p>
+                        <p>Compra con 10% de dscto. en todos nuestros planes</p>
                     </div>                    
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div> --> 
+        </div>
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -108,8 +107,7 @@
 
                 </ul>
                 <div id="capa" style="display: none;"></div>
-            </div>
-            
+            </div>            
         </div>
 
         <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">

@@ -4,14 +4,10 @@
         <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
-                                       
-                    <div class="liston-mobile--parrafo"> 
-                       <img  class="img-liston" src="../../static/media/img/campania/ibk/liston-mobile.svg" alt="" style="width: 140px;height: 40px;">                         
-                    </div>
                     <div>
                         <div style="padding-left: -9px;width: 378px;margin-top: -20px;margin-bottom: -17px;">
-+                            <p style="font-size: 14px;">
-+                                <b>15% de dscto. y un vale de S/50</b><br>por comprar en Plan Black                                
+                            <p style="font-size: 14px;">
+                                <b>15% de dscto. y un vale de S/50</b><br>por comprar en Plan Black                                
                              </p>
                          </div>
                         <div  class="example" style="position: relative;">            
@@ -25,7 +21,7 @@
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160px" src="./../../static/media/img/campania/ibk/liston-desktop.svg" alt="">  
                         <p style="font-size: 17px;width: 720px;">
-+                            ¡Llegó el Cyber! Compra hoy con <b>15% de dscto</b>. y llévate un <b>vale de S/50</b> por comprar en Plan Black+
+                            ¡Llegó el Cyber! Compra hoy con <b>15% de dscto</b>. y llévate un <b>vale de S/50</b> por comprar en Plan Black+
                          </p>
                     </div>
                     <div id="contadorDesktop" class="flipdown"></div>
@@ -213,8 +209,8 @@ export default {
     computed: {},
     methods:{
         contador(){
-            var flipdown2 = new FlipDown(1626152399, 'contadorMobile').start()
-            var flipdown = new FlipDown(1626152399, 'contadorDesktop').start()
+            var flipdown2 = new FlipDown(1626670799, 'contadorMobile').start()
+            var flipdown = new FlipDown(1626670799, 'contadorDesktop').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
