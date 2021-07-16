@@ -1,9 +1,34 @@
 <template>
     <div class="pagina-seleccion">
-        <div class="container">
+        <div class="container"> 
+            <b-container class="contenedor-personalizado" >
+                <b-row>
+                    <b-col cols="12" xl="12" class="m-auto">
+                        <div class="box-steps">
+                            <ul class="steps" style="display:inline-flex">
+                                <template>
+                                    <router-link class="steps__item " to="/cotizacion/seleccion"   style="cursor: auto;"><li></li></router-link>
+                                </template>              
+                                <template >
+                                    <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
+                                    <router-link v-else class="steps__item " to="/cotiza/cotizacion" style="cursor: auto;"><li></li></router-link>
+                                </template>
+                                <template >
+                                    <router-link  class="steps__item   steps--active  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
+                                </template>                              
+                                <li class="steps--progressBar"></li>                
+                            </ul>
+                        </div> 
+                    </b-col>  
+                </b-row>  
+
+                
+
+            </b-container>
+
             <div class="row">
-                <div class="col-12  col-xl-8">
-                    <b-row class="d-flex  d-lg-none">
+                <!-- resumen mobile -->
+                <b-row class="d-flex  d-lg-none">
                         <b-col cols="12">
                             <div class="accordion" role="tablist">
                                 <b-card no-body class="mb-1">
@@ -18,44 +43,81 @@
                                 </b-card>
                             </div>
                         </b-col>
-                    </b-row>
+                </b-row>
+            </div> 
+            <div class="row"> 
+                <div class="col-12  col-xl-8">
+                    <b-row  class="d-flex justify-content-center">
+                        <b-col cols="11" lg="9" class="h-auto">
+                            <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                                                            
+                                <p class="flujo-titulo  mb-4">
+                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="">
+                                    <span style="margin-left:10px">Selecciona la marca</span> 
+                                </p>
+                            </div>
+                            <div class="lista2" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
+                                <p class="flujo-titulo  mb-4">
+                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="">
+                                    <span style="margin-left:10px">Seleciona el año</span> 
+                                </p>
+                            </div> 
+                            <div class="lista3" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
+                                <p class="flujo-titulo  mb-4">
+                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="">
+                                    <span style="margin-left:10px">Seleciona el modelo</span> 
+                                </p> 
+                            </div>                                 
+                        </b-col>                            
+                    </b-row>  
+                </div>
+                   
+            </div>          
+            <div class="row">
+                <div class="col-12  col-xl-8">
                     <b-row class="d-flex justify-content-center" >
-                        <b-col cols="11" lg="7" class="h-auto">   
+                        <b-col cols="11" lg="9" class="h-auto">   
                             
-
-
                             <div class="listas">
-                                <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
-                                
-                                    <p class="flujo-titulo  mb-4">Selecciona la marca</p>
-                                
-                                    <div class="listas--box">
-                                        <div  class="item" v-for="(item, index) in listBrands" :key="index">                      
-                                        <p v-if="item.name == '----'" class="guiones" style="cursor: auto;">--------------</p>
-                                        <p :id="item.name" v-else @click="seleccionaMarca(item)">{{item.name}}</p>
-                                        </div>  
+                                <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                                    
+                                    <!-- <p class="flujo-titulo  mb-4">Selecciona la marca</p> -->
+                                    
+                                    <div class="box-lista">
+                                        <div class="box-input">
+                                            <b-form-input v-model="text" placeholder="Buscar la marca"></b-form-input>
+                                        </div>
+                                        <div class="listas--box">
+                                            <div  class="item" v-for="(item, index) in listBrands" :key="index">                      
+                                                <p v-if="item.name == '----'" class="guiones" style="cursor: auto;">--------------</p>
+                                                <p :id="item.name" v-else @click="seleccionaMarca(item)">{{item.name}}</p>
+                                            </div>  
+                                        </div>
                                     </div>
+                                    
                                     
                                 </div>
 
                                 <div class="lista2" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
     
-                                    <p class="flujo-titulo  mb-4">Seleciona el año</p>
-                                    <div class="listas--box">
-                                    <div class="item" v-for="(item, index) in listYears" :key="index">                    
-                                        <p @click="seleccionaAnio(item)">{{item.name}}</p>
-                                    </div>
-                                </div>             
+                                    <!-- <p class="flujo-titulo  mb-4">Seleciona el año</p> -->
+                                    <div class="box-lista">
+                                        <div class="listas--box">
+                                            <div class="item" v-for="(item, index) in listYears" :key="index">                    
+                                                <p @click="seleccionaAnio(item)">{{item.name}}</p>
+                                            </div>
+                                        </div> 
+                                    </div>                                                
                                 </div>
 
                                 <div class="lista2" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
-                                    <p class="flujo-titulo  mb-4">Seleciona el modelo</p>
-                        
-                                    <div class="listas--box">
-                                    <div class="item" v-for="(item, index) in listModels" :key="index">                    
-                                        <p @click="seleccionaModelo(item)">{{item.name}}</p>
-                                    </div>                 
-                                    </div> 
+                                    <!-- <p class="flujo-titulo  mb-4">Seleciona el modelo</p> -->
+                                    <div class="box-lista">
+                                        <div class="listas--box">
+                                            <div class="item" v-for="(item, index) in listModels" :key="index">                    
+                                                <p @click="seleccionaModelo(item)">{{item.name}}</p>
+                                            </div>                 
+                                        </div>
+                                    </div>
+                                     
                                 </div>
 
                             </div>
@@ -63,7 +125,7 @@
                     </b-row>
                 </div>
                 <div class="col-12  col-lg-4">
-                    <div class="resumen-proteccion  d-none  d-lg-block">
+                    <div class="resumen-proteccion  d-none  d-lg-block">                        
                         <div class="resumen-proteccion__cabecera">
                             <p>RESUMEN DE TU PROTECCIÓN</p>
                         </div>
@@ -71,10 +133,10 @@
                             <div class="datos-carro">
                                 <h3 class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</h3>
                                 <div class="datos-carro--detalle">
-                                    <p><span class="campo">Mi carro </span><span>{{this.$store.state.common.objVehiculo.brand}}</span>
-                                                <span>{{this.$store.state.common.objVehiculo.model}}</span>
-                                                <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
-                                    </p>
+                                    <p><span class="campo">Mi Placa</span><span style="text-transform:uppercase">{{this.$store.state.common.plateNumber}}</span></p>
+                                    <p class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}"><span class="campo" >Marca</span><span>{{this.$store.state.common.objVehiculo.brand}}</span></p>
+                                    <p class="anio" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}"><span class="campo">Año</span><span>{{this.$store.state.common.objVehiculo.modelYear}}</span></p>
+                                    <p class="modelo" v-bind:class="{mostrarResumenModelo: mostrarResumenModelo}"><span class="campo">Modelo</span><span>{{this.$store.state.common.objVehiculo.model}}</span></p>
                                 </div>
                             </div>
                         </div>
@@ -101,6 +163,9 @@
                 mostrarListaAnio: false,
                 mostrarListaModelo: false,
                 activadorItem: 0,
+                mostrarResumenMarca: false,
+                mostrarResumenAnio: false,
+                mostrarResumenModelo: false,
                 listitemElegido:{},
                 listBrands:{},
                 listYears: {},
@@ -192,22 +257,27 @@
                 this.itemElegido.brand = item.name
                 this.activadorItem = 1
                 this.mostrarAnio()
-                
+                this.mostrarResumenMarca = true
+                this.$store.commit('common/setObjVehiculo', this.itemElegido )
             },
             seleccionaAnio(item){
                 this.mostrarItemAnio = true
                 this.itemElegido.modelYear = item.id
                 this.itemElegido.year = item.id
                 this.activadorItem = 2
+                this.mostrarResumenAnio = true
                 this.mostrarModelo()
+                this.$store.commit('common/setObjVehiculo', this.itemElegido )
             },
             seleccionaModelo(item){
                 this.mostrarItemModelo = true
                 this.itemElegido.model = item.name
                 this.itemElegido.modelId = item.id
                 this.activadorItem = 4
-                
+                //this.activadorModelo = 1
+                this.mostrarResumenModelo = true
                 this.detalle()
+                //this.visualizaDatosResumen()
                 this.validateCreateOrUpdateVehicle()
                 this.$store.commit('common/setObjVehiculo', this.itemElegido )
             },

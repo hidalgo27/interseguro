@@ -91,7 +91,7 @@
       width: 100%;
       height: calc(.2rem + .1vw);
       top: -16px;
-      background-color: #d8d8d8;
+      background-color: #BFD4F2;
   }
   &__item {
       text-transform: uppercase;
@@ -124,10 +124,10 @@
           opacity: 0;
       }
       &:before {
-          border: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2)) solid #d8d8d8;
+          border: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2)) solid #BFD4F2;
           width: var(--step-circle-size-before);
           height: var(--step-circle-size-before);
-          background-color: #d8d8d8;
+          background-color: #BFD4F2;
       }
       
       

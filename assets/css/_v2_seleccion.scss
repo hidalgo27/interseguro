@@ -1,11 +1,24 @@
 .pagina-seleccion{
     padding-top: 120px;
     .lista1, .lista2, .lista3{
-        display: none;
-        
+        display: none;        
+    }
+    .marca, .modelo, .anio{
+        display: none;        
+    }
+    .box-lista{
+        border: 1px solid #CCD1DD;
+        padding: 30px;
+        .box-input{
+            margin-bottom: 15px;
+        }
+        input{
+            border-color: $vehicular_primario;
+        }
     }
     .listas{
-        &--box{   
+        margin-bottom: 20px;
+        &--box{ 
             background: white;
             height: auto;
             max-height: 300px;
@@ -50,5 +63,15 @@
     }
     .mostrarItemMarca, .mostrarItemAnio, .mostrarItemModelo{
         display: inline-flex;  
+    }
+
+    .mostrarResumenMarca{
+        display: block;
+    }
+    .mostrarResumenAnio{
+        display: block;
+    }
+    .mostrarResumenModelo{
+        display: block;
     }
 }

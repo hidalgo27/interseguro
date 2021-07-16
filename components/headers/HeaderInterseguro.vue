@@ -46,14 +46,17 @@
                                 <nuxt-link class="menu-item__enlace"  to="/">  Inicio</nuxt-link>
                                 </li>
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/cobertura">¿Qué me cubre?</nuxt-link>
+                                <nuxt-link class="menu-item__enlace"  to="/cobertura">¿QUÉ ME CUBRE?</nuxt-link>
                                 </li>        
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿Cómo lo uso?</nuxt-link>
+                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿CÓMO LO USO?</nuxt-link>
+                                </li>
+                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
+                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">BENEFICIOS</nuxt-link>
                                 </li>
                                 <li class="main-nav__menu--item menu-item"  @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace" v-if="this.nuevoProducto" to="/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                <nuxt-link class="menu-item__enlace" v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
+                                <nuxt-link class="menu-item__enlace" v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS </nuxt-link>
+                                <nuxt-link class="menu-item__enlace" v-else  to="/oficial/preguntas-frecuentes">AYUDA Y PREGUNTAS </nuxt-link>
                                 </li>
                                 <div class="nav-contacto">
                                 <div class="footer-menu">

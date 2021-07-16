@@ -38,7 +38,14 @@
               COTIZAR
                 <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
             </button>
-            <p class="asegurados"><strong>Más de 2,000,000</strong> de asegurados</p>
+            <p class="numero_asegurados">
+                
+            </p>
+            
+            <p class="asegurados">
+              <img src="./../static/media/imagenes/home/escudo.svg" alt="">
+              <strong>Más de 2,000,000</strong> de asegurados
+            </p>
             <p class="respaldo-intercorp">
               <span> Con el respaldo del grupo</span>
               <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
@@ -46,13 +53,17 @@
           </div>
         </b-form>
         <div class="banner-textos  d-none  d-lg-inline-block">
-          <p class="titulo">Todas las coberturas para <span><br></span> tiene porque ser caro.</p>
+          <p class="titulo">Todas las coberturas para <span><br></span> tu auto al mejor precio.</p>
           <p class="subtitulo">
-            Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
+            Compra hoy cualquiera de nuestros planes<span><br>con</span> <strong> 10% de descuento anual.</strong>
           </p>
         </div>
+
+        <div class="fondo-banner d-none  d-lg-inline-block">
+          
+        </div>
+        
       </div>
-      
     </div>
     <b-container class="home-seccion  client">
       <b-row>
@@ -109,7 +120,7 @@
                 <img src="./../static/media/imagenes/home/testimonio.png"/>
                 <p class="categoria" v-bind:class="'categoria-'+index">
                 Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” <strong>Rosario P. Gamarra</strong>
-                </p>
+                </p>                
                 <!--
                 <div class="stars">
                   <img src="./../static/media/imagenes/home/testimonio.png"/>
@@ -129,8 +140,20 @@
             </carousel>
           </div>
         </b-col>
-      </b-row>
+      </b-row>            
     </b-container>
+
+    <b-container class="home-seccion">
+        <b-row class="justify-content-center">
+          <div class="stars">
+            <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
+            <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
+            <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
+            <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
+            <img src="./../static/media/imagenes/home/star-lead.svg"/>
+          </div>
+        </b-row>
+      </b-container>
 
     <div class="box-planes">
       <b-container class="home-seccion">
