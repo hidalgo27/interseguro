@@ -446,8 +446,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1626152399, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1626152399, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1627016399, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1627016399, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -1665,7 +1665,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: auto;
+        height: 480px;
+        //height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;

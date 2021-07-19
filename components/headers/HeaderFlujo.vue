@@ -6,7 +6,7 @@
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo">
-                       <div style="font-size: 10px;width: 230px;margin-left: 3px;margin-top: -29px;">                             
+                       <div style="font-size: 10px;width: 235px;margin-left: 3px;margin-top: -5px;">                             
                             <p><b style="color: #FFD527">1 cuota gratis y vale virtual de S/100</b><br>por comprar el Plan Black</p>                               
                         </div>
                         </div>
@@ -212,8 +212,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1626152399, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1626152399, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1627016399, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1627016399, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
