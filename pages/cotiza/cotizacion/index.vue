@@ -1376,7 +1376,7 @@
     </b-modal>
 
   
- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+ <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1402,10 +1402,10 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
     
     <!--Modal campania-->
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1420,7 +1420,7 @@
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
                 <span style="color : #ffffff; font-size: 18px">
-                ¡Cyber Interseguro!<br> Compra con <b>10% de dscto</b>. y llévate una <br><b>cuota gratis. Además, un vale de S/100</b><br>
+                ¡Cyber Interseguro!<br> Compra con <b>10% de dscto</b>. y llévate una <br><b style="color:#FFD527">cuota gratis. Además, un vale de S/100</b><br>
                 por comprar el Plan Black 
                 </span>
                 </p>
@@ -1436,7 +1436,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
       
   </section>
 </template>
@@ -3406,8 +3406,9 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 50px;
-  //padding-top: 120px;
+  //padding-top: 50px;
+  //campaña
+  padding-top: 120px;
   .img-close{
     position: absolute;
     right: -24px;

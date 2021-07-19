@@ -1,13 +1,13 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <!--  <div>
+        <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo">
-                       <div style="font-size: 10px;padding-left: 10px;width: 217px;">                             
-                            <p><b>1 cuota gratis y vale virtual de S/100</b><br>por comprar el Plan Black</p>                               
+                       <div style="font-size: 10px;width: 230px;margin-left: 3px;margin-top: -29px;">                             
+                            <p><b style="color: #FFD527">1 cuota gratis y vale virtual de S/100</b><br>por comprar el Plan Black</p>                               
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
@@ -20,7 +20,7 @@
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
                             <p style="width: 712px;font-size: 20px;">
-                                <b> ¡Cyber Interseguro! Llévate<span style="color: #C7E5FF"> <b> 1 cuota gratis y vale de S/100</b></span> por comprar el Plan Black</b>
+                                <b> ¡Cyber Interseguro! Llévate<span style="color: #FFD527"> <b> 1 cuota gratis y vale de S/100</b></span> por comprar el Plan Black</b>
                                   
                             </p>
                     </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
-        </div> -->
+        </div>
         
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -179,7 +179,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -300,6 +300,7 @@ export default {
     .liston{        
         flex-direction: column;
         background-color: #0855C4;
+        background-image: url('../../static/media/img/campania/fondo-liston-desktop.svg');
         width: 100%;
         height: 70px;
         left: 0;
