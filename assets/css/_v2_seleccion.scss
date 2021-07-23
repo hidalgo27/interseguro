@@ -1,5 +1,9 @@
 .pagina-seleccion{
-    padding-top: 120px;
+    padding-top: 60px;
+    .row_custom {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
     .lista1, .lista2, .lista3{
         display: none;        
     }

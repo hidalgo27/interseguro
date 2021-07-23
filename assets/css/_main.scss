@@ -116,10 +116,13 @@
     padding-bottom: 34px;
   }
   
-  .modal-close{
-    height: 45px;
-    width: 45px;
-    cursor: pointer;
+  .modal-close {
+    width: 46px;
+    height: 48px;
+    position: absolute;
+    right: -14px;
+    top: -22px;
+    background: transparent !important;
   }
   .modal-titulo{
     color: #0855C4;
@@ -143,12 +146,30 @@
       font-family: 'Omnes Regular';
       height: 50px;
     }
+    .btn-mail{
+      width: 263px;
+      background: #EA0C90;
+      color: white;
+      font-size: 19px;
+      font-family: 'Omnes Regular';
+      height: 50px;
+    }
   }
   .modal-content{
     display: flex;
     min-width: 338px;
     min-height: 305px;
   }
+}
+.modal-subtitulo-mail{
+  color: #0855C4;
+  font-size: 32px;
+  font-family: 'Omnes medium';
+  text-align: center;
+  line-height: normal;
+  width: 450px;
+  margin: auto;
+  margin-bottom: 24px;
 }
 .modalEnviarEmail{
   display: flex;
@@ -788,8 +809,8 @@
   #modalEnviarEmail{
     .modal-content{
       display: flex;
-      width: 420px;
-      height: 305px;
+      width: 520px;
+      height: 365px;
     }
   }
   

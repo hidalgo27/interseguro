@@ -1,32 +1,40 @@
 <template>
     <div class="pagina-seleccion">
         <div class="container"> 
-            <b-container class="contenedor-personalizado" >
-                <b-row>
-                    <b-col cols="12" xl="12" class="m-auto">
-                        <div class="box-steps">
-                            <ul class="steps" style="display:inline-flex">
-                                <template>
-                                    <router-link class="steps__item " to="/cotizacion/seleccion"   style="cursor: auto;"><li></li></router-link>
-                                </template>              
-                                <template >
-                                    <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
-                                    <router-link v-else class="steps__item " to="/cotiza/cotizacion" style="cursor: auto;"><li></li></router-link>
-                                </template>
-                                <template >
-                                    <router-link  class="steps__item   steps--active  paso1" to="/cotiza/cotizacion"><li></li></router-link>                
-                                </template>                              
-                                <li class="steps--progressBar"></li>                
-                            </ul>
-                        </div> 
-                    </b-col>  
-                </b-row>  
+            <b-row class="row_custom">
+                <b-col cols="12" xl="12" class="m-auto">
+                    <div class="box-steps">
+                        <ul class="steps" style="display:inline-flex">
+                            <div class="steps__item ">
+                                Pago
+                            </div>
+                            <div class="steps__item ">
+                                Planes
+                            </div>
+                            <div class="steps__item steps--active  paso1">
+                                Mi carro
+                            </div>
+                            <li class="steps--progressBar" ></li> 
+                            <!-- 
+                            <template>
+                                <router-link class="steps__item " to="/cotizacion/seleccion"   style="cursor: auto;"><li>pago</li></router-link>
+                            </template>              
+                            <template >
+                                <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
+                                <router-link v-else class="steps__item " to="/cotiza/cotizacion" style="cursor: auto;"><li>Planes</li></router-link>
+                            </template>
+                            <template >
+                                <router-link  class="steps__item   steps--active  paso1" to="/cotiza/cotizacion"><li>Mi carro</li></router-link>                
+                            </template>                              
+                            <li class="steps--progressBar"></li>  
+                            -->              
+                        </ul>
+                    </div> 
+                </b-col>  
+            </b-row>  
 
-                
 
-            </b-container>
-
-            <div class="row">
+            <div class="row row_custom">
                 <!-- resumen mobile -->
                 <b-row class="d-flex  d-lg-none">
                         <b-col cols="12">
@@ -45,25 +53,25 @@
                         </b-col>
                 </b-row>
             </div> 
-            <div class="row"> 
+            <div class="row row_custom"> 
                 <div class="col-12  col-xl-8">
                     <b-row  class="d-flex justify-content-center">
                         <b-col cols="11" lg="9" class="h-auto">
                             <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                                                            
                                 <p class="flujo-titulo  mb-4">
-                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="">
+                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver2($event)"> 
                                     <span style="margin-left:10px">Selecciona la marca</span> 
                                 </p>
                             </div>
                             <div class="lista2" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
                                 <p class="flujo-titulo  mb-4">
-                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="">
+                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver2($event)">
                                     <span style="margin-left:10px">Seleciona el año</span> 
                                 </p>
                             </div> 
                             <div class="lista3" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
                                 <p class="flujo-titulo  mb-4">
-                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="">
+                                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver2($event)">
                                     <span style="margin-left:10px">Seleciona el modelo</span> 
                                 </p> 
                             </div>                                 
@@ -72,7 +80,7 @@
                 </div>
                    
             </div>          
-            <div class="row">
+            <div class="row row_custom">
                 <div class="col-12  col-xl-8">
                     <b-row class="d-flex justify-content-center" >
                         <b-col cols="11" lg="9" class="h-auto">   
@@ -83,12 +91,14 @@
                                     
                                     <div class="box-lista">
                                         <div class="box-input">
-                                            <b-form-input v-model="text" placeholder="Buscar la marca"></b-form-input>
+                                            <b-form-input v-model="filterBrand" type="text" 
+                                            autocomplete="off" placeholder="Buscar la marca" v-on:keyup="filterBrands">
+                                            </b-form-input>
                                         </div>
                                         <div class="listas--box">
-                                            <div  class="item" v-for="(item, index) in listBrands" :key="index">                      
+                                            <div  class="item" v-for="(item, index) in listBrands" :key="index" @click="seleccionaMarca(item)">                      
                                                 <p v-if="item.name == '----'" class="guiones" style="cursor: auto;">--------------</p>
-                                                <p :id="item.name" v-else @click="seleccionaMarca(item)">{{item.name}}</p>
+                                                <p :id="item.name" v-else>{{item.name}}</p>
                                             </div>  
                                         </div>
                                     </div>
@@ -101,8 +111,8 @@
                                     <!-- <p class="flujo-titulo  mb-4">Seleciona el año</p> -->
                                     <div class="box-lista">
                                         <div class="listas--box">
-                                            <div class="item" v-for="(item, index) in listYears" :key="index">                    
-                                                <p @click="seleccionaAnio(item)">{{item.name}}</p>
+                                            <div class="item" v-for="(item, index) in listYears" :key="index" @click="seleccionaAnio(item)">                    
+                                                <p>{{item.name}}</p>
                                             </div>
                                         </div> 
                                     </div>                                                
@@ -112,8 +122,8 @@
                                     <!-- <p class="flujo-titulo  mb-4">Seleciona el modelo</p> -->
                                     <div class="box-lista">
                                         <div class="listas--box">
-                                            <div class="item" v-for="(item, index) in listModels" :key="index">                    
-                                                <p @click="seleccionaModelo(item)">{{item.name}}</p>
+                                            <div class="item" v-for="(item, index) in listModels" :key="index" @click="seleccionaModelo(item)">                    
+                                                <p>{{item.name}}</p>
                                             </div>                 
                                         </div>
                                     </div>
@@ -151,6 +161,7 @@
         layout: "InterseguroFlujo",
         data() {
             return {
+                filterBrand : '',
                 /* NUEVOS */
                 anioActual: 0,
                 objVehiculo: {},
@@ -168,6 +179,8 @@
                 mostrarResumenModelo: false,
                 listitemElegido:{},
                 listBrands:{},
+                listBrandsOrigin:{},
+                listBrandsTemp:{},
                 listYears: {},
                 listModels:{},
                 listEndorsements: [],
@@ -201,6 +214,18 @@
             })
         },
         methods: {
+            volver2: function(evt){
+                evt.preventDefault();
+                this.$nuxt.$router.push({path: "/"});
+            },
+            filterBrands(){
+                console.log('filter brands ...')
+                this.listBrands = this.listBrandsOrigin;
+                let regExp = new RegExp(this.filterBrand, "i");
+                this.listBrands = this.listBrands.filter(obj => {
+                    return regExp.test(obj.name);
+                }) 
+            },
             continuarAlCotizador(){
                 this.$nuxt.$router.push("/cotizacion/cotizacion")
             },
@@ -274,10 +299,8 @@
                 this.itemElegido.model = item.name
                 this.itemElegido.modelId = item.id
                 this.activadorItem = 4
-                //this.activadorModelo = 1
                 this.mostrarResumenModelo = true
                 this.detalle()
-                //this.visualizaDatosResumen()
                 this.validateCreateOrUpdateVehicle()
                 this.$store.commit('common/setObjVehiculo', this.itemElegido )
             },
@@ -312,10 +335,12 @@
             },
         },
         async mounted() {
+            console.log("MOUNTED..")
             this.objVehiculo = this.$store.state.common.objVehiculo
             await this.$store.dispatch('common/getBrand').then((res)=>{
                 this.listBrands = res.data.body
-                console.log("MODELOS", this.listModels)
+                this.listBrandsOrigin = res.data.body
+                console.log("MODELOS", this.listBrands)
             })
 
             if (this.objVehiculo.exists == true) {
