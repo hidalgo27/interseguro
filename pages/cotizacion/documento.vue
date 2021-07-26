@@ -2,37 +2,48 @@
   <section class="pagina-documento">
     <b-container>
       <b-row>
+        <b-col cols="12" xl="12" class="m-auto">
+            <div class="box-steps">
+                <ul class="steps" style="display:inline-flex">
+                    <div class="steps__item steps--active">
+                        Pago
+                    </div>
+                    <div class="steps__item ">
+                        Planes
+                    </div>
+                    <div class="steps__item ">
+                        Mi carro
+                    </div>
+                    <li class="steps--progressBar" ></li>             
+                </ul>
+            </div> 
+        </b-col>  
+      </b-row>
+
+      <b-row>
         <b-col cols="12">
           <p class="flujo-titulo mt-3 mb-4">Completa tus datos personales</p>
         </b-col>
       </b-row>
       <b-row class="box-ingresaDocumento">
-        <div class="maestra d-block d-lg-none">
-          <b-col
-            cols="12"
-            class="mb-0 d-none"
+        <!-- <div class="maestra d-block d-lg-none">
+          <b-col cols="12" class="mb-0 d-none"
             v-bind:class="{ mostrarDatosyCheckbox: mostrarDatosyCheckbox }"
             style="justify-content: center"
           >
             <div class="msgCompletaDatosInicialbase pt-0">
-              <span
-                class="msgCompletaDatosInicial pt-0"
-                v-bind:class="{ msgCompletaDatos: msgCompletaDatos }"
-              >
+              <span class="msgCompletaDatosInicial pt-0" v-bind:class="{ msgCompletaDatos: msgCompletaDatos }" >
                 Por favor completa los datos para continuar
               </span>
             </div>
           </b-col>
-        </div>
+        </div> -->
 
         <b-col cols="12" lg="8" class="box-principal">
           <b-row>
             <b-col cols="12">
                   <div class="box-documento  mt-5">
-                    <b-form-input
-                      id="documento-identidad"
-                      ref="myBtn"
-                      name="ws_username"
+                    <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
                       v-on:focus.native="isIconDni = !isIconDni"
                       v-on:blur.native="placeholderDNI($event)"
                       @click.native="clearPlaceholderDNI($event)"
@@ -44,40 +55,30 @@
                       type="tel"
                       v-model="itemElegido.documentoLocal"
                       required
-                      placeholder="Ingresa tu DNI, CE o RUC"
-                      style="text-transform: initial"
-                    ></b-form-input>
+                      placeholder="Numero de DNI, CI o RUC"
+                      style="text-transform: initial">
+                    </b-form-input>
                   </div>
             </b-col>
 
             <b-col cols="12" class="box-datos">
               <b-row style="background: white; border-radius: 0 0 24px 24px">
-
                     <b-col cols="12">
                       <b-row class="dni-ce">
-
                         <b-col cols="12" md="12" class="">
                           <div class="form-group text-center mb-2 mt-3">
-                            <b-form-input
-                              id="nombre"
-                              ref="nombre"
-                              autocomplete="given-name"
-                              name="firstName"
+                            <b-form-input id="nombre" ref="nombre" autocomplete="given-name" name="firstName"
                               @keyup.native="validacionInput($event)"
                               @keydown.native="validacionInput($event)"
                               @keypress.native="validacionInput($event)"
-                              v-on:focus.native="
-                                isIconFirstName = !isIconFirstName
-                              "
-                              v-on:blur.native="
-                                isIconFirstName = !isIconFirstName
-                              "
+                              v-on:focus.native="isIconFirstName = !isIconFirstName"
+                              v-on:blur.native="isIconFirstName = !isIconFirstName"
                               class="input-vehicular iptGral__input iptClient form-control input-id"
                               autofocus
                               type="text"
                               v-model="objClients.firstName"
                               required
-                              placeholder="Nombres"
+                              placeholder="Nombre completo"
                               v-on:keyup.enter="processTags('apellido-paterno')"
                             ></b-form-input>
                             
@@ -111,17 +112,10 @@
 
                         <b-col cols="12"  lg="6"  class="mt-4">
                           <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="apellido-materno"
-                              ref="apellido-materno"
-                              name="lastName"
+                            <b-form-input id="apellido-materno" ref="apellido-materno" name="lastName"
                               @keyup.native="validacionInput($event)"
-                              v-on:focus.native="
-                                isIconSecondLastName = !isIconSecondLastName
-                              "
-                              v-on:blur.native="
-                                isIconSecondLastName = !isIconSecondLastName
-                              "
+                              v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
+                              v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
                               class="input-vehicular iptGral__input iptClient form-control input-id"
                               autocomplete="additional-name"
                               autofocus
@@ -129,9 +123,7 @@
                               v-model="objClients.secondLastName"
                               required
                               placeholder="Apellido Materno"
-                              v-on:keyup.enter="
-                                processTags('correo-electronico')
-                              "
+                              v-on:keyup.enter="processTags('correo-electronico')"
                             ></b-form-input>
                           </div>
                         </b-col>
@@ -140,20 +132,10 @@
                         </b-col>
                         <b-col cols="12" lg="6" class="mb-4">
                           <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="correo-electronico"
-                              ref="correo-electronico"
-                              name="email"
-                              @keyup.native="
-                                validacionInput($event);
-                                validarEmail();
-                              "
-                              v-on:focus.native="
-                                isIconEmailAddress = !isIconEmailAddress
-                              "
-                              v-on:blur.native="
-                                isIconEmailAddress = !isIconEmailAddress
-                              "
+                            <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
+                              @keyup.native=" validacionInput($event); validarEmail(); "
+                              v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                              v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
                               class="input-vehicular iptGral__input iptClient form-control input-id"
                               v-bind:class="{ errorInput: msgErrorEmail }"
                               autocomplete="on"
@@ -179,20 +161,10 @@
 
                         <b-col cols="12" lg="6" class="">
                           <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="celular"
-                              ref="celular"
-                              name="phone"
-                              @keyup.native="
-                                validarCelular();
-                                validacionInput($event);
-                              "
-                              v-on:focus.native="
-                                isIconPhoneNumber = !isIconPhoneNumber
-                              "
-                              v-on:blur.native="
-                                isIconPhoneNumber = !isIconPhoneNumber
-                              "
+                            <b-form-input id="celular" ref="celular" name="phone"
+                              @keyup.native=" validarCelular(); validacionInput($event); "
+                              v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
+                              v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
                               class="input-vehicular iptGral__input iptClient form-control input-id"
                               autocomplete="tel"
                               v-bind:class="{ errorInput: msgErrorCelular }"
@@ -201,7 +173,7 @@
                               v-model="objClients.phoneNumber"
                               required
                               maxlength="9"
-                              placeholder="Celular"
+                              placeholder="Teléfono"
                               v-on:keyup.enter="validarCelular($event)"
                             ></b-form-input>
                           </div>
@@ -217,13 +189,11 @@
                               >
                             </div>
                           </b-row>
-                        </b-col> -->
+                        </b-col> -->                       
+
                       </b-row>
 
-                      <b-row
-                        class="ruc"
-                        v-bind:class="{ mostrarRuc: mostrarRuc }"
-                      >
+                      <b-row class="ruc" v-bind:class="{ mostrarRuc: mostrarRuc }">
                         <div
                           class="capa"
                           v-bind:class="{ isOculto: isOculto }"
@@ -347,6 +317,30 @@
                           </b-row>
                         </b-col>
                       </b-row>
+
+                      <b-row>
+                        <b-col cols="12">
+                          <p class="mt-2  mb-2">Al continuar acepto las
+                            <a href="javascript:void(0);" @click="eventoModalTerminosCondiciones()" style="text-decoration:underline; color:#383C5A">
+                              Condiciones de Uso y Política de Privacidad
+                            </a>
+                          </p>
+                        </b-col>
+
+                        <b-col cols="12">
+                            <span class="msgCompletaDatosInicial" v-bind:class="{ msgCompletaDatos: msgCompletaDatos }">
+                              Por favor completa los datos para continuar
+                            </span>
+                        </b-col>
+
+                        <b-col cols="12" lg="3">
+                          <div class="box-row">
+                            <button type="submit" :disabled="isDisableButton" @click="continuar($event)" class="btn box-btn--dni box-btn__button">
+                              Ir a pagar
+                            </button>
+                          </div>
+                        </b-col>
+                      </b-row>
                     </b-col>
               </b-row>
             </b-col>
@@ -371,16 +365,36 @@
 
                   <div class="datos-poliza">
                       <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
+                      <!-- 
                       <p><span class="campo">Plan</span> <span>{{this.$store.state.common.planSeleccionado}}</span></p>
                       <p><span class="campo">Cobertura</span> <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
                       <p><span class="campo">Frecuencia</span> <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
-                      <p><span class="campo">F. DE INICIO </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
-                  </div>
+                      <p><span class="campo">F. de inicio </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                      -->
 
-                  <div class="datos-pago">
-                      <p class="total">
-                          TOTAL: <span class="monto">${{this.monto_pagar}}</span> <span class="antes">Antes us$ {{}}</span>
-                      </p>
+                      <div v-if="this.planSeleccionado == 4" class="plan-titulo">
+                        <p><span class="campo">Plan</span> <span>Básico: Protección contra robo</span></p>
+                      </div>
+                      <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
+                        <p><span class="campo">Plan</span> <span>Intermedio: Protección accidentes</span></p>
+                      </div>
+                      <div v-else-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" class="plan-titulo">
+                        <p><span class="campo">Plan</span> <span>Full: Protección total</span></p>                      
+                      </div>
+
+                      <p><span class="campo">Cobertura</span> <span>$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+
+                      <div v-if="this.$store.state.common.frecuenciaPago == 1" class="plan-titulo">
+                        <p><span class="campo">Frecuencia</span> <span>Mensual</span></p>                      
+                      </div>
+                      <div v-if="this.$store.state.common.frecuenciaPago == 2" class="plan-titulo">
+                        <p><span class="campo">Frecuencia</span> <span>Trimestral</span></p>                      
+                      </div>
+                      <div v-if="this.$store.state.common.frecuenciaPago == 3" class="plan-titulo">
+                        <p><span class="campo">Frecuencia</span> <span>Anual</span></p>                      
+                      </div>
+                      
+                      <p><span class="campo">F. de inicio </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
                   </div>
               </div>
           </div>
@@ -390,46 +404,7 @@
           <b-row class=" box_aceptoTerminos">
             <b-col cols="12" lg="6">
               <b-row class="box-row">
-                <b-col
-                  cols="12"
-                  class=" box-row d-none"
-                  v-bind:class="{
-                    mostrarDatosyCheckbox: mostrarDatosyCheckbox,
-                  }"
-                >
-                </b-col>
-
-                <div class="maestra d-none d-lg-block">
-                  <b-col
-                    cols="12"
-                    class="mb-0 d-none"
-                    v-bind:class="{
-                      mostrarDatosyCheckbox: mostrarDatosyCheckbox,
-                    }"
-                  >
-                    <div class="msgCompletaDatosInicialbase">
-                      <span
-                        class="msgCompletaDatosInicial"
-                        v-bind:class="{ msgCompletaDatos: msgCompletaDatos }"
-                      >
-                        Por favor completa los datos para continuar
-                      </span>
-                    </div>
-                  </b-col>
-                </div>
-
-                <b-col cols="12" class="pr-0">
-                  <div class="box-btn">
-                    <button
-                      type="submit"
-                      :disabled="isDisableButton"
-                      @click="continuar($event)"
-                      class="btn box-btn--dni box-btn__button"
-                    >
-                      continuar
-                    </button>
-                  </div>
-                </b-col>
+                
               </b-row>
             </b-col>
           </b-row>

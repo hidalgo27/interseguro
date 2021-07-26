@@ -1,46 +1,27 @@
 <template>
   <section class="pagina-cotizador">
-
-    <div class="container-fluid bg-vehicular-gris  pt-5" >
-                <b-row>
-                    <b-col cols="12" xl="12" class="m-auto">
-                        <div class="box-steps">
-                            <ul class="steps" style="display:inline-flex">
-                                <div class="steps__item ">
-                                    Pago
-                                </div>
-                                <div class="steps__item steps--active ">
-                                    Planes
-                                </div>
-                                <div class="steps__item ">
-                                    Mi carro
-                                </div>
-                                <li class="steps--progressBar" ></li> 
-                                <!-- 
-                                <template>
-                                    <router-link class="steps__item " to="/cotizacion/seleccion"   style="cursor: auto;"><li>pago</li></router-link>
-                                </template>              
-                                <template >
-                                    <span v-if="documento_steps2 != null" class="steps__item " @click="continuar" style="cursor: pointer;"></span>
-                                    <router-link v-else class="steps__item " to="/cotiza/cotizacion" style="cursor: auto;"><li>Planes</li></router-link>
-                                </template>
-                                <template >
-                                    <router-link  class="steps__item   steps--active  paso1" to="/cotiza/cotizacion"><li>Mi carro</li></router-link>                
-                                </template>                              
-                                <li class="steps--progressBar"></li>  
-                                -->              
-                            </ul>
-                        </div> 
-                    </b-col>  
-                </b-row>  
-
-                
-
-            </div>
-
-
-
-    <div class="container-fluid  bg-vehicular-gris  pt-5">
+    <div class="container-fluid  bg-vehicular-gris">
+      <div class="container">
+        <b-row>
+        <b-col cols="12" xl="12" class="m-auto">
+            <div class="box-steps">
+                <ul class="steps" style="display:inline-flex">
+                    <div class="steps__item ">
+                        Pago
+                    </div>
+                    <div class="steps__item steps--active ">
+                        Planes
+                    </div>
+                    <div class="steps__item ">
+                        Mi carro
+                    </div>
+                    <li class="steps--progressBar" ></li>              
+                </ul>
+            </div> 
+        </b-col>  
+      </b-row>
+      </div>
+      
       <b-row class="justify-content-center" style="position: relative;">
         <b-col xs="12" lg="6">
           <div class="suma-asegurada">
