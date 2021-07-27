@@ -446,8 +446,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1627361999, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1627361999, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1627621199, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1627621199, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
