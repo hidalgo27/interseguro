@@ -103,11 +103,46 @@
                                             </b-row>
                                         </b-col>
                                         
-                                        <b-col cols="12" lg="12" class="">
+                                        <b-col cols="12" lg="12" class="text-center">
+                                            <b-row class="text-center">
+                                                <b-col cols="12" md="12" class="text-center">
+                                                    <div class="checkbox-aux font-nunito">
+                                                        <label  class="box-checkbox"  id="show-modal">
+                                                            <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
+                                                            <span class=checkbox-aux__span>
+                                                                <i class="checkbox-aux__span--icon fa fa-check"></i>
+                                                            </span>
+                                                            <template v-if="tabIndex == 1">
+                                                                <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                                    y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                                </span>
+                                                                <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
+                                                                </span>
+                                                            </template>
+                                                            <template v-else>
+                                                                <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                                    y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                                </span>
+                                                                <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
+                                                                </span>
+                                                            </template>
+                                                        </label>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                            
+
                                             <b-row class="justify-content-center">
                                                 <!-- <b-col cols="12">
                                                     <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
                                                 </b-col> -->
+
+                                                
+
                                                 <b-col cols="4" class="text-center">
                                                     
                                                     <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
@@ -121,6 +156,7 @@
 
                                     </b-row>
                                 </div>
+                                
                             </b-col>
 
                         </b-row>
@@ -1541,7 +1577,7 @@ import { validationMixin } from 'vuelidate'
             }
         }
         #focusTarjeta{
-            left: -239px;
+            left: -110px;
             bottom: 63px;
             img{
                 width: 100%;
