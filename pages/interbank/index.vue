@@ -458,8 +458,8 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1627275599, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1627275599, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1627793999, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1627793999, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
