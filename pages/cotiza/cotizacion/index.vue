@@ -1420,7 +1420,7 @@
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
                 <span style="color : #ffffff; font-size: 18px">
-                ¡Cyber por Fiestas Patrias!<br> Compra con <b>10% de dscto</b>. y llévate una <br><b style="color:#FFD527">cuota gratis. Además, un vale de S/100</b><br>
+                ¡Últimas horas de Cyber!<br> Compra con <b>10% de dscto</b>. y llévate una <br><b style="color:#FFD527">cuota gratis. Además, un vale de S/100</b><br>
                 por comprar el Plan Black 
                 </span>
                 </p>

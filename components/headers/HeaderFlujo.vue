@@ -7,7 +7,7 @@
                                        
                    <div class="liston-mobile--parrafo">
                        <div style="font-size: 10px;width: 235px;margin-left: 3px;margin-top: -5px;">                             
-                            <p><b style="color: #FFD527">1 cuota gratis y vale de S/100</b><br>por comprar en Plan Black <br> solo por Fiestas Patrias</p>
+                            <p><b style="color: #FFD527">¡Últimas horas! 1 cuota gratis y vale de S/100</b><br>por comprar en Plan Black <br> solo por Fiestas Patrias</p>
                                                             
                         </div>
                         </div>
@@ -21,7 +21,7 @@
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
                             <p style="width: 731px;font-size: 19px;">
-                                <b>¡Cyber por Fiestas Patrias! Llévate<span style="color: #FFD527"> <b> 1 cuota gratis y vale de S/100</b></span> por comprar el Plan Black</b>
+                                <b>¡Últimas horas de Cyber! Llévate<span style="color: #FFD527"> <b> 1 cuota gratis y vale de S/100</b></span> por comprar el Plan Black</b>
                             </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -212,8 +212,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1627793999, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1627793999, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1627966799, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1627966799, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
