@@ -25,137 +25,141 @@
                         <p class="flujo-titulo">Ingresa tu tarjeta crédito o débito </p>
                     </div>
                 </b-col>
+
                 <b-col cols="12" md="8">
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">
                             <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;">
 
                                 
-                                <div class="panel-custom pt-3 pb-0">
-                                    <b-row>                                        
-                                        <b-col cols="12" class="box-ingresaTarjeta">
-                                            <form class="card-interseguro">   
-                                                <div class="form-group-custom">                                                        
-                                                    <div id="focusTarjeta">
-                                                        Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
-                                                    </div>
-                                                    <div class="input-group  iptGral editable  box-iptCard">
-                                                        <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
-                                                        id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
-                                                        aria-label="Número de tarjeta" autocomplete="cc-number"
-                                                        aria-describedby="numberDocumentFeedback"
-                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
-                                                        
-                                                        <img width="30" :src="creditCardImage" >
-                                                        
-                                                    </div>
+                                
+                                <b-row>                                       
+                                    <b-col cols="12" class="box-ingresaTarjeta">
+                                        <form class="card-interseguro">   
+                                            <div class="form-group-custom">                                                        
+                                                <div id="focusTarjeta">
+                                                    Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                 </div>
-                                                <div class="card-custom">
-                                                    <div class="card-custom__date">
-                                                        <div class="form-group-custom">                                                            
-                                                            <div id="box-mes" class="input-group  iptGral editable">   
-                                                                <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
-                                                                 class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
-                                                                  v-model="card.expiration_month" type="tel" name="cardmes"/>
-                                                            </div>
-                                                            <div id="focusMES">
-                                                                Fecha de vencimiento de tu tarjeta.
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group-custom  text-right-custom">
-                                                            <div class="input-group  iptGral editable">
-                                                                <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-custom__cvv">
-                                                        <div class="form-group-custom">
-                                                            <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
-                                                                <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
-                                                                id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
-                                                                aria-describedby="numberFeedback"
-                                                                 :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
-                                                            </div>
-                                                        </div>     
-                                                    </div>  
-                                                    <div  id="focusCVV" >
-                                                        <img class="img-fluid" :src="creditCardImageCvv" >
-                                                    </div>  
-                                                </div>
-                                                <br>
-                                            </form>                    
-                                        </b-col>
-                                    </b-row>
-                                </div>
-                                <div class="panel-custom pt-0">
-                                    <b-row  class="text-center justify-content-center">
-                                        <b-col cols="12" lg="5"  class="text-center">
-                                            <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
-                                                <b-col cols="12">
-                                                    <div class="spinner-tarjeta">
-                                                        <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
-                                                    </div>
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <p class="spinner-descripcion">Estamos procesando tu pago</p>
-                                                </b-col>                    
-                                            </b-row>
-                                        </b-col>
-                                        
-                                        <b-col cols="12" lg="12" class="text-center">
-                                            <b-row class="text-center">
-                                                <b-col cols="12" md="12" class="text-center">
-                                                    <div class="checkbox-aux font-nunito">
-                                                        <label  class="box-checkbox"  id="show-modal">
-                                                            <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
-                                                            <span class=checkbox-aux__span>
-                                                                <i class="checkbox-aux__span--icon fa fa-check"></i>
-                                                            </span>
-                                                            <template v-if="tabIndex == 1">
-                                                                <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
-                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
-                                                                    y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
-                                                                </span>
-                                                                <span v-else class="checkbox-aux__descripcion">He leído y acepto
-                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
-                                                                </span>
-                                                            </template>
-                                                            <template v-else>
-                                                                <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
-                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
-                                                                    y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
-                                                                </span>
-                                                                <span v-else class="checkbox-aux__descripcion">He leído y acepto
-                                                                    <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
-                                                                </span>
-                                                            </template>
-                                                        </label>
-                                                    </div>
-                                                </b-col>
-                                            </b-row>
-                                            
-
-                                            <b-row class="justify-content-center">
-                                                <!-- <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
-                                                </b-col> -->
-
-                                                
-
-                                                <b-col cols="4" class="text-center">
+                                                <div class="input-group  iptGral editable  box-iptCard">
+                                                    <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta" 
+                                                    id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
+                                                    aria-label="Número de tarjeta" autocomplete="cc-number"
+                                                    aria-describedby="numberDocumentFeedback"
+                                                    maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
                                                     
-                                                    <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
-                                                        :disabled='this.isDisabledPayment'>
-                                                        <span>PAGAR ${{this.monto_pagar}} </span>                                                        
-                                                        
-                                                    </button>
-                                                </b-col>
-                                            </b-row>
-                                        </b-col>
+                                                    <img width="30" :src="creditCardImage" >
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="card-custom">
+                                                <div class="card-custom__date">
+                                                    <div class="form-group-custom">                                                            
+                                                        <div id="box-mes" class="input-group  iptGral editable">   
+                                                            <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
+                                                             class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
+                                                              v-model="card.expiration_month" type="tel" name="cardmes"/>
+                                                        </div>
+                                                        <div id="focusMES">
+                                                            Fecha de vencimiento de tu tarjeta.
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group-custom  text-right-custom">
+                                                        <div class="input-group  iptGral editable">
+                                                            <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-custom__cvv">
+                                                    <div class="form-group-custom">
+                                                        <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
+                                                            <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
+                                                            id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
+                                                            aria-describedby="numberFeedback"
+                                                             :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
+                                                        </div>
+                                                    </div>     
+                                                </div>  
+                                                <div  id="focusCVV" >
+                                                    <img class="img-fluid" :src="creditCardImageCvv" >
+                                                </div>  
+                                            </div>
+                                            <br>
+                                        </form>                    
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col cols="12" lg="5"  class="text-center">
+                                        <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
+                                            <b-col cols="12">
+                                                <div class="spinner-tarjeta">
+                                                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                                                </div>
+                                            </b-col>
+                                            <b-col cols="12">
+                                                <p class="spinner-descripcion">Estamos procesando tu pago</p>
+                                            </b-col>                    
+                                        </b-row>
+                                    </b-col>
+                                    
+                                    <b-col cols="12" lg="12" class="text-center">
+                                        <b-row class="justify-content-center">
+                                            hola
+                                            <b-col cols="12" md="12" class="text-center">
+                                                hola2
+                                                <div class="checkbox-aux font-nunito">                                                    
+                                                    <label  class="box-checkbox"  id="show-modal">
+                                                        <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
+                                                        <span class=checkbox-aux__span>
+                                                            <i class="checkbox-aux__span--icon fa fa-check"></i>
+                                                        </span>
+                                                        <template v-if="tabIndex == 1">
+                                                            <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                                y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                            </span>
+                                                            <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
+                                                            </span>
+                                                        </template>
+                                                        <template v-else>
+                                                            <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                                y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                            </span>
+                                                            <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
+                                                            </span>
+                                                        </template>
+                                                    </label>
+                                                </div>
+                                            </b-col>
+                                        </b-row>                                        
+                                        
+                                        <b-row class="justify-content-center">                                            
+                                            <b-col cols="4" class="text-center">                                                
+                                                <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
+                                                    :disabled='this.isDisabledPayment'>
+                                                    <span>PAGAR ${{this.monto_pagar}} </span>
+                                                </button>
+                                            </b-col>
+                                        </b-row>
 
-                                    </b-row>
-                                </div>
+                                        <b-row class="justify-content-center mt-4">
+                                            <div class="tarjetas">
+                                                <span><img src="../../static/media/img/flujo/metodo-pago/tarjetas.svg" alt="visa"></span>
+                                            </div>
+                                        </b-row>
+
+                                        <b-row class="justify-content-center">
+                                            <b-col cols="12" xl="6">
+                                            <div class="box-messaje">
+                                                <p>Tu compra es 100% segura. Contamos con el respaldo del <b><span style="color:#0855C4">Grupo Intercorp</span></b> </p>
+                                            </div>
+                                            </b-col>
+                                        </b-row>
+
+                                    </b-col>
+                                </b-row>
                                 
                             </b-col>
 
@@ -1071,6 +1075,17 @@ import { validationMixin } from 'vuelidate'
     .pagina-pagar{
         padding-top: 80px;
         padding-bottom: 80px;
+    }
+
+    .box-messaje{
+        max-width: 394px;
+        overflow: hidden;
+        background: #F9F9FB;
+        height: 78px;
+        display: flex;
+        align-items: center;
+        background-color: #DCE0EA;
+        margin-top:40px
     }
     
 
