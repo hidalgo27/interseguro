@@ -82,7 +82,7 @@ module.exports = {
     { src: '~plugins/chat.js', ssr: false },
     { src: '~plugins/ga.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
-    { src: '~plugins/bing.js', ssr: false },
+    // { src: '~plugins/bing.js', ssr: false },
     // { src: '~/plugins/sentry.js', ssr: false },
     
   ],
