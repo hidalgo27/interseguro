@@ -91,7 +91,7 @@
             <div class="menu-nav__der">
 
                 <ul>
-                    <li class="" >
+                    <!-- <li class="" >
                         <nuxt-link class=""  to="/cobertura/">¿Qué me cubre?</nuxt-link>
                     </li>        
                     <li class="" >
@@ -99,15 +99,17 @@
                     </li>
                     <li class="" >
                         <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
-                    </li>
+                    </li> -->
+                    <p>¿Necesitas ayuda?</p>
+                    <div class=" telefono-desktop-img">
+                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
+                    </div>
                     <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
                         <div class="telefono">
                             <div class="d-flex  telefono-desktop">
-                                <div class=" telefono-desktop-img">
-                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
-                                </div>
+                                
                                 <div>
-                                    <span style="text-align:left; display: flex" class="ml-2">Llámanos<br>(01)500 0000</span>
+                                    <span style="text-align:left; display: flex" class="ml-2"><br>(01)500 0000</span>
                                 </div>
                             </div>
                             

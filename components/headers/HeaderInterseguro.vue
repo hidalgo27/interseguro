@@ -1,6 +1,6 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
-        </div>
+        </div> -->
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -86,16 +86,21 @@
 
                 <ul>
                     <li class="" >
-                        <nuxt-link class=""  to="/cobertura/">¿Qué me cubre?</nuxt-link>
+                        <nuxt-link class=""  to="/cobertura/">¿QUÉ ME CUBRE?</nuxt-link>
                     </li>        
                     <li class="" >
-                        <nuxt-link class=""  to="/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
+                        <nuxt-link class=""  to="/como-lo-uso/">¿CÓMO LO USO?</nuxt-link>
                     </li>
                     <li class="" >
-                    <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                <nuxt-link v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
+                        <nuxt-link class=""  to="/como-lo-uso/">BENEFICIOS</nuxt-link>
                     </li>
-                    <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
+                    <li class="" >
+                    <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
+                                <nuxt-link v-else  to="/oficial/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
+                    </li>
+                    <li><button><span>COTIZAR</span></button></li>
+                    
+                    <!-- <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
                         <div class="telefono ">
                             <div class="d-flex  telefono-desktop">
                                 <div class=" telefono-desktop-img">
@@ -106,7 +111,7 @@
                                 </div>
                             </div>                            
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </ul>
@@ -513,6 +518,24 @@ export default {
                         }
                     }
                 }
+                button{
+                width: 193px;
+                height: 40px;
+                background: var(--unnamed-color-0855c4) 0% 0% no-repeat padding-box;
+                background: #EA0F90  0% 0% no-repeat padding-box;
+                border: #EA0F8F !important;
+                border-radius: 3px;
+                opacity: 1;                
+                margin-left: 20px;
+                outline: none;
+                span{
+                    font-style: normal;
+                    text-align: center;
+                    letter-spacing: 0px;
+                    color: #FFFFFF;
+                    opacity: 1;
+                }
+            }
             }            
         }
         .btn-cotiza a {

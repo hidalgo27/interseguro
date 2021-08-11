@@ -7,7 +7,7 @@ $vehicular_subtitulo: #454A6C;
 $vehicular_parrafo_v2: #383C5A;
 .nuevo-home{
     font-size: 18px;
-    padding-top: 120px;
+    padding-top: 72px;
     color: $vehicular_parrafo_v2;
     // p,h1,h2,h3,div,span,section,article,strong{
     //     padding: 0;
@@ -25,9 +25,35 @@ $vehicular_parrafo_v2: #383C5A;
         padding: 0;
         margin: 0;
     }
+    .container-fluid{
+        background-color: #F9F9FB ;
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
     .home-seccion{
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding-top: 30px;
+        padding-bottom: 25px;
+        margin-bottom: 30px;
+    }
+    .seccion-contenido{
+        padding-top: 30px;
+        padding-bottom: 25px;
+        margin-bottom: 30px;
+        .content{
+            padding-top: 0px;
+            padding-bottom: 40px;
+        }
+        .row-comentario{
+            padding-top: 0px;
+        }
+        .row-start{
+            padding-top: 24px;
+            .stars{
+                img{
+                    margin-right: 6px;
+                }                
+            }
+        }
     }
     .section-title{
         font-family: 'Omnes Regular';
@@ -39,7 +65,7 @@ $vehicular_parrafo_v2: #383C5A;
             max-width: 290px;
             margin: auto;
         }
-        margin-bottom: 24px;
+        //margin-bottom: 24px;
     }
     
     /**********************************************************/
@@ -49,7 +75,8 @@ $vehicular_parrafo_v2: #383C5A;
         background-color: transparent;
         height: 480px;
         width: 100%;
-        position: relative;        
+        position: relative; 
+        margin-bottom: 25px;       
         .banner-blue{
             position: absolute;
             height: 350px;
@@ -66,9 +93,9 @@ $vehicular_parrafo_v2: #383C5A;
             z-index: 9;
             .titulo{
                 font-family: 'Omnes Medium';
-                font-size: 34px;
+                font-size: 48px;
                 line-height: 40px;
-                text-align: center;
+                width: 545px;
             }
             .subtitulo{
                 color: #fff;
@@ -78,6 +105,12 @@ $vehicular_parrafo_v2: #383C5A;
                 line-height: 30px;
                 margin-top: 16px;
                 margin-bottom: 50px;
+            }
+            .titulo-mobile{                
+                text-align: center;
+                font-size: 34px;
+                line-height: 40px;
+                font-family: 'Omnes Medium';
             }
         }
 
@@ -104,7 +137,7 @@ $vehicular_parrafo_v2: #383C5A;
             height: 280px;
             border-radius: 3rem 0 3rem 0;
             background: #fff;
-            box-shadow: -3px 4px 12px -1px #ccc;
+            //box-shadow: -3px 4px 12px -1px #ccc;
             position: relative;
             margin: auto;
             z-index: 9; 
@@ -144,16 +177,21 @@ $vehicular_parrafo_v2: #383C5A;
                 align-items: center;
                 button{
                     font-family: 'Omnes Regular';
-                    border-color: #EA0F8F !important;
+                    border: #EA0F8F !important;
                     background-color: #EA0F8F !important;
                     color: #fff;
                     max-width: 360px;
                     width: 100%;
-                    max-width: 275px;
-                    height: 40px;
+                    //max-width: 275px;
+                    height: 51px;
                     margin: 0 auto !important;
                     position: relative;
+                    border-radius: 2px;
+                    outline: none;
                 }
+                /* button:active{
+                    background-color: #bd0872 !important;
+                } */
             }
             .respaldo-intercorp{
                 span{
@@ -173,6 +211,7 @@ $vehicular_parrafo_v2: #383C5A;
         padding-top: 24px;
         padding-bottom: 24px;
     }
+    
     .client-numbers{
         border: #DDE0E9 1px solid;
         padding: 2px 16px;
@@ -252,7 +291,7 @@ $vehicular_parrafo_v2: #383C5A;
         }
     }
     .home-video{
-        padding: 44px 0;
+        padding-top: 40px;
         .text-video{
             font-size: 1.125rem;
             text-align: center;
@@ -315,7 +354,215 @@ $vehicular_parrafo_v2: #383C5A;
         }
     }
     .box-planes{
-        background-color: #F9F9FB;
+        background-color: #F9F9FB;        
+    }
+
+    .titulo-box-planes{
+        font-size: 18px;
+        font-family: 'Omnes SemiBold';
+        color: #383C5A;
+        line-height: 25px;
+        padding-top: 20px;
+        padding-bottom: 4px;
+    }
+    .que-me-cubre{
+        &__item{
+          font-family: 'Omnes Regular';
+          font-size: 16px;
+          //line-height: 25px;
+          padding-top: 6px;
+          color: #383C5A;
+        }
+    }
+
+    .planes{
+        padding-top: 40px;
+        .strecht{
+            align-items: stretch;
+            //height: 590px;
+            .item{
+                //align-self:stretch;
+                height: 100%;
+            }
+        }
+        .detalle-plan{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            height: 100%;
+           /*  border: 1px solid #CCD1DD;
+            border-radius: 3px;
+            opacity: 1;
+            height: 825px; */
+            .box-titulo{
+                margin-top: 20px;
+                margin-bottom: 10px;
+                .titulo-principal{
+                  letter-spacing: var(--unnamed-character-spacing-0);
+                  color: var(--unnamed-color-383c5a);
+                  text-align: center;
+                  font-weight: bold;
+                  font-size: 18px;
+                  letter-spacing: 0px;
+                  color: #383C5A;
+                  text-transform: uppercase;
+                }
+                .titulo-descripcion{
+                  color: var(--unnamed-color-383c5a);
+                  text-align: center;
+                  font-weight: normal;
+                  font-size: 18px;
+                  letter-spacing: 0px;
+                  color: #383C5A;
+                  text-transform: lowercase;
+                }
+                
+              }
+              .monto-frecuencia{
+                margin-top: 35px;
+                margin-bottom: 20px; 
+                text-align: center; 
+                font-size: 23px;              
+                .monto{
+                    color: #383C5A;
+                    font-family: "Omnes Medium";
+                    font-size: 42px;
+                }
+              }
+              .monto-antes {
+                margin-top: 10px;
+                color: #454A6C;
+                font-family: "Omnes Medium";
+                font-size: 18px;
+                text-decoration: line-through;
+                text-decoration-color: #2157BD;
+              }
+              .que-me-cubre {
+                width: 90%;
+              }
+              hr{
+                width: 80%;
+                border: 1px solid #CCD1DD;
+                opacity: 1;
+              }
+        }
+        .box-titulo-normal{
+            width: 100%;
+            background-color: #FFFFFF;
+        }
+        .box-titulo-recomendado{
+            width: 100%;
+            background-color: #F9F9FB;
+        }
+        .plan-not-head{
+            background: #F9F9FB;
+            height: 35px;
+            width: 100%
+        }
+        .plan-recomendado{
+            background: $vehicular_primario;
+            height: 35px;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 17px;
+            font-family: 'Omnes Medium';
+            border-radius: 3px 3px 0 0;
+            img{
+                margin-right: 7px;
+            }
+        }
+        .box-plan-normal{
+            display: flex;
+            flex-direction: column;
+            align-content:space-between;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #DDE0E9;
+            padding-bottom: 1.7rem;
+            background-color: #fff;
+            border-radius: 3px;
+            opacity: 1;
+        }
+        .box-plan-recomendado{
+            width: 100%;
+            border: 3px solid $vehicular_primario;
+            padding-bottom: 1.7rem;
+            background-color: #fff;
+            border-radius: 3px;
+            opacity: 1;
+        }
+        
+
+        .plan-monto{
+            font-size: 1.5rem;
+            text-align: center;
+            color: $vehicular_primario;
+            padding: 16px 0;
+        }
+        .plan-incluye{
+            color: #454A6C;
+            font-family: 'Omnes SemiBold';
+            padding-left: 1.5rem;
+        }
+        .plan-nombre{
+            text-align: center;
+            font-size: 1.25rem;
+            font-family: 'Omnes Regular';
+            padding: 16px 0;
+            position: relative;
+            &:after{
+                background-color: #DDE0E9;
+                bottom: 0;
+                content: "";                
+                height: 1px;
+                left: 15%;
+                position: absolute;
+                width: 70%; 
+            }
+        }
+        ul{
+            padding-top: 14px;
+            padding-left: 1.5rem;
+            li{
+                list-style: none;
+                font-family: 'Omnes Regular';
+                font-size: 1rem;
+            }
+        }
+        .ver-detalle{
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            cursor: pointer;
+            padding-top: 30px;
+            span{
+                font-size: 18px;
+            }
+            img{
+                margin-left: 6px;
+            }
+            
+        }
+    }
+
+    .beneficios{
+        padding-top: 40px;        
+        .titulo{
+            font-family: 'Omnes SemiBold';           
+        }
+        .descripcion{
+            font-family: 'Omnes Regular';
+        }
+        li::marker {
+            color: #0855C4 ; /* bullet color */
+          }
+          li {
+            color: #454A6C /* text color */
+          }
+
     }
     .seccion-planes{
         .plan-recomendado{
@@ -415,24 +662,50 @@ $vehicular_parrafo_v2: #383C5A;
     .tab-personalizado:not(:disabled):not(.disabled):active, .tab-personalizado:not(:disabled):not(.disabled).active, .show > .tab-personalizado.dropdown-toggle {
         color: #383C5A !important;
         background-color: #fff !important;
-        border: none !important;
+        border: none;
     }
     .card-personalizado{
         color: #383C5A !important;
         background-color: #fff !important;
-        border: none !important;
-        
+        border-left: none;
+        border-right: none; 
+        border-radius: 0px;       
+        .btn{
+            background-color: #fff;
+            color: #383C5A;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-family: 'Omnes Regular';
+            font-size: 20px;
+            outline: none;
+        }
+        .card-header{
+            border-bottom: none;
+        }
         header{
-            background-color: #ffffff00;
+            background-color: #FFFFFF ;
+        }
+        .btn-info:active{
+            background-color: #fff !important;
+            color: #383C5A !important;
+            font-family: 'Omnes Semibold';
+            outline: none;
+        }
+        .card-text{            
+            font-family: 'Omnes Regular';
+            font-size: 18px;
         }
     }
+    
     .dudas-consultas{
         padding: 48px 0;
         &__item{
             border: #CCD1DD 1px solid;
+            border-radius: 3px;
             height: 180px;
             display: flex;
-            padding: 0 12px;
+            padding: 0 12px;            
             img{
                 width: 87px;
             }
@@ -455,6 +728,11 @@ $vehicular_parrafo_v2: #383C5A;
                 color: #383C5A;
                 font-family: 'Omnes SemiBold';
                 font-size: 20px;
+            }
+            .text{
+                color: #383C5A;
+                font-family: 'Omnes Regular';
+                font-size: 16px;
             }
             
         }
@@ -566,10 +844,20 @@ $vehicular_parrafo_v2: #383C5A;
                 max-width: 438px;
                 height: 340px;
                 input{
+                    font-size: 23px;
                     height: 51px;
                     width: 360px;
                     margin: auto;
                     text-align: center;
+                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                    background: #FFFFFF 0% 0% no-repeat padding-box;
+                    border: 2px solid #2157BD;
+                    border-radius: 3px;
+                    opacity: 1;
+                    //quita la sombra del input
+                    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+                    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+                    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
                 }
                 .asegurados{
                     color: #0855C4;
@@ -593,17 +881,19 @@ $vehicular_parrafo_v2: #383C5A;
                 display: inline-block;
                 .titulo{
                     text-align: left;
+                    line-height: 60px;
                 }
                 .subtitulo{
                     text-align: left;
                 }
+                
             }
         }
         .section-title{
             p{
                 font-size: 2.44rem;
                 line-height:3.125rem;
-                max-width: 640px;                
+                max-width: 810px;                
             }
         }
         .client{
@@ -706,6 +996,7 @@ $vehicular_parrafo_v2: #383C5A;
             align-items: center;
             p{
                 font-size: 18px;
+                font-family: 'Omnes Regular';
             }
             .VueCarousel-inner{
                 flex-basis: 475px !important;

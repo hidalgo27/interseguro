@@ -365,13 +365,6 @@
 
                   <div class="datos-poliza">
                       <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
-                      <!-- 
-                      <p><span class="campo">Plan</span> <span>{{this.$store.state.common.planSeleccionado}}</span></p>
-                      <p><span class="campo">Cobertura</span> <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
-                      <p><span class="campo">Frecuencia</span> <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
-                      <p><span class="campo">F. de inicio </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
-                      -->
-
                       <div v-if="this.planSeleccionado == 4" class="plan-titulo">
                         <p><span class="campo">Plan</span> <span>Básico: Protección contra robo</span></p>
                       </div>

@@ -29,7 +29,8 @@ export default {
     return {
       // showLoader: true,
       session: {
-        currency: 'PEN',
+        //currency: 'PEN',
+        currency: 'USD',
         // amount: parseFloat(33.03),
         amount: this.$store.state.common.montoPagar,
         // amount: parseFloat(this.$store.state.common.montoPagar),
@@ -43,7 +44,8 @@ export default {
       niubizConfig: {
         sessionkey: '', // dato obtenido desde la API del backend
         channel: 'paycard' ,
-        merchantid:  522591303,
+        //merchantid:  522591303, 
+        merchantid:  102069302, 
        // merchantid: process.env.configNiubiz.comercioNiubiz, // código del comercio por producto TEST
         purchasenumber: '0780000001', // Ejemplo: Número de póliza, número de Venta, etc
         // amount: parseFloat(this.$store.state.common.montoPagar), // El precio a cobrar

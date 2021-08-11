@@ -37,6 +37,13 @@ $is-v-azul: #0855c4;
             color: $vehicular_primario;
             font-family: 'Omnes SemiBold';
         }
+        .desc-resumen{
+            font-size: 16px;
+            padding: 0px;
+            padding-left: 20PX;
+            color: #383C5A;
+            font-family: 'Omnes Medium';
+        }
     }
     &__cuerpo{
         padding-bottom: 24px;
@@ -47,6 +54,12 @@ $is-v-azul: #0855c4;
             .monto{
                 color: $vehicular_primario;
                 font-size: 40px;
+                font-family: 'Omnes Medium';
+                vertical-align: middle;
+            }
+            .monto-resumen{
+                color: $vehicular_primario;
+                font-size: 25px;
                 font-family: 'Omnes Medium';
                 vertical-align: middle;
             }
@@ -63,7 +76,7 @@ $is-v-azul: #0855c4;
             padding-left: 24px;
             padding-top: 24px;
             p{
-                
+                line-height: 30px;
                 .campo{
                     color: #A4A7BC;
                     font-size: 15px;
@@ -75,6 +88,23 @@ $is-v-azul: #0855c4;
                     color: #383C5A;
                     font-size: 15px;
                     font-family: 'Omnes Regular';
+                }
+                
+            }
+            button{
+                width: 70px;
+                height: 25px;
+                background: var(--unnamed-color-0855c4) 0% 0% no-repeat padding-box;
+                background: #0855C4 0% 0% no-repeat padding-box;
+                border-radius: 3px;
+                opacity: 1;                
+                margin-left: 20px;
+                span{
+                    font-style: normal;
+                    text-align: center;
+                    letter-spacing: 0px;
+                    color: #FFFFFF;
+                    opacity: 1;
                 }
             }
         }
