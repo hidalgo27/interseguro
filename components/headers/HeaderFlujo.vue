@@ -1,27 +1,28 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <!-- <div>
-            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
+        <div>
+            <div id="liston-desktop" class="liston" 
+            style="background: transparent radial-gradient(closest-side at 48% 51%, #02E0FF 0%, #028DFF 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
+            v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo">
-                       <div style="font-size: 10px;width: 235px;margin-left: 3px;margin-top: -5px;">                             
-                            <p><b style="color: #FFD527">¡Últimas horas! 1 cuota gratis y vale de S/100</b><br>por comprar en Plan Black <br> solo por Fiestas Patrias</p>
-                                                            
+                       <div style="font-size: 10px;width: 235px;margin-left: 3px;margin-top: -5px;">
+                             <p>1 cuota gratis + S/50 en vale  <br><span style="color: #02339e">por comprar en Plan Black</span>  </p>                               
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -20px;display: block;width: 176px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 19px;top: -20px;display: block;width: 176px !important;">
                         </div>
                     </div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                         <img width="160" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
+                         <img width="160" src="./../../static/media/img/campania/liston-desktop.png" alt="">  
                             <p style="width: 731px;font-size: 19px;">
-                                <b>¡Últimas horas de Cyber! Llévate<span style="color: #FFD527"> <b> 1 cuota gratis y vale de S/100</b></span> por comprar el Plan Black</b>
+                                <b><span style="color: #ffffff">¡Big Sale Interseguro!</span><span style="color: #02339e"> Paga solo </span><span style="color: #ffffff">11 meses por un seguro anual</span> <span style="color: #02339e"> y obtén un </span> <span style="color: #ffffff">vale de S/50</span>   <span style="color: #02339e"> por comprar Plan Black </span> </b> 
                             </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -29,7 +30,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
-        </div> -->
+        </div>
         
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -179,7 +180,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -212,8 +213,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1627966799, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1627966799, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1628917199, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1628917199, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"

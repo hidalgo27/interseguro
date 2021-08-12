@@ -2,7 +2,7 @@
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
     
-    <div class="boxHome-banner">      
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -60,17 +60,18 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     
     <!--Habilitar  en campaña-->
-    <!-- <div class="boxHome-banner">      
+    <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
-              <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="">
+              <img src="./../static/media/img/campania/banner-home-mobile.png" alt="">
             </div>
-            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">              
+            <p class="d-flex  d-md-none" style="margin-left: 14px;color: #FFFFFF;font-family: 'Omnes Medium';font-style: italic;font-size: 18px;margin-bottom: -10px;">La oferta termina en : </p>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">                            
               <div class="box-contador"  >
                 <div  class="example  d-md-flex">
                     <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;">                        
@@ -121,8 +122,9 @@
 
             
             <div class="box-contador" >              
-              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 80px;">              
-              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -20px;right: 343px;">
+              <img src="./../static/media/img/campania/banner-home-desktop.png" alt="" style="margin-left: 20px;margin-top: 55px;width: 90%;"> 
+              <p style="margin-left: 136px; color: #FFFFFF; font-family: 'Omnes Medium'; font-style: italic; font-size: 18px;">La oferta termina en : </p>             
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -61px;right: 245px;">                  
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
                       
                   </div> 
@@ -131,7 +133,7 @@
           
         </div>
       </div>
-    </div>  -->
+    </div> 
    
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
@@ -446,8 +448,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1627966799, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1627966799, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1628917199, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1628917199, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -648,7 +650,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        //this.contador()
+        this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -824,8 +826,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 140px;
-      //padding-top: 250px;
+      //padding-top: 140px;
+      //pasos mobile campaña
+      padding-top: 250px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1047,7 +1050,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       position: relative;
       height: 296px;
       background-color:  rgba(8,85,196,.1);
-      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      //background campaña
+      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
         margin: auto;
         background-repeat: no-repeat;
@@ -1113,8 +1117,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           padding-top: 68px !important;
           height: auto;
           display: none;
-          // display: flex;
-          // flex-direction: column;
           align-items: center;
           .box-contador{
             .example{
@@ -1665,8 +1667,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        //height: 480px;
-        height: auto;
+        height: 485px;
+        //height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
@@ -1722,7 +1724,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             -webkit-box-align: center;
             background-size: 90%;
             //mostrar Automovil
-            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;

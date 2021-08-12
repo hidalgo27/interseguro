@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1935" height="73" viewBox="0 0 1935 73"><defs><style>.a{fill:url(#a);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1.616" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#0855c4"/><stop offset="1" stop-color="#0a1d5c"/></linearGradient></defs><rect class="a" width="1935" height="73"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1365.999" height="73.999" viewBox="0 0 1365.999 73.999">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.765" cy="0.705" r="1.095" gradientTransform="translate(0.167) scale(0.667 1)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#02e0ff"/>
+      <stop offset="1" stop-color="#028dff"/>
+    </radialGradient>
+  </defs>
+  <rect id="Rectángulo_7238" data-name="Rectángulo 7238" width="1365.999" height="73.999" fill="url(#radial-gradient)"/>
+</svg>
