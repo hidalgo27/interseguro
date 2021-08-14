@@ -85,8 +85,10 @@ $vehicular_parrafo_v2: #383C5A;
             z-index: 9;
         }
         .banner-textos{
-            width: 455px;
-            margin-left: 32px;
+            //width: 455px;
+            width: 325px;
+            //margin-left: 32px;
+            margin-left: 5px;
             color: #fff;            
             padding-top: 28px;
             position: relative;
@@ -106,7 +108,8 @@ $vehicular_parrafo_v2: #383C5A;
                 margin-top: 16px;
                 margin-bottom: 50px;
             }
-            .titulo-mobile{                
+            .titulo-mobile{
+                width: 100%;                
                 text-align: center;
                 font-size: 34px;
                 line-height: 40px;
@@ -137,6 +140,7 @@ $vehicular_parrafo_v2: #383C5A;
             height: 280px;
             border-radius: 3rem 0 3rem 0;
             background: #fff;
+            border: 1px solid #DDE0E9;
             //box-shadow: -3px 4px 12px -1px #ccc;
             position: relative;
             margin: auto;

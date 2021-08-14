@@ -100,11 +100,13 @@
                     <li class="" >
                         <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
                     </li> -->
-                    <p>¿Necesitas ayuda?</p>
-                    <div class=" telefono-desktop-img">
+                    <p>¿Necesitas ayuda? <img src="../../static/media/img/home/telf.svg" alt="" style="margin-left:5px"></p> 
+                    <p class="fono">(01)500 0000</p>                     
+                    
+                    <!-- <div class=" telefono-desktop-img">
                                     <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
-                    </div>
-                    <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
+                    </div> -->
+                    <!-- <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
                         <div class="telefono">
                             <div class="d-flex  telefono-desktop">
                                 
@@ -114,7 +116,7 @@
                             </div>
                             
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="d-none  d-lg-flex  box-cotiza"  v-bind:class="{ oculto: isOculto }">
                         <!-- <div class="btn-cotiza">
@@ -451,13 +453,14 @@ export default {
     }
     .header-planes{
         background: white;
-        height: 68px;
+        height: 72px;
         position: fixed;
         width: 100%;
         margin: auto;
         top:0;
-        z-index: 999;
-        border-bottom: 1px solid #d4d4d4;
+        z-index: 999;        
+        border-bottom: 1px solid #DDE0EA;
+
         .menu-nav{
             display: flex;
             flex-direction: column;
@@ -487,6 +490,13 @@ export default {
                 background: #f3f3f3;
                 height: 68px;
                 display: none;
+                .fono{
+                    font-family: 'Omnes Medium';
+                    letter-spacing: 0px; 
+                    color: #0855C4; 
+                    opacity: 1; 
+                    margin-left:5px
+                }
                 
                 ul{
                     text-align: center;
@@ -693,6 +703,7 @@ export default {
                     flex-grow: 1;
                     display: flex;
                     padding-right: 65px;
+                    font-family: 'Omnes Regular';
                     ul{
                         justify-content: flex-end;
                         li{
@@ -702,7 +713,7 @@ export default {
                             a{
                                 font-size: 1rem;
                                 color: #454a6c;
-                            }
+                            }                            
                             &:hover{
                                 a{
                                     transition: all 0.5s;

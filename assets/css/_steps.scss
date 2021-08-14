@@ -111,10 +111,19 @@
             height: var(--step-circle-size-after);
             // border: 2px solid white;
             //   background-color: $secundario;
-            background-color: #0754c4;
+            //background-color: #0754c4;            
             top: calc(var(--steps-line-top) - 5px);
             left: 0;
             z-index: 99;
+
+            background-color: #BFD4F2;
+            border-color: #4884D9;
+            background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
+            background-size: contain;
+            position: absolute;  
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
       }
       &:after {
           --steps-bullet-left: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2));
@@ -127,7 +136,7 @@
           border: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2)) solid #BFD4F2;
           width: var(--step-circle-size-before);
           height: var(--step-circle-size-before);
-          background-color: #BFD4F2;
+          border-color: #BFD4F2;
       }
       
       
@@ -181,8 +190,8 @@
   }
   &--active:before {
       opacity: 1;
-    background-color: #0754c4;
-    border-color: #0754c4;
+    background-color: #4884D9;
+    border-color: #4884D9;
   }
 }
 
@@ -210,18 +219,18 @@
   top: calc(var(--steps-bullet-top) + 0px);
   opacity: 1;  
   content: "";
-  background-image: url("../../static/media/img/root/check_planes_cotizador.png");
+  //background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
   background-size: contain;
   position: absolute;  
   background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .steps__item.steps--active~.steps__item:before {
   display: none;
   background-color: #0754c4;
-  border-color: #0754c4;
+  border-color: #0754c4;  
 
 }
 /*      FIN DEL PROGRESS BAR      */

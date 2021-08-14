@@ -3,9 +3,6 @@
     <div class="banner">
       <div class="banner-blue    d-xl-none"></div>
       <div class="container">
-        <b-row>
-
-        </b-row>
         <div class="banner-textos  d-xl-none">         
           <p class="titulo-mobile">Proteger tu auto no  <span><br></span> tiene porque ser caro.</p>
           <p class="subtitulo">
@@ -58,11 +55,10 @@
             Compra hoy cualquiera de nuestros planes<span><br>con</span> <strong> 10% de descuento anual.</strong>
           </p>
         </div>
-
         <div class="fondo-banner d-none  d-lg-inline-block">
-          
+            
         </div>
-        
+          
       </div>
     </div>
 
@@ -70,14 +66,13 @@
       <b-row class="content">
         <b-col cols="12">
           <div class="section-title">
-            <p>
-              Más de 550,000 clientes ya protegen <br> su auto <span class="d-lg-none">&nbsp; &nbsp; &nbsp; &nbsp;</span> con nosotros
-            </p>
+            <p class="d-none d-sm-block">Más de 550,000 clientes ya protegen <br> su auto con nosotros</p>
+            <p class="d-block d-sm-none">Más de 550,000 clientes <br> ya protegen su auto <br> con nosotros</p>            
           </div>
         </b-col>
       </b-row>
-      <b-row class="content">
-        <b-col cols="3" class="pr-2 pl-2">
+      <b-row class="content justify-content-center" cols="1" cols-sm="2" cols-md="2" cols-lg="4">
+        <b-col class="pr-2 pl-2">
           <div class="client-numbers">
             <div class="client-numbers__item">
               <img src="@/static/media/imagenes/home/cotizaciones.svg" alt="" class="client-numbers__item--icon">
@@ -89,7 +84,7 @@
           </div>
         </b-col>
 
-        <b-col cols="3" class="pr-2 pl-2">
+        <b-col  class="pr-2 pl-2">
           <div class="client-numbers">
             <div class="client-numbers__item">
               <img src="@/static/media/imagenes/home/asistencia.svg" alt="" class="client-numbers__item--icon">
@@ -101,7 +96,7 @@
           </div>
         </b-col>
 
-        <b-col cols="3" class="pr-2 pl-2">
+        <b-col class="pr-2 pl-2">
           <div class="client-numbers">
             <div class="client-numbers__item">
               <img src="@/static/media/imagenes/home/siniestros.svg" alt="" class="client-numbers__item--icon">
@@ -113,7 +108,7 @@
           </div>
         </b-col>
 
-        <b-col cols="3" class="pr-2 pl-2">
+        <b-col class="pr-2 pl-2">
           <div class="client-numbers">
             <div class="client-numbers__item">
               <img src="@/static/media/imagenes/home/tiempo.svg" alt="" class="client-numbers__item--icon">
@@ -131,16 +126,16 @@
             <carousel :perPageCustom="[[368, 1], [1024, 1]]" 
              :navigationEnabled="false" 
              :paginationEnabled="false">
-              <slide>
+              <!-- <slide>
                 <img src="./../static/media/imagenes/home/testimonio.png"/>
                 <p class="categoria" v-bind:class="'categoria-'+index">
                 Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” <strong>Rosario P. Gamarra</strong>
                 </p>
-              </slide>
+              </slide> -->
               <slide v-for="(item, index) in listCategories" v-bind:key="index" >
-                <img src="./../static/media/imagenes/home/testimonio.png"/>
+                <img :src="item.img" alt="">
                 <p class="categoria" v-bind:class="'categoria-'+index">
-                Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” <strong>Rosario P. Gamarra</strong>
+                  {{item.testimonio}} <b>{{item.autor}}</b>
                 </p>
               </slide>
             </carousel>
@@ -746,13 +741,21 @@ export default {
       ],
       listCategories:[
         {
-          testimonio : "‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” Rosario P. Gamarra",
+          testimonio : "‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.” ",
+          autor : "Manuel Augusto",
           star : 5,
           img : require("./../static/media/imagenes/home/testimonio.png")
         },
         {
-          testimonio : "‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” Rosario P. Gamarra",
+          testimonio : "‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.",
+          autor : "Carolina Chavez",
           star : 5,
+          img : require("./../static/media/imagenes/home/testimonio.png")
+        },
+        {
+          testimonio : "‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!",
+          autor : "Enrique Quispe",
+          star : 4,
           img : require("./../static/media/imagenes/home/testimonio.png")
         },
       ],

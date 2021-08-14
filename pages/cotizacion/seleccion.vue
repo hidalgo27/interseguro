@@ -86,9 +86,7 @@
                         <b-col cols="11" lg="9" class="h-auto">   
                             
                             <div class="listas">
-                                <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                                    
-                                    <!-- <p class="flujo-titulo  mb-4">Selecciona la marca</p> -->
-                                    
+                                <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                                       
                                     <div class="box-lista">
                                         <div class="box-input">
                                             <b-form-input v-model="filterBrand" type="text" 
