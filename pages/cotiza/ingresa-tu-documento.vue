@@ -793,8 +793,9 @@
                 <span style="color : #ffffff; font-size: 18px">
                   <span style="color:#003AAD">¡Big Sale!</span><br>
                   <span style="color:#FFFFFF">Paga solo 11 meses </span>
-                  <span style="color:#003AAD">por un seguro vehicular <br> anual y si compras el Plan Black adicionalmente <br> obtendrás un</span> 
-                  <span>vale virtual de S/ 50.</span>
+                  <span style="color:#003AAD">por un seguro vehicular <br> anual y participa del </span> 
+                  <span style="color:#FFFFFF"> sorteo de un Air Fryer </span> 
+                  <span style="color:#003AAD">por</span><br> <span style="color:#003AAD">comprar Plan Black</span>
                 </span>
                 </p>
             </b-col>
