@@ -9,11 +9,11 @@
                                        
                    <div class="liston-mobile--parrafo">
                        <div style="font-size: 10px;width: 235px;margin-left: 3px;margin-top: -5px;">
-                             <p>1 cuota gratis + S/50 en vale  <br><span style="color: #02339e">por comprar en Plan Black</span>  </p>                               
+                             <p>1 cuota gratis + sorteo de un  <br> Air Fryer <span style="color: #02339e">por comprar en Plan Black</span>  </p>                               
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: 19px;top: -20px;display: block;width: 176px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: -3px;top: -28px;display: block;width: 176px !important;">
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="d-flex align-items-center logo-franja">
                          <img width="160" src="./../../static/media/img/campania/liston-desktop.png" alt="">  
                             <p style="width: 731px;font-size: 19px;">
-                                <b><span style="color: #ffffff">¡Big Sale Interseguro!</span><span style="color: #02339e"> Paga solo </span><span style="color: #ffffff">11 meses por un seguro anual</span> <span style="color: #02339e"> y obtén un </span> <span style="color: #ffffff">vale de S/50</span>   <span style="color: #02339e"> por comprar Plan Black </span> </b> 
+                                <b><span style="color: #ffffff">¡Big Sale Interseguro!</span><span style="color: #02339e"> Obtén </span><span style="color: #ffffff">una cuota gratis</span> <span style="color: #02339e"> y participa del </span> <span style="color: #ffffff">sorteo de un Air Fryer </span>   <span style="color: #02339e"> por comprar Plan Black </span> </b> 
                             </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -213,8 +213,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1629349199, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1629349199, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1629781199, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1629781199, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
