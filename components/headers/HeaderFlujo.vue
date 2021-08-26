@@ -3,13 +3,13 @@
         <!--Cintillo campaña-->
         <div>
             <div id="liston-desktop" class="liston" 
-            style="background: transparent radial-gradient(closest-side at 48% 51%, #02E0FF 0%, #028DFF 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
+            style="background: transparent radial-gradient(closest-side at 48% 51%, #0374e1 0%, #0374e1 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
             v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo">
                        <div style="font-size: 10px;width: 235px;margin-left: 3px;margin-top: -5px;">
-                             <p>1 cuota gratis + sorteo de un  <br> Air Fryer <span style="color: #02339e">por comprar en Plan Black</span>  </p>                               
+                             <p> <span style="color:#ffd527">1 cuota gratis +</span>  sorteo TV 50"  <br> <span style="color: #ffd527">y camiseta de Perú</span>  </p>                               
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
@@ -20,9 +20,13 @@
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                         <img width="160" src="./../../static/media/img/campania/liston-desktop.png" alt="">  
-                            <p style="width: 731px;font-size: 19px;">
-                                <b><span style="color: #ffffff">¡Big Sale Interseguro!</span><span style="color: #02339e"> Obtén </span><span style="color: #ffffff">una cuota gratis</span> <span style="color: #02339e"> y participa del </span> <span style="color: #ffffff">sorteo de un Air Fryer </span>   <span style="color: #02339e"> por comprar Plan Black </span> </b> 
+                         <img width="190" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
+                            <p style="width: 656px;font-size: 19px;margin-left: 33px;">
+                                <b>
+                                    <span style="color: #ffffff">¡Big Sale Interseguro! Llévate </span>
+                                    <span style="color: #ffd527"> una cuota gratis </span><span style="color: #ffffff">y participa del sorteo</span><br>
+                                    <span style="color: #ffd527"> por una TV 50" y una camiseta de Perú </span>  
+                                </b> 
                             </p>
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -213,8 +217,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1629781199, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1629781199, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1630299599, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1630299599, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -344,7 +348,7 @@ export default {
             line-height: 1.3;
             letter-spacing: normal;
             color: #fff;
-            font-family: 'Omnes Regular' !important;
+            //font-family: 'Omnes Regular' !important;
         }
         .example{
             width: 100%;
