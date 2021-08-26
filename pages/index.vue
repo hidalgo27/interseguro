@@ -68,7 +68,7 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
-              <img src="./../static/media/img/campania/banner-home-mobile.png" alt="" style="width: 100%; ">
+              <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="" style="width: 100%; ">
             </div>
             <p class="d-flex  d-md-none" style="margin-left: 14px;color: #FFFFFF;font-family: 'Omnes Medium';font-style: italic;font-size: 18px;margin-bottom: -10px;">La oferta termina en : </p>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">                            
@@ -122,9 +122,9 @@
 
             
             <div class="box-contador" >              
-              <img src="./../static/media/img/campania/banner-home-desktop.png" alt="" style="margin-left: 20px;margin-top: 55px;width: 90%;"> 
+              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px;margin-top: 55px;width: 185%;"> 
               <p style="margin-left: 136px; color: #FFFFFF; font-family: 'Omnes Medium'; font-style: italic; font-size: 18px;">La oferta termina en : </p>             
-              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -61px;right: 245px;">                  
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -36px;right: -29px;">                  
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
                       
                   </div> 
@@ -448,8 +448,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1629781199, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1629781199, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1630299599, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1630299599, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -828,7 +828,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       background-color: #fff;
       //padding-top: 140px;
       //pasos mobile campaña
-      padding-top: 250px;
+      padding-top: 270px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1049,9 +1049,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .boxHome-banner{
       position: relative;
       height: 296px;
-      background-color:  rgba(8,85,196,.1);
+      //background-color:  rgba(8,85,196,.1);      
       //background campaña
-      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      background: #0857c5;
       .home-banner{
         margin: auto;
         background-repeat: no-repeat;
@@ -1217,7 +1218,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         top: -1rem;
         border-radius: 8px 0 8px 0;
         box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-        background-color: #0855c4!important;
+        background-color: #003aad!important;
         color: white !important;
         font-family: 'Omnes Medium';
       }
@@ -1663,7 +1664,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         }
       }
       .boxHome-banner{
-        background-color:  rgba(8,85,196,.1);
+        //background-color:  rgba(8,85,196,.1);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -1783,7 +1784,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           top: -1rem;
           border-radius: 8px 0 8px 0;
           box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-          background-color: #0855c4 !important;
+          background-color: #003aad !important;
           color: white !important;
           width: 220px;
           height: 40px;

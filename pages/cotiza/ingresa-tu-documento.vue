@@ -787,15 +787,14 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.png" alt="">
-              <p class="mt-3">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
+              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
+              <p class="mt-2">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br>               
                 <span style="color : #ffffff; font-size: 18px">
-                  <span style="color:#003AAD">¡Big Sale!</span><br>
-                  <span style="color:#FFFFFF">Paga solo 11 meses </span>
-                  <span style="color:#003AAD">por un seguro vehicular <br> anual y participa del </span> 
-                  <span style="color:#FFFFFF"> sorteo de un Air Fryer </span> 
-                  <span style="color:#003AAD">por</span><br> <span style="color:#003AAD">comprar Plan Black</span>
+                  ¡Big Sale Interseguro!<br>
+                  Asegura tu auto con <span style="color:#ffd527"> una cuota gratis </span> y <br>
+                  participa en el sorteo de <span style="color:#ffd527"> una TV de 50" </span> <br>
+                  <span style="color:#ffd527"> y una camiseta de Perú </span>
                 </span>
                 </p>
             </b-col>
