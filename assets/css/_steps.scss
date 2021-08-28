@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-bottom: 12px;
+  //padding-bottom: 12px;
   .backcotizacion{
     cursor: pointer;
     position: absolute;
@@ -89,16 +89,17 @@
       content: '';
       position: absolute;
       width: 100%;
-      height: calc(.2rem + .1vw);
+      //height: calc(.2rem + .1vw);
+      height: 1px;
       top: -16px;
       background-color: #BFD4F2;
   }
   &__item {
-      text-transform: uppercase;
-      font-family: 'Omnes Medium';
-      font-size: 10px;
-      font-weight: 600;
-      color: #9b9b9b;
+      text-transform: none;
+      font-family: 'Omnes Regular';
+      font-size: 16px;
+      //font-weight: 600;
+      color: #BFD4F2;
       position: relative;
       flex-basis: 33%;
       &:after,&:before {
@@ -108,15 +109,11 @@
             --step-circle-size-after: calc(20px + .15vw);
             --step-circle-size-before: calc(22px + .15vw);
             width: var(--step-circle-size-after);
-            height: var(--step-circle-size-after);
-            // border: 2px solid white;
-            //   background-color: $secundario;
-            //background-color: #0754c4;            
+            height: var(--step-circle-size-after);           
             top: calc(var(--steps-line-top) - 5px);
             left: 0;
             z-index: 99;
-
-            background-color: #BFD4F2;
+            background-color: #4884D9 ;
             border-color: #4884D9;
             background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
             background-size: contain;
@@ -137,15 +134,20 @@
           width: var(--step-circle-size-before);
           height: var(--step-circle-size-before);
           border-color: #BFD4F2;
+          background-color: #BFD4F2; 
+          //imagen check diabled         
+          background-image: url("../../static/media/img/root/check-disabled.svg");
+          
       }
       
       
   }
   &--progressBar {
       position: absolute;
-      height: calc(.2rem + .1vw);
+      //height: calc(.2rem + .1vw);
+      height: 1px;
       top: -16px;
-      background-color: #0754c4;
+      background-color: #6D99D8;
       width: 0;
       left: 0;
       transition: all .3s ease;
@@ -183,7 +185,7 @@
   }
   &--active {
     //   color: $secundario;
-    color: #0754c4;
+    color: #4884D9;
   }
   &--active:after {
       opacity: 1;
@@ -212,14 +214,14 @@
 }
 
 .steps__item.steps--active~.steps__item:after {
-  background-color: #0754c4;
-  border-color: #0754c4;
+  background-color: #4884D9;
+  border-color: #4884D9;
   width: calc(var(--step-circle-size-after) - 1px);
   height: calc(var(--step-circle-size-after) - 1px);
   top: calc(var(--steps-bullet-top) + 0px);
   opacity: 1;  
   content: "";
-  //background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
+  background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
   background-size: contain;
   position: absolute;  
   background-size: 100%;

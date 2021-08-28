@@ -1,407 +1,476 @@
 <template >
   <section class="pagina-documento">
     <b-container>
-      <b-row>
-        <b-col cols="12" xl="12" class="m-auto">
-            <div class="box-steps">
-                <ul class="steps" style="display:inline-flex">
-                    <div class="steps__item steps--active">
-                        Pago
-                    </div>
-                    <div class="steps__item ">
-                        Planes
-                    </div>
-                    <div class="steps__item ">
-                        Mi carro
-                    </div>
-                    <li class="steps--progressBar" ></li>             
-                </ul>
-            </div> 
-        </b-col>  
-      </b-row>
+      <b-row class="mi-breadcrumb">
+        <b-col cols="12" class="box-steps">
+          <ul class="steps" style="display: inline-flex">
+              <div class="steps__item">Pago</div>
+              <div class="steps__item steps--active">Planes</div>
+              <div class="steps__item">Mi carro</div>
+              <li class="steps--progressBar"></li>
+            </ul>
+        </b-col>
+      </b-row> 
 
-      <b-row>
+      <!--Resumen Mobile-->
+      <b-row class="d-flex  d-lg-none mobile box-resumen">
         <b-col cols="12">
-          <p class="flujo-titulo mt-3 mb-4">Completa tus datos personales</p>
+            <div class="accordion" role="tablist">
+                <b-card no-body class="mb-1 resumen">
+                    <b-card-header header-tag="header" class="p-1" role="tab">                        
+                        <b-row>
+                            <b-col cols="auto" class="mr-auto p-6" align-self="center">
+                                <p>VER RESUMEN</p>                                        
+                            </b-col>
+                            <b-col cols="auto" class="p-6" align-self="center" style="vertical-align: middle;">                                       
+                                <b-button block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
+                                  <b-row align-v="center">
+                                    VER MÁS 
+                                    <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">
+                                  </b-row> 
+                                </b-button>
+                                <b-button block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
+                                  <b-row align-v="center">                                    
+                                    VER MENOS 
+                                    <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">                                    
+                                  </b-row>                                   
+                                </b-button>
+                            </b-col>
+                        </b-row>                               
+                    </b-card-header>
+                    <b-collapse id="accordion-proteccion" accordion="my-accordion" role="tabpanel" class="body-resumen">
+                        <b-card-body class="datos">
+                            <b-row>
+                              <b-col>
+                                <p class="sub-titulo">datos de tu carro</p>
+                              </b-col>                                        
+                            </b-row>
+                            <b-row >
+                                <b-col cols="4">
+                                    <p class="label">Mi placa</p>                                            
+                                </b-col>
+                                <b-col cols="8">
+                                    <p class="campo">{{this.$store.state.common.plateNumber}}</p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="row-final">
+                                <b-col cols="4" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
+                                    <p class="label">Marca</p>                                            
+                                </b-col>
+                                <b-col cols="8" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
+                                    <p class="campo">{{this.$store.state.common.objVehiculo.brand}}</p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="row-final">
+                                <b-col cols="4" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}" class="anio">
+                                    <p class="label">Año</p>                                            
+                                </b-col>
+                                <b-col cols="8" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}" class="anio">
+                                    <p class="campo">{{this.$store.state.common.objVehiculo.modelYear}}</p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="row-final">
+                                <b-col cols="4" v-bind:class="{mostrarResumenModelo: mostrarResumenModelo}" class="modelo">
+                                    <p class="label">Modelo</p>                                            
+                                </b-col>
+                                <b-col cols="8" v-bind:class="{mostrarResumenModelo: mostrarResumenModelo}" class="modelo">
+                                    <p class="campo">{{this.$store.state.common.objVehiculo.model}}</p>
+                                </b-col>
+                            </b-row>
+                            <b-row>
+                              <b-col>
+                                <p class="sub-titulo2">datos de mi póliza</p>
+                              </b-col>                                        
+                            </b-row>
+                            <b-row >
+                                <b-col cols="4" >
+                                    <p class="label">Plan</p>                                            
+                                </b-col>
+                                <b-col cols="8">
+                                    <p v-if="this.planSeleccionado == 4" class="campo">Básico: Protección contra robo</p>
+                                    <p v-if="this.planSeleccionado == 6" class="campo">Intermedio: Protección accidentes</p>
+                                    <p v-if="this.planSeleccionado == 3" class="campo">Full: Protección total</p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="row-final">
+                                <b-col cols="4">
+                                    <p class="label">Cobertura</p>                                            
+                                </b-col>
+                                <b-col cols="8">
+                                    <p class="campo">$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="row-final">
+                                <b-col cols="4">
+                                    <p class="label">Frecuencia</p>                                            
+                                </b-col>
+                                <b-col cols="8">
+                                    <p v-if="this.$store.state.common.frecuenciaPago == 1" class="campo">Mensual</p>
+                                    <p v-if="this.$store.state.common.frecuenciaPago == 2" class="campo">Trimestral</p>
+                                    <p v-if="this.$store.state.common.frecuenciaPago == 3" class="campo">Anual</p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="row-final">
+                                <b-col cols="4">
+                                    <p class="label">F. de inicio</p>                                            
+                                </b-col>
+                                <b-col cols="8">
+                                    <p class="campo">{{this.$store.state.common.listaCotizacion.policy.startDate}}</p>
+                                </b-col>
+                            </b-row>
+                        </b-card-body>
+                    </b-collapse>
+                </b-card>
+            </div>
+        </b-col>
+      </b-row>      
+
+      <b-row class="flujo-titulo">
+        <b-col cols="12">
+            <div class="lista1 ">                        
+                <b-avatar button @click="volver($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
+                Completa tus datos personales                       
+            </div>
         </b-col>
       </b-row>
+      
       <b-row class="box-ingresaDocumento">
-        <!-- <div class="maestra d-block d-lg-none">
-          <b-col cols="12" class="mb-0 d-none"
-            v-bind:class="{ mostrarDatosyCheckbox: mostrarDatosyCheckbox }"
-            style="justify-content: center"
-          >
-            <div class="msgCompletaDatosInicialbase pt-0">
-              <span class="msgCompletaDatosInicial pt-0" v-bind:class="{ msgCompletaDatos: msgCompletaDatos }" >
-                Por favor completa los datos para continuar
-              </span>
-            </div>
-          </b-col>
-        </div> -->
-
-        <b-col cols="12" lg="8" class="box-principal">
-          <b-row>
+        <b-col cols="12" sm="12" md="12" lg="8" xl="8" class="box-principal">
+          <b-row class="busqueda">
             <b-col cols="12">
-                  <div class="box-documento  mt-5">
-                    <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
-                      v-on:focus.native="isIconDni = !isIconDni"
-                      v-on:blur.native="placeholderDNI($event)"
-                      @click.native="clearPlaceholderDNI($event)"
-                      @keyup.native="delay($event, 300)"
-                      class="input-vehicular form-control input-id"
-                      maxlength="11"
-                      autocomplete="on"
-                      autofocus
-                      type="tel"
-                      v-model="itemElegido.documentoLocal"
-                      required
-                      placeholder="Numero de DNI, CI o RUC"
-                      style="text-transform: initial">
-                    </b-form-input>
-                  </div>
+              <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                v-on:focus.native="isIconDni = !isIconDni"
+                v-on:blur.native="placeholderDNI($event)"
+                @click.native="clearPlaceholderDNI($event)"
+                @keyup.native="delay($event, 300)"
+                class="input-vehicular form-control input-id"
+                maxlength="11"
+                autocomplete="on"
+                autofocus
+                type="tel"
+                v-model="itemElegido.documentoLocal"
+                required
+                placeholder="Numero de DNI, CI o RUC"
+                style="text-transform: initial">
+              </b-form-input>
+              <clip-loader
+                      class="cliploader"
+                      :loading="loading"
+                      :color="color"
+                      :size="size"
+                    ></clip-loader>
             </b-col>
-
-            <b-col cols="12" class="box-datos">
-              <b-row style="background: white; border-radius: 0 0 24px 24px">
-                    <b-col cols="12">
-                      <b-row class="dni-ce">
-                        <b-col cols="12" md="12" class="">
-                          <div class="form-group text-center mb-2 mt-3">
-                            <b-form-input id="nombre" ref="nombre" autocomplete="given-name" name="firstName"
-                              @keyup.native="validacionInput($event)"
-                              @keydown.native="validacionInput($event)"
-                              @keypress.native="validacionInput($event)"
-                              v-on:focus.native="isIconFirstName = !isIconFirstName"
-                              v-on:blur.native="isIconFirstName = !isIconFirstName"
-                              class="input-vehicular iptGral__input iptClient form-control input-id"
-                              autofocus
-                              type="text"
-                              v-model="objClients.firstName"
-                              required
-                              placeholder="Nombre completo"
-                              v-on:keyup.enter="processTags('apellido-paterno')"
-                            ></b-form-input>
-                            
-                          </div>
-                        </b-col>
-
-                        <b-col cols="12" lg="6" class="mt-4">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="apellido-paterno"
-                              ref="apellido-paterno"
-                              autocomplete="family-name"
-                              name="lastName"
-                              @keyup.native="validacionInput($event)"
-                              v-on:focus.native="
-                                isIconIconFirstLastName = !isIconIconFirstLastName
-                              "
-                              v-on:blur.native="
-                                isIconIconFirstLastName = !isIconIconFirstLastName
-                              "
-                              class="input-vehicular iptGral__input iptClient form-control input-id"
-                              autofocus
-                              type="text"
-                              v-model="objClients.firstLastName"
-                              required
-                              placeholder="Apellido Paterno"
-                              v-on:keyup.enter="processTags('apellido-materno')"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-
-                        <b-col cols="12"  lg="6"  class="mt-4">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input id="apellido-materno" ref="apellido-materno" name="lastName"
-                              @keyup.native="validacionInput($event)"
-                              v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
-                              v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
-                              class="input-vehicular iptGral__input iptClient form-control input-id"
-                              autocomplete="additional-name"
-                              autofocus
-                              type="text"
-                              v-model="objClients.secondLastName"
-                              required
-                              placeholder="Apellido Materno"
-                              v-on:keyup.enter="processTags('correo-electronico')"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-                        <b-col cols="12">
-                          <p class="mt-4  mb-4">Por estos medios te enviaremos tu póliza al terminar tu compra</p>
-                        </b-col>
-                        <b-col cols="12" lg="6" class="mb-4">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
-                              @keyup.native=" validacionInput($event); validarEmail(); "
-                              v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
-                              v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
-                              class="input-vehicular iptGral__input iptClient form-control input-id"
-                              v-bind:class="{ errorInput: msgErrorEmail }"
-                              autocomplete="on"
-                              autofocus
-                              type="email"
-                              v-model="objClients.emailAddress"
-                              required
-                              placeholder="Correo Electrónico"
-                              v-on:keyup.enter="processTags('celular')"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-                        <!-- <b-col v-if="this.msgErrorEmail">
-                          <b-row class="d-flex justify-content-center pb-2">
-                            <div>
-                              <span
-                                style="font-size: 12px; color: rgb(214, 4, 17)"
-                                >Por favor ingresa un email válido</span
-                              >
-                            </div>
-                          </b-row>
-                        </b-col> -->
-
-                        <b-col cols="12" lg="6" class="">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input id="celular" ref="celular" name="phone"
-                              @keyup.native=" validarCelular(); validacionInput($event); "
-                              v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
-                              v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
-                              class="input-vehicular iptGral__input iptClient form-control input-id"
-                              autocomplete="tel"
-                              v-bind:class="{ errorInput: msgErrorCelular }"
-                              autofocus
-                              type="tel"
-                              v-model="objClients.phoneNumber"
-                              required
-                              maxlength="9"
-                              placeholder="Teléfono"
-                              v-on:keyup.enter="validarCelular($event)"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-
-                        <!-- <b-col v-if="this.msgErrorCelular">
-                          <b-row class="d-flex justify-content-center pb-2">
-                            <div>
-                              <span
-                                style="font-size: 12px; color: rgb(214, 4, 17)"
-                                >Por favor ingresa un número de celular
-                                válido</span
-                              >
-                            </div>
-                          </b-row>
-                        </b-col> -->                       
-
-                      </b-row>
-
-                      <b-row class="ruc" v-bind:class="{ mostrarRuc: mostrarRuc }">
-                        <div
-                          class="capa"
-                          v-bind:class="{ isOculto: isOculto }"
-                        ></div>
-                        <b-col cols="12" class="">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="razon-social"
-                              ref="razon-social"
-                              @keyup.native="validacionInput($event)"
-                              v-on:focus.native="isRazonSocial = !isRazonSocial"
-                              v-on:blur.native="isRazonSocial = !isRazonSocial"
-                              class="input-vehicular iptGral__input iptRUC form-control input-id"
-                              autocomplete="on"
-                              autofocus
-                              type="text"
-                              v-model="objClients.firstName"
-                              required
-                              placeholder="Razón social"
-                              v-on:keyup.enter="processTags('direccion')"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-                        <b-col cols="12" class="">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="direccion"
-                              ref="direccion"
-                              @keyup.native="validacionInput($event)"
-                              v-on:focus.native="isDireccion = !isDireccion"
-                              v-on:blur.native="isDireccion = !isDireccion"
-                              class="input-vehicular iptGral__input iptRUC form-control input-id"
-                              autocomplete="on"
-                              autofocus
-                              type="text"
-                              v-model="objClients.address"
-                              required
-                              placeholder="Dirección"
-                              v-on:keyup.enter="processTags('celularEmpresa')"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-                        <b-col cols="12" class="">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="celularEmpresa"
-                              ref="celularEmpresa"
-                              @keyup.native="
-                                validarCelular();
-                                validacionInput($event);
-                              "
-                              v-on:focus.native="
-                                isIconPhoneNumber = !isIconPhoneNumber
-                              "
-                              v-on:blur.native="
-                                isIconPhoneNumber = !isIconPhoneNumber
-                              "
-                              v-bind:class="{ errorInput: msgErrorCelular }"
-                              class="input-vehicular iptGral__input iptRUC form-control input-id"
-                              autocomplete="tel"
-                              autofocus
-                              type="tel"
-                              v-model="objClients.phoneNumber"
-                              required
-                              maxlength="9"
-                              placeholder="Celular"
-                              v-on:keyup.enter="
-                                processTags('correo-electronicoEmpresa')
-                              "
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-
-                        <b-col v-if="this.msgErrorCelular">
-                          <b-row class="d-flex justify-content-center pb-2">
-                            <div>
-                              <span
-                                style="font-size: 12px; color: rgb(214, 4, 17)"
-                                >Por favor ingresa un número de celular
-                                válido</span
-                              >
-                            </div>
-                          </b-row>
-                        </b-col>
-
-                        <b-col cols="12" class="">
-                          <div class="form-group text-center mb-2">
-                            <b-form-input
-                              id="correo-electronicoEmpresa"
-                              ref="correo-electronicoEmpresa"
-                              @keyup.native="
-                                validacionInput($event);
-                                validarEmail();
-                              "
-                              v-bind:class="{ errorInput: msgErrorEmail }"
-                              v-on:focus.native="
-                                isIconEmailAddress = !isIconEmailAddress
-                              "
-                              v-on:blur.native="
-                                isIconEmailAddress = !isIconEmailAddress
-                              "
-                              class="input-vehicular iptGral__input iptRUC form-control input-id"
-                              autocomplete="on"
-                              autofocus
-                              type="text"
-                              v-model="objClients.emailAddress"
-                              required
-                              placeholder="Correo Electrónico"
-                            ></b-form-input>
-                          </div>
-                        </b-col>
-
-                        <b-col v-if="this.msgErrorEmail">
-                          <b-row class="d-flex justify-content-center pb-2">
-                            <div>
-                              <span
-                                style="font-size: 12px; color: rgb(214, 4, 17)"
-                                >Por favor ingresa un email válido</span
-                              >
-                            </div>
-                          </b-row>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col cols="12">
-                          <p class="mt-2  mb-2">Al continuar acepto las
-                            <a href="javascript:void(0);" @click="eventoModalTerminosCondiciones()" style="text-decoration:underline; color:#383C5A">
-                              Condiciones de Uso y Política de Privacidad
-                            </a>
-                          </p>
-                        </b-col>
-
-                        <b-col cols="12">
-                            <span class="msgCompletaDatosInicial" v-bind:class="{ msgCompletaDatos: msgCompletaDatos }">
-                              Por favor completa los datos para continuar
-                            </span>
-                        </b-col>
-
-                        <b-col cols="12" lg="3">
-                          <div class="box-row">
-                            <button type="submit" :disabled="isDisableButton" @click="continuar($event)" class="btn box-btn--dni box-btn__button">
-                              Ir a pagar
-                            </button>
-                          </div>
-                        </b-col>
-                      </b-row>
-                    </b-col>
+          </b-row>
+          <b-row class="box-persona-natural" v-bind:class="{ ocultarFormPN: ocultarFormPN }">            
+            <b-col cols="12" class="mt-4">
+              <b-form-input id="nombre" ref="nombre" autocomplete="given-name" name="firstName"
+                @keyup.native="validacionInput($event)"
+                @keydown.native="validacionInput($event)"
+                @keypress.native="validacionInput($event)"
+                v-on:focus.native="isIconFirstName = !isIconFirstName"
+                v-on:blur.native="isIconFirstName = !isIconFirstName"
+                class="input-vehicular iptGral__input iptClient form-control input-id"
+                autofocus
+                type="text"
+                v-model="objClients.firstName"
+                required
+                placeholder="Nombre completo"
+                v-on:keyup.enter="processTags('apellido-paterno')">
+              </b-form-input>
+            </b-col>
+            <b-col cols="6" class="mt-4">
+              <b-form-input
+                id="apellido-paterno"
+                ref="apellido-paterno"
+                autocomplete="family-name"
+                name="lastName"
+                @keyup.native="validacionInput($event)"
+                v-on:focus.native="
+                  isIconIconFirstLastName = !isIconIconFirstLastName
+                "
+                v-on:blur.native="
+                  isIconIconFirstLastName = !isIconIconFirstLastName
+                "
+                class="input-vehicular iptGral__input iptClient form-control input-id"
+                autofocus
+                type="text"
+                v-model="objClients.firstLastName"
+                required
+                placeholder="Apellido Paterno"
+                v-on:keyup.enter="processTags('apellido-materno')"
+              ></b-form-input>
+            </b-col>
+            <b-col cols="6" class="mt-4">
+              <b-form-input id="apellido-materno" ref="apellido-materno" name="lastName"
+                @keyup.native="validacionInput($event)"
+                v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
+                v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
+                class="input-vehicular iptGral__input iptClient form-control input-id"
+                autocomplete="additional-name"
+                autofocus
+                type="text"
+                v-model="objClients.secondLastName"
+                required
+                placeholder="Apellido Materno"
+                v-on:keyup.enter="processTags('correo-electronico')"
+              ></b-form-input>
+            </b-col>
+            <b-col cols="12" class="mt-4">
+              <p class="mensaje">Por estos medios te enviaremos tu póliza al terminar tu compra</p>
+            </b-col>
+            <b-col cols="6" class="mt-4">
+              <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
+                @keyup.native=" validacionInput($event); validarEmail(); "
+                v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                class="input-vehicular iptGral__input iptClient form-control input-id"
+                v-bind:class="{ errorInput: msgErrorEmail }"
+                autocomplete="on"
+                autofocus
+                type="email"
+                v-model="objClients.emailAddress"
+                required
+                placeholder="Correo Electrónico"
+                v-on:keyup.enter="processTags('celular')"
+              ></b-form-input>
+            </b-col>
+            
+            <b-col cols="6" class="mt-4">
+              <b-form-input id="celular" ref="celular" name="phone"
+                @keyup.native=" validarCelular(); validacionInput($event); "
+                v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
+                v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
+                class="input-vehicular iptGral__input iptClient form-control input-id"
+                autocomplete="tel"
+                v-bind:class="{ errorInput: msgErrorCelular }"
+                autofocus
+                type="tel"
+                v-model="objClients.phoneNumber"
+                required
+                maxlength="9"
+                placeholder="Teléfono"
+                v-on:keyup.enter="validarCelular($event)"
+              ></b-form-input>
+            </b-col>
+            <b-col cols="6" v-if="this.msgErrorEmail">
+              <b-row class="d-flex justify-content-center pb-2">
+                <div>
+                  <span
+                    style="font-size: 12px; color: rgb(214, 4, 17)"
+                    >Por favor ingresa un email válido</span>
+                </div>
               </b-row>
+            </b-col>
+            <b-col cols="6" v-if="this.msgErrorCelular">
+              <b-row class="d-flex justify-content-center pb-2">
+                <div>
+                  <span
+                    style="font-size: 12px; color: rgb(214, 4, 17)"
+                    >Por favor ingresa un número de celular válido</span
+                  >
+                </div>
+              </b-row>
+            </b-col>
+          </b-row>
+          <b-row class="box-persona-juridica ruc" v-bind:class="{ mostrarRuc: mostrarRuc }">
+            <b-col cols="12" class="mt-4">
+              <b-form-input
+                id="razon-social"
+                ref="razon-social"
+                @keyup.native="validacionInput($event)"
+                v-on:focus.native="isRazonSocial = !isRazonSocial"
+                v-on:blur.native="isRazonSocial = !isRazonSocial"
+                class="input-vehicular iptGral__input iptRUC form-control input-id"
+                autocomplete="on"
+                autofocus
+                type="text"
+                v-model="objClients.firstName"
+                required
+                placeholder="Razón social"
+                v-on:keyup.enter="processTags('direccion')"
+              ></b-form-input>
+            </b-col>
+            <b-col cols="12" class="mt-4">
+              <b-form-input
+                id="direccion"
+                ref="direccion"
+                @keyup.native="validacionInput($event)"
+                v-on:focus.native="isDireccion = !isDireccion"
+                v-on:blur.native="isDireccion = !isDireccion"
+                class="input-vehicular iptGral__input iptRUC form-control input-id"
+                autocomplete="on"
+                autofocus
+                type="text"
+                v-model="objClients.address"
+                required
+                placeholder="Dirección"
+                v-on:keyup.enter="processTags('celularEmpresa')"
+              ></b-form-input>
+            </b-col>
+            <b-col cols="12" class="mt-4">
+              <b-form-input id="celularEmpresa" ref="celularEmpresa" @keyup.native=" validarCelular(); validacionInput($event); "
+                v-on:focus.native=" isIconPhoneNumber = !isIconPhoneNumber "
+                v-on:blur.native=" isIconPhoneNumber = !isIconPhoneNumber "
+                v-bind:class="{ errorInput: msgErrorCelular }"
+                class="input-vehicular iptGral__input iptRUC form-control input-id"
+                autocomplete="tel"
+                autofocus
+                type="tel"
+                v-model="objClients.phoneNumber"
+                required
+                maxlength="9"
+                placeholder="Celular"
+                v-on:keyup.enter=" processTags('correo-electronicoEmpresa') "
+              ></b-form-input>
+            </b-col>
+            <b-col v-if="this.msgErrorCelular">
+              <b-row class="d-flex justify-content-center pb-2">
+                <div>
+                  <span
+                    style="font-size: 12px; color: rgb(214, 4, 17)"
+                    >Por favor ingresa un número de celular
+                    válido</span
+                  >
+                </div>
+              </b-row>
+            </b-col>
+            <b-col cols="12" class="mt-4">
+              <b-form-input
+                id="correo-electronicoEmpresa"
+                ref="correo-electronicoEmpresa"
+                @keyup.native="
+                  validacionInput($event);
+                  validarEmail();
+                "
+                v-bind:class="{ errorInput: msgErrorEmail }"
+                v-on:focus.native="
+                  isIconEmailAddress = !isIconEmailAddress
+                "
+                v-on:blur.native="
+                  isIconEmailAddress = !isIconEmailAddress
+                "
+                class="input-vehicular iptGral__input iptRUC form-control input-id"
+                autocomplete="on"
+                autofocus
+                type="text"
+                v-model="objClients.emailAddress"
+                required
+                placeholder="Correo Electrónico"
+              ></b-form-input>
+            </b-col>
+            <b-col v-if="this.msgErrorEmail">
+              <b-row class="d-flex justify-content-center pb-2">
+                <div>
+                  <span
+                    style="font-size: 12px; color: rgb(214, 4, 17)"
+                    >Por favor ingresa un email válido</span
+                  >
+                </div>
+              </b-row>
+            </b-col>
+          </b-row>
+          <b-row class="politicas mt-4">
+            <b-col cols="12">
+              <p>Al continuar acepto las
+                <a href="javascript:void(0);" @click="eventoModalTerminosCondiciones()" style="text-decoration:underline; color:#383C5A">
+                  Condiciones de Uso y Política de Privacidad
+                </a>
+              </p>
+            </b-col>            
+          </b-row>
+          <b-row class="mt-4 msgCompletaDatosInicial" v-bind:class="{ msgCompletaDatos: msgCompletaDatos }">
+            <b-col cols="12">
+                <span >
+                  Por favor completa los datos para continuar
+                </span>
+            </b-col>
+          </b-row>
+          <b-row class="mt-4 mb-4">
+            <b-col cols="12" lg="6">
+              <button type="submit" :disabled="isDisableButton" @click="continuar($event)" class="btn-pagar">
+                  Ir a pagar
+              </button>
             </b-col>
           </b-row>
         </b-col>
 
-        <b-col cols="12" lg="4">
-          <div class="resumen-proteccion">
+        <b-col cols="4">
+          <div class="resumen-proteccion d-none  d-lg-block">
               <div class="resumen-proteccion__cabecera">
                   <p>RESUMEN DE TU PROTECCIÓN</p>
               </div>
               <div class="resumen-proteccion__cuerpo">
                   <div class="datos-carro">
-                      <h3 class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</h3>
-                      <div class="datos-carro--detalle">
-                          <p><span class="campo">Mi carro </span><span>{{this.$store.state.common.objVehiculo.brand}}</span>
-                                      <span>{{this.$store.state.common.objVehiculo.model}}</span>
-                                      <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
-                          </p>
-                      </div>
-                  </div>
-
-                  <div class="datos-poliza">
-                      <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
-                      <div v-if="this.planSeleccionado == 4" class="plan-titulo">
-                        <p><span class="campo">Plan</span> <span>Básico: Protección contra robo</span></p>
-                      </div>
-                      <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
-                        <p><span class="campo">Plan</span> <span>Intermedio: Protección accidentes</span></p>
-                      </div>
-                      <div v-else-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" class="plan-titulo">
-                        <p><span class="campo">Plan</span> <span>Full: Protección total</span></p>                      
-                      </div>
-
-                      <p><span class="campo">Cobertura</span> <span>$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
-
-                      <div v-if="this.$store.state.common.frecuenciaPago == 1" class="plan-titulo">
-                        <p><span class="campo">Frecuencia</span> <span>Mensual</span></p>                      
-                      </div>
-                      <div v-if="this.$store.state.common.frecuenciaPago == 2" class="plan-titulo">
-                        <p><span class="campo">Frecuencia</span> <span>Trimestral</span></p>                      
-                      </div>
-                      <div v-if="this.$store.state.common.frecuenciaPago == 3" class="plan-titulo">
-                        <p><span class="campo">Frecuencia</span> <span>Anual</span></p>                      
-                      </div>
+                      <b-container>
+                          <b-row>
+                              <b-col cols="12" >
+                                  <p class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</p>                                        
+                              </b-col>
+                          </b-row>
+                          <b-row>
+                              <b-col cols="4">
+                                  <p><span class="label">Mi carro</span></p>
+                              </b-col>
+                              <b-col cols="8">
+                                  <p><span class="campo-mayus">{{this.$store.state.common.objVehiculo.brand}}  {{this.$store.state.common.objVehiculo.model}}  {{this.$store.state.common.objVehiculo.modelYear}}</span></p>
+                              </b-col>
+                          </b-row>
+                          <b-row>
+                              <b-col cols="12" >
+                                  <p class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</p>                                        
+                              </b-col>
+                          </b-row>
+                          <b-row>
+                              <b-col cols="4" >
+                                  <p><span class="label">Plan</span></p>
+                              </b-col>
+                              <b-col cols="8" v-if="this.planSeleccionado == 4">
+                                  <p><span class="campo-minus">Básico: Protección contra robo</span></p>
+                              </b-col>
+                              <b-col cols="8" v-if="this.planSeleccionado == 6">
+                                  <p><span class="campo-minus">Intermedio: Protección accidentes</span></p>
+                              </b-col>
+                              <b-col cols="8" v-if="this.planSeleccionado == 3">
+                                  <p><span class="campo-minus">Full: Protección total</span></p>
+                              </b-col>
+                          </b-row>
+                          <b-row>
+                              <b-col cols="4">
+                                  <p><span class="label">Cobertura</span></p>
+                              </b-col>
+                              <b-col cols="8">
+                                  <p><span class="campo-minus">$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+                              </b-col>
+                          </b-row>
+                          <b-row>
+                              <b-col cols="4">
+                                  <p><span class="label">Frecuencia</span></p>
+                              </b-col>
+                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                  <p><span class="campo-minus">Mensual</span></p>
+                              </b-col>
+                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 2">
+                                  <p><span class="campo-minus">Trimestral</span></p>
+                              </b-col>
+                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 3">
+                                  <p><span class="campo-minus">Anual</span></p>
+                              </b-col>
+                          </b-row>
+                          <b-row>
+                              <b-col cols="4">
+                                  <p><span class="label">F. de inicio</span></p>
+                              </b-col>
+                              <b-col cols="8">
+                                  <p><span class="campo-minus">{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                              </b-col>
+                          </b-row>
+                      </b-container>
                       
-                      <p><span class="campo">F. de inicio </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
                   </div>
               </div>
           </div>
-      </b-col>
-
-        <b-col cols="12">
-          <b-row class=" box_aceptoTerminos">
-            <b-col cols="12" lg="6">
-              <b-row class="box-row">
-                
-              </b-row>
-            </b-col>
-          </b-row>
         </b-col>
+
       </b-row>
 
       <b-modal
@@ -440,6 +509,7 @@
           </b-row>
         </b-container>
       </b-modal>
+
       <b-modal
         id="modal1"
         ref="ingresaTuPlaca"
@@ -465,7 +535,6 @@
 
         </div>
       </b-modal>
-
    
       <b-modal
         id="leaveDocument"
@@ -537,6 +606,8 @@
   layout: "InterseguroFlujo",
   data() {
     return {
+      flagVerMas: 1,
+      flagVerMenos: 0,
       fechaVigencia: "",
       idCliente: 0,
       codigoRemarketingGenerado: "",
@@ -603,6 +674,8 @@
       mostrarDatosPersonales: false,
       mostrar: false,
       mostrarRuc: false,
+      mostrarFormPN: false,
+      ocultarFormPN: false,
       nombre: "",
       expirationDate: "",
 
@@ -680,6 +753,14 @@
     };
   },
   methods: {
+    clicVerMas(){
+      this.flagVerMas = 0;
+      this.flagVerMenos = 1;
+    },
+    clicVerMenos(){
+      this.flagVerMas = 1;
+      this.flagVerMenos = 0;
+    },
     eventoModalTerminosCondiciones() {
       this.$refs.ingresaTuPlaca.show();
     },
@@ -907,7 +988,7 @@
       evt.preventDefault();
       if (this.$store.state.common.businessId == 2) {
         this.$nuxt.$router.push({path: "/cotiza/cotizacion-interbank"});
-      } else {this.$nuxt.$router.push({path: "/cotiza/cotizacion"});
+      } else {this.$nuxt.$router.push({path: "/cotizacion/cotizacion"});
       }
     },
     clearPlaceholderDNI(eve) {
@@ -1023,6 +1104,9 @@
           this.objClients.address = "";
           this.mostrarDatosyCheckbox = false;
           this.mostrarEditarCancelar = false;
+
+          self.ocultarFormPN = false;
+          self.mostrarRuc = false;
         }
         if (this.tamaño >= 8) {
           var self = this;
@@ -1031,19 +1115,22 @@
           self.mostrarDatosPersonales = false;
           self.msgCompletaDatos = false;
 
-          self.isOculto = true;
-          self.mostrarRuc = true;
+          self.ocultarFormPN = false;
+          //self.isOculto = true;
+          //self.mostrarRuc = true;
 
           if (self.tamaño == 8 || self.tamaño == 9) {
             self.getClient(1);
           } else if (self.tamaño == 10) {
             self.mostrarDatosPersonales = false;
             self.mostrarDatosyCheckbox = false;
-            self.mostrarRuc = false;
+            self.mostrarRuc = true;
             self.loading = false;
-
             self.mostrarEditarCancelar = false;
+            self.ocultarFormPN = true;
           } else if (self.tamaño == 11) {
+            self.ocultarFormPN = true;
+            self.mostrarRuc = true;
             self.getClient(2);
           } else {
             return false;

@@ -1,6 +1,5 @@
 <template>
     <section class="pagina-pagar" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
-        <!-- v-bind:class="{'d-none': opacityNone}" -->
         <div id="newModal" style="display:none" >
             <div class="phoneContent">
                  <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
@@ -18,126 +17,274 @@
         </div>   
 
         <b-container>
-            
-            <b-row>
-                <b-col cols="12" class="m-4">
-                    <div class="boxtitulo">
-                        <p class="flujo-titulo">Ingresa tu tarjeta crédito o débito </p>
+            <b-row class="mi-breadcrumb">
+                <b-col cols="12" class="box-steps">
+                <ul class="steps" style="display: inline-flex">
+                    <div class="steps__item steps--active">Pago</div>
+                    <div class="steps__item ">Planes</div>
+                    <div class="steps__item ">Mi carro</div>
+                    <li class="steps--progressBar" ></li> 
+                    </ul>
+                </b-col>
+            </b-row>
+
+            <!--Resumen Mobile-->
+            <b-row class="d-flex  d-lg-none mobile box-resumen">
+                <b-col cols="12">
+                    <div class="accordion" role="tablist">
+                        <b-card no-body class="mb-1 resumen">
+                            <b-card-header header-tag="header" class="p-1" role="tab">                        
+                                <b-row>
+                                    <b-col cols="auto" class="mr-auto p-6" align-self="center">
+                                        <p>VER RESUMEN</p>                                        
+                                    </b-col>
+                                    <b-col cols="auto" class="p-6" align-self="center" style="vertical-align: middle;">                                       
+                                        <b-button block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
+                                        <b-row align-v="center">
+                                            VER MÁS 
+                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">
+                                        </b-row> 
+                                        </b-button>
+                                        <b-button block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
+                                        <b-row align-v="center">                                    
+                                            VER MENOS 
+                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">                                    
+                                        </b-row>                                   
+                                        </b-button>
+                                    </b-col>
+                                </b-row>                               
+                            </b-card-header>
+                            <b-collapse id="accordion-proteccion" accordion="my-accordion" role="tabpanel" class="body-resumen">
+                                <b-card-body class="datos">
+                                    <b-row>
+                                        <b-col>
+                                            <p class="sub-titulo">datos de tu carro</p>
+                                        </b-col>                                        
+                                    </b-row>
+                                    <b-row >
+                                        <b-col cols="4">
+                                            <p class="label">Mi carro</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">{{this.$store.state.common.objVehiculo.brand}} {{this.$store.state.common.objVehiculo.model}} {{this.$store.state.common.objVehiculo.modelYear}}</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col>
+                                            <p class="sub-titulo2">datos personales</p>
+                                        </b-col>                                        
+                                    </b-row>
+                                    <b-row >
+                                        <b-col cols="4">
+                                            <p class="label">DNI</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">{{this.$store.state.common.objCliente.documentNumber}}</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="row-final">
+                                        <b-col cols="4">
+                                            <p class="label">Nombre</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">{{this.$store.state.common.objCliente.firstName}}</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="row-final">
+                                        <b-col cols="4">
+                                            <p class="label">Teléfono</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">{{this.$store.state.common.objCliente.phoneNumber}}</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="row-final">
+                                        <b-col cols="4">
+                                            <p class="label">Correo</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">{{this.$store.state.common.objCliente.emailAddress}}</p>
+                                        </b-col>
+                                    </b-row>                                    
+                                    <b-row>
+                                        <b-col>
+                                            <p class="sub-titulo2">datos de mi póliza</p>
+                                        </b-col>                                        
+                                    </b-row>
+                                    <b-row >
+                                        <b-col cols="4" >
+                                            <p class="label">Plan</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p v-if="this.planSeleccionado == 4" class="campo">Básico: Protección contra robo</p>
+                                            <p v-if="this.planSeleccionado == 6" class="campo">Intermedio: Protección accidentes</p>
+                                            <p v-if="this.planSeleccionado == 3" class="campo">Full: Protección total</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="row-final">
+                                        <b-col cols="4">
+                                            <p class="label">Cobertura</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="row-final">
+                                        <b-col cols="4">
+                                            <p class="label">Frecuencia</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p v-if="this.$store.state.common.frecuenciaPago == 1" class="campo">Mensual</p>
+                                            <p v-if="this.$store.state.common.frecuenciaPago == 2" class="campo">Trimestral</p>
+                                            <p v-if="this.$store.state.common.frecuenciaPago == 3" class="campo">Anual</p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="row-final">
+                                        <b-col cols="4">
+                                            <p class="label">F. de inicio</p>                                            
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p class="campo">{{this.$store.state.common.listaCotizacion.policy.startDate}}</p>
+                                        </b-col>
+                                    </b-row>
+                                </b-card-body>
+                            </b-collapse>
+                        </b-card>
                     </div>
                 </b-col>
-                <b-col cols="12" md="8">
+            </b-row>
+
+            <b-row class="flujo-titulo">
+                <b-col cols="12">
+                    <div class="lista1 ">                        
+                        <b-avatar button @click="volver($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
+                        Ingresa tu tarjeta crédito o débito                        
+                    </div>
+                </b-col>
+            </b-row>          
+            
+            <b-row>                
+                <b-col cols="12" sm="12" md="12" lg="8" xl="8" class="mt-4">
                     <div class="metodo-pago">
                         <b-row class="justify-content-center">
-                            <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;">
-
-                                
-                                <div class="panel-custom pt-3 pb-0">
-                                    <b-row>
-                                        <!-- ACA INICIA NIUBIZ -->
-
-                                        <div class="loader-pay">
-                                            <loader-pay v-if="showLoader"></loader-pay>
-                                        </div>
-                                        <b-col v-if="pay.digitalPayment.provider === 'NIUBIZ'">
-                                             <payment-niubiz :payment="paymentForm">
-
-                                            </payment-niubiz>
-                                            <b-col cols="12">
-                                                <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
-                                            </b-col>
-                                        </b-col>
-                                        <b-col v-else-if="pay.digitalPayment.provider === 'CULQI'" cols="12" class="box-ingresaTarjeta">
-                                            <form class="card-interseguro">   
-                                                <div class="form-group-custom">                                                        
-                                                    <div id="focusTarjeta">
-                                                        Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
-                                                    </div>
-                                                    <div class="input-group  iptGral editable  box-iptCard">
-                                                        <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de la tarjeta" 
-                                                        id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
-                                                        aria-label="Número de tarjeta" autocomplete="cc-number"
-                                                        aria-describedby="numberDocumentFeedback"
-                                                        maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
-                                                        
-                                                        <img width="30" :src="creditCardImage" >
-                                                        
-                                                    </div>
+                            <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;"> 
+                                <b-row>                                       
+                                    <b-col cols="12" class="box-ingresaTarjeta">
+                                        <form class="card-interseguro">   
+                                            <div class="form-group-custom">                                                        
+                                                <div id="focusTarjeta">
+                                                    Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                 </div>
-                                                <div class="card-custom">
-                                                    <div class="card-custom__date">
-                                                        <div class="form-group-custom">                                                            
-                                                            <div id="box-mes" class="input-group  iptGral editable">   
-                                                                <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
-                                                                 class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
-                                                                  v-model="card.expiration_month" type="tel" name="cardmes"/>
-                                                            </div>
-                                                            <div id="focusMES">
-                                                                Fecha de vencimiento de tu tarjeta.
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group-custom  text-right-custom">
-                                                            <div class="input-group  iptGral editable">
-                                                                <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-custom__cvv">
-                                                        <div class="form-group-custom">
-                                                            <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
-                                                                <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
-                                                                id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
-                                                                aria-describedby="numberFeedback"
-                                                                 :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
-                                                            </div>
-                                                        </div>     
-                                                    </div>  
-                                                    <div  id="focusCVV" >
-                                                        <img class="img-fluid" :src="creditCardImageCvv" >
-                                                    </div>  
-                                                </div>
-                                                <br>
-                                            </form>                    
-                                        </b-col>
-
-                                         <!-- ACA TERMINA NIUBIZ -->
-
-                                         
-                                    </b-row>
-                                </div>
-                                <div class="panel-custom pt-0">
-                                    <b-row  class="text-center justify-content-center">
-                                        <b-col cols="12" lg="5"  class="text-center">
-                                            <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
-                                                <b-col cols="12">
-                                                    <div class="spinner-tarjeta">
-                                                        <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
-                                                    </div>
-                                                </b-col>
-                                                <b-col cols="12">
-                                                    <p class="spinner-descripcion">Estamos procesando tu pago</p>
-                                                </b-col>                    
-                                            </b-row>
-                                        </b-col>
-                                        
-                                        <b-col cols="12" lg="12" class="">
-                                            <b-row class="justify-content-center">
-                                                <!-- <b-col cols="12">
-                                                    <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
-                                                </b-col> -->
-                                                <b-col cols="4" class="text-center">
+                                                <div class="input-group  iptGral editable  box-iptCard">
+                                                    <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta" 
+                                                    id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
+                                                    aria-label="Número de tarjeta" autocomplete="cc-number"
+                                                    aria-describedby="numberDocumentFeedback"
+                                                    maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
                                                     
-                                                    <button type="submit" @click="continuar()" class="btn box-btn__button box-btn--primary" 
-                                                        :disabled='this.isDisabledPayment'>
-                                                        <span>PAGAR ${{this.monto_pagar}} </span>                                                        
-                                                        
-                                                    </button>
-                                                </b-col>
-                                            </b-row>
-                                        </b-col>
+                                                    <img width="30" :src="creditCardImage" >
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="card-custom">
+                                                <div class="card-custom__date">
+                                                    <div class="form-group-custom">                                                            
+                                                        <div id="box-mes" class="input-group  iptGral editable">   
+                                                            <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
+                                                             class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
+                                                              v-model="card.expiration_month" type="tel" name="cardmes"/>
+                                                        </div>
+                                                        <div id="focusMES">
+                                                            Fecha de vencimiento de tu tarjeta.
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group-custom  text-right-custom">
+                                                        <div class="input-group  iptGral editable">
+                                                            <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-custom__cvv">
+                                                    <div class="form-group-custom">
+                                                        <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
+                                                            <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
+                                                            id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
+                                                            aria-describedby="numberFeedback"
+                                                             :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
+                                                        </div>
+                                                    </div>     
+                                                </div>  
+                                                <div  id="focusCVV" >
+                                                    <img class="img-fluid" :src="creditCardImageCvv" >
+                                                </div>  
+                                            </div>
+                                            <br>
+                                        </form>                    
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col cols="12" class="text-center">
+                                        <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
+                                            <b-col cols="12">
+                                                <div class="spinner-tarjeta">
+                                                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                                                </div>
+                                            </b-col>
+                                            <b-col cols="12">
+                                                <p class="spinner-descripcion">Estamos procesando tu pago</p>
+                                            </b-col>                    
+                                        </b-row>
+                                    </b-col>
+                                    
+                                    <b-col cols="12" class="text-center">
+                                        <div class="checkbox-aux font-nunito">                                                    
+                                            <label  class="box-checkbox"  id="show-modal">
+                                                <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
+                                                <span class=checkbox-aux__span>
+                                                    <i class="checkbox-aux__span--icon fa fa-check"></i>
+                                                </span>
+                                                <template v-if="tabIndex == 1">
+                                                    <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                        y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                    </span>
+                                                    <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
+                                                    </span>
+                                                </template>
+                                                <template v-else>
+                                                    <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
+                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                        y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                                    </span>
+                                                    <span v-else class="checkbox-aux__descripcion">He leído y acepto
+                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
+                                                    </span>
+                                                </template>
+                                            </label>
+                                        </div> 
+                                    </b-col>
+                                </b-row>
 
-                                    </b-row>
-                                </div>
+                                <b-row class="justify-content-center">                                            
+                                    <b-col cols="6">                                                
+                                        <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
+                                            :disabled='this.isDisabledPayment'>
+                                            <span>PAGAR ${{this.monto_pagar}} </span>
+                                        </button>
+                                    </b-col>
+                                </b-row>
+                                <b-row class="text-center mt-4">
+                                    <b-col cols="12">
+                                        <img src="../../static/media/img/flujo/metodo-pago/tarjetas.svg" alt="visa">
+                                    </b-col>
+                                </b-row>
+                                <b-row class="text-center mt-4" align-h="center">
+                                    <b-col cols="6" class="box-messaje">
+                                        <p>Tu compra es 100% segura. Contamos con el respaldo del <b><span style="color:#0855C4">Grupo Intercorp</span></b> </p>
+                                    </b-col>
+                                </b-row>
+                                
                             </b-col>
 
                         </b-row>
@@ -145,40 +292,160 @@
                     </div>
                 </b-col>
                 
-                <b-col cols="12" lg="4">
+                <b-col cols="12" sm="12" md="12" lg="4" xl="4" class="mt-4">
                     <div class="resumen-proteccion">
-                        <div class="resumen-proteccion__cabecera">
+                        <div class="resumen-proteccion__cabecera pb-3">
                             <p>RESUMEN DE TU PROTECCIÓN</p>
+                            <div class="desc-resumen">
+                                <span>{{this.$store.state.common.objVehiculo.brand}}</span>
+                                <span>{{this.$store.state.common.objVehiculo.model}}</span>
+                                <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
+                            </div>
                         </div>
-                        <div class="resumen-proteccion__cuerpo">
-                            <div class="datos-carro">
-                                <h3 class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</h3>
-                                <div class="datos-carro--detalle">
-                                    <p><span class="campo">Mi carro </span><span>{{this.$store.state.common.objVehiculo.brand}}</span>
-                                                <span>{{this.$store.state.common.objVehiculo.model}}</span>
-                                                <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
-                                    </p>
+
+                        <div class="resumen-proteccion__cuerpo box-resumen">
+                            <div class="datos-personales">                                
+                                <!-- <h3 class="resumen-proteccion--subtitulo">DATOS PERSONALES 
+                                    <button type="submit" @click="editarDatosPersonales()"><span>EDITAR</span></button>
+                                </h3> -->
+                                <div class="sub-titulo d-flex">
+                                    <b-row>
+                                        <b-col cols="8" >
+                                            <p class="resumen-proteccion--subtitulo">DATOS PERSONALES</p>                                        
+                                        </b-col>
+                                        <b-col cols="4">
+                                            <b-button @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1">EDITAR</b-button>
+                                            <b-button @click="clicBtnCancelar()" v-if="this.visibleBtnCancelar == 1">CANCELAR</b-button>
+                                        </b-col>
+                                    </b-row>
                                 </div>
+                                <div class="view-datos" v-if="this.visibleBtnEditar == 1">
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="label">DNI</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.documentNumber}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="campo">Nombre</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.firstName}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="campo">Teléfono</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="campo">Correo</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.emailAddress}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                </div>
+                                <div class="edit-datos" v-if="this.visibleBtnEditar == 0">
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="label">DNI mostrado</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.documentNumber}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="campo">Nombre</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.firstName}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="campo">Teléfono</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4">
+                                            <p class="campo">Correo</p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <p><span>{{this.$store.state.common.objCliente.emailAddress}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                </div> 
+                                
                             </div>
-                            <div class="datos-personales">
-                                <h3 class="resumen-proteccion--subtitulo">DATOS PERSONALES</h3>
-                                <p><span class="campo">DNI</span> <span>{{this.$store.state.common.objCliente.documentNumber}}</span></p>
-                                <p><span class="campo">Nombre</span> <span>{{this.$store.state.common.objCliente.firstName}}</span></p>
-                                <p><span class="campo">Teléfono</span> <span>{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
-                                <p><span class="campo">Correo</span> <span>{{this.$store.state.common.objCliente.emailAddress}}</span></p>
-                            </div>
+
+                            <!-- <div class="edit-datos-personales">
+                                <b-col cols="12" lg="8" class="box-principal">
+                                    <b-row>
+                                        <b-col cols="12">
+                                            <div class="box-documento  mt-5">
+                                                <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                                                v-on:focus.native="isIconDni = !isIconDni"
+                                                v-on:blur.native="placeholderDNI($event)"
+                                                @click.native="clearPlaceholderDNI($event)"
+                                                @keyup.native="delay($event, 300)"
+                                                class="input-vehicular form-control input-id"
+                                                maxlength="11"
+                                                autocomplete="on"
+                                                autofocus
+                                                type="tel"
+                                                v-model="this.$store.state.common.objCliente.documentNumber"
+                                                required
+                                                placeholder="Numero de DNI, CI o RUC"
+                                                style="text-transform: initial">
+                                                </b-form-input>
+                                            </div>
+                                        </b-col>
+                                    </b-row>
+                                    </b-col>
+                            </div> -->
 
                             <div class="datos-poliza">
                                 <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
-                                <p><span class="campo">Plan</span> <span>{{this.$store.state.common.planSeleccionado}}</span></p>
-                                <p><span class="campo">Cobertura</span> <span>{{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
-                                <p><span class="campo">Frecuencia</span> <span>{{this.$store.state.common.frecuenciaPago}}</span></p>
-                                <p><span class="campo">F. DE INICIO </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                                <div v-if="this.planSeleccionado == 4" class="plan-titulo">
+                                    <p><span class="campo">Plan</span> <span>Básico: Protección contra robo</span></p>
+                                </div>
+                                <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
+                                    <p><span class="campo">Plan</span> <span>Intermedio: Protección accidentes</span></p>
+                                </div>
+                                <div v-else-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" class="plan-titulo">
+                                    <p><span class="campo">Plan</span> <span>Full: Protección total</span></p>                      
+                                </div>
+
+                                <p><span class="campo">Cobertura</span> <span>$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+
+                                <div v-if="this.$store.state.common.frecuenciaPago == 1" class="plan-titulo">
+                                    <p><span class="campo">Frecuencia</span> <span>Mensual</span></p>                      
+                                </div>
+                                <div v-if="this.$store.state.common.frecuenciaPago == 2" class="plan-titulo">
+                                    <p><span class="campo">Frecuencia</span> <span>Trimestral</span></p>                      
+                                </div>
+                                <div v-if="this.$store.state.common.frecuenciaPago == 3" class="plan-titulo">
+                                    <p><span class="campo">Frecuencia</span> <span>Anual</span></p>                      
+                                </div>
+                                
+                                <p><span class="campo">F. de inicio </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
                             </div>
 
                             <div class="datos-pago">
                                 <p class="total">
-                                    TOTAL: <span class="monto">${{this.monto_pagar}}</span> <span class="antes">Antes us$ {{}}</span>
+                                    MONTO FINAL A PAGAR: <span class="monto-resumen">US$ {{this.monto_pagar}}</span>
                                 </p>
                             </div>
                         </div>
@@ -259,9 +526,9 @@
 
     </section>
 </template>
+
 <script>
-import loaderPago from '@/components/loaders/LoaderPay'
-import PaymentNiubiz from '@/components/FormPaymentNiubiz'
+
 import { validationMixin } from 'vuelidate'
     
     var cardNumber;
@@ -275,52 +542,14 @@ import { validationMixin } from 'vuelidate'
     };
     export default {
         layout: 'InterseguroFlujo',
-        
         data(){
             return {
-                showLoader: true,
-                paymentForm: {
-                    email: this.$store.state.common.email,
-                    card_number: '',
-                    public_key: process.env.culqiPK,
-                    url: process.env.culqiURL,
-                    cvv: '',
-                    expiration_date: null,
-                    expiration_year: null,
-                    expiration_month: null
-                },
-                pay: {
-                    businessId:1,
-                    sellCode: this.$store.state.common.codeRmkt,
-                    planId: this.$store.state.common.planSeleccionado,
-                    plateNumber: this.$store.state.common.plateNumber,
-                    documentNumber: this.$store.state.common.objCliente.documentNumber,
-                    discountType:"",
-                    policy:{
-                        startDate:this.$store.state.common.fechaVigencia,
-                        zeroKm:"N",
-                        frequency:this.$store.state.common.frecuenciaPago,                        
-                        financialInstitution:this.$store.state.common.entidadFinanciera.name,
-
-                        // 
-                        calculated:this.$store.state.common.listaCotizacion.policy.calculated,
-                        monthly:this.$store.state.common.listaCotizacion.policy.monthly,
-                        monthlyDiscount:this.$store.state.common.listaCotizacion.policy.monthlyDiscount,
-                        quarterly:this.$store.state.common.listaCotizacion.policy.quarterly,
-                        quarterlyDiscount:this.$store.state.common.listaCotizacion.policy.quarterlyDiscount,
-                        annual:this.$store.state.common.listaCotizacion.policy.annual,
-                        annualDiscount:this.$store.state.common.listaCotizacion.policy.annualDiscount,
-                        sumAssured: 0,
-                        discount:false
-                    },
-                    digitalPayment:{
-                        provider: this.$store.state.payment.provider,
-                        token: null
-                    }
-                },
-                /********************************************************************************** */
-
-                /********************************************************************************** */
+                flagVerMas: 1,
+                flagVerMenos: 0,
+                visibleBtnEditar: 1,
+                visibleBtnCancelar: 0,
+                indeterminate: true,
+                editarDatos : false,
                 htmlModal : '',
                 textErrModal : '',
                 textErrModalTwo : '',
@@ -350,36 +579,6 @@ import { validationMixin } from 'vuelidate'
                 planSeleccionado: 0,
                 pruebabandera:true,
                 contadorNoTeVayas: 0,
-                objError:{
-                    "page":'',
-                    "flow":'',
-                    "path":'',
-                    "messageError": '',
-                    "documentNumber":'',
-                    "plateNumber": '',
-                    "detail":{
-                    "objServicio":{
-                        "nombre":'',
-                        "tipo": '',
-                        "ruta": '',
-                        "msj": '',
-                        "solucion": ''
-                    },
-                    "objCliente":{
-                        "documento": '',
-                        "nombre":'',
-                        "celular": '',
-                        "correo": ''
-                    },
-                    "objAuto":{
-                        "placa": '',
-                        "marca": '',
-                        "modelo": '',
-                        "anio": '',
-                        "valorComercial": ''
-                    }
-                    }
-                },
                 endosoSeleccionado: {},
                 discountType: '',
                 opacidad:false,            
@@ -421,9 +620,6 @@ import { validationMixin } from 'vuelidate'
                     "monto":null
                 },
                 monto_pagar: null,
-                /**************************************************************
-                 * ********************INGRESA TU TARJETA *********************
-                 * ***********************************************************/
                 cardCompleto:true,
                 size: '45px',
                 objClient:{},
@@ -460,9 +656,6 @@ import { validationMixin } from 'vuelidate'
                     isValid:''
                 },
                 objCulqi:{},
-                /**************************************************************
-                 * *********************** REMARKETING ************************
-                 * ***********************************************************/
                 businessId : "",
                 objPlantilla : {
                     "1":"00-dias.html",
@@ -478,92 +671,82 @@ import { validationMixin } from 'vuelidate'
                 }
             }
         },
-        created () {
-            let self = this
-            this.$nuxt.$on('show-loader', ({loader}) => {
-                console.log(loader, "LOADER")
-                this.showLoader = loader
-                // this.showLoader = true
-            })
-            this.$nuxt.$on('show-payment', ({payment}) => {
-                console.log("PAYMENT",payment)
-                self.pay.digitalPayment.provider = payment
-                self.$store.commit('payment/setSessionKey', payment)
-            })
-
-            
-        },
         methods: {
-            
-                hidemetodoFlotante(){
-                    this.$nuxt.$emit('bv::hide::modal','leavePayment')
-                },
-                metodoFlotante(){
-                    this.$nuxt.$emit('bv::show::modal','leavePayment')
-                },
-                contador(){
-                    var flipdown2 = new FlipDown(1619845199, 'contadorCyber4').start()
-                    var flipdown = new FlipDown(1619845199, 'contadorCyber3').start()
-                },
-                hideModalBlackWeek(){
-                    $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
-                },
+            clicVerMas(){
+                this.flagVerMas = 0;
+                this.flagVerMenos = 1;
+            },
+            clicVerMenos(){
+                this.flagVerMas = 1;
+                this.flagVerMenos = 0;
+            },
+            clicBtnEditar(){
+                this.visibleBtnEditar = 0;
+                this.visibleBtnCancelar = 1;
+            },
+            clicBtnCancelar(){
+                this.visibleBtnEditar = 1;
+                this.visibleBtnCancelar = 0;
+            },
+            hidemetodoFlotante(){
+                this.$nuxt.$emit('bv::hide::modal','leavePayment')
+            },
+            metodoFlotante(){
+                this.$nuxt.$emit('bv::show::modal','leavePayment')
+            },
 
-                cotizador_datalayer(evento,step_valor){
-                    this.cobertura_is.content_ids =  this.$store.state.common.code_sku
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: evento,
-                        step: step_valor,
-                        product: this.cobertura_is,
-                    });
-                },
-                /* *********************************************************************************** */
-                PaginaVista(e){
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        'event': 'pagina_vista',
-                        'page-url': '/vehicular/cotiza/como-pagar', 
-                        'page-title': 'Como Pagar',
-                        'dni-encontrado': this.$store.state.common.clientStateGA, // true of false
-                        'ecommerce': {
-                            'checkout': {
-                                'actionField': {'step': 4}, // esto marca el primer paso en el embudo
-                            }
+            cotizador_datalayer(evento,step_valor){
+                this.cobertura_is.content_ids =  this.$store.state.common.code_sku
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: evento,
+                    step: step_valor,
+                    product: this.cobertura_is,
+                });
+            },
+            /* *********************************************************************************** */
+            PaginaVista(e){
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'pagina_vista',
+                    'page-url': '/vehicular/cotiza/como-pagar', 
+                    'page-title': 'Como Pagar',
+                    'dni-encontrado': this.$store.state.common.clientStateGA, // true of false
+                    'ecommerce': {
+                        'checkout': {
+                            'actionField': {'step': 4}, // esto marca el primer paso en el embudo
                         }
-                    });
-                },
-                PaginaVistaNuevoProducto() {
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: "pagina_vista",
-                        "page-url": "/vehicular-app/cotiza/como-pagar/",
-                        "page-title": "como pagar",
-                    });
-                },
-                /* *********************************************************************************** */
-                validarROOT(){
-                    if(this.$store.state.common.planSeleccionado == 6 || this.$store.state.common.planSeleccionado == 4){
-                        if(!this.$store.state.common.entidadFinanciera.id > 0){
-                            let inputDate = Date.parse(this.fechaVigencia)
-                            inputDate = new Date(this.fechaVigencia)
-                            
-                            let fecha = new Date()
-                            let dia = fecha.getDate()
-                            let mes = fecha.getMonth()+1
-                            let año = fecha.getFullYear()
-                            let fechaActual = dia+'/'+mes+'/'+año
-                            
-                            let todaysDate = Date.parse(fechaActual)
-                            todaysDate = new Date(fechaActual)
+                    }
+                });
+            },
+            PaginaVistaNuevoProducto() {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: "pagina_vista",
+                    "page-url": "/vehicular-app/cotiza/como-pagar/",
+                    "page-title": "como pagar",
+                });
+            },
+            /* *********************************************************************************** */
+            validarROOT(){
+                if(this.$store.state.common.planSeleccionado == 6 || this.$store.state.common.planSeleccionado == 4){
+                    if(!this.$store.state.common.entidadFinanciera.id > 0){
+                        let inputDate = Date.parse(this.fechaVigencia)
+                        inputDate = new Date(this.fechaVigencia)
+                        
+                        let fecha = new Date()
+                        let dia = fecha.getDate()
+                        let mes = fecha.getMonth()+1
+                        let año = fecha.getFullYear()
+                        let fechaActual = dia+'/'+mes+'/'+año
+                        
+                        let todaysDate = Date.parse(fechaActual)
+                        todaysDate = new Date(fechaActual)
 
-                            if(inputDate.getTime() ===  todaysDate.getTime()) {
-                                if (this.$store.state.common.frecuenciaPago == 1) {
-                                    this.$store.commit('common/setEmisionROOT', true)
-                                } else {
-                                    this.$store.commit('common/setEmisionROOT', false)
-                                }
-                            }else{
+                        if(inputDate.getTime() ===  todaysDate.getTime()) {
+                            if (this.$store.state.common.frecuenciaPago == 1) {
+                                this.$store.commit('common/setEmisionROOT', true)
+                            } else {
                                 this.$store.commit('common/setEmisionROOT', false)
                             }
                         }else{
@@ -572,285 +755,329 @@ import { validationMixin } from 'vuelidate'
                     }else{
                         this.$store.commit('common/setEmisionROOT', false)
                     }
+                }else{
+                    this.$store.commit('common/setEmisionROOT', false)
+                }
+            },
+            onCopy: function (e) {      
+                this.isEnableURL = false;
+                var self = this;
+                setTimeout(function() {
+                    self.isEnableURL = true;
+                }, 1800);    
+            },
+            copyURL(event) {     
+                e.preventDefault();
+                this.isEnableURL = true;
+                var copyText  = document.getElementById("copyText");
+                copyText.select();
+                document.execCommand("copy");
+                var self = this;
+                setTimeout(function() {
+                    self.isEnableURL = true;
+                }, 1800);
                 },
-                onCopy: function (e) {      
-                    this.isEnableURL = false;
-                    var self = this;
-                    setTimeout(function() {
-                        self.isEnableURL = true;
-                    }, 1800);    
-                },
-                copyURL(event) {     
-                    e.preventDefault();
-                    this.isEnableURL = true;
-                    var copyText  = document.getElementById("copyText");
-                    copyText.select();
-                    document.execCommand("copy");
-                    var self = this;
-                    setTimeout(function() {
-                        self.isEnableURL = true;
-                    }, 1800);
-                },
-                mostrarTooltip(){
-                    if(process.client){
-                        document.getElementById("msg-valor").style.display = "block"
+            mostrarTooltip(){
+                if(process.client){
+                    document.getElementById("msg-valor").style.display = "block"
+                }
+                
+            },
+            ocultarTooltip(){
+                if(process.client){
+                    document.getElementById("msg-valor").style.display = "none"
+                }
+            },
+            continuar(evt) {                
+                this.opacidad =true
+                this.isDisabledPayment = false
+                evt.preventDefault();
+
+                this.isDisabledPayment = true
+                this.card.expiration_year = '20'+this.expiration_year
+                this.card.email = this.$store.state.common.email
+                this.$store.dispatch('payment/getTokenCulqi', this.card)
+                .then((res) =>{
+                    if (res.object === 'error') {
+
+                        this.$swal({
+                            title: 'Oops...',
+                            text: res.data.user_message,
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonColor: '#2177CC',
+                            confirmButtonText: 'OK'
+                        })
+                        this.opacidad =false
+                    }else{
+                        this.objCulqi = res;
+                        this.objPaymentExecute = {
+                            tokenId: this.objCulqi.id,
+                            planId: this.$store.state.common.planSeleccionado,
+                            plateNumber: this.$store.state.common.plateNumber,
+                            documentNumber: this.$store.state.common.documentoLocal,
+                            remarketingId: this.$store.state.common.codeRmkt,
+                            referredDocumentNumber:null,
+                            discountType: this.discountType,
+                            businessId: this.$store.state.common.businessId,
+                            details: {
+                                policy: {
+                                    riskName: this.listCotizacion.policy.riskName,
+                                    risk: this.listCotizacion.policy.risk,
+                                    calculated: this.listCotizacion.policy.calculated,
+                                    twoYears: this.listCotizacion.policy.twoYears,
+                                    annual: this.listCotizacion.policy.annual,
+                                    quarterly: this.listCotizacion.policy.quarterly,
+                                    monthly: this.listCotizacion.policy.monthly,
+                                    twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
+                                    annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                    quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                    monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                    discount: false,
+                                    startDate: this.$store.state.common.fechaVigencia
+                                },
+                                vehicle: {
+                                    current: this.listCotizacion.vehicle.current,
+                                    maximum: this.listCotizacion.vehicle.maximum,
+                                    minimum: this.listCotizacion.vehicle.minimum,
+                                    gps: this.listCotizacion.vehicle.gps
+                                },
+                                zeroKm: "N",
+                                paymentMethodId: this.payment,
+                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                            },
+                            card: {
+                                brand: this.objCulqi.iin.card_brand,
+                                category: this.objCulqi.iin.card_category,
+                                number: this.objCulqi.card_number,
+                                type: this.objCulqi.iin.card_type,
+                                bank : this.objCulqi.iin.issuer.name
+                            }
+                        }
+                        this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
+                        .then((res) =>{
+
+                            if (res.code == 0) {
+                                this.opacidad =false
+                                // this.validarROOT()
+                                this.$store.commit('common/setPolicy_id',res.body.policyId)
+                                this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
+                            }else if(res.code == 100){
+           
+                                this.opacidad =false
+                                const messageErr = JSON.parse(JSON.parse(res.body).body);
+
+
+                                const showMessageErr = () => {
+                                    const err = messageErr.decline_code;
+                                    this.textErrModalTwo = '';
+                                    if(err == 'stolen_card'){
+                                        return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'lost_card'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'insufficient_funds'){
+                                        return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
+                                    }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'incorrect_cvv'){
+                                        return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'issuer_not_available'){
+                                        return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'processing_error'){
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                                    }else {
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                                    }
+                                };
+
+                                this.textErrModal = showMessageErr();
+                                if(!this.htmlModal){
+                                    this.htmlModal = document.getElementById('newModal');
+                                    this.htmlModal.style.display = "";
+                                }
+
+                                this.$swal({
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    text: showMessageErr(),
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                                })
+                            }else{
+                                this.opacidad =false
+                                this.$swal({
+                                    title: 'Oops...',
+                                    text: res.message,
+                                    type: 'error',
+                                    showCancelButton: false,
+                                    confirmButtonColor: '#2177CC',
+                                    confirmButtonText: 'OK'
+                                })
+                            }
+                            
+                        })
                     }
                     
-                },
-                ocultarTooltip(){
-                    if(process.client){
-                        document.getElementById("msg-valor").style.display = "none"
+                }).catch((res)=>{
+                    this.opacidad =false
+                    let status = res.response.status
+                    
+                   
+                    this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
+                    if(!this.htmlModal){
+                        this.htmlModal = document.getElementById('newModal');
+                        this.htmlModal.style.display = "";
                     }
-                },
-                goconfirm(evt) {
-                    let self = this        
-                    this.opacidad =true
-                    this.isDisabledPayment = false
+                       this.$swal({
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                        })
+                })
+            },
+            
+            volver (evt) {
+                evt.preventDefault();
+                this.$nuxt.$router.push("/cotizacion/documento");              
+            },
+            
+            comoPagarDatalayer(){
+                if(this.frecuenciaPago == 1){
+                    this.frecuenciaPago_datalayer ='mensual'
+                }else if(this.frecuenciaPago == 2){
+                    this.frecuenciaPago_datalayer ='trimestral'
+                }else if(this.frecuenciaPago == 3){
+                    this.frecuenciaPago_datalayer = 'annual'
+                }else if(this.frecuenciaPago == 4){
+                    this.frecuenciaPago_datalayer = 'biannual '
+                }
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'como_pagar',
+                    'cuota': this.frecuenciaPago_datalayer, // mensual, trimestral, annual (string)
+                    'ecommerce': {
+                        'checkout_option': { // nota el cambio aqui en codigo "checkout_option"
+                            'actionField': {
+                                'option':this.frecuenciaPago_datalayer
+                            }, // 4to paso en el embudo. En el option enviar tipo de cuota.
+                        }
+                    }
+                });
+            },            
 
-                    this.isDisabledPayment = true
-                    this.card.expiration_year = '20'+this.expiration_year
-                    this.card.email = this.$store.state.common.email
-                    this.$store.dispatch('payment/getTokenCulqi', this.card)
-                    .then((res) =>{
-                        
-                        if (res.object === 'error') {
-                            
-                            this.opacidad =false
+            focusCVV(){      
+                if(process.client){  
+                    document.getElementById("focusCVV").style.display = "block"
+                }
+            },
+            blurCVV(){        
+                if(process.client){
+                    document.getElementById("focusCVV").style.display = "none"
+                }
+            },
+            focusMES(){        
+                // document.getElementById("focusMES").style.display = "flex"
+            },
+            blurMES(){ 
+                if(process.client){       
+                    document.getElementById("focusMES").style.display = "none"
+                }
+            }, 
+            focusTarjeta(){  
+                if(process.client){      
+                    document.getElementById("focusTarjeta").style.display = "flex"
+                }
+            },
+            blurTarjeta(){    
+                if(process.client){    
+                    document.getElementById("focusTarjeta").style.display = "none"
+                }
+            },           
+
+            hideModalAutoorizacionPoliza(){
+                this.$refs.hideModalAutoorizacionPoliza.hide()
+            },
+            hideModalgps(){
+                this.$refs.hideModalgps.hide()
+            },
+            
+
+            isTrueTerminos(ev){
+                if(process.client){
+                    if(this.cardValitor){                        
+                        let mes = document.querySelector("#cardmes").value.length
+                        let año = document.querySelector("#cardaño").value.length
+                        let ccv = document.querySelector("#cardccv").value.length
+                        if(mes == 2 && año == 2 &&  ccv > 2 && this.checkDocs == true){                
+                            this.isDisabledPayment = false
                         }else{
-                            console.log("========1")
-                            this.objCulqi = res;
-                            this.objPaymentExecute = {
-                                tokenId: this.objCulqi.id,
-                                planId: this.$store.state.common.planSeleccionado,
-                                plateNumber: this.$store.state.common.plateNumber,
-                                documentNumber: this.$store.state.common.documentoLocal,
-                                remarketingId: this.$store.state.common.codeRmkt,
-                                referredDocumentNumber:null,
-                                discountType: this.discountType,
-                                businessId: this.$store.state.common.businessId,
-                                details: {
-                                    policy: {
-                                        riskName: this.listCotizacion.policy.riskName,
-                                        risk: this.listCotizacion.policy.risk,
-                                        calculated: this.listCotizacion.policy.calculated,
-                                        twoYears: this.listCotizacion.policy.twoYears,
-                                        annual: this.listCotizacion.policy.annual,
-                                        quarterly: this.listCotizacion.policy.quarterly,
-                                        monthly: this.listCotizacion.policy.monthly,
-                                        twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
-                                        annualDiscount: this.listCotizacion.policy.annualDiscount,
-                                        quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
-                                        monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
-                                        discount: false,
-                                        startDate: this.$store.state.common.fechaVigencia
-                                    },
-                                    vehicle: {
-                                        current: this.listCotizacion.vehicle.current,
-                                        maximum: this.listCotizacion.vehicle.maximum,
-                                        minimum: this.listCotizacion.vehicle.minimum,
-                                        gps: this.listCotizacion.vehicle.gps
-                                    },
-                                    zeroKm: "N",
-                                    paymentMethodId: this.payment,
-                                    financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
-                                },
-                                card: {
-                                    brand: this.objCulqi.iin.card_brand,
-                                    category: this.objCulqi.iin.card_category,
-                                    number: this.objCulqi.card_number,
-                                    type: this.objCulqi.iin.card_type,
-                                    bank : this.objCulqi.iin.issuer.name
-                                }
-                            }
-                            console.log("========2",self.pay)
-                            console.log("========2.1",res)
-                            self.pay.digitalPayment.token = res.id
-                            this.goGeneratePoliza(res.id)
-                            // this.$store.dispatch('payment/makeSale', this.objPaymentExecute)
-                            // .then((res) =>{
-                                
-                                
-                            // })
+                            this.isDisabledPayment = true
                         }
-                        
-                    }).catch((res)=>{
-                        this.opacidad =false
-                        let status = res.response.status
-                        
-                        this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
-                        if(!this.htmlModal){
-                            this.htmlModal = document.getElementById('newModal');
-                            this.htmlModal.style.display = "";
-                        }
-                        this.$swal({
-                                        // title: 'Oops...',
-                                        html: this.htmlModal,
-                                        // type: 'error',
-                                        customClass: 'swal-buttonx',
-                                        showCloseButton: true,
-                                        confirmButtonColor: '#EA0C90',
-                                        confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
-                            })
-                    })
-                },
-            
-                volver (evt) {
-                    evt.preventDefault();
-                    this.$nuxt.$router.push("/cotiza/ingresa-tu-documento");              
-                },
-            
-                comoPagarDatalayer(){
-                    if(this.frecuenciaPago == 1){
-                        this.frecuenciaPago_datalayer ='mensual'
-                    }else if(this.frecuenciaPago == 2){
-                        this.frecuenciaPago_datalayer ='trimestral'
-                    }else if(this.frecuenciaPago == 3){
-                        this.frecuenciaPago_datalayer = 'annual'
-                    }else if(this.frecuenciaPago == 4){
-                        this.frecuenciaPago_datalayer = 'biannual '
                     }
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        'event': 'como_pagar',
-                        'cuota': this.frecuenciaPago_datalayer, // mensual, trimestral, annual (string)
-                        'ecommerce': {
-                            'checkout_option': { // nota el cambio aqui en codigo "checkout_option"
-                                'actionField': {
-                                    'option':this.frecuenciaPago_datalayer
-                                }, // 4to paso en el embudo. En el option enviar tipo de cuota.
-                            }
-                        }
-                    });
-                },            
+                }
+            },
 
-            
-
-                /*******************************************************************************************
-                 *  ****************************INGRESA TU TARJETA*****************************************
-                *******************************************************************************************/
-                focusCVV(){      
-                    if(process.client){  
-                        document.getElementById("focusCVV").style.display = "block"
-                    }
-                },
-                blurCVV(){        
-                    if(process.client){
-                        document.getElementById("focusCVV").style.display = "none"
-                    }
-                },
-                focusMES(){        
-                    // document.getElementById("focusMES").style.display = "flex"
-                },
-                blurMES(){ 
-                    if(process.client){       
-                        document.getElementById("focusMES").style.display = "none"
-                    }
-                }, 
-                focusTarjeta(){  
-                    if(process.client){      
-                        document.getElementById("focusTarjeta").style.display = "flex"
-                    }
-                },
-                blurTarjeta(){    
-                    if(process.client){    
-                        document.getElementById("focusTarjeta").style.display = "none"
-                    }
-                },           
-
-                hideModalAutoorizacionPoliza(){
-                    this.$refs.hideModalAutoorizacionPoliza.hide()
-                },
-                hideModalgps(){
-                    this.$refs.hideModalgps.hide()
-                },
-            
-
-                isTrueTerminos(){
-                    if(process.client){
-                        if(this.cardValitor){                        
+            addingBlankSpaces (ev) {
+                let valid = require('card-validator')
+                cardNumber = ev.target.value
+                let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                this.numberValidation = valid.number(cardNumber.replace(/ /g, ''))
+                if (numberValidation.card !== null) {
+                    
+                    this.numberTest = numberValidation.card.code.size
+                    this.cvvcci = numberValidation.card.code.name
+                    let cardType = numberValidation.card.type !== 'american-express' ? numberValidation.card.type : 'amex'
+                    this.creditCardImage = require('../../static/media/img/flujo/metodo-pago/' + cardType + '.png')
+                    this.creditCardImageCvv = require('../../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
+                } else {
+                    this.creditCardImage = ''
+                    this.creditCardImageCvv = ''
+                }
+                if (ev.keyCode !== 8) {
+                    this.objCardNumber.number = this.objCardNumber.number.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ')               
+                }
+                this.card.card_number = cardNumber.split(" ").join("");
+                if(numberValidation.isValid){
+                    this.cardCompleto = false
+                    this.cardValitor = true;
+                    if(numberValidation.card.code.name == "CVV" || numberValidation.card.code.name == "CVC" && this.checkDocs == true){
+                        if(process.client){
                             let mes = document.querySelector("#cardmes").value.length
                             let año = document.querySelector("#cardaño").value.length
                             let ccv = document.querySelector("#cardccv").value.length
-                            if(mes == 2 && año == 2 &&  ccv > 2 && this.checkDocs == true){                
-                                this.isDisabledPayment = false
-                            }else{
-                                this.isDisabledPayment = true
-                            }
-                        }
-                    }
-                },
-
-                addingBlankSpaces (ev) {
-                    let valid = require('card-validator')
-                    cardNumber = ev.target.value
-                    let numberValidation = valid.number(cardNumber.replace(/ /g, ''))
-                    this.numberValidation = valid.number(cardNumber.replace(/ /g, ''))
-                    if (numberValidation.card !== null) {
-                        
-                        this.numberTest = numberValidation.card.code.size
-                        this.cvvcci = numberValidation.card.code.name
-                        let cardType = numberValidation.card.type !== 'american-express' ? numberValidation.card.type : 'amex'
-                        this.creditCardImage = require('../../static/media/img/flujo/metodo-pago/' + cardType + '.png')
-                        this.creditCardImageCvv = require('../../static/media/img/flujo/como-pagar/' + cardType+'cvv' + '.png')
-                    } else {
-                        this.creditCardImage = ''
-                        this.creditCardImageCvv = ''
-                    }
-                    if (ev.keyCode !== 8) {
-                        this.objCardNumber.number = this.objCardNumber.number.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ')               
-                    }
-                    this.card.card_number = cardNumber.split(" ").join("");
-                    if(numberValidation.isValid){
-                        this.cardCompleto = false
-                        this.cardValitor = true;
-                        if(numberValidation.card.code.name == "CVV" || numberValidation.card.code.name == "CVC" && this.checkDocs == true){
-                            if(process.client){
-                                let mes = document.querySelector("#cardmes").value.length
-                                let año = document.querySelector("#cardaño").value.length
-                                let ccv = document.querySelector("#cardccv").value.length
-                                if(mes == 2 && año == 2 && ccv == 3 ){
-                                    this.isDisabledPayment = false
-                                }
-                            }
-                            
-                        }else if(numberValidation.card.code.name == "CID"){
                             if(mes == 2 && año == 2 && ccv == 3 ){
                                 this.isDisabledPayment = false
                             }
                         }
-                        if (process.client) {
-                            document.getElementById('cardmes').focus()
-                        }
                         
-                    }else{
-                        this.isDisabledPayment = true
-                        this.cardCompleto = true
-                    }
-                },
-            
-                keyUpMes(){
-                    let mes = document.querySelector("#cardmes").value.length
-                    if(mes == 2){
-                        document.getElementById('cardaño').focus()
-                        if(this.cardValitor){
-                            let mes = document.querySelector("#cardmes").value.length
-                            let año = document.querySelector("#cardaño").value.length
-                            let ccv = document.querySelector("#cardccv").value.length
-                            if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
-                                this.isDisabledPayment = false
-                            }else{
-                                this.isDisabledPayment = true
-                            }
+                    }else if(numberValidation.card.code.name == "CID"){
+                        if(mes == 2 && año == 2 && ccv == 3 ){
+                            this.isDisabledPayment = false
                         }
-                    }else{
-                        this.isDisabledPayment = true
                     }
-                },
-                keyUpCard(){
-                    let año = document.querySelector("#cardaño").value.length
-                    if(año == 2){
-                        document.getElementById('cardccv').focus()
+                    if (process.client) {
+                        document.getElementById('cardmes').focus()
                     }
+                    
+                }else{
+                    this.isDisabledPayment = true
+                    this.cardCompleto = true
+                }
+            },
+            
+            keyUpMes(){
+                let mes = document.querySelector("#cardmes").value.length
+                if(mes == 2){
+                    document.getElementById('cardaño').focus()
                     if(this.cardValitor){
                         let mes = document.querySelector("#cardmes").value.length
                         let año = document.querySelector("#cardaño").value.length
@@ -861,182 +1088,139 @@ import { validationMixin } from 'vuelidate'
                             this.isDisabledPayment = true
                         }
                     }
-                },
-                validCard(){
-                    if(!this.numberValidation.isValid){
-                        this.$swal({
-                        title: 'Oops...',
-                        text: 'Debe ser una tarjeta válida',
-                        type: 'error',
-                        showCancelButton: false,
-                        confirmButtonColor: '#2177CC',
-                        confirmButtonText: 'OK'
-                    })
-                    }
-                },
-                remarketingv2(){
-                    if (this.$store.state.common.businessId == 2){
-                        this.objPlantilla = {
-                        "1":"00-ibk-dias.html",
-                        "2":"03-ibk-dias.html",
-                        "3":"07-ibk-dias.html",
-                        "4":"15-ibk-dias.html"
-                        }
-                        this.objUtm = {
-                        "1": "utm_campaign=IBK_remarketingCN_1",
-                        "2": "utm_campaign=IBK_remarketingCN_2",
-                        "3": "utm_campaign=IBK_remarketingCN_3",
-                        "4": "utm_campaign=IBK_remarketingCN_4"
-                        }
-                    }else if(this.$store.state.common.nuevoProducto == true){
-                        this.objPlantilla = {}
-                        this.objUtm = {}
-                    }
-                    this.abjVehicleSelect = JSON.parse(localStorage.getItem("abjVehicleSelect"))
-                    this.objVehicle = JSON.parse(localStorage.getItem("objVeh"))
-                    this.objRemarketing = {
-                        "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
-                        "producto": this.$store.state.common.businessId,
-                        "identificador": this.$store.state.common.plateNumber,
-                        "detalle": {
-                        "correo": this.$store.state.common.email.trim().replace(/ /g,''),
-                        "codigoVenta": this.$store.state.common.codeRmkt,
-                        "pantalla": 3,
-                        "enviarCorreo":0,
-                        "datosCorreo":{
-                            "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
-                            "plantilla": this.objPlantilla,
-                            "utm": this.objUtm
-                        },
-                        "datosProducto": {
-                            marca : this.$store.state.common.itemElegido.brand,
-                            modelo : this.$store.state.common.itemElegido.model,
-                            planSeleccionado : this.$store.state.common.planSeleccionado,
-                            valorComercial : this.$store.state.common.current,
-                            pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
-                            //     ? this.objectVehicle.minimumPolicyAmount
-
-                            businessId: this.$store.state.common.businessId,
-                            idEndosoSeleccionado: this.endosoSeleccionado.id,
-                            endosoSeleccionado: this.endosoSeleccionado.name,
-                            placa: this.$store.state.common.plateNumber,              
-                            anio: this.$store.state.common.itemElegido.modelYear,
-                            gps: this.$store.state.common.listaCotizacion.vehicle.gps,
-                            riesgo: this.$store.state.common.listaCotizacion.policy.risk,
-                            fechaInicio: this.$store.state.common.fechaVigencia,
-                            
-                            itemElegido: this.$store.state.common.itemElegido,
-                            listCotizacion: this.$store.state.common.listaCotizacion,
-                            nuevoProducto: this.$store.state.common.nuevoProducto           
-                        },
-                        "datosTitular": {
-                            "numeroDocumento": this.$store.state.common.documentoLocal,
-                            "nombre": this.$store.state.common.objCliente.firstName,
-                            "apellidoPaterno": this.$store.state.common.objCliente.firstLastName,
-                            "apellidoMaterno": this.$store.state.common.objCliente.secondLastName,
-                            "telefono": this.$store.state.common.objCliente.phoneNumber,
-                            "originDocumentNumber": localStorage.getItem("originDocumentNumber"),
-                            "origenDatos": localStorage.getItem("origenDatos"),
-                        },
-                        "remitente": {
-                            "correoRemitente": "comunicaciones@interseguro.com.pe",
-                            "correoRemitenteDisplay": "Interseguro"
-                        },
-                        "datosPago": {
-                            "idFrecuencia": this.payment,
-                            "fechaInicioSeguro": ""
-                        }
-                    }
-                }
-                this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
-                if (res) {
-                    this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
-                }        
-                })
-            },
-            mouseLeave(e) {
-                if (this.$store.state.common.leaveMessage == 0) {
-                    if (e.clientX < 0 || e.clientY < 0) {
-                            this.$store.commit('common/setLeaveMessage',1)
-                            this.$nuxt.$emit('bv::show::modal','leavePayment')
-                    }
+                }else{
+                    this.isDisabledPayment = true
                 }
             },
-            parseDecimal(number) {
-                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            },
-            goGeneratePoliza (token) {
-                let self = this
-                self.pay.digitalPayment.token = token
-
-                this.$store.dispatch('payment/makeSale', self.pay)
-                .then((res) => {
-                    if (res.data.code == 0) {
-                        this.$store.commit('payment/setTransactionToken', '')
-
-                        //VEHICULAR ANTERIOR
-                        this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
-                        this.opacidad =false
-                        this.$store.commit('common/setPolicy_id',res.data.body.policyId)
-                        this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
-                    }else if(res.data.code == 100){
-
-                        this.opacidad =false
-                        const messageErr = JSON.parse(JSON.parse(res.body).body)
-                        const showMessageErr = () => {
-                            const err = messageErr.decline_code;
-                            this.textErrModalTwo = '';
-                            if(err == 'stolen_card'){
-                                return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
-                            }else if( err == 'lost_card'){
-                                return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
-                            }else if( err == 'insufficient_funds'){
-                                return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
-                            }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
-                                return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
-                            }else if( err == 'incorrect_cvv'){
-                                return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
-                            }else if( err == 'issuer_not_available'){
-                                return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
-                            }else if( err == 'processing_error'){
-                                this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
-                                return 'El pago no pudo ser procesado. Por favor contáctanos al '
-                            }else {
-                                this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
-                                return 'El pago no pudo ser procesado. Por favor contáctanos al '
-                            }
-                        };
-
-                        this.textErrModal = showMessageErr()
-                        if(!this.htmlModal){
-                            this.htmlModal = document.getElementById('newModal');
-                            this.htmlModal.style.display = "";
-                        }
-
-                        this.$swal({
-                            // title: 'Oops...',
-                            html: this.htmlModal,
-                            text: showMessageErr(),
-                            // type: 'error',
-                            customClass: 'swal-buttonx',
-                            showCloseButton: true,
-                            confirmButtonColor: '#EA0C90',
-                            confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
-                        })
+            keyUpCard(){
+                let año = document.querySelector("#cardaño").value.length
+                if(año == 2){
+                    document.getElementById('cardccv').focus()
+                }
+                if(this.cardValitor){
+                    let mes = document.querySelector("#cardmes").value.length
+                    let año = document.querySelector("#cardaño").value.length
+                    let ccv = document.querySelector("#cardccv").value.length
+                    if(mes == 2 && año == 2 && ccv > 2 && this.checkDocs == true){                
+                        this.isDisabledPayment = false
                     }else{
-                        console.log("666")
-                        this.opacidad =false
-                        this.$swal({
-                            title: 'Oops...',
-                            text: res.message,
-                            type: 'error',
-                            showCancelButton: false,
-                            confirmButtonColor: '#2177CC',
-                            confirmButtonText: 'OK'
-                        })
+                        this.isDisabledPayment = true
                     }
-                })
+                }
             },
+            validCard(){
+                if(!this.numberValidation.isValid){
+                    this.$swal({
+                    title: 'Oops...',
+                    text: 'Debe ser una tarjeta válida',
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonColor: '#2177CC',
+                    confirmButtonText: 'OK'
+                })
+                }
+            },
+            remarketingv2(){
+                if (this.$store.state.common.businessId == 2){
+                    this.objPlantilla = {
+                    "1":"00-ibk-dias.html",
+                    "2":"03-ibk-dias.html",
+                    "3":"07-ibk-dias.html",
+                    "4":"15-ibk-dias.html"
+                    }
+                    this.objUtm = {
+                    "1": "utm_campaign=IBK_remarketingCN_1",
+                    "2": "utm_campaign=IBK_remarketingCN_2",
+                    "3": "utm_campaign=IBK_remarketingCN_3",
+                    "4": "utm_campaign=IBK_remarketingCN_4"
+                    }
+                }else if(this.$store.state.common.nuevoProducto == true){
+                    this.objPlantilla = {}
+                    this.objUtm = {}
+                }
+                this.abjVehicleSelect = JSON.parse(localStorage.getItem("abjVehicleSelect"))
+                this.objVehicle = JSON.parse(localStorage.getItem("objVeh"))
+                this.objRemarketing = {
+                    "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
+                    "producto": this.$store.state.common.businessId,
+                    "identificador": this.$store.state.common.plateNumber,
+                    "detalle": {
+                    "correo": this.$store.state.common.email.trim().replace(/ /g,''),
+                    "codigoVenta": this.$store.state.common.codeRmkt,
+                    "pantalla": 3,
+                    "enviarCorreo":0,
+                    "datosCorreo":{
+                        "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
+                        "plantilla": this.objPlantilla,
+                        "utm": this.objUtm
+                    },
+                    "datosProducto": {
+                        marca : this.$store.state.common.itemElegido.brand,
+                        modelo : this.$store.state.common.itemElegido.model,
+                        planSeleccionado : this.$store.state.common.planSeleccionado,
+                        valorComercial : this.$store.state.common.current,
+                        pagoMensual : this.$store.state.common.listaCotizacion.policy.monthly,
+
+                        businessId: this.$store.state.common.businessId,
+                        idEndosoSeleccionado: this.endosoSeleccionado.id,
+                        endosoSeleccionado: this.endosoSeleccionado.name,
+                        placa: this.$store.state.common.plateNumber,              
+                        anio: this.$store.state.common.itemElegido.modelYear,
+                        gps: this.$store.state.common.listaCotizacion.vehicle.gps,
+                        riesgo: this.$store.state.common.listaCotizacion.policy.risk,
+                        fechaInicio: this.$store.state.common.fechaVigencia,
+                        
+                        itemElegido: this.$store.state.common.itemElegido,
+                        listCotizacion: this.$store.state.common.listaCotizacion,
+                        nuevoProducto: this.$store.state.common.nuevoProducto                
+
+                    },
+                    "datosTitular": {
+                        "numeroDocumento": this.$store.state.common.documentoLocal,
+                        "nombre": this.$store.state.common.objCliente.firstName,
+                        "apellidoPaterno": this.$store.state.common.objCliente.firstLastName,
+                        "apellidoMaterno": this.$store.state.common.objCliente.secondLastName,
+                        "telefono": this.$store.state.common.objCliente.phoneNumber,
+                        "originDocumentNumber": localStorage.getItem("originDocumentNumber"),
+                        "origenDatos": localStorage.getItem("origenDatos"),
+                    },
+                    "remitente": {
+                        "correoRemitente": "comunicaciones@interseguro.com.pe",
+                        "correoRemitenteDisplay": "Interseguro"
+                    },
+                    "datosPago": {
+                        "idFrecuencia": this.payment,
+                        "fechaInicioSeguro": ""
+                    }
+                }
+            }
+            this.$store.dispatch('common/sendRemarketing',this.objRemarketing).then((res) => {
+              if (res) {
+                this.$store.commit('common/setCodigoRemarketingGenerado', res.data.codigoRemarketing)
+              }        
+            })
+          },
+          mouseLeave(e) {
+              if (this.$store.state.common.leaveMessage == 0) {
+                  if (e.clientX < 0 || e.clientY < 0) {
+                        this.$store.commit('common/setLeaveMessage',1)
+                        this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        // if (this.$store.state.common.planSeleccionado == "3" || this.$store.state.common.planSeleccionado == "10") {
+                        //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        // }else{
+                        //     this.$nuxt.$emit('bv::show::modal','leavePayment')
+                        // }
+                  }
+              }
+          },
+          parseDecimal(number) {
+              return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          },
+
+          editarDatosPersonales(){
+              this.editarDatos = true;
+              console.log('editar datos personales '+this.editarDatos);
+          },
         },
         computed:{
             appDiscount: function(){
@@ -1064,9 +1248,11 @@ import { validationMixin } from 'vuelidate'
             }
         },
         mounted: function () {
-            this.pay.digitalPayment.provider  = this.$store.state.payment.provider
-            this.pay.policy.sumAssured =  this.$store.state.common.listaCotizacion.vehicle.current
+            // if(localStorage.getItem('activoAgora')){
+            //     this.valeAgora = true
+            // }
             
+            // this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1092,7 +1278,9 @@ import { validationMixin } from 'vuelidate'
                         }
                         this.listCotizacion = this.$store.state.common.listaCotizacion
 
-                        this.planSeleccionado = objJWT.common.planSeleccionado                        
+                        this.planSeleccionado = objJWT.common.planSeleccionado
+                        // this.vehicleState = objJWT.common.vehicleState                
+                        
                         this.payment = objJWT.common.frecuenciaPago
                         this.businessId = this.$store.state.common.businessId
                         if (this.payment > 0 ) {
@@ -1141,47 +1329,61 @@ import { validationMixin } from 'vuelidate'
             }
             this.fechaVigencia = this.$store.state.common.fechaVigencia
     
-
+            this.remarketingv2()
+            // this.validarROOT()
             document.addEventListener('mouseleave', this.mouseLeave, { passive: true})
-            this.$store.commit('payment/setTransactionToken', this.$route.query.transactionToken)
-            if (this.$route.query.transactionToken) {
-                this.goGeneratePoliza(this.$store.state.payment.transactionToken)
-            } else {
-                console.log("NO ENTROOOOOOOOOOO")
-            }
-        },
-        components: {
-            PaymentNiubiz,
-            'loader-pay': loaderPago
         },
         destroyed() {
             if (process.browser) {
                 document.removeEventListener('mouseleave', this.mouseLeave, { passive: true})
             }
-            this.$nuxt.$off('show-payment')
         }
     }
 </script>
+
 <style lang="scss" scope>
-    $vehicular_primario: #0855c4;
-    $vehicular_secundario: #ea0c90;
-    $vehicular_parrafo: #454A6C;
-    $vehicular_titulo_seccion: #0855C4;
-    $vehicular_subtitulo: #454A6C;
     .pagina-pagar{
         padding-top: 80px;
         padding-bottom: 80px;
+        .resumen-proteccion{
+            .datos-personales{
+                .datos-personales-card{
+                    border:none;
+                    .card-body{
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .box-messaje{
+        //max-width: 394px;
+        overflow: hidden;
+        background: #F9F9FB;
+        height: 78px;
+        display: flex;
+        align-items: center;
+        background-color: #DCE0EA;
     }
     
+    .mi-carro{
+        font-size: 16px;
+        color: #383C5A;
+        font-family: 'Omnes SemiBold';
+    }
 
     .capadecarga{
         display: none;
     }
 
-
     .metodo-pago{
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; */
         border: 1px solid #CCD1DD;
-        
+        border-radius: 3px;
+        opacity: 1;        
         .imgs{
             display: flex;
             align-items: center;
@@ -1677,7 +1879,7 @@ import { validationMixin } from 'vuelidate'
             }
         }
         #focusTarjeta{
-            left: -239px;
+            left: -110px;
             bottom: 63px;
             img{
                 width: 100%;

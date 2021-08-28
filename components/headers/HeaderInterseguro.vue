@@ -450,7 +450,7 @@ export default {
     }
     .header-planes{
         background: white;
-        height: 68px;
+        height: 72px;
         position: fixed;
         width: 100%;
         margin: auto;

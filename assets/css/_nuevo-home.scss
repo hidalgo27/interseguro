@@ -86,9 +86,9 @@ $vehicular_parrafo_v2: #383C5A;
         }
         .banner-textos{
             //width: 455px;
-            width: 325px;
+            //width: 325px;
             //margin-left: 32px;
-            margin-left: 5px;
+            //margin-left: 5px;
             color: #fff;            
             padding-top: 28px;
             position: relative;
@@ -122,14 +122,11 @@ $vehicular_parrafo_v2: #383C5A;
             height: 350px;
             margin-right: -195px;
             margin-bottom: -117px;
-            margin-left: -217px;
-            //background-size: 90%;
-            background-image: url('./../../static/media/imagenes/home/vehiculo.svg');
+            margin-left: -300px;
+            background-image: url('./../../static/media/imagenes/home/vehiculo2.svg');
             background-repeat: no-repeat;
             background-position-y: bottom;
-            background-position-x: right;
-            //width: 100%;
-            
+            background-position-x: right;            
         }
 
         .formCotizador{
@@ -137,7 +134,7 @@ $vehicular_parrafo_v2: #383C5A;
             max-width: 438px;
             width: 100%;
             max-width: 340px;
-            height: 280px;
+            height: 300px;
             border-radius: 3rem 0 3rem 0;
             background: #fff;
             border: 1px solid #DDE0E9;
@@ -345,8 +342,64 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
     }
+    
+    /* .slider-testimonio{
+        //width: 492px;
+        height: 91px;
+        display: flex;
+    } */
 
     .testimonios{
+        display: flex;
+        font-size: 16px;
+        font-family: 'Omnes Regular';
+        .carousel-caption{
+            position: absolute;
+            right: 0%;
+            bottom: 0px;
+            left: 0%;
+            z-index: 10;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            color: #383C5A;
+            text-align: center;
+            height: 100%;
+        }
+        .carousel-inner{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 100%;
+            padding: 5px 15px;
+            /* padding-right: 15px; */
+            line-height: 0px;
+            text-shadow: none;
+        }
+        .carousel-item{
+            height: 100%;
+            line-height: 22px;
+        }
+        .carousel-item.active{
+            background: crimson;
+        }
+        .slide{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            width: 59px;
+            height: 59px;
+            margin-right: 12px;
+        }
+        /* .carousel-item{
+            img{
+                width: 59px;
+                height: 59px;
+                margin-right: 12px;
+            }
+            display: flex;
+            font-size: 16px;
+        } */
         .VueCarousel-slide{
             img{
                 width: 59px;
@@ -370,35 +423,26 @@ $vehicular_parrafo_v2: #383C5A;
         padding-bottom: 4px;
     }
     .que-me-cubre{
-        &__item{
+        &__item{          
           font-family: 'Omnes Regular';
           font-size: 16px;
           //line-height: 25px;
           padding-top: 6px;
           color: #383C5A;
+          span{
+              margin-left: 12px;
+          }          
         }
     }
 
     .planes{
-        padding-top: 40px;
-        .strecht{
-            align-items: stretch;
-            //height: 590px;
-            .item{
-                //align-self:stretch;
-                height: 100%;
-            }
-        }
+        padding-top: 40px;        
         .detalle-plan{
             display: flex;
-            flex-direction: column;
+            //flex-direction: column;
             align-items: center;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             height: 100%;
-           /*  border: 1px solid #CCD1DD;
-            border-radius: 3px;
-            opacity: 1;
-            height: 825px; */
             .box-titulo{
                 margin-top: 20px;
                 margin-bottom: 10px;
@@ -427,7 +471,10 @@ $vehicular_parrafo_v2: #383C5A;
                 margin-top: 35px;
                 margin-bottom: 20px; 
                 text-align: center; 
-                font-size: 23px;              
+                font-size: 23px;                 
+                p{
+                    font-family: "Omnes Regular";
+                }            
                 .monto{
                     color: #383C5A;
                     font-family: "Omnes Medium";
@@ -447,8 +494,8 @@ $vehicular_parrafo_v2: #383C5A;
               }
               hr{
                 width: 80%;
-                border: 1px solid #CCD1DD;
-                opacity: 1;
+                /* border: 1px solid #CCD1DD;
+                opacity: 1; */
               }
         }
         .box-titulo-normal{
@@ -467,7 +514,7 @@ $vehicular_parrafo_v2: #383C5A;
         .plan-recomendado{
             background: $vehicular_primario;
             height: 35px;
-            width: 80%;
+            //width: 100%;
             justify-content: center;
             align-items: center;
             color: #fff;
@@ -480,9 +527,9 @@ $vehicular_parrafo_v2: #383C5A;
         }
         .box-plan-normal{
             display: flex;
-            flex-direction: column;
-            align-content:space-between;
-            width: 100%;
+            //flex-direction: column;
+            //align-content:space-between;
+            //width: 100%;
             height: 100%;
             border: 1px solid #DDE0E9;
             padding-bottom: 1.7rem;
@@ -491,7 +538,7 @@ $vehicular_parrafo_v2: #383C5A;
             opacity: 1;
         }
         .box-plan-recomendado{
-            width: 100%;
+            //width: 100%;
             border: 3px solid $vehicular_primario;
             padding-bottom: 1.7rem;
             background-color: #fff;
@@ -682,7 +729,7 @@ $vehicular_parrafo_v2: #383C5A;
             outline: none;
             font-family: 'Omnes Regular';
             font-size: 20px;
-            outline: none;
+            outline: none;            
         }
         .card-header{
             border-bottom: none;
@@ -696,10 +743,21 @@ $vehicular_parrafo_v2: #383C5A;
             font-family: 'Omnes Semibold';
             outline: none;
         }
+        /* .btn.btn-info.btn-block.collapsed{
+            color: blueviolet;
+        } */
+        .btn.btn-info.btn-block.not-collapsed{
+            color: #383C5A !important;
+            font-family: 'Omnes Semibold';
+            outline: none;
+            float: right;
+            content: "\f067"; 
+        }
         .card-text{            
             font-family: 'Omnes Regular';
             font-size: 18px;
         }
+        
     }
     
     .dudas-consultas{
@@ -848,6 +906,7 @@ $vehicular_parrafo_v2: #383C5A;
                 max-width: 438px;
                 height: 340px;
                 input{
+                    font-family: 'Omnes Regular';
                     font-size: 23px;
                     height: 51px;
                     width: 360px;
@@ -886,12 +945,28 @@ $vehicular_parrafo_v2: #383C5A;
                 .titulo{
                     text-align: left;
                     line-height: 60px;
+                    margin-left: 50px;
                 }
                 .subtitulo{
                     text-align: left;
+                    margin-left: 50px;
                 }
                 
             }
+            /* .fondo-banner{
+                width: 780px;
+                height: 350px;
+                margin-right: -195px;
+                margin-bottom: -117px;
+                margin-left: -217px;
+                //background-size: 90%;
+                background-image: url('./../../static/media/imagenes/home/vehiculo.svg');
+                background-repeat: no-repeat;
+                background-position-y: bottom;
+                background-position-x: right;
+                //width: 100%;
+                
+            } */
         }
         .section-title{
             p{
@@ -992,8 +1067,7 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
         .testimonios{
-            max-width: 475px;
-            overflow: hidden;
+            width: 100%;
             background: #F9F9FB;
             height: 112px;
             display: flex;
@@ -1001,6 +1075,10 @@ $vehicular_parrafo_v2: #383C5A;
             p{
                 font-size: 18px;
                 font-family: 'Omnes Regular';
+                color: #383C5A;
+                span{
+                    font-family: 'Omnes SemiBold';
+                }
             }
             .VueCarousel-inner{
                 flex-basis: 475px !important;

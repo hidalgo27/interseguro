@@ -1,14 +1,18 @@
 <template>
+  
   <div class="nuevo-home">
     <div class="banner">
       <div class="banner-blue    d-xl-none"></div>
-      <div class="container">
-        <div class="banner-textos  d-xl-none">         
-          <p class="titulo-mobile">Proteger tu auto no  <span><br></span> tiene porque ser caro.</p>
-          <p class="subtitulo">
-            Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong>
-          </p>
-        </div>
+      <b-container>
+        <b-row class="d-block d-xl-none banner-textos text-center" align-h="center">
+          <b-col cols="12">
+            <p class="titulo-mobile">Proteger tu auto no  <span><br></span> tiene porque ser caro.</p>
+          </b-col> 
+          <b-col cols="12">
+            <p class="subtitulo">Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong></p>
+          </b-col>         
+        </b-row>
+
         <b-form class="formCotizador">                         
           <div class="formCotizador__msg">
             Desde US$ 12 al mes
@@ -59,7 +63,7 @@
             
         </div>
           
-      </div>
+      </b-container>
     </div>
 
     <b-container class="seccion-contenido">
@@ -67,7 +71,7 @@
         <b-col cols="12">
           <div class="section-title">
             <p class="d-none d-sm-block">Más de 550,000 clientes ya protegen <br> su auto con nosotros</p>
-            <p class="d-block d-sm-none">Más de 550,000 clientes <br> ya protegen su auto <br> con nosotros</p>            
+            <p class="d-block d-sm-none mt-5">Más de 550,000 clientes <br> ya protegen su auto <br> con nosotros</p>            
           </div>
         </b-col>
       </b-row>
@@ -120,28 +124,41 @@
           </div>
         </b-col>
       </b-row>
-      <b-row class="justify-content-center row-comentario">
-        <b-col cols="12" xl="6">
-          <div class="testimonios">
-            <carousel :perPageCustom="[[368, 1], [1024, 1]]" 
-             :navigationEnabled="false" 
-             :paginationEnabled="false">
-              <!-- <slide>
-                <img src="./../static/media/imagenes/home/testimonio.png"/>
-                <p class="categoria" v-bind:class="'categoria-'+index">
-                Fue facilísimo contratar el seguro, en comparación con la gestión tradicional” <strong>Rosario P. Gamarra</strong>
-                </p>
-              </slide> -->
-              <slide v-for="(item, index) in listCategories" v-bind:key="index" >
-                <img :src="item.img" alt="">
-                <p class="categoria" v-bind:class="'categoria-'+index">
-                  {{item.testimonio}} <b>{{item.autor}}</b>
-                </p>
-              </slide>
-            </carousel>
-          </div>
+      <b-row class="justify-content-center">
+        <b-col cols="12" sm="12" lg="6">
+            <div class="testimonios">
+              <b-carousel
+                id="carousel-1"
+                v-model="slide"
+                :interval="4000"
+                background="#F9F9FB"
+                img-width="492"
+                img-height="112"
+                style="text-shadow: 1px 1px 2px #333;"
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd"
+              >
+                <!-- Slide with blank fluid image to maintain slide aspect ratio -->
+                <b-carousel-slide img-blank v-for="(item, index) in listCategories" v-bind:key="index">
+                  <b-row align-v="center" style="height:100%">
+                    <div style="width:59px; padding-left:15px">
+                      <img :src="item.img" alt="">
+                    </div>
+                    <!-- <b-col style="width:100px">
+                      <img :src="item.img" alt="">
+                    </b-col> -->
+                    <b-col>
+                      <p class="categoria pl-3" v-bind:class="'categoria-'+index" style="text-align:justify;">
+                        {{item.testimonio}} <span>{{item.autor}}</span>
+                      </p>
+                    </b-col>
+                  </b-row>
+                </b-carousel-slide>
+              </b-carousel>
+            </div>
         </b-col>
       </b-row>
+      
       <b-row class="text-center row-start">
         <b-col class="stars"> 
           <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
@@ -167,23 +184,81 @@
 
       <b-container class="planes">        
         <!-- Inicio Desktop -->
-        <b-row class="strecht d-none  d-lg-flex">
+        <b-row class="d-none  d-lg-flex" align-v="stretch">
 
-          <b-col cols="4" class="pl-1 pr-1">
-            <div class="detalle-plan">
+          <b-col cols="4" class="pl-4 pr-4">
+            <b-row style="height: 100%; ">
+              <b-col cols="12">
+                <div class="plan-not-head">
+                </div>
+              </b-col>
+              <b-col class="box-plan-normal" cols="12">
+                <b-row style="height: 100%; " class="detalle-plan">
+                  <b-col align-self="start">
+                    <b-row class="box-titulo">
+                      <b-col>
+                        <p class="titulo-principal">Básico: <span class="titulo-descripcion">Protección contra robo</span> </p>
+                      </b-col>                    
+                    </b-row>
+                    <hr>
+                    <b-row class="monto-frecuencia">
+                      <b-col>
+                        <p>Desde <span  class="monto">US$ 12</span>/mes</p>                        
+                      </b-col>
+                    </b-row>
+                    
+                    <b-row>
+                      <b-col>
+                        <div class="que-me-cubre">
+                          <div class="titulo-box-planes">
+                            Este plan incluye:
+                          </div>
+                          
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Beneficios Interseguro</span> 
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Central de emergencias</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Responsabilidad Civil</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Robo total</span>                        
+                          </p>
+                        </div>                      
+                      </b-col>
+                    </b-row>
+                  </b-col>
+                  <b-col cols="12" align-self="end">
+                    <div class="detalle">
+                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                    </div>
+                  </b-col>
+                  
+                </b-row>
+                
+              </b-col>
+
+            </b-row>
+            <!-- <div class="detalle-plan">
               <b-row align-h="center" class="box-titulo-normal">
                 <div class="plan-not-head">
                 </div>
               </b-row>
               <b-row class="box-plan-normal">
                 <b-col>
-                  <div class="box-titulo">
-                      <p class="titulo-principal">Básico: <span class="titulo-descripcion">Protección contra robo</span> </p>                         
-                  </div>
+                  <b-row class="box-titulo">
+                    <b-col>
+                      <p class="titulo-principal">Básico: <span class="titulo-descripcion">Protección contra robo</span> </p>
+                    </b-col>                    
+                  </b-row>
                   <hr>
-                  <div class="monto-frecuencia">
-                    Desde <span  class="monto">US$ 12</span><span>/mes</span>
-                  </div>
+                  <b-row class="monto-frecuencia">
+                    <b-col>
+                      Desde <span  class="monto">US$ 12</span><span>/mes</span>
+                    </b-col>
+                  </b-row>
                   
                   <b-row>
                     <b-col>
@@ -193,16 +268,16 @@
                         </div>
                         
                         <p class="que-me-cubre__item">
-                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Beneficios Interseguro</span> 
+                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Beneficios Interseguro</span> 
                         </p>
                         <p class="que-me-cubre__item">
-                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Central de emergencias</span>                        
+                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Central de emergencias</span>                        
                         </p>
                         <p class="que-me-cubre__item">
-                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Responsabilidad Civil</span>                        
+                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Responsabilidad Civil</span>                        
                         </p>
                         <p class="que-me-cubre__item">
-                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Robo total</span>                        
+                          <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Robo total</span>                        
                         </p>
                       </div>                      
                     </b-col>
@@ -212,13 +287,73 @@
                   <div class="detalle">
                     <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                   </div>
-                </b-col>
+                </b-col>                
               </b-row>
-            </div>
+            </div> -->
           </b-col>
 
-          <b-col cols="4">
-            <div class="detalle-plan">
+          <b-col cols="4" class="pl-4 pr-4">
+            <b-row style="height: 100%; ">
+              <b-col cols="12" >
+                <div class="plan-not-head">
+                </div>
+              </b-col>
+              <b-col class="box-plan-normal" cols="12">
+                <b-row style="height: 100%; " class="detalle-plan">
+                  <b-col align-self="start">
+                    <b-row class="box-titulo">
+                      <b-col>
+                        <p class="titulo-principal">Intermedio: <span class="titulo-descripcion">Protección accidentes</span> </p>
+                      </b-col>                    
+                    </b-row>
+                    <hr>
+                    <b-row class="monto-frecuencia">
+                      <b-col>
+                        <p>Desde <span  class="monto">US$ 25</span>/mes</p>
+                      </b-col>
+                    </b-row>
+                    
+                    <b-row>
+                      <b-col>
+                        <div class="que-me-cubre">
+                          <div class="titulo-box-planes">
+                            Este plan incluye:
+                          </div>
+                          
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
+                          </p>
+                        </div>                      
+                      </b-col>
+                    </b-row>
+                  </b-col>
+                  <b-col cols="12" align-self="end">
+                    <div class="detalle">
+                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                    </div>
+                  </b-col>
+                  
+                </b-row>
+                
+              </b-col>
+
+            </b-row>
+            <!-- <div class="detalle-plan">
               <b-row align-h="center" class="box-titulo-normal">
                 <div class="plan-not-head">
                 </div>
@@ -239,22 +374,22 @@
                       </div>
                       
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Beneficios Interseguro</span> 
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Central de emergencias</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Responsabilidad Civil</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Robo total</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Pérdida parcial por accidente</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Accidentes de ocupantes</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
                       </p>
                     </div>
                     <div class="detalle">
@@ -262,11 +397,88 @@
                     </div>
                 </b-col>
               </b-row>
-            </div>
+            </div> -->
           </b-col>
 
-          <b-col cols="4" class="pl-1 pr-1">
-            <div class="detalle-plan">
+          <b-col cols="4" class="pl-4 pr-4">
+            <b-row style="height: 100%; ">
+              <b-col cols="12" class="pl-4 pr-4">
+                <div class="plan-recomendado d-flex justify-content-center">
+                  <img src="@/static/media/imagenes/home/star-white.svg" alt="Start">
+                  <span>¡Plan recomendado!</span>
+                </div>
+              </b-col>
+              <b-col class="box-plan-normal" cols="12">
+                <b-row style="height: 100%; " class="detalle-plan">
+                  <b-col align-self="start">
+                    <b-row class="box-titulo">
+                      <b-col>
+                        <p class="titulo-principal">Full: <span class="titulo-descripcion">Protección total</span> </p>
+                      </b-col>                    
+                    </b-row>
+                    <hr>
+                    <b-row class="monto-frecuencia">
+                      <b-col>
+                        <p>Desde <span  class="monto">US$ 33</span>/mes</p> 
+                      </b-col>
+                    </b-row>
+                    
+                    <b-row>
+                      <b-col>
+                        <div class="que-me-cubre">
+                          <div class="titulo-box-planes">
+                            Este plan incluye:
+                          </div>
+                          
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./..//static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accesorios musicales</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Rotura de lunas</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Desastres naturales, vandalismo, incendios.</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida total por accidente</span>                        
+                          </p>
+                          <p class="que-me-cubre__item">
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Ausencia de control*</span>                        
+                          </p>
+                        </div>                      
+                      </b-col>
+                    </b-row>
+                  </b-col>
+                  <b-col cols="12" align-self="end">
+                    <div class="detalle">
+                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                    </div>
+                  </b-col>
+                  
+                </b-row>
+                
+              </b-col>
+
+            </b-row>
+            <!-- <div class="detalle-plan">
               <b-row align-h="center" class="box-titulo-recomendado">
                 <div class="plan-recomendado d-flex justify-content-center">
                   <img src="@/static/media/imagenes/home/star-white.svg" alt="Start">
@@ -287,37 +499,37 @@
                         Este plan incluye:
                       </div>                      
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Beneficios Interseguro</span> 
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Central de emergencias</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Responsabilidad Civil</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./..//static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Robo total</span>                        
+                        <img src="./..//static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Pérdida parcial por accidente</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Accidentes de ocupantes</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Accesorios musicales</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accesorios musicales</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Rotura de lunas</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Rotura de lunas</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Desastres naturales, vandalismo, incendios.</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Desastres naturales, vandalismo, incendios.</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Pérdida total por accidente</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida total por accidente</span>                        
                       </p>
                       <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span style="margin-left:5px">Ausencia de control*</span>                        
+                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Ausencia de control*</span>                        
                       </p>
                     </div>
                     <div class="detalle">
@@ -325,7 +537,7 @@
                     </div>
                 </b-col>
               </b-row>
-            </div>
+            </div> -->
           </b-col>
 
         </b-row>
@@ -609,10 +821,10 @@
         <b-col cols="12" lg="7">
           <div class="accordion" role="tablist">
             <b-card no-body class="mb-1 card-personalizado">
-              <b-card-header header-tag="header" class="p-1" role="tab">
+              <b-card-header header-tag="header" class="p-1" role="tab">  
                 <b-button block v-b-toggle.accordion-1 variant="info">¿Cuándo inicia mi cobertura?</b-button>
               </b-card-header>
-              <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+              <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
                 <b-card-body>
                   <b-card-text>Desde la confirmación de pago.</b-card-text>
                 </b-card-body>
@@ -635,7 +847,7 @@
 
             <b-card no-body class="mb-1 card-personalizado">
               <b-card-header header-tag="header" class="p-1" role="tab">
-                <b-button block v-b-toggle.accordion-3 variant="info">¿Qué pasa si ocurre un incidente y yo no soy el que maneja?</b-button>
+                <b-button block v-b-toggle.accordion-3 variant="info">¿Qué pasa si ocurre un accidente y yo no soy el que maneja?</b-button>
               </b-card-header>
               <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                 <b-card-body>
@@ -651,6 +863,17 @@
               <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
                 <b-card-body>
                   <b-card-text>Si es que tú eres responsable del incidente, cubrimos tu carro y el de la otra persona.</b-card-text>
+                </b-card-body>
+              </b-collapse>
+            </b-card>
+
+            <b-card no-body class="mb-1 card-personalizado">
+              <b-card-header header-tag="header" class="p-1" role="tab">
+                <b-button block v-b-toggle.accordion-5 variant="info">¿Qué pasa si ocurre un incidente y yo no soy el que maneja?</b-button>
+              </b-card-header>
+              <b-collapse id="accordion-5" accordion="my-accordion" role="tabpanel">
+                <b-card-body>
+                  <b-card-text>Igual lo cubrimos, siempre y cuando el que maneja cuente con un brevete vigente y no haya tomado alcohol.</b-card-text>
                 </b-card-body>
               </b-collapse>
             </b-card>

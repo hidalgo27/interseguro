@@ -20,6 +20,13 @@ $is-v-azul: #0855c4;
 /*******************************************************
         INICIO DE ESTILOS REUTILIZABLES
 *******************************************************/
+.mi-breadcrumb{
+    padding-bottom: 30px;
+    padding-top: 40px;
+}
+.box-resumen{
+    padding-bottom: 20px;
+}
 
 .resumen-proteccion{
     border: 1px solid #CCD1DD;
@@ -75,32 +82,41 @@ $is-v-azul: #0855c4;
             }
         }
         .datos-carro, .datos-personales,.datos-poliza,.datos-pago{
-            padding-left: 24px;
+            //padding-left: 24px;
             padding-top: 24px;
+            padding-bottom: 24px;
+            //display: flex;
+            //flex-direction: column;
             p{
                 line-height: 30px;
-                .campo{
+                .label{
                     color: #A4A7BC;
                     font-size: 15px;
                     font-family: 'Omnes Regular';
-                    display: inline-block;
-                    width: 80px;
                 }
-                span{
+                .campo-minus{
                     color: #383C5A;
                     font-size: 15px;
                     font-family: 'Omnes Regular';
+                    text-transform: none;
+                }
+                .campo-mayus{
+                    color: #383C5A;
+                    font-size: 15px;
+                    font-family: 'Omnes Regular';
+                    text-transform: uppercase;
                 }
                 
             }
             button{
                 width: 70px;
                 height: 25px;
-                background: var(--unnamed-color-0855c4) 0% 0% no-repeat padding-box;
-                background: #0855C4 0% 0% no-repeat padding-box;
+                background: $vehicular_primario;
+                border: none;
                 border-radius: 3px;
                 opacity: 1;                
-                margin-left: 20px;
+                margin-left: 40px;
+                outline: none;
                 span{
                     font-style: normal;
                     text-align: center;
@@ -115,10 +131,72 @@ $is-v-azul: #0855c4;
         }
     }
 }
+
+.mobile{
+    font-family: 'Omnes SemiBold';
+    .resumen{
+        border: 2px solid #F1F4FD;
+        header{
+            background-color: #F1F4FD;
+            border: none;
+            font-size: 16px;
+            p{
+                color: #8F93B2;
+                text-align: left;
+            }
+            button{
+                color: $vehicular_primario;
+            }
+            .btn-secondary{
+                background-color: #F0F4FD;
+                border: 1px solid #F0F4FD;
+                outline: none;
+            }          
+        }
+        .body-resumen{            
+            .datos{
+                .sub-titulo{
+                    text-transform: uppercase;
+                    color: #383C5A;
+                    font-size: 16px;
+                    padding-bottom: 25px;
+                }
+                .sub-titulo2{
+                    text-transform: uppercase;
+                    color: #383C5A;
+                    font-size: 16px;
+                    padding-bottom: 25px;
+                    padding-top: 25px;
+                }
+                .row-inicio{
+
+                }
+                .row-medio{
+                    
+                }
+                .row-final{
+                    padding-top: 10px;
+                }
+                .label{
+                    font-size: 16px;
+                    font-family: 'Omnes Medium';
+                    color: #A4A7BC;
+                }
+                .campo{
+                    font-size: 14px;
+                    font-family: 'Omnes Regular';
+                    text-transform: uppercase;
+                    color: #383C5A;
+                }
+            }
+        }
+    }
+}
 .flujo-titulo{
     color: $vehicular_primario;
-    font-size: 21px;
+    font-size: 27px;
     font-family: 'Omnes Regular';
+    padding-bottom: 20px;
 }
 .flujo-boton{
     background: $vehicular_secundario;
@@ -129,6 +207,30 @@ $is-v-azul: #0855c4;
 p,div,section{
     padding: 0;
     margin: 0;
+}
+
+/*planes*/
+.plan-not-head {
+    background: #F9F9FB;
+    height: 35px;
+    width: 100%;
+}
+.plan-not-head-normal {
+    background: #FFFFFF;
+    height: 35px;
+    width: 100%;
+}
+.plan-recomendado {
+    background: #0855c4;
+    height: 35px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 17px;
+    font-family: 'Omnes Medium';
+    border-radius: 3px 3px 0 0;
+    border: none
 }
 
 /*******************************************************
@@ -151,8 +253,12 @@ p,div,section{
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-
+@media (max-width: 576px) { 
+    .flujo-titulo{
+        color: $vehicular_primario;
+        font-size: 27px;
+        font-family: 'Omnes Regular';
+    }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -163,14 +269,14 @@ p,div,section{
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
+    .flujo-titulo{
+        font-size: 36px;
+    }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
     .flujo-titulo{
         font-size: 36px;
-    }
-    .flujo-boton{
     }
 }
