@@ -458,8 +458,8 @@
       },
       methods: {
         contador(){
-            var flipdown2 = new FlipDown(1630299599, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1630299599, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1630904399, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1630904399, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -596,7 +596,7 @@
                         }else{
                         }
                         this.$store.commit('common/setPantallaFlujo', 1)
-                        this.$nuxt.$router.push("./cotizacion/")
+                        this.$nuxt.$router.push("interbank/cotizacion/")
                       }
                     }else {
                       if(respuesta.client.externalId > 0 ){
@@ -612,7 +612,7 @@
                       }else{
                       }
                       this.$store.commit('common/setPantallaFlujo', 1)
-                      this.$nuxt.$router.push("./cotizacion/")
+                      this.$nuxt.$router.push("interbank/cotizacion/")
                     }
                 }
                 

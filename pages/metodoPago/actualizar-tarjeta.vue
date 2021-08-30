@@ -804,6 +804,13 @@
 
                 this.card.expiration_month = res[0];
                 this.card.expiration_year = "20" + res[1];
+                // TODO
+                let objVeh = JSON.parse(localStorage.getItem("objVeh"))
+                if(objVeh != null || objVeh != undefined) {
+                  console.log(objVeh.client.emailAddress);
+                  this.card.email = objVeh.client.emailAddress;
+                }
+
                 this.isisplayNoneLoader = false;
 
 
