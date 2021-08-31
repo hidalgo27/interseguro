@@ -596,7 +596,7 @@
                         }else{
                         }
                         this.$store.commit('common/setPantallaFlujo', 1)
-                        this.$nuxt.$router.push("interbank/cotizacion/")
+                        this.$nuxt.$router.push("./cotizacion/")
                       }
                     }else {
                       if(respuesta.client.externalId > 0 ){
@@ -612,7 +612,7 @@
                       }else{
                       }
                       this.$store.commit('common/setPantallaFlujo', 1)
-                      this.$nuxt.$router.push("interbank/cotizacion/")
+                      this.$nuxt.$router.push("./cotizacion/")
                     }
                 }
                 
