@@ -154,29 +154,30 @@
                 </b-col>
             </b-row>
 
-            <b-row class="flujo-titulo">
+            <b-row class="titulo-principal">
                 <b-col cols="12">
-                    <div class="lista1 ">                        
-                        <b-avatar button @click="volver($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
-                        Ingresa tu tarjeta crédito o débito                        
-                    </div>
+                    <b-row class="lista1 flujo-titulo">
+                        <b-col>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none  d-lg-inline-block">
+                            <span>Ingresa tu tarjeta crédito o débito  </span>
+                        </b-col>
+                    </b-row>
                 </b-col>
             </b-row>          
             
             <b-row>                
-                <b-col cols="12" sm="12" md="12" lg="8" xl="8" class="mt-4">
-                    <div class="metodo-pago">
-                        <b-row class="justify-content-center">
-                            <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;"> 
-                                <b-row>                                       
-                                    <b-col cols="12" class="box-ingresaTarjeta">
-                                        <form class="card-interseguro">   
+                <b-col cols="12" sm="12" md="12" lg="8" xl="8" class="mt-2">
+                    <b-row class="box-principal ">
+                        <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;"> 
+                            <b-row>                                       
+                                <b-col cols="12" class="box-ingresaTarjeta">
+                                    <form class="card-interseguro">   
                                             <div class="form-group-custom">                                                        
                                                 <div id="focusTarjeta">
                                                     Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                 </div>
                                                 <div class="input-group  iptGral editable  box-iptCard">
-                                                    <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta" 
+                                                    <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta" autofocus
                                                     id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
                                                     aria-label="Número de tarjeta" autocomplete="cc-number"
                                                     aria-describedby="numberDocumentFeedback"
@@ -219,11 +220,11 @@
                                                 </div>  
                                             </div>
                                             <br>
-                                        </form>                    
-                                    </b-col>
-                                </b-row>
-                                <b-row>
-                                    <b-col cols="12" class="text-center">
+                                    </form>                    
+                                </b-col>
+                            </b-row>
+                            <b-row>
+                                <b-col cols="12" class="text-center">
                                         <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
                                             <b-col cols="12">
                                                 <div class="spinner-tarjeta">
@@ -234,66 +235,60 @@
                                                 <p class="spinner-descripcion">Estamos procesando tu pago</p>
                                             </b-col>                    
                                         </b-row>
-                                    </b-col>
-                                    
-                                    <b-col cols="12" class="text-center">
-                                        <div class="checkbox-aux font-nunito">                                                    
-                                            <label  class="box-checkbox"  id="show-modal">
-                                                <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
-                                                <span class=checkbox-aux__span>
-                                                    <i class="checkbox-aux__span--icon fa fa-check"></i>
-                                                </span>
-                                                <template v-if="tabIndex == 1">
-                                                    <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
-                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
-                                                        y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
-                                                    </span>
-                                                    <span v-else class="checkbox-aux__descripcion">He leído y acepto
-                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
-                                                    </span>
-                                                </template>
-                                                <template v-else>
-                                                    <span v-if="gpsExiste == 'Y'" class="checkbox-aux__descripcion">He leído y acepto
-                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
-                                                        y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
-                                                    </span>
-                                                    <span v-else class="checkbox-aux__descripcion">He leído y acepto
-                                                        <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
-                                                    </span>
-                                                </template>
-                                            </label>
-                                        </div> 
-                                    </b-col>
-                                </b-row>
-
-                                <b-row class="justify-content-center">                                            
-                                    <b-col cols="6">                                                
-                                        <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
-                                            :disabled='this.isDisabledPayment'>
-                                            <span>PAGAR ${{this.monto_pagar}} </span>
-                                        </button>
-                                    </b-col>
-                                </b-row>
-                                <b-row class="text-center mt-4">
-                                    <b-col cols="12">
-                                        <img src="../../static/media/img/flujo/metodo-pago/tarjetas.svg" alt="visa">
-                                    </b-col>
-                                </b-row>
-                                <b-row class="text-center mt-4" align-h="center">
-                                    <b-col cols="6" class="box-messaje">
-                                        <p>Tu compra es 100% segura. Contamos con el respaldo del <b><span style="color:#0855C4">Grupo Intercorp</span></b> </p>
-                                    </b-col>
-                                </b-row>
+                                </b-col>                              
                                 
-                            </b-col>
-
-                        </b-row>
-
-                    </div>
+                            </b-row>
+                            <b-row class="text-center condiciones">
+                                <b-col cols="12">
+                                    <input class="form-check-input" type="checkbox" @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <template v-if="tabIndex == 1">
+                                            <span v-if="gpsExiste == 'Y'" class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                            </span>
+                                            <span v-else class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
+                                            </span>
+                                        </template>
+                                        <template v-else>
+                                            <span v-if="gpsExiste == 'Y'" class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                            </span>
+                                            <span v-else class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
+                                            </span>
+                                        </template>
+                                    </label>
+                                </b-col>
+                            </b-row>
+                            <b-row class="justify-content-center">                                            
+                                <b-col cols="6">                                                
+                                    <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
+                                        :disabled='this.isDisabledPayment'>
+                                        <span>PAGAR ${{this.monto_pagar}} </span>
+                                    </button>
+                                </b-col>
+                            </b-row>
+                            <b-row class="text-center mt-4">
+                                <b-col cols="12">
+                                    <img src="../../static/media/img/flujo/metodo-pago/tarjetas.svg" alt="visa">
+                                </b-col>
+                            </b-row>
+                            <b-row class="text-center mt-4" align-h="center">                                
+                                <b-col cols="12" class="box-messaje">
+                                    <img src="../../static/media/img/flujo/metodo-pago/tarjeta.svg" alt="">
+                                    <p>Tu compra es 100% segura. <br> Contamos con el respaldo del <b><span>Grupo Intercorp</span></b> </p>
+                                </b-col>
+                            </b-row>
+                            
+                        </b-col>
+                    </b-row>
                 </b-col>
                 
-                <b-col cols="12" sm="12" md="12" lg="4" xl="4" class="mt-4">
-                    <div class="resumen-proteccion">
+                <b-col cols="4" class="mt-2">
+                    <div class="resumen-proteccion d-none  d-lg-block">
                         <div class="resumen-proteccion__cabecera pb-3">
                             <p>RESUMEN DE TU PROTECCIÓN</p>
                             <div class="desc-resumen">
@@ -305,148 +300,235 @@
 
                         <div class="resumen-proteccion__cuerpo box-resumen">
                             <div class="datos-personales">                                
-                                <!-- <h3 class="resumen-proteccion--subtitulo">DATOS PERSONALES 
-                                    <button type="submit" @click="editarDatosPersonales()"><span>EDITAR</span></button>
-                                </h3> -->
-                                <div class="sub-titulo d-flex">
-                                    <b-row>
+                                <b-container>
+                                    <b-row class="row-titulo">
                                         <b-col cols="8" >
                                             <p class="resumen-proteccion--subtitulo">DATOS PERSONALES</p>                                        
                                         </b-col>
                                         <b-col cols="4">
-                                            <b-button @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1">EDITAR</b-button>
-                                            <b-button @click="clicBtnCancelar()" v-if="this.visibleBtnCancelar == 1">CANCELAR</b-button>
+                                            <b-button class="button-editar" @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1">EDITAR</b-button>
+                                            <b-button class="button-cancelar" @click="clicBtnCancelar()" v-else>CANCELAR</b-button>
                                         </b-col>
                                     </b-row>
-                                </div>
-                                <div class="view-datos" v-if="this.visibleBtnEditar == 1">
-                                    <b-row>
+                                    <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">DNI</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.objCliente.documentNumber}}</span></p>
+                                        </b-col>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Nombre</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">
+                                                {{this.$store.state.common.objCliente.firstName}} {{this.$store.state.common.objCliente.firstLastName}} {{this.$store.state.common.objCliente.secondLastName}}
+                                                </span>
+                                            </p>
+                                        </b-col>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Teléfono</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
+                                        </b-col>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Correo</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.objCliente.emailAddress}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="edit-datos" v-if="this.visibleBtnEditar == 0" align-v="center">
                                         <b-col cols="4">
-                                            <p class="label">DNI</p>
+                                            <p><span class="label">DNI</span></p>
                                         </b-col>
                                         <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.documentNumber}}</span></p>
+                                            <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                                                        v-on:focus.native="isIconDni = !isIconDni"
+                                                        v-on:blur.native="placeholderDNI($event)"
+                                                        @click.native="clearPlaceholderDNI($event)"
+                                                        @keyup.native="delay($event, 300)"
+                                                        class="input-vehicular form-control input-id"
+                                                        maxlength="11"
+                                                        autocomplete="on"
+                                                        
+                                                        type="tel"
+                                                        v-model="itemElegido.documentoLocal"
+                                                        required
+                                                        placeholder="Numero de DNI, CI o RUC"
+                                                        style="text-transform: initial">
+                                            </b-form-input>
+                                            <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
                                         </b-col>
-                                    </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="campo">Nombre</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.firstName}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="campo">Teléfono</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="campo">Correo</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.emailAddress}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                </div>
-                                <div class="edit-datos" v-if="this.visibleBtnEditar == 0">
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="label">DNI mostrado</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.documentNumber}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="campo">Nombre</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.firstName}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="campo">Teléfono</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
-                                            <p class="campo">Correo</p>
-                                        </b-col>
-                                        <b-col cols="8">
-                                            <p><span>{{this.$store.state.common.objCliente.emailAddress}}</span></p>
-                                        </b-col>
-                                    </b-row>
-                                </div> 
-                                
-                            </div>
-
-                            <!-- <div class="edit-datos-personales">
-                                <b-col cols="12" lg="8" class="box-principal">
-                                    <b-row>
                                         <b-col cols="12">
-                                            <div class="box-documento  mt-5">
-                                                <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
-                                                v-on:focus.native="isIconDni = !isIconDni"
-                                                v-on:blur.native="placeholderDNI($event)"
-                                                @click.native="clearPlaceholderDNI($event)"
-                                                @keyup.native="delay($event, 300)"
-                                                class="input-vehicular form-control input-id"
-                                                maxlength="11"
-                                                autocomplete="on"
-                                                autofocus
-                                                type="tel"
-                                                v-model="this.$store.state.common.objCliente.documentNumber"
-                                                required
-                                                placeholder="Numero de DNI, CI o RUC"
-                                                style="text-transform: initial">
-                                                </b-form-input>
-                                            </div>
+                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Nombre</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="nombre" ref="nombre" autocomplete="given-name" name="firstName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        @keydown.native="validacionInput($event)"
+                                                        @keypress.native="validacionInput($event)"
+                                                        v-on:focus.native="isIconFirstName = !isIconFirstName"
+                                                        v-on:blur.native="isIconFirstName = !isIconFirstName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('apellido-paterno')">
+                                                    </b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Apellido Paterno</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input
+                                                        id="apellido-paterno"
+                                                        ref="apellido-paterno"
+                                                        autocomplete="family-name"
+                                                        name="lastName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="
+                                                        isIconIconFirstLastName = !isIconIconFirstLastName
+                                                        "
+                                                        v-on:blur.native="
+                                                        isIconIconFirstLastName = !isIconIconFirstLastName
+                                                        "
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstLastName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('apellido-materno')"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Apellido Materno</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="apellido-materno" ref="apellido-materno" name="lastName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
+                                                        v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        autocomplete="additional-name"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.secondLastName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('correo-electronico')"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Teléfono</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="celular" ref="celular" name="phone"
+                                                        @keyup.native=" validarCelular(); validacionInput($event); "
+                                                        v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
+                                                        v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        autocomplete="tel"
+                                                        v-bind:class="{ errorInput: msgErrorCelular }"
+                                                        
+                                                        type="tel"
+                                                        v-model="objClients.phoneNumber"
+                                                        required
+                                                        maxlength="9"
+                                                        v-on:keyup.enter="validarCelular($event)"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Correo</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
+                                                        @keyup.native=" validacionInput($event); validarEmail(); "
+                                                        v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        v-bind:class="{ errorInput: msgErrorEmail }"
+                                                        autocomplete="on"
+                                                        
+                                                        type="email"
+                                                        v-model="objClients.emailAddress"
+                                                        required
+                                                        v-on:keyup.enter="processTags('celular')"
+                                                    ></b-form-input>
+                                                </b-col>
+                                                
+                                            </b-row>
                                         </b-col>
                                     </b-row>
-                                    </b-col>
-                            </div> -->
 
-                            <div class="datos-poliza">
-                                <h3 class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</h3>
-                                <div v-if="this.planSeleccionado == 4" class="plan-titulo">
-                                    <p><span class="campo">Plan</span> <span>Básico: Protección contra robo</span></p>
-                                </div>
-                                <div v-else-if="this.planSeleccionado == 6" class="plan-titulo">
-                                    <p><span class="campo">Plan</span> <span>Intermedio: Protección accidentes</span></p>
-                                </div>
-                                <div v-else-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" class="plan-titulo">
-                                    <p><span class="campo">Plan</span> <span>Full: Protección total</span></p>                      
-                                </div>
-
-                                <p><span class="campo">Cobertura</span> <span>$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
-
-                                <div v-if="this.$store.state.common.frecuenciaPago == 1" class="plan-titulo">
-                                    <p><span class="campo">Frecuencia</span> <span>Mensual</span></p>                      
-                                </div>
-                                <div v-if="this.$store.state.common.frecuenciaPago == 2" class="plan-titulo">
-                                    <p><span class="campo">Frecuencia</span> <span>Trimestral</span></p>                      
-                                </div>
-                                <div v-if="this.$store.state.common.frecuenciaPago == 3" class="plan-titulo">
-                                    <p><span class="campo">Frecuencia</span> <span>Anual</span></p>                      
-                                </div>
+                                    <b-row class="row-titulo" >
+                                        <b-col cols="8">
+                                            <p class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</p>                                        
+                                        </b-col>
+                                        <b-col cols="4" >
+                                            <b-button class="button-editar" @click="editarPoliza($event)">EDITAR</b-button>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Plan</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.planSeleccionado == 4" class="row-data">
+                                            <p><span class="campo-minus">Básico: Protección contra robo</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.planSeleccionado == 6" class="row-data">
+                                            <p><span class="campo-minus">Intermedio: Protección accidentes</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.planSeleccionado == 3" class="row-data">
+                                            <p><span class="campo-minus">Full: Protección total</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Cobertura</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Frecuencia</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 1" class="row-data">
+                                            <p><span class="campo-minus">Mensual</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 2" class="row-data">
+                                            <p><span class="campo-minus">Trimestral</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 3" class="row-data">
+                                            <p><span class="campo-minus">Anual</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">F. de inicio</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="datos-pago">
+                                        <b-col cols="8">
+                                            <p><span >MONTO FINAL A PAGAR:</span></p>
+                                        </b-col>
+                                        <b-col cols="4" class="total">
+                                            <p><span class="monto-resumen">US$ {{this.monto_pagar}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                </b-container>                                
                                 
-                                <p><span class="campo">F. de inicio </span><span>{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
-                            </div>
-
-                            <div class="datos-pago">
-                                <p class="total">
-                                    MONTO FINAL A PAGAR: <span class="monto-resumen">US$ {{this.monto_pagar}}</span>
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -668,7 +750,43 @@ import { validationMixin } from 'vuelidate'
                     "2":"utm_campaign=remarketingCN_2",
                     "3":"utm_campaign=remarketingCN_3",
                     "4":"utm_campaign=remarketingCN_4"
-                }
+                },
+                /** busqueda de personas */
+                objClients: {
+                    address: "",
+                    birthDate: "",
+                    documentNumber: "",
+                    documentType: "",
+                    emailAddress: "",
+                    externalId: "",
+                    firstLastName: "",
+                    firstName: "",
+                    id: "",
+                    intercorp: "",
+                    phoneNumber: "",
+                    secondLastName: "",
+                },
+                itemElegido: {
+                    idCliente: 0,
+                    documentNumber: "",
+                    address: "",
+                    documentoLocal: "",
+                    discountType: "",
+                    documentoLocalSinEspacios: "",
+                    firstName: "",
+                    firstLastName: "",
+                    secondLastName: "",
+                    phoneNumber: "",
+                    emailAddress: "",
+                    remarketingId: "",
+                },
+                tamaño: 0,
+                campoDocumentoInicial: null,
+                todoCompleto: false,
+                loadingPersona: false,
+                mostrarRuc: false,
+                mostrarFormPN: false,
+                ocultarFormPN: false,
             }
         },
         methods: {
@@ -949,6 +1067,10 @@ import { validationMixin } from 'vuelidate'
                 evt.preventDefault();
                 this.$nuxt.$router.push("/cotizacion/documento");              
             },
+            editarPoliza (evt) {
+                evt.preventDefault();
+                this.$nuxt.$router.push("/cotizacion/cotizacion");              
+            },
             
             comoPagarDatalayer(){
                 if(this.frecuenciaPago == 1){
@@ -1221,6 +1343,274 @@ import { validationMixin } from 'vuelidate'
               this.editarDatos = true;
               console.log('editar datos personales '+this.editarDatos);
           },
+
+
+            /* Busqueda de personas */
+            clearPlaceholderDNI(eve) {
+                eve.target.placeholder = "";
+            },
+            placeholderDNI(event) {
+                this.isIconDni = !this.isIconDni;
+                if (process.client) {
+                    document.getElementById("documento-identidad").placeholder =
+                    "Ingresa tu DNI, CE o RUC";
+                }
+            },
+            delay(event, ms) {
+                //this.isDisableButton = true;
+                //this.mostrarDatosPersonales = false;
+                //this.mostrarDatosyCheckbox = false;
+                var self = this;
+                clearTimeout(self.timer);
+                self.timer = setTimeout(function () {
+                    self.validacionDocumento(event);
+                }, ms);
+            },
+            validacionDocumento(event) {
+                console.log('in validacionDocumento....');
+                this.procesar(event.target.value);
+            },
+            procesar(value) {
+                this.detectar_documento();
+                if (!isNaN(value) && this.campoDocumentoInicial !== value) {
+                    this.campoDocumentoInicial = value;
+                    //this.isOculto = false;
+
+                    if (this.tamaño < 8) {
+                        this.todoCompleto = false;
+                        this.loadingPersona = false;
+                        //this.isOculto = false;
+                        this.objClients.firstName = "";
+                        this.objClients.firstLastName = "";
+                        this.objClients.secondLastName = "";
+                        this.objClients.phoneNumber = "";
+                        this.objClients.emailAddress = "";
+                        this.objClients.address = "";
+                        //this.mostrarDatosyCheckbox = false;
+                        //this.mostrarEditarCancelar = false;
+
+                        self.ocultarFormPN = false;
+                        self.mostrarRuc = false;
+                    }
+                    if (this.tamaño >= 8) {
+                        var self = this;
+                        self.loadingPersona = true;
+                        //self.mostrarDatosPersonales = false;
+                        self.msgCompletaDatos = false;
+                        self.ocultarFormPN = false;
+                        //self.isOculto = true;
+                        //self.mostrarRuc = true;
+                        if (self.tamaño == 8 || self.tamaño == 9) {
+                            self.getClient(1);
+                        } else if (self.tamaño == 10) {
+                            //self.mostrarDatosPersonales = false;
+                            //self.mostrarDatosyCheckbox = false;
+                            self.mostrarRuc = true;
+                            self.loadingPersona = false;
+                            //self.mostrarEditarCancelar = false;
+                            self.ocultarFormPN = true;
+                        } else if (self.tamaño == 11) {
+                            self.ocultarFormPN = true;
+                            self.mostrarRuc = true;
+                            self.getClient(2);
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            },
+            detectar_documento() {
+                this.itemElegido.documentoLocalSinEspacios = this.itemElegido.documentoLocal
+                    .replace(/[^0-9\s]/gi, "")
+                    .replace(/[_\s]/g, "")
+                let documento = this.itemElegido.documentoLocalSinEspacios
+                this.tamaño = documento.length
+            },
+            getClient(parametro) {
+                this.itemElegido.discountType = this.discountType;
+                this.$store.dispatch("common/getClient", this.itemElegido).then((res) => {
+                    if (res.data.code == 0) {
+                        this.loadingPersona = true;
+                        this.objClients = res.data.body;
+                        this.$store.commit("common/setObjCliente", res.data.body);
+                        this.idCliente = res.data.body.id;
+                        this.loadingPersona = false;
+                        this.$store.commit("common/setClientState", 1);
+                        this.$store.commit("common/setClientStateGA", true);
+                        this.estado_cliente = 1;
+                        if (parametro == 1) {
+                            setTimeout(() => {
+                            this.validarClienteVuex();
+                            }, 500);
+                        } else if (parametro == 2) {
+                            setTimeout(() => {
+                            this.validarEmpresaVuex();
+                            }, 500);
+                        } else {
+                        }
+                    } else if (res.data.code == 201) {
+                        this.$store.commit("common/setClientStateGA", false);
+                        this.$store.commit("common/setClientState", 0);
+                        this.estado_cliente = 0;
+                        this.objClients = {};
+                        if (parametro == 1) {
+                            setTimeout(() => {
+                            this.validarClienteVuex();
+                            }, 500);
+                        } else if (parametro == 2) {
+                            setTimeout(() => {
+                            this.validarEmpresaVuex();
+                            }, 500);
+                        }
+                    } else {
+                    this.$swal({
+                        title: "Oops...",
+                        text: res.data.message,
+                        type: "error",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                    });
+                    }
+                });
+            },
+            validarClienteVuex() {
+                //this.mostrarDatosPersonales = false;
+                this.loadingPersona = false;
+                //this.isOculto = true;
+                this.mostrarRuc = false;
+                if (this.estado_cliente == 1) {
+                    if (this.validarClient()) {
+                    //this.ocultarInputDocumento = true;
+                    //this.mostrarDatosPersonales = true;
+                    //this.mostrarDatosyCheckbox = true;
+                    this.msgCompletaDatos = false;
+                    //this.mostrar = true;
+                    //this.mostrarEditarCancelar = true;
+                    /* if (this.checkPoliticasPrivacidad == true) {
+                        this.isDisableButton = false;
+                    } else {
+                        this.isDisableButton = true;
+                    } */
+                    this.cobertura_is.personType = "fisica";
+                    this.cotizador_datalayer("checkout", 2);
+                    } else {
+                        //this.ocultarInputDocumento = false;
+                        //this.mostrarDatosPersonales = false;
+                        //this.mostrarDatosyCheckbox = true;
+                        this.msgCompletaDatos = true;
+                        //this.mostrar = false;
+                        //this.isSecondBox = true;
+                        //this.isDisableButton = true;
+                    }
+                } else {
+                    this.cobertura_is.personType = null;
+                    this.mostrarEditarCancelar = false;
+                    this.mostrarDatosPersonales = false;
+                    this.mostrarDatosyCheckbox = true;
+                    this.mostrar = false;
+                    this.msgCompletaDatos = true;
+                    this.cobertura_is.personType = null;
+                    this.cotizador_datalayer("checkout", 2);
+                }
+            },
+            validarEmpresaVuex() {
+                //this.mostrarDatosPersonales = false;
+                this.msgCompletaDatos = false;
+                this.loadingPersona = false;
+                //this.isOculto = true;                
+                this.mostrarRuc = true;
+                if (this.estado_cliente == 1) {
+                    if (this.validarRUC()) {
+                        //this.ocultarInputDocumento = true;
+                        //this.mostrarEditarCancelar = true;
+                        //this.mostrarDatosPersonales = true;
+                        //this.mostrarDatosyCheckbox = true;
+                        this.msgCompletaDatos = false;
+                        //this.mostrar = true;
+                        this.cobertura_is.personType = "juridica";
+                        this.cotizador_datalayer("checkout", 2);
+                        /* if (this.checkPoliticasPrivacidad == true) {
+                            this.isDisableButton = false;
+                        } else {
+                            this.isDisableButton = true;
+                        } */
+                    } else {
+                        //this.ocultarInputDocumento = false;
+                        //this.mostrarEditarCancelar = false;
+                        //this.mostrarDatosPersonales = false;
+                        //this.mostrarDatosyCheckbox = true;
+                        this.msgCompletaDatos = true;
+                        //this.mostrar = false;
+                        //this.isSecondBox = true;
+                        //this.isDisableButton = true;
+                    }
+                } else {
+                    this.cobertura_is.personType = null;
+                    this.mostrarEditarCancelar = false;
+                    this.mostrarDatosPersonales = false;
+                    this.mostrarDatosyCheckbox = true;
+                    this.mostrar = false;
+                    this.msgCompletaDatos = true;
+                    this.cobertura_is.personType = null;
+                    this.cotizador_datalayer("checkout", 2);
+                }
+            },
+            validarClient() {
+                var camposRellenados = true;
+                if (process.client) {
+                    let ipt_general = document.getElementsByClassName("iptClient");
+                    for (let i = 0; i < ipt_general.length; i++) {
+                        if (ipt_general[i].value.length <= 0) {
+                            camposRellenados = false;
+                            return false;
+                        }
+                    }
+                    if (camposRellenados == true) {
+                        if (
+                            this.objClients.phoneNumber.charAt(0) == 9 &&
+                            this.objClients.phoneNumber.length == 9
+                        ) {
+                            this.$store.commit("common/setCheckgss", 1);
+                            this.$store.commit("common/setEmail", this.objClients.emailAddress);
+                        }
+                        this.msgCompletaDatos = false;
+                        return true;
+                    } else {
+                        this.msgCompletaDatos = true;
+                        this.$store.commit("common/setCheckgss", 0);
+                        return false;
+                    }
+                }
+            },
+            validarRUC() {
+                var camposRellenados = true;
+                if (process.client) {
+                    let ipt_general = document.getElementsByClassName("iptRUC");
+                    for (let i = 0; i < ipt_general.length; i++) {
+                        if (ipt_general[i].value.length <= 0) {
+                            camposRellenados = false;
+                            return false;
+                        }
+                    }
+                    if (camposRellenados == true) {
+                        if (
+                            this.objClients.phoneNumber.charAt(0) == 9 &&
+                            this.objClients.phoneNumber.length == 9
+                        ) {
+                            this.$store.commit("common/setCheckgss", 1);
+                            this.$store.commit("common/setEmail", this.objClients.emailAddress);
+                        }
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            },
+
+
         },
         computed:{
             appDiscount: function(){
@@ -1341,573 +1731,4 @@ import { validationMixin } from 'vuelidate'
     }
 </script>
 
-<style lang="scss" scope>
-    .pagina-pagar{
-        padding-top: 80px;
-        padding-bottom: 80px;
-        .resumen-proteccion{
-            .datos-personales{
-                .datos-personales-card{
-                    border:none;
-                    .card-body{
-                        padding: 0;
-                    }
-                }
-            }
-        }
-    }
-
-    .box-messaje{
-        //max-width: 394px;
-        overflow: hidden;
-        background: #F9F9FB;
-        height: 78px;
-        display: flex;
-        align-items: center;
-        background-color: #DCE0EA;
-    }
-    
-    .mi-carro{
-        font-size: 16px;
-        color: #383C5A;
-        font-family: 'Omnes SemiBold';
-    }
-
-    .capadecarga{
-        display: none;
-    }
-
-    .metodo-pago{
-        /* display: flex;
-        flex-direction: column;
-        align-items: center; */
-        border: 1px solid #CCD1DD;
-        border-radius: 3px;
-        opacity: 1;        
-        .imgs{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .msg-alterno{
-            font-size: 13px;
-            line-height: 16px;            
-            font-weight: 500;
-            color: #0855c4;
-        }
-        .cliploader{
-            background: transparent;
-        }
-        .box-btn__button{
-            height: 50px;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .pago_seguro{
-                color: #fff;
-                font-size: 11px;
-                text-transform: initial;
-            }
-        }
-        .box-btn__button.enlace-back{
-            text-transform: capitalize;
-            color: #616161;
-            position: relative;
-            text-align: left;
-            padding-left: 32px;
-            font-weight: 500;
-            img{
-                position: absolute;
-                left: 0;
-                top: 12px;
-            }
-        }
-        .spinner-tarjeta{
-            position: relative;
-            height: 50px;
-        }
-        .spinner-descripcion{
-            font-size: 11px;
-            text-align: center;
-            margin-bottom: 0;
-        }
-        .iptGral__input{
-            text-align: center;
-        }
-        .panel-custom{
-            // padding: 18px;
-            // margin: 0 -15px;
-            .text-secundario{
-                font-size: 14px;
-                color: #3b3131;
-                width: 100%;
-                display: inline-block;
-            }
-            .text-secundario__movil{
-                color: #3b3131;
-            }
-        }
-        &__comoPagar{
-            padding: 0px 16px;
-        }  
-        &__ingresatarjeta{
-            padding: 24px 16px 12px;
-            border-radius: 0 0 16px 16px;
-            .box-ingresaTarjeta{
-                padding: 18px 15px 0 15px;
-            }
-            .boxtitulo{
-                &__secundario{
-                    color: #0BD360;
-                }
-            }
-            .checkbox-aux__span {
-                width: 18px;
-                height: 18px;
-            }  
-            .checkbox-aux__span--icon{
-                font-size: 14px;
-                position: absolute;
-            }     
-            .checkbox-aux__descripcion{
-                margin-left: -12px;
-                width: 86%;
-                a{
-                    color: #0855C4;
-                }
-            }
-        }
-    }
-    
-
-    #focusTarjeta{
-        position: absolute;
-        left: 15px;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: #005EA1;
-        border-radius: 5px;
-        overflow: hidden;
-        width: 249px;
-        height: 70px;
-        bottom: 180px;
-        padding: 5px;
-        color: white;
-        z-index: 99;
-        font-size: 13px;
-        img{
-            width: 100%;
-        }
-    }
-
-    #button-download a{
-        color: #0BD360;
-    }
-    .modal-confirmaTusDatos{
-        border: 0 !important;
-        padding: 8px 24px;
-        .btn-secondary{
-            background: white;
-            border: none;
-            position: relative;
-            height: 26px;
-        }
-        img{
-            position: absolute;
-            right: 0;
-            top: -10px;
-        }
-        .modal-description{
-            text-align: justify;
-        }
-        .btn-secondary:focus,  .btn-secondary:not(:disabled):not(.disabled).active:focus {
-            box-shadow: none !important;
-        }
-        .btn:focus {
-            box-shadow: none !important;
-        }
-    }
-    
-    .card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
-        border-radius: 4px;
-    }
-
-    .isActivePayment{
-        display: none;
-    }
-    input.form-control.text-uppercase.iptGral__input:focus {
-        box-shadow: none;
-    }
-    
-    .iptGral.editable .iptGral__input {
-        padding-left: 38px;
-        max-width: 460px;
-        height: 48px;
-        border: 1px solid #D1D1D1 !important;
-        box-shadow: none;
-        line-height: 1;
-    }
-    .iptGral.editable ::placeholder {
-        color: #D1D1D1 !important;        
-    }
-    .box-iptCard{
-        position: relative;
-        display: flex;
-        align-items: center;
-        img{
-            position: absolute;
-            right: 0;
-            z-index: 99;
-            padding-top: 8px;
-            right: 8px;
-
-        }
-        .icon-tarjeta{
-            position: absolute;
-            width: 18px;
-            left: 0;
-            padding-top: 0;
-            margin-left: 6px;
-        }
-        .ipt-cardNumber{            
-            background-image: url("./../../static/media/img/root/tarjeta.svg");
-            background-repeat: no-repeat;
-            background-position-x: 12px;
-            background-position-y: 14px;
-            background-size: 35px;
-            padding-top: 4px;
-            padding-bottom: 5px;
-        }
-        .ipt-cardNumber:focus {
-            background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
-            border: 1.5px solid #0855c4!important;
-            box-shadow: none;
-        }        
-    }
-    .card-interseguro{
-        border-radius: 5px;
-        width: 100%;
-        max-width: 440px;
-        margin: auto;
-        .form-label.col-form-label.label-completed{
-            padding-left: 0;
-            padding-bottom: 0;
-        }
-        #focusCVV{
-            position: absolute;
-            right: 15px;
-            display: none;
-            border-radius: 5px;
-            overflow: hidden;
-            width: 170px;
-            height: 115px;
-            bottom: 105px;
-            // background: #005EA1;
-            z-index: 99;
-            img{
-                width: 100%;
-            }
-        }
-        #focusMES{
-            position: absolute;
-            left: 15px;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: #005EA1;
-            border-radius: 5px;
-            overflow: hidden;
-            width: 170px;
-            height: 85px;
-            bottom: 110px;
-            padding: 5px;
-            color: white;
-            z-index: 99;
-            img{
-                width: 100%;
-            }
-        }
-        .ipt-month{
-            width: 40px;
-            padding-right: 8px !important;
-            background-image: url("./../../static/media/img/root/calendar.png");
-            background-repeat: no-repeat;
-            background-position-x: 12px;
-            background-position-y: 14px;
-            background-size: 35px;
-            padding-top: 4px;
-            padding-bottom: 5px;
-            text-align: left !important;
-            padding-left: 41px !important;
-        }
-        .ipt-month:focus {
-            background-image: url("./../../static/media/img/root/calendar.svg");
-            box-shadow: none;
-        }
-        
-        .img-activefocus{
-            position: absolute;
-            z-index: 9;
-            width: 20px;
-            left: 29px;
-        }
-        
-        .ipt-year{
-            width: 65px;
-            padding: 0 5px 0 0;
-            text-align: left !important;
-            padding-left: 0 !important;
-            padding-left: 6px !important;
-        }
-        .ipt-cvv{
-            width: 60px;
-            padding: 0 0 0 8px;
-            background-image: url("./../../static/media/img/root/ccv.png");
-            background-repeat: no-repeat;
-            background-position-x: 12px;
-            background-position-y: 14px;
-            background-size: 35px;
-            padding-top: 4px;
-            padding-bottom: 5px;
-        }
-        #box-ccv .ipt-cvv:focus {
-            background-image: url("./../../static/media/img/root/cvv_focus.png");
-            border: 1.5px solid #0855c4 !important;
-            box-shadow: none;
-        }
-        .text-right-custom{
-            text-align: right;
-            label{
-                padding-right: 0;
-                padding-bottom: 0;
-            }
-        }
-        .iptGral__input{
-            color: #616161;
-            font-size: 20px;
-        }
-    }
-
-    .card-custom{
-        display: flex;
-        justify-content: space-between;
-        max-width: 440px;
-        &__cvv{
-            max-width: 220px;
-            width: 50%;
-            position: relative;
-            z-index: 7;
-            box-sizing: content-box;
-            #box-ccv{
-                position: relative;
-                display: flex;
-                align-items: center;
-                .icon-ccv{
-                    position: absolute;
-                    width: 18px;
-                    left: 0;
-                    padding-top: 0;
-                    margin-left: 6px;
-                    z-index: 9;        
-                }
-                input{
-                    padding-left: 38px;
-                }
-            }
-        }
-        &__date.activeFocus{
-            border: 1px solid #0855c4;
-        }
-        &__date{    
-            max-width: 220px;
-            width: 50%;
-            display: inline-flex;
-            .form-group-custom{
-                &:nth-child(1){
-                    width: 92px;
-                }
-                &:nth-child(2){
-                    width: 70%;
-                }
-                &:nth-child(4){
-                    width: 50%;
-                }
-                
-                #box-mes{
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    .icon-mes{                    
-                        position: absolute;
-                        width: 18px;
-                        left: 0;
-                        padding-top: 0;
-                        margin-left: 6px;
-                        z-index: 9;
-                    }
-                    &:after{
-                        width: 5px;
-                        height: 46px;
-                        background: #fff;
-                        content: "/";
-                        top: 1px;
-                        right: -2px;
-                        position: absolute;
-                        z-index: 99;
-                        font-size: 17px;
-                        line-height: 44px;
-                        color: #d3ddef;
-                    }
-                }
-            }
-        }
-    }
-    .card-custom__date{
-        align-items: center;
-    }
-    .modal-description {
-        text-align: left;
-        font-family: 'Omnes Medium';
-        font-size: 16px;
-        font-weight: 300;
-        color: #373737;
-        border: 0;
-    }
-    .modal-personal-title {
-        font-family: 'Omnes Medium';
-        font-size: 24px;
-        font-weight: 900;
-        text-align: center;
-        
-    }
-    .leaveModal {
-        font-family: 'Omnes Regular';
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.25;
-        letter-spacing: normal;
-        text-align: center;
-        .modal-lg {
-            max-width: 660px;
-        }
-        h2 {
-            font-size: 32px;
-            color: #0854c4;
-        }
-        h3 {
-            font-size: 20px;
-            color: #454a6c;
-        }
-        span {
-            font-family: 'Omnes Medium';
-        }
-        img {
-            margin-top: 30px;
-        }
-        .btn{
-            background-color: #ea0c90;
-            color: white;
-            height: 50px;
-            width: 300px;
-            line-height: 0.5;
-            font-size: 16px;
-            border-radius: 3px;
-            border: none;
-            &:hover{
-                opacity: .7;
-            }
-        }
-    }
-   
-    @media (min-width: 768px) {
-        .leaveModal {
-            .img-verano{
-                max-width: 380px;
-            }
-        }
-        .metodo-pago{            
-            &__comoPagar{
-                padding: 22px 28px;
-            }  
-            &__ingresatarjeta{
-                padding: 22px 28px;
-            }
-        }
-        .card-custom__date .form-group-custom:nth-child(1) {
-            width: 94px;
-            position: relative;
-        }
-        .card-custom__date .form-group-custom:nth-child(2) {
-            width: initial;
-            position: relative;
-        }
-    }
-    
-    @media (min-width: 992px) {
-
-
-        .metodo-pago{     
-                   
-            &__comoPagar{                
-                border-radius: 5px 5px 0 0;
-            }  
-            &__ingresatarjeta{
-                border-radius:  0 5px  5px 0;
-                padding: 22px 28px;
-            }
-        }
-        
-       
-        #focusCVV{
-            right: -147px;
-            bottom: 45px;
-            img{
-                width: 100%;
-            }
-        }
-        #focusMES{
-            left: -147px;
-            bottom: 45px;
-            img{
-                width: 100%;
-            }
-        }
-        #focusTarjeta{
-            left: -110px;
-            bottom: 63px;
-            img{
-                width: 100%;
-            }
-        }
-        
-    }
-   
-    @media (min-width: 1024px){
-        
-
-        .planes-tabs .nav-pills .nav-link, .planes-tabs .nav-pills .show > .nav-link {
-            font-weight: 500;
-        }
-    }
-    @media (min-width: 1200px) {
-        .card-interseguro{
-            width: 100%;
-        }
-        .card-custom__date .form-group-custom:nth-child(1) {
-            width: 112px;
-            position: relative;
-        }
-        .card-custom__date .form-group-custom:nth-child(2) {
-            width: initial;
-            position: relative;
-        }
-    }
-
-</style>
 

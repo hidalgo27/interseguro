@@ -8,6 +8,7 @@ $vehicular_parrafo_v2: #383C5A;
 .nuevo-home{
     font-size: 18px;
     padding-top: 72px;
+    padding-bottom: 100px;
     color: $vehicular_parrafo_v2;
     // p,h1,h2,h3,div,span,section,article,strong{
     //     padding: 0;
@@ -27,27 +28,24 @@ $vehicular_parrafo_v2: #383C5A;
     }
     .container-fluid{
         background-color: #F9F9FB ;
-        padding-top: 55px;
-        padding-bottom: 55px;
+        //padding-top: 15px;
+        //padding-bottom: 15px;
     }
     .home-seccion{
-        padding-top: 30px;
-        padding-bottom: 25px;
-        margin-bottom: 30px;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
     .seccion-contenido{
-        padding-top: 30px;
-        padding-bottom: 25px;
-        margin-bottom: 30px;
-        .content{
-            padding-top: 0px;
-            padding-bottom: 40px;
-        }
+        //padding-top: 30px;
+        padding-bottom: 35px;
+        //margin-bottom: 30px;
+        
         .row-comentario{
             padding-top: 0px;
         }
         .row-start{
             padding-top: 24px;
+            padding-bottom: 20px;
             .stars{
                 img{
                     margin-right: 6px;
@@ -55,17 +53,44 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
     }
+    .content-inicio{
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+    .content{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .content-medio{
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
     .section-title{
         font-family: 'Omnes Regular';
+        padding-top: 40px;
+        padding-bottom: 40px;
         p{
             color: $vehicular_primario;
             text-align: center;
-            font-size: 1.65rem;
+            font-size: 39px;
             line-height: 2.19rem;
-            max-width: 290px;
+            //max-width: 290px;
             margin: auto;
         }
         //margin-bottom: 24px;
+    }
+    .section-title-interno{
+        font-family: 'Omnes Regular';
+        //padding-top: 40px;
+        //padding-bottom: 40px;
+        p{
+            color: $vehicular_primario;
+            text-align: center;
+            font-size: 39px;
+            line-height: 2.19rem;
+            //max-width: 290px;
+            //margin: auto;
+        }
     }
     
     /**********************************************************/
@@ -76,7 +101,7 @@ $vehicular_parrafo_v2: #383C5A;
         height: 480px;
         width: 100%;
         position: relative; 
-        margin-bottom: 25px;       
+        //margin-bottom: 25px;       
         .banner-blue{
             position: absolute;
             height: 350px;
@@ -123,7 +148,8 @@ $vehicular_parrafo_v2: #383C5A;
             margin-right: -195px;
             margin-bottom: -117px;
             margin-left: -300px;
-            background-image: url('./../../static/media/imagenes/home/vehiculo2.svg');
+            //vehiculo
+            //background-image: url('./../../static/media/imagenes/home/vehiculo2.svg');
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;            
@@ -215,7 +241,9 @@ $vehicular_parrafo_v2: #383C5A;
     
     .client-numbers{
         border: #DDE0E9 1px solid;
-        padding: 2px 16px;
+        padding: 2px 10px;
+        height: 100%;
+
         &__item{
             display: flex;
             align-items: center;
@@ -256,7 +284,8 @@ $vehicular_parrafo_v2: #383C5A;
     }
     .beneficios{
         border: #DDE0E9 1px solid;
-        padding: 0px 16px; 
+        padding-right: 20px;
+        padding-left: 20px;
         &__item{
             display: flex;
             align-items: center;
@@ -293,6 +322,7 @@ $vehicular_parrafo_v2: #383C5A;
     }
     .home-video{
         padding-top: 40px;
+        padding-bottom: 55px;
         .text-video{
             font-size: 1.125rem;
             text-align: center;
@@ -318,7 +348,9 @@ $vehicular_parrafo_v2: #383C5A;
         }
     }
     .elegirnos{
-        padding: 16px 18px;
+        padding-bottom: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
         background-color: #F9F9FB;
         &__item{
             display: flex;
@@ -326,8 +358,8 @@ $vehicular_parrafo_v2: #383C5A;
             position: relative;
             padding: 12px 0;
             img{
-                margin-right: 20px;
-                width: 67px;
+                margin-right: 30px;
+                width: 90px;
             }
             &--titulo{
                 color: #383C5A;
@@ -353,6 +385,19 @@ $vehicular_parrafo_v2: #383C5A;
         display: flex;
         font-size: 16px;
         font-family: 'Omnes Regular';
+        width: 100%;
+        background: #F9F9FB;
+        height: 112px;
+        display: flex;
+        align-items: center;        
+        p{
+            font-size: 16px;
+            font-family: 'Omnes Regular';
+            color: #383C5A;
+            span{
+                font-family: 'Omnes SemiBold';
+            }
+        }
         .carousel-caption{
             position: absolute;
             right: 0%;
@@ -378,9 +423,6 @@ $vehicular_parrafo_v2: #383C5A;
         .carousel-item{
             height: 100%;
             line-height: 22px;
-        }
-        .carousel-item.active{
-            background: crimson;
         }
         .slide{
             width: 100%;
@@ -423,6 +465,7 @@ $vehicular_parrafo_v2: #383C5A;
         padding-bottom: 4px;
     }
     .que-me-cubre{
+        padding-left: 16px;
         &__item{          
           font-family: 'Omnes Regular';
           font-size: 16px;
@@ -436,7 +479,10 @@ $vehicular_parrafo_v2: #383C5A;
     }
 
     .planes{
-        padding-top: 40px;        
+        display: flex;
+        flex-direction: column;
+        //padding-top: 40px; 
+        padding-bottom: 55px;       
         .detalle-plan{
             display: flex;
             //flex-direction: column;
@@ -457,13 +503,12 @@ $vehicular_parrafo_v2: #383C5A;
                   text-transform: uppercase;
                 }
                 .titulo-descripcion{
-                  color: var(--unnamed-color-383c5a);
                   text-align: center;
-                  font-weight: normal;
+                  font-family: 'Omnes Regular';
                   font-size: 18px;
                   letter-spacing: 0px;
                   color: #383C5A;
-                  text-transform: lowercase;
+                  text-transform: none;
                 }
                 
               }
@@ -539,6 +584,7 @@ $vehicular_parrafo_v2: #383C5A;
         }
         .box-plan-recomendado{
             //width: 100%;
+            height: 100%;
             border: 3px solid $vehicular_primario;
             padding-bottom: 1.7rem;
             background-color: #fff;
@@ -599,8 +645,31 @@ $vehicular_parrafo_v2: #383C5A;
         }
     }
 
-    .beneficios{
-        padding-top: 40px;        
+    .planInactivo{
+        box-shadow: none;
+    }
+    .planActivo{
+      background: #6B797F !important;
+      position: relative;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        left: 39px;
+        bottom: -19px;
+        z-index: 9;
+        text-align: center;
+        align-items: center;
+        color: white;
+        line-height: 24px;
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    .beneficios{        
         .titulo{
             font-family: 'Omnes SemiBold';           
         }
@@ -631,11 +700,11 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
         &__head{
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
+            margin-bottom: 20px;
+            //display: flex;
+            //justify-content: space-between;
             .plan-item{
-                width: 110px;
+                //width: 110px;
                 text-align: center;
                 background-color: #E5E8EF;
                 color: #454A6C;
@@ -698,8 +767,10 @@ $vehicular_parrafo_v2: #383C5A;
             border: 2px solid $vehicular_primario;
         }
     }
-    .card-header{
-    }
+    
+    .planActivo.oro,.planActivo.plata,.planActivo.black{
+        background: white !important;
+      }
     .tab-personalizado{
         color: #383C5A;
         border: none;
@@ -720,7 +791,17 @@ $vehicular_parrafo_v2: #383C5A;
         background-color: #fff !important;
         border-left: none;
         border-right: none; 
-        border-radius: 0px;       
+        border-radius: 0px;
+        .icono-menos{
+            font-family: 'Omnes SemiBold';
+            font-size: 30px;
+            color: #0855C4;
+        }
+        .icono-mas{
+            font-family: 'Omnes SemiBold';
+            font-size: 30px;
+            color: #0855C4;
+        }        
         .btn{
             background-color: #fff;
             color: #383C5A;
@@ -733,6 +814,7 @@ $vehicular_parrafo_v2: #383C5A;
         }
         .card-header{
             border-bottom: none;
+            height: 90px;
         }
         header{
             background-color: #FFFFFF ;
@@ -743,15 +825,23 @@ $vehicular_parrafo_v2: #383C5A;
             font-family: 'Omnes Semibold';
             outline: none;
         }
-        /* .btn.btn-info.btn-block.collapsed{
-            color: blueviolet;
-        } */
+        .btn-info:focus{
+            box-shadow: none;
+        }
+
         .btn.btn-info.btn-block.not-collapsed{
             color: #383C5A !important;
             font-family: 'Omnes Semibold';
             outline: none;
+            box-shadow: none;
             float: right;
             content: "\f067"; 
+        }
+        .btn.btn-info.btn-block.collapsed{
+            //color: #383C5A !important;
+            //font-family: 'Omnes Semibold';
+            outline: none;
+            box-shadow: none; 
         }
         .card-text{            
             font-family: 'Omnes Regular';
@@ -759,17 +849,52 @@ $vehicular_parrafo_v2: #383C5A;
         }
         
     }
+
+      
+
+    .box-dudas{
+        border: #CCD1DD 1px solid;
+        border-radius: 3px;
+        //height: 190px;
+        //display: flex;
+        padding: 20px;
+        p{
+            margin-bottom: 12px;
+        }
+        .titulo{
+            color: #383C5A;
+            font-family: 'Omnes SemiBold';
+            font-size: 20px;
+            line-height: 40px;
+        }
+        .text{
+            color: #383C5A;
+            font-family: 'Omnes Regular';
+            font-size: 16px;
+        }
+        span{
+            color: #0855C4;
+            font-size: 14px;
+            font-family: 'Omnes SemiBold';
+            text-transform: uppercase;
+            line-height: 40px;
+        }
+    }
     
     .dudas-consultas{
-        padding: 48px 0;
+        padding: 0px 30px;
+        padding-bottom: 40px;
         &__item{
             border: #CCD1DD 1px solid;
             border-radius: 3px;
-            height: 180px;
+            height: 287px;
             display: flex;
-            padding: 0 12px;            
+            padding: 20px; 
+            margin-left: 5px;
+            margin-right: 5px;           
             img{
-                width: 87px;
+                width: 89px;
+                height: 89px;
             }
             span{
                 color: #0855C4;
@@ -813,6 +938,7 @@ $vehicular_parrafo_v2: #383C5A;
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
+                height: 100%;
                 &__item{
                     border: 1px solid #DDE0E9;
                     padding-left: 18px;
@@ -893,7 +1019,8 @@ $vehicular_parrafo_v2: #383C5A;
     .nuevo-home{
         .banner{
             height: 468px;
-            background-color: $vehicular_primario;
+            //background-color: $vehicular_primario;
+            background-image: url('./../../static/media/imagenes/home/banner-main.svg');
             .container{
                 height: 100%;
                 align-items: center;
@@ -972,11 +1099,10 @@ $vehicular_parrafo_v2: #383C5A;
             p{
                 font-size: 2.44rem;
                 line-height:3.125rem;
-                max-width: 810px;                
+                //max-width: 810px;                
             }
         }
-        .client{
-        }
+        
         .beneficios{
             &__item{
                 width: 25%;
@@ -1019,8 +1145,9 @@ $vehicular_parrafo_v2: #383C5A;
                     align-items: flex-end;
                 }
                 img{
-                    width: 108px;
-                    height: auto;                   
+                    width: 90px;
+                    height: auto; 
+                    margin-right: 30px;                 
                 }
                 &--titulo{
                     font-size: 1.25rem;
@@ -1098,4 +1225,43 @@ $vehicular_parrafo_v2: #383C5A;
         }
     }
     
+}
+
+@media screen and (max-width: 992px) {
+    .nuevo-home{
+        .planActivo.blue{
+            background-color: #0855C4 !important;
+            color: #FFFFFF;
+            font-style: 'Omnes Medium';
+            font-size: 16px;
+            &:before{    
+              border-right: 10px solid transparent;
+              border-top: 10px solid #0855C4;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+            p{
+              color: white !important;
+            }
+          }
+          .content{
+              padding-top: 20px;
+              padding-bottom: 20px;
+          }
+    }
+
+    
+  }
+
+  // Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+    .nuevo-home{
+        .banner{
+            background-color: transparent;
+            height: auto;
+            width: 100%;
+            position: relative; 
+            //margin-bottom: 25px;
+        }
+    }
 }

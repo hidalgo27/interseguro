@@ -2,7 +2,7 @@
 // @import 'bootstrap-vue/dist/bootstrap-vue.css';
 @import './../../static/fonts/fonts.css';
 @import "_variables";
-@import "_home";
+//@import "_home";
 @import "_webflow";
 @import "_helpers";
 @import "_main";
@@ -26,6 +26,7 @@
 @import "_v2_seleccion";
 @import "_v2_cotizador";
 @import  "_v2_documento";
+@import  "_v2_pagar";
 #modalcampaniatv,#modalEndoso,#modalgps,#modal1{
   .modal-dialog{
     max-height: 430px;

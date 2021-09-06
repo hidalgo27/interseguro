@@ -83,24 +83,27 @@
                 </b-col>
             </b-row>  
 
-            <b-row class="pt-4">
+            <b-row class="titulo-principal" >
                 <b-col cols="12">
-                    <div class="lista1 flujo-titulo" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                        
-                        <b-avatar button @click="volver($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
-                        Selecciona la marca                       
-                    </div>
+                    <b-row class="lista1 flujo-titulo" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
+                        <b-col>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none  d-lg-inline-block"><span>Selecciona la marca</span>
+                        </b-col>
+                    </b-row>
                 </b-col>
                 <b-col cols="12">
-                    <div class="listaDos flujo-titulo" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
-                        <b-avatar button @click="editarMarca($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
-                        Seleciona el año
-                    </div> 
+                    <b-row class="listaDos flujo-titulo" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
+                        <b-col>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarMarca($event)" class="d-none  d-lg-inline-block"><span>Seleciona el año</span>
+                        </b-col>
+                    </b-row>                     
                 </b-col>
                 <b-col cols="12">
-                    <div class="lista3 flujo-titulo" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
-                        <b-avatar button @click="editarAnio($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
-                        Seleciona el modelo 
-                    </div>
+                    <b-row class="lista3 flujo-titulo" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
+                        <b-col>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarAnio($event)" class="d-none  d-lg-inline-block"><span>Seleciona el modelo</span>
+                        </b-col>
+                    </b-row>
                 </b-col>          
             </b-row>
 
@@ -150,18 +153,20 @@
                 <b-col cols="4">
                     <div class="resumen-proteccion  d-none  d-lg-block">                        
                         <div class="resumen-proteccion__cabecera">
-                            <p>RESUMEN DE TU PROTECCIÓN</p>
+                            <b-row class="titulo1">
+                                <b-col cols="12">RESUMEN DE TU PROTECCIÓN</b-col>
+                            </b-row>
                         </div>
                         <div class="resumen-proteccion__cuerpo">
                             <div class="datos-carro">  
                                 <b-container>
-                                    <b-row>
+                                    <b-row class="row-titulo">
                                         <b-col cols="12" >
                                             <p class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</p>                                        
                                         </b-col>
                                     </b-row>
-                                    <b-row>
-                                        <b-col cols="4">
+                                    <b-row class="row-data">
+                                        <b-col cols="4" >
                                             <p><span class="label">Mi Placa</span></p>
                                         </b-col>
                                         <b-col cols="6">
@@ -171,7 +176,7 @@
                                             <a href=""><img src="./../../static/media/img/root/pencil-edit-blue.svg" alt="" @click="editarPlaca($event)"></a>
                                         </b-col>
                                     </b-row>
-                                    <b-row>
+                                    <b-row class="row-data">
                                         <b-col cols="4" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
                                             <p><span class="label">Marca</span></p>
                                         </b-col>
@@ -182,7 +187,7 @@
                                             <img src="./../../static/media/img/root/pencil-edit-blue.svg" alt="" @click="editarMarca($event)">
                                         </b-col>
                                     </b-row>
-                                    <b-row>
+                                    <b-row class="row-data">
                                         <b-col cols="4" class="anio" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}">
                                             <p><span class="label">Año</span></p>
                                         </b-col>

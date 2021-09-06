@@ -1,9 +1,39 @@
+#documento-identidad::placeholder {
+  color:#B9BBCE
+}
+#nombre::placeholder {
+  color:#B9BBCE
+}
+#apellido-paterno::placeholder {
+  color:#B9BBCE
+}
+#apellido-materno::placeholder {
+  color:#B9BBCE
+}
+#correo-electronico::placeholder {
+  color:#B9BBCE
+}
+#celular::placeholder {
+  color:#B9BBCE
+}
+
+#razon-social::placeholder {
+  color:#B9BBCE
+}
+#direccion::placeholder {
+  color:#B9BBCE
+}
+#celularEmpresa::placeholder {
+  color:#B9BBCE
+}
+#correo-electronicoEmpresa::placeholder {
+  color:#B9BBCE
+}
+
 .pagina-documento{
-    padding-top: 80px;
-    padding-bottom: 80px;
-    .mi-breadcrumb{
-      
-    }
+
+    padding-top: 72px;
+    padding-bottom: 80px;    
     .modal-blackWeek {
         max-width: 472px;
         width: 100%;
@@ -77,9 +107,7 @@
         cursor: pointer;
         z-index: 0;
       }
-      #documento-identidad {
-        padding-left: 12px;
-      }
+      
       
       
       .modal-datosPersonales {
@@ -162,6 +190,8 @@
         margin: 0;
         padding-top: 12px;
         .mensaje{
+          padding-bottom: 10px;
+          padding-top: 10px;
           font-size: 20px;
         }
       }
@@ -268,7 +298,7 @@
       }
       
       .iptGral__input {
-        padding-left: 6px;
+        padding-left: 15px;
       }
       
       
@@ -353,8 +383,18 @@
     }
 }
 
+@media (max-width: 992px) {
+  .pagina-documento{
+    .box-principal {
+      border: none;
+      background: white;
+      padding: 10px;
+    }
+  }  
+}
 
-@media (min-width: 992px) {
+
+@media (min-width: 992.1px) {
     .pagina-documento{
         .modal-blackWeek {
             h3 {
@@ -391,8 +431,14 @@
           .titulo-datosPersonales__titulo {
             padding-left: 16px;
           }
+          .form-control{
+            font-size: 18px;
+            font-family: 'Omnes Regular';
+          }
+
 
     }
+
     
   }
   @media (min-width: 1200px) {

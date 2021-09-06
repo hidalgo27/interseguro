@@ -1,3 +1,11 @@
+.writeme img, .writeme svg {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  cursor: pointer;
+}
+
 .spinner-sq {
   top: 0 !important;
 }
@@ -772,6 +780,10 @@
   align-items: flex-start !important;
 }
 @media (min-width: 992px) {
+  .writeme img {
+    width: 13.5rem;
+  }
+    
   #modalEntidadFinanciera2{
     .modal-titulo{
       font-size: 32px;

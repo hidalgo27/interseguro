@@ -98,22 +98,9 @@
                     <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
                                 <nuxt-link v-else  to="/oficial/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
                     </li>
-                    <li><button><span>COTIZAR</span></button></li>
-                    
-                    <!-- <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
-                        <div class="telefono ">
-                            <div class="d-flex  telefono-desktop">
-                                <div class=" telefono-desktop-img">
-                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
-                                </div>
-                                <div>
-                                    <span style="text-align:left; display: flex" class="ml-2">Llámanos<br>(01)500 0000</span>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div> -->
-
-
+                    <li class="d-none  d-lg-flex  box-cotiza"  v-bind:class="{ oculto: isOculto }">
+                        <button class="button-cotizar" @click="cotizar()"><span>COTIZAR</span></button>
+                    </li>
                 </ul>
                 <div id="capa" style="display: none;"></div>
             </div>
@@ -155,19 +142,18 @@ export default {
     data(){
         return{
         nuevoProducto: false,
-            flagCloseListon: 0,
-            contactanos: true,
-            isOculto: true,
-            urlLocal: "",
-            ocultarBanner:false,
-            cuentaSueldo: false,
-            tarjetaoh: false,
-            baseIS: false,
+        flagCloseListon: 0,
+        contactanos: true,
+        isOculto: true,
+        urlLocal: "",
+        ocultarBanner:false,
+        cuentaSueldo: false,
+        tarjetaoh: false,
+        baseIS: false,
         }
     },
     mounted(){
-        // this.contador()
-        
+        // this.contador()        
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
@@ -205,6 +191,7 @@ export default {
             // var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
             // var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
         },
+
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
             this.flagCloseListon = 0            
@@ -223,10 +210,10 @@ export default {
             this.ocultarBanner = true
         },
         handleScroll(eve) {
-            if (window.scrollY >= 600) {
+            if (window.scrollY >= 400) {
                 if(true){
-                    this.isOculto = false
-                    this.contactanos = false;                    
+                    this.isOculto = false;
+                    this.contactanos = false;                   
                 }
             } else {
                 this.isOculto = true
@@ -241,6 +228,11 @@ export default {
             }
             this.$nuxt.$router.push({
                 path: "/"
+            });
+        },
+        cotizar(){
+            this.$nuxt.$router.push({
+                path: "/cotizacion/placa"
             });
         },
         showHide(e) {
@@ -261,9 +253,9 @@ export default {
         }
     },
     created(){
-    setTimeout(()=>{
-    this.nuevoProducto = this.$store.state.common.nuevoProducto
-    },1000)
+        setTimeout(()=>{
+        this.nuevoProducto = this.$store.state.common.nuevoProducto
+        },1000)
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -442,7 +434,7 @@ export default {
     }
     
 }
-.box-cotiza a {
+.box-cotiza button{
   animation: shadow-pulse 1s infinite;
 }
     .oculto{
@@ -518,7 +510,7 @@ export default {
                         }
                     }
                 }
-                button{
+                .button-cotizar{
                 width: 193px;
                 height: 40px;
                 background: var(--unnamed-color-0855c4) 0% 0% no-repeat padding-box;
@@ -535,7 +527,7 @@ export default {
                     color: #FFFFFF;
                     opacity: 1;
                 }
-            }
+                }
             }            
         }
         .btn-cotiza a {

@@ -100,8 +100,8 @@
                     <li class="" >
                         <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
                     </li> -->
-                    <p>¿Necesitas ayuda? <img src="../../static/media/img/home/telf.svg" alt="" style="margin-left:5px"></p> 
-                    <p class="fono">(01)500 0000</p>                     
+                    <p><img src="../../static/media/imagenes/home/img-watsapp.svg" alt="" style="margin-left:5px"></p> 
+                    <!-- <p class="fono">(01)500 0000</p> -->                     
                     
                     <!-- <div class=" telefono-desktop-img">
                                     <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>

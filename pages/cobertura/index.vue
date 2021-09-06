@@ -1568,17 +1568,17 @@
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
     color: #fff;
-    background-color: transparent;
+    //background-color: transparent;
     border-color: transparent !important;
 }
 .btn-secondary:focus, .btn-secondary.focus {
     color: #fff;
-    background-color: transparent;
+    //background-color: transparent;
     border-color: transparent !important;
     box-shadow: none !important;
 }
 .btn-secondary {
-    background-color: transparent;
+    //background-color: transparent;
     border-color: transparent !important;
     box-shadow: none !important;
 }

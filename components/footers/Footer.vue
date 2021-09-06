@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="writeme" data-v-d5c59bf2="" v-if="urllocal">
+      <a target="_blank" href="https://api.whatsapp.com/send?phone=51934792742&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">
+        <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="call d-lg-none" style="width:50px;border-radius: 50px;" data-v-d5c59bf2="">
+      <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="call d-none d-lg-block" data-v-d5c59bf2="">
+      </a>
+    </div>
     <section class="footerv2 d-block d-md-none">
       
       <div class="footerv2__acordeon">
@@ -9,7 +15,7 @@
           
             <b-card no-body>
             <b-card-header header-tag="header" class="p-0" role="tab">
-              <b-button block href="#" v-b-toggle.accordion-1>SEGURO VEHICULAR</b-button>
+              <b-button block href="#" v-b-toggle.accordion-1>SEGURO VEHICULAR3</b-button>
             </b-card-header>
             <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
               <b-card-body class="acordeon-boxLista">
@@ -219,16 +225,16 @@
         <p>Síguenos en:</p>
         <div class="box-redes">
           <span>
-            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram" ></a>            
           </span>
           <span>
-            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook" ></a>            
           </span>
           <span>
-            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog" ></a>            
           </span>
           <span>
-            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin" ></a>            
           </span>
         </div>
       </div>
@@ -244,16 +250,16 @@
             <span>
               <img src="../../static/media/interseguroVehicular_v2/email.png" alt="email">
             </span>
-            <span>segurovehicular@interseguro.com.pe</span>
+            <span style="margin-left:10px">segurovehicular@interseguro.com.pe</span>
           </div>
           <div class="superior__logo">
             <img src="../../static/media/interseguroVehicular_v2/logo_blanco.png" alt="logo_blanco" class="mb-2">
-            <div class="box-tarjetas">
+            <!-- <div class="box-tarjetas">
               <span><img src="../../static/media/interseguroVehicular_v2/visa.png" alt="visa"></span>
               <span><img src="../../static/media/interseguroVehicular_v2/mastercard.png" alt="mastercard"></span>
               <span><img src="../../static/media/interseguroVehicular_v2/amex.png" alt="amex"></span>
               <span v-if="this.businessId == 1"><img src="../../static/media/interseguroVehicular_v2/dinners.png" alt="dinners"></span>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="medio d-flex d-lg-none">
@@ -291,6 +297,7 @@
           <div class="inferior__item">
             <p>SEGURO VEHICULAR</p>
             <ul>
+              <li></li>
               <li>
                 <a v-bind:href="urlCondicionado" target="_blank" rel="noopener">Condicionado General</a>
               </li>
@@ -320,6 +327,7 @@
           <div class="inferior__item">
             <p>NOSOTROS</p>
             <ul>
+              <li></li>
               <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
@@ -353,6 +361,7 @@
           <div class="inferior__item">
             <p>SEGUROS</p>
             <ul>
+              <li></li>
               <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
@@ -386,6 +395,7 @@
           <div class="inferior__item">
             <p>INFORMACIÓN DE INTERÉS</p>
             <ul>
+              <li></li>
               <li class="acordeon-lista">
                 <a
                   target="_blank" rel="noopener"
@@ -426,22 +436,23 @@
               </li>
             </ul>
           </div>
+          <!-- desktop -->
           <div class="inferior__item d-none d-lg-block" style="width: 26%;">
             <div class="medio">
               <div class="medio__redes">
-                <p>Síguenos en:</p>
+                <p>Síguenos en:</p><br>
                 <div class="box-redes">
                   <span>
-                    <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+                    <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram" style="margin-left:10px"></a>            
                   </span>
                   <span>
-                    <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+                    <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook" style="margin-left:10px"></a>            
                   </span>
                   <span>
-                    <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+                    <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog" style="margin-left:10px"></a>            
                   </span>
                   <span>
-                    <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+                    <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin" style="margin-left:10px"></a>            
                   </span>
                 </div>
               </div>
@@ -548,7 +559,7 @@ export default {
     align-items: center;
     padding: 24px 24px 24px 24px;
     color: white;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #628CFF;
     .box-tarjetas {
       display: flex;
       justify-content: flex-end;
@@ -565,7 +576,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 24px 24px 24px;
+    padding: 0px 24px 24px 24px;
     color: white;
 
     &__contacto {
@@ -620,7 +631,7 @@ export default {
   }
 }
 .footerv2 {
-  background: #0855C4;
+  background: #0855C4;  
   &__acordeon {
     background: #0855C4;
     .btn {
@@ -677,6 +688,7 @@ export default {
       span {
         padding: 12px;
         padding-bottom: 0;
+        
       }
     }
   }
@@ -757,7 +769,7 @@ export default {
 @media (min-width: 1330px) {
   .footerv2-d {
     .superior {
-      padding-left: 10%;
+      padding-left: 8%;
       padding-right: 10%;
     }
     .inferior {

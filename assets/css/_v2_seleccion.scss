@@ -20,7 +20,8 @@
             margin-bottom: 15px;
         }
         input{
-            border-color: $vehicular_primario;
+            //border-color: $vehicular_primario;
+            border: 1px solid $vehicular_primario;
             font-family: 'Omnes Regular';
             font-size: 19px;
             //Quita sombra al input
@@ -38,6 +39,7 @@
             overflow: scroll;
             border: 1px solid #CCD1DD;
             opacity: 1;
+            padding-left: 22px;
             &::-webkit-scrollbar {
             width: 8px;     /* Tamaño del scroll en vertical */
             height: 8px;    /* Tamaño del scroll en horizontal */      
@@ -60,7 +62,7 @@
                 line-height: 35px;     
             }      
             &:hover{
-                background: #f7fafb;
+                background: #F4F6FC;
             }
             }  
         }
@@ -87,4 +89,15 @@
     .mostrarResumenModelo{
         display: block;
     }
+}
+
+@media (max-width: 992px) { 
+    .pagina-seleccion{
+        .box-lista{
+            border: none;
+            padding: 10px;
+            border-radius: 3px;            
+        }
+    }  
+    
 }

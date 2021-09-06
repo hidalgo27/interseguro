@@ -1,0 +1,624 @@
+select:focus,
+      textarea:focus,
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      input[type="datetime"]:focus,
+      input[type="datetime-local"]:focus,
+      input[type="date"]:focus,
+      input[type="month"]:focus,
+      input[type="time"]:focus,
+      input[type="week"]:focus,
+      input[type="number"]:focus,
+      input[type="email"]:focus,
+      input[type="url"]:focus,
+      input[type="search"]:focus,
+      input[type="tel"]:focus,
+      input[type="color"]:focus,
+      .uneditable-input:focus {
+        border: 1.5px solid #0855c4;
+        background-image: none;
+        box-shadow: none;
+        padding-right: 0;
+        outline: 0 none;
+    }
+.pagina-pagar{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    .resumen-proteccion{
+        .datos-personales{
+            .datos-personales-card{
+                border:none;
+                .card-body{
+                    padding: 0;
+                }
+            }
+        }
+    }
+    
+}
+
+.box-messaje{
+    overflow: hidden;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    background-color: #F4F6F9;
+    max-width: 394px;
+    font-size: 15px;
+    font-family: 'Omnes Medium';
+    p{
+        text-align: left;
+        margin-left: 20px;
+        color: #8F93B2;
+        span{
+            color: $vehicular_primario;
+        }
+    }
+}
+
+.condiciones{
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.mi-carro{
+    font-size: 16px;
+    color: #383C5A;
+    font-family: 'Omnes SemiBold';
+}
+
+.capadecarga{
+    display: none;
+}
+
+.metodo-pago{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    border: 1px solid #CCD1DD;
+    border-radius: 3px;
+    opacity: 1;        
+    .imgs{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .msg-alterno{
+        font-size: 13px;
+        line-height: 16px;            
+        font-weight: 500;
+        color: #0855c4;
+    }
+    .cliploader{
+        background: transparent;
+    }
+    .box-btn__button{
+        height: 50px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .pago_seguro{
+            color: #fff;
+            font-size: 11px;
+            text-transform: initial;
+        }
+    }
+    .box-btn__button.enlace-back{
+        text-transform: capitalize;
+        color: #616161;
+        position: relative;
+        text-align: left;
+        padding-left: 32px;
+        font-weight: 500;
+        img{
+            position: absolute;
+            left: 0;
+            top: 12px;
+        }
+    }
+    .spinner-tarjeta{
+        position: relative;
+        height: 50px;
+    }
+    .spinner-descripcion{
+        font-size: 11px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .iptGral__input{
+        text-align: center;
+    }
+    .panel-custom{
+        // padding: 18px;
+        // margin: 0 -15px;
+        .text-secundario{
+            font-size: 14px;
+            color: #3b3131;
+            width: 100%;
+            display: inline-block;
+        }
+        .text-secundario__movil{
+            color: #3b3131;
+        }
+    }
+    &__comoPagar{
+        padding: 0px 16px;
+    }  
+    &__ingresatarjeta{
+        padding: 24px 16px 12px;
+        border-radius: 0 0 16px 16px;
+        .box-ingresaTarjeta{
+            padding: 0px 15px 0 15px;
+        }
+        .boxtitulo{
+            &__secundario{
+                color: #0BD360;
+            }
+        }
+        .checkbox__span {
+            width: 18px;
+            height: 18px;
+        }  
+        .checkbox__span--icon{
+            font-size: 13px;
+            position: absolute;
+        }     
+        .checkbox__descripcion{
+            font-size: 13px;
+            font-family: 'Omnes Medium';
+            a{
+                color: #0855C4;
+            }
+        }
+    }
+}
+
+
+#focusTarjeta{
+    position: absolute;
+    left: 1px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #005EA1;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 249px;
+    height: 70px;
+    bottom: 180px;
+    padding: 5px;
+    color: white;
+    z-index: 99;
+    font-size: 13px;
+    img{
+        width: 100%;
+    }
+}
+
+#button-download a{
+    color: #0BD360;
+}
+.modal-confirmaTusDatos{
+    border: 0 !important;
+    padding: 8px 24px;
+    .btn-secondary{
+        background: white;
+        border: none;
+        position: relative;
+        height: 26px;
+    }
+    img{
+        position: absolute;
+        right: 0;
+        top: -10px;
+    }
+    .modal-description{
+        text-align: justify;
+    }
+    .btn-secondary:focus,  .btn-secondary:not(:disabled):not(.disabled).active:focus {
+        box-shadow: none !important;
+    }
+    .btn:focus {
+        box-shadow: none !important;
+    }
+}
+
+.card-interseguro, #cardnumber, #cardmes, #cardaño,#cardccv{
+    //border-radius: 4px;
+}
+
+.isActivePayment{
+    display: none;
+}
+input.form-control.text-uppercase.iptGral__input:focus {
+    box-shadow: none;
+}
+
+.iptGral.editable .iptGral__input {
+    padding-left: 48px;
+    max-width: 460px;
+    height: 55px;
+    border: 1px solid #D1D1D1 !important;
+    box-shadow: none;
+    line-height: 1;
+    font-size: 18px;
+    font-family: 'Omnes Regular';
+}
+.iptGral.editable ::placeholder {
+    color: #D1D1D1 !important;        
+}
+.box-iptCard{
+    position: relative;
+    display: flex;
+    align-items: center;
+    img{
+        position: absolute;
+        right: 0;
+        z-index: 99;
+        padding-top: 8px;
+        right: 8px;
+
+    }
+    .icon-tarjeta{
+        position: absolute;
+        width: 18px;
+        left: 0;
+        padding-top: 0;
+        margin-left: 6px;
+    }
+    .ipt-cardNumber{            
+        background-image: url("./../../static/media/img/root/tarjeta.svg");
+        background-repeat: no-repeat;
+        background-position-x: 12px;
+        background-position-y: 17px;
+        background-size: 35px;
+        padding-top: 4px;
+        padding-bottom: 5px;
+    }
+    .ipt-cardNumber:focus {
+        background-image: url("./../../static/media/img/root/tarjeta_focus.svg");
+        border: 1.5px solid #0855c4!important;
+        box-shadow: none;
+    }        
+}
+.card-interseguro{
+    border-radius: 5px;
+    width: 100%;
+    max-width: 440px;
+    margin: auto;
+    .form-label.col-form-label.label-completed{
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+    #focusCVV{
+        position: absolute;
+        right: 15px;
+        display: none;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 170px;
+        height: 115px;
+        bottom: 105px;
+        // background: #005EA1;
+        z-index: 99;
+        img{
+            width: 100%;
+        }
+    }
+    #focusMES{
+        position: absolute;
+        left: 15px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #005EA1;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 170px;
+        height: 85px;
+        bottom: 110px;
+        padding: 5px;
+        color: white;
+        z-index: 99;
+        img{
+            width: 100%;
+        }
+    }
+    .ipt-month{
+        width: 40px;
+        padding-right: 8px !important;
+        background-image: url("./../../static/media/img/root/calendar.png");
+        background-repeat: no-repeat;
+        background-position-x: 12px;
+        background-position-y: 17px;
+        background-size: 35px;
+        padding-top: 4px;
+        padding-bottom: 5px;
+        text-align: left !important;
+        padding-left: 48px !important;
+    }
+    .ipt-month:focus {
+        background-image: url("./../../static/media/img/root/calendar.svg");
+        box-shadow: none;
+    }
+    
+    .img-activefocus{
+        position: absolute;
+        z-index: 9;
+        width: 20px;
+        left: 29px;
+    }
+    
+    .ipt-year{
+        width: 65px;
+        text-align: left !important;
+        padding-left: 0 !important;
+        padding-left: 17px !important;
+    }
+    .ipt-cvv{
+        width: 60px;
+        padding: 0 0 0 8px;
+        background-image: url("./../../static/media/img/root/ccv.png");
+        background-repeat: no-repeat;
+        background-position-x: 12px;
+        background-position-y: 17px;
+        background-size: 35px;
+        padding-top: 4px;
+        padding-bottom: 5px;
+    }
+    #box-ccv .ipt-cvv:focus {
+        background-image: url("./../../static/media/img/root/cvv_focus.png");
+        border: 1.5px solid #0855c4 !important;
+        box-shadow: none;
+    }
+    .text-right-custom{
+        text-align: right;
+        label{
+            padding-right: 0;
+            padding-bottom: 0;
+        }
+    }
+    .iptGral__input{
+        color: #616161;
+        font-size: 20px;
+    }
+}
+
+.card-custom{
+    display: flex;
+    justify-content: space-between;
+    max-width: 440px;
+    &__cvv{
+        max-width: 220px;
+        width: 50%;
+        position: relative;
+        z-index: 7;
+        box-sizing: content-box;
+        #box-ccv{
+            position: relative;
+            display: flex;
+            align-items: center;
+            .icon-ccv{
+                position: absolute;
+                width: 18px;
+                left: 0;
+                padding-top: 0;
+                margin-left: 6px;
+                z-index: 9;        
+            }
+            input{
+                padding-left: 48px;
+            }
+        }
+    }
+    &__date.activeFocus{
+        border: 1px solid #0855c4;
+    }
+    &__date{    
+        max-width: 220px;
+        width: 50%;
+        display: inline-flex;
+        .form-group-custom{
+            &:nth-child(1){
+                width: 136px;
+            }
+            &:nth-child(2){
+                width: 70%;
+            }
+            &:nth-child(4){
+                width: 50%;
+            }
+            
+            #box-mes{
+                position: relative;
+                display: flex;
+                align-items: center;
+                .icon-mes{                    
+                    position: absolute;
+                    width: 18px;
+                    left: 0;
+                    padding-top: 0;
+                    margin-left: 6px;
+                    z-index: 9;
+                }
+                &:after{
+                    width: 5px;
+                    height: 53px;
+                    background: #fff;
+                    content: "/";
+                    top: 1px;
+                    right: -1px;
+                    position: absolute;
+                    z-index: 99;
+                    font-size: 17px;
+                    line-height: 53px;
+                    color: #d3ddef;
+                }
+            }
+        }
+    }
+}
+.card-custom__date{
+    align-items: center;
+}
+.modal-description {
+    text-align: left;
+    font-family: 'Omnes Medium';
+    font-size: 16px;
+    font-weight: 300;
+    color: #373737;
+    border: 0;
+}
+.modal-personal-title {
+    font-family: 'Omnes Medium';
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    
+}
+.leaveModal {
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .modal-lg {
+        max-width: 660px;
+    }
+    h2 {
+        font-size: 32px;
+        color: #0854c4;
+    }
+    h3 {
+        font-size: 20px;
+        color: #454a6c;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    img {
+        margin-top: 30px;
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .leaveModal {
+        .img-verano{
+            max-width: 380px;
+        }
+    }
+    .metodo-pago{            
+        &__comoPagar{
+            padding: 22px 28px;
+        }  
+        &__ingresatarjeta{
+            padding: 22px 28px;
+        }
+    }
+    /* .card-custom__date .form-group-custom:nth-child(1) {
+        width: 135px;
+        position: relative;
+    }
+    .card-custom__date .form-group-custom:nth-child(2) {
+        width: initial;
+        position: relative;
+    } */
+}
+
+@media (max-width: 992px) {
+    .pagina-pagar{
+      .box-principal {
+        border: none;
+        background: white;
+        padding: 20px;
+      }
+      .metodo-pago{ 
+        &__comoPagar{                
+            border-radius: 5px 5px 0 0;
+        }  
+        &__ingresatarjeta{
+            border-radius:  0 5px  5px 0;
+            padding: 0;
+        }
+    }
+    }  
+  }
+
+@media (min-width: 992.1px) {
+
+
+    .metodo-pago{     
+               
+        &__comoPagar{                
+            border-radius: 5px 5px 0 0;
+        }  
+        &__ingresatarjeta{
+            border-radius:  0 5px  5px 0;
+            padding: 22px 28px;
+        }
+    }
+    
+   
+    #focusCVV{
+        right: -147px;
+        bottom: 45px;
+        img{
+            width: 100%;
+        }
+    }
+    #focusMES{
+        left: -147px;
+        bottom: 45px;
+        img{
+            width: 100%;
+        }
+    }
+    #focusTarjeta{
+        left: -155px;
+        bottom: 63px;
+        img{
+            width: 100%;
+        }
+    }
+    
+}
+
+@media (min-width: 1024px){
+    
+
+    .planes-tabs .nav-pills .nav-link, .planes-tabs .nav-pills .show > .nav-link {
+        font-weight: 500;
+    }
+}
+/* @media (min-width: 1200px) {
+    .card-interseguro{
+        width: 100%;
+    }
+    .card-custom__date .form-group-custom:nth-child(1) {
+        width: 135px;
+        position: relative;
+    }
+    .card-custom__date .form-group-custom:nth-child(2) {
+        width: initial;
+        position: relative;
+    }
+} */

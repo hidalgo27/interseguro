@@ -30,12 +30,7 @@
             <span style="margin-left: 5px"
               >{{ this.$store.state.common.objVehiculo.modelYear }}
             </span>
-            <img src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg" alt="" @click="volver($event)">
-            <!-- <b-button>
-              <b-icon >
-                <img src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg" alt="" @click="volver($event)" />
-              </b-icon>
-            </b-button> -->
+            <img src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg" alt="" @click="volver($event)" style="width:15px; margin-left:10px">
           </div>
         </b-col>
         <b-col cols="11" sm="8" md="6" lg="5" xl="4" class="col-custom">
@@ -54,34 +49,13 @@
                   :max="isMaximo"
                   @change="cambioInput()">
                   </b-form-input>
-                  <b-input-group-append>
+                  <!-- <b-input-group-append>
                     <img src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg" alt="" style=" height: 24px; margin-top: 20px; width: 24px;">
-                  </b-input-group-append>
+                  </b-input-group-append> -->
                 </b-input-group>
               </b-col>
             </b-row>
-        </b-col>        
-        <!-- <b-col cols="12" class="col-custom">
-          <div class="valor-comercial">
-              <div class="box-input" v-if="listCotizacion">
-                <div class="flotante-moneda">US$</div>
-                <b-form-input
-                  class="e-range"
-                  step="100"
-                  v-model="listCotizacion.vehicle.current"
-                  type="text"
-                  :min="isMinimo"
-                  :max="isMaximo"
-                  @change="cambioInput()"
-                ></b-form-input>
-                <span class="flotante-lapiz"
-                  ><img
-                    src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg"
-                    alt=""
-                /></span>
-              </div>
-            </div>
-        </b-col> -->
+        </b-col> 
         <b-col cols="12" style="height: 20px; ">
           <div class="valores-minimo-maximo">
               Mín: US$ {{ listCotizacion.vehicle.minimum }}. / Máx: US$
@@ -101,10 +75,10 @@
     <b-container class="d-none d-sm-block secccion-inferior">
       <b-row class="text-center planes" align-v="baseline">
         <b-col cols="12" md="6" lg="6" xl="4" class="mb-2">
-          <p class="flujo-titulo">¡Edita y elige tu plan!</p>
+          <p class="flujo-titulo-left">¡Edita y elige tu plan!</p>
         </b-col>
         <b-col cols="12" md="6" lg="6" xl="3" class="mb-2">
-          <div class="fecha">
+          <div class="frecuencia">
             <b-form-select style="border: none" @change="seleccionarFrecuencia()" v-model="selected" :options="options" ></b-form-select>
           </div>
         </b-col>
@@ -287,7 +261,7 @@
                   <span >Continuar</span>
                 </div>
                 <div class="que-me-cubre">
-                  <div class="titulo">Este plan incluye:</div>
+                  <div class="titulo">Importante:</div>
                   <p class="que-me-cubre__item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
                     <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
                     <span style="margin-left: 5px" >
@@ -440,251 +414,85 @@
       </b-row>
     </b-container>
     <!--fin desktop - frecuencia, fecha, mail -->
+
+    <!--Planes mobile-->
     <b-container class="seccion seccion-planes d-block d-sm-none">
-      <b-row class="justify-content-center">
-        <b-col cols="6">
+      <b-row class="justify-content-center" align-v="center">
+        <b-col cols="7">
           <p class="flujo-titulo">Elige tu plan</p>          
         </b-col>
-        <b-col cols="3">
-          <div @click="showModalInicioVigencia()" class="fecha">            
+        <b-col cols="2">
+          <div @click="showModalInicioVigencia()">            
             <img src="./../../static/media/imagenes/cotizacion/calendar.svg" alt="">
           </div>
         </b-col>
-        <b-col cols="3">
-          <div class="fecha" @click="showModalEnviarEmail()">
+        <b-col cols="2">
+          <div @click="showModalEnviarEmail()">
             <img src="./../../static/media/imagenes/cotizacion/mail.svg" alt="">
           </div>
         </b-col>
+        <b-col cols="1">
+
+        </b-col>
       </b-row>
-      <b-row class="justify-content-center">        
-        <b-col xs="12" md="8" lg="12" class="order-md-4">          
-          <div class="planes">
-            <div class="planes-mobile d-lg-none">
-              <div
-                class="planes-mobile__item plan4 plata"
-                @click="seleccionarPLan(4)"
-                v-bind:class="{ planInactivo: planInactivo }"
-              >
+      <b-row align-h="center" class="pt-3">
+        <b-col cols="4">
+          <div class="v2-seleccion-planes" >
+            <div class="v2-seleccion-planes__item plan4 blue" @click="seleccionarPLan(4)" v-bind:class="{ planInactivo: planInactivo }">
                 <p>BÁSICO</p>
-              </div>
-              <div
-                class="planes-mobile__item plan3 black"
-                @click="seleccionarPLan(3)"
-                v-bind:class="{ planInactivo: planInactivo }"
-              >
-                <p>
-                  <img src="./../../static/media/imagenes/cotizacion/start.svg" alt="Start" />
-                  FULL
-                </p>
-              </div>
-              <div
-                class="planes-mobile__item planorito plan6 oro"
-                @click="seleccionarPLan(6)"
-                v-bind:class="{ planInactivo: planInactivo }"
-              >
-                <p>MEDIO</p>
-              </div>
-            </div>
-
-            <div class="plan-item-mobile d-lg-none" :class="classPlan">
-              <div class="box-monto-frecuencia">
-                <div class="detalle-plan__suma box-monto-pago">
-
-                  <div class="box-titulo">
-                      <p class="titulo-principal" v-if="this.planSeleccionado == 4">
-                        Protección contra robo
-                      </p>
-                      <p class="titulo-principal" v-if="this.planSeleccionado == 6">
-                        Protección accidentes
-                      </p>
-                      <p class="titulo-principal" v-if="this.planSeleccionado == 3">
-                        Protección total
-                      </p>
-                  </div>
-
-                  <hr />
-                  <div class="monto-frecuencia">
-                    <span>US$</span>
-                    <span>{{ this.monto_pagar }}</span>
-                  </div>
-                  <div class="monto-antes">
-                    <p>Antes US${{ this.monto_antes }}</p>
-                  </div>
-
-                  <div class="btn-cotizador">
-                    <span @click="continuar($event, planSeleccionado)">Continuar</span>
-                  </div>
-
-                  <div class="box-importante">
-                    <ul>
-                      <li>
-                        <div class="detalle-item" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">
-                          <p style="width: 208px">Endosa tu crédito vehicular</p>
-                          <p class="endozar-poliza text-right" style="width: auto">
-                            <template v-if="this.endosoSeleccionado.id == 0">
-                              <span
-                                style="
-                                  display: inline-block;
-                                  outline: none;
-                                  cursor: pointer;
-                                  text-align: left;
-                                "
-                                class="detalle-enlace"
-                                v-b-modal.modalEntidadFinanciera2
-                                @click="clickEnlace('entidad Financiera')"
-                                >Aquí
-                              </span>
-                            </template>
-                            <template v-else>
-                              <span
-                                style="
-                                  display: inline-block;
-                                  outline: none;
-                                  line-height: 1;
-                                  padding-bottom: 4px;
-                                  cursor: pointer;
-                                "
-                                class="detalle-enlace"
-                                v-b-modal.modalEntidadFinanciera2
-                                @click="clickEnlace('entidad Financiera')"
-                              >
-                                {{ this.endosoSeleccionado.name }}</span
-                              >
-                            </template>
-                          </p>
-                        </div>
-                      </li>
-                      <li class="detalle-item">
-                        <div class="item pb-3">
-                          <span
-                            href="javascript:void(0);"
-                            v-if="this.listaBasica.vehicle.gps == 'Y'"
-                            @click="showModalGPS()"
-                          >
-                            <span class="mb-0 gps requiere-gps">
-                              Tu auto necesita GPS:
-                              <a class="detalle-enlace" href="javascript:void(0);">{{
-                                this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO"
-                              }}</a>
-                            </span>
-                          </span>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="detalle-item" v-if="this.gps == true">
-                          <p>GPS:</p>
-                          <p>SI</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="que-me-cubre">
-                    <div class="titulo">Este plan incluye:</div>
-                    <p class="que-me-cubre__item">
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Beneficios Interseguro</span>
-                    </p>
-                    <p class="que-me-cubre__item">
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Central de emergencias</span>
-                    </p>
-                    <p class="que-me-cubre__item">
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Responsabilidad Civil</span>
-                    </p>
-                    <p class="que-me-cubre__item">
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Robo total</span>
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 6 || this.planSeleccionado == 3 || this.planSeleccionado == 10">
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Pérdida parcial por accidente</span>                      
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 6 || this.planSeleccionado == 10" >
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Accidentes de ocupantes</span>                      
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Accesorios musicales</span>                      
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Rotura de lunas</span>                      
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Desastres naturales, vandalismo, incendios.</span>                      
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Pérdida total por accidente</span>                      
-                    </p>
-                    <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
-                      <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
-                      <span style="margin-left: 5px">Ausencia de control*</span>                      
-                    </p>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </b-col>
-      </b-row>
-    </b-container>
-
-    <!-- <b-container>
-      <b-row class="justify-content-center">
-        <b-col xs="12" md="8" lg="12" class="order-md-4">
-          <div class="planes">
-            <div class="planes-mobile d-lg-none">
-              <div
-                class="planes-mobile__item plan4 plata"
-                @click="seleccionarPLan(4)"
-                v-bind:class="{ planInactivo: planInactivo }"
-              >
-                <p>BÁSICO</p>
-              </div>
-              <div
-                class="planes-mobile__item plan3 black"
-                @click="seleccionarPLan(3)"
-                v-bind:class="{ planInactivo: planInactivo }"
-              >
-                <p>FULL</p>
-              </div>
-              <div
-                class="planes-mobile__item planorito plan6 oro"
-                @click="seleccionarPLan(6)"
-                v-bind:class="{ planInactivo: planInactivo }"
-              >
-                <p>MEDIO</p>
-              </div>
+        <b-col cols="4">
+          <div class="v2-seleccion-planes" >
+            <div class="v2-seleccion-planes__item plan3 blue justify-content-center" @click="seleccionarPLan(3)" v-bind:class="{ planInactivo: planInactivo }">
+              <img src="@/static/media/imagenes/home/star-white.svg" alt="Start">
+              <p>FULL</p>
             </div>
+          </div>
+        </b-col>
+        <b-col cols="4">
+          <div class="v2-seleccion-planes" >
+            <div class="v2-seleccion-planes__item plan6 blue" @click="seleccionarPLan(6)" v-bind:class="{ planInactivo: planInactivo }">
+                <p>MEDIO</p>
+            </div>
+          </div>
+        </b-col>
+      </b-row>      
 
-            <div class="detalle-plan-mobile d-lg-none" :class="classPlan">
-              <div class="box-monto-frecuencia">
-                <div class="detalle-plan__suma box-monto-pago">
-                  <div class="monto-frecuencia">
-                    <span>US$</span>
-                    <span class="monto">{{ this.monto_pagar }}</span>
-                  </div>
-                  <p class="antes">Antes US${{ this.monto_antes }}</p>
+      <b-row align-h="center" class="text-center ">
+        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2 plan-item" >
+            <div class="detalle-plan">
+              <div class="box-titulo">
+                <div class="titulo-principal">
+                  <p class="titulo-principal" v-if="this.planSeleccionado == 4">
+                    Protección contra robo
+                  </p>
+                  <p class="titulo-principal" v-if="this.planSeleccionado == 6">
+                    Protección accidentes
+                  </p>
+                  <p class="titulo-principal" v-if="this.planSeleccionado == 3">
+                    Protección total
+                  </p>
                 </div>
+              </div>
+              <hr />
+
+              <div class="monto-frecuencia">
+                <span>US$</span>
+                <span>{{ this.monto_pagar }}</span>
+              </div>
+              <div class="monto-antes">
+                <p>Antes US${{ this.monto_antes }}</p>
+              </div>
+              <div class="btn-cotizador"  @click="continuar($event, planSeleccionado)">
+                <span >Continuar</span>
               </div>
 
               <div class="box-importante">
-                <p class="titulo">Importante</p>
                 <ul>
                   <li>
-                    <div
-                      class="detalle-item"
-                      v-if="
-                        this.$store.state.common.planSeleccionado == 3 ||
-                        this.$store.state.common.planSeleccionado == 10
-                      "
-                    >
+                    <div class="detalle-item" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">
                       <p style="width: 208px">Endosa tu crédito vehicular</p>
                       <p class="endozar-poliza text-right" style="width: auto">
                         <template v-if="this.endosoSeleccionado.id == 0">
@@ -744,76 +552,59 @@
                   </li>
                 </ul>
               </div>
+
               <div class="que-me-cubre">
                 <div class="titulo">Este plan incluye:</div>
-                <p class="que-me-cubre__item">Beneficios Interseguro</p>
-                <p class="que-me-cubre__item">Central de emergencias</p>
-                <p class="que-me-cubre__item">Responsabilidad Civil</p>
-                <p class="que-me-cubre__item">Robo total</p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="
-                    this.planSeleccionado == 6 ||
-                    this.planSeleccionado == 3 ||
-                    this.planSeleccionado == 10
-                  "
-                >
-                  Pérdida parcial por accidente
+                <p class="que-me-cubre__item">
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Beneficios Interseguro</span>
                 </p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="this.planSeleccionado == 6 || this.planSeleccionado == 10"
-                >
-                  Accidentes de ocupantes
+                <p class="que-me-cubre__item">
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Central de emergencias</span>
                 </p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-                >
-                  Accesorios musicales
+                <p class="que-me-cubre__item">
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Responsabilidad Civil</span>
                 </p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-                >
-                  Rotura de lunas
+                <p class="que-me-cubre__item">
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Robo total</span>
                 </p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-                >
-                  Desastres naturales, vandalismo, incendios.
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 6 || this.planSeleccionado == 3 || this.planSeleccionado == 10">
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Pérdida parcial por accidente</span>                      
                 </p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-                >
-                  Pérdida total por accidente
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 6 || this.planSeleccionado == 10" >
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Accidentes de ocupantes</span>                      
                 </p>
-                <p
-                  class="que-me-cubre__item"
-                  v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-                >
-                  Ausencia de control*
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Accesorios musicales</span>                      
+                </p>
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Rotura de lunas</span>                      
+                </p>
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Desastres naturales, vandalismo, incendios.</span>                      
+                </p>
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Pérdida total por accidente</span>                      
+                </p>
+                <p class="que-me-cubre__item" v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10" >
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px">Ausencia de control*</span>                      
                 </p>
               </div>
             </div>
-
-            <div
-              id="btnirapagar"
-              class="box-btn"
-              v-bind:class="{ opacityNone: opacityNone }"
-            >
-              <b-button
-                class="flujo-boton d-lg-none"
-                @click="continuar($event, planSeleccionado)"
-                >CONTINUAR</b-button
-              >
-            </div>
-          </div>
         </b-col>
       </b-row>
-    </b-container> -->
+
+    </b-container>
 
     <!--Modal e-mail-->
     <b-modal title="Bootstrap-Vue" hide-footer hide-header ref="modalEnviarEmail" id="modalEnviarEmail" >
@@ -1740,7 +1531,7 @@ export default {
     seleccionarPLan(id) {
       id = id + "";
       this.planInactivo = true;
-      let elemento1 = document.querySelectorAll(".planes-mobile__item");
+      let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item");
       for (let index = 0; index < elemento1.length; index++) {
         elemento1[index].classList.remove("planActivo");
       }

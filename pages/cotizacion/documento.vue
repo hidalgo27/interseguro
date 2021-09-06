@@ -125,12 +125,13 @@
         </b-col>
       </b-row>      
 
-      <b-row class="flujo-titulo">
+      <b-row class="titulo-principal">
         <b-col cols="12">
-            <div class="lista1 ">                        
-                <b-avatar button @click="volver($event)" src="./../../static/media/imagenes/seleccion/row-back.svg" class="d-none  d-lg-inline-block"></b-avatar>
-                Completa tus datos personales                       
-            </div>
+            <b-row class="lista1 flujo-titulo">
+                <b-col>
+                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none  d-lg-inline-block"><span>Completa tus datos personales </span>
+                </b-col>
+            </b-row>
         </b-col>
       </b-row>
       
@@ -143,7 +144,7 @@
                 v-on:blur.native="placeholderDNI($event)"
                 @click.native="clearPlaceholderDNI($event)"
                 @keyup.native="delay($event, 300)"
-                class="input-vehicular form-control input-id"
+                class="input-vehicular form-control input-id iptGral__input "
                 maxlength="11"
                 autocomplete="on"
                 autofocus
@@ -169,8 +170,7 @@
                 @keypress.native="validacionInput($event)"
                 v-on:focus.native="isIconFirstName = !isIconFirstName"
                 v-on:blur.native="isIconFirstName = !isIconFirstName"
-                class="input-vehicular iptGral__input iptClient form-control input-id"
-                autofocus
+                class="input-vehicular iptGral__input iptClient form-control input-id"                
                 type="text"
                 v-model="objClients.firstName"
                 required
@@ -191,8 +191,7 @@
                 v-on:blur.native="
                   isIconIconFirstLastName = !isIconIconFirstLastName
                 "
-                class="input-vehicular iptGral__input iptClient form-control input-id"
-                autofocus
+                class="input-vehicular iptGral__input iptClient form-control input-id"                
                 type="text"
                 v-model="objClients.firstLastName"
                 required
@@ -206,8 +205,7 @@
                 v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
                 v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
                 class="input-vehicular iptGral__input iptClient form-control input-id"
-                autocomplete="additional-name"
-                autofocus
+                autocomplete="additional-name"                
                 type="text"
                 v-model="objClients.secondLastName"
                 required
@@ -225,8 +223,7 @@
                 v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
                 class="input-vehicular iptGral__input iptClient form-control input-id"
                 v-bind:class="{ errorInput: msgErrorEmail }"
-                autocomplete="on"
-                autofocus
+                autocomplete="on"                
                 type="email"
                 v-model="objClients.emailAddress"
                 required
@@ -242,8 +239,7 @@
                 v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
                 class="input-vehicular iptGral__input iptClient form-control input-id"
                 autocomplete="tel"
-                v-bind:class="{ errorInput: msgErrorCelular }"
-                autofocus
+                v-bind:class="{ errorInput: msgErrorCelular }"                
                 type="tel"
                 v-model="objClients.phoneNumber"
                 required
@@ -371,7 +367,7 @@
           </b-row>
           <b-row class="politicas mt-4">
             <b-col cols="12">
-              <p>Al continuar acepto las
+              <p>Al continuar, acepto las
                 <a href="javascript:void(0);" @click="eventoModalTerminosCondiciones()" style="text-decoration:underline; color:#383C5A">
                   Condiciones de Uso y Política de Privacidad
                 </a>
@@ -397,70 +393,72 @@
         <b-col cols="4">
           <div class="resumen-proteccion d-none  d-lg-block">
               <div class="resumen-proteccion__cabecera">
-                  <p>RESUMEN DE TU PROTECCIÓN</p>
+                <b-row class="titulo1">
+                    <b-col cols="12">RESUMEN DE TU PROTECCIÓN</b-col>
+                </b-row>
               </div>
               <div class="resumen-proteccion__cuerpo">
                   <div class="datos-carro">
                       <b-container>
-                          <b-row>
+                          <b-row class="row-titulo">
                               <b-col cols="12" >
                                   <p class="resumen-proteccion--subtitulo">DATOS DE TU CARRO</p>                                        
                               </b-col>
                           </b-row>
                           <b-row>
-                              <b-col cols="4">
+                              <b-col cols="4" class="row-data">
                                   <p><span class="label">Mi carro</span></p>
                               </b-col>
-                              <b-col cols="8">
+                              <b-col cols="8" class="row-data">
                                   <p><span class="campo-mayus">{{this.$store.state.common.objVehiculo.brand}}  {{this.$store.state.common.objVehiculo.model}}  {{this.$store.state.common.objVehiculo.modelYear}}</span></p>
                               </b-col>
                           </b-row>
-                          <b-row>
-                              <b-col cols="12" >
+                          <b-row class="row-titulo">
+                              <b-col cols="12" class="row-data">
                                   <p class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</p>                                        
                               </b-col>
                           </b-row>
                           <b-row>
-                              <b-col cols="4" >
+                              <b-col cols="4" class="row-data">
                                   <p><span class="label">Plan</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.planSeleccionado == 4">
+                              <b-col cols="8" v-if="this.planSeleccionado == 4" class="row-data">
                                   <p><span class="campo-minus">Básico: Protección contra robo</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.planSeleccionado == 6">
+                              <b-col cols="8" v-if="this.planSeleccionado == 6" class="row-data">
                                   <p><span class="campo-minus">Intermedio: Protección accidentes</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.planSeleccionado == 3">
+                              <b-col cols="8" v-if="this.planSeleccionado == 3" class="row-data">
                                   <p><span class="campo-minus">Full: Protección total</span></p>
                               </b-col>
                           </b-row>
                           <b-row>
-                              <b-col cols="4">
+                              <b-col cols="4" class="row-data">
                                   <p><span class="label">Cobertura</span></p>
                               </b-col>
-                              <b-col cols="8">
+                              <b-col cols="8" class="row-data">
                                   <p><span class="campo-minus">$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
                               </b-col>
                           </b-row>
                           <b-row>
-                              <b-col cols="4">
+                              <b-col cols="4" class="row-data">
                                   <p><span class="label">Frecuencia</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 1">
+                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 1" class="row-data">
                                   <p><span class="campo-minus">Mensual</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 2">
+                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 2" class="row-data">
                                   <p><span class="campo-minus">Trimestral</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 3">
+                              <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 3" class="row-data">
                                   <p><span class="campo-minus">Anual</span></p>
                               </b-col>
                           </b-row>
                           <b-row>
-                              <b-col cols="4">
+                              <b-col cols="4" class="row-data">
                                   <p><span class="label">F. de inicio</span></p>
                               </b-col>
-                              <b-col cols="8">
+                              <b-col cols="8" class="row-data">
                                   <p><span class="campo-minus">{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
                               </b-col>
                           </b-row>
