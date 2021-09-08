@@ -1,6 +1,6 @@
 <template>
   
-  <div class="nuevo-home">
+  <div class="nuevo-home" @scroll="handleScroll()">
     <div class="banner content">
       <div class="banner-blue    d-xl-none"></div>
       <b-container>
@@ -976,13 +976,16 @@
         </b-row>
       </b-container>
       
-
-      <b-row class="d-block d-sm-none mt-4">
-        <b-col cols="6">
-          Desde US$ 12 al mes
+      <!-- v-bind:class="{ oculto: isOculto }" -->
+      <b-row class="d-block d-sm-none mt-4 box-btn-home-cotizar-flotante" v-bind:class="{ oculto: isOculto }">
+        <b-col cols="6" class="mt-2">
+          <span class="desde">Desde</span><br>
+          <span class="monto">US$ 12</span>
+          <span class="text">al mes</span>
+            
         </b-col>
-        <b-col cols="6" class="box-btn-home-cotizar-flotante">
-          <button type="button" class="btn-home-cotizar-flotante" >
+        <b-col cols="6">
+          <button type="button" class="btn-home-cotizar-flotante" @click="cotizar()">
             COTIZAR
           </button>
         </b-col>
@@ -1004,6 +1007,7 @@ export default {
   layout: "InterseguroHome",
   data() {
     return {
+      isOculto: true,
       isVisible1: true,
       isVisible2: true,
       isVisible3: true,
@@ -1068,6 +1072,22 @@ export default {
     }
   },
   methods: {
+    cotizar(){
+        this.$nuxt.$router.push({
+            path: "/cotizacion/placa"
+        });
+    },
+    handleScroll(eve) {
+      if (window.scrollY >= 480) {
+          if(true){
+              this.isOculto = false;
+              this.contactanos = false;                   
+          }
+      } else {
+          this.isOculto = true
+          this.contactanos = true;
+      }
+    },
     seleccionarPlan(id){
       this.planInactivo = true;
       let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
@@ -1260,9 +1280,20 @@ export default {
   },
   created() {
     this.createMail()
+    if (process.browser) {
+        window.addEventListener("scroll", this.handleScroll);
+        document.addEventListener('touchstart', this.handleScroll, {passive: true});
+    }
+  },
+  destroyed(){
+      if (process.browser) {
+          window.removeEventListener("scroll", this.handleScroll);
+          document.addEventListener('touchstart', this.handleScroll, {passive: true});
+      }
   },
   mounted() {
     this.$store.commit('common/resetState')
+    this.handleScroll()
   }
 }
 </script>

@@ -30,8 +30,9 @@
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
                     <!-- <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares"> -->
-                    <img src="./../../static/media/imagenes/home/logo-header.svg" class="main-nav__logo--iso img-flujo" alt="seguros vehiculares">
-                    <!-- <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular"> -->
+                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso d-none d-lg-block d-xl-block" alt="seguros vehiculares">
+                    <img src="./../../static/media/imagenes/home/logo-header.svg" class="main-nav__logo--iso img-flujo d-block d-sm-none" alt="seguros vehiculares">
+                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
                 <div class="nav-contacto  d-flex  d-xl-none">                
                     
@@ -43,10 +44,11 @@
                         <!-- <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div> -->
-                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
+                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2">
                             <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="menu">
                         </div>
-                        <div class="main-nav__menu" id="main-menu">
+                        <!-- menu hamburguesa -->
+                        <!-- <div class="main-nav__menu" id="main-menu">
                             <div class="main-menu">
                                 <div class="box-logo">
                                     <img src="../../static/media/interseguroVehicular_v2/logo_blanco.png" alt="logo_blanco">
@@ -88,7 +90,7 @@
                                 </div>
                                 </div>
                             </ul>
-                        </div>
+                        </div> -->
                         
                 </div>
             </div>

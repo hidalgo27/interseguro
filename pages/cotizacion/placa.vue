@@ -1,53 +1,62 @@
 <template>
-    <div>
-        <div class="container  contenedor-principal  page-ingresa-placa">
-            <div class="row">
-                <div class="col-12">
-                    <div class="pantalla-actual">
-                        <img src="" alt="">
-                        <p>Ingresa tu placa</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12  col-lg-8">
-                    <div class="box-placa">
-                        <b-form-input
-                            id="vehicleModelPlate"
-                            class="text-uppercase form-control"
-                            @keyup.native="consultarPlaca($event,750)"
-                            maxlength="6"
-                            autocomplete="off"
-                            type="text"
-                            v-model="item.plateNumber"                    
-                            required
-                            placeholder="Ingresa tu Placa"
-                            name="Placa"
-                            aria-label="placa"                
-                            autofocus
-                        ></b-form-input>
-                        <button>
-                            Continuar
-                        </button>
-                    </div>
-                </div>
-                <div class="col-12  col-lg-4">
-                    <div class="box-steps">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+  <section >
+    <div class="container  contenedor-principal  page-ingresa-placa">
+      <b-row class="mi-breadcrumb">
+          <b-col cols="12" class="box-steps">
+              <ul class="steps" style="display: inline-flex">
+                  <div class="steps__item ">Pago</div>
+                  <div class="steps__item ">Planes</div>
+                  <div class="steps__item steps--active  paso1">Mi carro</div>
+                  <li class="steps--progressBar" ></li>
+              </ul>
+          </b-col>
+      </b-row>
+      <b-row>
+        <b-col class="lista1 flujo-titulo">
+            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none d-sm-block" ><span>Ingresa tu placa</span>
+        </b-col>
+      </b-row>
+      <b-row align-v="center">
+        <b-col cols="12" lg="8" xl="8" class="box-placa">
+          <b-row align-v="center" class="row-general">
+            <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="row-input">
+              <b-form-input
+                  id="vehicleModelPlate"
+                  class="text-uppercase form-control"
+                  @keyup.native="consultarPlaca($event,750)"
+                  maxlength="6"
+                  autocomplete="off"
+                  type="text"
+                  v-model="item.plateNumber"                    
+                  required
+                  placeholder="Ingresa tu Placa"
+                  name="Placa"
+                  aria-label="placa"                
+                  autofocus
+                ></b-form-input>
+            </b-col>
+            <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="row-btn">
+              <button>
+                  Continuar
+                  <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+              </button>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
     </div>
+  </section>
+  
 </template>
 <style lang="scss">
     $is-v-azul : #0855c4;
     $is-v-border: #CCD1DD;
     $is-v-gris-disabled: #82859D;
     .contenedor-principal{
-        margin-top: 120px;
+        margin-top: 72px;
     }
     .page-ingresa-placa{
+      padding-bottom: 306px;
         .pantalla-actual{
             p{
                 color: $is-v-azul;
@@ -59,11 +68,11 @@
         .box-placa{
             display: flex;
             flex-direction: column;
-            
+            padding-top: 0px;
             input{
                 height: 52px;
                 border: 1px solid $is-v-azul;
-                margin-bottom: 36px;
+                //margin-bottom: 36px;
             }
             button{
                 border: none;
@@ -71,19 +80,33 @@
                 height: 52px;
                 font-family: 'Omnes Medium';
                 font-size: 19px;
+                width: 100%;
             }
         }
     }
     @media (min-width: 600px) {
     }
-    @media (min-width: 1024px) {
+    @media (max-width: 768px) {
         .page-ingresa-placa{
             .box-placa{
-                border: 1px solid $is-v-border;
-                padding: 49px;
-                input{
-                    
-                }
+              .row-general{
+                padding-top: 8px;
+              }
+              .row-btn{
+                padding-top: 20px;
+              }
+            }
+        }
+    }
+    @media (min-width: 992px) {
+        .page-ingresa-placa{
+            .box-placa{
+              margin-top: 20px;
+              border: 1px solid $is-v-border;
+              padding: 50px;
+              input{
+                  
+              }
             }
         }
     }
@@ -91,7 +114,7 @@
 
 <script>
 export default {
-  layout: "InterseguroHome",
+  layout: "InterseguroFlujo",
   data() {
     return {
       showLoader: true,
@@ -132,6 +155,10 @@ export default {
     }
   },
   methods: {
+    volver: function(evt){
+        evt.preventDefault();
+        this.$nuxt.$router.push({path: "/"});
+    },
     seleccionarPlan(id){
       switch (id) {
         case 0:

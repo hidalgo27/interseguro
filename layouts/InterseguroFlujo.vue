@@ -15,7 +15,7 @@ import HeaderIBK from '@/components/headers/HeaderInterbank'
 import Header from '@/components/headers/HeaderFlujo'
 // import Header from '@/components/headers/HeaderInterseguro'
 import HeaderCotizador from '@/components/headers/HeaderInterseguroCotizador'
-import Footer from '@/components/footers/Footer'
+import FooterFlujo from '@/components/footers/FooterFlujo'
 export default {
   data () {
     return {
@@ -36,7 +36,7 @@ export default {
   components: {
     'header-is-ibk': HeaderIBK,
     'header-is': Header,
-    'footer-is': Footer,
+    'footer-is': FooterFlujo,
     'header-cotizador':HeaderCotizador
   },
   created() {      

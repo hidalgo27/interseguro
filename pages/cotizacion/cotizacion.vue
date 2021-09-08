@@ -113,7 +113,7 @@
             </b-row>
             <div class="detalle-plan">
               <div class="box-titulo">
-                <p class="titulo-principal">
+                <p class="titulo-principal-planes">
                   Básico:
                   <span class="titulo-descripcion">Protección contra robo</span>
                 </p>
@@ -170,7 +170,7 @@
                   </b-row>
                   <div class="detalle-plan">
                     <div class="box-titulo">
-                      <p class="titulo-principal">
+                      <p class="titulo-principal-planes">
                         Intermedio:
                         <span class="titulo-descripcion">Protección accidentes</span>
                       </p>
@@ -245,7 +245,7 @@
             </b-row>
             <div class="detalle-plan-select">
                 <div class="box-titulo">
-                  <p class="titulo-principal">
+                  <p class="titulo-principal-planes">
                     Full: <span class="titulo-descripcion">Protección total</span>
                   </p>
                 </div>
@@ -464,14 +464,14 @@
         <b-col cols="12" md="12" lg="4" xl="4" class="mb-2 plan-item" >
             <div class="detalle-plan-select" v-if="this.planSeleccionado == 3">
               <div class="box-titulo">
-                <div class="titulo-principal">
-                  <p class="titulo-principal" v-if="this.planSeleccionado == 4">
+                <div class="titulo-principal-planes">
+                  <p  v-if="this.planSeleccionado == 4">
                     Protección contra robo
                   </p>
-                  <p class="titulo-principal" v-if="this.planSeleccionado == 6">
+                  <p  v-if="this.planSeleccionado == 6">
                     Protección accidentes
                   </p>
-                  <p class="titulo-principal" v-if="this.planSeleccionado == 3">
+                  <p  v-if="this.planSeleccionado == 3">
                     Protección total
                   </p>
                 </div>
@@ -654,14 +654,14 @@
             </div>
             <div class="detalle-plan" v-if="this.planSeleccionado == 4 || this.planSeleccionado == 6">
               <div class="box-titulo">
-                <div class="titulo-principal">
-                  <p class="titulo-principal" v-if="this.planSeleccionado == 4">
+                <div class="titulo-principal-planes">
+                  <p v-if="this.planSeleccionado == 4">
                     Protección contra robo
                   </p>
-                  <p class="titulo-principal" v-if="this.planSeleccionado == 6">
+                  <p v-if="this.planSeleccionado == 6">
                     Protección accidentes
                   </p>
-                  <p class="titulo-principal" v-if="this.planSeleccionado == 3">
+                  <p v-if="this.planSeleccionado == 3">
                     Protección total
                   </p>
                 </div>
@@ -1212,7 +1212,7 @@ export default {
       monto_pagar: "",
       monto_antes: "",
       options: [
-        { value: null, text: "" },
+        /* { value: null, text: "" }, */
         { value: "1", text: "Pago mensual (Sin intereses)" },
         { value: "2", text: "Pago Trimestral (Sin intereses)" },
         { value: "3", text: "Anual" },

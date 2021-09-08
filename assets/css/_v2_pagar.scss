@@ -568,7 +568,10 @@ input.form-control.text-uppercase.iptGral__input:focus {
             max-width: 380px;
         }
     }
-    .metodo-pago{            
+    .metodo-pago{ 
+        border: 1px solid #CCD1DD;
+        border-radius: 3px;
+        opacity: 1;           
         &__comoPagar{
             padding: 22px 28px;
         }  
@@ -610,7 +613,10 @@ input.form-control.text-uppercase.iptGral__input:focus {
             background: white;
             padding: 20px;
         }
-        .metodo-pago{ 
+        .metodo-pago{
+            border: 1px solid #CCD1DD;
+            border-radius: 3px;
+            opacity: 1; 
             &__comoPagar{                
                 border-radius: 5px 5px 0 0;
             }  
@@ -627,6 +633,7 @@ input.form-control.text-uppercase.iptGral__input:focus {
             position: fixed;
             bottom: 0px;
             right: 0px;
+            z-index: 99;
         }
         .btn-pagar {
             background-color: #ea0c90;
@@ -653,16 +660,29 @@ input.form-control.text-uppercase.iptGral__input:focus {
 
 
     .metodo-pago{     
-               
+              
         &__comoPagar{                
             border-radius: 5px 5px 0 0;
         }  
         &__ingresatarjeta{
+            border: 1px solid #CCD1DD;
+            border-radius: 3px;
+            opacity: 1;
             border-radius:  0 5px  5px 0;
-            padding: 22px 28px;
+            padding: 50px;
         }
     }
+    /* .box-btn-pagar{
+        display: flex;
+        background-color: #FFFFFF;
+        height: 69px;
+        width: 100%;
+        margin-top: 20px;
+    } */
     
+    .tarjetas{
+        padding-top: 20px;
+    }
    
     #focusCVV{
         right: -147px;
