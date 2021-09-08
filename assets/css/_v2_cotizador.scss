@@ -1,4 +1,5 @@
-    .box-select{
+
+  .box-select{
     .select-frecuencia{
       border: 1px solid #CCD1DD !important;
       height: 52px !important;
@@ -214,8 +215,6 @@
         margin-top: 20px;
         margin-bottom: 20px;
         .titulo-principal{
-          letter-spacing: var(--unnamed-character-spacing-0);
-          color: var(--unnamed-color-383c5a);
           text-align: center;
           font-weight: bold;
           font-size: 22px;
@@ -390,7 +389,7 @@
           color: #383C5A;
           opacity: 1;
           font-family: 'Omnes Medium';
-          font-size: 28px;
+          font-size: 22px;
           height: 65px;
           border: none;
           -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
@@ -406,7 +405,7 @@
           color: #383C5A;
           opacity: 1;
           font-family: 'Omnes Medium';
-          font-size: 28px;
+          font-size: 22px;
         }
       }
     }    
@@ -420,11 +419,7 @@
           font-family: 'Omnes Medium';
         }
       }
-      .datos-carro{
-        display: flex;
-        justify-content: center;
-        margin-top: 32px;
-      }
+      
     }
     .planes{
       .frecuencia{
@@ -513,13 +508,7 @@
 
   @media (max-width: 576px) {
     .pagina-cotizador{
-      .seccion{
-        padding-top: 30px;
-      }
-      .secccion-superior{
-        background-color: #FFFFFF;
-        padding-bottom: 15px;
-      }
+      
       
       
       
@@ -537,36 +526,37 @@
     
   }
 
-  @media (max-width: 768px) {
-    .modal-subtitulo-mail{
-      color: #0855C4;
-      font-size: 21px;
-      font-family: 'Omnes medium';
-      text-align: center;
-      line-height: normal;
-      width: 315px;
-      margin: auto;
-      margin-bottom: 24px;
-    }
-  }
 
-  @media (max-width: 992px) {
+  @media (max-width: 991.9px) {
     .pagina-cotizador{
-        .planActivo.blue{
-          background-color: #0855C4 !important;
-          color: #FFFFFF;
-          font-style: 'Omnes Medium';
-          font-size: 16px;
-          &:before{    
-            border-right: 10px solid transparent;
-            border-top: 10px solid #0855C4;
-            border-left: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-          }
-          p{
-            color: white !important;
-          }
+      margin-top: 60px;
+      padding-bottom: 45px;
+      .col-custom{
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .seccion{
+        padding-top: 30px;
+      }
+      .secccion-superior{
+        background-color: #FFFFFF;
+        padding-bottom: 15px;
+      }
+      .planActivo.blue{
+        background-color: #0855C4 !important;
+        color: #FFFFFF;
+        font-style: 'Omnes Medium';
+        font-size: 16px;
+        &:before{    
+          border-right: 10px solid transparent;
+          border-top: 10px solid #0855C4;
+          border-left: 10px solid transparent;
+          border-bottom: 10px solid transparent;
         }
+        p{
+          color: white !important;
+        }
+      }
       
       .seccion-planes{
         background-color: #F9F9FB;
@@ -578,18 +568,18 @@
       .box-suma-asegurada{
         display: flex;
         background: #FFFFFF 0% 0% no-repeat padding-box;
-        border: 1px solid #DDE0E9;
+        border: 1px solid #CCD1DD;
         border-radius: 3px;
         opacity: 1;
-        height: 58px;      
+        height: 60px;      
         .row-suma-asegurada{
-          height: 100%;
-          width: 100%;
+          /* height: 100%;
+          width: 100%; */
           input{
             color: #383C5A;
             opacity: 1;
             font-family: 'Omnes Medium';
-            font-size: 28px;
+            font-size: 24px;
             height: 56px;
             border: none;
             -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
@@ -605,7 +595,7 @@
             color: #383C5A;
             opacity: 1;
             font-family: 'Omnes Medium';
-            font-size: 28px;
+            font-size: 24px;
           }
         }
       }
@@ -620,16 +610,16 @@
         margin-bottom: 24px;
       }
       .custom-select{
-        height: 56px;
+        height: 60px;
         border: 1px solid #CCD1DD;
         border-radius: 3px;
         color: #383C5A;
-        font-size: 18px;
+        font-size: 20px;
         font-family: 'Omnes Medium';
         outline: none;
       }
       .fecha{
-        padding-top: 40px;
+        padding-top: 15px;
         //height: 56px;        
         display: flex;
         justify-content: center;
@@ -644,11 +634,168 @@
       .calendar, .mail{
         padding-top: -10px;
       }
+      .suma-asegurada{
+        &--cabecera{
+          p{
+            text-align: center;
+          }
+          span{
+            color: $vehicular_parrafo;
+            font-family: 'Omnes Medium';
+          }
+        }
+        .datos-carro{
+          display: flex;
+          justify-content: center;
+          margin-top: 32px;
+        }
+      }
+      .datos-carro{
+        display: flex;
+        justify-content: center;
+        margin-top: 18px;
+      }
+      .plan-item{
+        height: 100%;
+        .detalle-plan{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          border: 1px solid #CCD1DD;
+          border-radius: 3px;
+          opacity: 1;
+          height: 100%;
+          padding-bottom: 40px;
+        }
+        .detalle-plan-select{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 3px solid #0855C4;
+          border-radius: 3px;
+          opacity: 1;
+          width: 100%;
+          height: 100%;
+          padding-bottom: 40px;
+        }
+  
+  
+        /* .plan-recomendado{
+          background-color: $vehicular_primario;
+          width: 80%;
+          height: 34px;
+          color: #FFFFFF;
+          font-size: 15px;
+          line-height: 34px;
+        }  */
+        .plan-normal{
+          background-color: #FFFFFF;
+          width: 80%;
+          height: 34px;
+          color: #FFFFFF;
+          font-size: 15px;
+          line-height: 34px;
+        }
+        .box-titulo{
+          margin-top: 20px;
+          margin-bottom: 20px;
+          .titulo-principal{
+            letter-spacing: var(--unnamed-character-spacing-0);
+            color: var(--unnamed-color-383c5a);
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: 0px;
+            color: #383C5A;
+            text-transform: uppercase;
+          }
+          .titulo-descripcion{
+            color: var(--unnamed-color-383c5a);
+            text-align: center;
+            font-weight: normal;
+            font-size: 18px;
+            letter-spacing: 0px;
+            color: #383C5A;
+            text-transform: lowercase;
+          }
+          
+        }
+        .monto-frecuencia{
+          margin-top: 30px;
+          color: #383C5A;
+          font-family: "Omnes Medium";
+          font-size: 42px;
+        }
+        .monto-antes {
+          padding-bottom: 10px;
+          margin-top: 15px;
+          color: #454A6C;
+          font-family: "Omnes Regular";
+          font-size: 18px;
+          text-decoration: line-through;
+          text-decoration-color: #2157BD;
+        }
+        .btn-cotizador{
+          background: $vehicular_secundario;
+          color: #fff;        
+          height: 50px;
+          width: 80%;
+          display: inline-block;
+          border-radius: 4px;
+          font-size: 19px;
+          font-family: "Omnes regular";
+          text-align: center;
+          line-height: 50px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+        .que-me-cubre {
+          text-align: left;
+          width: 100%;
+          padding-left: 30px;
+          padding-right: 15px;
+        }
+        hr{
+          width: 80%;
+          //border: 1px solid #CCD1DD;
+          //opacity: 1;
+        }
+      }
+      .que-me-cubre{
+        padding-top: 10px;
+        .titulo{
+          font-size: 18px;
+          font-family: 'Omnes SemiBold';
+          color: #383C5A;
+          line-height: 25px;
+          padding-bottom: 5px;
+          padding-top: 10px;
+        }
+        .titulo-importante{
+          font-size: 18px;
+          font-family: 'Omnes SemiBold';
+          color: #383C5A;
+          line-height: 25px;
+          padding-bottom: 5px;
+          padding-top: 20px;
+        }
+        &__item{
+          font-family: 'Omnes Regular';
+          font-size: 16px;
+          line-height: 30px;
+          color: #383C5A;
+        }
+        .link-modal{
+          color: #0855C4;
+          text-decoration: underline;
+        }
+      }
     }
     
   }
   
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
   .pagina-cotizador{
     .suma-asegurada{
       &--cabecera{

@@ -25,14 +25,14 @@
                             <b-col cols="auto" class="p-6" align-self="center" style="vertical-align: middle;">                                       
                                 <b-button block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
                                   <b-row align-v="center">
-                                    VER MÁS 
+                                    <p><span class="ver-mas">VER MÁS</span></p> 
                                     <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">
                                   </b-row> 
                                 </b-button>
                                 <b-button block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
                                   <b-row align-v="center">                                    
-                                    VER MENOS 
-                                    <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">                                    
+                                    <p><span class="ver-mas">VER MENOS</span></p>
+                                    <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-menos.svg" alt="">                                    
                                   </b-row>                                   
                                 </b-button>
                             </b-col>
@@ -128,8 +128,14 @@
       <b-row class="titulo-principal">
         <b-col cols="12">
             <b-row class="lista1 flujo-titulo">
-                <b-col>
-                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none  d-lg-inline-block"><span>Completa tus datos personales </span>
+                <b-col cols="2" class="d-block d-sm-none">
+                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)">
+                </b-col>
+                <b-col class="p-0 d-block d-sm-none">
+                  <span style=" margin-top: 6px; display: block; line-height: 26px; ">Completa tus datos personales </span>
+                </b-col>
+                <b-col class="p-0 d-none d-sm-block">
+                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Completa tus datos personales</span>
                 </b-col>
             </b-row>
         </b-col>

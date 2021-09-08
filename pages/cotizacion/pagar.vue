@@ -41,14 +41,14 @@
                                     <b-col cols="auto" class="p-6" align-self="center" style="vertical-align: middle;">                                       
                                         <b-button block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
                                         <b-row align-v="center">
-                                            VER MÁS 
+                                            <p><span class="ver-mas">VER MÁS</span></p> 
                                             <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">
                                         </b-row> 
                                         </b-button>
                                         <b-button block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
                                         <b-row align-v="center">                                    
-                                            VER MENOS 
-                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">                                    
+                                            <p><span class="ver-mas">VER MENOS</span></p>  
+                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-menos.svg" alt="">                                    
                                         </b-row>                                   
                                         </b-button>
                                     </b-col>
@@ -69,47 +69,176 @@
                                             <p class="campo">{{this.$store.state.common.objVehiculo.brand}} {{this.$store.state.common.objVehiculo.model}} {{this.$store.state.common.objVehiculo.modelYear}}</p>
                                         </b-col>
                                     </b-row>
-                                    <b-row>
-                                        <b-col>
+                                    <b-row align-v="center" align-h="between">
+                                        <b-col cols="8">
                                             <p class="sub-titulo2">datos personales</p>
+                                        </b-col>
+                                        <b-col cols="4" class="text-right" >
+                                            <b-button class="button-editar" @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1"><p class="p-0">EDITAR</p></b-button>
+                                            <b-button class="button-cancelar" @click="clicBtnCancelar()" v-else> <p class="p-0">GUARDAR</p></b-button>
                                         </b-col>                                        
                                     </b-row>
-                                    <b-row >
+                                    <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
                                         <b-col cols="4">
                                             <p class="label">DNI</p>                                            
                                         </b-col>
                                         <b-col cols="8">
                                             <p class="campo">{{this.$store.state.common.objCliente.documentNumber}}</p>
                                         </b-col>
-                                    </b-row>
-                                    <b-row class="row-final">
-                                        <b-col cols="4">
+                                        <b-col cols="4" class="row-final">
                                             <p class="label">Nombre</p>                                            
                                         </b-col>
-                                        <b-col cols="8">
+                                        <b-col cols="8" class="row-final">
                                             <p class="campo">{{this.$store.state.common.objCliente.firstName}}</p>
                                         </b-col>
-                                    </b-row>
-                                    <b-row class="row-final">
-                                        <b-col cols="4">
+                                        <b-col cols="4" class="row-final">
                                             <p class="label">Teléfono</p>                                            
                                         </b-col>
-                                        <b-col cols="8">
+                                        <b-col cols="8" class="row-final">
                                             <p class="campo">{{this.$store.state.common.objCliente.phoneNumber}}</p>
                                         </b-col>
-                                    </b-row>
-                                    <b-row class="row-final">
-                                        <b-col cols="4">
+                                        <b-col cols="4" class="row-final">
                                             <p class="label">Correo</p>                                            
                                         </b-col>
-                                        <b-col cols="8">
+                                        <b-col cols="8" class="row-final">
                                             <p class="campo">{{this.$store.state.common.objCliente.emailAddress}}</p>
+                                        </b-col>                                          
+                                    </b-row>
+                                    <b-row class="edit-datos" v-if="this.visibleBtnEditar == 0" align-v="center">
+                                        <b-col cols="4">
+                                            <p><span class="label">DNI</span></p>
                                         </b-col>
-                                    </b-row>                                    
-                                    <b-row>
-                                        <b-col>
+                                        <b-col cols="8">
+                                            <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                                                        v-on:focus.native="isIconDni = !isIconDni"
+                                                        v-on:blur.native="placeholderDNI($event)"
+                                                        @click.native="clearPlaceholderDNI($event)"
+                                                        @keyup.native="delay($event, 300)"
+                                                        class="input-vehicular form-control input-id"
+                                                        maxlength="11"
+                                                        autocomplete="on"
+                                                        
+                                                        type="tel"
+                                                        v-model="itemElegido.documentoLocal"
+                                                        required
+                                                        placeholder="Numero de DNI, CI o RUC"
+                                                        style="text-transform: initial">
+                                            </b-form-input>
+                                            <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
+                                        </b-col>
+                                        <b-col cols="12">
+                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Nombre</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="nombre" ref="nombre" autocomplete="given-name" name="firstName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        @keydown.native="validacionInput($event)"
+                                                        @keypress.native="validacionInput($event)"
+                                                        v-on:focus.native="isIconFirstName = !isIconFirstName"
+                                                        v-on:blur.native="isIconFirstName = !isIconFirstName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('apellido-paterno')">
+                                                    </b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Apellido Paterno</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input
+                                                        id="apellido-paterno"
+                                                        ref="apellido-paterno"
+                                                        autocomplete="family-name"
+                                                        name="lastName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="
+                                                        isIconIconFirstLastName = !isIconIconFirstLastName
+                                                        "
+                                                        v-on:blur.native="
+                                                        isIconIconFirstLastName = !isIconIconFirstLastName
+                                                        "
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstLastName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('apellido-materno')"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Apellido Materno</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="apellido-materno" ref="apellido-materno" name="lastName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
+                                                        v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        autocomplete="additional-name"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.secondLastName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('correo-electronico')"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Teléfono</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="celular" ref="celular" name="phone"
+                                                        @keyup.native=" validarCelular(); validacionInput($event); "
+                                                        v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
+                                                        v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        autocomplete="tel"
+                                                        v-bind:class="{ errorInput: msgErrorCelular }"
+                                                        
+                                                        type="tel"
+                                                        v-model="objClients.phoneNumber"
+                                                        required
+                                                        maxlength="9"
+                                                        v-on:keyup.enter="validarCelular($event)"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Correo</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
+                                                        @keyup.native=" validacionInput($event); validarEmail(); "
+                                                        v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        v-bind:class="{ errorInput: msgErrorEmail }"
+                                                        autocomplete="on"
+                                                        
+                                                        type="email"
+                                                        v-model="objClients.emailAddress"
+                                                        required
+                                                        v-on:keyup.enter="processTags('celular')"
+                                                    ></b-form-input>
+                                                </b-col>
+                                                
+                                            </b-row>
+                                        </b-col>
+                                    </b-row>
+                                                                     
+                                    <b-row align-v="center">
+                                        <b-col cols="8">
                                             <p class="sub-titulo2">datos de mi póliza</p>
-                                        </b-col>                                        
+                                        </b-col>  
+                                        <b-col cols="4" class="text-right" >
+                                            <b-button class="button-editar" @click="editarPoliza($event)">EDITAR</b-button>
+                                        </b-col>                                      
                                     </b-row>
                                     <b-row >
                                         <b-col cols="4" >
@@ -157,16 +286,385 @@
             <b-row class="titulo-principal">
                 <b-col cols="12">
                     <b-row class="lista1 flujo-titulo">
-                        <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none  d-lg-inline-block">
-                            <span>Ingresa tu tarjeta crédito o débito  </span>
+                        <b-col cols="2" class="d-block d-sm-none">
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)">
+                        </b-col>
+                        <b-col class="p-0  d-block d-sm-none" >
+                            <span style=" margin-top: 4px; display: block; line-height: 30px; ">Ingresa tu tarjeta crédito <br> o débito </span>
+                        </b-col>
+                        <b-col class="p-0 d-none d-sm-block" >
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Ingresa tu tarjeta crédito o débito</span>
                         </b-col>
                     </b-row>
                 </b-col>
-            </b-row>          
-            
+            </b-row> 
+            <b-row >
+                <b-col cols="12" sm="12" md="12" lg="8" xl="8" class="metodo-pago__ingresatarjeta">
+                    <b-row>                                       
+                        <b-col cols="12" class="box-ingresaTarjeta">
+                            <form class="card-interseguro">   
+                                    <div class="form-group-custom">                                                        
+                                        <div id="focusTarjeta">
+                                            Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
+                                        </div>
+                                        <div class="input-group  iptGral editable  box-iptCard">
+                                            <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta"
+                                            id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
+                                            aria-label="Número de tarjeta" autocomplete="cc-number"
+                                            aria-describedby="numberDocumentFeedback"
+                                            maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"
+                                            autofocus/>
+                                            
+                                            <img width="30" :src="creditCardImage" >
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-custom">
+                                        <div class="card-custom__date">
+                                            <div class="form-group-custom">                                                            
+                                                <div id="box-mes" class="input-group  iptGral editable">   
+                                                    <input @focus="focusMES" @blur="blurMES" placeholder="MM" id="cardmes" autocomplete="cc-exp-mes"
+                                                     class="form-control text-uppercase iptGral__input ipt-month" @keyup="keyUpMes()" maxlength="2"
+                                                      v-model="card.expiration_month" type="tel" name="cardmes"/>
+                                                </div>
+                                                <div id="focusMES">
+                                                    Fecha de vencimiento de tu tarjeta.
+                                                </div>
+                                            </div>
+                                            <div class="form-group-custom  text-right-custom">
+                                                <div class="input-group  iptGral editable">
+                                                    <input id="cardaño" placeholder="AA"  autocomplete="cc-exp-año" class="form-control text-uppercase iptGral__input ipt-year" @keyup="keyUpCard()"  maxlength="2"  v-model="expiration_year" type="tel" name="name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-custom__cvv">
+                                            <div class="form-group-custom">
+                                                <div id="box-ccv" class="input-group  iptGral  editable"  @click="validCard()">
+                                                    <input @focus="focusCVV" @blur="blurCVV" placeholder="CVV" variant="custom"  
+                                                    id="cardccv" autocomplete="cc-csc" class="form-control text-uppercase iptGral__input ipt-cvv"
+                                                    aria-describedby="numberFeedback"
+                                                     :disabled="isEnable" @keyup="keyUpCard()" :maxlength="this.numberTest"  v-model="card.cvv" type="tel" name="cardccv"/>
+                                                </div>
+                                            </div>     
+                                        </div>  
+                                        <div  id="focusCVV" >
+                                            <img class="img-fluid" :src="creditCardImageCvv" >
+                                        </div>  
+                                    </div>
+                                    <br>
+                            </form>                    
+                        </b-col>
+                    </b-row>
+                    <b-row>
+                        <b-col cols="12" class="text-center">
+                                <b-row v-bind:class="{ isActivePayment: isisplayNoneLoader }">
+                                    <b-col cols="12">
+                                        <div class="spinner-tarjeta">
+                                            <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                                        </div>
+                                    </b-col>
+                                    <b-col cols="12">
+                                        <p class="spinner-descripcion">Estamos procesando tu pago</p>
+                                    </b-col>                    
+                                </b-row>
+                        </b-col>                              
+                                
+                    </b-row>
+                    <b-row class="text-center condiciones">
+                                <b-col cols="12">
+                                    <input class="form-check-input" type="checkbox" @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <template v-if="tabIndex == 1">
+                                            <span v-if="gpsExiste == 'Y'" class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                            </span>
+                                            <span v-else class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>  
+                                            </span>
+                                        </template>
+                                        <template v-else>
+                                            <span v-if="gpsExiste == 'Y'" class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>
+                                                y del <a href="javascript:void(0);" v-b-modal.modalgps>Sistema de Rastreo GPS</a>
+                                            </span>
+                                            <span v-else class="checkbox__descripcion">He leído y acepto
+                                                <a href="javascript:void(0);"  v-b-modal.modal1> las condiciones de la póliza</a>   
+                                            </span>
+                                        </template>
+                                    </label>
+                                </b-col>
+                    </b-row>                            
+                    <b-row class="text-center mt-1">
+                                <b-col cols="12">
+                                    <img src="../../static/media/img/flujo/metodo-pago/tarjetas.svg" alt="visa">
+                                </b-col>
+                    </b-row>
+                    <b-row class="text-center mt-4 container-box-mensaje" align-h="center">                                
+                        <b-col cols="12" class="box-messaje">
+                            <img src="../../static/media/img/flujo/metodo-pago/tarjeta.svg" alt="">
+                            <p>Tu compra es 100% segura. <br> Contamos con el respaldo del <b><span>Grupo Intercorp</span></b> </p>
+                        </b-col>
+                    </b-row>
+                    <b-row class="justify-content-center">                                            
+                        <b-col cols="12" class="box-btn-pagar">                                                
+                            <button type="submit" @click="continuar" class="btn-pagar" 
+                                :disabled='this.isDisabledPayment'>
+                                <span>PAGAR ${{this.monto_pagar}} </span>
+                            </button>
+                        </b-col>
+                    </b-row>
+                </b-col>
+                <b-col cols="4" class="mt-2">
+                    <div class="resumen-proteccion d-none  d-lg-block">
+                        <div class="resumen-proteccion__cabecera pb-3">
+                            <p>RESUMEN DE TU PROTECCIÓN</p>
+                            <div class="desc-resumen">
+                                <span>{{this.$store.state.common.objVehiculo.brand}}</span>
+                                <span>{{this.$store.state.common.objVehiculo.model}}</span>
+                                <span>{{this.$store.state.common.objVehiculo.modelYear}}</span>
+                            </div>
+                        </div>
+
+                        <div class="resumen-proteccion__cuerpo box-resumen">
+                            <div class="datos-personales">                                
+                                <b-container>
+                                    <b-row class="row-titulo">
+                                        <b-col cols="8" >
+                                            <p class="resumen-proteccion--subtitulo">DATOS PERSONALES</p>                                        
+                                        </b-col>
+                                        <b-col cols="4">
+                                            <b-button class="button-editar" @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1">EDITAR</b-button>
+                                            <b-button class="button-cancelar" @click="clicBtnCancelar()" v-else>CANCELAR</b-button>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">DNI</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.objCliente.documentNumber}}</span></p>
+                                        </b-col>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Nombre</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">
+                                                {{this.$store.state.common.objCliente.firstName}} {{this.$store.state.common.objCliente.firstLastName}} {{this.$store.state.common.objCliente.secondLastName}}
+                                                </span>
+                                            </p>
+                                        </b-col>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Teléfono</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.objCliente.phoneNumber}}</span></p>
+                                        </b-col>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Correo</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.objCliente.emailAddress}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="edit-datos" v-if="this.visibleBtnEditar == 0" align-v="center">
+                                        <b-col cols="4">
+                                            <p><span class="label">DNI</span></p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                                                        v-on:focus.native="isIconDni = !isIconDni"
+                                                        v-on:blur.native="placeholderDNI($event)"
+                                                        @click.native="clearPlaceholderDNI($event)"
+                                                        @keyup.native="delay($event, 300)"
+                                                        class="input-vehicular form-control input-id"
+                                                        maxlength="11"
+                                                        autocomplete="on"
+                                                        
+                                                        type="tel"
+                                                        v-model="itemElegido.documentoLocal"
+                                                        required
+                                                        placeholder="Numero de DNI, CI o RUC"
+                                                        style="text-transform: initial">
+                                            </b-form-input>
+                                            <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
+                                        </b-col>
+                                        <b-col cols="12">
+                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Nombre</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="nombre" ref="nombre" autocomplete="given-name" name="firstName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        @keydown.native="validacionInput($event)"
+                                                        @keypress.native="validacionInput($event)"
+                                                        v-on:focus.native="isIconFirstName = !isIconFirstName"
+                                                        v-on:blur.native="isIconFirstName = !isIconFirstName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('apellido-paterno')">
+                                                    </b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Apellido Paterno</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input
+                                                        id="apellido-paterno"
+                                                        ref="apellido-paterno"
+                                                        autocomplete="family-name"
+                                                        name="lastName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="
+                                                        isIconIconFirstLastName = !isIconIconFirstLastName
+                                                        "
+                                                        v-on:blur.native="
+                                                        isIconIconFirstLastName = !isIconIconFirstLastName
+                                                        "
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstLastName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('apellido-materno')"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Apellido Materno</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="apellido-materno" ref="apellido-materno" name="lastName"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
+                                                        v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        autocomplete="additional-name"
+                                                        
+                                                        type="text"
+                                                        v-model="objClients.secondLastName"
+                                                        required
+                                                        v-on:keyup.enter="processTags('correo-electronico')"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Teléfono</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="celular" ref="celular" name="phone"
+                                                        @keyup.native=" validarCelular(); validacionInput($event); "
+                                                        v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
+                                                        v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        autocomplete="tel"
+                                                        v-bind:class="{ errorInput: msgErrorCelular }"
+                                                        
+                                                        type="tel"
+                                                        v-model="objClients.phoneNumber"
+                                                        required
+                                                        maxlength="9"
+                                                        v-on:keyup.enter="validarCelular($event)"
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Correo</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
+                                                        @keyup.native=" validacionInput($event); validarEmail(); "
+                                                        v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
+                                                        v-bind:class="{ errorInput: msgErrorEmail }"
+                                                        autocomplete="on"
+                                                        
+                                                        type="email"
+                                                        v-model="objClients.emailAddress"
+                                                        required
+                                                        v-on:keyup.enter="processTags('celular')"
+                                                    ></b-form-input>
+                                                </b-col>
+                                                
+                                            </b-row>
+                                        </b-col>
+                                    </b-row>
+
+                                    <b-row class="row-titulo" >
+                                        <b-col cols="8">
+                                            <p class="resumen-proteccion--subtitulo">DATOS DE MI PÓLIZA</p>                                        
+                                        </b-col>
+                                        <b-col cols="4" >
+                                            <b-button class="button-editar" @click="editarPoliza($event)">EDITAR</b-button>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Plan</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.planSeleccionado == 4" class="row-data">
+                                            <p><span class="campo-minus">Básico: Protección contra robo</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.planSeleccionado == 6" class="row-data">
+                                            <p><span class="campo-minus">Intermedio: Protección accidentes</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.planSeleccionado == 3" class="row-data">
+                                            <p><span class="campo-minus">Full: Protección total</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Cobertura</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">$ {{this.$store.state.common.listaCotizacion.vehicle.current}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">Frecuencia</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 1" class="row-data">
+                                            <p><span class="campo-minus">Mensual</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 2" class="row-data">
+                                            <p><span class="campo-minus">Trimestral</span></p>
+                                        </b-col>
+                                        <b-col cols="8" v-if="this.$store.state.common.frecuenciaPago == 3" class="row-data">
+                                            <p><span class="campo-minus">Anual</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row>
+                                        <b-col cols="4" class="row-data">
+                                            <p><span class="label">F. de inicio</span></p>
+                                        </b-col>
+                                        <b-col cols="8" class="row-data">
+                                            <p><span class="campo-minus">{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="datos-pago">
+                                        <b-col cols="8">
+                                            <p><span >MONTO FINAL A PAGAR:</span></p>
+                                        </b-col>
+                                        <b-col cols="4" class="total">
+                                            <p><span class="monto-resumen">US$ {{this.monto_pagar}}</span></p>
+                                        </b-col>
+                                    </b-row>
+                                </b-container>                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </b-col>
+            </b-row>         
+            <!-- <br>
             <b-row>                
-                <b-col cols="12" sm="12" md="12" lg="8" xl="8" class="mt-2">
+                <b-col cols="12" sm="12" md="12" lg="8" xl="8">
                     <b-row class="box-principal ">
                         <b-col cols="12" lg="12"  class="metodo-pago__ingresatarjeta" style="position: relative;"> 
                             <b-row>                                       
@@ -177,11 +675,12 @@
                                                     Luego de pagar, estarás asegurado automáticamente con nosotros. Una persona de Interseguro te contactará.
                                                 </div>
                                                 <div class="input-group  iptGral editable  box-iptCard">
-                                                    <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta" autofocus
+                                                    <input @focus="focusTarjeta" @blur="blurTarjeta" placeholder="Número de tarjeta"
                                                     id="cardnumber" name="cardnumber" @keyup="addingBlankSpaces($event)" v-model="objCardNumber.number" 
                                                     aria-label="Número de tarjeta" autocomplete="cc-number"
                                                     aria-describedby="numberDocumentFeedback"
-                                                    maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"/>
+                                                    maxlength="19" type="tel" class="form-control iptGral__input  ipt-cardNumber"
+                                                    autofocus/>
                                                     
                                                     <img width="30" :src="creditCardImage" >
                                                     
@@ -262,16 +761,8 @@
                                         </template>
                                     </label>
                                 </b-col>
-                            </b-row>
-                            <b-row class="justify-content-center">                                            
-                                <b-col cols="6">                                                
-                                    <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
-                                        :disabled='this.isDisabledPayment'>
-                                        <span>PAGAR ${{this.monto_pagar}} </span>
-                                    </button>
-                                </b-col>
-                            </b-row>
-                            <b-row class="text-center mt-4">
+                            </b-row>                            
+                            <b-row class="text-center mt-1">
                                 <b-col cols="12">
                                     <img src="../../static/media/img/flujo/metodo-pago/tarjetas.svg" alt="visa">
                                 </b-col>
@@ -280,6 +771,14 @@
                                 <b-col cols="12" class="box-messaje">
                                     <img src="../../static/media/img/flujo/metodo-pago/tarjeta.svg" alt="">
                                     <p>Tu compra es 100% segura. <br> Contamos con el respaldo del <b><span>Grupo Intercorp</span></b> </p>
+                                </b-col>
+                            </b-row>
+                            <b-row class="justify-content-center">                                            
+                                <b-col cols="6">                                                
+                                    <button type="submit" @click="continuar" class="btn box-btn__button box-btn--primary" 
+                                        :disabled='this.isDisabledPayment'>
+                                        <span>PAGAR ${{this.monto_pagar}} </span>
+                                    </button>
                                 </b-col>
                             </b-row>
                             
@@ -533,7 +1032,7 @@
                         </div>
                     </div>
                 </b-col>
-            </b-row>
+            </b-row> -->
         </b-container>
 
         <b-modal id="modal1" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalAutoorizacionPoliza" size="lg">
@@ -1116,7 +1615,7 @@ import { validationMixin } from 'vuelidate'
             }, 
             focusTarjeta(){  
                 if(process.client){      
-                    document.getElementById("focusTarjeta").style.display = "flex"
+                    document.getElementById("focusTarjeta").style.display = "none"
                 }
             },
             blurTarjeta(){    

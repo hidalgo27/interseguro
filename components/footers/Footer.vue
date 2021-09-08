@@ -644,7 +644,7 @@ export default {
     .card-header {
       border: 0 !important;
     }
-    .card {
+    .card{
       border-bottom: 1px solid white !important;
     }
     .btn-secondary:not(:disabled):not(.disabled):active,

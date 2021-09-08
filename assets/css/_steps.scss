@@ -676,3 +676,21 @@ input[type="color"]:focus,
         }
     }
 }
+
+@media (max-width: 576px) { 
+  .steps {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    overflow: visible;
+    list-style-type: none;
+    padding: 0;
+    margin: 2.3em 0 0 0;
+    position: relative;
+    z-index: 1;
+    --steps-line-top: calc(-1.2rem - .3vw);
+    --steps-line-progress: 50%;
+    width: 67%;
+    margin: 50px auto 0;
+  }
+}

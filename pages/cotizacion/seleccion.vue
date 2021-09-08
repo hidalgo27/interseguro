@@ -3,11 +3,11 @@
         <div class="container"> 
             <b-row class="mi-breadcrumb">
                 <b-col cols="12" class="box-steps">
-                <ul class="steps" style="display: inline-flex">
-                    <div class="steps__item ">Pago</div>
-                    <div class="steps__item ">Planes</div>
-                    <div class="steps__item steps--active  paso1">Mi carro</div>
-                    <li class="steps--progressBar" ></li>
+                    <ul class="steps" style="display: inline-flex">
+                        <div class="steps__item ">Pago</div>
+                        <div class="steps__item ">Planes</div>
+                        <div class="steps__item steps--active  paso1">Mi carro</div>
+                        <li class="steps--progressBar" ></li>
                     </ul>
                 </b-col>
             </b-row>
@@ -16,7 +16,7 @@
                 <b-col cols="12">
                     <div class="accordion" role="tablist">
                         <b-card no-body class="mb-1 resumen">
-                            <b-card-header header-tag="header" class="p-1" role="tab">                        
+                            <b-card-header header-tag="header"  role="tab">                        
                                 <b-row>
                                     <b-col cols="auto" class="mr-auto p-6" align-self="center">
                                         <p>VER RESUMEN</p>                                        
@@ -24,14 +24,14 @@
                                     <b-col cols="auto" class="p-6" align-self="center" style="vertical-align: middle;">                                       
                                         <b-button block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
                                         <b-row align-v="center">
-                                            VER MÁS 
+                                            <p><span class="ver-mas">VER MÁS</span></p> 
                                             <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">
                                         </b-row> 
                                         </b-button>
                                         <b-button block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
                                         <b-row align-v="center">                                    
-                                            VER MENOS 
-                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">                                    
+                                            <p><span class="ver-mas">VER MENOS</span> </p>
+                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-menos.svg" alt="">                                    
                                         </b-row>                                   
                                         </b-button>
                                     </b-col>
@@ -48,34 +48,35 @@
                                         <b-col cols="4">
                                             <p class="label">Mi placa</p>                                            
                                         </b-col>
-                                        <b-col cols="8">
+                                        <b-col cols="6">
                                             <p class="campo">{{this.$store.state.common.plateNumber}}</p>
+                                        </b-col>
+                                        <b-col cols="2">
+                                            <a href=""><img src="./../../static/media/img/root/pencil-edit-blue.svg" alt="" @click="editarPlaca($event)"></a>
                                         </b-col>
                                     </b-row>
                                     <b-row class="row-final">
                                         <b-col cols="4" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
                                             <p class="label">Marca</p>                                            
                                         </b-col>
-                                        <b-col cols="8" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
+                                        <b-col cols="6" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
                                             <p class="campo">{{this.$store.state.common.objVehiculo.brand}}</p>
+                                        </b-col>
+                                        <b-col cols="2" class="marca" v-bind:class="{mostrarResumenMarca: mostrarResumenMarca}">
+                                            <img src="./../../static/media/img/root/pencil-edit-blue.svg" alt="" @click="editarMarca($event)">
                                         </b-col>
                                     </b-row>
                                     <b-row class="row-final">
                                         <b-col cols="4" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}" class="anio">
                                             <p class="label">Año</p>                                            
                                         </b-col>
-                                        <b-col cols="8" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}" class="anio">
+                                        <b-col cols="6" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}" class="anio">
                                             <p class="campo">{{this.$store.state.common.objVehiculo.modelYear}}</p>
                                         </b-col>
+                                        <b-col cols="2" class="anio" v-bind:class="{mostrarResumenAnio: mostrarResumenAnio}">
+                                            <img src="./../../static/media/img/root/pencil-edit-blue.svg" alt="" @click="editarAnio($event)">
+                                        </b-col>
                                     </b-row>
-                                    <!-- <b-row class="row-final">
-                                        <b-col cols="4" v-bind:class="{mostrarResumenModelo: mostrarResumenModelo}" class="modelo">
-                                            <p class="label">Modelo</p>                                            
-                                        </b-col>
-                                        <b-col cols="8" v-bind:class="{mostrarResumenModelo: mostrarResumenModelo}" class="modelo">
-                                            <p class="campo">{{this.$store.state.common.objVehiculo.model}}</p>
-                                        </b-col>
-                                    </b-row> -->
                                 </b-card-body>
                             </b-collapse>
                         </b-card>
@@ -87,27 +88,27 @@
                 <b-col cols="12">
                     <b-row class="lista1 flujo-titulo" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
                         <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none  d-lg-inline-block"><span>Selecciona la marca</span>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Selecciona la marca</span>
                         </b-col>
                     </b-row>
                 </b-col>
                 <b-col cols="12">
                     <b-row class="listaDos flujo-titulo" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
                         <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarMarca($event)" class="d-none  d-lg-inline-block"><span>Seleciona el año</span>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarMarca($event)" ><span>Seleciona el año</span>
                         </b-col>
                     </b-row>                     
                 </b-col>
                 <b-col cols="12">
                     <b-row class="lista3 flujo-titulo" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
                         <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarAnio($event)" class="d-none  d-lg-inline-block"><span>Seleciona el modelo</span>
+                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarAnio($event)" ><span>Seleciona el modelo</span>
                         </b-col>
                     </b-row>
                 </b-col>          
             </b-row>
 
-            <b-row class="pt-4">
+            <b-row class="box-contenedor">
                 <b-col cols="12" sm="12" md="12" lg="8" xl="8">
                     <div class="listas">
                         <div class="lista1" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">                                       

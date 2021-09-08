@@ -68,7 +68,7 @@
 
     <b-container class="seccion-contenido">
       <b-row class="content">
-        <b-col cols="12">
+        <b-col cols="12" >
           <div class="section-title">
             <p class="d-none d-sm-block">Más de 550,000 clientes ya protegen <br> su auto con nosotros</p>
             <p class="d-block d-sm-none">Más de 550,000 clientes <br> ya protegen su auto <br> con nosotros</p>            
@@ -139,11 +139,11 @@
               >
                 <b-carousel-slide img-blank v-for="(item, index) in listCategories" v-bind:key="index">
                   <b-row align-v="center" style="height:100%">
-                    <b-col cols="2" class="pl-4">
+                    <b-col cols="2" class="imagen-testimonio">
                       <img :src="item.img" alt="">
                     </b-col>
-                    <b-col class="pl-1">
-                      <p class="categoria pl-3" v-bind:class="'categoria-'+index" style="text-align:justify;">
+                    <b-col >
+                      <p class="categoria text-testimonio pl-3" v-bind:class="'categoria-'+index" style="text-align:justify;">
                         {{item.testimonio}} <span>{{item.autor}}</span>
                       </p>
                     </b-col>
@@ -432,7 +432,7 @@
         
         <!-- Fin Desktop -->
 
-        <!-- Inicio Mobile Planes -->
+        <!-- Inicio Planes Mobile -->
         <b-row class="d-block d-lg-none">
           <b-col cols="12">
             <b-row align-h="center">
@@ -444,7 +444,12 @@
                 </div>
               </b-col>
               <b-col cols="4" class="pr-1 pl-1">
-                <div class="v2-seleccion-planes" >
+                <div class="v2-seleccion-planes" v-if="planSeleccionado == 2">
+                  <div class="v2-seleccion-planes__item plan2 blue planActivo planInacActivo" @click="seleccionarPlan(2)">
+                      Full
+                  </div>
+                </div>
+                <div class="v2-seleccion-planes" v-else>
                   <div class="v2-seleccion-planes__item plan2 blue" @click="seleccionarPlan(2)" v-bind:class="{planInactivo: planInactivo}">
                       Full
                   </div>
@@ -461,7 +466,7 @@
           </b-col>
           <b-col cols="12" v-if="planSeleccionado == 2">
             <b-row>
-              <b-col cols="12" class="pl-4 pr-4">
+              <b-col cols="12" class="p-0">
                 <div class="plan-recomendado d-flex justify-content-center">
                   <img src="@/static/media/imagenes/home/star-white.svg" alt="Start">
                   <span>¡Plan recomendado!</span>
@@ -494,39 +499,70 @@
                       </div>
                       
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Beneficios Interseguro</span> 
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Beneficios Interseguro</b-col>
+                        </b-row> 
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Central de emergencias</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Central de emergencias</b-col>
+                        </b-row>                       
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Responsabilidad Civil</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Responsabilidad Civil</b-col>
+                        </b-row>                        
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Robo total</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Robo total</b-col>
+                        </b-row>                       
                       </p>
-
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 1 || planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Daños al vehículo por accidente</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Daños al vehículo por accidente</b-col>
+                        </b-row>                       
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 1 || planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Accidentes personales</span>                        
-                      </p>
-
-                      <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Accesorios musicales</span>                        
-                      </p>
-                      <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Rotura de lunas</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Accidentes personales</b-col>
+                        </b-row>                        
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Desastres naturales, vandalismo, incendios.</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >ccesorios musicales</b-col>
+                        </b-row>                        
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Pérdida total por accidente</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Rotura de lunas</b-col>
+                        </b-row>                       
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>usencia de control*</span>                        
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Desastres naturales, vandalismo, incendios.</b-col>
+                        </b-row>                                                
+                      </p>
+                      <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >Pérdida total por accidente</b-col>
+                        </b-row>                         
+                      </p>
+                      <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
+                        <b-row>
+                          <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
+                          <b-col >usencia de control*</b-col>
+                        </b-row>                        
                       </p>
 
                     </div>                      
@@ -642,63 +678,69 @@
       </b-row>
     </b-container>
 
+    
     <div class="elegirnos">
-      <b-container class="home-seccion ">
-        <b-row>
+      <b-container>
+        <b-row align-v="end">
           <b-col cols="12">
             <div class="section-title">
-              <p>
-                ¿Por qué deberían elegirnos?
-              </p>
-            </div>
+                  <p>
+                    ¿Por qué deberían elegirnos?
+                  </p>
+                </div>
           </b-col>
-          <b-col cols="12">
-            <div class="d-flex">
-              <div class="elegirnos__item">
-                <div class="box-img">
-                  <img src="@/static/media/seguroVehicular/home/elegirnos_mejor_precio.svg" alt="" class="elegirnos__item--icon">
-                </div>
-                <div class="elegirnos--box">
-                  <p class="elegirnos__item--titulo">Mejor precio</p>
-                  <p class="elegirnos__item--text">Eliminamos a los brókers <span class="d-none  d-xl-inline"><br></span> e intermediarios</p>
-                </div>
-              </div>
-              <div class="elegirnos__item">
-                <div class="box-img">
-                  <img src="@/static/media/seguroVehicular/home/elegirnos_somos_intercorp.svg" alt="" class="elegirnos__item--icon">
-                </div>
-                <div class="elegirnos--box">
-                  <p class="elegirnos__item--titulo">Somos intercorp</p>
-                  <p class="elegirnos__item--text">El grupo económico más <span class="d-none  d-xl-inline"><br></span>  importante del país</p>
-                </div>
-              </div>
-              <div class="elegirnos__item">
-                <div class="box-img">
-                  <img src="@/static/media/seguroVehicular/home/elegirnos_100_online.svg" alt="" class="elegirnos__item--icon">
-                </div>
-                <div class="elegirnos--box">
-                  <p class="elegirnos__item--titulo">100% online</p>
-                  <p class="elegirnos__item--text">Protege tu auto en solo 3 <span class="d-none  d-xl-inline"><br></span>  clics desde donde estés</p>
-                </div>
-              </div>
-              <div class="elegirnos__item">
-                <div class="box-img">
-                  <img src="@/static/media/seguroVehicular/home/elegirnos_siempre_contigo.svg" alt="" class="elegirnos__item--icon">
-                </div>
-                <div class="elegirnos--box">
-                  <p class="elegirnos__item--titulo">Siempre contigo</p>
-                  <p class="elegirnos__item--text">Te brindamos  <span class="d-none  d-xl-inline"><br></span> atención 24/7
-                  </p> 
-                </div>
-              </div>
-            </div>
+          <b-col cols="12" sm="6" md="6" lg="3" xl="3">
+            <b-row class="elegirnos__item-inicial ">
+              <b-col cols="4" lg="12" xl="12">
+                <img src="@/static/media/seguroVehicular/home/elegirnos_mejor_precio.svg" alt="" >
+              </b-col>
+              <b-col cols="8" lg="12" xl="12" class="text-mobile">
+                <p class="elegirnos__item--titulo">Mejor precio</p>
+                <p class="elegirnos__item--text">Eliminamos a los brókers <span class="d-none  d-xl-inline"><br></span> e intermediarios</p>
+              </b-col>
+            </b-row>
+          </b-col>
+          <b-col cols="12" sm="6" md="6" lg="3" xl="3">
+            <b-row class="elegirnos__item ">
+              <b-col cols="4" lg="12" xl="12">
+                <img src="@/static/media/seguroVehicular/home/elegirnos_somos_intercorp.svg" alt="" >
+              </b-col>
+              <b-col cols="8" lg="12" xl="12" class="text-mobile">
+                <p class="elegirnos__item--titulo">Somos intercorp</p>
+                <p class="elegirnos__item--text">El grupo económico más <span class="d-none  d-xl-inline"><br></span>  importante del país</p>
+              </b-col>
+            </b-row>
+          </b-col>
+          <b-col cols="12" sm="6" md="6" lg="3" xl="3">
+            <b-row class="elegirnos__item ">
+              <b-col cols="4" lg="12" xl="12">
+                <img src="@/static/media/seguroVehicular/home/elegirnos_100_online.svg" alt="" >
+              </b-col>
+              <b-col cols="8" lg="12" xl="12" class="text-mobile">
+                <p class="elegirnos__item--titulo">100% online</p>
+                <p class="elegirnos__item--text">Protege tu auto en solo 3 <span class="d-none  d-xl-inline"><br></span>  clics desde donde estés</p>
+              </b-col>
+            </b-row>
+          </b-col>
+          <b-col cols="12" sm="6" md="6" lg="3" xl="3">
+            <b-row class="elegirnos__item ">
+              <b-col cols="4" lg="12" xl="12">
+                <img src="@/static/media/seguroVehicular/home/elegirnos_siempre_contigo.svg" alt="">
+              </b-col>
+              <b-col cols="8" lg="12" xl="12" class="text-mobile">
+                <p class="elegirnos__item--titulo">Siempre contigo</p>
+                <p class="elegirnos__item--text">Te brindamos  <span class="d-none  d-xl-inline"><br></span> atención 24/7
+                </p> 
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
       </b-container>
+      
     </div>
 
     <b-container class="home-seccion  preguntas">
-      <b-row class="content-inicio">
+      <b-row>
         <b-col cols="12" lg="5">
           <div class="section-title">
             <p>¿Necesitas ayuda o <br class="d-none  d-xl-block"> tienes  preguntas <br class="d-none  d-xl-block"> sobre nuestro <br class="d-none  d-xl-block"> seguro vehicular?</p>
@@ -709,52 +751,56 @@
           <div>
             <carousel :perPageCustom="[[368, 1], [1024, 1]]" 
             :navigationEnabled="false" 
-            :paginationEnabled="false">
-            <slide class="dudas-consultas__item">
-              <b-row align-h="center" class="text-center" >
-                <b-col cols="12">
+            :paginationEnabled="true">
+            <slide class="dudas-consultas__item ">
+              <b-row align-v="center" class="text-center dudas-consultas--box">
+                <b-col cols="12" class="imagen">
                   <img src="@/static/media/imagenes/home/tiempo-emergencia.svg"/>
-                </b-col> 
-                <b-col cols="12" class="dudas-consultas--box">
-                  <p class="titulo">¡Tengo una emergencia!</p>
-                </b-col> 
-                <b-col cols="12" class="dudas-consultas--box">
-                  <p class="text">¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
                 </b-col>
-                <b-col cols="12" class="dudas-consultas--box">
-                  <span>Llamanos: (01) 500 0000</span>
-                </b-col>            
+                <b-col cols="12" class="titulo">
+                  <p >¡Tengo una emergencia!</p>
+                </b-col> 
+                <b-col cols="12" class="text">
+                  <p >¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
+                </b-col>
+                <b-col class="btn-llamar">
+                  <button type="button" class="btn-home-cotizar" >
+                    LLÁMANOS
+                  </button>  
+                </b-col>           
               </b-row>
             </slide>
             <slide class="dudas-consultas__item">
-              <b-row align-h="center" class="text-center" >
-                <b-col cols="12">
+              <b-row align-v="center" class="text-center dudas-consultas--box" >
+                <b-col cols="12" class="imagen">
                   <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
                 </b-col> 
-                <b-col cols="12" class="dudas-consultas--box">
-                  <p class="titulo">¿Dónde llevo mi carro ?</p>
+                <b-col cols="12" class="titulo">
+                  <p >¿Dónde llevo mi carro ?</p>
                 </b-col> 
-                <b-col cols="12" class="dudas-consultas--box">
-                  <p class="text">Visita nuestra red de talleres afiliados</p>
+                <b-col cols="12" class="text">
+                  <p >Visita nuestra red de talleres afiliados</p>
                 </b-col>
-                <b-col cols="12" class="dudas-consultas--box">
+                <b-col cols="12" class="link-talleres-afiliados">
                   <span>Ver talleres afiliados</span>
                 </b-col>            
               </b-row>
             </slide>
             <slide class="dudas-consultas__item">
-              <b-row align-h="center" class="text-center" >
-                <b-col cols="12">
+              <b-row align-v="center" class="text-center dudas-consultas--box" >
+                <b-col cols="12" class="imagen">
                   <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
                 </b-col> 
-                <b-col cols="12" class="dudas-consultas--box">
-                  <p class="titulo">¿Necesito un asesor</p>
+                <b-col cols="12" class="titulo">
+                  <p >¿Necesito un asesor</p>
                 </b-col> 
-                <b-col cols="12" class="dudas-consultas--box">
-                  <p class="text">Necesitas ayuda o consulta de un asesor?</p>
+                <b-col cols="12" class="text">
+                  <p >Necesitas ayuda o consulta de un asesor?</p>
                 </b-col>
-                <b-col cols="12" class="dudas-consultas--box">
-                  <span>Llamanos: (01) 500 0000</span>
+                <b-col cols="12" class="btn-llamar">
+                  <button type="button" class="btn-home-cotizar" >
+                    LLÁMANOS
+                  </button> 
                 </b-col>            
               </b-row>
             </slide>
@@ -764,12 +810,13 @@
           </div>          
         </b-col>
         <!-- fin dudas consultas mobile -->
+        <!--Preguntas-->
         <b-col cols="12" lg="7">
           <div class="accordion" role="tablist">
 
             <b-card no-body class="mb-1 card-personalizado">
               <b-card-header header-tag="header" class="p-1" role="tab">  
-                <b-button block v-b-toggle.accordion-1 variant="info" class="d-flex">
+                <b-button block v-b-toggle.accordion-1 variant="info" class="d-flex title-1">
                   <span>¿Cuándo inicia mi cobertura?</span> 
                   <strong v-if="isVisible1" aria-hidden="true" class="ml-auto icono-menos">-</strong>
                   <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>                  
@@ -784,7 +831,8 @@
 
             <b-card no-body class="mb-1 card-personalizado">
               <b-card-header header-tag="header" class="p-1" role="tab">
-                <b-button block v-b-toggle.accordion-2 variant="info" class="d-flex">¿Cómo hago mi inspección?
+                <b-button block v-b-toggle.accordion-2 variant="info" class="d-flex title-1">
+                  <span>¿Cómo hago mi inspección?</span>
                   <strong v-if="isVisible2" aria-hidden="true" class="ml-auto icono-menos">-</strong>
                   <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>
                 </b-button>
@@ -801,7 +849,8 @@
 
             <b-card no-body class="mb-1 card-personalizado">
               <b-card-header header-tag="header" class="p-1" role="tab">
-                <b-button block v-b-toggle.accordion-3 variant="info" class="d-flex">¿Qué pasa si ocurre un accidente y yo no soy el que maneja?
+                <b-button block v-b-toggle.accordion-3 variant="info" class="d-flex title-2">
+                  <span>¿Qué pasa si ocurre un accidente y yo no soy el que maneja?</span>
                   <strong v-if="isVisible3" aria-hidden="true" class="ml-auto icono-menos">-</strong>
                   <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>
                 </b-button>
@@ -815,7 +864,8 @@
 
             <b-card no-body class="mb-1 card-personalizado">
               <b-card-header header-tag="header" class="p-1" role="tab">
-                <b-button block v-b-toggle.accordion-4 variant="info" class="d-flex">¿Qué pasa si choco contra un carro que no tiene seguro vehicular?
+                <b-button block v-b-toggle.accordion-4 variant="info" class="d-flex title-3">
+                  <span>¿Qué pasa si choco contra un carro que no tiene seguro vehicular?</span>
                   <strong v-if="isVisible4" aria-hidden="true" class="ml-auto icono-menos">-</strong>
                   <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>
                 </b-button>
@@ -829,7 +879,8 @@
 
             <b-card no-body class="mb-1 card-personalizado">
               <b-card-header header-tag="header" class="p-1" role="tab">
-                <b-button block v-b-toggle.accordion-5 variant="info" class="d-flex">¿Qué pasa si ocurre un incidente y yo no soy el que maneja?
+                <b-button block v-b-toggle.accordion-5 variant="info" class="d-flex title-2">
+                  <span>¿Qué pasa si ocurre un incidente y yo no soy el que maneja?</span>
                   <strong v-if="isVisible5" aria-hidden="true" class="ml-auto icono-menos">-</strong>
                   <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>
                 </b-button>
@@ -843,83 +894,102 @@
 
           </div>
         </b-col>
+        <!--Fin Preguntas-->
       </b-row>
+
       <!-- Desktop -->
-      <!-- class="content justify-content-center" cols="1" cols-sm="2" cols-md="2" cols-lg="4" -->
-      <b-row >        
-        <b-col cols="4" class="pl-4 pr-4">
-          <b-row >
-            <b-col class="box-dudas">
-              <b-row align-v="center">
-                <b-col cols="3">
-                  <img src="@/static/media/imagenes/home/tiempo-emergencia.svg"/>
-                </b-col>
-                <b-col cols="9" class="pl-4">
-                  <b-row>
-                    <b-col cols="12" class="titulo">
-                      ¡Tengo una emergencia!
-                    </b-col>
-                    <b-col cols="12" class="text">
-                      ¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?
-                    </b-col>
-                    <b-col cols="12">
-                      <span>Llamanos: (01) 500 0000</span>
-                    </b-col>
-                  </b-row>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
+      <!-- class="d-none d-xl-block" -->
+      <b-container class="d-none d-xl-block mt-4">
+        <b-row align-v="strech">        
+          <b-col cols="4" class="pl-4 pr-4">
+            <b-row >
+              <b-col class="box-dudas">
+                <b-row align-v="center">
+                  <b-col cols="3">
+                    <img src="@/static/media/imagenes/home/tiempo-emergencia.svg"/>
+                  </b-col>
+                  <b-col cols="9" class="pl-4">
+                    <b-row>
+                      <b-col cols="12" class="titulo">
+                        ¡Tengo una emergencia!
+                      </b-col>
+                      <b-col cols="12" class="text">
+                        ¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?
+                      </b-col>
+                      <b-col cols="12">
+                        <span>Llamanos: (01) 500 0000</span>
+                      </b-col>
+                    </b-row>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-col>
+          <b-col cols="4" class="pl-4 pr-4">
+            <b-row>
+              <b-col class="box-dudas">
+                <b-row align-v="center">
+                  <b-col cols="3">
+                    <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
+                  </b-col>
+                  <b-col cols="9" class="pl-4">
+                    <b-row>
+                      <b-col cols="12" class="titulo">
+                        ¿Dónde llevo mi carro ?
+                      </b-col>
+                      <b-col cols="12" class="text">
+                        Visita nuestra red de talleres afiliados
+                      </b-col>
+                      <b-col cols="12">
+                        <span>Ver talleres afiliados</span>
+                      </b-col>
+                    </b-row>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-col>
+          <b-col cols="4" class="pl-4 pr-4">
+            <b-row>
+              <b-col class="box-dudas">
+                <b-row align-v="center">
+                  <b-col cols="3">
+                    <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
+                  </b-col>
+                  <b-col cols="9" class="pl-4">
+                    <b-row>
+                      <b-col cols="12" class="titulo">
+                        Necesito un asesor
+                      </b-col>
+                      <b-col cols="12" class="text">
+                        ¿Necesitas ayuda o consulta de un asesor?
+                      </b-col>
+                      <b-col cols="12">
+                        <span>Llamanos: (01) 500 0000</span>
+                      </b-col>
+                    </b-row>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>          
+          </b-col>
+        </b-row>
+      </b-container>
+      
+
+      <b-row class="d-block d-sm-none mt-4">
+        <b-col cols="6">
+          Desde US$ 12 al mes
         </b-col>
-        <b-col cols="4" class="pl-4 pr-4">
-          <b-row>
-            <b-col class="box-dudas">
-              <b-row align-v="center">
-                <b-col cols="3">
-                  <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
-                </b-col>
-                <b-col cols="9" class="pl-4">
-                  <b-row>
-                    <b-col cols="12" class="titulo">
-                      ¿Dónde llevo mi carro ?
-                    </b-col>
-                    <b-col cols="12" class="text">
-                      Visita nuestra red de talleres afiliados
-                    </b-col>
-                    <b-col cols="12">
-                      <span>Ver talleres afiliados</span>
-                    </b-col>
-                  </b-row>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-        </b-col>
-        <b-col cols="4" class="pl-4 pr-4">
-          <b-row>
-            <b-col class="box-dudas">
-              <b-row align-v="center">
-                <b-col cols="3">
-                  <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
-                </b-col>
-                <b-col cols="9" class="pl-4">
-                  <b-row>
-                    <b-col cols="12" class="titulo">
-                      Necesito un asesor
-                    </b-col>
-                    <b-col cols="12" class="text">
-                      ¿Necesitas ayuda o consulta de un asesor?
-                    </b-col>
-                    <b-col cols="12">
-                      <span>Llamanos: (01) 500 0000</span>
-                    </b-col>
-                  </b-row>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>          
+        <b-col cols="6" class="box-btn-home-cotizar-flotante">
+          <button type="button" class="btn-home-cotizar-flotante" >
+            COTIZAR
+          </button>
         </b-col>
       </b-row>
+
+
+      
 
     </b-container>
 

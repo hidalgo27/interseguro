@@ -19,7 +19,7 @@
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares">
+                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso img-home" alt="seguros vehiculares">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
                 <div class="nav-contacto  d-flex  d-xl-none">                
@@ -29,7 +29,10 @@
                                 <img src="../../static/media/img/home/telefono-header.png" alt="email">
                             </a>
                         </div>
-                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
+                        <!-- <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
+                            <img src="../../static/media/img/home/menu.png" alt="menu">
+                        </div> -->
+                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox1" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div>
                         <div class="main-nav__menu" id="main-menu">
@@ -437,10 +440,10 @@ export default {
 .box-cotiza button{
   animation: shadow-pulse 1s infinite;
 }
-    .oculto{
-        display: none !important;
-    }
-    .header-planes{
+.oculto{
+    display: none !important;
+}
+/* .header-planes{
         background: white;
         height: 72px;
         position: fixed;
@@ -605,7 +608,7 @@ export default {
                 font-weight: 500;
             }
         }
-    }
+} */
     @media (min-width: 768px){
         .footer-menu{
             width: 30%;
@@ -626,19 +629,172 @@ export default {
         .box-logo{
             text-align: center;
         }
-         .header-planes{
+        .header-planes{
+            background: white;
+            height: 72px;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            top:0;
+            z-index: 999;
+            border-bottom: 1px solid #d4d4d4;
             .menu-nav{
+                display: flex;
+                flex-direction: column;
+                position: relative;
                 .nav-contacto{
-                    .telefono{
+                    display: flex;
+                    .telefono_custom{
+                        width: 40px;
                     }
-                    .whatsapp{
+                    img{
+                        width: 20px;
+                    }
+                    span{
+                        color: #0855c4;
+                        font-size: 14px;
                     }
                 }
                 &__izq{
-                    padding-left: 45px;            
+                    height: 68px;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 15px;
+                    border-bottom: 1px solid white;
+                    background: white;
+                }
+                &__der{
+                    background: #f3f3f3;
+                    height: 68px;
+                    display: none;
+                    
+                    ul{
+                        text-align: center;
+                        padding-left: 0px;
+                        margin-bottom: 0;
+                        display: flex;
+                        list-style: none;
+                        align-items: center;
+                        width: 100%;
+                        li{
+                            text-decoration: none;
+                            width: 33%;
+                            margin-left: 20px;
+                            margin-right: 20px;
+                            a{
+                                font-size: 13px;
+                                font-weight: 500;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: 0.77;
+                                letter-spacing: normal;
+                                text-align: left;
+                                color: #696969;
+                            }
+                            &:hover{
+                                a{
+                                    transition: all 0.5s;
+                                    color: #0855c4;
+                                }
+                            }
+                        }
+                    }
+                    .button-cotizar{
+                    width: 193px;
+                    height: 40px;
+                    background: var(--unnamed-color-0855c4) 0% 0% no-repeat padding-box;
+                    background: #EA0F90  0% 0% no-repeat padding-box;
+                    border: #EA0F8F !important;
+                    border-radius: 3px;
+                    opacity: 1;                
+                    margin-left: 20px;
+                    outline: none;
+                    span{
+                        font-style: normal;
+                        text-align: center;
+                        letter-spacing: 0px;
+                        color: #FFFFFF;
+                        opacity: 1;
+                    }
+                    }
+                }            
+            }
+            .btn-cotiza a {
+                border: 2px solid #EA0C90 !important;
+                background: #EA0C90;
+                color: #fff;
+                border-radius: 3px;
+                font-size: 16px;
+                &:hover{
+                    background: #d6058b;
+                    text-decoration: none;
                 }
             }
-         }
+            .logo-interbank{
+                width: 200px;
+                right: 19%;
+                bottom: 8px;
+            }
+            .logo-tarjetaoh{
+                width: 58px;
+                right: 19%;
+                bottom: 8px;
+            }
+            .campaniatv-home.cuentaSueldo{
+                background: #00bb31;
+                .campania-lado-der{
+                    p{
+                        height: 50px;
+                        overflow: hidden;
+                    }
+                }
+            }
+            .campaniatv-home.tarjetaoh{
+                background: #d2232a;
+            }
+            .campaniatv-home{
+                background: #000;
+                background-repeat: repeat-x;
+                background-size: contain;
+                display: flex;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 50px; 
+                top: 50px;
+                .campania-lado-der{
+                    height: 50px;
+                    line-height: 40px;
+                    border-left: 50px solid transparent;
+                    width: 55%;
+                    color: #FFFFFF;
+                    font-size: 29px;
+                    font-weight: 500;
+                    text-align: left;
+                    text-transform: uppercase;
+                }
+                .campania-lado-izq{
+                    width: 61%;
+                    text-align: right;
+                    overflow: hidden;
+                    height: 50px;
+                }
+                h2{
+                    color: #FFFFFF;
+                    font-family: 'Omnes Medium';
+                    font-weight: 600;
+                    text-align: left;
+                    margin-bottom: 0;
+                    padding-left: 5%;
+                    padding-bottom: 0;
+                    display: inline-block;
+                    height: 50px;
+                    line-height: 50px;
+                    word-spacing: 2px;
+                    font-weight: 500;
+                }
+            }
+        }
     }
     @media (min-width: 1024px){
         .liston {
@@ -779,6 +935,37 @@ export default {
                 }
             }
             
+        }
+    }
+    @media (max-width: 576px) { 
+        .header-planes{
+            background: white;
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            top:0;
+            z-index: 999;
+            border-bottom: 1px solid #d4d4d4;
+            .menu-nav{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                &__izq{
+                    height: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 15px;
+                    border-bottom: 1px solid white;
+                    background: white;
+                }
+                &__der{
+                    background: #f3f3f3;
+                    height: 60px;
+                    display: none;
+                }            
+            }                
+        
         }
     }
 </style>
