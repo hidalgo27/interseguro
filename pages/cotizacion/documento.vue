@@ -87,9 +87,9 @@
                                     <p class="label">Plan</p>                                            
                                 </b-col>
                                 <b-col cols="8">
-                                    <p v-if="this.planSeleccionado == 4" class="campo">Básico: Protección contra robo</p>
-                                    <p v-if="this.planSeleccionado == 6" class="campo">Intermedio: Protección accidentes</p>
-                                    <p v-if="this.planSeleccionado == 3" class="campo">Full: Protección total</p>
+                                    <p v-if="this.$store.state.common.planSeleccionado == 4" class="campo">Básico: Protección contra robo</p>
+                                    <p v-if="this.$store.state.common.planSeleccionado == 6" class="campo">Intermedio: Protección accidentes</p>
+                                    <p v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10" class="campo">Full: Protección total</p>
                                 </b-col>
                             </b-row>
                             <b-row class="row-final">
@@ -236,8 +236,7 @@
                 placeholder="Correo Electrónico"
                 v-on:keyup.enter="processTags('celular')"
               ></b-form-input>
-            </b-col>
-            
+            </b-col>            
             <b-col cols="6" class="mt-4">
               <b-form-input id="celular" ref="celular" name="phone"
                 @keyup.native=" validarCelular(); validacionInput($event); "
@@ -340,17 +339,10 @@
               <b-form-input
                 id="correo-electronicoEmpresa"
                 ref="correo-electronicoEmpresa"
-                @keyup.native="
-                  validacionInput($event);
-                  validarEmail();
-                "
+                @keyup.native="validacionInput($event); validarEmail(); "
                 v-bind:class="{ errorInput: msgErrorEmail }"
-                v-on:focus.native="
-                  isIconEmailAddress = !isIconEmailAddress
-                "
-                v-on:blur.native="
-                  isIconEmailAddress = !isIconEmailAddress
-                "
+                v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
                 class="input-vehicular iptGral__input iptRUC form-control input-id"
                 autocomplete="on"
                 autofocus
@@ -428,13 +420,13 @@
                               <b-col cols="4" class="row-data">
                                   <p><span class="label">Plan</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.planSeleccionado == 4" class="row-data">
+                              <b-col cols="8" v-if="this.$store.state.common.planSeleccionado == 4" class="row-data">
                                   <p><span class="campo-minus">Básico: Protección contra robo</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.planSeleccionado == 6" class="row-data">
+                              <b-col cols="8" v-if="this.$store.state.common.planSeleccionado == 6" class="row-data">
                                   <p><span class="campo-minus">Intermedio: Protección accidentes</span></p>
                               </b-col>
-                              <b-col cols="8" v-if="this.planSeleccionado == 3" class="row-data">
+                              <b-col cols="8" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10" class="row-data">
                                   <p><span class="campo-minus">Full: Protección total</span></p>
                               </b-col>
                           </b-row>
@@ -539,66 +531,6 @@
 
         </div>
       </b-modal>
-   
-      <b-modal
-        id="leaveDocument"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              <img
-                src="../../static/media/modal/leave-datos.png"
-                alt="Abandonar Seguro Vehicular"
-              />
-            </b-col>
-          </b-row>
-          <b-row class="text-center">
-            <b-col cols="12" class="mb-3">
-              <h2 v-if="this.planSeleccionado == 4">
-                <span>¡Buena elección!</span> <br />
-                Tu auto estará <br />
-                protegido en caso lo roben
-              </h2>
-              <h2 v-if="this.planSeleccionado == 6">
-                <span>¡Buena elección!</span> <br />
-                Has elegido el plan <br />
-                perfecto para tu
-                {{ this.$store.state.common.itemElegido.brand }}
-              </h2>
-              <h2
-                v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
-              >
-                <span>¡Buena elección!</span> <br />
-                Has elegido el plan que te <br />
-                protege contra Todo Riesgo
-              </h2>
-            </b-col>
-            <b-col cols="12" class="mb-3">
-              <h3>
-                No lo dejes pasar, protege tu
-                {{ this.$store.state.common.itemElegido.brand }} <br />
-                hoy por solo ${{ this.$store.state.common.montoPagar }}.
-              </h3>
-            </b-col>
-            <b-col cols="12" class="mb-2">
-              <h3>Continúa tu cotización en el siguiente paso.</h3>
-            </b-col>
-          </b-row>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
-                >QUIERO CONTINUAR</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal>
     </b-container>
   </section>
 </template>
@@ -636,7 +568,7 @@
       },
       monto_pagar_steps3: "",
       ocultarInputDocumento: false,
-      planSeleccionado: 0,
+      //planSeleccionado: 0,
       objError: {
         page: "",
         flow: "",
@@ -1580,8 +1512,12 @@
           objJWT.common.documentoLocal.length == 9
         ) {
           this.getClient(1);
+          this.ocultarFormPN = false;
+          this.mostrarRuc = false
         } else if (objJWT.common.documentoLocal.length == 11) {
           this.getClient(2);
+          this.mostrarRuc = true
+          this.ocultarFormPN = true;
         } else {
         }
       }

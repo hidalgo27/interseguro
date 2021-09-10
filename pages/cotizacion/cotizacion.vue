@@ -101,10 +101,10 @@
       </b-row>
 
       <!--Planes desktop-->
-      <b-row align-h="center" class="text-center planes-items">
-        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2">
+      <b-row class="text-center planes-items" align-v="stretch">
+        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2 plan-item plan4 plata" >
           <!-- <div style="height: 40px" class="plan-recomendado"></div> -->
-          <div class="plan-item plan4 plata" @click="seleccionarPLanDesktop(4)" v-bind:class="{ planInactivoDesktop: planInactivo }">
+          <!-- <div class="plan-item plan4 plata" @click="seleccionarPLanDesktop(4)" v-bind:class="{ planInactivoDesktop: planInactivo }"> -->
             <b-row>
               <b-col cols="12">
                 <div class="plan-not-head-normal">
@@ -126,7 +126,7 @@
               <div class="monto-antes">
                 <p>Antes US${{ this.monto_antes_plata }}</p>
               </div>
-              <div class="btn-cotizador"  @click="continuar($event, planSeleccionado)">
+              <div class="btn-cotizador"  @click="continuar($event, 4)">
                 <span >Continuar</span>
               </div>
               <div class="que-me-cubre">
@@ -157,11 +157,11 @@
                 </p>
               </div>
             </div>
-          </div>
+          <!-- </div> -->
         </b-col>
-        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2">
+        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2 plan-item plan6 oro" >
                 <!-- <div style="height: 40px" class="plan-recomendado"></div> -->
-                <div class="plan-item plan6 oro" @click="seleccionarPLanDesktop(6)" v-bind:class="{ planInactivoDesktop: planInactivo }" >
+                <!-- <div class="plan-item plan6 oro" @click="seleccionarPLanDesktop(6)" v-bind:class="{ planInactivoDesktop: planInactivo }" > -->
                   <b-row>
                     <b-col cols="12">
                       <div class="plan-not-head-normal">
@@ -184,7 +184,7 @@
                       <p>Antes US${{ this.monto_antes_oro }}</p>
                     </div>
 
-                    <div class="btn-cotizador"  @click="continuar($event, planSeleccionado)">
+                    <div class="btn-cotizador"  @click="continuar($event, 6)">
                       <span >Continuar</span>
                     </div>
 
@@ -231,10 +231,10 @@
                       </p>
                     </div>
                   </div>
-                </div>
+                <!-- </div> -->
         </b-col>
-        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2">
-          <div class="plan-item plan3 black" @click="seleccionarPLanDesktop(3)" v-bind:class="{ planInactivoDesktop: planInactivo }" >
+        <b-col cols="12" md="12" lg="4" xl="4" class="mb-2 plan-item plan3 black" >
+          <!-- <div class="plan-item plan3 black" @click="seleccionarPLanDesktop(3)" v-bind:class="{ planInactivoDesktop: planInactivo }" > -->
             <b-row align-h="center">
               <b-col cols="10">
                   <div class="plan-recomendado d-flex">
@@ -257,7 +257,7 @@
                 <div class="monto-antes">
                   <p>Antes US${{ this.monto_antes_black }}</p>
                 </div>
-                <div class="btn-cotizador"  @click="continuar($event, planSeleccionado)">
+                <div class="btn-cotizador"  @click="continuar($event, 3)">
                   <span >Continuar</span>
                 </div>
                 <div class="que-me-cubre">
@@ -351,65 +351,8 @@
                     /><span style="margin-left: 5px">Ausencia de control*</span>
                   </p>
                 </div>
-                <!-- <div class="box-importante">
-                        <ul>
-                          <li>
-                            <div class="detalle-item">
-                              <p class="endozar-poliza text-right" style="width: auto">
-                                <template v-if="this.endosoSeleccionado.id == 0">
-                                  <span
-                                    style="display: inline-block; cursor:outline: none;  pointer; text-align: left;"
-                                    class="detalle-enlace"
-                                    v-b-modal.modalEntidadFinanciera2
-                                    @click="clickEnlace('entidad Financiera')"
-                                    >Aquí
-                                  </span>
-                                </template>
-                                <template v-else>
-                                  <span
-                                    style="
-                                      display: inline-block;
-                                      outline: none;
-                                      line-height: 1;
-                                      padding-bottom: 4px;
-                                      cursor: pointer;
-                                    "
-                                    class="detalle-enlace"
-                                    v-b-modal.modalEntidadFinanciera2
-                                    @click="clickEnlace('entidad Financiera')"
-                                  >
-                                    {{ this.endosoSeleccionado.name }}</span
-                                  >
-                                </template>
-                              </p>
-                            </div>
-                          </li>
-                          <li class="detalle-item">
-                            <div class="item pb-3">
-                              <span
-                                href="javascript:void(0);"
-                                v-if="this.listaBasica.vehicle.gps == 'Y'"
-                                @click="showModalGPS()"
-                              >
-                                <span class="mb-0 gps requiere-gps">
-                                  Tu auto necesita GPS:
-                                  <a class="detalle-enlace" href="javascript:void(0);">{{
-                                    this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO"
-                                  }}</a>
-                                </span>
-                              </span>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="detalle-item" v-if="this.gps == true">
-                              <p>GPS:</p>
-                              <p>SI</p>
-                            </div>
-                          </li>
-                        </ul>
-                      </div> -->
               </div>
-          </div>
+          <!-- </div> -->
         </b-col>
       </b-row>
     </b-container>
@@ -488,70 +431,6 @@
               <div class="btn-cotizador"  @click="continuar($event, planSeleccionado)">
                 <span >Continuar</span>
               </div>
-
-              <!-- <div class="box-importante">
-                <ul>
-                  <li>
-                    <div class="detalle-item" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">
-                      <p style="width: 208px">Endosa tu crédito vehicular</p>
-                      <p class="endozar-poliza text-right" style="width: auto">
-                        <template v-if="this.endosoSeleccionado.id == 0">
-                          <span
-                            style="
-                              display: inline-block;
-                              outline: none;
-                              cursor: pointer;
-                              text-align: left;
-                            "
-                            class="detalle-enlace"
-                            v-b-modal.modalEntidadFinanciera2
-                            @click="clickEnlace('entidad Financiera')"
-                            >Aquí
-                          </span>
-                        </template>
-                        <template v-else>
-                          <span
-                            style="
-                              display: inline-block;
-                              outline: none;
-                              line-height: 1;
-                              padding-bottom: 4px;
-                              cursor: pointer;
-                            "
-                            class="detalle-enlace"
-                            v-b-modal.modalEntidadFinanciera2
-                            @click="clickEnlace('entidad Financiera')"
-                          >
-                            {{ this.endosoSeleccionado.name }}</span
-                          >
-                        </template>
-                      </p>
-                    </div>
-                  </li>
-                  <li class="detalle-item">
-                    <div class="item pb-3">
-                      <span
-                        href="javascript:void(0);"
-                        v-if="this.listaBasica.vehicle.gps == 'Y'"
-                        @click="showModalGPS()"
-                      >
-                        <span class="mb-0 gps requiere-gps">
-                          Tu auto necesita GPS:
-                          <a class="detalle-enlace" href="javascript:void(0);">{{
-                            this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO"
-                          }}</a>
-                        </span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="detalle-item" v-if="this.gps == true">
-                      <p>GPS:</p>
-                      <p>SI</p>
-                    </div>
-                  </li>
-                </ul>
-              </div> -->
 
               <div class="que-me-cubre">
                 <div class="titulo-importante" v-if="this.listaBasica.vehicle.gps == 'Y' || this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">Importante:</div>
@@ -1661,17 +1540,20 @@ export default {
         console.log(id);
       } else {
         this.valorSeleccionado = true;
-        let elemento1 = document.querySelectorAll(".plan-item");
+        /* let elemento1 = document.querySelectorAll(".plan-item");
         for (let index = 0; index < elemento1.length; index++) {
           elemento1[index].classList.remove("planActivoDesktop");
-        }
-        setTimeout(() => {
+        } */
+        /* setTimeout(() => {
           let arreglo = document.querySelectorAll(".plan" + id);
           for (let i = 0; i < arreglo.length; i++) {
             arreglo[i].classList.add("planActivoDesktop");
           }
           this.seleccionarFrecuencia();
-        }, 250);
+        }, 250); */
+
+        this.seleccionarFrecuencia();
+
         this.$store.commit("common/setPlanSeleccionado", id);
         this.planSeleccionado = id;
         this.detectarPLanSeleccionado();
@@ -1723,6 +1605,7 @@ export default {
       this.detectarPLanSeleccionado();
     },
     continuar(e, id) {
+      console.log('id plan : '+id);
       e.stopPropagation();
       this.seleccionarPLanDesktop(id);
       this.$store.commit("common/setFrecuenciaPago", this.selected);
@@ -1735,8 +1618,10 @@ export default {
       this.listCotizacion.paymentMethodId = this.selected;
       this.$store.state.common.listaCotizacion.paymentMethodId = this.selected;
       this.$store.commit("common/setObjectDigodat", this.cobertura_is);
-      this.$store.commit("common/setItemElegido", this.itemElegido);
+      this.$store.commit("common/setItemElegido", this.itemElegido);      
       this.$store.commit("common/setListaCotizacion", this.listCotizacion);
+
+      console.log('item elegido .. '+this.itemElegido)
 
       if (document.location.hostname == "www.interseguro.pe") {
         fbq("track", "ViewContent", {
@@ -2053,422 +1938,8 @@ export default {
     },
 
     segundaPantalla() {
-      this.objectVehicle = this.$store.state.common.objVehiculo;
-      // switch (this.itemElegido.brandId) {
-      //   case 11:
-      //     if (this.itemElegido.model.indexOf("AVEO") >= 0 ) {
-      //       this.code_sku = "sku039"
-      //     } else if(this.itemElegido.model.indexOf("CAPTIVA") >= 0 ) {
-      //       this.code_sku = "sku040"
-      //     }else if(this.itemElegido.model.indexOf("COBALT") >= 0 ) {
-      //       this.code_sku = "sku041"
-      //     }else if(this.itemElegido.model.indexOf("CRUZE") >= 0 ) {
-      //       this.code_sku = "sku042"
-      //     }else if(this.itemElegido.model.indexOf("EQUINOX") >= 0 ) {
-      //       this.code_sku = "sku043"
-      //     }else if(this.itemElegido.model.indexOf("SAIL") >= 0 ) {
-      //       this.code_sku = "sku044"
-      //     }else if(this.itemElegido.model.indexOf("SONIC") >= 0 ) {
-      //       this.code_sku = "sku045"
-      //     }else if(this.itemElegido.model.indexOf("SPARK") >= 0 ) {
-      //       this.code_sku = "sku046"
-      //     }else if(this.itemElegido.model.indexOf("PRISMA") >= 0 ) {
-      //       this.code_sku = "sku047"
-      //     }else if(this.itemElegido.model.indexOf("ASTRA ENJOY ") >= 0 ) {
-      //       this.code_sku = "sku099"
-      //     }else if(this.itemElegido.model.indexOf("COLORADO ") >= 0 ) {
-      //       this.code_sku = "sku100"
-      //     }else if(this.itemElegido.model.indexOf("LUV D-MAX") >= 0 ) {
-      //       this.code_sku = "sku101"
-      //     }else if(this.itemElegido.model.indexOf("N300") >= 0 ) {
-      //       this.code_sku = "sku102"
-      //     }else if(this.itemElegido.model.indexOf("N400") >= 0 ) {
-      //       this.code_sku = "sku103"
-      //     }else if(this.itemElegido.model.indexOf("ONIX") >= 0 ) {
-      //       this.code_sku = "sku104"
-      //     }else if(this.itemElegido.model.indexOf("OPTRA") >= 0 ) {
-      //       this.code_sku = "sku105"
-      //     }else if(this.itemElegido.model.indexOf("ORLANDO") >= 0 ) {
-      //       this.code_sku = "sku106"
-      //     }else if(this.itemElegido.model.indexOf("TRACKER") >= 0 ) {
-      //       this.code_sku = "sku107"
-      //     }else if(this.itemElegido.model.indexOf("TRAVERSE") >= 0 ) {
-      //       this.code_sku = "sku108"
-      //     }else if(this.itemElegido.model.indexOf("SPIN") >= 0 ) {
-      //       this.code_sku = "sku109"
-      //     }else if(this.itemElegido.model.indexOf("SUBURBAN") >= 0 ) {
-      //       this.code_sku = "sku110"
-      //     }else if(this.itemElegido.model.indexOf("TRAIBLAZER") >= 0 ) {
-      //       this.code_sku = "sku111"
-      //     }else if(this.itemElegido.model.indexOf("TAHOE") >= 0 ) {
-      //       this.code_sku = "sku112"
-      //     }else if(this.itemElegido.model.indexOf("SILVERADO") >= 0 ) {
-      //       this.code_sku = "sku113"
-      //     }else if(this.itemElegido.model.indexOf("GROOVE") >= 0 ) {
-      //       this.code_sku = "sku114"
-      //     }else if(this.itemElegido.model.indexOf("MALIBU") >= 0 ) {
-      //       this.code_sku = "sku115"
-      //     }else if(this.itemElegido.model.indexOf("VIVANT") >= 0 ) {
-      //       this.code_sku = "sku116"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 32:
-      //     if (this.itemElegido.model.indexOf("ACCEN") >= 0 ) {
-      //       this.code_sku = "sku001"
-      //     } else if(this.itemElegido.model.indexOf("CRETA") >= 0 ) {
-      //       this.code_sku = "sku002"
-      //     }else if(this.itemElegido.model.indexOf("ELANTRA") >= 0 ) {
-      //       this.code_sku = "sku003"
-      //     }else if(this.itemElegido.model.indexOf("GRAN") >= 0 ) {
-      //       this.code_sku = "sku004"
-      //     }else if(this.itemElegido.model.indexOf("I20") >= 0 ) {
-      //       this.code_sku = "sku005"
-      //     }else if(this.itemElegido.model.indexOf("NEW") >= 0 ) {
-      //       this.code_sku = "sku006"
-      //     }else if(this.itemElegido.model.indexOf("TUCSON") >= 0 ) {
-      //       this.code_sku = "sku007"
-      //     }else if(this.itemElegido.model.indexOf("SANTA FE") >= 0 ) {
-      //       this.code_sku = "sku018"
-      //     }else if(this.itemElegido.model.indexOf("ATOS") >= 0 ) {
-      //       this.code_sku = "sku070"
-      //     }else if(this.itemElegido.model.indexOf("AVANTE") >= 0 ) {
-      //       this.code_sku = "sku071"
-      //     }else if(this.itemElegido.model.indexOf("AZERA") >= 0 ) {
-      //       this.code_sku = "sku072"
-      //     }else if(this.itemElegido.model.indexOf("COUPE") >= 0 ) {
-      //       this.code_sku = "sku073"
-      //     }else if(this.itemElegido.model.indexOf("EON") >= 0 ) {
-      //       this.code_sku = "sku074"
-      //     }else if(this.itemElegido.model.indexOf("EQUUS") >= 0 ) {
-      //       this.code_sku = "sku075"
-      //     }else if(this.itemElegido.model.indexOf("H-1") >= 0 ) {
-      //       this.code_sku = "sku076"
-      //     }else if(this.itemElegido.model.indexOf("H-100") >= 0 ) {
-      //       this.code_sku = "sku077"
-      //     }else if(this.itemElegido.model.indexOf("I10") >= 0 ) {
-      //       this.code_sku = "sku078"
-      //     }else if(this.itemElegido.model.indexOf("I30") >= 0 ) {
-      //       this.code_sku = "sku079"
-      //     }else if(this.itemElegido.model.indexOf("I40") >= 0 ) {
-      //       this.code_sku = "sku080"
-      //     }else if(this.itemElegido.model.indexOf("SONATA") >= 0 ) {
-      //       this.code_sku = "sku081"
-      //     }else if(this.itemElegido.model.indexOf("VELOSTER") >= 0 ) {
-      //       this.code_sku = "sku082"
-      //     }else if(this.itemElegido.model.indexOf("VENUE") >= 0 ) {
-      //       this.code_sku = "sku083"
-      //     }else if(this.itemElegido.model.indexOf("VERACRUZ") >= 0 ) {
-      //       this.code_sku = "sku084"
-      //     }else if(this.itemElegido.model.indexOf("VERNA") >= 0 ) {
-      //       this.code_sku = "sku05"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-
-      //   case 39:
-      //     if (this.itemElegido.model.indexOf("PICANTO") >= 0 ) {
-      //       this.code_sku = "sku008"
-      //     } else if(this.itemElegido.model.indexOf("RIO") >= 0 ) {
-      //       this.code_sku = "sku009"
-      //     }else if(this.itemElegido.model.indexOf("SPORTAGE") >= 0 ) {
-      //       this.code_sku = "sku010"
-      //     }else if(this.itemElegido.model.indexOf("CARENS") >= 0 ) {
-      //       this.code_sku = "sku019"
-      //     }else if(this.itemElegido.model.indexOf("SORENTO") >= 0 ) {
-      //       this.code_sku = "sku020"
-      //     }else if(this.itemElegido.model.indexOf("CADENZA") >= 0 ) {
-      //       this.code_sku = "sku086"
-      //     }else if(this.itemElegido.model.indexOf("CARNIVAL") >= 0 ) {
-      //       this.code_sku = "sku087"
-      //     }else if(this.itemElegido.model.indexOf("CERATO") >= 0 ) {
-      //       this.code_sku = "sku088"
-      //     }else if(this.itemElegido.model.indexOf("FORTE") >= 0 ) {
-      //       this.code_sku = "sku089"
-      //     }else if(this.itemElegido.model.indexOf("GRAND CARNIVAL") >= 0 ) {
-      //       this.code_sku = "sku090"
-      //     }else if(this.itemElegido.model.indexOf("K2") >= 0 ) {
-      //       this.code_sku = "sku091"
-      //     }else if(this.itemElegido.model.indexOf("K5") >= 0 ) {
-      //       this.code_sku = "sku092"
-      //     }else if(this.itemElegido.model.indexOf("MOHAVE") >= 0 ) {
-      //       this.code_sku = "sku093"
-      //     }else if(this.itemElegido.model.indexOf("OPTIMA") >= 0 ) {
-      //       this.code_sku = "sku094"
-      //     }else if(this.itemElegido.model.indexOf("QUORIS") >= 0 ) {
-      //       this.code_sku = "sku095"
-      //     }else if(this.itemElegido.model.indexOf("SELTOS") >= 0 ) {
-      //       this.code_sku = "sku096"
-      //     }else if(this.itemElegido.model.indexOf("SOLUTO") >= 0 ) {
-      //       this.code_sku = "sku097"
-      //     }else if(this.itemElegido.model.indexOf("SOUL") >= 0 ) {
-      //       this.code_sku = "sku098"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-
-      //     break;
-      //   case 62:
-      //     if (this.itemElegido.model.indexOf("YARIS") >= 0 ) {
-      //       this.code_sku = "sku011"
-      //     }else if(this.itemElegido.model.indexOf("COROLLA") >= 0 ) {
-      //       this.code_sku = "sku021"
-      //     }else if(this.itemElegido.model.indexOf("HILUX") >= 0 ) {
-      //       this.code_sku = "sku022"
-      //     }else if(this.itemElegido.model.indexOf("AVANZA") >= 0 ) {
-      //       this.code_sku = "sku023"
-      //     }else if(this.itemElegido.model.indexOf("4RUNNER") >= 0 ) {
-      //       this.code_sku = "sku048"
-      //     }else if(this.itemElegido.model.indexOf("AURIS") >= 0 ) {
-      //       this.code_sku = "sku049"
-      //     }else if(this.itemElegido.model.indexOf("AVENSIS") >= 0 ) {
-      //       this.code_sku = "sku050"
-      //     }else if(this.itemElegido.model.indexOf("CAMRY") >= 0 ) {
-      //       this.code_sku = "sku051"
-      //     }else if(this.itemElegido.model.indexOf("FJ CRUISER") >= 0 ) {
-      //       this.code_sku = "sku052"
-      //     }else if(this.itemElegido.model.indexOf("RAV4") >= 0 ) {
-      //       this.code_sku = "sku053"
-      //     }else if(this.itemElegido.model.indexOf("PRIUS") >= 0 ) {
-      //       this.code_sku = "sku054"
-      //     }else if(this.itemElegido.model.indexOf("RUSH") >= 0 ) {
-      //       this.code_sku = "sku055"
-      //     }else if(this.itemElegido.model.indexOf("86 GT") >= 0 ) {
-      //       this.code_sku = "sku061"
-      //     }else if(this.itemElegido.model.indexOf("AGYA") >= 0 ) {
-      //       this.code_sku = "sku062"
-      //     }else if(this.itemElegido.model.indexOf("ETIOS") >= 0 ) {
-      //       this.code_sku = "sku063"
-      //     }else if(this.itemElegido.model.indexOf("FORTUNER") >= 0 ) {
-      //       this.code_sku = "sku064"
-      //     }else if(this.itemElegido.model.indexOf("HIACE COMMUTER") >= 0 ) {
-      //       this.code_sku = "sku065"
-      //     }else if(this.itemElegido.model.indexOf("HIACE PANEL") >= 0 ) {
-      //       this.code_sku = "sku065"
-      //     }else if(this.itemElegido.model.indexOf("HIGHLANDER") >= 0 ) {
-      //       this.code_sku = "sku066"
-      //     }else if(this.itemElegido.model.indexOf("LAND CRUISER") >= 0 ) {
-      //       this.code_sku = "sku067"
-      //     }else if(this.itemElegido.model.indexOf("URBAN CRUISER 1.3") >= 0 ) {
-      //       this.code_sku = "sku068"
-      //     }else if(this.itemElegido.model.indexOf("ZELAS") >= 0 ) {
-      //       this.code_sku = "sku069"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-
-      //     break;
-      //   case 64:
-      //     if (this.itemElegido.model.indexOf("XC") >= 0 ) {
-      //       this.code_sku = "sku026"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 30:
-      //     if (this.itemElegido.model.indexOf("PILOT") >= 0 ) {
-      //       this.code_sku = "sku027"
-      //     }else if(this.itemElegido.model.indexOf("WR-V") >= 0 ) {
-      //       this.code_sku = "sku028"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 61:
-      //     if (this.itemElegido.model.indexOf("SWIFT") >= 0 ) {
-      //       this.code_sku = "sku012"
-      //     }else if(this.itemElegido.model.indexOf("SX4") >= 0 ) {
-      //       this.code_sku = "sku024"
-      //     }else if(this.itemElegido.model.indexOf("ALTO") >= 0 ) {
-      //       this.code_sku = "sku117"
-      //     }else if(this.itemElegido.model.indexOf("APV ") >= 0 ) {
-      //       this.code_sku = "sku118"
-      //     }else if(this.itemElegido.model.indexOf("BALENO") >= 0 ) {
-      //       this.code_sku = "sku119"
-      //     }else if(this.itemElegido.model.indexOf("CIAZ") >= 0 ) {
-      //       this.code_sku = "sku120"
-      //     }else if(this.itemElegido.model.indexOf("GRAND NOMADE") >= 0 ) {
-      //       this.code_sku = "sku121"
-      //     }else if(this.itemElegido.model.indexOf("GRAND VITARA") >= 0 ) {
-      //       this.code_sku = "sku122"
-      //     }else if(this.itemElegido.model.indexOf("IGNIS") >= 0 ) {
-      //       this.code_sku = "sku123"
-      //     }else if(this.itemElegido.model.indexOf("JIMNY") >= 0 ) {
-      //       this.code_sku = "sku124"
-      //     }else if(this.itemElegido.model.indexOf("KIZASHI") >= 0 ) {
-      //       this.code_sku = "sku125"
-      //     }else if(this.itemElegido.model.indexOf("S-CROSS") >= 0 ) {
-      //       this.code_sku = "sku126"
-      //     }else if(this.itemElegido.model.indexOf("S-Presso") >= 0 ) {
-      //       this.code_sku = "sku127"
-      //     }else if(this.itemElegido.model.indexOf("VITARA") >= 0 ) {
-      //       this.code_sku = "sku128"
-      //     }else if(this.itemElegido.model.indexOf("XL-7") >= 0 ) {
-      //       this.code_sku = "sku129"
-      //     }else if(this.itemElegido.model.indexOf("CELERIO 1.0") >= 0 ) {
-      //       this.code_sku = "sku130"
-      //     }else if(this.itemElegido.model.indexOf("ERTIGA") >= 0 ) {
-      //       this.code_sku = "sku131"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 63:
-      //     if (this.itemElegido.model.indexOf("GOL") >= 0 ) {
-      //       this.code_sku = "sku029"
-      //     }else if(this.itemElegido.model.indexOf("GOLF") >= 0 ) {
-      //       this.code_sku = "sku030"
-      //     }else if(this.itemElegido.model.indexOf("T-CROSS") >= 0 ) {
-      //       this.code_sku = "sku031"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 8:
-      //     if (this.itemElegido.model.indexOf("CS") >= 0 ) {
-      //       this.code_sku = "sku032"
-      //     }else if(this.itemElegido.model.indexOf("GRAND VAN") >= 0 ) {
-      //       this.code_sku = "sku033"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 49:
-      //     if (this.itemElegido.model.indexOf("ASX") >= 0 ) {
-      //       this.code_sku = "sku013"
-      //     }else if(this.itemElegido.model.indexOf("OUTLANDER") >= 0 ) {
-      //       this.code_sku = "sku025"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 45:
-      //     if (this.itemElegido.model.indexOf("CX") >= 0 ) {
-      //       this.code_sku = "sku014"
-      //     } else if(this.itemElegido.model.indexOf("MAZDA") >= 0 ) {
-      //       this.code_sku = "sku015"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 33:
-      //     if (this.itemElegido.model.indexOf("S2") >= 0 ) {
-      //       this.code_sku = "sku035"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 54:
-      //     if (this.itemElegido.model.indexOf("SANDERO") >= 0 ) {
-      //       this.code_sku = "sku036"
-      //     }else if(this.itemElegido.model.indexOf("DUSTER") >= 0 ) {
-      //       this.code_sku = "sku142"
-      //     }else if(this.itemElegido.model.indexOf("DUSTER OROCH") >= 0 ) {
-      //       this.code_sku = "sku143"
-      //     }else if(this.itemElegido.model.indexOf("KOLEOS") >= 0 ) {
-      //       this.code_sku = "sku144"
-      //     }else if(this.itemElegido.model.indexOf("LOGAN") >= 0 ) {
-      //       this.code_sku = "sku145"
-      //     }else if(this.itemElegido.model.indexOf("GRAND SCENIC") >= 0 ) {
-      //       this.code_sku = "sku146"
-      //     }else if(this.itemElegido.model.indexOf("FLUENCE 2.0") >= 0 ) {
-      //       this.code_sku = "sku147"
-      //     }else if(this.itemElegido.model.indexOf("CAPTUR") >= 0 ) {
-      //       this.code_sku = "sku148"
-      //     }else if(this.itemElegido.model.indexOf("KANGOO EXPRESS 1.9D RL") >= 0 ) {
-      //       this.code_sku = "sku149"
-      //     }else if(this.itemElegido.model.indexOf("MEGANE II") >= 0 ) {
-      //       this.code_sku = "sku150"
-      //     }else if(this.itemElegido.model.indexOf("MEGANE RS 2.0TURBO") >= 0 ) {
-      //       this.code_sku = "sku151"
-      //     }else if(this.itemElegido.model.indexOf("KWID") >= 0 ) {
-      //       this.code_sku = "sku152"
-      //     }else if(this.itemElegido.model.indexOf("STEPWAY 1.6") >= 0 ) {
-      //       this.code_sku = "sku153"
-      //     }else if(this.itemElegido.model.indexOf("SYMBOL 1.6") >= 0 ) {
-      //       this.code_sku = "sku154"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   case 35:
-      //     if (this.itemElegido.model.indexOf("KONECT") >= 0 ) {
-      //       this.code_sku = "sku037"
-      //     }else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-
-      //   case 50:
-      //     if (this.itemElegido.model.indexOf("TIIDA") >= 0 ) {
-      //       this.code_sku = "sku015"
-      //     } else if(this.itemElegido.model.indexOf("VERSA") >= 0 ) {
-      //       this.code_sku = "sku016"
-      //     }else if(this.itemElegido.model.indexOf("X-TRAIL") >= 0 ) {
-      //       this.code_sku = "sku034"
-      //     }else if(this.itemElegido.model.indexOf("FRONTIER") >= 0 ) {
-      //       this.code_sku = "sku056"
-      //     }else if(this.itemElegido.model.indexOf("NAVARA") >= 0 ) {
-      //       this.code_sku = "sku057"
-      //     }else if(this.itemElegido.model.indexOf("PATROL") >= 0 ) {
-      //       this.code_sku = "sku058"
-      //     }else if(this.itemElegido.model.indexOf("QASHQAI") >= 0 ) {
-      //       this.code_sku = "sku059"
-      //     }else if(this.itemElegido.model.indexOf("PATHFINDER") >= 0 ) {
-      //       this.code_sku = "sku132"
-      //     }else if(this.itemElegido.model.indexOf("MARCH") >= 0 ) {
-      //       this.code_sku = "sku133"
-      //     }else if(this.itemElegido.model.indexOf("V16 1.6") >= 0 ) {
-      //       this.code_sku = "sku134"
-      //     }else if(this.itemElegido.model.indexOf("JUKE") >= 0 ) {
-      //       this.code_sku = "sku135"
-      //     }else if(this.itemElegido.model.indexOf("ALMERA") >= 0 ) {
-      //       this.code_sku = "sku136"
-      //     }else if(this.itemElegido.model.indexOf("ALMERA") >= 0 ) {
-      //       this.code_sku = "sku137"
-      //     }else if(this.itemElegido.model.indexOf("MURANO") >= 0 ) {
-      //       this.code_sku = "sku138"
-      //     }else if(this.itemElegido.model.indexOf("KICKS") >= 0 ) {
-      //       this.code_sku = "sku139"
-      //     }else if(this.itemElegido.model.indexOf("TEANA") >= 0 ) {
-      //       this.code_sku = "sku140"
-      //     }else if(this.itemElegido.model.indexOf("URVAN") >= 0 ) {
-      //       this.code_sku = "sku141"
-      //     }else if(this.itemElegido.model.indexOf("SENTRA") >= 0 ) {
-      //       this.code_sku = "sku060"
-      //     } else{
-      //       this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     }
-      //     break;
-      //   default:
-      //     this.code_sku = this.itemElegido.brand + " - " + this.itemElegido.model
-      //     break
-      // }
-      this.$store.commit("common/setCode_sku", this.code_sku);
-      // if (this.$store.state.common.origenCliente == 2) {
-      //   this.objectVehicle.modelId = -1;
-      //   if (this.objectVehicle.modelId == -1) {
-      //     this.objUtm = {
-      //       "1": "utm_campaign=remarketingCN_SOAT_D_1",
-      //       "2": "utm_campaign=remarketingCN_SOAT_D_2",
-      //       "3": "utm_campaign=remarketingCN_SOAT_D_3",
-      //       "4": "utm_campaign=remarketingCN_SOAT_D_4"
-      //     };
-      //     if(this.$store.state.common.businessId == 2){
-      //       this.objUtm = {
-      //         "1": "utm_campaign=IBK_remarketingCN_SOAT_D_1",
-      //         "2": "utm_campaign=IBK_remarketingCN_SOAT_D_2",
-      //         "3": "utm_campaign=IBK_remarketingCN_SOAT_D_3",
-      //         "4": "utm_campaign=IBK_remarketingCN_SOAT_D_4"
-      //       }
-      //     }
-      //     this.remarketingv2(this.objSOAT.emailAddress != null ? this.objSOAT.emailAddress.toLowerCase(): "",0)
-      //   }
-
-      // } else if (this.$store.state.common.origenCliente == 1) {
-      // }
+      this.objectVehicle = this.$store.state.common.objVehiculo;      
+      this.$store.commit("common/setCode_sku", this.code_sku);      
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
@@ -2704,7 +2175,7 @@ export default {
       setTimeout(() => {
         this.$refs.modalEntidadFinanciera2.hide();
         this.mostrarMensajeEnviadoEndosar = false;
-      }, 5000);
+      }, 1000);
     },
     hideModal() {
       this.showModal = false;
@@ -2927,6 +2398,8 @@ export default {
     this.selected = this.$store.state.common.frecuenciaPago;
     this.nuevoProducto = this.$store.state.common.nuevoProducto;
     this.itemElegido.discountType = this.$store.state.common.discountType;
+    console.log('discountType .. '+this.itemElegido.discountType)
+    console.log('plan seleccionado  .. '+this.$store.state.common.planSeleccionado)
 
     this.objSOAT = this.$store.state.common.clienteSOAT;
     this.fechaVigencia = this.$store.state.common.fechaVigencia;

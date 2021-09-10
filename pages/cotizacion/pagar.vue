@@ -75,7 +75,7 @@
                                         </b-col>
                                         <b-col cols="4" class="text-right" >
                                             <b-button class="button-editar" @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1"><p class="p-0">EDITAR</p></b-button>
-                                            <b-button class="button-cancelar" @click="clicBtnCancelar()" v-else> <p class="p-0">GUARDAR</p></b-button>
+                                            <b-button class="button-cancelar" @click="guardarDatos($event)" v-else> <p class="p-0">GUARDAR</p></b-button>
                                         </b-col>                                        
                                     </b-row>
                                     <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
@@ -245,9 +245,9 @@
                                             <p class="label">Plan</p>                                            
                                         </b-col>
                                         <b-col cols="8">
-                                            <p v-if="this.planSeleccionado == 4" class="campo">Básico: Protección contra robo</p>
-                                            <p v-if="this.planSeleccionado == 6" class="campo">Intermedio: Protección accidentes</p>
-                                            <p v-if="this.planSeleccionado == 3" class="campo">Full: Protección total</p>
+                                            <p v-if="this.$store.state.common.planSeleccionado == 4" class="campo">Básico: Protección contra robo</p>
+                                            <p v-if="this.$store.state.common.planSeleccionado == 6" class="campo">Intermedio: Protección accidentes</p>
+                                            <p v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10" class="campo">Full: Protección total</p>
                                         </b-col>
                                     </b-row>
                                     <b-row class="row-final">
@@ -447,14 +447,21 @@
                                         </b-col>
                                     </b-row>
                                     <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
-                                        <b-col cols="4" class="row-data">
-                                            <p><span class="label">DNI</span></p>
+                                        <b-col cols="4" class="row-data" >
+                                            <p>
+                                                <span class="label" v-if="this.$store.state.common.objCliente.documentType == 'DNI'">DNI</span>
+                                                <span class="label" v-else-if="this.$store.state.common.objCliente.documentType == 'CE'">CE</span>
+                                                <span class="label" v-else-if="this.$store.state.common.objCliente.documentType == 'RUC'">RUC</span>
+                                            </p>
                                         </b-col>
                                         <b-col cols="8" class="row-data">
                                             <p><span class="campo-minus">{{this.$store.state.common.objCliente.documentNumber}}</span></p>
                                         </b-col>
                                         <b-col cols="4" class="row-data">
-                                            <p><span class="label">Nombre</span></p>
+                                            <p>
+                                                <span class="label" v-if="this.$store.state.common.objCliente.documentType == 'DNI' || this.$store.state.common.objCliente.documentType == 'CE'">Nombre</span>
+                                                <span class="label" v-else-if="this.$store.state.common.objCliente.documentType == 'RUC'">Razón Social</span>
+                                            </p>
                                         </b-col>
                                         <b-col cols="8" class="row-data">
                                             <p><span class="campo-minus">
@@ -475,7 +482,7 @@
                                             <p><span class="campo-minus">{{this.$store.state.common.objCliente.emailAddress}}</span></p>
                                         </b-col>
                                     </b-row>
-                                    <b-row class="edit-datos" v-if="this.visibleBtnEditar == 0" align-v="center">
+                                    <b-row class="edit-datos-pn" v-if="this.visibleBtnEditar == 0 && (this.$store.state.common.objCliente.documentType == 'DNI' || this.$store.state.common.objCliente.documentType == 'CE')" align-v="center">
                                         <b-col cols="4">
                                             <p><span class="label">DNI</span></p>
                                         </b-col>
@@ -579,6 +586,15 @@
                                                         v-on:keyup.enter="validarCelular($event)"
                                                     ></b-form-input>
                                                 </b-col>
+                                                <b-col cols="4" v-if="this.msgErrorCelular">
+                                                </b-col>
+                                                <b-col cols="6" v-if="this.msgErrorCelular">
+                                                    <b-row class="d-flex justify-content-center pb-2">
+                                                        <div>
+                                                            <span style="font-size: 12px; color: rgb(214, 4, 17)" >Por favor ingresa un número de celular válido</span >
+                                                        </div>
+                                                    </b-row>
+                                                </b-col>
 
                                                 <b-col cols="4" class="mt-3">
                                                     <p><span class="label">Correo</span></p>
@@ -598,6 +614,118 @@
                                                         v-on:keyup.enter="processTags('celular')"
                                                     ></b-form-input>
                                                 </b-col>
+                                                <b-col cols="4" v-if="this.msgErrorEmail">
+                                                </b-col>
+                                                <b-col cols="8" v-if="this.msgErrorEmail">
+                                                    <b-row class="d-flex justify-content-center pb-2">
+                                                        <div>
+                                                            <span style="font-size: 12px; color: rgb(214, 4, 17)" >Por favor ingresa un email válido</span>
+                                                        </div>
+                                                    </b-row>
+                                                </b-col>                                                    
+                                                
+                                            </b-row>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="edit-datos-pj" v-if="this.visibleBtnEditar == 0 && this.$store.state.common.objCliente.documentType == 'RUC'" align-v="center">
+                                        <b-col cols="4">
+                                            <p><span class="label">RUC</span></p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                                                        v-on:focus.native="isIconDni = !isIconDni"
+                                                        v-on:blur.native="placeholderDNI($event)"
+                                                        @click.native="clearPlaceholderDNI($event)"
+                                                        @keyup.native="delay($event, 300)"
+                                                        class="input-vehicular form-control input-id"
+                                                        maxlength="11"
+                                                        autocomplete="on"                                                        
+                                                        type="tel"
+                                                        v-model="itemElegido.documentoLocal"
+                                                        required
+                                                        placeholder="Numero de DNI, CE o RUC"
+                                                        style="text-transform: initial">
+                                            </b-form-input>
+                                            <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
+                                        </b-col>
+                                        <b-col cols="12">
+                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Razón Social</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input
+                                                        id="razon-social"
+                                                        ref="razon-social"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="isRazonSocial = !isRazonSocial"
+                                                        v-on:blur.native="isRazonSocial = !isRazonSocial"
+                                                        class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                        autocomplete="on"                                                        
+                                                        type="text"
+                                                        v-model="objClients.firstName"
+                                                        required
+                                                        placeholder="Razón social"
+                                                        v-on:keyup.enter="processTags('direccion')"
+                                                    ></b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Dirección</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input
+                                                        id="direccion"
+                                                        ref="direccion"
+                                                        @keyup.native="validacionInput($event)"
+                                                        v-on:focus.native="isDireccion = !isDireccion"
+                                                        v-on:blur.native="isDireccion = !isDireccion"
+                                                        class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                        autocomplete="on"                                                        
+                                                        type="text"
+                                                        v-model="objClients.address"
+                                                        required
+                                                        placeholder="Dirección"
+                                                        v-on:keyup.enter="processTags('celularEmpresa')"
+                                                    ></b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Celular</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input id="celularEmpresa" ref="celularEmpresa" @keyup.native=" validarCelular(); validacionInput($event); "
+                                                        v-on:focus.native=" isIconPhoneNumber = !isIconPhoneNumber "
+                                                        v-on:blur.native=" isIconPhoneNumber = !isIconPhoneNumber "
+                                                        v-bind:class="{ errorInput: msgErrorCelular }"
+                                                        class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                        autocomplete="tel"                                                        
+                                                        type="tel"
+                                                        v-model="objClients.phoneNumber"
+                                                        required
+                                                        maxlength="9"
+                                                        placeholder="Celular"
+                                                        v-on:keyup.enter=" processTags('correo-electronicoEmpresa') "
+                                                    ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                    <p><span class="label">Correo</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                    <b-form-input
+                                                        id="correo-electronicoEmpresa"
+                                                        ref="correo-electronicoEmpresa"
+                                                        @keyup.native="validacionInput($event); validarEmail(); "
+                                                        v-bind:class="{ errorInput: msgErrorEmail }"
+                                                        v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                        class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                        autocomplete="on"                                                        
+                                                        type="text"
+                                                        v-model="objClients.emailAddress"
+                                                        required
+                                                        placeholder="Correo Electrónico"
+                                                    ></b-form-input>
+                                                </b-col>
                                                 
                                             </b-row>
                                         </b-col>
@@ -615,13 +743,13 @@
                                         <b-col cols="4" class="row-data">
                                             <p><span class="label">Plan</span></p>
                                         </b-col>
-                                        <b-col cols="8" v-if="this.planSeleccionado == 4" class="row-data">
+                                        <b-col cols="8" v-if="this.$store.state.common.planSeleccionado == 4" class="row-data">
                                             <p><span class="campo-minus">Básico: Protección contra robo</span></p>
                                         </b-col>
-                                        <b-col cols="8" v-if="this.planSeleccionado == 6" class="row-data">
+                                        <b-col cols="8" v-if="this.$store.state.common.planSeleccionado == 6" class="row-data">
                                             <p><span class="campo-minus">Intermedio: Protección accidentes</span></p>
                                         </b-col>
-                                        <b-col cols="8" v-if="this.planSeleccionado == 3" class="row-data">
+                                        <b-col cols="8" v-if="this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10" class="row-data">
                                             <p><span class="campo-minus">Full: Protección total</span></p>
                                         </b-col>
                                     </b-row>
@@ -762,6 +890,8 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterseguroFlujo',
         data(){
             return {
+                visibleFormPN: 0,
+                visibleFormPJ: 0,
                 flagVerMas: 1,
                 flagVerMenos: 0,
                 visibleBtnEditar: 1,
@@ -934,9 +1064,9 @@ import { validationMixin } from 'vuelidate'
                 this.flagVerMas = 1;
                 this.flagVerMenos = 0;
             },
-            clicBtnEditar(){
-                this.visibleBtnEditar = 0;
+            clicBtnEditar(){                this.visibleBtnEditar = 0;
                 this.visibleBtnCancelar = 1;
+                
             },
             clicBtnCancelar(){
                 this.visibleBtnEditar = 1;
@@ -1198,6 +1328,130 @@ import { validationMixin } from 'vuelidate'
                         })
                 })
             },
+
+            validarEmail() {
+                if (this.validate()) {
+                    this.msgErrorEmail = false;
+                } else {
+                    this.isDisableButton = true;
+                    this.msgErrorEmail = true;
+                }
+            },
+            validarCelular() {
+                
+                if (this.objClients.phoneNumber)
+                    if (
+                    this.objClients.phoneNumber.charAt(0) == 9 &&
+                    this.objClients.phoneNumber.length == 9
+                    ) {
+                    this.msgErrorCelular = false;
+                    } else {
+                    this.isDisableButton = true;
+                    this.msgErrorCelular = true;
+                }
+            },
+
+            validacionInput(event) {
+                if (
+                    (this.tamaño == 8 || this.tamaño == 9) &&
+                    !this.msgErrorEmail &&
+                    !this.msgErrorCelular
+                ) {
+                    this.isDisableButton = true;
+                    this.objClients.phoneNumber =
+                    this.objClients.phoneNumber != null || undefined
+                        ? this.objClients.phoneNumber
+                            .replace(/[^0-9\s]/gi, "")
+                            .replace(/[_\s]/g, "")
+                        : "";
+                    if (this.validarClient()) {
+                    
+                    this.msgCompletaDatos = false;
+                    if (this.checkPoliticasPrivacidad == true) {
+                        this.isDisableButton = false;
+                    } else {
+                    }
+                    } else {
+                    this.msgCompletaDatos = true;
+
+                    this.isDisableButton = true;
+                    }
+                } else if (
+                    this.tamaño == 11 &&
+                    !this.msgErrorEmail &&
+                    !this.msgErrorCelular
+                ) {
+                    this.isDisableButton = true;
+                    if (this.validarRUC()) {
+                    this.msgCompletaDatos = false;
+                    if (this.checkPoliticasPrivacidad == true) {
+                        this.isDisableButton = false;
+                    } else {
+                    }
+                    } else {
+                    this.msgCompletaDatos = true;
+                    this.isDisableButton = true;
+                    }
+                }
+                },
+
+            guardarDatos(evt) {
+                this.clicBtnCancelar();
+                //this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia;
+                //this.isDisableButton = true;
+                evt.preventDefault();
+                this.detectar_documento();
+                //this.$store.commit("common/setObjectDigodat", this.cobertura_is);
+                if (this.tamaño == 8 || this.tamaño == 9) {
+                    if (this.$store.state.common.clientState == 0) {
+                    this.createClient();
+                    } else if (this.$store.state.common.clientState == 1) {
+                    this.updateClient();
+                    } else {}
+                    this.$store.commit(
+                    "common/setNumeroTelefono",
+                    this.objClients.phoneNumber
+                    );
+                } else if (this.tamaño == 11) {
+                    if (this.$store.state.common.clientState == 0) {
+                    this.createRuc();
+                    this.como_pagar();
+                    } else {
+                    this.updateRuc();
+                    this.isDisableButton = false;
+                    this.$store.commit("common/setEmail", this.objClients.emailAddress);
+                    this.como_pagar();
+                    }
+                    this.$store.commit(
+                    "common/setNumeroTelefono",
+                    this.objClients.phoneNumber
+                    );
+                } else {
+                }
+                //this.pantalla = 3;
+                /* if (this.objClients.validCtaSueldo == "N") {
+                    this.$swal({
+                    title: "Oops...",
+                    text:
+                        "¡No eres Cuenta Sueldo Interbank! Abre tu Cuenta Sueldo Interbank online y disfruta de un 15% de descuento en la compra de tu Seguro Vehicular.",
+                    type: "warning",
+                    showCancelButton: false,
+                    confirmButtonColor: "#2177CC",
+                    confirmButtonText: "OK",
+                    });
+                } */
+
+                /* window.dataLayer = window.dataLayer || [];
+                dataLayer.push({
+                    event: "userData",
+                    firstname: this.objClients.firstName,
+                    lastname:
+                    this.objClients.firstLastName + " " + this.objClients.secondLastName,
+                    email: this.objClients.emailAddress,
+                    phone: this.objClients.phoneNumber,
+                    monto: localStorage.getItem("monthly"),
+                }); */
+                },
             
             volver (evt) {
                 evt.preventDefault();
@@ -1780,17 +2034,20 @@ import { validationMixin } from 'vuelidate'
             
             // this.contador()
 
-            this.urlLocal = localStorage.getItem("urlLocal")
-            this.cobertura_is = this.$store.state.common.objectDigodat
+            this.urlLocal = localStorage.getItem("urlLocal");
+            this.cobertura_is = this.$store.state.common.objectDigodat;
             
             this.cotizador_datalayer("checkout",3)
-            let objJWT = JSON.parse(localStorage.getItem("jwt"))
+            let objJWT = JSON.parse(localStorage.getItem("jwt"));
+            console.log('objJWT ... '+this.objJWT);
             if (objJWT == null || objJWT == undefined) {
+                console.log('objJWT if ... '+this.objJWT);
                 this.$nuxt.$router.push("/")
             }else{
+                console.log('objJWT else ... '+this.objJWT);
                 let objJWT = JSON.parse(localStorage.getItem("jwt"))
                 this.itemElegido.assignedPrice = this.$store.state.common.current
-                this.itemElegido.year = this.$store.state.common.itemElegido.year
+                this.itemElegido.year = this.$store.state.common.itemElegido.year                
                 this.$store.dispatch('common/getCotizacion', this.itemElegido).then((res) => {
                     if (res.data.code == 0) {
                         if (this.$store.state.common.planSeleccionado == 4) {
@@ -1808,6 +2065,7 @@ import { validationMixin } from 'vuelidate'
                         // this.vehicleState = objJWT.common.vehicleState                
                         
                         this.payment = objJWT.common.frecuenciaPago
+                        console.log('frecuencia ... '+this.payment)
                         this.businessId = this.$store.state.common.businessId
                         if (this.payment > 0 ) {
                             if(this.payment == 1){
@@ -1831,6 +2089,24 @@ import { validationMixin } from 'vuelidate'
                         this.$store.state.common.listaCotizacion.paymentMethodId = this.$store.state.common.frecuenciaPago
                     }
                 })
+
+                /**Busqueda de persona */
+                if (objJWT.common.documentoLocal) {
+                    this.itemElegido.documentoLocal = objJWT.common.documentoLocal;
+                    if (
+                    objJWT.common.documentoLocal.length == 8 ||
+                    objJWT.common.documentoLocal.length == 9
+                    ) {
+                    this.getClient(1);
+                    this.ocultarFormPN = false;
+                    this.mostrarRuc = false
+                    } else if (objJWT.common.documentoLocal.length == 11) {
+                    this.getClient(2);
+                    this.mostrarRuc = true
+                    this.ocultarFormPN = true;
+                    } else {
+                    }
+                }
                 
                 
             }
