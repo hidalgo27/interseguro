@@ -115,7 +115,7 @@
                                     <p class="label">F. de inicio</p>                                            
                                 </b-col>
                                 <b-col cols="8">
-                                    <p class="campo">{{this.$store.state.common.listaCotizacion.policy.startDate}}</p>
+                                    <p class="campo">{{this.$store.state.common.fechaVigencia}}</p>
                                 </b-col>
                             </b-row>
                         </b-card-body>
@@ -223,55 +223,51 @@
               <p class="mensaje">Por estos medios te enviaremos tu póliza al terminar tu compra</p>
             </b-col>
             <b-col cols="6" class="mt-4">
-              <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
-                @keyup.native=" validacionInput($event); validarEmail(); "
-                v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
-                v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
-                class="input-vehicular iptGral__input iptClient form-control input-id"
-                v-bind:class="{ errorInput: msgErrorEmail }"
-                autocomplete="on"                
-                type="email"
-                v-model="objClients.emailAddress"
-                required
-                placeholder="Correo Electrónico"
-                v-on:keyup.enter="processTags('celular')"
-              ></b-form-input>
+              <b-row>
+                <b-col cols="12">
+                  <b-form-input id="correo-electronico" ref="correo-electronico" name="email"
+                  @keyup.native=" validacionInput($event); validarEmail(); "
+                  v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                  v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                  class="input-vehicular iptGral__input iptClient form-control input-id"
+                  v-bind:class="{ errorInput: msgErrorEmail }"
+                  autocomplete="on"                
+                  type="email"
+                  v-model="objClients.emailAddress"
+                  required
+                  placeholder="Correo Electrónico"
+                  v-on:keyup.enter="processTags('celular')"
+                ></b-form-input>
+                </b-col>
+                <b-col v-if="this.msgErrorEmail">
+                  <span style="font-size: 12px; color: rgb(214, 4, 17)" >Por favor ingresa un email válido</span>
+                </b-col>
+              </b-row>
             </b-col>            
             <b-col cols="6" class="mt-4">
-              <b-form-input id="celular" ref="celular" name="phone"
-                @keyup.native=" validarCelular(); validacionInput($event); "
-                v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
-                v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
-                class="input-vehicular iptGral__input iptClient form-control input-id"
-                autocomplete="tel"
-                v-bind:class="{ errorInput: msgErrorCelular }"                
-                type="tel"
-                v-model="objClients.phoneNumber"
-                required
-                maxlength="9"
-                placeholder="Teléfono"
-                v-on:keyup.enter="validarCelular($event)"
-              ></b-form-input>
-            </b-col>
-            <b-col cols="6" v-if="this.msgErrorEmail">
-              <b-row class="d-flex justify-content-center pb-2">
-                <div>
-                  <span
-                    style="font-size: 12px; color: rgb(214, 4, 17)"
-                    >Por favor ingresa un email válido</span>
-                </div>
+              <b-row>
+                <b-col cols="12">
+                  <b-form-input id="celular" ref="celular" name="phone"
+                  @keyup.native=" validarCelular(); validacionInput($event); "
+                  v-on:focus.native="isIconPhoneNumber = !isIconPhoneNumber"
+                  v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
+                  class="input-vehicular iptGral__input iptClient form-control input-id"
+                  autocomplete="tel"
+                  v-bind:class="{ errorInput: msgErrorCelular }"                
+                  type="tel"
+                  v-model="objClients.phoneNumber"
+                  required
+                  maxlength="9"
+                  placeholder="Teléfono"
+                  v-on:keyup.enter="validarCelular($event)"
+                ></b-form-input>
+                </b-col>
+                <b-col v-if="this.msgErrorCelular" cols="12">
+                  <span style="font-size: 12px; color: rgb(214, 4, 17)" >Por favor ingresa un número de celular válido</span>
+                </b-col>
               </b-row>
-            </b-col>
-            <b-col cols="6" v-if="this.msgErrorCelular">
-              <b-row class="d-flex justify-content-center pb-2">
-                <div>
-                  <span
-                    style="font-size: 12px; color: rgb(214, 4, 17)"
-                    >Por favor ingresa un número de celular válido</span
-                  >
-                </div>
-              </b-row>
-            </b-col>
+            </b-col>  
+            
           </b-row>
           <b-row class="box-persona-juridica ruc" v-bind:class="{ mostrarRuc: mostrarRuc }">
             <b-col cols="12" class="mt-4">
@@ -457,7 +453,7 @@
                                   <p><span class="label">F. de inicio</span></p>
                               </b-col>
                               <b-col cols="8" class="row-data">
-                                  <p><span class="campo-minus">{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                                  <p><span class="campo-minus">{{this.$store.state.common.fechaVigencia}}</span></p>
                               </b-col>
                           </b-row>
                       </b-container>
@@ -469,7 +465,7 @@
 
       </b-row>
 
-      <b-modal
+      <!-- <b-modal
         id="leaveBlackWeek"
         class="modal-blackWeek"
         static
@@ -504,9 +500,9 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
-      <b-modal
+      <!-- <b-modal
         id="modal1"
         ref="ingresaTuPlaca"
         title="Bootstrap-Vue"
@@ -530,7 +526,7 @@
           <modalTerminosCondiciones></modalTerminosCondiciones>
 
         </div>
-      </b-modal>
+      </b-modal> -->
     </b-container>
   </section>
 </template>
@@ -733,17 +729,15 @@
         this.msgErrorEmail = true;
       }
     },
-    validarCelular() {
-      
+    validarCelular() {      
       if (this.objClients.phoneNumber)
-        if (
-          this.objClients.phoneNumber.charAt(0) == 9 &&
-          this.objClients.phoneNumber.length == 9
-        ) {
+        if (this.objClients.phoneNumber.charAt(0) == 9 && this.objClients.phoneNumber.length == 9 ) {
           this.msgErrorCelular = false;
+          this.mostrarColBlanco = false          
         } else {
           this.isDisableButton = true;
           this.msgErrorCelular = true;
+          this.mostrarColBlanco = true;          
         }
     },
     como_pagar() {
@@ -1485,8 +1479,9 @@
     modalTerminosCondiciones,
   },
   mounted: function () {
-    console.log("this.$store.state.common.objVeh",this.$store.state.common.objVehiculo.brand)
+    //console.log("this.$store.state.common.objVeh",this.$store.state.common.objVehiculo.brand)
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
+    console.log('fecha vigencia '+this.fechaVigencia);
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);
     let objJWT = JSON.parse(localStorage.getItem("jwt"));

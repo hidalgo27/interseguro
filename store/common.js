@@ -599,6 +599,7 @@ const actions = {
         })
     },
     updateClient ({ commit, state }, item) {
+        console.log('email :'+item.emailAddress)
         return new Promise((resolve, reject) => {
           this.$axios.put("vehicular-api/provider/v2/client/"+state.businessId+"/"+state.planSeleccionado+'/'+state.plateNumber,
             {

@@ -1605,7 +1605,6 @@ export default {
       this.detectarPLanSeleccionado();
     },
     continuar(e, id) {
-      console.log('id plan : '+id);
       e.stopPropagation();
       this.seleccionarPLanDesktop(id);
       this.$store.commit("common/setFrecuenciaPago", this.selected);
@@ -1621,7 +1620,8 @@ export default {
       this.$store.commit("common/setItemElegido", this.itemElegido);      
       this.$store.commit("common/setListaCotizacion", this.listCotizacion);
 
-      console.log('item elegido .. '+this.itemElegido)
+      //console.log('item elegido .. '+this.itemElegido)
+      //console.log('start date '+this.listCotizacion.policy.startDate);
 
       if (document.location.hostname == "www.interseguro.pe") {
         fbq("track", "ViewContent", {
@@ -2398,8 +2398,8 @@ export default {
     this.selected = this.$store.state.common.frecuenciaPago;
     this.nuevoProducto = this.$store.state.common.nuevoProducto;
     this.itemElegido.discountType = this.$store.state.common.discountType;
-    console.log('discountType .. '+this.itemElegido.discountType)
-    console.log('plan seleccionado  .. '+this.$store.state.common.planSeleccionado)
+    //console.log('discountType .. '+this.itemElegido.discountType)
+    //console.log('plan seleccionado  .. '+this.$store.state.common.planSeleccionado)
 
     this.objSOAT = this.$store.state.common.clienteSOAT;
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
@@ -2410,11 +2410,7 @@ export default {
     } else {
       this.discountType = "";
     }
-    if (
-      this.fechaVigencia == null ||
-      this.fechaVigencia == "null" ||
-      this.fechaVigencia == ""
-    ) {
+    if (this.fechaVigencia == null || this.fechaVigencia == "null" || this.fechaVigencia == "" ) {
       let fecha = new Date();
       let dia = fecha.getDate();
       let mes = fecha.getMonth() + 1;
@@ -2425,6 +2421,8 @@ export default {
     } else {
       this.fechaVigencia = this.$store.state.common.fechaVigencia;
     }
+
+
     let objJWT = JSON.parse(localStorage.getItem("jwt"));
     if (objJWT == null || objJWT == undefined) {
       this.$nuxt.$router.push("/");
@@ -2482,6 +2480,7 @@ export default {
       }
     }
     document.addEventListener("mouseleave", this.mouseLeave, { passive: true });
+    console.log('fecha vigencia '+this.fechaVigencia);
   },
   destroyed() {
     if (process.browser) {

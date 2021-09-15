@@ -419,6 +419,28 @@ $vehicular_parrafo_v2: #383C5A;
                 font-family: 'Omnes Regular';
             }
         }
+        &__item-inicial{
+            display: flex;
+            padding-top: 0px; 
+            align-items: center;
+            align-content: center;
+            text-align: center;              
+            &--titulo{
+                color: #383C5A;
+                font-size: 20px;
+                font-weight: 700;
+                font-family: 'Omnes SemiBold';
+                padding-top: 0px;                    
+            }
+            &--text{
+                padding-top: 10px;
+                line-height: 23px;
+                font-family: 'Omnes Regular';
+            }
+            img{
+                width: 90px;
+            }
+        }
     }
     
     /* .slider-testimonio{
@@ -1484,6 +1506,9 @@ $vehicular_parrafo_v2: #383C5A;
                     padding-top: 10px;
                     line-height: 23px;
                     font-family: 'Omnes Regular';
+                }
+                img{
+                    width: 90px;
                 }
             }
         }

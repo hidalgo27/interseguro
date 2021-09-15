@@ -80,16 +80,26 @@
                                     </b-row>
                                     <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
                                         <b-col cols="4">
-                                            <p class="label">DNI</p>                                            
+                                            <p>
+                                                <span class="label" v-if="this.$store.state.common.objCliente.documentType == 'DNI'">DNI</span>
+                                                <span class="label" v-else-if="this.$store.state.common.objCliente.documentType == 'CE'">CE</span>
+                                                <span class="label" v-else-if="this.$store.state.common.objCliente.documentType == 'RUC'">RUC</span>
+                                            </p>                                           
                                         </b-col>
                                         <b-col cols="8">
                                             <p class="campo">{{this.$store.state.common.objCliente.documentNumber}}</p>
                                         </b-col>
                                         <b-col cols="4" class="row-final">
-                                            <p class="label">Nombre</p>                                            
+                                            <p>
+                                                <span class="label" v-if="this.$store.state.common.objCliente.documentType == 'DNI' || this.$store.state.common.objCliente.documentType == 'CE'">Nombre</span>
+                                                <span class="label" v-else-if="this.$store.state.common.objCliente.documentType == 'RUC'">Razón Social</span>
+                                            </p>                                           
                                         </b-col>
                                         <b-col cols="8" class="row-final">
-                                            <p class="campo">{{this.$store.state.common.objCliente.firstName}}</p>
+                                            <p><span class="campo">
+                                                {{this.$store.state.common.objCliente.firstName}} {{this.$store.state.common.objCliente.firstLastName}} {{this.$store.state.common.objCliente.secondLastName}}
+                                                </span>
+                                            </p>
                                         </b-col>
                                         <b-col cols="4" class="row-final">
                                             <p class="label">Teléfono</p>                                            
@@ -104,7 +114,7 @@
                                             <p class="campo">{{this.$store.state.common.objCliente.emailAddress}}</p>
                                         </b-col>                                          
                                     </b-row>
-                                    <b-row class="edit-datos" v-if="this.visibleBtnEditar == 0" align-v="center">
+                                    <b-row class="edit-datos-pn" v-if="this.visibleBtnEditar == 0 && (this.$store.state.common.objCliente.documentType == 'DNI' || this.$store.state.common.objCliente.documentType == 'CE')" align-v="center">
                                         <b-col cols="4">
                                             <p><span class="label">DNI</span></p>
                                         </b-col>
@@ -116,18 +126,17 @@
                                                         @keyup.native="delay($event, 300)"
                                                         class="input-vehicular form-control input-id"
                                                         maxlength="11"
-                                                        autocomplete="on"
-                                                        
+                                                        autocomplete="on"                                                        
                                                         type="tel"
-                                                        v-model="itemElegido.documentoLocal"
+                                                        v-model="itemElegidoPersona.documentoLocal"
                                                         required
-                                                        placeholder="Numero de DNI, CI o RUC"
+                                                        placeholder="Numero de DNI, CE o RUC"
                                                         style="text-transform: initial">
                                             </b-form-input>
                                             <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
                                         </b-col>
                                         <b-col cols="12">
-                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                            <b-row  align-v="center">
                                                 <b-col cols="4" class="mt-3">
                                                     <p><span class="label">Nombre</span></p>
                                                 </b-col>
@@ -138,8 +147,7 @@
                                                         @keypress.native="validacionInput($event)"
                                                         v-on:focus.native="isIconFirstName = !isIconFirstName"
                                                         v-on:blur.native="isIconFirstName = !isIconFirstName"
-                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
-                                                        
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"                                                        
                                                         type="text"
                                                         v-model="objClients.firstName"
                                                         required
@@ -156,14 +164,9 @@
                                                         autocomplete="family-name"
                                                         name="lastName"
                                                         @keyup.native="validacionInput($event)"
-                                                        v-on:focus.native="
-                                                        isIconIconFirstLastName = !isIconIconFirstLastName
-                                                        "
-                                                        v-on:blur.native="
-                                                        isIconIconFirstLastName = !isIconIconFirstLastName
-                                                        "
-                                                        class="input-vehicular iptGral__input iptClient form-control input-id"
-                                                        
+                                                        v-on:focus.native="isIconIconFirstLastName = !isIconIconFirstLastName"
+                                                        v-on:blur.native="isIconIconFirstLastName = !isIconIconFirstLastName"
+                                                        class="input-vehicular iptGral__input iptClient form-control input-id"                                                        
                                                         type="text"
                                                         v-model="objClients.firstLastName"
                                                         required
@@ -180,8 +183,7 @@
                                                         v-on:focus.native="isIconSecondLastName = !isIconSecondLastName"
                                                         v-on:blur.native="isIconSecondLastName = !isIconSecondLastName"
                                                         class="input-vehicular iptGral__input iptClient form-control input-id"
-                                                        autocomplete="additional-name"
-                                                        
+                                                        autocomplete="additional-name"                                                        
                                                         type="text"
                                                         v-model="objClients.secondLastName"
                                                         required
@@ -199,8 +201,7 @@
                                                         v-on:blur.native="isIconPhoneNumber = !isIconPhoneNumber"
                                                         class="input-vehicular iptGral__input iptClient form-control input-id"
                                                         autocomplete="tel"
-                                                        v-bind:class="{ errorInput: msgErrorCelular }"
-                                                        
+                                                        v-bind:class="{ errorInput: msgErrorCelular }"                                                        
                                                         type="tel"
                                                         v-model="objClients.phoneNumber"
                                                         required
@@ -219,8 +220,7 @@
                                                         v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
                                                         class="input-vehicular iptGral__input iptClient form-control input-id"
                                                         v-bind:class="{ errorInput: msgErrorEmail }"
-                                                        autocomplete="on"
-                                                        
+                                                        autocomplete="on"                                                        
                                                         type="email"
                                                         v-model="objClients.emailAddress"
                                                         required
@@ -228,6 +228,108 @@
                                                     ></b-form-input>
                                                 </b-col>
                                                 
+                                            </b-row>
+                                        </b-col>
+                                    </b-row>
+                                    <b-row class="edit-datos-pj" v-if="this.visibleBtnEditar == 0 && this.$store.state.common.objCliente.documentType == 'RUC'" align-v="center">
+                                        <b-col cols="4">
+                                            <p><span class="label">RUC</span></p>
+                                        </b-col>
+                                        <b-col cols="8">
+                                            <b-form-input id="documento-identidad" ref="myBtn" name="ws_username"
+                                                        v-on:focus.native="isIconDni = !isIconDni"
+                                                        v-on:blur.native="placeholderDNI($event)"
+                                                        @click.native="clearPlaceholderDNI($event)"
+                                                        @keyup.native="delay($event, 300)"
+                                                        class="input-vehicular form-control input-id"
+                                                        maxlength="11"
+                                                        autocomplete="on"                                                        
+                                                        type="tel"
+                                                        v-model="itemElegidoPersona.documentoLocal"
+                                                        required
+                                                        placeholder="Numero de DNI, CE o RUC"
+                                                        style="text-transform: initial">
+                                            </b-form-input>
+                                            <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
+                                        </b-col>
+                                        <b-col cols="12">
+                                            <b-row  align-v="center">
+                                                <b-col cols="4" class="mt-3">
+                                                        <p><span class="label">Razón Social</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                        <b-form-input
+                                                            id="razon-social"
+                                                            ref="razon-social"
+                                                            @keyup.native="validacionInput($event)"
+                                                            v-on:focus.native="isRazonSocial = !isRazonSocial"
+                                                            v-on:blur.native="isRazonSocial = !isRazonSocial"
+                                                            class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                            autocomplete="on"                                                        
+                                                            type="text"
+                                                            v-model="objClients.firstName"
+                                                            required
+                                                            placeholder="Razón social"
+                                                            v-on:keyup.enter="processTags('direccion')"
+                                                        ></b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                        <p><span class="label">Dirección</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                        <b-form-input
+                                                            id="direccion"
+                                                            ref="direccion"
+                                                            @keyup.native="validacionInput($event)"
+                                                            v-on:focus.native="isDireccion = !isDireccion"
+                                                            v-on:blur.native="isDireccion = !isDireccion"
+                                                            class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                            autocomplete="on"                                                        
+                                                            type="text"
+                                                            v-model="objClients.address"
+                                                            required
+                                                            placeholder="Dirección"
+                                                            v-on:keyup.enter="processTags('celularEmpresa')"
+                                                        ></b-form-input>
+                                                </b-col>
+                                                <b-col cols="4" class="mt-3">
+                                                        <p><span class="label">Celular</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                        <b-form-input id="celularEmpresa" ref="celularEmpresa" @keyup.native=" validarCelular(); validacionInput($event); "
+                                                            v-on:focus.native=" isIconPhoneNumber = !isIconPhoneNumber "
+                                                            v-on:blur.native=" isIconPhoneNumber = !isIconPhoneNumber "
+                                                            v-bind:class="{ errorInput: msgErrorCelular }"
+                                                            class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                            autocomplete="tel"                                                        
+                                                            type="tel"
+                                                            v-model="objClients.phoneNumber"
+                                                            required
+                                                            maxlength="9"
+                                                            placeholder="Celular"
+                                                            v-on:keyup.enter=" processTags('correo-electronicoEmpresa') "
+                                                        ></b-form-input>
+                                                </b-col>
+
+                                                <b-col cols="4" class="mt-3">
+                                                        <p><span class="label">Correo</span></p>
+                                                </b-col>
+                                                <b-col cols="8" class="mt-3">
+                                                        <b-form-input
+                                                            id="correo-electronicoEmpresa"
+                                                            ref="correo-electronicoEmpresa"
+                                                            @keyup.native="validacionInput($event); validarEmail(); "
+                                                            v-bind:class="{ errorInput: msgErrorEmail }"
+                                                            v-on:focus.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                            v-on:blur.native=" isIconEmailAddress = !isIconEmailAddress "
+                                                            class="input-vehicular iptGral__input iptRUC form-control input-id"
+                                                            autocomplete="on"                                                        
+                                                            type="text"
+                                                            v-model="objClients.emailAddress"
+                                                            required
+                                                            placeholder="Correo Electrónico"
+                                                        ></b-form-input>
+                                                </b-col>
                                             </b-row>
                                         </b-col>
                                     </b-row>
@@ -273,7 +375,7 @@
                                             <p class="label">F. de inicio</p>                                            
                                         </b-col>
                                         <b-col cols="8">
-                                            <p class="campo">{{this.$store.state.common.listaCotizacion.policy.startDate}}</p>
+                                            <p class="campo">{{this.$store.state.common.fechaVigencia}}</p>
                                         </b-col>
                                     </b-row>
                                 </b-card-body>
@@ -443,7 +545,7 @@
                                         </b-col>
                                         <b-col cols="4">
                                             <b-button class="button-editar" @click="clicBtnEditar()" v-if="this.visibleBtnEditar == 1">EDITAR</b-button>
-                                            <b-button class="button-cancelar" @click="clicBtnCancelar()" v-else>GUARDAR</b-button>
+                                            <b-button class="button-cancelar" @click="guardarDatos($event)" v-else>GUARDAR</b-button>
                                         </b-col>
                                     </b-row>
                                     <b-row class="view-datos" v-if="this.visibleBtnEditar == 1" align-v="center">
@@ -497,15 +599,15 @@
                                                         autocomplete="on"
                                                         
                                                         type="tel"
-                                                        v-model="itemElegido.documentoLocal"
+                                                        v-model="itemElegidoPersona.documentoLocal"
                                                         required
-                                                        placeholder="Numero de DNI, CI o RUC"
+                                                        placeholder="Numero de DNI, CE o RUC"
                                                         style="text-transform: initial">
                                             </b-form-input>
                                             <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
                                         </b-col>
                                         <b-col cols="12">
-                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                            <b-row  align-v="center">
                                                 <b-col cols="4" class="mt-3">
                                                     <p><span class="label">Nombre</span></p>
                                                 </b-col>
@@ -641,7 +743,7 @@
                                                         maxlength="11"
                                                         autocomplete="on"                                                        
                                                         type="tel"
-                                                        v-model="itemElegido.documentoLocal"
+                                                        v-model="itemElegidoPersona.documentoLocal"
                                                         required
                                                         placeholder="Numero de DNI, CE o RUC"
                                                         style="text-transform: initial">
@@ -649,7 +751,7 @@
                                             <clip-loader  class="cliploader" :loading="loadingPersona" :color="color" :size="size" ></clip-loader>
                                         </b-col>
                                         <b-col cols="12">
-                                            <b-row  v-bind:class="{ ocultarFormPN: ocultarFormPN }" align-v="center">
+                                            <b-row  align-v="center">
                                                 <b-col cols="4" class="mt-3">
                                                     <p><span class="label">Razón Social</span></p>
                                                 </b-col>
@@ -780,7 +882,7 @@
                                             <p><span class="label">F. de inicio</span></p>
                                         </b-col>
                                         <b-col cols="8" class="row-data">
-                                            <p><span class="campo-minus">{{this.$store.state.common.listaCotizacion.policy.startDate}}</span></p>
+                                            <p><span class="campo-minus">{{this.$store.state.common.fechaVigencia}}</span></p>
                                         </b-col>
                                     </b-row>
                                     <b-row class="datos-pago">
@@ -890,6 +992,20 @@ import { validationMixin } from 'vuelidate'
         layout: 'InterseguroFlujo',
         data(){
             return {
+                isIconFirstName: false,
+                isIconIconFirstLastName: false,
+                isIconSecondLastName: false,
+                isIconBirthDate: false,
+                isIconPhoneNumber: false,
+                isIconEmailAddress: false,
+                isIconDni: false,
+                isIconRuc: false,
+                isDireccion: false,
+                isRazonSocial: false,
+                isIconPhoneNumber: false,
+
+                msgErrorEmail: false,
+                msgErrorCelular: false,
                 visibleFormPN: 0,
                 visibleFormPJ: 0,
                 flagVerMas: 1,
@@ -1032,7 +1148,7 @@ import { validationMixin } from 'vuelidate'
                     phoneNumber: "",
                     secondLastName: "",
                 },
-                itemElegido: {
+                itemElegidoPersona: {
                     idCliente: 0,
                     documentNumber: "",
                     address: "",
@@ -1050,9 +1166,6 @@ import { validationMixin } from 'vuelidate'
                 campoDocumentoInicial: null,
                 todoCompleto: false,
                 loadingPersona: false,
-                mostrarRuc: false,
-                mostrarFormPN: false,
-                ocultarFormPN: false,
             }
         },
         methods: {
@@ -1404,28 +1517,22 @@ import { validationMixin } from 'vuelidate'
                 //this.$store.commit("common/setObjectDigodat", this.cobertura_is);
                 if (this.tamaño == 8 || this.tamaño == 9) {
                     if (this.$store.state.common.clientState == 0) {
-                    this.createClient();
+                        this.createClient();
                     } else if (this.$store.state.common.clientState == 1) {
-                    this.updateClient();
+                        this.updateClient();
                     } else {}
-                    this.$store.commit(
-                    "common/setNumeroTelefono",
-                    this.objClients.phoneNumber
-                    );
+                    this.$store.commit("common/setNumeroTelefono", this.objClients.phoneNumber);
                 } else if (this.tamaño == 11) {
                     if (this.$store.state.common.clientState == 0) {
-                    this.createRuc();
-                    this.como_pagar();
+                        this.createRuc();
+                        //this.como_pagar();
                     } else {
-                    this.updateRuc();
-                    this.isDisableButton = false;
-                    this.$store.commit("common/setEmail", this.objClients.emailAddress);
-                    this.como_pagar();
+                        this.updateRuc();
+                        this.isDisableButton = false;
+                        this.$store.commit("common/setEmail", this.objClients.emailAddress);
+                        //this.como_pagar();
                     }
-                    this.$store.commit(
-                    "common/setNumeroTelefono",
-                    this.objClients.phoneNumber
-                    );
+                    this.$store.commit("common/setNumeroTelefono", this.objClients.phoneNumber);
                 } else {
                 }
                 //this.pantalla = 3;
@@ -1451,7 +1558,7 @@ import { validationMixin } from 'vuelidate'
                     phone: this.objClients.phoneNumber,
                     monto: localStorage.getItem("monthly"),
                 }); */
-                },
+            },
             
             volver (evt) {
                 evt.preventDefault();
@@ -1764,44 +1871,26 @@ import { validationMixin } from 'vuelidate'
                 this.detectar_documento();
                 if (!isNaN(value) && this.campoDocumentoInicial !== value) {
                     this.campoDocumentoInicial = value;
-                    //this.isOculto = false;
-
                     if (this.tamaño < 8) {
                         this.todoCompleto = false;
                         this.loadingPersona = false;
-                        //this.isOculto = false;
                         this.objClients.firstName = "";
                         this.objClients.firstLastName = "";
                         this.objClients.secondLastName = "";
                         this.objClients.phoneNumber = "";
                         this.objClients.emailAddress = "";
                         this.objClients.address = "";
-                        //this.mostrarDatosyCheckbox = false;
-                        //this.mostrarEditarCancelar = false;
-
-                        self.ocultarFormPN = false;
-                        self.mostrarRuc = false;
                     }
                     if (this.tamaño >= 8) {
                         var self = this;
                         self.loadingPersona = true;
-                        //self.mostrarDatosPersonales = false;
                         self.msgCompletaDatos = false;
-                        self.ocultarFormPN = false;
-                        //self.isOculto = true;
-                        //self.mostrarRuc = true;
                         if (self.tamaño == 8 || self.tamaño == 9) {
                             self.getClient(1);
                         } else if (self.tamaño == 10) {
-                            //self.mostrarDatosPersonales = false;
-                            //self.mostrarDatosyCheckbox = false;
                             self.mostrarRuc = true;
                             self.loadingPersona = false;
-                            //self.mostrarEditarCancelar = false;
-                            self.ocultarFormPN = true;
                         } else if (self.tamaño == 11) {
-                            self.ocultarFormPN = true;
-                            self.mostrarRuc = true;
                             self.getClient(2);
                         } else {
                             return false;
@@ -1812,15 +1901,15 @@ import { validationMixin } from 'vuelidate'
                 }
             },
             detectar_documento() {
-                this.itemElegido.documentoLocalSinEspacios = this.itemElegido.documentoLocal
+                this.itemElegidoPersona.documentoLocalSinEspacios = this.itemElegidoPersona.documentoLocal
                     .replace(/[^0-9\s]/gi, "")
                     .replace(/[_\s]/g, "")
-                let documento = this.itemElegido.documentoLocalSinEspacios
+                let documento = this.itemElegidoPersona.documentoLocalSinEspacios
                 this.tamaño = documento.length
             },
             getClient(parametro) {
-                this.itemElegido.discountType = this.discountType;
-                this.$store.dispatch("common/getClient", this.itemElegido).then((res) => {
+                this.itemElegidoPersona.discountType = this.discountType;
+                this.$store.dispatch("common/getClient", this.itemElegidoPersona).then((res) => {
                     if (res.data.code == 0) {
                         this.loadingPersona = true;
                         this.objClients = res.data.body;
@@ -1865,6 +1954,89 @@ import { validationMixin } from 'vuelidate'
                     });
                     }
                 });
+            },
+            createClient() {
+                this.$store.commit("common/setDocumentoLocal",this.itemElegidoPersona.documentoLocal);
+                this.itemElegidoPersona = this.objClients;
+                this.$store
+                    .dispatch("common/createClient", this.itemElegidoPersona)
+                    .then((res) => {
+                    if (res.data.code == 0) {
+                        //this.isDisableButton = false;
+                        this.$store.commit("common/setEmail", this.objClients.emailAddress);
+                        this.$store.commit("common/setClientState", 1);
+                        //this.como_pagar();
+                    } else {
+                        this.$swal({
+                        title: "Ups!",
+                        text:
+                            "Tenemos unos problemas vuelve a intentarlo en unos minutos.",
+                        type: "error",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                        });
+                    }
+                    });
+            },
+            updateClient() {
+                this.$store.commit("common/setDocumentoLocal", this.itemElegidoPersona.documentoLocal);
+                this.itemElegidoPersona = this.objClients;
+                this.$store.dispatch("common/updateClient", this.itemElegidoPersona).then((res) => {
+                    if (res.data.code == 0) {
+                        console.log('Update exitoso ......')
+                        //this.como_pagar();
+                    } else {
+                        this.$swal({
+                        title: "Ups!",
+                        text:
+                            "Tenemos unos problemas vuelve a intentarlo en unos minutos.",
+                        type: "error",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                        });
+                    }
+                    });
+            },
+            updateRuc() {
+                this.$store.commit("common/setDocumentoLocal", this.itemElegidoPersona.documentoLocal);
+                this.itemElegidoPersona = this.objClients;
+                this.$store.dispatch("common/updateRuc", this.itemElegidoPersona).then((res) => {
+                    if (res.data.code == 0) {
+                        //this.como_pagar();
+                    } else {
+                    this.$swal({
+                        title: "Ups!",
+                        text: "Tenemos unos problemas vuelve a intentarlo en unos minutos.",
+                        type: "error",
+                        showCancelButton: false,
+                        confirmButtonColor: "#2177CC",
+                        confirmButtonText: "OK",
+                    });
+                    }
+                });
+            },
+
+            createRuc() {
+            this.$store.commit("common/setDocumentoLocal", this.itemElegidoPersona.documentoLocal);
+            this.itemElegidoPersona = this.objClients;
+            this.$store.dispatch("common/createRuc", this.itemElegidoPersona).then((res) => {
+                if (res.data.code == 0) {
+                    //this.isDisableButton = false;
+                    this.$store.commit("common/setEmail", this.objClients.emailAddress);
+                    this.$store.commit("common/setClientState", 1);
+                } else {
+                this.$swal({
+                    title: "Ups!",
+                    text: "Tenemos unos problemas vuelve a intentarlo en unos minutos.",
+                    type: "error",
+                    showCancelButton: false,
+                    confirmButtonColor: "#2177CC",
+                    confirmButtonText: "OK",
+                });
+                }
+            });
             },
             validarClienteVuex() {
                 //this.mostrarDatosPersonales = false;
@@ -2041,10 +2213,8 @@ import { validationMixin } from 'vuelidate'
             let objJWT = JSON.parse(localStorage.getItem("jwt"));
             console.log('objJWT ... '+this.objJWT);
             if (objJWT == null || objJWT == undefined) {
-                console.log('objJWT if ... '+this.objJWT);
                 this.$nuxt.$router.push("/")
             }else{
-                console.log('objJWT else ... '+this.objJWT);
                 let objJWT = JSON.parse(localStorage.getItem("jwt"))
                 this.itemElegido.assignedPrice = this.$store.state.common.current
                 this.itemElegido.year = this.$store.state.common.itemElegido.year                
@@ -2065,7 +2235,7 @@ import { validationMixin } from 'vuelidate'
                         // this.vehicleState = objJWT.common.vehicleState                
                         
                         this.payment = objJWT.common.frecuenciaPago
-                        console.log('frecuencia ... '+this.payment)
+
                         this.businessId = this.$store.state.common.businessId
                         if (this.payment > 0 ) {
                             if(this.payment == 1){
@@ -2092,18 +2262,14 @@ import { validationMixin } from 'vuelidate'
 
                 /**Busqueda de persona */
                 if (objJWT.common.documentoLocal) {
-                    this.itemElegido.documentoLocal = objJWT.common.documentoLocal;
+                    this.itemElegidoPersona.documentoLocal = objJWT.common.documentoLocal;
                     if (
                     objJWT.common.documentoLocal.length == 8 ||
                     objJWT.common.documentoLocal.length == 9
                     ) {
                     this.getClient(1);
-                    this.ocultarFormPN = false;
-                    this.mostrarRuc = false
                     } else if (objJWT.common.documentoLocal.length == 11) {
                     this.getClient(2);
-                    this.mostrarRuc = true
-                    this.ocultarFormPN = true;
                     } else {
                     }
                 }

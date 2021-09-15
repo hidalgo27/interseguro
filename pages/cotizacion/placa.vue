@@ -11,15 +11,18 @@
               </ul>
           </b-col>
       </b-row>
-      <b-row>
-        <b-col class="lista1 flujo-titulo">
-            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" class="d-none d-sm-block" ><span>Ingresa tu placa</span>
+      <b-row class="lista1 flujo-titulo">
+        <b-col class="p-0 d-none d-sm-block" >
+          <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Ingresa tu placa</span>
+        </b-col>
+        <b-col class="d-block d-sm-none" >
+            <span>Ingresa tu placa</span>
         </b-col>
       </b-row>
       <b-row align-v="center">
-        <b-col cols="12" lg="8" xl="8" class="box-placa">
+        <b-col cols="12" lg="6" xl="6" class="box-placa">
           <b-row align-v="center" class="row-general">
-            <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="row-input">
+            <b-col cols="12" class="row-input">
               <b-form-input
                   id="vehicleModelPlate"
                   class="text-uppercase form-control"
@@ -34,13 +37,14 @@
                   aria-label="placa"                
                   autofocus
                 ></b-form-input>
+                <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
             </b-col>
-            <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="row-btn">
+            <!-- <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="row-btn">
               <button>
                   Continuar
                   <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
               </button>
-            </b-col>
+            </b-col> -->
           </b-row>
         </b-col>
       </b-row>

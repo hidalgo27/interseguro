@@ -970,7 +970,7 @@
         /************************************************************************ */
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
-        this.$store.commit('common/setBusinessId', 1)
+        //this.$store.commit('common/setBusinessId', 1)
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
         if (document.location.hostname == "www.interseguro.pe"){
           window.criteo_q = window.criteo_q || [];
