@@ -217,8 +217,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1631422799, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1631422799, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1631681999, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1631681999, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
