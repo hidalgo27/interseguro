@@ -2,7 +2,7 @@
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
     
-    <!-- <div class="boxHome-banner">      
+    <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -60,10 +60,10 @@
           
         </div>
       </div>
-    </div> -->
+    </div>
     
     <!--Habilitar  en campaña-->
-    <div class="boxHome-banner">      
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -133,7 +133,7 @@
           
         </div>
       </div>
-    </div> 
+    </div>  -->
    
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
@@ -650,7 +650,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        this.contador()
+        //this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -826,9 +826,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      //padding-top: 140px;
+      padding-top: 140px;
       //pasos mobile campaña
-      padding-top: 270px;
+      //padding-top: 270px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1052,7 +1052,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       //background-color:  rgba(8,85,196,.1);      
       //background campaña
       //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
-      background: #0857c5;
+      //background: #0857c5;
+      background: #e6eef9;
       .home-banner{
         margin: auto;
         background-repeat: no-repeat;
@@ -1669,7 +1670,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-repeat: no-repeat;
         background-position: center;
         height: 485px;
-        //height: auto;
+        height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
@@ -1725,7 +1726,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             -webkit-box-align: center;
             background-size: 90%;
             //mostrar Automovil
-            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;

@@ -714,7 +714,7 @@
       
       <!-- Modal de abandono-->
       
-    <!-- <b-modal
+    <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -772,10 +772,10 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
       
       <!--Modal campaña -->
-      <b-modal
+      <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -808,7 +808,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
       
 
     </b-container>
@@ -892,9 +892,9 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  //padding-top: 50px;
+  padding-top: 50px;
   //campaña
-  padding-top: 125px;  
+  //padding-top: 125px;  
 }
 .edit-input {
   cursor: auto !important;

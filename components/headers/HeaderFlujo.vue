@@ -1,7 +1,7 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <div>
+        <!-- <div>
             <div id="liston-desktop" class="liston" 
             style="background: transparent radial-gradient(closest-side at 48% 51%, #0374e1 0%, #0374e1 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
             v-bind:class="{'d-none': flagCloseListon == 0  }">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
-        </div>
+        </div> -->
         
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -184,7 +184,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        //this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
