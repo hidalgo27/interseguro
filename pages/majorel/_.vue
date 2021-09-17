@@ -6925,7 +6925,7 @@ export default {
         },
         getCard (item) {
             return new Promise((resolve, reject) => {
-            this.$axios.post('culqi/v1/cards', {
+            this.$axios.post('vehicular-api/culqi/v1/cards', {
                 "customer_id": this.documentoLocal,
                 "details": {                        
                     "card_brand": this.objCulqui.iin.card_brand,
@@ -7053,7 +7053,7 @@ export default {
         },
         createPolicy () {                
             return new Promise((resolve, reject) => {
-            this.$axios.post('manage/v1/policy/payment/'+ this.placa.toUpperCase()+'/'+ this.documentoLocal, this.listCotizacion)                
+            this.$axios.post('vehicular-api/manage/v1/policy/payment/'+ this.placa.toUpperCase()+'/'+ this.documentoLocal, this.listCotizacion)                
                 .then(res => {
                     if(res){
                          if (res.data.code == 0) {

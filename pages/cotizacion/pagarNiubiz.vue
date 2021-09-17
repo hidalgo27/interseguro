@@ -482,8 +482,8 @@ import { validationMixin } from 'vuelidate'
             let self = this
             this.$nuxt.$on('show-loader', ({loader}) => {
                 console.log(loader, "LOADER")
-                this.showLoader = loader
-                // this.showLoader = true
+                // this.showLoader = loader
+                this.showLoader = true
             })
             this.$nuxt.$on('show-payment', ({payment}) => {
                 console.log("PAYMENT",payment)
@@ -696,7 +696,7 @@ import { validationMixin } from 'vuelidate'
             
                 volver (evt) {
                     evt.preventDefault();
-                    this.$nuxt.$router.push("/cotiza/ingresa-tu-documento");              
+                    this.$nuxt.$router.push("/cotizacion/documento");              
                 },
             
                 comoPagarDatalayer(){

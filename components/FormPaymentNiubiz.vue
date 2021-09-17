@@ -44,7 +44,6 @@ export default {
       niubizConfig: {
         sessionkey: '', // dato obtenido desde la API del backend
         channel: 'paycard' ,
-        //merchantid:  522591303, 
         merchantid:  102069302, 
        // merchantid: process.env.configNiubiz.comercioNiubiz, // código del comercio por producto TEST
         purchasenumber: '0780000001', // Ejemplo: Número de póliza, número de Venta, etc
@@ -93,13 +92,12 @@ export default {
     
     self.$store.commit('payment/setSessionKey', '')
     this.$store.dispatch('payment/getSessionKey', self.session).then(respuesta => {
-      let channelPay = (self.$store.state.common.channel === 'IBK') ? 'testvehicular/interbank/como-pagar' : (self.$store.state.common.channel === 'ITC')? 'testvehicular/intercorp/como-pagar' :'testvehicular/cotizacion/pagar'
+      let channelPay = (self.$store.state.common.channel === 'IBK') ? 'vehicular/interbank/como-pagar' : (self.$store.state.common.channel === 'ITC')? 'vehicular/intercorp/como-pagar' :'vehicular/cotizacion/pagar'
       // if (respuesta.code === '01') {
       //   self.niubizConfig.callbackurl = process.env.base + 'payment-api/api/v2/token?protocol=https&host='+process.env.url+'&path='+ channelPay
-      // let channelPay = 'testvehicular/cotiza/como-pagar'
+      // let channelPay = 'vehicular/cotiza/como-pagar'
       if (respuesta.data.code === '01') {
-        // self.niubizConfig.callbackurl = process.env.baseURL + 'payment-api/api/v2/token?protocol=https&host='+process.env.urlPago+'&path='+ channelPay
-        self.niubizConfig.callbackurl = 'https://test.interseguro.pe/payment-api/api/v2/token?protocol=https&host=test.interseguro.pe/'+'&path='+ channelPay
+        self.niubizConfig.callbackurl = process.env.baseURL + 'payment-api/api/v2/token?protocol=https&host='+process.env.urlPago+'&path='+ channelPay
 
         self.niubizConfig.sessionkey = respuesta.data.data.sessionKey
         // probando solo CULQI

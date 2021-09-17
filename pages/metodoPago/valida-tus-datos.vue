@@ -141,7 +141,7 @@
             },
             getModelLocal () {
                 return new Promise((resolve, reject) => {
-                    this.$axios.post('provider/v1/other/models-available/'+this.objVehicle.brandId+'/'+this.objVehicle.modelYear)
+                    this.$axios.post('vehicular-api/provider/v1/other/models-available/'+this.objVehicle.brandId+'/'+this.objVehicle.modelYear)
                     .then(res => {
                         if (res) {     
                             this.listModel = res.data.body;
