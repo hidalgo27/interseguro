@@ -25,7 +25,7 @@ module.exports = {
   mode: 'universal',
   router: {
     //base: '/vehicular/'
-    base: '/testvehicular/'
+    base: '/vehicular/'
   },  
   head: {
   
@@ -109,11 +109,11 @@ module.exports = {
   env: {
     apikeySession: process.env.SESSIONKEY,
     provider : process.env.PROVIDER,
-    urlPago: process.env.urlPago,
+    urlPago: process.env.URL_PAGO,
     environment: process.env.ENVIRONMENT,
     URL: process.env.BASE_URL,
     baseURL: process.env.API_BASE_URL,
-    pagosURL: process.env.API_PAGOS_URL,
+    // pagosURL: process.env.API_PAGOS_URL,
     culqiPK: process.env.CULQI_PK,
     culqiURL: process.env.CULQI_URL,
     url_remarketing: process.env.API_BASE_URL_REMARKETING

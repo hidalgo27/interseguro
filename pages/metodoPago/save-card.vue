@@ -78,7 +78,7 @@ export default {
         },
         getVehicle () {
             return new Promise((resolve, reject) => {
-                this.$axios.post('provider/v1/vehicle/plate/card/' + this.placa.toUpperCase())
+                this.$axios.post('vehicular-api/provider/v1/vehicle/plate/card/' + this.placa.toUpperCase())
                 .then(res => {                        
                         if(res.data.code == 0){ 
                             this.objVehicle = res.data.body  
