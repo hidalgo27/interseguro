@@ -137,9 +137,16 @@
           background-color: #BFD4F2; 
           //imagen check diabled         
           background-image: url("../../static/media/img/root/check-disabled.svg");
+          span{
+            position: relative;
+            margin-right: -12px;
+          }
           
       }
-      
+      /* span{
+        position: relative;
+        margin-left: -20px;
+      } */
       
   }
   &--progressBar {
@@ -154,13 +161,15 @@
   }
   &__item:nth-child(3) {
       text-align: left;
+      span{
+        position: relative;
+        margin-left: -23px;
+      }
       &:after {
           left: calc(3.5% - var(--step-circle-size-after)/2);
       }
       &:before {
           left: calc(3.5% - var(--step-circle-size-before)/2);
-          // color: red;
-          // content: '1';
       }
   }
   
@@ -176,6 +185,10 @@
   
   &__item:nth-child(1) {
       text-align: right;
+      span{
+        position: relative;
+        margin-right: -14px;
+      }
       &:after {
           left: calc(96.5% - var(--step-circle-size-after)/2);
       }

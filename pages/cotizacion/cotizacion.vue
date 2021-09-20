@@ -6,9 +6,9 @@
         <b-row class="mi-breadcrumb">
           <b-col cols="12" class="box-steps">
             <ul class="steps" style="display: inline-flex">
-                <div class="steps__item">Pago</div>
+                <div class="steps__item"><span>Pago</span></div>
                 <div class="steps__item steps--active">Planes</div>
-                <div class="steps__item">Mi carro</div>
+                <div class="steps__item"><span>Mi carro</span></div>
                 <li class="steps--progressBar"></li>
               </ul>
           </b-col>

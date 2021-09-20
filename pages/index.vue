@@ -749,6 +749,76 @@
         <!-- dudas consultas mobile -->
         <b-col cols="12" class="d-block d-lg-none dudas-consultas">
           <div>
+            <b-carousel
+              id="carousel-2"
+              v-model="slide"
+              :interval="4000"
+              
+              indicators
+              background="#ababab"
+              img-width="768"
+              img-height="480"
+              style="background:#FFFFFF"
+              @sliding-start="onSlideStart"
+              @sliding-end="onSlideEnd"
+            >             
+              <b-carousel-slide img-blank style="background:#FFFFFF">
+                <b-row align-v="center" class="text-center dudas-consultas__item">
+                  <b-col cols="12" class="imagen">
+                    <img src="@/static/media/imagenes/home/tiempo-emergencia.svg"/>
+                  </b-col>
+                  <b-col cols="12" class="titulo">
+                    <p >¡Tengo una emergencia!</p>
+                  </b-col> 
+                  <b-col cols="12" class="text">
+                    <p >¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
+                  </b-col>
+                  <b-col class="btn-llamar">
+                    <button type="button" class="btn-home-cotizar" >
+                      LLÁMANOS
+                    </button>  
+                  </b-col>           
+                </b-row>
+              </b-carousel-slide>
+              <b-carousel-slide img-blank style="background:#FFFFFF">
+                <b-row align-v="center" class="text-center dudas-consultas__item">
+                  <b-col cols="12" class="imagen">
+                    <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
+                  </b-col> 
+                  <b-col cols="12" class="titulo">
+                    <p >¿Dónde llevo mi carro ?</p>
+                  </b-col> 
+                  <b-col cols="12" class="text">
+                    <p >Visita nuestra red de talleres afiliados</p>
+                  </b-col>
+                  <b-col cols="12" class="link-talleres-afiliados">
+                    <span>Ver talleres afiliados</span>
+                  </b-col>             
+                </b-row>
+              </b-carousel-slide>
+              <b-carousel-slide img-blank style="background:#FFFFFF">
+                <b-row align-v="center" class="text-center dudas-consultas__item">
+                  <b-col cols="12" class="imagen">
+                    <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
+                  </b-col> 
+                  <b-col cols="12" class="titulo">
+                    <p >¿Necesito un asesor</p>
+                  </b-col> 
+                  <b-col cols="12" class="text">
+                    <p >Necesitas ayuda o consulta de un asesor?</p>
+                  </b-col>
+                  <b-col cols="12" class="btn-llamar">
+                    <button type="button" class="btn-home-cotizar" >
+                      LLÁMANOS
+                    </button> 
+                  </b-col>           
+                </b-row>
+              </b-carousel-slide>
+            </b-carousel>
+          </div>
+        </b-col>
+        <!-- <b-col cols="12" class="d-block d-lg-none dudas-consultas">
+          <div>
             <carousel :perPageCustom="[[368, 1], [1024, 1]]" 
             :navigationEnabled="false" 
             :paginationEnabled="true">
@@ -808,23 +878,24 @@
             </carousel>
                         
           </div>          
-        </b-col>
+        </b-col> -->
         <!-- fin dudas consultas mobile -->
         <!--Preguntas-->
         <b-col cols="12" lg="7">
           <div class="accordion" role="tablist">
-
             <b-card no-body class="mb-1 card-personalizado">
-              <b-card-header header-tag="header" class="p-1" role="tab">  
-                <b-button block v-b-toggle.accordion-1 variant="info" class="d-flex title-1">
-                  <span>¿Cuándo inicia mi cobertura?</span> 
+              <b-card-header header-tag="header" class="p-1" role="tab">
+                <b-button block v-b-toggle.accordion-x variant="info" class="d-flex title-1">
+                  <span>¿Cuándo inicia mi cobertura?</span>
                   <strong v-if="isVisible1" aria-hidden="true" class="ml-auto icono-menos">-</strong>
-                  <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>                  
+                  <strong v-else aria-hidden="true" class="ml-auto icono-mas">+</strong>
                 </b-button>
               </b-card-header>
-              <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel" v-model="isVisible1" >
+              <b-collapse id="accordion-x" accordion="my-accordion" role="tabpanel" v-model="isVisible1" >
                 <b-card-body>
-                  <b-card-text>Desde la confirmación de pago.</b-card-text>
+                  <b-card-text>
+                    Desde la confirmación de pago.
+                  </b-card-text>
                 </b-card-body>
               </b-collapse>
             </b-card>
@@ -1007,6 +1078,8 @@ export default {
   layout: "InterseguroHome",
   data() {
     return {
+      slide: 0,
+      sliding: null,
       isOculto: true,
       isVisible1: true,
       isVisible2: true,
@@ -1072,6 +1145,12 @@ export default {
     }
   },
   methods: {
+    onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      },
     cotizar(){
         this.$nuxt.$router.push({
             path: "/cotizacion/placa"

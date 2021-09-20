@@ -262,9 +262,28 @@ hr{
             }
             .btn-secondary{
                 background-color: #F0F4FD;
-                border: 1px solid #F0F4FD;
+                //border: 1px solid #F0F4FD;
                 outline: none;
-            }          
+            } 
+            .btn-resumen{
+                color: $vehicular_primario !important;
+                background-color: #F0F4FD !important;
+                border: 1px solid #F0F4FD !important;
+                outline: none !important;
+                box-shadow: none !important;
+                height: auto;
+                :focus, :hover{
+                    background-color: #F0F4FD !important;
+                    border: 1px solid #F0F4FD !important;
+                    outline: none !important;
+                    box-shadow: none !important;
+                }
+            }
+            .btn-secondary:focus, .btn-secondary:hover{
+                background-color: #F0F4FD;
+                //border: 1px solid #F0F4FD ;
+                outline: none;
+            }         
         }
         .body-resumen{            
             .datos{

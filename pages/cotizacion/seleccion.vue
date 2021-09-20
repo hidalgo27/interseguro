@@ -4,9 +4,9 @@
             <b-row class="mi-breadcrumb">
                 <b-col cols="12" class="box-steps">
                     <ul class="steps" style="display: inline-flex">
-                        <div class="steps__item ">Pago</div>
+                        <div class="steps__item "><span>Pago</span></div>
                         <div class="steps__item ">Planes</div>
-                        <div class="steps__item steps--active  paso1">Mi carro</div>
+                        <div class="steps__item steps--active  paso1"><span>Mi carro</span></div>
                         <li class="steps--progressBar" ></li>
                     </ul>
                 </b-col>
@@ -17,22 +17,17 @@
                     <div class="accordion" role="tablist">
                         <b-card no-body class="mb-1 resumen">
                             <b-card-header header-tag="header"  role="tab">                        
-                                <b-row>
-                                    <b-col cols="auto" class="mr-auto p-6" align-self="center">
+                                <b-row align-v="center">
+                                    <b-col cols="auto" class="mr-auto">
                                         <p>VER RESUMEN</p>                                        
                                     </b-col>
-                                    <b-col cols="auto" class="p-6" align-self="center" style="vertical-align: middle;">                                       
-                                        <b-button block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
-                                        <b-row align-v="center">
-                                            <p><span class="ver-mas">VER MÁS</span></p> 
-                                            <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">
-                                        </b-row> 
+                                    <b-col cols="auto">                                       
+                                        <b-button class="btn-resumen" block v-b-toggle.accordion-proteccion @click="clicVerMas()" v-if="this.flagVerMas == 1">
+                                            <span class="ver-mas">VER MÁS</span><img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-mas.svg" alt="">                                           
                                         </b-button>
-                                        <b-button block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
-                                        <b-row align-v="center">                                    
-                                            <p><span class="ver-mas">VER MENOS</span> </p>
+                                        <b-button class="btn-resumen" block v-b-toggle.accordion-proteccion @click="clicVerMenos()" v-if="this.flagVerMenos == 1">
+                                            <span class="ver-mas">VER MENOS</span>
                                             <img style="margin-left:5px" src="./../../static/media/imagenes/seleccion/ver-menos.svg" alt="">                                    
-                                        </b-row>                                   
                                         </b-button>
                                     </b-col>
                                 </b-row>                               
