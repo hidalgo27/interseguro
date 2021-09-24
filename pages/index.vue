@@ -973,7 +973,7 @@
       <b-container class="d-none d-xl-block mt-4">
         <b-row align-v="strech">        
           <b-col cols="4" class="pl-4 pr-4">
-            <b-row >
+            <b-row class="row-dudas">
               <b-col class="box-dudas">
                 <b-row align-v="center">
                   <b-col cols="3">
@@ -987,7 +987,7 @@
                       <b-col cols="12" class="text">
                         ¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?
                       </b-col>
-                      <b-col cols="12">
+                      <b-col cols="12" align-self="end">
                         <span>Llamanos: (01) 500 0000</span>
                       </b-col>
                     </b-row>
@@ -997,7 +997,7 @@
             </b-row>
           </b-col>
           <b-col cols="4" class="pl-4 pr-4">
-            <b-row>
+            <b-row class="row-dudas">
               <b-col class="box-dudas">
                 <b-row align-v="center">
                   <b-col cols="3">
@@ -1011,7 +1011,7 @@
                       <b-col cols="12" class="text">
                         Visita nuestra red de talleres afiliados
                       </b-col>
-                      <b-col cols="12">
+                      <b-col cols="12" align-self="end">
                         <span>Ver talleres afiliados</span>
                       </b-col>
                     </b-row>
@@ -1021,7 +1021,7 @@
             </b-row>
           </b-col>
           <b-col cols="4" class="pl-4 pr-4">
-            <b-row>
+            <b-row class="row-dudas">
               <b-col class="box-dudas">
                 <b-row align-v="center">
                   <b-col cols="3">
@@ -1035,7 +1035,7 @@
                       <b-col cols="12" class="text">
                         ¿Necesitas ayuda o consulta de un asesor?
                       </b-col>
-                      <b-col cols="12">
+                      <b-col cols="12" align-self="end">
                         <span>Llamanos: (01) 500 0000</span>
                       </b-col>
                     </b-row>

@@ -366,9 +366,9 @@
                                 <td><p class="texto-titulo">¿Hasta cuánto podemos cubrir?</p></td>
                                 <td><p class="texto-titulo" style="width: 128px">Pago mínimo</p></td>
                                 <td><p class="texto-titulo"  style="width: 128px">Pago máximo</p></td>
-                                <td class="plata">PLATA</td>
-                                <td class="oro">ORO</td>
-                                <td class="black">BLACK</td>
+                                <td class="td-planes"><p class="texto-titulo">Básico</p></td>
+                                <td class="td-planes"><p class="texto-titulo">Intermedio</p></td>
+                                <td class="td-planes"><p class="texto-titulo">Full</p></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -614,7 +614,7 @@
                                     <b-col>
                                         <h4>¿Cuántos servicios de grúa incluye cada plan?</h4>
                                         <br>
-                                        <img src="../../static/media/img/cobertura/incluye-grua.png">
+                                        <img src="../../static/media/img/cobertura/servicios-grua.svg">
                                         <br>
                                         <span>* El servicio es hasta los límites de la asistencia. <br> De excederse se cubren hasta $250 por evento vía reembolso.</span> <br>
                                         <span>** Puedes usar el servicio de grúa máximo 2 veces al mes.</span>
@@ -659,7 +659,7 @@
                                     <b-col>
                                         <h4>¿Cuántos choferes incluye cada plan?</h4>
                                         <br>
-                                        <img src="../../static/media/img/cobertura/incluye-chofer.png">
+                                        <img src="../../static/media/img/cobertura/servicios-chofer.svg">
                                         <br>
                                         <br>
                                         <span>*Si necesitas chóferes adicionales, agrega uno adicional a tu plan <br> por S/ 50.aplica para todos los planes.</span>
@@ -705,7 +705,7 @@
                                     <b-col>
                                         <p>Incluye fallas eléctricas, fallas mecánicas, cargas de batería, cambio de llantas  y olvido de las llaves dentro del carro</p>
                                         <br>
-                                        <img src="../../static/media/img/cobertura/incluye-asistencia.png">
+                                        <img src="../../static/media/img/cobertura/servicios-asistencia-mecanica.svg">
                                         <br>
                                         <br>
                                         <span>* No incluye fallas mayores ni materiales o repuestos.</span>
@@ -730,7 +730,7 @@
                                     <b-col>
                                         <p>Servicio de ambulancias dentro de los límites de la asistencia. De excederse se cubren hasta $250 por evento vía reembolso. </p>
                                         <br>
-                                        <img src="../../static/media/img/cobertura/incluye-ambulancia.png">
+                                        <img src="../../static/media/img/cobertura/servicios-ambulancia.svg">
                                     </b-col>
                                 </b-row>
                             </b-container>
@@ -741,7 +741,7 @@
                                     <b-col>
                                         <p>Si necesitas asistencia jurídica debido a un accidente de tránsito.</p>
                                         <br>
-                                        <img src="../../static/media/img/cobertura/incluye-legal.png">
+                                        <img src="../../static/media/img/cobertura/servicios-legal.svg">
                                     </b-col>
                                 </b-row>
                             </b-container>
@@ -1495,7 +1495,10 @@
                 padding-left: 10px;
                 padding-right: 10px;
                 border-left: 0.2px solid #dbe6e4; 
-                border-right: 0.2px solid #dbe6e4;
+                //border-right: 0.2px solid #dbe6e4;
+            }
+            .td-planes{
+                border: 1px solid #0667ba;
             }
         }
     }

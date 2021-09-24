@@ -45,7 +45,7 @@
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div> -->
                         <div class="main-nav__toggle menu-icon "  id="nav-checkbox2">
-                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="menu">
+                            <!-- <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="menu"> -->                            
                         </div>
                         <!-- menu hamburguesa -->
                         <!-- <div class="main-nav__menu" id="main-menu">
@@ -106,7 +106,13 @@
                     <li class="" >
                         <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
                     </li> -->
-                    <p><img src="../../static/media/imagenes/home/img-watsapp.svg" alt="" style="margin-left:5px"></p> 
+                    <div data-v-d5c59bf2="">
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=51999188003&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">
+                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="call d-lg-none" style="width:50px;border-radius: 50px;" data-v-d5c59bf2="">
+                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="call d-none d-lg-block" data-v-d5c59bf2="">
+                        </a>
+                    </div>
+                    <!-- <p><img src="../../static/media/imagenes/home/img-watsapp.svg" alt="" style="margin-left:5px"></p>  -->
                     <!-- <p class="fono">(01)500 0000</p> -->                     
                     
                     <!-- <div class=" telefono-desktop-img">

@@ -916,7 +916,9 @@ $vehicular_parrafo_v2: #383C5A;
         
     }
 
-      
+    .row-dudas{
+        height: 100%;
+    }
 
     .box-dudas{
         border: #CCD1DD 1px solid;
@@ -1041,8 +1043,10 @@ $vehicular_parrafo_v2: #383C5A;
         .banner{
             height: 468px;
             //background-color: $vehicular_primario;
-            background-image: url('./../../static/media/imagenes/home/banner-main.svg');
+            background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
+            //background-repeat: no-repeat;
             .container{
+                //background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
                 height: 100%;
                 align-items: center;
                 display: flex;            
@@ -1469,6 +1473,18 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
         .dudas-consultas{
+            .carousel-item {
+                position: relative;
+                display: none;
+                float: left;
+                width: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                transition: transform .6s ease-in-out;
+            }
+            .carousel-item-next, .carousel-item-prev, .carousel-item.active {
+                display: block;
+            }
             .carousel-caption {
                 position: absolute;
                 //bottom: 20px;
@@ -1563,12 +1579,11 @@ $vehicular_parrafo_v2: #383C5A;
             &__item{
                 border: #CCD1DD 1px solid;
                 border-radius: 3px;
-                //width: 280px;
                 height: 326px;
                 display: flex;
                 padding: 20px; 
-                margin-left: 5px;
-                margin-right: 5px;  
+                //margin-left: 5px;
+                //margin-right: 5px;  
                 .imagen{
                     height: 100px;
                     padding-top: 10px;
