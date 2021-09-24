@@ -714,7 +714,7 @@
       
       <!-- Modal de abandono-->
       
-    <b-modal
+    <!-- <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -772,10 +772,10 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
       
       <!--Modal campaña -->
-      <!-- <b-modal
+      <b-modal
         id="leaveDocument"
         class="leaveModal"
         size="lg"
@@ -788,15 +788,12 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
               <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
-              <p class="mt-2">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br>               
-                <span style="color : #ffffff; font-size: 18px">
-                  ¡Big Sale Interseguro!<br>
-                  Asegura tu auto con <span style="color:#ffd527"> una cuota gratis </span> y <br>
-                  participa en el sorteo de <span style="color:#ffd527"> una TV de 50" </span> <br>
-                  <span style="color:#ffd527"> y una camiseta de Perú </span>
-                </span>
-                </p>
+              <p class="mt-2 " style="color : #ffffff; font-size: 18px">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">¡Big Sale Interseguro! </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY, y por hacerlo en Plan Black </span><br>
+                <span style="color : #FFD527; font-style: 'Omnes Medium'">llévate una cuota gratis + vale de S/50 </span>
+              </p>
             </b-col>
           </b-row>
           
@@ -808,7 +805,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
       
 
     </b-container>
@@ -894,7 +891,7 @@ a.steps__item.paso1:after {
   background: white;
   padding-top: 50px;
   //campaña
-  //padding-top: 125px;  
+  padding-top: 125px;  
 }
 .edit-input {
   cursor: auto !important;

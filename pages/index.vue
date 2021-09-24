@@ -2,7 +2,7 @@
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
     
-    <div class="boxHome-banner">      
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -60,10 +60,10 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     
     <!--Habilitar  en campaña-->
-    <!-- <div class="boxHome-banner">      
+    <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -122,9 +122,10 @@
 
             
             <div class="box-contador" >              
-              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px;margin-top: 55px;width: 185%;"> 
-              <p style="margin-left: 136px; color: #FFFFFF; font-family: 'Omnes Medium'; font-style: italic; font-size: 18px;">La oferta termina en : </p>             
-              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -36px;right: -29px;">                  
+              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px;margin-top: 55px;width: 85%;"> 
+              <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 20px;">La oferta termina en : </p>             
+              <div  class="example  d-none  d-md-flex"  
+              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 153px;">                  
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
                       
                   </div> 
@@ -133,7 +134,7 @@
           
         </div>
       </div>
-    </div>  -->
+    </div> 
    
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
@@ -448,8 +449,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1631681999, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1631681999, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1632805199, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1632805199, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -650,7 +651,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        //this.contador()
+        this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -826,9 +827,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 140px;
+      //padding-top: 140px;
       //pasos mobile campaña
-      //padding-top: 270px;
+      padding-top: 270px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1049,11 +1050,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .boxHome-banner{
       position: relative;
       height: 296px;
-      //background-color:  rgba(8,85,196,.1);      
+      background: #e6eef9;      
       //background campaña
-      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       //background: #0857c5;
-      background: #e6eef9;
+      
       .home-banner{
         margin: auto;
         background-repeat: no-repeat;
@@ -1669,8 +1670,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: 485px;
-        height: auto;
+        //height: auto;
+        height: 485px;        
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
@@ -1726,7 +1727,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             -webkit-box-align: center;
             background-size: 90%;
             //mostrar Automovil
-            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
