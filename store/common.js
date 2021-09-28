@@ -3,6 +3,7 @@
 const getDefaultState = () => {
     return {
     //GLOBALES
+    editDataExistente : false,
     channel : "IS",
     placa01: false,
     urlGlobal: '',
@@ -134,6 +135,9 @@ const mutations = {
     
     setPlaca01 (state, payload){
         state.placa01 = payload
+    },
+    setEditDataExistente(state, payload){
+        state.editDataExistente = payload
     },
     setAppDiscount (state, payload){
         state.appDiscount = payload

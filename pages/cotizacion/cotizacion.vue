@@ -1068,6 +1068,7 @@ export default {
   layout: "InterseguroFlujo",
   data() {
     return {
+      editDataExistente: false,
       flotanteCovid: true,
       opacityNone: false,
       urlpdf: "",
@@ -1398,7 +1399,10 @@ export default {
       evt.preventDefault();
       if (this.$store.state.common.businessId == 2) {
         this.$nuxt.$router.push({path: "/cotiza/cotizacion-interbank"});
-      } else {this.$nuxt.$router.push({path: "/cotizacion/seleccion"});
+      } else {
+        this.editDataExistente = true;
+        this.$store.commit('common/setEditDataExistente', this.editDataExistente )
+        this.$nuxt.$router.push({path: "/cotizacion/seleccion"});
       }
     },
     hideFlotante() {
@@ -2480,7 +2484,7 @@ export default {
       }
     }
     document.addEventListener("mouseleave", this.mouseLeave, { passive: true });
-    console.log('fecha vigencia '+this.fechaVigencia);
+    //console.log('fecha vigencia '+this.fechaVigencia);
   },
   destroyed() {
     if (process.browser) {

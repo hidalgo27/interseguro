@@ -209,6 +209,7 @@
         layout: "InterseguroFlujo",
         data() {
             return {
+                editDataExistente : false,
                 flagVerMas: 1,
                 flagVerMenos: 0,
                 filterBrand : '',
@@ -422,15 +423,17 @@
             },
         },
         async mounted() {
-            console.log("MOUNTED..")
+            console.log("MOUNTED SELECCION..")
             this.objVehiculo = this.$store.state.common.objVehiculo
+            this.editDataExistente = this.$store.state.common.editDataExistente;
             await this.$store.dispatch('common/getBrand').then((res)=>{
                 this.listBrands = res.data.body
                 this.listBrandsOrigin = res.data.body
-                console.log("MODELOS", this.listBrands)
+                //console.log("MODELOS", this.listBrands)
             })
 
             if (this.objVehiculo.exists == true) {
+                //console.log('Existe Hehiculo ...');
                 if (this.objVehiculo.brandId > 0) {
                     if (this.listBrands.filter(item => item.id == this.objVehiculo.brandId)) {
                         this.itemElegido.brandId = this.objVehiculo.brandId
@@ -442,8 +445,13 @@
                                 this.mostrarModelo()
                             }
                             if (this.listModels.filter(item => item.id == this.objVehiculo.modelId)) {
-                                console.log("if")
-                                this.continuarAlCotizador()
+                                //console.log("if")
+                                if(this.editDataExistente){
+                                    this.mostrarMarca();
+                                }else{
+                                    this.continuarAlCotizador();
+                                }
+                                
                             }else{
                                 console.log("else")
                             }
