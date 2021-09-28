@@ -70,7 +70,7 @@
             <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
               <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="" style="width: 100%; ">
             </div>
-            <p class="d-flex  d-md-none" style="margin-left: 14px;color: #FFFFFF;font-family: 'Omnes Medium';font-style: italic;font-size: 18px;margin-bottom: -10px;">La oferta termina en : </p>
+            <p class="d-flex  d-md-none" style="margin-left: 14px;color: #FFFFFF;font-family: 'Omnes Medium';font-style: italic;font-size: 16px;margin-bottom: -8px;margin-top: 10px;">La oferta termina en : </p>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">                            
               <div class="box-contador"  >
                 <div  class="example  d-md-flex">
@@ -125,7 +125,7 @@
               <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px;margin-top: 55px;width: 85%;"> 
               <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 20px;">La oferta termina en : </p>             
               <div  class="example  d-none  d-md-flex"  
-              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 153px;">                  
+              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 133px;">                  
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
                       
                   </div> 
@@ -449,8 +449,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1632805199, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1632805199, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1633064399, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1633064399, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];

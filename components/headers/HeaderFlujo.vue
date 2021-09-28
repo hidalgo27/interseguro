@@ -10,8 +10,8 @@
                    <div class="liston-mobile--parrafo">
                        <div style="font-size: 14px;width: 235px;margin-left: 3px;margin-top: -5px;">
                             <p> 
-                                 <span style="color:#ffd527; font-family:'Omnes Medium'">1 cuota gratis + vale de S/50 </span><br>
-                                 <span style="color:#ffffff; font-family:'Omnes Medium'">por comprar en Plan Black  </span>
+                                 <span style="color:#ffd527; font-family:'Omnes Medium'">1 cuota gratis + vale de S/100 </span><br>
+                                 <span style="color:#ffffff; font-family:'Omnes Medium'">por comprar en Plan Black  </span>                                 
  
                             </p>                                                           
                         </div>
@@ -27,7 +27,7 @@
                          <img width="190" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
                             <p style="width: 656px;font-size: 19px;margin-left: 33px;">                                
                                 <span style="color: #ffffff; font-family:'Omnes Medium'">¡Big Sale! </span>
-                                <span style="color: #ffd527; font-family:'Omnes Medium'"> Llévate una cuota gratis y un vale de S/50 </span>
+                                <span style="color: #ffd527; font-family:'Omnes Medium'"> Llévate una cuota gratis y un vale de S/100 </span>
                                 <span style="color: #ffffff; font-family:'Omnes Medium'"> por comprar en Plan Black </span> 
                             </p>
                     </div>
@@ -219,8 +219,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1632805199, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1632805199, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1633064399, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1633064399, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
