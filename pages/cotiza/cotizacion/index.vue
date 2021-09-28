@@ -1419,9 +1419,12 @@
               <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.svg" alt="">              
               <p class="mt-2 " style="color : #ffffff; font-size: 18px">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
-                <span style="color : #ffffff; font-style: 'Omnes Medium'">¡Big Sale Interseguro! </span><br>
-                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY, y por hacerlo en Plan Black </span><br>
-                <span style="color : #FFD527; font-style: 'Omnes Medium'">llévate una cuota gratis + vale de S/50 </span>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY y  </span>
+                <span style="color : #FFD527; font-style: 'Omnes Medium'">paga solo 11 meses </span>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">por un año de cobertura. Además, por comprar </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">en Plan Black, </span>
+                <span style="color : #FFD527; font-style: 'Omnes Medium'">gana un vale de S/100 </span>
+                   
               </p>                
             </b-col>
           </b-row>
