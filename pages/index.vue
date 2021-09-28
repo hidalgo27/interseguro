@@ -829,7 +829,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       background-color: #fff;
       //padding-top: 140px;
       //pasos mobile campaña
-      padding-top: 270px;
+      padding-top: 300px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
