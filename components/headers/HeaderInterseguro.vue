@@ -22,16 +22,7 @@
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso img-home" alt="seguros vehiculares">
                     <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
-                <div class="nav-contacto  d-flex  d-xl-none">                
-                    
-                        <!-- <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
-                            <a style="text-decoration: none;" href="tel:015000000">               
-                                <img src="../../static/media/img/home/telefono-header.png" alt="email">
-                            </a>
-                        </div> -->
-                        <!-- <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
-                            <img src="../../static/media/img/home/menu.png" alt="menu">
-                        </div> -->
+                <div class="nav-contacto  d-flex  d-xl-none">  
                         <div class="main-nav__toggle menu-icon "  id="nav-checkbox1" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div>
@@ -101,8 +92,8 @@
                     <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
                                 <nuxt-link v-else  to="/oficial/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
                     </li>
-                    <li class="d-none  d-lg-flex  box-cotiza"  v-bind:class="{ oculto: isOculto }">
-                        <button class="button-cotizar" @click="cotizar()"><span>COTIZAR</span></button>
+                    <li class="d-none  d-lg-flex"  v-bind:class="{ oculto: isOculto }">
+                        <button type="button" @click="cotizar()"><span>COTIZAR</span></button>
                     </li>
                 </ul>
                 <div id="capa" style="display: none;"></div>
@@ -440,9 +431,9 @@ export default {
     }
     
 }
-.box-cotiza button{
+/* .box-cotiza button{
   animation: shadow-pulse 1s infinite;
-}
+} */
 .oculto{
     display: none !important;
 }
@@ -534,26 +525,51 @@ export default {
                                     color: #0855c4;
                                 }
                             }
+                            button{
+                                width: 193px;
+                                height: 40px;
+                                background-color: #EA0F8F  !important;
+                                border: #EA0F8F !important;
+                                border-radius: 3px;
+                                opacity: 1;                
+                                margin-left: 20px;
+                                outline: none;
+                                span{
+                                    font-style: normal;
+                                    text-align: center;
+                                    letter-spacing: 0px;
+                                    color: #FFFFFF;
+                                    opacity: 1;
+                                }
+                            }
+                            button:hover{
+                                border: #FD179D !important;
+                                background-color: #FD179D !important;
+                            }
                         }
                     }
-                    .button-cotizar{
-                    width: 193px;
-                    height: 40px;
-                    background: var(--unnamed-color-0855c4) 0% 0% no-repeat padding-box;
-                    background: #EA0F90  0% 0% no-repeat padding-box;
-                    border: #EA0F8F !important;
-                    border-radius: 3px;
-                    opacity: 1;                
-                    margin-left: 20px;
-                    outline: none;
-                    span{
-                        font-style: normal;
-                        text-align: center;
-                        letter-spacing: 0px;
-                        color: #FFFFFF;
-                        opacity: 1;
-                    }
-                    }
+                    /* .button-cotizar{
+                        width: 193px;
+                        height: 40px;
+                        background-color: #EA0F8F  !important;
+                        border: #EA0F8F !important;
+                        border-radius: 3px;
+                        opacity: 1;                
+                        margin-left: 20px;
+                        outline: none;
+                        span{
+                            font-style: normal;
+                            text-align: center;
+                            letter-spacing: 0px;
+                            color: #FFFFFF;
+                            opacity: 1;
+                        }
+                        .button:hover{
+                            background-color: #FD179D;
+                            border: #FD179D;
+                        }
+                    } */
+                    
                 }            
             }
             .btn-cotiza a {

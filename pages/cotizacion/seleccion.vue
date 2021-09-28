@@ -83,21 +83,21 @@
                 <b-col cols="12">
                     <b-row class="lista1 flujo-titulo" v-bind:class="{mostrarListaMarca: mostrarListaMarca}">
                         <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Selecciona la marca</span>
+                            <a href=""><img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ></a><span>Selecciona la marca</span>
                         </b-col>
                     </b-row>
                 </b-col>
                 <b-col cols="12">
                     <b-row class="listaDos flujo-titulo" v-bind:class="{mostrarListaAnio: mostrarListaAnio}">
                         <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarMarca($event)" ><span>Seleciona el año</span>
+                            <a href=""><img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarMarca($event)" ></a><span>Seleciona el año</span>
                         </b-col>
                     </b-row>                     
                 </b-col>
                 <b-col cols="12">
                     <b-row class="lista3 flujo-titulo" v-bind:class="{mostrarListaModelo: mostrarListaModelo}">
                         <b-col>
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarAnio($event)" ><span>Seleciona el modelo</span>
+                            <a href=""><img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="editarAnio($event)" ></a><span>Seleciona el modelo</span>
                         </b-col>
                     </b-row>
                 </b-col>          

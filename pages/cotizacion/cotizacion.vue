@@ -30,7 +30,7 @@
             <span style="margin-left: 5px"
               >{{ this.$store.state.common.objVehiculo.modelYear }}
             </span>
-            <img src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg" alt="" @click="volver($event)" style="width:15px; margin-left:10px">
+            <a href=""><img src="./../../static/media/imagenes/cotizacion/edit-lapiz.svg" alt="" @click="volver($event)" style="width:15px; margin-left:10px"></a>
           </div>
         </b-col>
         <b-col cols="11" sm="8" md="6" lg="5" xl="4" class="col-custom">
@@ -94,7 +94,7 @@
           </div>
         </b-col>
         <b-col cols="12" md="6" lg="6" xl="2" class="mb-2">
-          <div class="fecha" @click="showModalEnviarEmail()">
+          <div class="envia-cotizacion" @click="showModalEnviarEmail()">
             <span class="enviar-cotizacion">Enviar cotización</span>
           </div>
         </b-col>
@@ -126,9 +126,9 @@
               <div class="monto-antes">
                 <p>Antes US${{ this.monto_antes_plata }}</p>
               </div>
-              <div class="btn-cotizador"  @click="continuar($event, 4)">
+              <button type="button"  @click="continuar($event, 4)">
                 <span >Continuar</span>
-              </div>
+              </button>
               <div class="que-me-cubre">
                 <div class="titulo">Este plan incluye:</div>
                 <p class="que-me-cubre__item">
@@ -184,9 +184,9 @@
                       <p>Antes US${{ this.monto_antes_oro }}</p>
                     </div>
 
-                    <div class="btn-cotizador"  @click="continuar($event, 6)">
+                    <button type="button"  @click="continuar($event, 6)">
                       <span >Continuar</span>
-                    </div>
+                    </button>
 
                     <div class="que-me-cubre">
                       <div class="titulo">Este plan incluye:</div>
@@ -257,9 +257,9 @@
                 <div class="monto-antes">
                   <p>Antes US${{ this.monto_antes_black }}</p>
                 </div>
-                <div class="btn-cotizador"  @click="continuar($event, 3)">
+                <button type="button"  @click="continuar($event, 3)">
                   <span >Continuar</span>
-                </div>
+                </button>
                 <div class="que-me-cubre">
                   <div class="titulo">Importante:</div>
                   <p class="que-me-cubre__item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
@@ -867,6 +867,22 @@
 
     <b-modal id="v2modalGPS" title="Bootstrap-Vue" hide-footer hide-header ref="v2modalGPS" >
       <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" @click="hideModalGPS()" />
+      <div class="d-block text-center v2modalGPS">
+        <b-row>
+           <b-col cols="12" class="v2modalGPS-header">
+             <p>Hola, tu {{ this.itemElegido.brand }} necesita un GPS</p>
+           </b-col>
+           <b-col cols="12" class="v2modalGPS-body">
+             <b-row>
+               <b-col cols="12">
+                 <span class="descripcion">
+                  Por ser de Interseguro, podrás acceder a los mejores precios:
+                </span>
+               </b-col>
+             </b-row>
+           </b-col>
+        </b-row>
+      </div>
       <div class="v2modalGPS">
         <div class="v2modalGPS__header">
           <img src="./../../static/media/interseguroVehicular_v2/auto-gps.png" alt="" />

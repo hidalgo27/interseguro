@@ -255,8 +255,9 @@
         }
       }
 
-      .btn-pagar {
-        background-color: #ea0c90;
+      button {
+        border: #EA0F8F !important;
+        background-color: #EA0F8F !important;
         color: white;
         height: 52px;
         line-height: 0.5;
@@ -265,9 +266,18 @@
         border: none;
         border-radius: 3px;
         text-transform: none;
+        outline: none;
         &:disabled {
-          background: #E4E9F7;
-          color: #82859D;
+          background: #E4E9F7 !important;
+          color: #82859D;        
+        }        
+      }
+      button:hover{
+        border: #FD179D !important;
+        background-color: #FD179D !important;
+        &:disabled {
+          background: #E4E9F7 !important;
+          color: #82859D;        
         }
       }
             

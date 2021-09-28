@@ -34,7 +34,8 @@ select:focus,
             }
         }
     }
-    .btn-pagar {
+    
+    /* .btn-pagar {
         background-color: #ea0c90;
         color: white;
         height: 52px;
@@ -48,7 +49,7 @@ select:focus,
           background: #E4E9F7;
           color: #82859D;
         }
-    }
+    } */
     
 }
 .container-box-mensaje{
@@ -634,97 +635,105 @@ input.form-control.text-uppercase.iptGral__input:focus {
             bottom: 0px;
             right: 0px;
             z-index: 99;
-        }
-        .btn-pagar {
-            background-color: #ea0c90;
-            color: white;
-            height: 52px;
-            line-height: 0.5;
-            font-size: 19px;
-            width: 80%;
-            border: none;
-            border-radius: 3px;
-            text-transform: none;
-            position: fixed;
-            bottom: 8px;
-            right: 10%;
-            &:disabled {
-              background: #E4E9F7;
-              color: #82859D;
+            button {
+                border: #EA0F8F !important;
+                background-color: #EA0F8F !important;
+                color: white;
+                height: 52px;
+                line-height: 0.5;
+                font-size: 19px;
+                width: 80%;
+                border-radius: 3px;
+                text-transform: none;
+                bottom: 8px;
+                right: 10%;
+                outline: none;
+                position: fixed;
+                &:disabled {
+                    background: #E4E9F7 !important;
+                    color: #82859D;        
+                }
+                
             }
         }
+        
     }  
   }
 
 @media (min-width: 992.1px) {
-
-
-    .metodo-pago{     
-              
-        &__comoPagar{                
-            border-radius: 5px 5px 0 0;
-        }  
-        &__ingresatarjeta{
-            border: 1px solid #CCD1DD;
-            border-radius: 3px;
-            opacity: 1;
-            border-radius:  0 5px  5px 0;
-            padding: 50px;
+    .pagina-pagar{
+        .metodo-pago{ 
+            &__comoPagar{                
+                border-radius: 5px 5px 0 0;
+            }  
+            &__ingresatarjeta{
+                border: 1px solid #CCD1DD;
+                border-radius: 3px;
+                opacity: 1;
+                border-radius:  0 5px  5px 0;
+                padding: 50px;
+            }
+        }
+        
+        .tarjetas{
+            padding-top: 20px;
+        }
+       
+        #focusCVV{
+            right: -147px;
+            bottom: 45px;
+            img{
+                width: 100%;
+            }
+        }
+        #focusMES{
+            left: -147px;
+            bottom: 45px;
+            img{
+                width: 100%;
+            }
+        }
+        #focusTarjeta{
+            left: -155px;
+            bottom: 63px;
+            img{
+                width: 100%;
+            }
+        }
+        .box-btn-pagar{
+            button {
+                border: #EA0F8F !important;
+                background-color: #EA0F8F !important;
+                color: white;
+                height: 52px;
+                line-height: 0.5;
+                font-size: 19px;
+                width: 80%;
+                border-radius: 3px;
+                text-transform: none;
+                bottom: 8px;
+                right: 10%;
+                outline: none;
+                &:disabled {
+                    background: #E4E9F7 !important;
+                    color: #82859D;        
+                }
+                
+            }
+            button:hover{
+                border: #FD179D !important;
+                background-color: #FD179D !important;
+                &:disabled {
+                    background: #E4E9F7 !important;
+                    color: #82859D;        
+                }
+            }
         }
     }
-    /* .box-btn-pagar{
-        display: flex;
-        background-color: #FFFFFF;
-        height: 69px;
-        width: 100%;
-        margin-top: 20px;
-    } */
+
     
-    .tarjetas{
-        padding-top: 20px;
-    }
-   
-    #focusCVV{
-        right: -147px;
-        bottom: 45px;
-        img{
-            width: 100%;
-        }
-    }
-    #focusMES{
-        left: -147px;
-        bottom: 45px;
-        img{
-            width: 100%;
-        }
-    }
-    #focusTarjeta{
-        left: -155px;
-        bottom: 63px;
-        img{
-            width: 100%;
-        }
-    }
+
+    
     
 }
 
-@media (min-width: 1024px){
-    
-
-    .planes-tabs .nav-pills .nav-link, .planes-tabs .nav-pills .show > .nav-link {
-        font-weight: 500;
-    }
-}
-/* @media (min-width: 1200px) {
-    .card-interseguro{
-        width: 100%;
-    }
-    .card-custom__date .form-group-custom:nth-child(1) {
-        width: 135px;
-        position: relative;
-    }
-    .card-custom__date .form-group-custom:nth-child(2) {
-        width: initial;
-        position: relative;
-    }
-} */

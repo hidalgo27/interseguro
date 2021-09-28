@@ -260,10 +260,12 @@ $vehicular_parrafo_v2: #383C5A;
                     position: relative;
                     border-radius: 2px;
                     outline: none;
+                    
                 }
-                /* button:active{
-                    background-color: #bd0872 !important;
-                } */
+                button:hover{
+                    border: #FD179D !important;
+                    background-color: #FD179D !important;
+                }
             }
             .respaldo-intercorp{
                 span{

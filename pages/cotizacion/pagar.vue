@@ -384,13 +384,13 @@
                 <b-col cols="12">
                     <b-row class="lista1 flujo-titulo">
                         <b-col cols="2" class="d-block d-sm-none">
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)">
+                            <a href=""><img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)"></a>
                         </b-col>
                         <b-col class="p-0  d-block d-sm-none" >
                             <span style=" margin-top: 4px; display: block; line-height: 30px; ">Ingresa tu tarjeta crédito <br> o débito </span>
                         </b-col>
                         <b-col class="p-0 d-none d-sm-block" >
-                            <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Ingresa tu tarjeta crédito o débito</span>
+                            <a href=""><img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ></a><span>Ingresa tu tarjeta crédito o débito</span>
                         </b-col>
                     </b-row>
                 </b-col>
@@ -493,9 +493,8 @@
                                 </b-col>
                     </b-row>
                     <b-row class="justify-content-center">                                            
-                        <b-col cols="6" class="box-btn-pagar">                                                
-                            <button type="submit" @click="continuar" class="btn-pagar" 
-                                :disabled='this.isDisabledPayment'>
+                        <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="box-btn-pagar">                                                
+                            <button type="button" @click="continuar" :disabled='this.isDisabledPayment'>
                                 <span>PAGAR ${{this.monto_pagar}} </span>
                             </button>
                         </b-col>
@@ -511,14 +510,14 @@
                             <p>Tu compra es 100% segura. <br> Contamos con el respaldo del <b><span>Grupo Intercorp</span></b> </p>
                         </b-col>
                     </b-row>
-                    <b-row class="justify-content-center d-block d-sm-none">                                            
+                    <!-- <b-row class="justify-content-center d-block d-sm-none">                                            
                         <b-col cols="12" class="box-btn-pagar">                                                
                             <button type="submit" @click="continuar" class="btn-pagar" 
                                 :disabled='this.isDisabledPayment'>
                                 <span>PAGAR ${{this.monto_pagar}} </span>
                             </button>
                         </b-col>
-                    </b-row>
+                    </b-row> -->
                 </b-col>
                 <b-col cols="4">
                     <div class="resumen-proteccion d-none  d-lg-block">

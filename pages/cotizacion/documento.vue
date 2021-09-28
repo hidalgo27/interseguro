@@ -124,13 +124,13 @@
         <b-col cols="12">
             <b-row class="lista1 flujo-titulo">
                 <b-col cols="2" class="d-block d-sm-none">
-                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)">
+                    <a href=""><img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)"></a>
                 </b-col>
                 <b-col class="p-0 d-block d-sm-none">
                   <span style=" margin-top: 6px; display: block; line-height: 26px; ">Completa tus datos personales </span>
                 </b-col>
                 <b-col class="p-0 d-none d-sm-block">
-                    <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ><span>Completa tus datos personales</span>
+                  <a href=""> <img src="./../../static/media/imagenes/seleccion/row-back.svg" alt="" @click="volver($event)" ></a><span>Completa tus datos personales</span>
                 </b-col>
             </b-row>
         </b-col>
@@ -372,7 +372,7 @@
           </b-row>
           <b-row class="mt-4 mb-4">
             <b-col cols="12" lg="6">
-              <button type="submit" :disabled="isDisableButton" @click="continuar($event)" class="btn-pagar">
+              <button type="button" :disabled="isDisableButton" @click="continuar($event)">
                   Ir a pagar
               </button>
             </b-col>

@@ -35,7 +35,7 @@
             ></b-form-input>
           </b-form-group>
           <div class="box-btn-homeForm">
-            <button type="button" class="btn-home-cotizar" >
+            <button type="button" >
               COTIZAR
                 <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
             </button>
