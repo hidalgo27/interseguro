@@ -11,13 +11,24 @@
     margin-right: 15px;
     .v2modalGPS-header{
       background: #0855C4;
-      height: 120px;
+      height: 80px;
       p{
         font-family: 'Omnes Regular';
         font-size: 32px;
         letter-spacing: 0px;
         color: #FFFFFF;
-        line-height: 120px;
+        line-height: 80px;
+      }
+    }
+    .v2modalGPS-footer{
+      background: #e6eef9;
+      height: 60px;
+      p{
+        font-family: 'Omnes Regular';
+        font-size: 16px;
+        letter-spacing: 0px;
+        color: #0855C4;
+        padding: 10px;
       }
     }
     .v2modalGPS-body{
@@ -25,6 +36,91 @@
         color: #383C5A;
         font-family: 'Omnes Regular';
         font-size: 18px;
+      }
+      .contenedor-box{
+        padding: 5px 30px 5px 30px;
+        .box-empresa-soat{
+          border: 1px solid #CCD1DD;
+          border-radius: 3px;
+          padding: 15px;
+          .box-empresa-izq{
+            border-right: 1px solid #CCD1DD;
+            .edificio{
+              padding-bottom: 10px;
+            }
+          }
+          .box-empresa-der{
+            padding-left: 40px;
+          }
+          .row-content{
+            text-align: left;
+          }
+          .label{
+            font-family: 'Omnes Regular';
+            font-size: 11px;
+            color: #454A6C;
+          }
+          .text{
+            font-family: 'Omnes Medium';
+            font-size: 18px;
+            color: #454A6C;
+          }
+          .precio-antes{
+            font-family: 'Omnes Medium';
+            font-size: 10px;
+            color: #454A6C;
+            text-decoration:line-through;
+            text-decoration-color: #EA0F90;
+          }
+          
+        }
+      }
+      .mensaje{
+        padding-bottom: 10px;
+        p{
+          text-align: left;
+          font-family: 'Omnes Regular';
+          font-size: 18px;
+          color: #383C5A;
+          
+        }
+        img{
+          padding: 10px;
+        }
+      }
+      .pregunta{
+        padding-top: 10px;
+        p{
+          font-family: 'Omnes Medium';
+          font-size: 35px;
+          color: #0855C4;
+        }
+      }
+      .certificado{
+        padding-top: 10px;
+        p{
+          font-family: 'Omnes Regular';
+          font-size: 16px;
+          color: #454A6C;
+        }
+      }
+      .boton{
+        padding: 10px;
+        button {
+          width: 260px;
+          height: 50px;
+          background: #ea0c90;
+          padding: 8px 19px;
+          font-size: 16px;
+          border: 1px solid #ea0c90;
+          color: #FFFFFF;
+          border-radius: 3px;
+          &:hover {
+            background: #ea0c90;
+            color: white;
+            transition: all 0.75s;
+          }
+        }
       }
     }
   }

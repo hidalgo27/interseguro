@@ -129,6 +129,20 @@
               <button type="button"  @click="continuar($event, 4)">
                 <span >Continuar</span>
               </button>
+              <div class="que-me-cubre" v-if="this.listaBasica.vehicle.gps == 'Y'">
+                <div class="titulo">Importante:</div>
+                <p class="que-me-cubre__item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
+                  <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                  <span style="margin-left: 5px" >
+                    Tu auto necesita GPS
+                    <span class="link-modal" href="javascript:void(0);" @click="showModalGPS()">
+                      <a class="link-modal" href="javascript:void(0);">
+                        Ver más
+                      </a>
+                    </span >
+                  </span>
+                </p>
+              </div>
               <div class="que-me-cubre">
                 <div class="titulo">Este plan incluye:</div>
                 <p class="que-me-cubre__item">
@@ -187,6 +201,21 @@
                     <button type="button"  @click="continuar($event, 6)">
                       <span >Continuar</span>
                     </button>
+
+                    <div class="que-me-cubre" v-if="this.listaBasica.vehicle.gps == 'Y'">
+                      <div class="titulo">Importante:</div>
+                      <p class="que-me-cubre__item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
+                        <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
+                        <span style="margin-left: 5px" >
+                          Tu auto necesita GPS
+                          <span class="link-modal" href="javascript:void(0);" @click="showModalGPS()">
+                            <a class="link-modal" href="javascript:void(0);">
+                              Ver más
+                            </a>
+                          </span >
+                        </span>
+                      </p>
+                    </div>
 
                     <div class="que-me-cubre">
                       <div class="titulo">Este plan incluye:</div>
@@ -267,8 +296,8 @@
                     <span style="margin-left: 5px" >
                       Tu auto necesita GPS
                       <span class="link-modal" href="javascript:void(0);" @click="showModalGPS()">
-                        <a class="detalle-enlace" href="javascript:void(0);">
-                          {{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO"}}
+                        <a class="link-modal" href="javascript:void(0);">
+                          Ver más
                         </a>
                       </span >
                     </span>
@@ -432,6 +461,7 @@
                 <span >Continuar</span>
               </div>
 
+              
               <div class="que-me-cubre">
                 <div class="titulo-importante" v-if="this.listaBasica.vehicle.gps == 'Y' || this.$store.state.common.planSeleccionado == 3 || this.$store.state.common.planSeleccionado == 10">Importante:</div>
                 <p class="que-me-cubre__item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
@@ -439,8 +469,8 @@
                   <span style="margin-left: 5px" >
                     Tu auto necesita GPS
                     <span class="link-modal" href="javascript:void(0);" @click="showModalGPS()">
-                      <a class="detalle-enlace" href="javascript:void(0);">
-                        {{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO"}}
+                      <a class="link-modal" href="javascript:void(0);">
+                        Ver más
                       </a>
                     </span >
                   </span>
@@ -868,11 +898,11 @@
     <b-modal id="v2modalGPS" title="Bootstrap-Vue" hide-footer hide-header ref="v2modalGPS" >
       <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" @click="hideModalGPS()" />
       <div class="d-block text-center v2modalGPS">
-        <b-row>
+        <b-row align-h="center">
            <b-col cols="12" class="v2modalGPS-header">
-             <p>Hola, tu {{ this.itemElegido.brand }} necesita un GPS</p>
+             <p><img src="./../../static/media/imagenes/cotizacion/auto-modal-gps.svg" alt="" style="margin-right:30px">Hola, tu {{ this.itemElegido.brand }} necesita un GPS</p>
            </b-col>
-           <b-col cols="12" class="v2modalGPS-body">
+           <b-col cols="10" class="v2modalGPS-body">
              <b-row>
                <b-col cols="12">
                  <span class="descripcion">
@@ -880,109 +910,176 @@
                 </span>
                </b-col>
              </b-row>
+             <b-row>
+               <b-col cols="6" class="contenedor-box">
+                 <b-row>
+                   <b-col cols="12" class="box-empresa-soat">
+                    <b-row>
+                      <b-col cols="5" class="box-empresa-izq">
+                        <b-row class="row-content">
+                          <b-col cols="12" class="edificio">
+                            <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="label">Empresa:</p>
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="text">Protemax</p>
+                          </b-col>
+                        </b-row>
+
+                      </b-col>
+                      <b-col cols="7" class="box-empresa-der">
+                        <b-row class="row-content">
+                          <b-col cols="12">
+                            <span class="label">Precio:</span><br>
+                            <span class="text">US$ 150</span><br>
+                            <span class="precio-antes">Antes US$ 250</span><br>
+                            <span class="label">Contacto:</span><br>
+                            <span class="text">(01) 618 1900</span> 
+                          </b-col>
+                        </b-row>                                        
+                      </b-col>
+                    </b-row>
+                    </b-col>
+                 </b-row>
+               </b-col>
+               <b-col cols="6" class="contenedor-box">
+                 <b-row>
+                   <b-col cols="12" class="box-empresa-soat">
+                    <b-row>
+                      <b-col cols="5" class="box-empresa-izq">
+                        <b-row class="row-content">
+                          <b-col cols="12" class="edificio">
+                            <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="label">Empresa:</p>
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="text">Satellital Patrol</p>
+                          </b-col>
+                        </b-row>
+
+                      </b-col>
+                      <b-col cols="7" class="box-empresa-der">
+                        <b-row class="row-content">
+                          <b-col cols="12">
+                            <span class="label">Precio:</span><br>
+                            <span class="text">US$ 177</span><br>
+                            <span class="precio-antes">Antes US$ 250</span><br>
+                            <span class="label">Contacto:</span><br>
+                            <span class="text">(01) 620 1111</span> 
+                          </b-col>
+                        </b-row>                                        
+                      </b-col>
+                    </b-row>
+                    </b-col>
+                 </b-row>
+               </b-col>
+               <b-col cols="6" class="contenedor-box">
+                 <b-row>
+                   <b-col cols="12" class="box-empresa-soat">
+                    <b-row>
+                      <b-col cols="5" class="box-empresa-izq">
+                        <b-row class="row-content">
+                          <b-col cols="12" class="edificio">
+                            <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="label">Empresa:</p>
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="text">Tracklink Motor link</p>
+                          </b-col>
+                        </b-row>
+
+                      </b-col>
+                      <b-col cols="7" class="box-empresa-der">
+                        <b-row class="row-content">
+                          <b-col cols="12">
+                            <span class="label">Precio:</span><br>
+                            <span class="text">US$ 165</span><br>
+                            <span class="precio-antes">Antes US$ 250</span><br>
+                            <span class="label">Contacto:</span><br>
+                            <span class="text">(01) 630 7575</span> 
+                          </b-col>
+                        </b-row>                                        
+                      </b-col>
+                    </b-row>
+                    </b-col>
+                 </b-row>
+               </b-col>
+               <b-col cols="6" class="contenedor-box">
+                 <b-row>
+                   <b-col cols="12" class="box-empresa-soat">
+                    <b-row>
+                      <b-col cols="5" class="box-empresa-izq">
+                        <b-row class="row-content">
+                          <b-col cols="12" class="edificio">
+                            <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="label">Empresa:</p>
+                          </b-col>
+                          <b-col cols="12">
+                            <p class="text">Protesegur</p>
+                          </b-col>
+                        </b-row>
+
+                      </b-col>
+                      <b-col cols="7" class="box-empresa-der">
+                        <b-row class="row-content">
+                          <b-col cols="12">
+                            <span class="label">Precio:</span><br>
+                            <span class="text">US$ 199</span><br>
+                            <span class="precio-antes">Antes US$ 250</span><br>
+                            <span class="label">Contacto:</span><br>
+                            <span class="text">(01) 513 8686</span> 
+                          </b-col>
+                        </b-row>                                        
+                      </b-col>
+                    </b-row>
+                    </b-col>
+                 </b-row>
+               </b-col>
+               
+             </b-row>
+             <b-row class="mensaje justify-content-center">
+               <b-col cols="2">
+                 <img src="./../../static/media/imagenes/cotizacion/modal-persona.svg" alt="">
+                </b-col>
+                <b-col cols="7" align-self="center" class="m-0 p-0">
+                  <p>Al finalizar la compra de tu Seguro Vehicular te ayudaremos con la compra de tu GPS.</p>
+                </b-col>
+             </b-row>
+             <b-row class="justify-content-center">
+               <b-col cols="9">
+                 <hr>
+               </b-col>
+             </b-row>
+             <b-row >
+               <b-col class="pregunta">
+                 <p>¿Ya tienes un GPS activo? </p>
+               </b-col>
+             </b-row>
+             <b-row class="certificado">
+               <b-col>
+                 <p>Luego de la compra, envíanos el certificado.</p>
+               </b-col>
+             </b-row>
+             <b-row class="boton">
+               <b-col>
+                 <b-button @click="hideModalGPS()"><span>Estoy deacuerdo</span></b-button>
+               </b-col>
+             </b-row>
+           </b-col>
+           <b-col cols="12" class="v2modalGPS-footer">
+             <p>Tendrás 5 días para contratar tu GPS luego de la compra del Seguro Vehicular, <br> si no perderás la cobertura de Robo Total.</p>
            </b-col>
         </b-row>
       </div>
-      <div class="v2modalGPS">
-        <div class="v2modalGPS__header">
-          <img src="./../../static/media/interseguroVehicular_v2/auto-gps.png" alt="" />
-          <div class="texto-header">
-            <p class="titulo">
-              Tu {{ this.itemElegido.brand }} necesita un GPS, te ayudamos a contratarlo
-            </p>
-            <span class="descripcion">
-              Por ser de Interseguro, podrás acceder a los mejores precios:
-            </span>
-          </div>
-        </div>
-        <div class="v2modalGPS__body">
-          <div class="box-empresas">
-            <div class="empresa-item">
-              <div class="empresa-item__der">
-                <img
-                  src="./../../static/media/interseguroVehicular_v2/empresa.png"
-                  alt=""
-                />
-                <span>Empresa:</span>
-                <p>Protemax</p>
-              </div>
-              <div class="empresa-item__izq">
-                <span>Precio:</span>
-                <p>US$150</p>
-                <!-- <span class="precio-antes">250</span> -->
-                <span>Contacto:</span>
-                <p>(01) 618 1900</p>
-              </div>
-            </div>
-
-            <div class="empresa-item">
-              <div class="empresa-item__der">
-                <img
-                  src="./../../static/media/interseguroVehicular_v2/empresa.png"
-                  alt=""
-                />
-                <span>Empresa:</span>
-                <p>Satellital Patrol</p>
-              </div>
-              <div class="empresa-item__izq">
-                <span>Precio:</span>
-                <p>US$177</p>
-                <!-- <span class="precio-antes">250</span> -->
-                <span>Contacto:</span>
-                <p>(01) 620 1111</p>
-              </div>
-            </div>
-
-            <div class="empresa-item">
-              <div class="empresa-item__der">
-                <img
-                  src="./../../static/media/interseguroVehicular_v2/empresa.png"
-                  alt=""
-                />
-                <span>Empresa:</span>
-                <p>Tracklink Motor link</p>
-              </div>
-              <div class="empresa-item__izq">
-                <span>Precio:</span>
-                <p>US$165</p>
-                <!-- <span class="precio-antes">250</span> -->
-                <span>Contacto:</span>
-                <p>(01) 630 7575</p>
-              </div>
-            </div>
-
-            <div class="empresa-item">
-              <div class="empresa-item__der">
-                <img
-                  src="./../../static/media/interseguroVehicular_v2/empresa.png"
-                  alt=""
-                />
-                <span>Empresa:</span>
-                <p>Prosegur</p>
-              </div>
-              <div class="empresa-item__izq">
-                <span>Precio:</span>
-                <p>US$199</p>
-                <!-- <span class="precio-antes">250</span> -->
-                <span>Contacto:</span>
-                <p>(01) 513 8686</p>
-              </div>
-            </div>
-          </div>
-          <p class="finalizar-compra">
-            Al finalizar la compra de tu Seguro Vehicular te ayudaremos con la compra de
-            tu GPS.
-          </p>
-          <p class="tienes-gps">¿Ya tienes un GPS activo?</p>
-          <p class="certificado">Luego de la compra, envíanos el certificado.</p>
-        </div>
-        <div class="v2modalGPS__footer">
-          <p>
-            Tendrás 5 días para contratar tu GPS luego <br />
-            de la compra del Seguro Vehicular, si no perderás la cobertura de Robo Total.
-          </p>
-        </div>
-      </div>
+      
     </b-modal>
 
     <!--Modal entidad financiera-->
