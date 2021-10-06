@@ -6,7 +6,7 @@
     }
   }
 
-  .v2modalGPS{
+  /* .v2modalGPS{
     margin-left: 15px;
     margin-right: 15px;
     .v2modalGPS-header{
@@ -123,7 +123,7 @@
         }
       }
     }
-  }
+  } */
 
   .endosoSesion {
     height: 145px;
@@ -644,6 +644,316 @@
     
   }
 
+  @media (max-width: 768px) {
+    .carousel-item {
+      position: relative;
+      display: none;
+      float: left;
+      width: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transition: transform .6s ease-in-out;
+    }
+    .carousel-item-next, .carousel-item-prev, .carousel-item.active {
+        display: block;
+    }
+    .carousel-caption {
+        position: absolute;
+        //bottom: 20px;
+        //right: 5%;                
+        //left: 5%;
+        z-index: 10;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        color: #fff;
+        text-align: center;
+        height: 100%;
+    }
+    .carousel-inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 190px;
+    }
+    .carousel-indicators {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 15;
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+        margin-right: 15%;
+        margin-left: 15%;
+        list-style: none;
+        li {
+            box-sizing: content-box;
+            flex: 0 1 auto;
+            width: 30px;
+            height: 3px;
+            margin-right: 3px;
+            margin-left: 3px;
+            text-indent: -999px;
+            cursor: pointer;
+            background-color: $vehicular_primario;
+            background-clip: padding-box;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            opacity: .5;
+            transition: opacity .6s ease;
+            
+        }
+        .active{
+            opacity: 1;
+        }
+    }
+
+    .v2modalGPS{
+      margin-left: 15px;
+      margin-right: 15px;
+      .v2modalGPS-header{
+        background: #0855C4;
+        height: 80px;
+        p{
+          font-family: 'Omnes Regular';
+          font-size: 18px;
+          letter-spacing: 0px;
+          color: #FFFFFF;
+          //line-height: 80px;
+        }
+      }
+      .v2modalGPS-footer{
+        background: #e6eef9;
+        height: 60px;
+        p{
+          font-family: 'Omnes Regular';
+          font-size: 13px;
+          letter-spacing: 0px;
+          color: #0855C4;
+          //padding: 5px;
+        }
+      }
+      .v2modalGPS-body{
+        .descripcion{
+          color: #383C5A;
+          font-family: 'Omnes Regular';
+          font-size: 18px;
+        }
+        .contenedor-box{
+          //padding: 5px;
+          .box-empresa-soat{
+            border: 1px solid #CCD1DD;
+            border-radius: 3px;
+            padding: 15px;
+            .box-empresa-izq{
+              border-right: 1px solid #CCD1DD;
+              .edificio{
+                padding-bottom: 10px;
+              }
+            }
+            .box-empresa-der{
+              padding-left: 40px;
+            }
+            .row-content{
+              text-align: left;
+            }
+            .label{
+              font-family: 'Omnes Regular';
+              font-size: 11px;
+              color: #454A6C;
+            }
+            .text{
+              font-family: 'Omnes Medium';
+              font-size: 18px;
+              color: #454A6C;
+            }
+            .precio-antes{
+              font-family: 'Omnes Medium';
+              font-size: 10px;
+              color: #454A6C;
+              text-decoration:line-through;
+              text-decoration-color: #EA0F90;
+            }
+            
+          }
+        }
+        .mensaje{
+          padding-bottom: 10px;
+          p{
+            text-align: left !important;
+            font-family: 'Omnes Regular';
+            font-size: 18px;
+            color: #383C5A;
+            
+          }
+          img{
+            padding: 10px;
+          }
+        }
+        .pregunta{
+          padding-top: 10px;
+          p{
+            font-family: 'Omnes Medium';
+            font-size: 16px;
+            color: #0855C4;
+          }
+        }
+        .certificado{
+          padding-top: 10px;
+          p{
+            font-family: 'Omnes Regular';
+            font-size: 16px;
+            color: #454A6C;
+          }
+        }
+        .boton{
+          padding: 10px;
+          button {
+            width: 260px;
+            height: 50px;
+            background: #ea0c90;
+            padding: 8px 19px;
+            font-size: 16px;
+            border: 1px solid #ea0c90;
+            color: #FFFFFF;
+            border-radius: 3px;
+            &:hover {
+              background: #ea0c90;
+              color: white;
+              transition: all 0.75s;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
+  @media (min-width: 768.1px) {
+    .pagina-cotizador{
+      
+    }
+    .v2modalGPS{
+      margin-left: 15px;
+      margin-right: 15px;
+      .v2modalGPS-header{
+        background: #0855C4;
+        height: 80px;
+        p{
+          font-family: 'Omnes Regular';
+          font-size: 32px;
+          letter-spacing: 0px;
+          color: #FFFFFF;
+          line-height: 80px;
+        }
+      }
+      .v2modalGPS-footer{
+        background: #e6eef9;
+        height: 60px;
+        p{
+          font-family: 'Omnes Regular';
+          font-size: 16px;
+          letter-spacing: 0px;
+          color: #0855C4;
+          padding: 10px;
+        }
+      }
+      .v2modalGPS-body{
+        .descripcion{
+          color: #383C5A;
+          font-family: 'Omnes Regular';
+          font-size: 18px;
+        }
+        .contenedor-box{
+          padding: 10px 35px 10px 35px;
+          .box-empresa-soat{
+            border: 1px solid #CCD1DD;
+            border-radius: 3px;
+            padding: 15px;
+            .box-empresa-izq{
+              border-right: 1px solid #CCD1DD;
+              .edificio{
+                padding-bottom: 10px;
+              }
+            }
+            .box-empresa-der{
+              padding-left: 40px;
+            }
+            .row-content{
+              text-align: left;
+            }
+            .label{
+              font-family: 'Omnes Regular';
+              font-size: 11px;
+              color: #454A6C;
+            }
+            .text{
+              font-family: 'Omnes Medium';
+              font-size: 18px;
+              color: #454A6C;
+            }
+            .precio-antes{
+              font-family: 'Omnes Medium';
+              font-size: 10px;
+              color: #454A6C;
+              text-decoration:line-through;
+              text-decoration-color: #EA0F90;
+            }
+            
+          }
+        }
+        .mensaje{
+          padding-bottom: 10px;
+          p{
+            text-align: left;
+            font-family: 'Omnes Regular';
+            font-size: 18px;
+            color: #383C5A;
+            
+          }
+          img{
+            padding: 10px;
+          }
+        }
+        .pregunta{
+          padding-top: 10px;
+          p{
+            font-family: 'Omnes Medium';
+            font-size: 35px;
+            color: #0855C4;
+          }
+        }
+        .certificado{
+          padding-top: 10px;
+          p{
+            font-family: 'Omnes Regular';
+            font-size: 16px;
+            color: #454A6C;
+          }
+        }
+        .boton{
+          padding: 10px;
+          button {
+            width: 260px;
+            height: 50px;
+            background: #ea0c90;
+            padding: 8px 19px;
+            font-size: 16px;
+            border: 1px solid #ea0c90;
+            color: #FFFFFF;
+            border-radius: 3px;
+            &:hover {
+              background: #ea0c90;
+              color: white;
+              transition: all 0.75s;
+            }
+          }
+        }
+      }
+    }
+    
+  }
 
   @media (max-width: 991.9px) {
     .pagina-cotizador{

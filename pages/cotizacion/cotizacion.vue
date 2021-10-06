@@ -291,7 +291,7 @@
                 </button>
                 <div class="que-me-cubre">
                   <div class="titulo">Importante:</div>
-                  <p class="que-me-cubre__item"  v-if="this.listaBasica.vehicle.gps == 'Y'">
+                  <p class="que-me-cubre__item" v-if="this.listaBasica.vehicle.gps == 'Y'">
                     <img src="./../../static/media/imagenes/cotizacion/check-lg.svg" alt="" />
                     <span style="margin-left: 5px" >
                       Tu auto necesita GPS
@@ -717,22 +717,6 @@
     </b-modal>
     <!--Fin Modal e-mail-->
 
-    <!-- <div id="imagePhone" style="display: none">
-      <div class="phoneContent">
-        <a class="phoneS" style="color: #5b85c5" href="tel:015000000">
-          <img
-            src="../../static/media/interseguroVehicular_v2/telefono.svg"
-            alt="telefono"
-          />
-        </a>
-      </div>
-
-      Tenemos problemas para cotizar tu placa. Por favor ponte en contacto con nosotros
-      llamando al
-      <a style="color: #5b85c5" href="tel:015000000">(01)500-0000</a>
-      y te ayudamos a seguir con la cotización.
-    </div> -->
-
     <b-modal title="Bootstrap-Vue" hide-footer hide-header ref="modalNumeroCelular" id="modalNumeroCelular" >
       <div class="modal-content modal-root">
         <div class="modal-body">
@@ -898,11 +882,26 @@
     <b-modal id="v2modalGPS" title="Bootstrap-Vue" hide-footer hide-header ref="v2modalGPS" >
       <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" @click="hideModalGPS()" />
       <div class="d-block text-center v2modalGPS">
-        <b-row align-h="center">
+        <b-row align-h="center" >
            <b-col cols="12" class="v2modalGPS-header">
-             <p><img src="./../../static/media/imagenes/cotizacion/auto-modal-gps.svg" alt="" style="margin-right:30px">Hola, tu {{ this.itemElegido.brand }} necesita un GPS</p>
+             <p class="d-none d-md-block">
+               <img src="./../../static/media/imagenes/cotizacion/auto-modal-gps.svg" alt="" style="margin-right:30px">
+               <span >Hola, tu {{ this.itemElegido.brand }} necesita un GPS</span>               
+              </p>
+              <b-row class="justify-content-center">
+                <b-col class="d-md-none" cols="12" sm="10" md="8"> 
+                  <b-row align-v="center">
+                    <b-col cols="3">
+                      <img src="./../../static/media/imagenes/cotizacion/auto-modal-gps.svg" alt="" style="margin-right:30px">
+                    </b-col>
+                    <b-col cols="9" class="text-left">
+                      <p >Hola, tu {{ this.itemElegido.brand }} necesita un GPS</p>               
+                    </b-col>
+                  </b-row>
+                </b-col>
+              </b-row>              
            </b-col>
-           <b-col cols="10" class="v2modalGPS-body">
+           <b-col cols="12" sm="12" md="12" lg="10" xl="10"  class="v2modalGPS-body">
              <b-row>
                <b-col cols="12">
                  <span class="descripcion">
@@ -910,8 +909,9 @@
                 </span>
                </b-col>
              </b-row>
-             <b-row>
-               <b-col cols="6" class="contenedor-box">
+             <!--Desktop-->
+             <b-row >
+               <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="contenedor-box d-none d-md-block">
                  <b-row>
                    <b-col cols="12" class="box-empresa-soat">
                     <b-row>
@@ -944,7 +944,7 @@
                     </b-col>
                  </b-row>
                </b-col>
-               <b-col cols="6" class="contenedor-box">
+               <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="contenedor-box d-none d-md-block">
                  <b-row>
                    <b-col cols="12" class="box-empresa-soat">
                     <b-row>
@@ -977,7 +977,7 @@
                     </b-col>
                  </b-row>
                </b-col>
-               <b-col cols="6" class="contenedor-box">
+               <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="contenedor-box d-none d-md-block">
                  <b-row>
                    <b-col cols="12" class="box-empresa-soat">
                     <b-row>
@@ -1010,7 +1010,7 @@
                     </b-col>
                  </b-row>
                </b-col>
-               <b-col cols="6" class="contenedor-box">
+               <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="contenedor-box d-none d-md-block">
                  <b-row>
                    <b-col cols="12" class="box-empresa-soat">
                     <b-row>
@@ -1045,11 +1045,162 @@
                </b-col>
                
              </b-row>
-             <b-row class="mensaje justify-content-center">
-               <b-col cols="2">
+             <!--Mobile-->
+             <b-row >
+               <div class="d-md-none">
+                 <b-carousel
+                  id="carousel-2"
+                  v-model="slide"
+                  :interval="4000"
+                  
+                  indicators
+                  background="#ababab"
+                  img-width="768"
+                  img-height="480"
+                  style="background:#FFFFFF"
+                  @sliding-start="onSlideStart"
+                  @sliding-end="onSlideEnd">
+                    <b-carousel-slide img-blank style="background:#FFFFFF">                      
+                        <b-row class="contenedor-box">
+                          <b-col cols="12" class="box-empresa-soat">
+                            <b-row>
+                              <b-col cols="5" class="box-empresa-izq">
+                                <b-row class="row-content">
+                                  <b-col cols="12" class="edificio">
+                                    <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                                  </b-col>
+                                  <b-col cols="12">
+                                    <p class="label">Empresa:</p>
+                                  </b-col>
+                                  <b-col cols="12">
+                                    <p class="text">Protemax</p>
+                                  </b-col>
+                                </b-row>
+
+                              </b-col>
+                              <b-col cols="7" class="box-empresa-der">
+                                <b-row class="row-content">
+                                  <b-col cols="12">
+                                    <span class="label">Precio:</span><br>
+                                    <span class="text">US$ 150</span><br>
+                                    <span class="precio-antes">Antes US$ 250</span><br>
+                                    <span class="label">Contacto:</span><br>
+                                    <span class="text">(01) 618 1900</span> 
+                                  </b-col>
+                                </b-row>                                        
+                              </b-col>
+                            </b-row>
+                            </b-col>
+                        </b-row>
+                    </b-carousel-slide>
+                    <b-carousel-slide img-blank style="background:#FFFFFF">
+                      <b-row class="contenedor-box">
+                        <b-col cols="12" class="box-empresa-soat">
+                          <b-row>
+                            <b-col cols="5" class="box-empresa-izq">
+                              <b-row class="row-content">
+                                <b-col cols="12" class="edificio">
+                                  <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                                </b-col>
+                                <b-col cols="12">
+                                  <p class="label">Empresa:</p>
+                                </b-col>
+                                <b-col cols="12">
+                                  <p class="text">Satellital Patrol</p>
+                                </b-col>
+                              </b-row>
+
+                            </b-col>
+                            <b-col cols="7" class="box-empresa-der">
+                              <b-row class="row-content">
+                                <b-col cols="12">
+                                  <span class="label">Precio:</span><br>
+                                  <span class="text">US$ 177</span><br>
+                                  <span class="precio-antes">Antes US$ 250</span><br>
+                                  <span class="label">Contacto:</span><br>
+                                  <span class="text">(01) 620 1111</span> 
+                                </b-col>
+                              </b-row>                                        
+                            </b-col>
+                          </b-row>
+                          </b-col>
+                      </b-row>
+                    </b-carousel-slide>
+                    <b-carousel-slide img-blank style="background:#FFFFFF">
+                      <b-row class="contenedor-box">
+                        <b-col cols="12" class="box-empresa-soat">
+                          <b-row>
+                            <b-col cols="5" class="box-empresa-izq">
+                              <b-row class="row-content">
+                                <b-col cols="12" class="edificio">
+                                  <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                                </b-col>
+                                <b-col cols="12">
+                                  <p class="label">Empresa:</p>
+                                </b-col>
+                                <b-col cols="12">
+                                  <p class="text">Tracklink Motor link</p>
+                                </b-col>
+                              </b-row>
+
+                            </b-col>
+                            <b-col cols="7" class="box-empresa-der">
+                              <b-row class="row-content">
+                                <b-col cols="12">
+                                  <span class="label">Precio:</span><br>
+                                  <span class="text">US$ 165</span><br>
+                                  <span class="precio-antes">Antes US$ 250</span><br>
+                                  <span class="label">Contacto:</span><br>
+                                  <span class="text">(01)630 7575</span> 
+                                </b-col>
+                              </b-row>                                        
+                            </b-col>
+                          </b-row>
+                          </b-col>
+                      </b-row>
+                    </b-carousel-slide>
+                    <b-carousel-slide img-blank style="background:#FFFFFF">
+                      <b-row class="contenedor-box">
+                        <b-col cols="12" class="box-empresa-soat">
+                          <b-row>
+                            <b-col cols="5" class="box-empresa-izq">
+                              <b-row class="row-content">
+                                <b-col cols="12" class="edificio">
+                                  <img src="./../../static/media/imagenes/cotizacion/empresa.svg" alt="">
+                                </b-col>
+                                <b-col cols="12">
+                                  <p class="label">Empresa:</p>
+                                </b-col>
+                                <b-col cols="12">
+                                  <p class="text">Protesegur</p>
+                                </b-col>
+                              </b-row>
+
+                            </b-col>
+                            <b-col cols="7" class="box-empresa-der">
+                              <b-row class="row-content">
+                                <b-col cols="12">
+                                  <span class="label">Precio:</span><br>
+                                  <span class="text">US$ 199</span><br>
+                                  <span class="precio-antes">Antes US$ 250</span><br>
+                                  <span class="label">Contacto:</span><br>
+                                  <span class="text">(01) 513 8686</span> 
+                                </b-col>
+                              </b-row>                                        
+                            </b-col>
+                          </b-row>
+                          </b-col>
+                      </b-row>
+                    </b-carousel-slide>
+                  </b-carousel>
+               </div>
+               
+             </b-row>
+             <b-row class="justify-content-center">
+               <b-col cols="3" sm="2" md="2" lg="2" xl="2" class="mensaje">
                  <img src="./../../static/media/imagenes/cotizacion/modal-persona.svg" alt="">
                 </b-col>
-                <b-col cols="7" align-self="center" class="m-0 p-0">
+                <b-col cols="9" sm="10" md="10" lg="7" xl="7" align-self="center" class="m-0 p-0">
                   <p>Al finalizar la compra de tu Seguro Vehicular te ayudaremos con la compra de tu GPS.</p>
                 </b-col>
              </b-row>
