@@ -142,11 +142,25 @@
                     <b-col cols="2" class="imagen-testimonio">
                       <img :src="item.img" alt="">
                     </b-col>
-                    <b-col >
+                    <b-col cols="10">
                       <p class="categoria text-testimonio pl-3" v-bind:class="'categoria-'+index" style="text-align:justify;">
                         {{item.testimonio}} <span>{{item.autor}}</span>
                       </p>
                     </b-col>
+                    <!-- <b-col cols="12" v-if="item.star == 4" style="background-color: #FFFFFF">
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-lead.svg"/>
+                    </b-col>
+                    <b-col cols="12" v-else-if="item.star == 5" style="background-color: #FFFFFF" class="col-start">
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                      <img class="img-start" src="./../static/media/imagenes/home/star-fucsia.svg"/>
+                    </b-col> -->
                   </b-row>
                 </b-carousel-slide>
               </b-carousel>
@@ -672,7 +686,7 @@
             Mira nuestro video y descubre <br class="d-xl-none"> nuestro programa de beneficios <strong>VIVE+</strong> 
           </p>
           <div class="box2-btn">
-            <a class="btn-azulVehicular ver-video" href="https://www.youtube.com/watch?v=Bff41WXOtak">VER VIDEO</a>
+            <a class="btn-azulVehicular ver-video" href="https://www.youtube.com/watch?v=Bff41WXOtak" target="_blank">VER VIDEO</a>
           </div>
         </div>
       </b-row>
@@ -706,7 +720,7 @@
                 <img src="@/static/media/seguroVehicular/home/elegirnos_somos_intercorp.svg" alt="" >
               </b-col>
               <b-col cols="8" lg="12" xl="12" class="text-mobile">
-                <p class="elegirnos__item--titulo">Somos intercorp</p>
+                <p class="elegirnos__item--titulo">Somos Intercorp</p>
                 <p class="elegirnos__item--text">El grupo económico más <span class="d-none  d-xl-inline"><br></span>  importante del país</p>
               </b-col>
             </b-row>
@@ -1012,7 +1026,9 @@
                         Visita nuestra red de talleres afiliados
                       </b-col>
                       <b-col cols="12" align-self="end">
-                        <span>Ver talleres afiliados</span>
+                        <a href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf" target="_blank">
+                          <span>Ver talleres afiliados</span>
+                        </a>                        
                       </b-col>
                     </b-row>
                   </b-col>
@@ -1127,7 +1143,7 @@ export default {
           testimonio : "‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.” ",
           autor : "Manuel Augusto",
           star : 5,
-          img : require("./../static/media/imagenes/home/testimonio.png")
+          img : require("./../static/media/imagenes/home/manuel_augusto.png")
         },
         {
           testimonio : "‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.",
@@ -1139,7 +1155,7 @@ export default {
           testimonio : "‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!",
           autor : "Enrique Quispe",
           star : 4,
-          img : require("./../static/media/imagenes/home/testimonio.png")
+          img : require("./../static/media/imagenes/home/enrique_quispe.png")
         },
       ],
     }
