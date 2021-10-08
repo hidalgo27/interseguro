@@ -26,146 +26,26 @@
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
         </div>  -->
-        <div class="menu-nav">
-            <div class="menu-nav__izq">
-                <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
-                    <!-- <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares"> -->
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso d-none d-lg-block d-xl-block" alt="seguros vehiculares">
-                    <img src="./../../static/media/imagenes/home/logo-header.svg" class="main-nav__logo--iso img-flujo d-block d-sm-none" alt="seguros vehiculares">
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
-                </nuxt-link>
-                <div class="nav-contacto  d-flex  d-xl-none">                
-                    
-                        <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
-                            <a style="text-decoration: none;" href="tel:015000000">               
-                                <img src="../../static/media/img/home/telefono-header.png" alt="email">
-                            </a>
-                        </div>
-                        <!-- <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
-                            <img src="../../static/media/img/home/menu.png" alt="menu">
-                        </div> -->
-                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2">
-                            <!-- <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="menu"> -->                            
-                        </div>
-                        <!-- menu hamburguesa -->
-                        <!-- <div class="main-nav__menu" id="main-menu">
-                            <div class="main-menu">
-                                <div class="box-logo">
-                                    <img src="../../static/media/interseguroVehicular_v2/logo_blanco.png" alt="logo_blanco">
-                                </div>
-                                <div class="box-close" @click="closeNav($event)">
-                                    <img src="../../static/media/img/home/close.png" alt="close">
-                                </div>
-                            </div>
-                            <ul class="">
-                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/">  Inicio</nuxt-link>
-                                </li>
-                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/cobertura">¿Qué me cubre?</nuxt-link>
-                                </li>        
-                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿Cómo lo uso?</nuxt-link>
-                                </li>
-                                <li class="main-nav__menu--item menu-item"  @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace" to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                </li>
-                                <div class="nav-contacto">
-                                <div class="footer-menu">
-                                    <p>Síguenos en:</p>
-                                    <div class="footer-menu__redes">
-                                        <span>
-                                            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
-                                        </span>
-                                        <span>
-                                            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
-                                        </span>
-                                        <span>
-                                            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
-                                        </span>
-                                        <span>
-                                            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
-                                        </span>
-                                    </div>
-                                </div>
-                                </div>
-                            </ul>
-                        </div> -->
-                        
-                </div>
-            </div>
-            <div class="menu-nav__der">
+        <div>
+            <b-navbar>
+                <b-navbar-nav>
+                    <b-nav-item href="#" class="logo">
+                        <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
+                            <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso d-none d-md-block" alt="seguros vehiculares">
+                            <img src="./../../static/media/imagenes/home/logo-header-mobile.svg" class="main-nav__logo--iso img-flujo d-md-none" alt="seguros vehiculares">
+                        </nuxt-link>
+                    </b-nav-item>                    
+                </b-navbar-nav>
 
-                <ul>
-                    <!-- <li class="" >
-                        <nuxt-link class=""  to="/cobertura/">¿Qué me cubre?</nuxt-link>
-                    </li>        
-                    <li class="" >
-                        <nuxt-link class=""  to="/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
-                    </li>
-                    <li class="" >
-                        <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
-                    </li> -->
-                    <div data-v-d5c59bf2="">
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=51934792742&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">
-                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="call d-lg-none" style="width:50px;border-radius: 50px;" data-v-d5c59bf2="">
-                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="call d-none d-lg-block" data-v-d5c59bf2="">
+                <b-collapse id="nav-collapse" is-nav>
+                    <!-- Right aligned nav items -->
+                    <b-navbar-nav class="ml-auto contacto">
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=51934792742&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">                            
+                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="img-whatsapp">
                         </a>
-                    </div>
-                    <!-- <p><img src="../../static/media/imagenes/home/img-watsapp.svg" alt="" style="margin-left:5px"></p>  -->
-                    <!-- <p class="fono">(01)500 0000</p> -->                     
-                    
-                    <!-- <div class=" telefono-desktop-img">
-                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
-                    </div> -->
-                    <!-- <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
-                        <div class="telefono">
-                            <div class="d-flex  telefono-desktop">
-                                
-                                <div>
-                                    <span style="text-align:left; display: flex" class="ml-2"><br>(01)500 0000</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div> -->
-
-                    <div class="d-none  d-lg-flex  box-cotiza"  v-bind:class="{ oculto: isOculto }">
-                        <!-- <div class="btn-cotiza">
-                            <a
-                              href="/"
-                              class="text-center"
-                              @click="cotizarTop($event)"
-                              style="cursor: pointer; width: 180px; height: 36px;"
-                            >COTIZAR</a>
-                        </div> -->
-                    </div>
-
-                </ul>
-                <div id="capa" style="display: none;"></div>
-            </div>
-        </div>
-
-        <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
-            <div class="campaniatv-home__texto">
-                <div class="campania-lado-izq">
-                    <h2>15% de descuento con cuenta sueldo</h2>
-                </div>
-                <div class="campania-lado-der">
-                    <img class="logo-interbank" src="../../static/media/img/Interbank.png" alt="logo interbank">
-                </div>        
-            </div>
-        </div>
-
-        <div v-if="this.tarjetaoh" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
-            <div class="campaniatv-home__texto">
-                <div class="campania-lado-izq">
-                    <h2>15% de descuento con tarjetaoh!</h2>
-                </div>
-                <div class="campania-lado-der">
-                    <img  class="logo-tarjetaoh" src="../../static/media/img/oh.png" alt="logo tarjeta oh">
-                </div>        
-            </div>
+                    </b-navbar-nav>
+                </b-collapse>
+            </b-navbar>
         </div>
 
 
@@ -397,253 +277,9 @@ export default {
             }
         }
     }
-#nav-checkbox{
-    display: none !important;
-}
-.main-nav__menu{
-    padding-top: 70px;
-    ul{
-        border-bottom: 2px solid white;
-        padding-left: 0;
-    }
-    .box-logo{
-        img{
-            height: 45px;
-            width: auto !important;
-        }
-    }
-    .box-close{
-        position: absolute;
-        right: 16px;
-        top: 44px;
-        img{
-            width: 28px !important;
-        }
-    }
-    .menu-item__enlace{
-        color: white;
-        text-transform: uppercase;
-        font-size: 1.4rem;
-    }
-}
-@keyframes shadow-pulse {
-    0% {
-        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.11);
-    }
 
-    100% {
-        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.11);
-    }
-}
-
-@keyframes shadow-pulse-big {
-    0% {
-        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.11);
-    }
-
-    100% {
-        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.11);
-    }
-}
-.telefono-desktop-img{
-    img{
-        width: 28px;
-
-    }
-}
-.wapp-desktop-img{
-    img{
-        width: 28px !important;
-    }
     
-}
-.box-cotiza a {
-  animation: shadow-pulse 1s infinite;
-}
-.oculto{
-    display: none !important;
-}
-/* .header-planes{
-        background: white;
-        height: 72px;
-        position: fixed;
-        width: 100%;
-        margin: auto;
-        top:0;
-        z-index: 999;        
-        border-bottom: 1px solid #DDE0EA;
-
-        .menu-nav{
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            .nav-contacto{
-                display: flex;
-                .telefono_custom{
-                    width: 40px;
-                }
-                img{
-                    width: 20px;
-                }
-                span{
-                    color: #0855c4;
-                    font-size: 14px;
-                }
-            }
-            &__izq{
-                height: 68px;
-                display: flex;
-                justify-content: space-between;
-                padding-left: 15px;
-                border-bottom: 1px solid white;
-                background: white;
-            }
-            &__der{
-                background: #f3f3f3;
-                height: 68px;
-                display: none;
-                .fono{
-                    font-family: 'Omnes Medium';
-                    letter-spacing: 0px; 
-                    color: #0855C4; 
-                    opacity: 1; 
-                    margin-left:5px
-                }
-                
-                ul{
-                    text-align: center;
-                    padding-left: 0px;
-                    margin-bottom: 0;
-                    display: flex;
-                    list-style: none;
-                    align-items: center;
-                    width: 100%;
-                    li{
-                        text-decoration: none;
-                        width: 33%;
-                        margin-left: 20px;
-                        margin-right: 20px;
-                        a{
-                            font-size: 13px;
-                            font-weight: 500;
-                            font-stretch: normal;
-                            font-style: normal;
-                            line-height: 0.77;
-                            letter-spacing: normal;
-                            text-align: left;
-                            color: #696969;
-                        }
-                        &:hover{
-                            a{
-                                transition: all 0.5s;
-                                color: #0855c4;
-                            }
-                        }
-                    }
-                }
-            }            
-        }
-        .btn-cotiza a {
-            border: 2px solid #EA0C90 !important;
-            background: #EA0C90;
-            color: #fff;
-            border-radius: 3px;
-            font-size: 16px;
-            &:hover{
-                background: #d6058b;
-                text-decoration: none;
-            }
-        }
-        .logo-interbank{
-            width: 200px;
-            right: 19%;
-            bottom: 8px;
-        }
-        .logo-tarjetaoh{
-            width: 58px;
-            right: 19%;
-            bottom: 8px;
-        }
-        .campaniatv-home.cuentaSueldo{
-            background: #00bb31;
-            .campania-lado-der{
-                p{
-                    height: 50px;
-                    overflow: hidden;
-                }
-            }
-        }
-        .campaniatv-home.tarjetaoh{
-            background: #d2232a;
-        }
-        .campaniatv-home{
-            background: #000;
-            background-repeat: repeat-x;
-            background-size: contain;
-            display: flex;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 50px; 
-            top: 50px;
-            .campania-lado-der{
-                height: 50px;
-                line-height: 40px;
-                border-left: 50px solid transparent;
-                width: 55%;
-                color: #FFFFFF;
-                font-size: 29px;
-                font-weight: 500;
-                text-align: left;
-                text-transform: uppercase;
-            }
-            .campania-lado-izq{
-                width: 61%;
-                text-align: right;
-                overflow: hidden;
-                height: 50px;
-            }
-            h2{
-                color: #FFFFFF;
-                font-family: 'Omnes Medium';
-                font-weight: 600;
-                text-align: left;
-                margin-bottom: 0;
-                padding-left: 5%;
-                padding-bottom: 0;
-                display: inline-block;
-                height: 50px;
-                line-height: 50px;
-                word-spacing: 2px;
-                font-weight: 500;
-            }
-        }
-} */
-    @media (min-width: 768px){
-        .footer-menu{
-            width: 30%;
-            &__redes{
-                img{
-                }
-            }
-        }
-    }
-    @media (min-width: 992px){
-        .logo-franja{
-            img{
-                width: 150px !important;
-            }
-        }
-        .footer-menu{
-            width: 25%;
-            &__redes{
-                img{
-                }
-            }
-        }
-        .box-logo{
-            text-align: center;
-        }
+    @media (min-width: 768px){        
         .header-planes{
             background: white;
             height: 72px;
@@ -651,303 +287,23 @@ export default {
             width: 100%;
             margin: auto;
             top:0;
-            z-index: 999;        
-            border-bottom: 1px solid #DDE0EA;
+            z-index: 999;
+            .navbar{
+                height: 72px;
+                background-color: #FFFFFF;
+                border-bottom: 1px solid #DDE0EA; 
+                .logo{
+                    padding-left: 70px;
+                }  
+                .contacto{
+                    padding-right: 70px;
+                }             
+            }
+        }
+    }
+ 
 
-            .menu-nav{
-                display: flex;
-                flex-direction: column;
-                position: relative;
-                .nav-contacto{
-                    display: flex;
-                    .telefono_custom{
-                        width: 40px;
-                    }
-                    img{
-                        width: 20px;
-                    }
-                    span{
-                        color: #0855c4;
-                        font-size: 14px;
-                    }
-                }
-                &__izq{
-                    height: 68px;
-                    display: flex;
-                    justify-content: space-between;
-                    padding-left: 15px;
-                    border-bottom: 1px solid white;
-                    background: white;
-                }
-                &__der{
-                    background: #f3f3f3;
-                    height: 68px;
-                    display: none;
-                    .fono{
-                        font-family: 'Omnes Medium';
-                        letter-spacing: 0px; 
-                        color: #0855C4; 
-                        opacity: 1; 
-                        margin-left:5px
-                    }
-                    
-                    ul{
-                        text-align: center;
-                        padding-left: 0px;
-                        margin-bottom: 0;
-                        display: flex;
-                        list-style: none;
-                        align-items: center;
-                        width: 100%;
-                        li{
-                            text-decoration: none;
-                            width: 33%;
-                            margin-left: 20px;
-                            margin-right: 20px;
-                            a{
-                                font-size: 13px;
-                                font-weight: 500;
-                                font-stretch: normal;
-                                font-style: normal;
-                                line-height: 0.77;
-                                letter-spacing: normal;
-                                text-align: left;
-                                color: #696969;
-                            }
-                            &:hover{
-                                a{
-                                    transition: all 0.5s;
-                                    color: #0855c4;
-                                }
-                            }
-                        }
-                    }
-                }            
-            }
-            .btn-cotiza a {
-                border: 2px solid #EA0C90 !important;
-                background: #EA0C90;
-                color: #fff;
-                border-radius: 3px;
-                font-size: 16px;
-                &:hover{
-                    background: #d6058b;
-                    text-decoration: none;
-                }
-            }
-            .logo-interbank{
-                width: 200px;
-                right: 19%;
-                bottom: 8px;
-            }
-            .logo-tarjetaoh{
-                width: 58px;
-                right: 19%;
-                bottom: 8px;
-            }
-            .campaniatv-home.cuentaSueldo{
-                background: #00bb31;
-                .campania-lado-der{
-                    p{
-                        height: 50px;
-                        overflow: hidden;
-                    }
-                }
-            }
-            .campaniatv-home.tarjetaoh{
-                background: #d2232a;
-            }
-            .campaniatv-home{
-                background: #000;
-                background-repeat: repeat-x;
-                background-size: contain;
-                display: flex;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 50px; 
-                top: 50px;
-                .campania-lado-der{
-                    height: 50px;
-                    line-height: 40px;
-                    border-left: 50px solid transparent;
-                    width: 55%;
-                    color: #FFFFFF;
-                    font-size: 29px;
-                    font-weight: 500;
-                    text-align: left;
-                    text-transform: uppercase;
-                }
-                .campania-lado-izq{
-                    width: 61%;
-                    text-align: right;
-                    overflow: hidden;
-                    height: 50px;
-                }
-                h2{
-                    color: #FFFFFF;
-                    font-family: 'Omnes Medium';
-                    font-weight: 600;
-                    text-align: left;
-                    margin-bottom: 0;
-                    padding-left: 5%;
-                    padding-bottom: 0;
-                    display: inline-block;
-                    height: 50px;
-                    line-height: 50px;
-                    word-spacing: 2px;
-                    font-weight: 500;
-                }
-            }
-        }
-    }
-    @media (min-width: 1024px){
-        .logo-franja{
-            img{
-                width: 160px !important;
-            }
-        }
-        .liston{
-            height: 70px;
-            .contadorCyber2{
-                margin-left: 30px;
-            }
-        }
-         .header-planes{
-            .menu-nav{
-                &__izq{
-                    padding-left: 65px;            
-                }
-            }
-         }
-    }
-    @media (min-width: 1200px){
-        .liston{
-            flex-direction: row;
-            justify-content: space-between;
-            display: flex;
-            padding-left: 65px;
-            p{
-                padding-left: 18px;
-                font-size: 18px;
-                font-family: 'Omnes Regular' !important;
-            }
-            .closeListon{
-                right: 70px;
-            }
-        }
-        
-        .header-planes{
-            .menu-nav{
-                flex-direction: row;
-                justify-content: space-between;
-                .nav-contacto{
-                    .telefono{
-                        width: 132px;
-                    }
-                    .whatsapp{
-                        width: 132px;
-                    }
-                }
-                &__izq{
-                    flex-basis: auto;
-                    padding-left: 65px;            
-                }
-                &__der{
-                    background: white;
-                    flex-grow: 1;
-                    display: flex;
-                    padding-right: 65px;
-                    font-family: 'Omnes Regular';
-                    ul{
-                        justify-content: flex-end;
-                        li{
-                            width: auto;
-                            margin-left: 0;
-                            margin-right: 16px;
-                            a{
-                                font-size: 1rem;
-                                color: #454a6c;
-                            }                            
-                            &:hover{
-                                a{
-                                    transition: all 0.5s;
-                                    color: #0855c4;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .header-planes{
-            .menu-nav{
-                width: 100%;
-                margin: auto;
-                
-                &__der{
-                    ul{
-                        li{
-                            a{
-
-                            }
-                            &:hover{
-                                a{
-                                    transition: all 0.5s;
-                                    color: #0855c4;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    @media (min-width: 1366px){
-        .liston{
-            padding-right: 102px;
-            padding-left: 128px;
-            .box-texto-img{
-                height: 62px;
-            }
-            .closeListon{
-                right: 20px;
-             }
-        }
-        .header-planes{
-            .campaniatv-home{
-                .campania-lado-izq{
-                    padding-left: 0%;
-                    width: 55%;
-                }
-                .campania-lado-der{
-                    width: 45%;
-                }
-            }
-        }
-    }
-    @media (min-width: 1440px){
-        .header-planes{
-            .menu-nav{
-                &__izq{
-                    padding-left: 128px;            
-                }
-                &__der{
-                    padding-right: 128px;            
-                }
-            }
-            
-        }
-    }
-    /* @media (max-width: 405px) {
-        .liston-mobile--parrafo{
-            div{
-                display: none;
-            }
-        }
-    } */
-
-    @media (max-width: 576px) { 
+    @media (max-width: 768px) { 
         .header-planes{
             background: white;
             height: 60px;
@@ -956,25 +312,18 @@ export default {
             margin: auto;
             top:0;
             z-index: 999;
-            border-bottom: 1px solid #d4d4d4;
-            .menu-nav{
-                display: flex;
-                flex-direction: column;
-                position: relative;
-                &__izq{
-                    height: 60px;
-                    display: flex;
-                    justify-content: space-between;
-                    padding-left: 15px;
-                    border-bottom: 1px solid white;
-                    background: white;
+            .navbar{
+                height: 60px;
+                background-color: #FFFFFF;
+                border-bottom: 1px solid #DDE0EA;                
+                .img-whatsapp{                    
+                    width: 117px;
+                    height: 36px;
                 }
-                &__der{
-                    background: #f3f3f3;
-                    height: 60px;
-                    display: none;
-                }            
-            }                
+            }
+            .navbar-expand .navbar-nav .nav-link  {
+                padding: 0px;
+            }            
         
         }
     }

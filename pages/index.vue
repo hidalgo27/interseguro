@@ -242,7 +242,7 @@
                   </b-col>
                   <b-col cols="12" align-self="end">
                     <div class="detalle">
-                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                      <router-link to="/cobertura/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                     </div>
                   </b-col>
                   
@@ -305,7 +305,7 @@
                   </b-col>
                   <b-col cols="12" align-self="end">
                     <div class="detalle">
-                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                      <router-link to="/cobertura/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                     </div>
                   </b-col>
                   
@@ -314,51 +314,6 @@
               </b-col>
 
             </b-row>
-            <!-- <div class="detalle-plan">
-              <b-row align-h="center" class="box-titulo-normal">
-                <div class="plan-not-head">
-                </div>
-              </b-row>
-              <b-row class="box-plan-normal">
-                <b-col>
-                  <div class="box-titulo">
-                      <p class="titulo-principal">Intermedio: <span class="titulo-descripcion">Protección accidentes</span> </p>                         
-                    </div>
-                    <hr>
-                    <div class="monto-frecuencia">
-                      Desde <span  class="monto">US$ 25</span><span>/mes</span>
-                    </div>
-
-                    <div class="que-me-cubre">
-                      <div class="titulo-box-planes">
-                        Este plan incluye:
-                      </div>
-                      
-                      <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
-                      </p>
-                      <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
-                      </p>
-                      <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
-                      </p>
-                      <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
-                      </p>
-                      <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
-                      </p>
-                      <p class="que-me-cubre__item">
-                        <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
-                      </p>
-                    </div>
-                    <div class="detalle">
-                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
-                    </div>
-                </b-col>
-              </b-row>
-            </div> -->
           </b-col>
 
           <b-col cols="4" class="pl-4 pr-4">
@@ -430,7 +385,7 @@
                   </b-col>
                   <b-col cols="12" align-self="end">
                     <div class="detalle">
-                      <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                      <router-link to="/cobertura/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                     </div>
                   </b-col>
                   
@@ -585,7 +540,7 @@
               </b-col>
               <b-col cols="12" align-self="end">
                 <div class="detalle">
-                  <router-link to="" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
+                  <router-link to="/cobertura/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                 </div>
               </b-col>              
             </b-row>            

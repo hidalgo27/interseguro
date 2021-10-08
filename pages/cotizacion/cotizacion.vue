@@ -1660,7 +1660,7 @@ export default {
       // var flipdown2 = new FlipDown(1617080399, 'contadorCyber5').start()
     },
     volver(evt) {
-      evt.preventDefault();
+      evt.preventDefault();      
       if (this.$store.state.common.businessId == 2) {
         this.$nuxt.$router.push({path: "/cotiza/cotizacion-interbank"});
       } else {
@@ -1668,6 +1668,8 @@ export default {
         this.$store.commit('common/setEditDataExistente', this.editDataExistente )
         this.$nuxt.$router.push({path: "/cotizacion/seleccion"});
       }
+      this.$store.commit("common/setItemElegido", {});
+      this.$store.commit("common/setCurrent", null);
     },
     hideFlotante() {
       this.flotanteCovid = !this.flotanteCovid;

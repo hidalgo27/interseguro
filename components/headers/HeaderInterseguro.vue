@@ -16,6 +16,7 @@
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
         </div> -->
+
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
@@ -46,7 +47,7 @@
                                 <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿CÓMO LO USO?</nuxt-link>
                                 </li>
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">BENEFICIOS</nuxt-link>
+                                    <a href="https://www.interseguro.pe/vivemas" class="menu-item__enlace">BENEFICIOS</a>
                                 </li>
                                 <li class="main-nav__menu--item menu-item"  @click="enlaceTest()">
                                 <nuxt-link class="menu-item__enlace" v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS </nuxt-link>
@@ -86,7 +87,8 @@
                         <nuxt-link class=""  to="/como-lo-uso/">¿CÓMO LO USO?</nuxt-link>
                     </li>
                     <li class="" >
-                        <nuxt-link class=""  to="/como-lo-uso/">BENEFICIOS</nuxt-link>
+                        <a href="https://www.interseguro.pe/vivemas">BENEFICIOS</a>
+                        <!-- <nuxt-link class=""  to="https://www.interseguro.pe/vivemas">BENEFICIOS</nuxt-link> -->
                     </li>
                     <li class="" >
                     <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
@@ -99,28 +101,6 @@
                 <div id="capa" style="display: none;"></div>
             </div>
             
-        </div>
-
-        <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
-            <div class="campaniatv-home__texto">
-                <div class="campania-lado-izq">
-                    <h2>15% de descuento con cuenta sueldo</h2>
-                </div>
-                <div class="campania-lado-der">
-                    <img class="logo-interbank" src="../../static/media/img/Interbank.png" alt="logo interbank">
-                </div>        
-            </div>
-        </div>
-
-        <div v-if="this.tarjetaoh" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
-            <div class="campaniatv-home__texto">
-                <div class="campania-lado-izq">
-                    <h2>15% de descuento con tarjetaoh!</h2>
-                </div>
-                <div class="campania-lado-der">
-                    <img  class="logo-tarjetaoh" src="../../static/media/img/oh.png" alt="logo tarjeta oh">
-                </div>        
-            </div>
         </div>
 
 
@@ -178,7 +158,7 @@ export default {
             }
         },0);
         this.handleScroll();
-        document.getElementById("main-menu").style.display = "none";
+        //document.getElementById("main-menu").style.display = "none";
     },
     computed: {},
     methods:{
@@ -437,15 +417,7 @@ export default {
 .oculto{
     display: none !important;
 }
-    @media (min-width: 768px){
-        .footer-menu{
-            width: 30%;
-            &__redes{
-                img{
-                }
-            }
-        }
-    }
+    
     @media (min-width: 992px){
         .footer-menu{
             width: 25%;
@@ -548,27 +520,6 @@ export default {
                             }
                         }
                     }
-                    /* .button-cotizar{
-                        width: 193px;
-                        height: 40px;
-                        background-color: #EA0F8F  !important;
-                        border: #EA0F8F !important;
-                        border-radius: 3px;
-                        opacity: 1;                
-                        margin-left: 20px;
-                        outline: none;
-                        span{
-                            font-style: normal;
-                            text-align: center;
-                            letter-spacing: 0px;
-                            color: #FFFFFF;
-                            opacity: 1;
-                        }
-                        .button:hover{
-                            background-color: #FD179D;
-                            border: #FD179D;
-                        }
-                    } */
                     
                 }            
             }
@@ -649,22 +600,7 @@ export default {
             }
         }
     }
-    @media (min-width: 1024px){
-        .liston {
-            // flex-direction: row;
-            height: 42px;
-        }
-        // .liston .box-texto-img {
-        //     height: 56px;
-        // }
-         .header-planes{
-            .menu-nav{
-                &__izq{
-                    padding-left: 65px;            
-                }
-            }
-         }
-    }
+
     @media (min-width: 1200px){
         .liston{       
             height: 42px;     
@@ -724,73 +660,11 @@ export default {
                 }
             }
         }
-        .header-planes{
-            .menu-nav{
-                width: 100%;
-                margin: auto;
-                
-                &__der{
-                    ul{
-                        li{
-                            a{
+        
+    }
+ 
 
-                            }
-                            &:hover{
-                                a{
-                                    transition: all 0.5s;
-                                    color: #0855c4;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    @media (min-width: 1366px){
-        // .example{
-        //         padding-top: 5px;
-        // }
-        .liston{
-            height: 42px;
-            padding-right: 102px;
-            padding-left: 128px;
-            .box-texto-img{
-                height: 62px;
-            }
-            .closeListon{
-                right: 20px;
-             }
-        }
-        .header-planes{
-            .campaniatv-home{
-                .campania-lado-izq{
-                    padding-left: 0%;
-                    width: 55%;
-                }
-                .campania-lado-der{
-                    width: 45%;
-                }
-            }
-        }
-    }
-    @media (min-width: 1440px){
-        .liston p {
-            font-size:16px;
-        }
-        .header-planes{
-            .menu-nav{
-                &__izq{
-                    padding-left: 128px;            
-                }
-                &__der{
-                    padding-right: 128px;            
-                }
-            }
-            
-        }
-    }
-    @media (max-width: 576px) { 
+    @media (max-width: 992px) { 
         .header-planes{
             background: white;
             height: 60px;
@@ -821,4 +695,6 @@ export default {
         
         }
     }
+
+
 </style>
