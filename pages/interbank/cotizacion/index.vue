@@ -265,7 +265,25 @@
                           
                         </div>
                       </div>
-                      <div class="box-importante" style="height: 40px;">
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <div class="que-me-cubre">
                         <div class="titulo">
@@ -1385,36 +1403,37 @@
         </b-row>
       </b-container>
     </b-modal>
+    <b-modal
+        id="leaveQuote2"
+        class="leaveModalIbk"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+             <img class="img-verano" width="100%"  src="../../../static/media/img/campania/ibk/img-modal.svg" alt="">              
+              <p class="mt-3">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
+                <span style="color : #ffffff; font-size: 18px">
+                  ¡Llegó el Cyber! <b>Compra con 15% de dscto.</b> <br> y si compras en Plan Black llévate <br> <b>un vale virtual de S/50.</b> 
+                </span>
+                </p>
+                
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button style="background-color: #FFFFFF; color: #05BE50;" @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')">TERMINAR COMPRA</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
 
-    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
-      <b-container>
-        <b-row class="justify-content-center">
-          <b-col class="text-center mb-3" cols="12">
-            <img src="../../../static/media/modal/leave-cotiza-2.png" alt="Abandonar Seguro Vehicular">
-          </b-col>
-        </b-row>
-        <b-row class="text-center">
-          <b-col cols="12" class="mb-3">
-            <h2><span>¿Lo vas a dejar pasar?</span></h2>
-          </b-col>
-          <b-col cols="12" class="mb-3">
-            <h3 v-if="appDiscount == true">Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthlyDiscount}} y maneja seguro</h3>
-            <h3 v-else-if="this.nuevoProducto == true">Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthlyCalculated}} y maneja seguro</h3>
-            <h3 v-else>Elige un plan para tu {{this.itemElegido.brand}} <br> desde ${{this.listaBasica.policy.monthly}} y maneja seguro</h3>
-          </b-col>
-          <b-col cols="12" class="mb-2">
-            <h3>Personaliza tu cotización en el siguiente paso</h3>
-          </b-col>
-        </b-row>
-        <b-row class="justify-content-center">
-          <b-col class="text-center mb-4" cols="12">
-            <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')">QUIERO CONTINUAR</b-button>
-          </b-col>
-        </b-row>
-      </b-container>
-    </b-modal> -->
-
-     <b-modal
+     <!-- <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1446,7 +1465,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
   </section>
 </template>
@@ -1555,7 +1574,7 @@
           modelId:'',
           remarketingId:'',
           assignedPrice: null,
-          businessId:1,
+          businessId:2,
           discountType: '',
           assignedPrice: null
         },
@@ -2043,7 +2062,13 @@
             this.$store.commit('common/setObjVehiculo', res.data.body)
             this.mostrarCapa = false
           }else{
-            
+            let errorDetectado = {
+              url : 'getVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.item
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
           }, 1000);
           
@@ -2854,7 +2879,13 @@
             this.clonado.vehicle.current  = null
             this.getCotizacion()
           }else{
-            
+            let errorDetectado = {
+              url : 'createVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.itemElegido
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
           
         })
@@ -2866,7 +2897,13 @@
             this.clonado.vehicle.current  = null
             this.getCotizacion()
           }else{
-            
+            let errorDetectado = {
+              url : 'updateVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.itemElegido
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
           
         })
@@ -2893,7 +2930,13 @@
               this.segundaPantalla()
               this.seleccionarFrecuencia()
             } else if (res.data.code == 213) {
-              
+              let errorDetectado = {
+                url : 'getcotizacion',
+                page : 2,
+                message : res.data.message,
+                objEnviado : this.itemElegido
+              }                
+              this.$store.dispatch('common/eventoErrores', errorDetectado)
               this.$swal({
                 title: "Oops...",
                 text: res.data.message,
@@ -2930,6 +2973,13 @@
 
             } 
             else {
+              let errorDetectado = {
+                url : 'getcotizacion',
+                page : 2,
+                message : res.data.message,
+                objEnviado : this.itemElegido
+              }
+              this.$store.dispatch('common/eventoErrores', errorDetectado)
 
               this.$swal({
                 title: "Oops...",
@@ -2951,7 +3001,13 @@
           if (res.data.code == 0) {
             this.listModels = res.data.body            
           }else{
-
+            let errorDetectado = {
+              url : 'getModelLocal',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.itemElegido
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
         })
       },
@@ -3106,11 +3162,11 @@
         this.objRemarketing = {
           codigoRemarketing: "",
           producto: this.$store.state.common.businessId,
-          identificador: this.$store.state.common.plateNumber,
+          identificador: this.$store.state.common.plateNumber.toUpperCase(),
           detalle: {
-            correo: parametroEmail,
+            correo: parametroEmail.toLowerCase(),
             codigoVenta: this.$store.state.common.codeRmkt,
-            enviarCorreo: parametroEnviarMail,
+            enviarCorreo: this.$store.state.common.agent != ''? 2:parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
               url: process.env.URL + (this.$store.state.common.promocion == true ? "vehicular/promocion/" : this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
@@ -3143,10 +3199,11 @@
               /******************************************************** */   
               itemElegido: this.itemElegido,
               listCotizacion: this.listCotizacion,
-              nuevoProducto: this.$store.state.common.nuevoProducto                  
+              nuevoProducto: this.$store.state.common.nuevoProducto,                  
               /******************************************************** */      
               /******************************************************** */
-
+              geolocalizacion: this.$store.state.common.geolocation,
+              agente: this.$store.state.common.agent 
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,
@@ -3185,10 +3242,15 @@
           })
       },
       mouseLeave(e) {
-        if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-
-        }
-      },
+         if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
+          if (this.$store.state.common.leaveMessage == 0 ) {
+            if (e.clientX < 0 || e.clientY < 0) {
+              this.$store.commit('common/setLeaveMessage',1)
+              this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+            }
+          }
+         }
+       },
   },
 
   mounted: function () {
@@ -3372,7 +3434,7 @@ a.steps__item.paso1:after {
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px;
+  padding-top: 115px;
   font-family: 'Montserrat Medium';
   .img-close{
     position: absolute;

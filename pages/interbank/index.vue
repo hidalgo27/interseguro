@@ -1,25 +1,10 @@
 <template>
   <div class="home  home-ibk"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
-    <!-- Facebook Pixel Code -->
-
-<noscript>
-<img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=511754043550707&ev=PageView&noscript=1"/>
-</noscript>
-
-<!-- End Facebook Pixel Code -->
-    <div class="boxHome-banner">      
+    
+    <!-- <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
-            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " >
-              <div class="box-contador" >
-                <div  class="example  d-md-flex">
-                    <div id="contadorCyber11" class="flipdown">
-                        
-                    </div> 
-                </div>
-              </div>
-            </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
@@ -60,17 +45,82 @@
           </div>
         </div>
         <div class="home-banner__der">
-          <div class="box-titulo  ml-5">
-            <img src="./../../static/media/img/ibk/cuponazo-ibk.svg" alt="">
-            <div class="box-contador">
-              <div  class="example  d-none  d-md-flex" style="justify-content: flex-end;">
-                  <div id="contadorCyber10" class="flipdown">
+          <div class="box-titulo">
+            <p class="title-banner">
+              Manejar tranquilo <br> ahora es más fácil
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div> -->
+    <!-- Campania -->
+    <div class="boxHome-banner">      
+      <div  class="home-banner"  >
+        <div class="home-banner__izq">
+          <div class="box-formCotizador">
+            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+              <img src="../../static/media/img/campania/ibk/banner-home-mobile.svg" alt="">
+            </div>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 22px;">
+            <div class="box-contador"  >
+                <!-- <p style="color:#fff;">La oferta termina en:</p> -->
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;margin-top:-7px;margin-left: -14px;">                        
+                    </div> 
+                </div>
+              </div>
+              </div>
+            <b-form class="formCotizador">                         
+              <div class="formCotizador__msg">
+                Desde US$ 12 al mes
+              </div>
+              <h1>Cotiza tu seguro vehicular ahora</h1>
+              <b-form-group label-for="placa">
+                  <b-form-input
+                    id="vehicleModelPlate"
+                    class="text-uppercase form-control"
+                    @keyup.native="consultarPlaca($event,750)"
+                    maxlength="6"
+                    autocomplete="off"
+                    type="text"
+                    v-model="item.plateNumber"                    
+                    required
+                    placeholder="Ingresa tu Placa"
+                    name="Placa"
+                    aria-label="placa"                
+                    autofocus
+                ></b-form-input>
+              </b-form-group>
+              <div class="box-btn-homeForm">
+                <button
+                  type="button"
+                  @click="onSubmit"
+                  class="btn-home-cotizar"
+                >
+                  COTIZAR
+                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                </button>
+                <p class="no-tengo-placa"></p>
+                <p class="respaldo-intercorp">
+                  <span> Con el respaldo del grupo</span>
+                  <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+                </p>
+              </div>
+            </b-form>            
+          </div>
+        </div>
+        <div class="home-banner__der" style="margin-left: 38px;margin-top: -60px;">
+            <div class="box-contador" >
+              <img src="../../static/media/img/campania/ibk/banner-home-desktop.svg" alt="">
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -25px;right: 5px;">
+                  <div id="contadorCyberDesktop" class="flipdown" style="width: 372px !important;margin-top: -5px;">
                       
                   </div> 
               </div>
             </div>
-          </div>
         </div>
+        
       </div>
     </div>
 
@@ -80,7 +130,7 @@
 
       <div class="home-pasos__beneficios">
         <div class="home-pasos__planes--titulo">
-          <p class="como-funciona">¡Protege tu auto en solo 3 pasos!</p>
+          <p class="como-funciona">Es fácil, en solo 3 pasos</p>
         </div>
         
         <div class="home-pasos__cuerpo   pasos">
@@ -222,7 +272,7 @@
             <p class="beneficios-titulo">
               Auxilio mecánico
             </p>    
-            <p  class=""><span></span> Te ayudamos en donde estés hasta 2 veces al mes  </p>
+            <p  class=""><span></span> Te ayudamos en donde estés <br>hasta 2 veces al mes  </p>
           </div>
         </div>
         <div class="beneficios2__item">
@@ -245,7 +295,7 @@
       <div class="home-talleresBox">
         <div class="home-talleres__desc">
           <p class=""> Repara tu auto en <br> nuestra red de talleres</p>
-          <a class="btn-talleres  mt-3" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">VER TALLERES</a>
+          <a class="btn-talleres  mt-3" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
         </div>
       </div>
     </div>
@@ -282,9 +332,9 @@
             <img src="./../../static/media/img/ibk/cliente3.png" alt="">
             <p class="cliente">Enrique Quispe</p>
             <!-- <p class="ahorro">---</p> -->
-            <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"</p>
+            <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
             <p class="protegido">
-              Carro protegido <br> <strong>SUZUKI VITARA</strong>
+              Carro protegido <br> <strong>SUSUKI VITARA</strong>
             </p>
           </div>
         </div>
@@ -344,9 +394,9 @@
                 <img src="./../../static/media/img/ibk/cliente3.png" alt="">
                 <p class="cliente">Enrique Quispe</p>
                 <!-- <p class="ahorro">---</p> -->
-                <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!‘’</p>
+                <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
                 <p class="protegido">
-                  Carro protegido <br> <strong>SUZUKI VITARA</strong>
+                  Carro protegido <br> <strong>SUSUKI VITARA</strong>
                 </p>
               </div>
             </div>
@@ -388,7 +438,10 @@
     layout: "InterbankHome2",
       data () {
           return {
-            
+            loading: false,
+            color: "#00C450",
+            sizePulse: "45px",
+            size: "30px",
             slideBeneficios:0,
             slide:0,
             flagCloseListon: 0,
@@ -396,10 +449,6 @@
               plateNumber:'',
               email:''
             },
-            loading: false,
-            color: "#00C450",
-            sizePulse: "45px",
-            size: "30px",
             saveVehicle:{},
             saveCliente:{}
           }
@@ -408,34 +457,19 @@
       created() {
       },
       methods: {
-        pixelfacebook(){
-          console.log("PRUEBAS");
-          !function(f,b,e,v,n,t,s)
-
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-
-          n.queue=[];t=b.createElement(e);t.async=!0;
-
-          t.src=v;s=b.getElementsByTagName(e)[0];
-
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-
-          'https://connect.facebook.net/en_US/fbevents.js');
-
-          fbq('init', '511754043550707');
-
-          fbq('track', 'PageView');
-
-        },
         contador(){
-            var flipdown2 = new FlipDown(1618203599, 'contadorCyber10').start()
-            var flipdown = new FlipDown(1618203599, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1631681999, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1631681999, 'contadorCyberMobile').start()
         },
-        
+        pago_datalayer(error_detectado){
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+              event:'Errores',
+              category: 'ErroresPago',
+              action: error_detectado, 
+              error_detectado: error_detectado
+          });
+        },
         hidemodalHomeVideo() {
           this.$refs.hidemodalHomeVideo.hide();
         },
@@ -443,8 +477,8 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/interbank",
-            "page-title": "interbank Home",
+            "page-url": "/vehicular/",
+            "page-title": "Home",
             ecommerce: {
               checkout: {
                 actionField: { step: 1 } // esto marca el primer paso en el embudo
@@ -482,7 +516,8 @@
               this.item.plateNumber = this.item.plateNumber.slice(0, 6)
             } else if (longitudDePlaca == 6) {
               event.preventDefault()
-
+              
+              this.getGeolocation()
               this.createMail()
               this.updateFields()
               this.getVehicle()  
@@ -599,15 +634,19 @@
             })
 
           },
+          getGeolocation () {
+            this.$store.dispatch('common/getGeolocationUser')
+            .then(res => {
+              const respuesta = res.data
+              this.$store.commit('common/setGeolocation',respuesta)
+            })
+          },
       },
       computed: {
           
       },
       mounted () {
-        this.pixelfacebook()
-        setTimeout(() => {
-          this.contador()
-        }, 750);
+        this.contador()
         this.$store.commit('common/setBusinessId', 2)
         this.$store.commit('common/setFlagCloseListon', 1)        
         // this.$store.commit('common/resetState')
@@ -646,6 +685,7 @@
             localStorage.setItem("urlLocal", "/")
           }, 150);
         }
+        this.$store.commit('common/setFlujoDetectado', 'interbank')
         /************************************************************************ */
         /************************************************************************ */
         /************************************************************************ */
@@ -672,11 +712,12 @@
 
 <style lang="scss" scope>
 
-  .home.home-ibk{
-    .check{
-      color: #696969 !important;
-    }
+  .flipdown .rotor-group-heading:before {
+    font-size: 9px !important;
+    height: 15px !important;
+    line-height: 15px !important;
   }
+
   .listonMobile{
     position: relative;
     img{
@@ -766,29 +807,13 @@
   }
   .home-ibk{
     margin-top: 70px;
+    // margin-top: 170px;
     font-size: 16px;
-    background-color: #fff;  
-    .box-flotante-covid {
-      flex-direction: column;
-      background-image: url("./../../static/media/img/ibk/cuponazo-ibk.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position-y: 28px;
-      margin: 0 -15px;
-      position: relative;
-      padding-left: 16px;
-      width: 100%;
-      height: 280px;
-  }  
-  .box-flotante-covid .box-contador {
-    position: absolute;
-    bottom: 5px;
-    left: 66px;
-  }
+    background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 235px;
-      
+      //padding-top: 92px;
+      padding-top: 170px;
       .parrafo-video{
         font-size: 30px; 
         font-weight: normal;
@@ -799,7 +824,7 @@
         text-align: center;
         color: #0667ba !important;
         animation: updown 1.5s ease 0s infinite;
-        font-family: 'Montserrat Regular';
+        font-family: 'Omnes Regular';
         cursor: pointer;
         img{
           position: relative;
@@ -863,13 +888,13 @@
             .titulo{
               color: #333333;
               font-size: 20px;
+              font-weight: 500;
               font-stretch: normal;
               font-style: normal;
               line-height: 1.25;
               text-align: left;
               display: flex;
-              align-items: center; 
-              font-family: "Geometria Bold";             
+              align-items: center;              
             }            
             .descripcion{
               font-size: 16px;
@@ -1009,7 +1034,7 @@
             display: inline-block;
             position: absolute;
             bottom: 16px;
-            font-family: 'Montserrat Regular';
+            font-family: 'Omnes Regular';
           }
         }
       }
@@ -1018,15 +1043,15 @@
       position: relative;
       height: 360px;
       background-color: #05BE50;
-      padding-top: 34px;
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
-        
+        // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
         background-size: 700px;
         background-position-y: bottom;
         background-position-x: right;
+        // background-position: right;
         display: flex;
         align-items: center;
         height: 100%;
@@ -1038,7 +1063,7 @@
           display: flex;
           align-items: center;
           width: 90%;
-          border-bottom: 1px solid white !important;
+          border-bottom: 0px solid white !important;
           input{
             max-width: 360px;
             width: 100%;
@@ -1106,6 +1131,17 @@
         }
       }
     }
+    .box-flotante-covid{
+      flex-direction: column;
+      //background-image: url("./../../static/media/interseguroVehicular_v2/banner_img.svg");      
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 175px;
+      margin: 0 -15px;
+      position: relative;
+      padding-left: 16px;
+
+    }
     .box-formCotizador{
       width: 100%;
       padding: 0;      
@@ -1172,7 +1208,7 @@
         top: -1rem;
         border-radius: 8px 0 8px 0;
         box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-        background-color: #0133A1!important;
+        background-color: #0855c4!important;
         color: white !important;
         font-family: 'Geometria Medium';
       }
@@ -1241,6 +1277,12 @@
         font-size: 18px;
         text-align: center;
         transition: all .75s;
+        &:hover{
+          background-color: #00C450;
+          color:#f1f7ff;
+          border: 1px solid #f1f7ff;
+          transition: all .75s
+        }
       }
     }
     .home-clientes2{
@@ -1251,10 +1293,8 @@
         margin-top: 24px;
         color: #333333;
         text-align: center;
-        font-family: 'Geometria Medium';
         strong{
-          color: #0133A1;
-          font-family: 'Geometria Bold';
+          color: #0855c4;
         }
       }
       .box-titulo{
@@ -1318,7 +1358,7 @@
         }
         .descripcion{
           margin-top: 8px;
-          font-family: 'Montserrat Regular';
+          font-family: 'Geometria Medium';
           font-size: 16px;
           font-weight: normal;
           font-stretch: normal;
@@ -1336,10 +1376,8 @@
         margin-top: 24px;
         color: #333333;
         text-align: center;
-        font-family: 'Geometria Medium';
         strong{
-          color: #0133A1;
-          font-family: 'Geometria Bold';
+          color: #0855c4;
         }
       }
       .box-slider{
@@ -1383,7 +1421,7 @@
         }
         .descripcion{
           margin-top: 8px;
-          font-family: 'Montserrat Regular';
+          font-family: 'Geometria Medium';
           font-size: 16px;
           font-weight: normal;
           font-stretch: normal;
@@ -1433,7 +1471,6 @@
             line-height: 1.11;
             letter-spacing: normal;
             color: #555555;
-            font-family: 'Geometria Bold';
           }
           .ahorro{
             margin-top: 4px;
@@ -1450,7 +1487,7 @@
           }
           .descripcion{
             margin-top: 8px;
-            font-family: 'Montserrat Regular';
+            font-family: 'Geometria Medium';
             font-size: 16px;
             font-weight: normal;
             font-stretch: normal;
@@ -1482,7 +1519,7 @@
                 letter-spacing: normal;
                 text-align: center;
                 color: #696969;    
-                font-family: 'Montserrat Regular';        
+                font-family: 'Omnes Regular';        
               }
             }
           }
@@ -1566,7 +1603,7 @@
             font-style: normal;
             line-height: 1.2;
             letter-spacing: normal;
-            color: #333333;
+            color: #454A6C;
           }
           &:hover{
             img{
@@ -1585,38 +1622,31 @@
             transition: all .75s;
             font-size: 18px;
             font-weight: 400;
-            font-family: 'Montserrat Regular';
+            font-family: 'Omnes Regular';
             font-stretch: 400;
             font-style: normal;
             line-height: 1.2;
             letter-spacing: normal;
             text-align: left;
-            color: #333333;            
+            color: #454A6C;            
           }
         }
       }      
     }
   }
   #vehicleModelPlate{
-    font-family: 'Montserrat Regular';
+    font-family: 'Omnes Regular';
     font-size: 18.5px;
     color: #495057;
   }
   #vehicleModelPlate:focus {
-    border-color: #0133A1 !important;
+    border-color: #0855c4 !important;
     border-width: 1.5px !important;
   }
-  .home-ibk .home-pasos .plan--cuerpo .incluye {
-    font-family: 'Montserrat Medium';
-}
-
-  @media (min-width: 600px) {
-    .home-ibk .home-pasos {
-        padding-top: 40px;
-    }
-  }
+  
   @media (min-width: 992px) {
     .home-ibk{
+      margin-top: 0px;
       // margin-top: 72px;
       .home-beneficios2{
         &__titulo{
@@ -1635,8 +1665,8 @@
       }
       .boxHome-banner{
         background-color: #05BE50;
-        height: 485px;
-        padding-top: 0px;
+        height: 580px;
+        
         .home-banner{
           align-items: flex-start;
           flex-direction: row;
@@ -1644,11 +1674,10 @@
           min-height: 445px;
           &__izq{
             padding-top: 85px !important;
-            height: 450px;
+            height: calc(85vh);
             display: flex;
             align-items: flex-start;
-            width: auto;
-            border-bottom: 0 !important;         
+            width: auto;            
             input{
               width: 360px;
               height: 51px;
@@ -1682,27 +1711,27 @@
               letter-spacing: normal;
               text-align: center;
               color: #494a49;
-              font-family: 'Montserrat Regular';
+              font-family: 'Omnes Regular';
             }
           }
           &__der{
-            padding-top: 0px !important;
+            padding-top: 150px !important;
             height: auto;
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            // background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
+            //background-image: url(/vehicular/_nuxt/static/media/interseguroVehicular_v2/banner_img.svg);
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
             width: 100%;
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
             flex-direction: column;
             // padding-left: 32px;
             .box-titulo{
-                padding-top: 58px;
-              padding-left: 0;
+              padding-top: 150px;
+              padding-left: 24px;
             }
             p{
               font-weight: 500;
@@ -1724,7 +1753,7 @@
       .formCotizador{
         padding: 2.375rem;
         width: 438px;
-        height: 300px;
+        height: 3000px;
         border-radius: 3rem 0 3rem 0;
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
@@ -1748,9 +1777,9 @@
           top: -1rem;
           border-radius: 8px 0 8px 0;
           box-shadow: 0 4px 4px 0 rgba(0,0,0,.19);
-          background-color: #0133A1 !important;
+          background-color: #0855c4 !important;
           color: white !important;
-          width: 245px;
+          width: 220px;
           height: 40px;
           text-align: center;
           font-size: 1.4rem;
@@ -2050,7 +2079,7 @@
     .home-ibk{
       .boxHome-banner{
         .home-banner{
-          // background-image: url('./../../static/media/img/ibk/banner.svg');          
+          //background-image: url('./../../static/media/img/ibk/banner.svg');          
           background-size: 100%;
           padding: 0;
           padding-left: 65px;
@@ -2058,7 +2087,6 @@
             background: transparent;
             margin-left: 0;
             padding-left: 1rem;
-            padding-top: 62px !important;
             p{
               font-size: 2.6rem;
             }
@@ -2071,6 +2099,7 @@
       
       .formCotizador{
         height: 300px;
+        margin-top: 40px;
       }
 
       .home-pasos{
@@ -2243,15 +2272,11 @@
     outline: 0 none;
   }
   @media (min-width: 1440px) {
-    .home-ibk .boxHome-banner .home-banner {
-        max-width: 1200px;
-    }
     .home-ibk{
       .boxHome-banner{              
         .home-banner{
-          max-width: 1200px;
-          padding-left: 0;
-          
+          padding-left: 128px;
+          max-width: 100%;
           &__der{
             background: transparent ;
             margin-left: 0;
@@ -2283,20 +2308,5 @@
     }
   }
 
-  @media (min-height: 768px) and (min-width: 992px){
-    .home-ibk{
-        .boxHome-banner{
-          .home-banner{
-            // &__izq{
-            //   height: calc(100vh - 290px);
-            //   min-height: 580px;
-            // }
-            // &__der{
-            //   height: calc(100vh - 290px);
-            //   min-height: 580px;
-            // }
-          }
-        }
-    }
-  }
+
 </style>

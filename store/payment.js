@@ -143,7 +143,7 @@ const state = () => ({
     },
     paymentExecute ({ commit,state }, item) {
       return new Promise((resolve, reject) => {
-          this.$axios.$post('vehicular-api/provider/v2/payment/execute',item).then( res => {
+          this.$axios.$post('vehicular-api/provider/v3/payment/execute',item).then( res => {
           if (res) {
             resolve(res)
           } else {

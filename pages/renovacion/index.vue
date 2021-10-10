@@ -90,7 +90,10 @@
                                                 Para cambiar el plan de tu Seguro Vehicular por favor comunícate con nuestro equipo de atención al cliente al (01) 500-0000
                                             </b-tooltip>
                                         </p>
-                                        <p class="item-descripcion">Plata</p>
+                                       <p class="item-descripcion" v-if="objRenovacion.policy.planId ==  undefined">Todo riesgo</p>
+                                        <p class="item-descripcion" v-else-if="objRenovacion.policy.planId ==  3 || objRenovacion.policy.planId == 10">Black</p>
+                                        <p class="item-descripcion" v-else-if="objRenovacion.policy.planId ==  4">Plata</p>
+                                        <p class="item-descripcion" v-else-if="objRenovacion.policy.planId ==  6">Oro</p>
                                     </div>
                                     <div class="nueva-poliza--item  vigencia-poliza">
                                         <p class="item-titulo">Vigencia de póliza:</p>
@@ -881,7 +884,13 @@ export default {
                         // this.msgMontos = "";
                         // this.msgMontosActive = false;
                         //REVISAR DESPUES EL CALL
-                        this.listCotizacion = res.data.body.allRisk
+                        if (this.objRenovacion.policy.planId == 4){
+                            this.listCotizacion = res.data.body.basic
+                        } else if (this.objRenovacion.policy.planId == 6){
+                            this.listCotizacion = res.data.body.medium
+                        } else {
+                            this.listCotizacion = res.data.body.allRisk    
+                        }
                         this.clonado.policy.risk = this.listCotizacion.policy.risk;
                         this.clonado.policy.calculated = this.listCotizacion.policy.calculated;
                         this.clonado.policy.annual = this.listCotizacion.policy.annual;
@@ -1101,6 +1110,7 @@ export default {
             this.$store.dispatch('common/obtenerDatos', this.placa).then((res) =>{          
                 if (res.data.code == 0) {
                     this.objRenovacion = res.data.body
+                    console.log(this.objRenovacion.policy.planId)
                     this.$store.commit('common/setFechaVigenciaRenovacion', this.objRenovacion.policy.fromDate)
                     if (this.objRenovacion.policy.renew == "Y") {
                             this.$store.commit('common/setPlacaNoRenovar', '')
@@ -1109,7 +1119,13 @@ export default {
                             this.itemElegido.assignedPrice = this.objRenovacion.priceModel.vehicle.current
                             this.$store.dispatch('common/getCotizacionRenovacion', this.itemElegido)
                             .then((res) => {
-                                this.listCotizacion = res.data.body.allRisk
+                                if (this.objRenovacion.policy.planId == 4){
+                                    this.listCotizacion = res.data.body.basic
+                                } else if (this.objRenovacion.policy.planId == 6){
+                                    this.listCotizacion = res.data.body.medium
+                                } else {
+                                    this.listCotizacion = res.data.body.allRisk    
+                                }
                                 this.mostrarPrimeraPantalla = false
                                 this.mostrarSegundaPantalla = true
                                 this.clonado = Object.assign({}, this.listCotizacion);
@@ -1146,10 +1162,10 @@ export default {
             this.opinionNegativa = false;
             this.$refs.modalNoRenovar.hide()
         },
-        continuar(evt) {            
+        continuar(evt) {    
+            this.estamosProcesandoTuPago = true        
             evt.preventDefault()
             this.isDisabledPayment = true
-            this.estamosProcesandoTuPago = true
             this.card.expiration_year = "20" + this.expiration_year
             this.card.email = this.objRenovacion.client.email
             this.isisplayNoneLoader = false
@@ -1163,7 +1179,7 @@ export default {
                 this.objCard.card_number = this.objCulqi.card_number
                 this.$store.dispatch('payment/getCard', this.objCard).then((res) =>{
                     this.isDisabledPayment = false
-                    this.respuestaculqiexitosa = true 
+                    this.respuestaculqiexitosa = true
                     this.objUpdatePolicy.numeroPoliza = this.objRenovacion.policy.policyNumber
                     this.objUpdatePolicy.monto_pagar = this.monto_pagar
                     this.objUpdatePolicy.current = this.clonado.vehicle.current
@@ -1238,6 +1254,67 @@ $lower-background: linear-gradient(to bottom, $lower-color, $lower-color) 100% 5
   @return $val;
 }
 
+.modal .modal-content {
+        display: flex;
+        min-width: 338px;
+        min-height: 425px;
+        .msj-procesando-pago {
+            display: none;
+            font-size: 14px;
+            font-family: 'Omnes Medium';
+            color: #ffffff;
+        }
+        .msj-procesando-pag-activo{
+            display: block;
+        }
+        .parpadea {
+            
+            animation-name: parpadeo;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            -webkit-animation-name:parpadeo;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        @-moz-keyframes parpadeo{  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1.0; }
+        }
+
+        @-webkit-keyframes parpadeo {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1.0; }
+        }
+
+        @keyframes parpadeo {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1.0; }
+        }
+        .box-btn-renovaciones{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-primario-renovaciones{
+            width: 285px;
+            height: 45px;
+            margin: auto;
+            padding: 0;
+            background-color: #ea0c90;
+            color: white;
+            border-radius: 3px;
+            outline: none;
+            box-shadow: none;
+            border: none;
+        }
+    }
 #modalCambiarFrecuencia{
     .modal-content {
         display: flex;

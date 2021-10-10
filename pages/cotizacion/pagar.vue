@@ -1303,46 +1303,31 @@ import { validationMixin } from 'vuelidate'
                     }else{
                         this.objCulqi = res;
                         this.objPaymentExecute = {
-                            tokenId: this.objCulqi.id,
+                            businessId: this.$store.state.common.businessId,
+                            sellCode: this.$store.state.common.codeRmkt,
                             planId: this.$store.state.common.planSeleccionado,
+                            channelId: 1,
                             plateNumber: this.$store.state.common.plateNumber,
                             documentNumber: this.$store.state.common.documentoLocal,
-                            remarketingId: this.$store.state.common.codeRmkt,
-                            referredDocumentNumber:null,
                             discountType: this.discountType,
-                            businessId: this.$store.state.common.businessId,
-                            details: {
-                                policy: {
-                                    riskName: this.listCotizacion.policy.riskName,
-                                    risk: this.listCotizacion.policy.risk,
-                                    calculated: this.listCotizacion.policy.calculated,
-                                    twoYears: this.listCotizacion.policy.twoYears,
-                                    annual: this.listCotizacion.policy.annual,
-                                    quarterly: this.listCotizacion.policy.quarterly,
-                                    monthly: this.listCotizacion.policy.monthly,
-                                    twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
-                                    annualDiscount: this.listCotizacion.policy.annualDiscount,
-                                    quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
-                                    monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
-                                    discount: false,
-                                    startDate: this.$store.state.common.fechaVigencia
-                                },
-                                vehicle: {
-                                    current: this.listCotizacion.vehicle.current,
-                                    maximum: this.listCotizacion.vehicle.maximum,
-                                    minimum: this.listCotizacion.vehicle.minimum,
-                                    gps: this.listCotizacion.vehicle.gps
-                                },
+                            policy: {
+                                startDate: this.$store.state.common.fechaVigencia,
                                 zeroKm: "N",
-                                paymentMethodId: this.payment,
-                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                                frequency: this.payment,
+                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id,
+                                calculated: this.listCotizacion.policy.calculated,
+                                monthly: this.listCotizacion.policy.monthly,
+                                monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                quarterly: this.listCotizacion.policy.quarterly,
+                                quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                annual: this.listCotizacion.policy.annual,
+                                annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                sumAssured: this.listCotizacion.vehicle.current,
+                                discount: false,
                             },
-                            card: {
-                                brand: this.objCulqi.iin.card_brand,
-                                category: this.objCulqi.iin.card_category,
-                                number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type,
-                                bank : this.objCulqi.iin.issuer.name
+                            digitalPayment: {
+                                provider: "CULQI",
+                                token: this.objCulqi.id
                             }
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)

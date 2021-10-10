@@ -1,11 +1,3 @@
-.writeme img, .writeme svg {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 99;
-  cursor: pointer;
-}
-
 .spinner-sq {
   top: 0 !important;
 }
@@ -13,6 +5,34 @@
   z-index: 9;
 }
 
+// ::-webkit-scrollbar {
+//   width: 15px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: #ebf1fb;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: #ebf1fb;
+//   border-radius: 6px;
+//   border: 3px solid #ebf1fb;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #ebf1fb;
+// }
+
+.writeme img, .writeme svg {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  cursor: pointer;
+}
 
 .home-ibk .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
   color: #fff !important;
@@ -43,8 +63,48 @@
     width: 300px;
   }
 }
+#modalNumeroCelular2{
+  .modal-body{
+    padding-bottom: 0;
+  }
+  .modal-body{
+    padding-bottom: 0 !important;
+    background: rgb(13,103,230);
+    background: linear-gradient(177deg, rgba(13,103,230,1) 0%, rgba(33,200,213,1) 83%);
+  }
+  .box-input  span {
+      display: inline-block;
+      width: 180px;
+      height: 38px;
+      border-radius: 7px;
+      background-color: #ea0f90;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 38px;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      cursor: pointer;
+      font-family: 'Omnes Regular';
+  }
+}
+#modalNumeroCelular{
+  .modal-body{
+    padding-bottom: 0;
+  }
+  
+  .modal-body{
+    padding-bottom: 0 !important;
+    background: rgb(13,103,230);
+    background: linear-gradient(177deg, rgba(13,103,230,1) 0%, rgba(33,200,213,1) 83%);
+  }
+}
 .leaveModal .modal-body{
-  // background: url("./../../static/media/interseguroVehicular_v2/fondo_banner.png") ;
+  //fondo modal campaña
+  //background: url("./../../static/media/img/campania/fondo-modal.svg") ;
+  background: #0759c6;
   background-size: cover;
   // background-position: center;
   p{
@@ -59,6 +119,24 @@
     max-width: 360px;
   }
 }
+
+.leaveModalIbk .modal-body{
+  background: url("./../../static/media/img/campania/ibk/fondo-modal.svg") ;
+  background-size: cover;
+  // background-position: center;
+  p{
+    color: #0855C4 !important;
+    font-family: 'Omnes Regular';
+  }
+  .modal-content{
+    //background: url("./../../static/media/interseguroVehicular_v2/fondo_cuponazo_modal.svg") !important;
+    background-size: cover !important;
+  }
+  .img-verano{
+    max-width: 360px;
+  }
+}
+
 .modal-blackWeek{
   max-width: 472px;
   width: 100%;
@@ -124,14 +202,10 @@
     padding-bottom: 34px;
   }
   
-  .modal-close {
-    width: 46px;
-    height: 48px;
-    position: absolute;
-    right: -14px;
-    top: -22px;
-    background: transparent !important;
-    z-index: 1;
+  .modal-close{
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
   }
   .modal-titulo{
     color: #0855C4;
@@ -155,30 +229,12 @@
       font-family: 'Omnes Regular';
       height: 50px;
     }
-    .btn-mail{
-      width: 263px;
-      background: #EA0C90;
-      color: white;
-      font-size: 19px;
-      font-family: 'Omnes Regular';
-      height: 50px;
-    }
   }
   .modal-content{
     display: flex;
     min-width: 338px;
     min-height: 305px;
   }
-}
-.modal-subtitulo-mail{
-  color: #0855C4;
-  font-size: 32px;
-  font-family: 'Omnes medium';
-  text-align: center;
-  line-height: normal;
-  width: 450px;
-  margin: auto;
-  margin-bottom: 24px;
 }
 .modalEnviarEmail{
   display: flex;
@@ -243,7 +299,7 @@
 }
 .rotor-group{
   position: relative !important;
-  height: 46px !important;
+  height: 45px !important;
 }
 .rotor-group-heading {
   position: absolute !important;
@@ -253,7 +309,7 @@
   z-index: 9999 !important;
 }
 .flipdown .rotor-group-heading:before {
-  height: 20px !important;
+  height: 2px !important;
 }
 .flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
   content: 'DIAS' !important;
@@ -320,7 +376,7 @@
 
 .flipdown {  
   width: 100% !important;
-  height: 50px !important;
+  height: 45px !important;
   padding: 4px !important;
   border-radius: 12px !important;
   overflow: hidden !important;
@@ -343,7 +399,7 @@
 }
 
 .flipdown .rotor-group {
-  padding-right: 8px !important;
+  padding-right:8px !important;
 }
 
 .flipdown .rotor-group:last-child {
@@ -783,8 +839,20 @@
 @media (min-width: 992px) {
   .writeme img {
     width: 13.5rem;
-  }
+}
+  #modalNumeroCelular2{
     
+    .modal-body{
+      padding-bottom: 0 !important;
+    }
+  }
+  #modalNumeroCelular{
+    
+    .modal-body{
+      padding-bottom: 0 !important;
+      background: #fff;
+    }
+  }
   #modalEntidadFinanciera2{
     .modal-titulo{
       font-size: 32px;
@@ -822,9 +890,12 @@
   #modalEnviarEmail{
     .modal-content{
       display: flex;
-      width: 520px;
-      height: 365px;
+      width: 420px;
+      height: 305px;
     }
+  }
+  .writeme img {
+        width: 13.5rem;
   }
   
 }

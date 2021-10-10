@@ -607,8 +607,8 @@ import { validationMixin } from 'vuelidate'
                     this.$nuxt.$emit('bv::show::modal','leavePayment')
                 },
                 contador(){
-                    var flipdown2 = new FlipDown(1619845199, 'contadorCyber4').start()
-                    var flipdown = new FlipDown(1619845199, 'contadorCyber3').start()
+                var flipdown2 = new FlipDown(1622437199, 'contadorCyber4').start()
+                var flipdown = new FlipDown(1622437199, 'contadorCyber3').start()
                 },
                 hideModalBlackWeek(){
                     $nuxt.$emit('bv::hide::modal', 'leaveBlackWeek')
@@ -719,7 +719,13 @@ import { validationMixin } from 'vuelidate'
                     .then((res) =>{
                         
                         if (res.object === 'error') {
-                            
+                        let errorDetectado = {
+                            url : 'GET TOKEN CULQI',
+                            page : 4,
+                            message : 'ERROR CULQI',
+                            objEnviado : this.card
+                        }
+                        this.$store.dispatch('common/eventoErrores', errorDetectado)
                             this.$swal({
                                 title: 'Oops...',
                                 text: res.data.user_message,
@@ -733,80 +739,142 @@ import { validationMixin } from 'vuelidate'
                             console.log("========1")
                             this.objCulqi = res;
                             this.objPaymentExecute = {
-                                tokenId: this.objCulqi.id,
-                                planId: this.$store.state.common.planSeleccionado,
-                                plateNumber: this.$store.state.common.plateNumber,
-                                documentNumber: this.$store.state.common.documentoLocal,
-                                remarketingId: this.$store.state.common.codeRmkt,
-                                referredDocumentNumber:null,
-                                discountType: this.discountType,
-                                businessId: this.$store.state.common.businessId,
-                                details: {
-                                    policy: {
-                                        riskName: this.listCotizacion.policy.riskName,
-                                        risk: this.listCotizacion.policy.risk,
-                                        calculated: this.listCotizacion.policy.calculated,
-                                        twoYears: this.listCotizacion.policy.twoYears,
-                                        annual: this.listCotizacion.policy.annual,
-                                        quarterly: this.listCotizacion.policy.quarterly,
-                                        monthly: this.listCotizacion.policy.monthly,
-                                        twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
-                                        annualDiscount: this.listCotizacion.policy.annualDiscount,
-                                        quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
-                                        monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
-                                        discount: false,
-                                        startDate: this.$store.state.common.fechaVigencia
-                                    },
-                                    vehicle: {
-                                        current: this.listCotizacion.vehicle.current,
-                                        maximum: this.listCotizacion.vehicle.maximum,
-                                        minimum: this.listCotizacion.vehicle.minimum,
-                                        gps: this.listCotizacion.vehicle.gps
-                                    },
-                                    zeroKm: "N",
-                                    paymentMethodId: this.payment,
-                                    financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
-                                },
-                                card: {
-                                    brand: this.objCulqi.iin.card_brand,
-                                    category: this.objCulqi.iin.card_category,
-                                    number: this.objCulqi.card_number,
-                                    type: this.objCulqi.iin.card_type,
-                                    bank : this.objCulqi.iin.issuer.name
-                                }
+                            businessId: this.$store.state.common.businessId,
+                            sellCode: this.$store.state.common.codeRmkt,
+                            planId: this.$store.state.common.planSeleccionado,
+                            channelId: 1,
+                            plateNumber: this.$store.state.common.plateNumber,
+                            documentNumber: this.$store.state.common.documentoLocal,
+                            discountType: this.discountType,
+                            policy: {
+                                startDate: this.$store.state.common.fechaVigencia,
+                                zeroKm: "N",
+                                frequency: this.payment,
+                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id,
+                                calculated: this.listCotizacion.policy.calculated,
+                                monthly: this.listCotizacion.policy.monthly,
+                                monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                quarterly: this.listCotizacion.policy.quarterly,
+                                quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                annual: this.listCotizacion.policy.annual,
+                                annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                sumAssured: this.listCotizacion.vehicle.current,
+                                discount: false
+                            },
+                            digitalPayment: {
+                                provider: "CULQI",
+                                token: this.objCulqi.id
                             }
-                            console.log("========2",self.pay)
-                            console.log("========2.1",res)
-                            self.pay.digitalPayment.token = res.id
-                            this.goGeneratePoliza(res.id)
-                            // this.$store.dispatch('payment/makeSale', this.objPaymentExecute)
-                            // .then((res) =>{
-                                
-                                
-                            // })
                         }
-                        
-                    }).catch((res)=>{
-                        this.opacidad =false
-                        let status = res.response.status
-                        
-                        
-                        this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
-                        if(!this.htmlModal){
-                            this.htmlModal = document.getElementById('newModal');
-                            this.htmlModal.style.display = "";
-                        }
-                        this.$swal({
-                                        // title: 'Oops...',
-                                        html: this.htmlModal,
-                                        // type: 'error',
-                                        customClass: 'swal-buttonx',
-                                        showCloseButton: true,
-                                        confirmButtonColor: '#EA0C90',
-                                        confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
-                            })
-                    })
-                },
+                        this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
+                        .then((res) =>{
+                            if (res.code == 0) {
+                                this.opacidad =false
+                                // this.validarROOT()
+                                this.$store.commit('common/setPolicy_id',res.body.policyId)
+                                this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
+                            }else if(res.code == 100){
+                                let errorDetectado = {
+                                    url : 'EXECUTE',
+                                    page : 4,
+                                    message : 'CODE 100',
+                                    objEnviado : this.objPaymentExecute
+                                }
+                                this.$store.dispatch('common/eventoErrores', errorDetectado)
+                                this.opacidad =false
+                                const messageErr = JSON.parse(JSON.parse(res.body).body);
+
+
+                                const showMessageErr = () => {
+                                    const err = messageErr.decline_code;
+                                    this.textErrModalTwo = '';
+                                    if(err == 'stolen_card'){
+                                        return 'Tu tarjeta está vencida. Por favor verifica la fecha de vencimiento e ingrésala correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'lost_card'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'insufficient_funds'){
+                                        return 'Tu tarjeta no tiene fondos suficientes para realizar la compra. Por favor verifica los fondos de tu tarjeta o realiza la compra con otro medio de pago.'
+                                    }else if( err == 'contact_issuer' || err =='issuer_decline_operation' || err == 'invalid_card' || err == 'fraudulent'){
+                                        return 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.'
+                                    }else if( err == 'incorrect_cvv'){
+                                        return 'El código de seguridad (CVV) es incorrecto. Por favor verifica los dígitos e ingrésalos correctamente. De lo contrario, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'issuer_not_available'){
+                                        return 'El pago no pudo ser procesado. Por favor intenta nuevamente en unos minutos. Si el problema persiste, te recomendamos usar otro medio de pago.'
+                                    }else if( err == 'processing_error'){
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                                    }else {
+                                        this.textErrModalTwo = '(01) 500-0000 para darte una solución. De lo contrario, puedes volver a intentar usando otro medio de pago.';
+                                        return 'El pago no pudo ser procesado. Por favor contáctanos al '
+                                    }
+                                };
+
+                                this.textErrModal = showMessageErr();
+                                if(!this.htmlModal){
+                                    this.htmlModal = document.getElementById('newModal');
+                                    this.htmlModal.style.display = "";
+                                }
+
+                                this.$swal({
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    text: showMessageErr(),
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                                })
+                            }else{
+                                this.opacidad =false
+                                this.$swal({
+                                    title: 'Oops...',
+                                    text: res.message,
+                                    type: 'error',
+                                    showCancelButton: false,
+                                    confirmButtonColor: '#2177CC',
+                                    confirmButtonText: 'OK'
+                                })
+                            }
+                            
+                        })
+                    }
+                    
+                }).catch((res)=>{
+                    this.opacidad =false
+                    let status = res.response.status
+                    
+                    let errorDetectado = {
+                        url : 'https://secure.culqi.com/v2/tokens',
+                        page : 4,
+                        message : 'ERROR CULQI'+ res.message,
+                        objEnviado : this.card
+                    }
+
+                    switch (status) {
+                        case 500:
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            break;
+                        default:
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            break;
+                    }
+                    this.textErrModal = 'El pago ha sido rechazado por la entidad emisora de tu tarjeta. Por favor contáctate con el banco para conocer el motivo. Para completar tu compra puedes ingresar otro medio de pago.';
+                    if(!this.htmlModal){
+                        this.htmlModal = document.getElementById('newModal');
+                        this.htmlModal.style.display = "";
+                    }
+                       this.$swal({
+                                    // title: 'Oops...',
+                                    html: this.htmlModal,
+                                    // type: 'error',
+                                    customClass: 'swal-buttonx',
+                                    showCloseButton: true,
+                                    confirmButtonColor: '#EA0C90',
+                                    confirmButtonText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+                        })
+                })
+            },
             
                 volver (evt) {
                     evt.preventDefault();

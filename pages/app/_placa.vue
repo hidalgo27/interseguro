@@ -1076,7 +1076,13 @@ export default {
                 this.$store.dispatch('payment/getTokenCulqi', this.card)
                 .then((res) =>{
                     if (res.object === 'error') {
-                       
+                        let errorDetectado = {
+                            url : 'GET TOKEN CULQI',
+                            page : 4,
+                            message : 'ERROR CULQI',
+                            objEnviado : this.card
+                        }
+                        this.$store.dispatch('common/eventoErrores', errorDetectado)
                         this.$swal({
                             title: 'Oops...',
                             text: res.data.user_message,
@@ -1088,46 +1094,76 @@ export default {
                         this.opacidad =false
                     }else{
                         this.objCulqi = res
+                        // Inicio - paymentExecute: Request v2
+                        // this.objPaymentExecute = {
+                        //     tokenId: this.objCulqi.id,
+                        //     planId: this.$store.state.common.planSeleccionado,
+                        //     plateNumber: this.$store.state.common.plateNumber,
+                        //     documentNumber: this.$store.state.common.documentoLocal,
+                        //     remarketingId: this.$store.state.common.codeRmkt,
+                        //     referredDocumentNumber:null,
+                        //     discountType: this.discountType,
+                        //     businessId: this.$store.state.common.businessId,
+                        //     details: {
+                        //         policy: {
+                        //             riskName: this.listCotizacion.policy.riskName,
+                        //             risk: this.listCotizacion.policy.risk,
+                        //             calculated: this.listCotizacion.policy.calculated,
+                        //             twoYears: this.listCotizacion.policy.twoYears,
+                        //             annual: this.listCotizacion.policy.annual,
+                        //             quarterly: this.listCotizacion.policy.quarterly,
+                        //             monthly: this.listCotizacion.policy.monthly,
+                        //             twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
+                        //             annualDiscount: this.listCotizacion.policy.annualDiscount,
+                        //             quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                        //             monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                        //             discount: false,
+                        //             startDate: this.$store.state.common.fechaVigencia
+                        //         },
+                        //         vehicle: {
+                        //             current: this.listCotizacion.vehicle.current,
+                        //             maximum: this.listCotizacion.vehicle.maximum,
+                        //             minimum: this.listCotizacion.vehicle.minimum,
+                        //             gps: this.listCotizacion.vehicle.gps
+                        //         },
+                        //         zeroKm: "N",
+                        //         paymentMethodId: this.selected,
+                        //         financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                        //     },
+                        //     card: {
+                        //         brand: this.objCulqi.iin.card_brand,
+                        //         category: this.objCulqi.iin.card_category,
+                        //         number: this.objCulqi.card_number,
+                        //         type: this.objCulqi.iin.card_type
+                        //     }
+                        // }
+                        // Fin - paymentExecute: Request v2
                         this.objPaymentExecute = {
-                            tokenId: this.objCulqi.id,
+                            businessId: this.$store.state.common.businessId,
+                            sellCode: this.$store.state.common.codeRmkt,
                             planId: this.$store.state.common.planSeleccionado,
+                            channelId: 1,
                             plateNumber: this.$store.state.common.plateNumber,
                             documentNumber: this.$store.state.common.documentoLocal,
-                            remarketingId: this.$store.state.common.codeRmkt,
-                            referredDocumentNumber:null,
                             discountType: this.discountType,
-                            businessId: this.$store.state.common.businessId,
-                            details: {
-                                policy: {
-                                    riskName: this.listCotizacion.policy.riskName,
-                                    risk: this.listCotizacion.policy.risk,
-                                    calculated: this.listCotizacion.policy.calculated,
-                                    twoYears: this.listCotizacion.policy.twoYears,
-                                    annual: this.listCotizacion.policy.annual,
-                                    quarterly: this.listCotizacion.policy.quarterly,
-                                    monthly: this.listCotizacion.policy.monthly,
-                                    twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
-                                    annualDiscount: this.listCotizacion.policy.annualDiscount,
-                                    quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
-                                    monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
-                                    discount: false,
-                                    startDate: this.$store.state.common.fechaVigencia
-                                },
-                                vehicle: {
-                                    current: this.listCotizacion.vehicle.current,
-                                    maximum: this.listCotizacion.vehicle.maximum,
-                                    minimum: this.listCotizacion.vehicle.minimum,
-                                    gps: this.listCotizacion.vehicle.gps
-                                },
+                            policy: {
+                                startDate: this.$store.state.common.fechaVigencia,
                                 zeroKm: "N",
-                                paymentMethodId: this.selected,
-                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                                frequency: this.selected,
+                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id,
+                                calculated: this.listCotizacion.policy.calculated,
+                                monthly: this.listCotizacion.policy.monthly,
+                                monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                quarterly: this.listCotizacion.policy.quarterly,
+                                quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                annual: this.listCotizacion.policy.annual,
+                                annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                sumAssured: this.listCotizacion.vehicle.current,
+                                discount: false
                             },
-                            card: {
-                                brand: this.objCulqi.iin.card_brand,
-                                category: this.objCulqi.iin.card_category,
-                                number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type
+                            digitalPayment: {
+                                provider: "CULQI",
+                                token: this.objCulqi.id
                             }
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
@@ -1138,7 +1174,13 @@ export default {
                                 this.$store.commit('common/setPolicy_id',res.body.policyId)
                                 this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
                             }else if(res.code == 100){
-
+                                let errorDetectado = {
+                                    url : 'EXECUTE',
+                                    page : 4,
+                                    message : 'CODE 100',
+                                    objEnviado : this.objPaymentExecute
+                                }
+                                this.$store.dispatch('common/eventoErrores', errorDetectado)
                                 this.opacidad =false
                                 this.$swal({
                                     title: 'Oops...',
@@ -1166,7 +1208,21 @@ export default {
                 }).catch((res)=>{
                     this.opacidad =false
                     // let status = res.response.status
+                    let errorDetectado = {
+                        url : 'https://secure.culqi.com/v2/tokens',
+                        page : 4,
+                        message : 'ERROR CULQI'+ res.message,
+                        objEnviado : this.card
+                    }
 
+                    switch (status) {
+                        case 500:
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            break;
+                        default:
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            break;
+                    }
                     
                         this.$swal({
                             title: 'Oops...',

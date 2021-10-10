@@ -97,7 +97,10 @@ const getDefaultState = () => {
 
     // Modal de abandono
     leaveMessage: 0,
-    leaveMessage1: 0
+    leaveMessage1: 0,
+    //Geolocalizacion
+    geolocation: {},
+    agent: ""
     }
 }
 
@@ -266,7 +269,13 @@ const mutations = {
     },
     setLeaveMessage1 (state, payload) {
         state.leaveMessage1 = payload
-    }
+    },
+    setGeolocation(state, payload){
+        state.geolocation = payload
+    },
+    setAgent(state, payload){
+        state.agent = payload
+    },
 }
 
 const actions = {
@@ -322,7 +331,54 @@ const actions = {
             })
         })
     },
-
+    eventoErrores ({ commit, state }, item) {
+        return new Promise((resolve, reject) => {
+          this.$axios.post("trace/v1/element/save", 
+          {
+            "page":item.page,
+            "flow" : state.flujoDetectado,
+            "path":item.url,
+            "messageError": item.message,
+            "documentNumber":"",
+            "plateNumber": state.plateNumber,
+            "detail":{
+                "objServicio":{
+                "nombre":"",
+                "tipo": "",
+                "ruta": item.url,
+                "msj": item.message,
+                "solucion": ""
+                },
+                "objCliente":{
+                "documento": "",
+                "nombre":"",
+                "celular": "",
+                "correo": ""
+                },
+                "objAuto":{
+                "placa": state.plateNumber,
+                "marca": "",
+                "modelo": "",
+                "anio": "",
+                "valorComercial": ""
+                },
+                "objEnviado":item.objEnviado
+            }
+        }
+        )
+            .then(res => {
+                if ( res ) {
+                    commit('setVehicleState', 1)
+                    resolve(res)
+                }else{
+                    reject(res)
+                }            
+            })
+            .catch(function(err) {
+              reject(err)
+            })
+        })
+    },
     updateVehicle ({ commit, state }, item) {
         return new Promise((resolve, reject) => {
           this.$axios.put("vehicular-api/provider/v1/vehicle", {
@@ -822,6 +878,22 @@ const actions = {
               resolve(response)
             })
             .catch(function(error) {})
+        })
+    },
+    /*********************************************************
+                * Obtener IP Publica del usuario
+    *********************************************************/
+     getGeolocationUser ({ commit, state }) {
+        return new Promise((resolve, reject) => {
+            this.$axios.get('https://api.ipify.org/?format=json').then((res) => {
+                if (res) {
+                    resolve(res)
+                } else {
+                    reject(res)
+                }
+            }).catch(err => {
+                reject(err)
+            })
         })
     },
 }

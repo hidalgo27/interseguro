@@ -730,12 +730,12 @@ export default {
       this.objRemarketing = {
         "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
         "producto": this.$store.state.common.businessId,
-        "identificador": this.$store.state.common.plateNumber,
+        "identificador": this.$store.state.common.plateNumber.toUpperCase(),
         "detalle": {
-          "correo": this.$store.state.common.email.trim().replace(/ /g,''),
+          "correo": this.$store.state.common.email.trim().replace(/ /g,'').toLowerCase(),
           "codigoVenta": this.$store.state.common.codeRmkt,
           "pantalla": 4,
-          "enviarCorreo":0,
+          "enviarCorreo":this.$store.state.common.agent != ''? 2:0,
           "datosCorreo":{
             "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
             "plantilla": this.objPlantilla,
@@ -761,7 +761,9 @@ export default {
             /******************************************************** */   
             itemElegido: this.$store.state.common.itemElegido,
             listCotizacion: this.$store.state.common.listaCotizacion,
-            nuevoProducto: this.$store.state.common.nuevoProducto
+            nuevoProducto: this.$store.state.common.nuevoProducto,
+            geolocalizacion: this.$store.state.common.geolocation,
+            agente: this.$store.state.common.agent 
           },
         "datosTitular": {
             numeroDocumento: this.$store.state.common.documentoLocal,

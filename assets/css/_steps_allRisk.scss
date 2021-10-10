@@ -578,30 +578,3 @@ input[type="color"]:focus,
         }
     }
 }
-
-
-@media (max-width: 576px) {
-  .iptGral {
-    &__input {
-        border-radius: .30rem;
-        display: inline-block;
-        width: 100%;
-        background-color: white !important;
-        background-size: 1.3rem;
-        font-weight: normal;
-        font-family: 'Omnes Medium';
-        font-size: 16px;
-        display: inline-block;
-        border: 1px solid #ced4da;
-    }
-    &__btn {
-        // background: url(../../static/media/img/input-icon-edit.svg) no-repeat right;
-        background-size: 1.3rem;
-        position: absolute;
-        right: 0;
-        height: 40px;
-        z-index: 99;
-    }
-}
-}
-

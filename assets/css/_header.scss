@@ -148,20 +148,12 @@ $gris-2: #212529;
     width: 100%; 
     background: $primario; 
 }
-#nav-checkbox1{
-    display: flex;
-    align-items: center;
-    z-index: 9;
-    img{
-        width: 34px;
-    }
-}
 #nav-checkbox2{
     display: flex;
     align-items: center;
     z-index: 9;
     img{
-        width: 115px;
+        width: 23px;
     }
 }
 .main-nav {
@@ -196,14 +188,9 @@ $gris-2: #212529;
         display: flex;
         height: 100%;
         align-items: center;
-        .img-home{
+        img {
             height: 18px;
             width: auto;
-            cursor: pointer;
-        }
-        .img-flujo {
-            height: 21px;
-            width: 169px;
             cursor: pointer;
         }
         &--full {

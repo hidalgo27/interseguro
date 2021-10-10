@@ -187,9 +187,9 @@
                                         
 
 
-                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" v-if="this.$store.state.common.frecuenciaPago == 1">
+                                         <b-col cols="12" lg="12" class="pt-lg-2 mt-2  mt-lg-0" >
                                             <b-row class="justify-content-center">
-                                                <div class="flotante-covid-3  d-none  d-md-block">
+                                                <!-- <div class="flotante-covid-3  d-none  d-md-block">
                                                     <div class="d-flex flex-direction-column " style="position: relative; align-items:flex-end;    justify-content: flex-end;">
                                                         <span @click="metodoFlotante()"><img class="gratis-prueba" src="./../../static/media/interseguroVehicular_v2/segunda-cuota-ibk.svg" width="370"></span>
                                                         <div class="box-contador " >
@@ -202,7 +202,7 @@
                                                             </div>                            
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <b-col cols="12">
                                                     <span class="text-secundario  text-center " style="font-size:12px">Autorizo el envío de la póliza electrónica <br> y comunicaciones de Interseguro a mi correo.</span>
                                                 </b-col>
@@ -214,13 +214,13 @@
                                                         
                                                     </button>
                                                 </b-col>
-                                                <b-col cols="12"  class="mt-2" style="background: #D2F5E0; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
+                                                <!-- <b-col cols="12"  class="mt-2" style="background: #D2F5E0; display: flex; align-items: center; border-radius: 9px;padding: 12px 23px;">
                                                     <img class="mr-2" src="./../../static/media/interseguroVehicular_v2/dscto-2dacuota.svg" alt="">
                                                     <p style="color:#05BE50;text-align:left;">
                                                         Termina tu compra hoy y aplicaremos un descuento a la 2da cuota mensual de tu seguro para que sea GRATIS
                                                     </p>
-                                                </b-col>
-                                                <b-col cols="12">
+                                                </b-col> -->
+                                                <!-- <b-col cols="12">
                                                     <div class=" box-btn testest  mt-4" >
                                                         <div class="flotante-covid-boton  d-md-none" v-if="flotanteCovid"  style="position: relative;">
                                                             
@@ -238,7 +238,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </b-col>
+                                                </b-col> -->
                                             </b-row>
                                         </b-col>
                                     </b-row>
@@ -314,8 +314,39 @@
                         
                     </div>
                 </b-modal>
-
             </div>
+
+            <!-- Modal campania  -->
+            <b-modal
+                id="leaveQuote2"
+                class="leaveModalIbk"
+                static
+                centered
+                hide-footer
+                hide-header
+            >
+                <b-container>
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-3" cols="12">
+                    <img class="img-verano" width="100%"  src="../../static/media/img/campania/ibk/img-modal.svg" alt="">              
+                    <p class="mt-3">
+                        <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br>                
+                        <span style="color : #ffffff; font-size: 18px">
+                        ¡Llegó el Cyber! <b>Compra con 15% de dscto.</b> <br> y si compras en Plan Black llévate <br> <b>un vale virtual de S/50.</b> 
+                        </span>
+                        </p>
+                        
+                    </b-col>
+                </b-row>
+                
+                <b-row class="justify-content-center">
+                    <b-col class="text-center mb-4" cols="12">
+                    <b-button style="background-color: #FFFFFF; color: #05BE50;" @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')">TERMINAR COMPRA</b-button>
+                    </b-col>
+                </b-row>
+                </b-container>
+            </b-modal>
+
         </b-container>
         <div class="capadecarga" v-bind:class="{ 'opacidad': opacidad }">
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
@@ -360,7 +391,7 @@ import { validationMixin } from 'vuelidate'
                     modelId:'',
                     remarketingId:'',
                     assignedPrice:null,
-                    businessId:1,
+                    businessId:2,
                     discountType: '',
                 },
                 objPaymentExecute:{},
@@ -522,8 +553,8 @@ import { validationMixin } from 'vuelidate'
 
         },
             contador(){
-                var flipdown = new FlipDown(1618203599, 'contadorCyber14').start();
-                var flipdown = new FlipDown(1618203599, 'contadorCyber15').start()
+                var flipdown = new FlipDown(1620104399, 'contadorCyber14').start();
+                var flipdown = new FlipDown(1620104399, 'contadorCyber15').start()
             },
             cotizador_datalayer(evento,step_valor){
                 this.cobertura_is.content_ids =  this.$store.state.common.code_sku
@@ -629,7 +660,13 @@ import { validationMixin } from 'vuelidate'
                 this.$store.dispatch('payment/getTokenCulqi', this.card)
                 .then((res) =>{
                     if (res.object === 'error') {
-                        
+                        let errorDetectado = {
+                            url : 'GET TOKEN CULQI',
+                            page : 4,
+                            message : 'ERROR CULQI',
+                            objEnviado : this.card
+                        }
+                        this.$store.dispatch('common/eventoErrores', errorDetectado)
                         this.$swal({
                             title: 'Oops...',
                             text: res.data.user_message,
@@ -641,47 +678,77 @@ import { validationMixin } from 'vuelidate'
                         this.opacidad =false
                     }else{
                         this.objCulqi = res;
+                        // Inicio - paymentExecute: Request v2
+                        // this.objPaymentExecute = {
+                        //     tokenId: this.objCulqi.id,
+                        //     planId: this.$store.state.common.planSeleccionado,
+                        //     plateNumber: this.$store.state.common.plateNumber,
+                        //     documentNumber: this.$store.state.common.documentoLocal,
+                        //     remarketingId: this.$store.state.common.codeRmkt,
+                        //     referredDocumentNumber:null,
+                        //     discountType: this.discountType,
+                        //     businessId: this.$store.state.common.businessId,
+                        //     details: {
+                        //         policy: {
+                        //             riskName: this.listCotizacion.policy.riskName,
+                        //             risk: this.listCotizacion.policy.risk,
+                        //             calculated: this.listCotizacion.policy.calculated,
+                        //             twoYears: this.listCotizacion.policy.twoYears,
+                        //             annual: this.listCotizacion.policy.annual,
+                        //             quarterly: this.listCotizacion.policy.quarterly,
+                        //             monthly: this.listCotizacion.policy.monthly,
+                        //             twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
+                        //             annualDiscount: this.listCotizacion.policy.annualDiscount,
+                        //             quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                        //             monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                        //             discount: false,
+                        //             startDate: this.$store.state.common.fechaVigencia
+                        //         },
+                        //         vehicle: {
+                        //             current: this.listCotizacion.vehicle.current,
+                        //             maximum: this.listCotizacion.vehicle.maximum,
+                        //             minimum: this.listCotizacion.vehicle.minimum,
+                        //             gps: this.listCotizacion.vehicle.gps
+                        //         },
+                        //         zeroKm: "N",
+                        //         paymentMethodId: this.payment,
+                        //         financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                        //     },
+                        //     card: {
+                        //         brand: this.objCulqi.iin.card_brand,
+                        //         category: this.objCulqi.iin.card_category,
+                        //         number: this.objCulqi.card_number,
+                        //         type: this.objCulqi.iin.card_type,
+                        //         bank : this.objCulqi.iin.issuer.name
+                        //     }
+                        // }
+                        // Fin - paymentExecute: Request v2
                         this.objPaymentExecute = {
-                            tokenId: this.objCulqi.id,
+                            businessId: this.$store.state.common.businessId,
+                            sellCode: this.$store.state.common.codeRmkt,
                             planId: this.$store.state.common.planSeleccionado,
+                            channelId: 1,
                             plateNumber: this.$store.state.common.plateNumber,
                             documentNumber: this.$store.state.common.documentoLocal,
-                            remarketingId: this.$store.state.common.codeRmkt,
-                            referredDocumentNumber:null,
                             discountType: this.discountType,
-                            businessId: this.$store.state.common.businessId,
-                            details: {
-                                policy: {
-                                    riskName: this.listCotizacion.policy.riskName,
-                                    risk: this.listCotizacion.policy.risk,
-                                    calculated: this.listCotizacion.policy.calculated,
-                                    twoYears: this.listCotizacion.policy.twoYears,
-                                    annual: this.listCotizacion.policy.annual,
-                                    quarterly: this.listCotizacion.policy.quarterly,
-                                    monthly: this.listCotizacion.policy.monthly,
-                                    twoYearsDiscount: this.listCotizacion.policy.twoYearsDiscount,
-                                    annualDiscount: this.listCotizacion.policy.annualDiscount,
-                                    quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
-                                    monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
-                                    discount: false,
-                                    startDate: this.$store.state.common.fechaVigencia
-                                },
-                                vehicle: {
-                                    current: this.listCotizacion.vehicle.current,
-                                    maximum: this.listCotizacion.vehicle.maximum,
-                                    minimum: this.listCotizacion.vehicle.minimum,
-                                    gps: this.listCotizacion.vehicle.gps
-                                },
+                            policy: {
+                                startDate: this.$store.state.common.fechaVigencia,
                                 zeroKm: "N",
-                                paymentMethodId: this.payment,
-                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id
+                                frequency: this.payment,
+                                financialInstitution: this.$store.state.common.entidadFinanciera.id == 0 || this.$store.state.common.entidadFinanciera.id == null ? null : this.$store.state.common.entidadFinanciera.id,
+                                calculated: this.listCotizacion.policy.calculated,
+                                monthly: this.listCotizacion.policy.monthly,
+                                monthlyDiscount: this.listCotizacion.policy.monthlyDiscount,
+                                quarterly: this.listCotizacion.policy.quarterly,
+                                quarterlyDiscount: this.listCotizacion.policy.quarterlyDiscount,
+                                annual: this.listCotizacion.policy.annual,
+                                annualDiscount: this.listCotizacion.policy.annualDiscount,
+                                sumAssured: this.listCotizacion.vehicle.current,
+                                discount: false
                             },
-                            card: {
-                                brand: this.objCulqi.iin.card_brand,
-                                category: this.objCulqi.iin.card_category,
-                                number: this.objCulqi.card_number,
-                                type: this.objCulqi.iin.card_type,
-                                bank : this.objCulqi.iin.issuer.name
+                            digitalPayment : {
+                                provider: "CULQI",
+                                token: this.objCulqi.id
                             }
                         }
                         this.$store.dispatch('payment/paymentExecute', this.objPaymentExecute)
@@ -692,7 +759,13 @@ import { validationMixin } from 'vuelidate'
                                 this.$store.commit('common/setPolicy_id',res.body.policyId)
                                 this.$nuxt.$router.push({path: '/interbank/pago-procesado/'})
                             }else if(res.code == 100){
-                                
+                                let errorDetectado = {
+                                    url : 'EXECUTE',
+                                    page : 4,
+                                    message : 'CODE 100',
+                                    objEnviado : this.objPaymentExecute
+                                }
+                                this.$store.dispatch('common/eventoErrores', errorDetectado)
                                 this.opacidad =false
                                 this.$swal({
                                     title: 'Oops...',
@@ -721,7 +794,21 @@ import { validationMixin } from 'vuelidate'
                     this.opacidad =false
                     let status = res.response.status
                     
-                    
+                    let errorDetectado = {
+                        url : 'https://secure.culqi.com/v2/tokens',
+                        page : 4,
+                        message : 'ERROR CULQI'+ res.message,
+                        objEnviado : this.card
+                    }
+
+                    switch (status) {
+                        case 500:
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            break;
+                        default:
+                            this.$store.dispatch('common/eventoErrores', errorDetectado)
+                            break;
+                    }
                     
                         this.$swal({
                             title: 'Oops...',
@@ -938,12 +1025,12 @@ import { validationMixin } from 'vuelidate'
                 this.objRemarketing = {
                     "codigoRemarketing": this.$store.state.common.codigoRemarketingGenerado == null ? "" : this.$store.state.common.codigoRemarketingGenerado,
                     "producto": this.$store.state.common.businessId,
-                    "identificador": this.$store.state.common.plateNumber,
+                    "identificador": this.$store.state.common.plateNumber.toUpperCase(),
                     "detalle": {
-                    "correo": this.$store.state.common.email.trim().replace(/ /g,''),
+                    "correo": this.$store.state.common.email.trim().replace(/ /g,'').toLowerCase(),
                     "codigoVenta": this.$store.state.common.codeRmkt,
                     "pantalla": 3,
-                    "enviarCorreo":0,
+                    "enviarCorreo":this.$store.state.common.agent != ''? 2:0,
                     "datosCorreo":{
                         "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
                         "plantilla": this.objPlantilla,
@@ -975,7 +1062,7 @@ import { validationMixin } from 'vuelidate'
                         /******************************************************** */   
                         itemElegido: this.$store.state.common.itemElegido,
                         listCotizacion: this.$store.state.common.listaCotizacion,
-                        nuevoProducto: this.$store.state.common.nuevoProducto                
+                        nuevoProducto: this.$store.state.common.nuevoProducto,                
                         /******************************************************** */      
                         /******************************************************** */
                         // idMarca: this.objectVehicle.brandId,
@@ -985,6 +1072,8 @@ import { validationMixin } from 'vuelidate'
                         // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
                         // pagoTrimestral: this.listCotizacion.policy.quarterly,
                         // pagoAnual: this.listCotizacion.policy.annual
+                        geolocalizacion: this.$store.state.common.geolocation,
+                        agente: this.$store.state.common.agent 
                     },
                     "datosTitular": {
                         "numeroDocumento": this.$store.state.common.documentoLocal,
@@ -1044,9 +1133,19 @@ import { validationMixin } from 'vuelidate'
 
             }
         },
+        mouseLeave(e) {
+        if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
+          if (this.$store.state.common.leaveMessage == 0 ) {
+            if (e.clientX < 0 || e.clientY < 0) {
+              this.$store.commit('common/setLeaveMessage',1)
+              this.$nuxt.$emit('bv::show::modal','leaveQuote2')
+            }
+          }
+        }
+      },
         mounted: function () {
             this.pixelfacebook()
-            this.contador()
+            // this.contador()
 
             this.urlLocal = localStorage.getItem("urlLocal")
             this.cobertura_is = this.$store.state.common.objectDigodat
@@ -1211,7 +1310,7 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{
-    padding-top: 120px;
+    padding-top: 115px;
     background: #f7f4fc;
     .steps-plan{
         margin-bottom: 26px;

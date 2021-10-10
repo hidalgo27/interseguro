@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  //padding-bottom: 12px;
+  padding-bottom: 12px;
   .backcotizacion{
     cursor: pointer;
     position: absolute;
@@ -89,17 +89,16 @@
       content: '';
       position: absolute;
       width: 100%;
-      //height: calc(.2rem + .1vw);
-      height: 1px;
+      height: calc(.2rem + .1vw);
       top: -16px;
-      background-color: #BFD4F2;
+      background-color: #d8d8d8;
   }
   &__item {
-      text-transform: none;
-      font-family: 'Omnes Regular';
-      font-size: 16px;
-      //font-weight: 600;
-      color: #BFD4F2;
+      text-transform: uppercase;
+      font-family: 'Omnes Medium';
+      font-size: 10px;
+      font-weight: 600;
+      color: #9b9b9b;
       position: relative;
       flex-basis: 33%;
       &:after,&:before {
@@ -109,18 +108,13 @@
             --step-circle-size-after: calc(20px + .15vw);
             --step-circle-size-before: calc(22px + .15vw);
             width: var(--step-circle-size-after);
-            height: var(--step-circle-size-after);           
+            height: var(--step-circle-size-after);
+            // border: 2px solid white;
+            //   background-color: $secundario;
+            background-color: #0754c4;
             top: calc(var(--steps-line-top) - 5px);
             left: 0;
             z-index: 99;
-            background-color: #4884D9 ;
-            border-color: #4884D9;
-            background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
-            background-size: contain;
-            position: absolute;  
-            background-size: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
       }
       &:after {
           --steps-bullet-left: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2));
@@ -130,46 +124,32 @@
           opacity: 0;
       }
       &:before {
-          border: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2)) solid #BFD4F2;
+          border: calc(var(--step-circle-size-before) / 2 - (var(--step-circle-size-after) / 2)) solid #d8d8d8;
           width: var(--step-circle-size-before);
           height: var(--step-circle-size-before);
-          border-color: #BFD4F2;
-          background-color: #BFD4F2; 
-          //imagen check diabled         
-          background-image: url("../../static/media/img/root/check-disabled.svg");
-          span{
-            position: relative;
-            margin-right: -12px;
-          }
-          
+          background-color: #d8d8d8;
       }
-      /* span{
-        position: relative;
-        margin-left: -20px;
-      } */
+      
       
   }
   &--progressBar {
       position: absolute;
-      //height: calc(.2rem + .1vw);
-      height: 1px;
+      height: calc(.2rem + .1vw);
       top: -16px;
-      background-color: #6D99D8;
+      background-color: #0754c4;
       width: 0;
       left: 0;
       transition: all .3s ease;
   }
   &__item:nth-child(3) {
       text-align: left;
-      span{
-        position: relative;
-        margin-left: -23px;
-      }
       &:after {
           left: calc(3.5% - var(--step-circle-size-after)/2);
       }
       &:before {
           left: calc(3.5% - var(--step-circle-size-before)/2);
+          // color: red;
+          // content: '1';
       }
   }
   
@@ -185,10 +165,6 @@
   
   &__item:nth-child(1) {
       text-align: right;
-      span{
-        position: relative;
-        margin-right: -14px;
-      }
       &:after {
           left: calc(96.5% - var(--step-circle-size-after)/2);
       }
@@ -198,15 +174,15 @@
   }
   &--active {
     //   color: $secundario;
-    color: #4884D9;
+    color: #0754c4;
   }
   &--active:after {
       opacity: 1;
   }
   &--active:before {
       opacity: 1;
-    background-color: #4884D9;
-    border-color: #4884D9;
+    background-color: #0754c4;
+    border-color: #0754c4;
   }
 }
 
@@ -227,25 +203,25 @@
 }
 
 .steps__item.steps--active~.steps__item:after {
-  background-color: #4884D9;
-  border-color: #4884D9;
+  background-color: #0754c4;
+  border-color: #0754c4;
   width: calc(var(--step-circle-size-after) - 1px);
   height: calc(var(--step-circle-size-after) - 1px);
   top: calc(var(--steps-bullet-top) + 0px);
   opacity: 1;  
   content: "";
-  background-image: url("../../static/media/img/root/check_planes_cotizador.svg");
+  background-image: url("../../static/media/img/root/check_planes_cotizador.png");
   background-size: contain;
   position: absolute;  
   background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .steps__item.steps--active~.steps__item:before {
   display: none;
   background-color: #0754c4;
-  border-color: #0754c4;  
+  border-color: #0754c4;
 
 }
 /*      FIN DEL PROGRESS BAR      */
@@ -688,22 +664,4 @@ input[type="color"]:focus,
             font-size: 34px;
         }
     }
-}
-
-@media (max-width: 576px) { 
-  .steps {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    overflow: visible;
-    list-style-type: none;
-    padding: 0;
-    margin: 2.3em 0 0 0;
-    position: relative;
-    z-index: 1;
-    --steps-line-top: calc(-1.2rem - .3vw);
-    --steps-line-progress: 50%;
-    width: 67%;
-    margin: 50px auto 0;
-  }
 }

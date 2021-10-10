@@ -1,14 +1,83 @@
 <template>
-  <div class="home  home-is"  v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
+  <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
+
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <p class="titulo-formulario">
-                <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
+                <img class="img-form" src="./../../static/media/img/home/img-form.png" alt="banner">
                 Manejar tranquilo <br> ahora es más fácil
             </p>
+            <b-form class="formCotizador">                         
+              <div class="formCotizador__msg">
+                Desde US$ 12 al mes
+              </div>
+              <h1>Cotiza tu seguro vehicular ahora</h1>
+              <b-form-group label-for="placa">
+                  <b-form-input
+                    id="vehicleModelPlate"
+                    class="text-uppercase form-control"
+                    @keyup.native="consultarPlaca($event,750)"
+                    maxlength="6"
+                    autocomplete="off"
+                    type="text"
+                    v-model="item.plateNumber"                    
+                    required
+                    placeholder="Ingresa tu Placa"
+                    name="Placa"
+                    aria-label="placa"                
+                    autofocus
+                ></b-form-input>
+              </b-form-group>
+              <div class="box-btn-homeForm">
+                <button
+                  type="button"
+                  @click="onSubmit"
+                  class="btn-home-cotizar">
+                  COTIZAR
+                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                </button>
+                <p class="no-tengo-placa"></p>
+                <p class="respaldo-intercorp">
+                  <span> Con el respaldo del grupo</span>
+                  <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+                </p>
+              </div>
+            </b-form>
+          </div>
+        </div>
+        <div class="home-banner__der">
+          <div class="box-titulo  ml-5">
+            <p class="title-banner">
+              Manejar tranquilo <br> ahora es más fácil
+            </p>
+            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
+              <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- <div class="boxHome-banner">      
+      <div  class="home-banner"  >
+        <div class="home-banner__izq">
+          <div class="box-formCotizador">
+            <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
+              <img src="./../../static/media/img/campania/banner-home-mobile.svg" alt="">
+            </div>
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 22px;">              
+              <div class="box-contador"  >
+                <div  class="example  d-md-flex">
+                    <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;">                        
+                    </div> 
+                </div>
+              </div>
+            </div>
             <b-form class="formCotizador">                         
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
@@ -42,26 +111,28 @@
                 <p class="no-tengo-placa"></p>
                 <p class="respaldo-intercorp">
                   <span> Con el respaldo del grupo</span>
-                  <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+                  <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
                 </p>
               </div>
-            </b-form>
+            </b-form>            
           </div>
         </div>
-        <div class="home-banner__der">
-          <div class="box-titulo  ml-5">
-            <p class="title-banner">
-              Manejar tranquilo <br> ahora es más fácil
-            </p>
-            <p  v-b-modal.modalHomeVideo  style="cursor: pointer;font-family: 'Omnes Regular';font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.25;letter-spacing: normal;color: #454A6C;display: flex;align-items: center;margin-top: 12px;">
-              <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
-            </p>
-          </div>
+        <div class="home-banner__der" >
+
+            
+            <div class="box-contador" >              
+              <img src="./../../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 100px;">              
+              <div  class="example  d-none  d-md-flex"  style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 130px;">
+                  <div id="contadorCyberDesktop" class="flipdown" style="width: 233px !important;">
+                      
+                  </div> 
+              </div>
+            </div>
           
         </div>
       </div>
-    </div>
-
+    </div> -->
+   
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
       </div>
@@ -74,31 +145,31 @@
         <div class="home-pasos__cuerpo   pasos">
           <div class="pasos__item">
             <div class="pasos__item--img">
-              <img src="./../static/media/img/home/lupa.png" alt="lupa">            
+              <img src="./../../static/media/img/home/lupa.png" alt="lupa">            
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Cotiza</p>
               <p class="descripcion">Ingresa tu placa <br> y selecciona tu carro</p>
             </div>
             <div class="pasos__item--flecha  d-none  d-lg-block">
-              <img src="./../static/media/img/home/flecha_der.png" alt="flecha der">
+              <img src="./../../static/media/img/home/flecha_der.png" alt="flecha der">
             </div>
           </div>
           <div class="pasos__item">
             <div class="pasos__item--img">
-              <img src="./../static/media/img/home/flecha.png" alt="flecha">            
+              <img src="./../../static/media/img/home/flecha.png" alt="flecha">            
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Elige</p>
               <p class="descripcion">Tenemos 3 planes para ti</p>
             </div>
             <div class="pasos__item--flecha  d-none  d-lg-block">
-              <img src="./../static/media/img/home/flecha_der.png" alt="flecha der">
+              <img src="./../../static/media/img/home/flecha_der.png" alt="flecha der">
             </div>
           </div>
           <div class="pasos__item  pb-0">
             <div class="pasos__item--img">
-              <img src="./../static/media/img/home/candado.png" alt="candado">            
+              <img src="./../../static/media/img/home/candado.png" alt="candado">            
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Paga</p>
@@ -163,8 +234,6 @@
       </div>
     </div>
 
-    
-
     <div class="home-beneficios2  p-47px">
       <div class="home-beneficios2__titulo">
         <p>Disfruta de nuestros increíbles beneficios </p>
@@ -172,7 +241,7 @@
       <div class="home-beneficios2__cuerpo  beneficios2 d-lg-flex">
         <div class="beneficios2__item">
           <div class="img-box">
-            <img src="./../static/media/img/root/inspeccion.png" alt="choferes">
+            <img src="./../../static/media/img/root/inspeccion.png" alt="choferes">
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">Inspección Digital </p>
@@ -183,7 +252,7 @@
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
-            <img src="./../static/media/img/root/chofer.png" alt="gruas">
+            <img src="./../../static/media/img/root/chofer.png" alt="gruas">
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
@@ -195,7 +264,7 @@
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
-            <img src="./../static/media/img/root/auxilio.png" alt="mecanico">
+            <img src="./../../static/media/img/root/auxilio.png" alt="mecanico">
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
@@ -206,7 +275,7 @@
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
-            <img src="./../static/media/img/root/vivemas.png" alt="">
+            <img src="./../../static/media/img/root/vivemas.png" alt="">
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
@@ -225,13 +294,13 @@
           <p class="d-none  d-md-block"><strong> Repara tu auto </strong> <br> en nuestra red <br> de talleres</p>
         </div>
         <div class="home-talleres__boxBtn  d-block  d-lg-none">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf">TALLERES AFILIADOS</a>
         </div>
         <div class="home-talleres__img">
-          <img src="./../static/media/img/home/talleres.png" alt="talleres">
+          <img src="./../../static/media/img/home/talleres.png" alt="talleres">
         </div>
         <div class="home-talleres__btn  d-none  d-lg-block">
-          <a class="btn-talleres" target="_blank" href="https://www.google.com/maps/d/u/1/viewer?mid=1AfrD9gLCIfdsjKM5WevQxeF4SstB4xbg&ll=-10.852255359016214%2C-76.098176665&z=6">TALLERES AFILIADOS</a>
+          <a class="btn-talleres" target="_blank" href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf">TALLERES AFILIADOS</a>
         </div>
       </div>
     </div>
@@ -243,19 +312,19 @@
 
         <div class="box-total">
           <div class="box-slider">
-            <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+            <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <p class="cliente">Manuel Augusto</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
           </div>
           <div class="box-slider">
-            <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+            <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <p class="cliente">Carolina Chavez</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
           </div>
           <div class="box-slider">
-            <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+            <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <p class="cliente">Enrique Quispe</p>
             <!-- <p class="ahorro">---</p> -->
             <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
@@ -283,7 +352,7 @@
           <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
             <div>
               <div class="box-slider">
-                <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+                <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <p class="cliente">Manuel Augusto</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
@@ -294,7 +363,7 @@
           <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
             <div>
               <div class="box-slider">
-                <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+                <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <p class="cliente">Carolina Chavez</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
@@ -305,7 +374,7 @@
           <b-carousel-slide class="carousel-clientes__item" img-blank-color='transparent'>
             <div>
               <div class="box-slider">
-                <img class="escudo-cliente" src="./../static/media/img/root/clientes.png" alt="">
+                <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <p class="cliente">Enrique Quispe</p>
                 <!-- <p class="ahorro">---</p> -->
                 <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"‘’</p>
@@ -343,11 +412,12 @@
 
   </div>
 </template>
-
 <script>
+
+
 import FadeLoader from '@/components/loaders/FadeLoader'
   export default {
-    layout: "InterseguroHome",
+    layout: "InterseguroHomeAgent",
       data () {
           return {
             showLoader: true,
@@ -373,6 +443,21 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.showLoader = true
       },
       methods: {
+        onSubmit(){
+        },
+        contador(){
+            var flipdown2 = new FlipDown(1624856399, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1624856399, 'contadorCyberMobile').start()
+        },
+        pago_datalayer(error_detectado){
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+              event:'Errores',
+              category: 'ErroresPago',
+              action: error_detectado, 
+              error_detectado: error_detectado
+          });
+        },
         hidemodalHomeVideo() {
           this.$refs.hidemodalHomeVideo.hide();
         },
@@ -389,9 +474,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           });
         },
-          onSubmit() {
-
-          },
           resetearPlaca(eve) {
             eve.preventDefault();
             this.$store.dispatch('common/getcreateRemarketing', this.item.email).then(res  => {
@@ -420,6 +502,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             } else if (longitudDePlaca == 6) {
               event.preventDefault()
 
+              this.getGeolocation()
               this.createMail()
               this.updateFields()
               this.getVehicle()  
@@ -442,15 +525,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             this.item.plateNumber = this.item.plateNumber.toUpperCase();
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
-              
-
               const respuesta = res.data.body;
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
               
                 if(respuesta.useType){
                    const useType = respuesta.useType.toString().toLowerCase();
-                    if(useType === 'particular' || useType === 'escolar'){
+                    if(useType === 'particular' || useType === 'escolar' || useType === 'Personal'){
                       this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
                     }else{
                       this.loading = false;
@@ -480,7 +561,12 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                
 
                 if (respuesta.appDiscount == true) {
-                  this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                  if (respuesta.activePolicy === true) {
+                        this.$nuxt.$router.push({path: "/placa-registrada"})
+                  }else{
+                    this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
+                  }
+                  
                 }else{
                   /* Existe en nuestra base de datos */
                     this.$store.commit('common/setObjVehiculo', res.data.body)
@@ -550,18 +636,23 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             })
 
           },
+          getGeolocation () {
+            this.$store.dispatch('common/getGeolocationUser')
+            .then(res => {
+              const respuesta = res.data
+              this.$store.commit('common/setGeolocation',respuesta)
+            })
+          },
       },
       computed: {
           
       },
       mounted () {
-      
-        this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
+        //this.contador()
+        this.$store.commit('common/setUrlGlobal', 'vehicular/agente/')
         this.$store.commit('common/setPromocion', true)
-        localStorage.setItem("urlLocal", "/promocion")
-        // setTimeout(() => {
-        //   this.contador()
-        // }, 750);
+        localStorage.setItem("urlLocal", "/agente")
+        
         this.$store.commit('common/setFlagCloseListon', 1)
         this.$store.commit('common/setPromocion', false)
         
@@ -604,11 +695,29 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             localStorage.setItem("urlLocal", "/")
           }, 150);
         }
+        /************************************************************************ */
+        /************************************************************************ */
+        /************************************************************************ */
 
+        
+        // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
+
+        /* RESET DE ESTADOS */        
+        // if (localStorage.getItem("flagCloseListon") == 0) {
+        //     this.flagCloseListon = 0
+        //     localStorage.setItem("flagCloseListon", 0)
+        // }else if  (localStorage.getItem("flagCloseListon") == 1) {           
+        //     this.flagCloseListon = 1
+        //     localStorage.setItem("flagCloseListon", 1)
+        // }else{
+        //     localStorage.setItem("flagCloseListon", 1)
+        //     this.flagCloseListon = 1
+        // }
         this.createMail()
         this.$store.commit('common/setLeaveMessage',0);
         this.showLoader = false
         console.log("HOME BASE")
+        this.$store.commit('common/setAgent','agente');
       }
   }
 </script>
@@ -710,13 +819,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     }
   }
   .home-is{
-    margin-top: 115px;
-    // margin-top: 170px;
+    //margin-top: 115px;
+    margin-top: 60px;
     font-size: 16px;
     background-color: #fff;    
     .home-pasos{
       background-color: #fff;
-      padding-top: 120px;
+      padding-top: 140px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -841,10 +950,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           .plan--cabecera{  
             background-color: #b1b1b1;
             &:before{
-              background-image: url(./../static/media/img/home/plata_dto.png);
+              background-image: url(./../../static/media/img/home/plata_dto.png);
             } 
             &:after{
-              background-image: url(./../static/media/img/home/plata.png);
+              background-image: url(./../../static/media/img/home/plata.png);
               bottom: -9px;
             }            
           }
@@ -853,10 +962,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           .plan--cabecera{  
             background-color: #e6ac38;
             &:before{
-              background-image: url(./../static/media/img/home/oro_dto.png);
+              background-image: url(./../../static/media/img/home/oro_dto.png);
             }
             &:after{
-              background-image: url(./../static/media/img/home/oro.png);
+              background-image: url(./../../static/media/img/home/oro.png);
             } 
           }
         }
@@ -864,10 +973,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           .plan--cabecera{  
             background-color: #27362d;
             &:before{
-              background-image: url(./../static/media/img/home/black_dto.png);
+              background-image: url(./../../static/media/img/home/black_dto.png);
             }
             &:after{
-              background-image: url(./../static/media/img/home/black.png);
+              background-image: url(./../../static/media/img/home/black.png);
             } 
           }
         }
@@ -939,8 +1048,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       height: 296px;
       background-color:  rgba(8,85,196,.1);
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
+      //background: url('./../../static/media/img/campania/fondo-home-desktop.svg');
       .home-banner{
-        // background: url('./../static/media/modalBlackWeek/fondo-desktop.png');
+        //background: url('./../../static/media/modalBlackWeek/fondo-desktop.png');
         margin: auto;
         background-repeat: no-repeat;
         background-size: 700px;
@@ -958,7 +1068,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           display: flex;
           align-items: flex-start;
           width: 90%;
-          border-bottom: 1px solid white !important;
+          //border-bottom: 1px solid white !important;
+          
           input{
             max-width: 360px;
             width: 100%;
@@ -1054,7 +1165,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         margin-top: 25px;
         padding: 0;
         margin: auto;
-        padding-top: 18px;
+        padding-top: 60px;
         padding-bottom: 28px;
         position: relative;
         max-width: 438px;
@@ -1082,6 +1193,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       box-shadow: -3px 4px 12px -1px #ccc;
       position: relative;
       margin: auto;      
+      margin-top: 0;
       h1{
         font-family: 'Omnes Medium';
         font-size: 1.1rem;
@@ -1533,8 +1645,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   
   @media (min-width: 992px) {
     .home-is{
+      //margin-top: 115px;
       margin-top: 0px;
-      // margin-top: 72px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1552,15 +1664,16 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       }
       .boxHome-banner{
         background-color:  rgba(8,85,196,.1);
-        // background:  url("./../static/media/interseguroVehicular_v2/banner_cuponazo.svg");
+        //background-size: cover;
         // background-size: cover;
-        // background-repeat: no-repeat;
-        // background-position: center;
+        //background-repeat: no-repeat;
+        //background-position: center;
         height: auto;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
           min-height: 445px;
+
           &__izq{
             // padding-top: 68px !important;
             height: calc(85vh);
@@ -1604,12 +1717,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
           &__der{
-            padding-top: 0px !important;
+            padding-top: 50px !important;
             height: calc(85vh);
             display: flex;
             -webkit-box-align: center;
             background-size: 90%;
-            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            //Auto
+            background-image: url("./../../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
@@ -1649,7 +1763,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
         position: relative;
-        
+      
         h1{
           font-size: 1.35rem;
           font-weight: 500;
@@ -1954,13 +2068,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .home-is{
       .boxHome-banner{
         .home-banner{
-          // background-image: url(./../static/media/interseguroVehicular_v2/banner_img.svg);
+          // background-image: url(./../../static/media/interseguroVehicular_v2/banner_img.svg);
           // background-size: 50%;
           background-size: contain;
           padding: 0 1.5rem;
           padding-left: 65px;
           &__der{
-            padding-top: 0px !important;
+            padding-top: 50px !important;
             margin-left: 0;
             padding-left: 1rem;
             align-items: center;
@@ -1974,10 +2088,15 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                 left: calc(530px - 417px);
                 bottom: -60px;
                 width: 530px;
+                //top: 42px;
               }
             }
           }
         }
+        /* .box-contador{
+            position: relative;
+            top: 42px;
+          } */
       }
       
       .formCotizador{
