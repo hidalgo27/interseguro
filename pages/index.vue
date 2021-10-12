@@ -743,9 +743,11 @@
                     <p >¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
                   </b-col>
                   <b-col class="btn-llamar">
-                    <button type="button" class="btn-home-cotizar" >
-                      LLÁMANOS
-                    </button>  
+                    <a href="tel:+51015000000">
+                      <button type="button" class="btn-home-cotizar" >
+                        LLÁMANOS
+                      </button>
+                    </a>   
                   </b-col>           
                 </b-row>
               </b-carousel-slide>
@@ -761,7 +763,9 @@
                     <p >Visita nuestra red de talleres afiliados</p>
                   </b-col>
                   <b-col cols="12" class="link-talleres-afiliados">
-                    <span>Ver talleres afiliados</span>
+                    <a href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf" target="_blank">
+                      <span>Ver talleres afiliados</span>
+                    </a>
                   </b-col>             
                 </b-row>
               </b-carousel-slide>
@@ -777,9 +781,11 @@
                     <p >Necesitas ayuda o consulta de un asesor?</p>
                   </b-col>
                   <b-col cols="12" class="btn-llamar">
-                    <button type="button" class="btn-home-cotizar" >
-                      LLÁMANOS
-                    </button> 
+                    <a href="tel:+51015000000">
+                      <button type="button" class="btn-home-cotizar" >
+                        LLÁMANOS
+                      </button>
+                    </a> 
                   </b-col>           
                 </b-row>
               </b-carousel-slide>
@@ -1052,11 +1058,11 @@ export default {
       slide: 0,
       sliding: null,
       isOculto: true,
-      isVisible1: true,
-      isVisible2: true,
-      isVisible3: true,
-      isVisible4: true,
-      isVisible5: true,
+      isVisible1: false,
+      isVisible2: false,
+      isVisible3: false,
+      isVisible4: false,
+      isVisible5: false,
       planInactivo: false,
       showLoader: true,
       loading: false,

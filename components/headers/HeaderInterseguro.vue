@@ -88,7 +88,6 @@
                     </li>
                     <li class="" >
                         <a href="https://www.interseguro.pe/vivemas">BENEFICIOS</a>
-                        <!-- <nuxt-link class=""  to="https://www.interseguro.pe/vivemas">BENEFICIOS</nuxt-link> -->
                     </li>
                     <li class="" >
                     <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
@@ -158,7 +157,7 @@ export default {
             }
         },0);
         this.handleScroll();
-        //document.getElementById("main-menu").style.display = "none";
+        document.getElementById("main-menu").style.display = "none";
     },
     computed: {},
     methods:{
@@ -418,7 +417,7 @@ export default {
     display: none !important;
 }
     
-    @media (min-width: 992px){
+@media (min-width: 992px){
         .footer-menu{
             width: 25%;
             &__redes{
@@ -448,6 +447,7 @@ export default {
                         width: 40px;
                     }
                     img{
+                        padding-top: 20px;
                         width: 20px;
                     }
                     span{
@@ -678,6 +678,20 @@ export default {
                 display: flex;
                 flex-direction: column;
                 position: relative;
+                .nav-contacto{
+                    display: flex;
+                    .telefono_custom{
+                        width: 40px;
+                    }
+                    img{
+                        padding-top: 20px;
+                        width: 20px;
+                    }
+                    span{
+                        color: #0855c4;
+                        font-size: 14px;
+                    }
+                }
                 &__izq{
                     height: 60px;
                     display: flex;

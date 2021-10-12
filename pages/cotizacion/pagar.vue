@@ -1429,6 +1429,18 @@ import { validationMixin } from 'vuelidate'
                     this.msgErrorEmail = true;
                 }
             },
+            validateEmail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            },
+            validate() {
+                let email_local = this.objClients.emailAddress;
+                if (this.validateEmail(email_local)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
             validarCelular() {
                 
                 if (this.objClients.phoneNumber)
