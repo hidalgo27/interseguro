@@ -773,7 +773,7 @@
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
                         <div class="banner-modal">
-                            <img src="./../../../static/media/img/campania/img-modal.svg" alt="">
+                            <img src="./../../../static/media/img/campania/img-modal.png" alt="">
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
@@ -1376,7 +1376,7 @@
     </b-modal>
 
   
- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+ <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1402,10 +1402,10 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
     
     <!--Modal campania-->
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1416,15 +1416,14 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.svg" alt="">              
+              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.png" alt="">              
               <p class="mt-2 " style="color : #ffffff; font-size: 18px">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
-                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY y  </span>
-                <span style="color : #FFD527; font-style: 'Omnes Medium'">paga solo 11 meses </span>
-                <span style="color : #ffffff; font-style: 'Omnes Medium'">por un año de cobertura. Además, por comprar </span><br>
-                <span style="color : #ffffff; font-style: 'Omnes Medium'">en Plan Black, </span>
-                <span style="color : #FFD527; font-style: 'Omnes Medium'">gana un vale de S/100 </span>
-                   
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">¡Hot Sale Interseguro!  </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY, y por hacerlo en Plan Black, </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">llévate  </span>
+                <span style="color : #FFD527; font-style: 'Omnes Medium'">una cuota gratis + vale de S/100 </span>
+                     
               </p>                
             </b-col>
           </b-row>
@@ -1437,7 +1436,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
       
   </section>
 </template>
@@ -3407,9 +3406,9 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 50px;
+  //padding-top: 50px;
   //campaña
-  //padding-top: 120px;
+  padding-top: 120px;
   .img-close{
     position: absolute;
     right: -24px;

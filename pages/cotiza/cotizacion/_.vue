@@ -773,7 +773,7 @@
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
                         <div class="banner-modal">
-                            <img src="./../../../static/media/img/campania/img-modal.svg" alt="">
+                            <img src="./../../../static/media/img/campania/img-modal.png" alt="">
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
@@ -1448,7 +1448,7 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.svg" alt="">
+              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.png" alt="">
               <p class="mt-3">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
                <span style="color : #ffffff; font-size: 18px">

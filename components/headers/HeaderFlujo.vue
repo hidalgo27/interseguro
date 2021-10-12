@@ -1,7 +1,7 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" 
             style="background: transparent radial-gradient(closest-side at 48% 51%, #0374e1 0%, #0374e1 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
             v-bind:class="{'d-none': flagCloseListon == 0  }">
@@ -25,18 +25,18 @@
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                          <img width="190" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
-                            <p style="width: 656px;font-size: 19px;margin-left: 33px;">                                
-                                <span style="color: #ffffff; font-family:'Omnes Medium'">¡Big Sale! </span>
+                            <p style="width: 658px;font-size: 19px;margin-left: 33px;">                                
+                                <span style="color: #ffffff; font-family:'Omnes Medium'">¡Hot Sale! </span>
                                 <span style="color: #ffd527; font-family:'Omnes Medium'"> Llévate una cuota gratis y un vale de S/100 </span>
                                 <span style="color: #ffffff; font-family:'Omnes Medium'"> por comprar en Plan Black </span> 
-                            </p>
+                            </p>                              
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
                     
                 </div>
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
-        </div> -->
+        </div>
         
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -186,7 +186,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -219,8 +219,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1633496399, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1633496399, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1634273999, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1634273999, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
