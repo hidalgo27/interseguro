@@ -8,6 +8,9 @@
 # install dependencies
 $ npm install
 
+# install niubiz component
+$ npm install is-payment-component-front
+
 # serve with hot reload at localhost:3000
 $ npm run dev
 

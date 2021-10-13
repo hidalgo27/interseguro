@@ -393,10 +393,7 @@
                               id="celular"
                               ref="celular"
                               name="phone"
-                              @keyup.native="
-                                validarCelular();
-                                validacionInput($event);
-                              "
+                              @keyup.native="validarCelular();validacionInput($event);"
                               v-on:focus.native="
                                 isIconPhoneNumber = !isIconPhoneNumber
                               "
@@ -714,48 +711,10 @@
 
         </div>
       </b-modal>
-
-      <!-- <b-modal
-        id="leaveDocument"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container>
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
-              <p class="mt-3" style="max-width: 360px;">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-               <span style="color : #ffffff; font-size: 18px">
-                   ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
-                </span>
-              </p>
-            </b-col>
-          </b-row>
-          
-          <b-row class="justify-content-center">
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
-                >TERMINAR COMPRA</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal> -->
-      <!-- Modal de abandono -->
-      <b-modal
-        id="leaveDocument"
-        class="leaveModal"
-        size="lg"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
+      
+      <!-- Modal de abandono-->
+      
+    <!-- <b-modal id="leaveDocument" class="leaveModal" size="lg" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
@@ -805,7 +764,43 @@
             </b-col>
           </b-row>
         </b-container>
+      </b-modal> -->
+      
+      <!--Modal campaña -->
+      <b-modal
+        id="leaveDocument"
+        class="leaveModal"
+        size="lg"
+        static
+        centered
+        hide-footer
+        hide-header
+      >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.png" alt="">
+              <p class="mt-2 " style="color : #ffffff; font-size: 18px">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">¡Hot Sale Interseguro!  </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY, y por hacerlo en Plan Black, </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">llévate  </span>
+                <span style="color : #FFD527; font-style: 'Omnes Medium'">una cuota gratis + vale de S/100 </span>
+              </p>
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
+                >TERMINAR COMPRA</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
       </b-modal>
+      
+
     </b-container>
   </section>
 </template>
@@ -887,7 +882,9 @@ a.steps__item.paso1:after {
 }
 .steps-box {
   background: white;
-  padding-top: 70px;
+  padding-top: 50px;
+  //campaña
+  padding-top: 125px;  
 }
 .edit-input {
   cursor: auto !important;
@@ -1628,6 +1625,7 @@ export default {
     validarEmail() {
       if (this.validate()) {
         this.msgErrorEmail = false;
+        this.validarClient()
       } else {
         this.isDisableButton = true;
         this.msgErrorEmail = true;
@@ -1640,10 +1638,13 @@ export default {
           this.objClients.phoneNumber.charAt(0) == 9 &&
           this.objClients.phoneNumber.length == 9
         ) {
+          
           this.msgErrorCelular = false;
+          this.validarClient()
         } else {
           this.isDisableButton = true;
           this.msgErrorCelular = true;
+          
         }
     },
     como_pagar() {
@@ -1657,8 +1658,56 @@ export default {
         this.objClients.phoneNumber
       );
       this.remarketingv2();
+      this.validarROOT();
     },
-
+    validarROOT() {
+      if (this.$store.state.common.nuevoProducto == true) {
+        if (
+          this.$store.state.common.planSeleccionado == 6 ||
+          this.$store.state.common.planSeleccionado == 3
+        ) {
+          if (this.$store.state.common.entidadFinanciera.id == 0) {
+            let respuesta = this.fechaVigencia.split("/");
+            let inputDate = Date.parse(
+              respuesta[2] + "/" + respuesta[1] + "/" + respuesta[0]
+            );
+            inputDate = new Date(inputDate);
+            let fecha = new Date();
+            let dia = fecha.getDate();
+            let mes = fecha.getMonth() + 1;
+            let año = fecha.getFullYear();
+            let fechaActual = año + "/" + mes + "/" + dia;
+            let todaysDate = Date.parse(fechaActual);
+            todaysDate = new Date(fechaActual);
+            this.$store.commit("common/setEmisionROOT", true);
+            /*
+              if(inputDate.getTime() ===  todaysDate.getTime()) {                 
+                this.$store.commit('common/setEmisionROOT', true)
+                this.$nuxt.$router.push({path: "/cotiza/descargar"})
+                this.$nuxt.$router.push({path: "/cotiza/descargar"})
+              }else{
+                  this.$store.commit('common/setEmisionROOT', false)
+                  this.$nuxt.$router.push({path: "/cotiza/como-pagar"})
+              }
+              */
+            this.$store.commit("common/setObjCliente", this.objClients);
+            // this.$nuxt.$router.push({ path: "/cotiza/descargar" });
+            this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
+          } else {
+            this.$store.commit("common/setObjCliente", this.objClients);
+            this.$store.commit("common/setEmisionROOT", false);
+            this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
+          }
+        } else {
+          this.$store.commit("common/setObjCliente", this.objClients);
+          this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
+          this.$store.commit("common/setEmisionROOT", false);
+        }
+      } else {
+        this.$store.commit("common/setObjCliente", this.objClients);
+        this.$nuxt.$router.push({ path: "/cotiza/como-pagar" });
+      }
+    },
     cotizador_datalayer(evento, step_valor) {
       this.cobertura_is.content_ids =  this.$store.state.common.code_sku
       window.dataLayer = window.dataLayer || [];
@@ -1666,6 +1715,21 @@ export default {
         event: evento,
         step: step_valor,
         product: this.cobertura_is,
+      });
+    },
+    horaError() {
+      let fecha = new Date();
+      let horaError =
+        fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+      return horaError;
+    },
+    pago_datalayer(error_detectado) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "Errores",
+        category: "ErroresPago",
+        action: error_detectado + " Ocurrio a las " + this.horaError(),
+        error_detectado: error_detectado + " Ocurrio a las " + this.horaError(),
       });
     },
     hideModal() {
@@ -1733,9 +1797,13 @@ export default {
       this.tamaño = this.objClients.documentNumber.length;
       
     },
-
+    /*OBS CLICK ACAY SI NOO ES CUENTA SUELDO MODAL
+    http://localhost:3000/vehicular/vehicular/cuentasueldo
+   **** VOLVER CUANDO SI ES CUENTA SUELDO EN EL COTIZADOR CAMBIA EL MONTO
+    */
     continuar(evt) {
       this.$store.state.common.listaCotizacion.policy.startDate = this.$store.state.common.fechaVigencia;
+      // this.$store.state.common.listaCotizacion.paymentMethodId = 3
       this.isDisableButton = true;
       evt.preventDefault();
       this.detectar_documento();
@@ -1745,7 +1813,12 @@ export default {
           this.createClient();
         } else if (this.$store.state.common.clientState == 1) {
           this.updateClient();
-        }else{}
+          // this.isDisableButton = false;
+          // this.$store.commit('common/setEmail', this.objClients.emailAddress)
+          // this.$store.commit('common/setDocumentLocal', this.itemElegido.documentoLocal)
+          // this.$nuxt.$router.push({path: "/cotiza/como-pagar"})
+        } else {
+        }
         this.$store.commit(
           "common/setNumeroTelefono",
           this.objClients.phoneNumber
@@ -1767,6 +1840,7 @@ export default {
       } else {
       }
       this.pantalla = 3;
+      // this.remarketingv2()
       if (this.objClients.validCtaSueldo == "N") {
         this.$swal({
           title: "Oops...",
@@ -1783,7 +1857,8 @@ export default {
       dataLayer.push({
         event: "userData",
         firstname: this.objClients.firstName,
-        lastname: this.objClients.firstLastName + " " + this.objClients.secondLastName,
+        lastname:
+          this.objClients.firstLastName + " " + this.objClients.secondLastName,
         email: this.objClients.emailAddress,
         phone: this.objClients.phoneNumber,
         monto: localStorage.getItem("monthly"),
@@ -1834,6 +1909,7 @@ export default {
           }
         }
         if (camposRellenados == true) {
+          
           if (
             this.objClients.phoneNumber.charAt(0) == 9 &&
             this.objClients.phoneNumber.length == 9
@@ -1841,10 +1917,15 @@ export default {
             this.$store.commit("common/setCheckgss", 1);
             this.$store.commit("common/setEmail", this.objClients.emailAddress);
           }
+          this.msgErrorEmail = false
           this.msgCompletaDatos = false;
+          this.isDisableButton = false;
           return true;
         } else {
+          
           this.msgCompletaDatos = true;
+          this.msgErrorEmail = true
+          this.isDisableButton = true;
           this.$store.commit("common/setCheckgss", 0);
           return false;
         }
@@ -2058,11 +2139,9 @@ export default {
       }, ms);
     },
     validacionInput(event) {
-      if (
-        (this.tamaño == 8 || this.tamaño == 9) &&
-        !this.msgErrorEmail &&
-        !this.msgErrorCelular
-      ) {
+      
+      if ((this.tamaño == 8 || this.tamaño == 9) && !this.msgErrorEmail &&!this.msgErrorCelular) {
+        
         this.isDisableButton = true;
         this.objClients.phoneNumber =
           this.objClients.phoneNumber != null || undefined
@@ -2073,13 +2152,9 @@ export default {
         if (this.validarClient()) {
           
           this.msgCompletaDatos = false;
-          if (this.checkPoliticasPrivacidad == true) {
-            this.isDisableButton = false;
-            this.aceptaterminos = false;
-          } else {
-            this.aceptaterminos = true;
-          }
+          
         } else {
+          
           this.aceptaterminos = false;
           this.msgCompletaDatos = true;
 
@@ -2090,6 +2165,7 @@ export default {
         !this.msgErrorEmail &&
         !this.msgErrorCelular
       ) {
+        
         this.isDisableButton = true;
         if (this.validarRUC()) {
           this.msgCompletaDatos = false;
@@ -2104,6 +2180,8 @@ export default {
           this.msgCompletaDatos = true;
           this.isDisableButton = true;
         }
+      }else{
+        
       }
     },
     processTags(nextInputToFocus) {
@@ -2126,10 +2204,16 @@ export default {
           this.estado_cliente = 1;
           if (parametro == 1) {
             setTimeout(() => {
+              // setTimeout(() => {
+              //   this.$refs.nombre.focus();
+              // }, 500);
               this.validarClienteVuex();
             }, 500);
           } else if (parametro == 2) {
             setTimeout(() => {
+              // setTimeout(() => {
+              //   this.$refs["razon-social"].focus();
+              // }, 500);
               this.validarEmpresaVuex();
             }, 500);
           } else {
@@ -2304,12 +2388,12 @@ export default {
             ? ""
             : this.$store.state.common.codigoRemarketingGenerado,
         producto: this.$store.state.common.businessId,
-        identificador: this.$store.state.common.plateNumber,
+        identificador: this.$store.state.common.plateNumber.toUpperCase(),
         detalle: {
-          correo: this.$store.state.common.email.trim().replace(/ /g, ""),
+          correo: this.$store.state.common.email.trim().replace(/ /g, "").toLowerCase(),
           codigoVenta: this.$store.state.common.codeRmkt,
           pantalla: this.pantalla,
-          enviarCorreo: 0,
+          enviarCorreo: this.$store.state.common.agent != ''? 2:0,
           datosCorreo: {
             url:
               process.env.URL +
@@ -2336,10 +2420,21 @@ export default {
             riesgo: this.listCotizacion.policy.risk,
             fechaInicio: this.$store.state.common.fechaVigencia,
             discountType: this.discountType,
+            /******************************************************** */
             itemElegido: this.$store.state.common.itemElegido,
             listCotizacion: this.$store.state.common.listaCotizacion,
             nuevoProducto: this.$store.state.common.nuevoProducto,
-
+            /******************************************************** */
+            /******************************************************** */
+            // idMarca: this.objectVehicle.brandId,
+            // idModelo: this.objectVehicle.modelId,
+            // idUso: 1,
+            // uso: "particular",
+            // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
+            // pagoTrimestral: this.listCotizacion.policy.quarterly,
+            // pagoAnual: this.listCotizacion.policy.annual,
+            geolocalizacion: this.$store.state.common.geolocation,
+            agente: this.$store.state.common.agent 
           },
           datosTitular: {
             numeroDocumento: this.$store.state.common.documentoLocal,
@@ -2372,7 +2467,7 @@ export default {
         });
     },
     mouseLeave(e) {
-      if (this.$store.state.common.leaveMessage == 0 ) {
+      if (this.$store.state.common.leaveMessage == 0) {
         
         if (e.clientX < 0 || e.clientY < 0) {
           
@@ -2386,7 +2481,6 @@ export default {
     modalTerminosCondiciones,
   },
   mounted: function () {
-    console.log("this.$store.state.common.objVeh",this.$store.state.common.objVehiculo.brand)
     this.fechaVigencia = this.$store.state.common.fechaVigencia;
     this.cobertura_is = this.$store.state.common.objectDigodat;
     this.cotizador_datalayer("checkout", 1);

@@ -2009,9 +2009,9 @@ export default {
     PaginaVista(app, valor) {
       let url = "";
       if (this.$store.state.common.nuevoProducto == true) {
-        url = "/vehicular-app/cotiza/cotizacion/";
+        url = "/vehicular-app/cotizacion/cotizacion/";
       } else if (this.$store.state.common.nuevoProducto == false) {
-        url = "/vehicular/cotiza/cotizacion/";
+        url = "/vehicular/cotizacion/cotizacion/";
       }
 
       window.dataLayer = window.dataLayer || [];

@@ -255,10 +255,28 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
-                      <div class="box-importante" style="height: 40px;">
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <div class="que-me-cubre">
                         <div class="titulo">
@@ -338,7 +356,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +456,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +584,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                   10%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -755,7 +773,7 @@
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
                         <div class="banner-modal">
-                            <img src="./../../../static/media/modalBlackWeek/modal.svg" alt="">
+                            <img src="./../../../static/media/img/campania/img-modal.png" alt="">
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
@@ -766,7 +784,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+      </b-modal>
     <b-modal
         title="Bootstrap-Vue"
         hide-footer
@@ -1358,7 +1376,7 @@
     </b-modal>
 
     <!-- Modal de abandono  -->
-    <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1389,9 +1407,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
-
-    <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+    </b-modal> -->
+<!-- 
+  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1435,9 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
 
-     <!-- <b-modal
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1430,12 +1448,11 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-close-modal" width="70" src="./../../../static/media/img/root/close.png" alt="" @click="hidemetodoFlotante()">
-              <img class="img-verano" width="140"  src="./../../../static/media/interseguroVehicular_v2/logo-verano.svg" alt="">
+              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.png" alt="">
               <p class="mt-3">
-                <strong style="color : #0855C4; font-size: 30px">¡Últimas 24 horas! </strong> <br> <br> 
-                <span style="color : #454A6C; font-size: 17px">
-                    Asegura tu auto hoy y te <br> regalamos la segunda cuota mensual <strong>GRATIS</strong>
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
+               <span style="color : #ffffff; font-size: 18px">
+                 ¡Por pocos días! <span style="color: #FFDD36;"> Llévate un vale <br> virtual gratis de S/ 100 </span> por la <br> compra del seguro en plan Black
                 </span>
               </p>
             </b-col>
@@ -1444,12 +1461,12 @@
           <b-row class="justify-content-center">
             <b-col class="text-center mb-4" cols="12">
               <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')"
-                >Quiero continuar</b-button
+                >CONTINUAR COMPRA</b-button
               >
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
   </section>
 </template>
@@ -2437,11 +2454,11 @@
         this.objRemarketing = {
           codigoRemarketing: "",
           producto: this.$store.state.common.businessId,
-          identificador: this.$store.state.common.plateNumber,
+          identificador: this.$store.state.common.plateNumber.toUpperCase(),
           detalle: {
-            correo: parametroEmail,
+            correo: parametroEmail.toLowerCase(),
             codigoVenta: this.$store.state.common.codeRmkt,
-            enviarCorreo: parametroEnviarMail,
+            enviarCorreo: this.$store.state.common.agent != ''? 2:parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
               url: process.env.URL + (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
@@ -2472,7 +2489,7 @@
               discountType: this.discountType,
               /******************************************************** */   
               itemElegido: this.itemElegido,
-              listCotizacion: this.listCotizacion                    
+              listCotizacion: this.listCotizacion,                    
               /******************************************************** */      
               /******************************************************** */
               // idMarca: this.objectVehicle.brandId,
@@ -2482,7 +2499,8 @@
               // valorCalculado: this.listCotizacion.policy.monthlyCalculated,
               // pagoTrimestral: this.listCotizacion.policy.quarterly,
               // pagoAnual: this.listCotizacion.policy.annual,
-
+              geolocalizacion: this.$store.state.common.geolocation,
+              agente: this.$store.state.common.agent 
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,
@@ -2741,7 +2759,7 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 120px;
+  padding-top: 70px;
   .img-close{
     position: absolute;
     right: -24px;

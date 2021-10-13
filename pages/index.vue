@@ -1144,6 +1144,22 @@ export default {
         this.createMail()
         this.updateFields()
         this.getVehicle()  
+         window.dataLayer = window.dataLayer || [ ];
+          dataLayer.push({
+              'event': 'detail',
+              'product' : {
+                'name': '',
+                'category': 'Seguro',
+                'brand': 'Vehicular',
+                'variant': 'black $0/mes',
+                'amount': '',
+                'quota': '',
+                'discount': '',
+                'startDate': '',
+                'credit': '',
+                'sku': ''
+              }
+          })
       }
     },
     updateFields () {

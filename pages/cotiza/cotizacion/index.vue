@@ -255,10 +255,28 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
-                      <div class="box-importante" style="height: 40px;">
+                      <div class="box-importante">
+                        <p class="titulo"  v-if="this.listaBasica.vehicle.gps == 'Y'">Importante</p>
+                        <ul>
+                          <li class="detalle-item">
+                            <div class="item    pb-3">
+                                <span  v-if="this.listaBasica.vehicle.gps == 'Y'" @click="showModalGPS()"> 
+                                  <span class="mb-0 gps requiere-gps"  >
+                                    <span class="symbol-point">&#11044;</span>Tu auto necesita GPS: <a class="detalle-enlace" href="javascript:void(0);">{{this.listaBasica.vehicle.gps == "Y" ? "Ver más" : "NO" }}</a>                                
+                                  </span>
+                              </span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="detalle-item" v-if="this.gps == true">
+                              <p>GPS:</p>
+                              <p>SI</p>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <div class="que-me-cubre">
                         <div class="titulo">
@@ -338,7 +356,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -438,7 +456,7 @@
                       </div>
                       <div class="dto-cotizador">
                         <div class="flotante-dcto">
-                          10%
+                         10%
                         </div>
                       </div>
                       <div class="box-importante">
@@ -566,7 +584,7 @@
                 </div>
                 <div class="dto-cotizador">
                   <div class="flotante-dcto">
-                    10%
+                   10%
                   </div>
                 </div>
                 <div class="box-importante">
@@ -755,7 +773,7 @@
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
                         <div class="banner-modal">
-                            <img src="./../../../static/media/modalBlackWeek/modal.svg" alt="">
+                            <img src="./../../../static/media/img/campania/img-modal.png" alt="">
                         </div>
                     </b-col>                  
                     <b-col cols="12" class="mb-2">
@@ -1357,41 +1375,8 @@
       </div>
     </b-modal>
 
-    <!-- Modal de abandono  -->
-    <!-- <b-modal id="leaveQuote" class="leaveModal" size="lg" static centered hide-footer hide-header>
-      <b-container>
-        <b-row class="justify-content-center">
-          <b-col class="text-center mb-3" cols="12">
-            <img src="../../../static/media/modal/leave-cotiza.png" alt="Abandonar Seguro Vehicular">
-          </b-col>
-        </b-row>
-        <b-row class="text-center">
-          <b-col cols="12" class="mb-3">
-            <h2><span>¿Aún lo estás pensando?</span></h2>
-          </b-col>
-          <b-col cols="12" class="mb-3">
-            <h3 v-if="appDiscount == true">Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthlyDiscount}}. </h3>
-            <h3 v-else-if="this.nuevoProducto == true">Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthlyCalculated}}. </h3>
-            <h3 v-else>Protege tu {{this.itemElegido.brand}} con los mejores <br> precios, desde ${{this.listaBasica.policy.monthly}}. </h3>
-          </b-col>
-          <b-col cols="12" class="mb-2">
-            <h3>Retoma tu cotización en cualquier momento</h3>
-          </b-col>
-          <b-col cols="12">
-            <b-form-group>
-              <b-form-input class="text-center" type="text" required v-model="email" placeholder="Ingresa tu correo electrónico"></b-form-input>
-            </b-form-group>
-          </b-col>
-        </b-row>
-        <b-row class="justify-content-center">
-          <b-col class="text-center mb-4" cols="12">
-            <b-button @click="enviarMail()">ENVIAR COTIZACIÓN A MI CORREO</b-button>
-          </b-col>
-        </b-row>
-      </b-container>
-    </b-modal> -->
-
-  <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+  
+ <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1417,9 +1402,10 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
-
-     <!-- <b-modal
+    </b-modal> -->
+    
+    <!--Modal campania-->
+     <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1430,13 +1416,15 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../../static/media/interseguroVehicular_v2/cuponazo.svg" alt="">
-              <p class="mt-3">
-                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> <br> 
-               <span style="color : #ffffff; font-size: 18px">
-                   ¡Aprovecha los últimos días de Cyber! Protege tu auto <span style="color: #FFDD36;">con 15% de dscto.</span> y llévate la <span style="color: #FFDD36;">2da cuota mensual gratis</span>
-                </span>
-              </p>
+              <img class="img-verano" width="100%"  src="./../../../static/media/img/campania/img-modal.png" alt="">              
+              <p class="mt-2 " style="color : #ffffff; font-size: 18px">
+                <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">¡Hot Sale Interseguro!  </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">Asegura tu auto HOY, y por hacerlo en Plan Black, </span><br>
+                <span style="color : #ffffff; font-style: 'Omnes Medium'">llévate  </span>
+                <span style="color : #FFD527; font-style: 'Omnes Medium'">una cuota gratis + vale de S/100 </span>
+                     
+              </p>                
             </b-col>
           </b-row>
           
@@ -1448,8 +1436,8 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
-
+      </b-modal>
+      
   </section>
 </template>
 
@@ -1477,9 +1465,11 @@
         maximoImgDisabled: false,
         minimoImgDisabled: false,
         monto_pagar_plata :'',
-        monto_antes_plata :'',            
+        monto_antes_plata :'',
+            
         monto_pagar_oro :'',
         monto_antes_oro :'',
+
         monto_pagar_black :'',
         monto_antes_black :'',
         valorSeleccionado: false,
@@ -1995,6 +1985,7 @@
       },
       continuar(e,id) {
         console.log(id)
+        //console.log('frecuencia .. '+this.selected)
         event.stopPropagation();
         this.seleccionarPLanDesktop(id)
         this.$store.commit('common/setFrecuenciaPago', this.selected)
@@ -2034,7 +2025,13 @@
             this.$store.commit('common/setObjVehiculo', res.data.body)
             this.mostrarCapa = false
           }else{
-
+            let errorDetectado = {
+              url : 'getVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.item
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
           }, 1000);
           
@@ -2845,7 +2842,13 @@
             this.clonado.vehicle.current  = null
             this.getCotizacion()
           }else{
-
+            let errorDetectado = {
+              url : 'createVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.itemElegido
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
           
         })
@@ -2857,7 +2860,13 @@
             this.clonado.vehicle.current  = null
             this.getCotizacion()
           }else{
-
+            let errorDetectado = {
+              url : 'updateVehicle',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.itemElegido
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
           
         })
@@ -2872,6 +2881,7 @@
               this.listaFull = res.data.body.allRisk
               this.listCotizacion = res.data.body.allRisk
               this.clonado = Object.assign({}, this.listCotizacion)
+              console.log("THIS.LISTCOTIZACION",this.listCotizacion)
               this.$store.commit('common/setCurrent', this.listCotizacion.vehicle.current)
               this.cobertura_is.name = this.itemElegido.brand + ' - ' + this.itemElegido.model + ' - ' + this.itemElegido.modelYear
               this.cobertura_is.discount = '10'
@@ -2884,7 +2894,13 @@
               this.segundaPantalla()
               this.seleccionarFrecuencia()
             } else if (res.data.code == 213) {
-
+              let errorDetectado = {
+                url : 'getcotizacion',
+                page : 2,
+                message : res.data.message,
+                objEnviado : this.itemElegido
+              }                
+              this.$store.dispatch('common/eventoErrores', errorDetectado)
               this.$swal({
                 title: "Oops...",
                 text: res.data.message,
@@ -2926,7 +2942,13 @@
               });
             } 
             else {
-
+              let errorDetectado = {
+                url : 'getcotizacion',
+                page : 2,
+                message : res.data.message,
+                objEnviado : this.itemElegido
+              }
+              this.$store.dispatch('common/eventoErrores', errorDetectado)
 
               this.$swal({
                 title: "Oops...",
@@ -2946,7 +2968,13 @@
           if (res.data.code == 0) {
             this.listModels = res.data.body            
           }else{
-
+            let errorDetectado = {
+              url : 'getModelLocal',
+              page : 2,
+              message : res.data.message,
+              objEnviado : this.itemElegido
+            }
+            this.$store.dispatch('common/eventoErrores', errorDetectado)
           }
         })
       },
@@ -3108,11 +3136,11 @@
         this.objRemarketing = {
           codigoRemarketing: "",
           producto: this.$store.state.common.businessId,
-          identificador: this.$store.state.common.plateNumber,
+          identificador: this.$store.state.common.plateNumber.toUpperCase(),
           detalle: {
-            correo: parametroEmail,
+            correo: parametroEmail.toLowerCase(),
             codigoVenta: this.$store.state.common.codeRmkt,
-            enviarCorreo: parametroEnviarMail,
+            enviarCorreo: this.$store.state.common.agent != ''? 2:parametroEnviarMail,
             pantalla: 1,
             datosCorreo: {
               url: process.env.URL + (this.$store.state.common.promocion == true ? "vehicular/promocion/" : this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
@@ -3145,10 +3173,11 @@
               /******************************************************** */   
               itemElegido: this.itemElegido,
               listCotizacion: this.listCotizacion,
-              nuevoProducto: this.$store.state.common.nuevoProducto                  
+              nuevoProducto: this.$store.state.common.nuevoProducto,                  
               /******************************************************** */      
               /******************************************************** */
-
+              geolocalizacion: this.$store.state.common.geolocation, 
+              agente: this.$store.state.common.agent
             },
             datosTitular: {
               numeroDocumento: this.objSOAT.documentNumber,
@@ -3188,7 +3217,7 @@
       },
       mouseLeave(e) {
         if (this.clonado.vehicle.current != null && this.clonado.vehicle.current != undefined) {
-          if (this.$store.state.common.leaveMessage == 0 ) {
+          if (this.$store.state.common.leaveMessage == 0) {
             if (e.clientX < 0 || e.clientY < 0) {
               this.$store.commit('common/setLeaveMessage',1)
               this.$nuxt.$emit('bv::show::modal','leaveQuote2')
@@ -3199,7 +3228,7 @@
   },
 
   mounted: function () {
-    
+
     this.urlpdf = require("./../../../static/media/documentos/resumenCoberturas.pdf")
       this.selected = this.$store.state.common.frecuenciaPago
       this.nuevoProducto = this.$store.state.common.nuevoProducto
@@ -3377,7 +3406,9 @@
 }
 .page-cotizador{
   background: white;
-  padding-top: 70px;
+  //padding-top: 50px;
+  //campaña
+  padding-top: 120px;
   .img-close{
     position: absolute;
     right: -24px;
