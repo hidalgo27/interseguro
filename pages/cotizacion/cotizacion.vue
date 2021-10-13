@@ -1264,15 +1264,8 @@
     </b-modal>
     <!--Fin Modal entidad financiera-->
 
-    <b-modal
-      id="leaveQuote2"
-      class="leaveModal"
-      size="lg"
-      static
-      centered
-      hide-footer
-      hide-header
-    >
+    <!--Modal Abandono-->
+    <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header >
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1312,7 +1305,32 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal>
+    </b-modal> -->
+
+    <!--Modal campania-->
+     <b-modal id="leaveQuote2" class="leaveModal" static centered hide-footer hide-header >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-verano"  src="../../static/media/img/campania/img-modal.svg" alt="">              
+              <p class="mt-2 msj-modal">
+                <strong class="name-client"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
+                <span class="white">¡Hot Sale Interseguro!  </span><br>
+                <span class="white">Asegura tu auto HOY, y por hacerlo en Plan Full, </span><br>
+                <span class="white">llévate  </span>
+                <span class="yelow">una cuota gratis + vale de S/100 </span>                     
+              </p>                
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveQuote2')">TERMINAR COMPRA</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
+
   </section>
 </template>
 

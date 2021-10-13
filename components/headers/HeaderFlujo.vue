@@ -1,31 +1,48 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
-        <!-- <div>
-            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
-                <div class="d-md-none  liston-mobile">
-                                       
-                   <div class="liston-mobile--parrafo"> 
-                       <img  class="img-liston" src="../../static/media/interseguroVehicular_v2/cuponazo_liston_mobile.svg" alt=""> 
-                       </div>
-                    <div  class="example" style="position: relative;">            
-                        <div id="contadorCyber" class="flipdown  flipdownMobile" style="position: absolute;right: 0;top: -25px;display: block;width: 184px !important;">
-                        </div>
-                    </div>
-                </div>
+        <!--Cintillo campaña-->
+        <b-container fluid>
+            <b-row id="liston-desktop">
+                <!-- Liston Desktop -->
+                <b-col class="liston d-none d-md-block" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
+                    <b-row align-v="center">
+                        <b-col class="logo-franja">
+                            <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">
+                        </b-col>
+                        <b-col>
+                            <p class="text">                                
+                                <span style="color: #ffffff">¡Hot Sale! </span>
+                                <span style="color: #ffd527"> Llévate una cuota gratis y un vale de S/100 </span>
+                                <span style="color: #ffffff"> por comprar en Plan Full </span> 
+                            </p>
+                        </b-col>
+                        <b-col cols="3" class="box-contadador">
+                            <div id="contadorCyberDesktop" class="flipdown"></div>
+                        </b-col>
+                    </b-row>
+                </b-col>
+                <!-- Liston Mobile -->
+                <b-col class="liston d-md-none" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
+                    <b-row align-v="center">
+                        <!-- <b-col class="logo-franja">
+                            <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">
+                        </b-col> -->
+                        <b-col class="p-0">
+                            <p class="text">
+                                <span style="color: #ffd527"> 1 cuota gratis + vale de S/100 </span>
+                                <span style="color: #ffffff"> por comprar en Plan Full </span> 
+                            </p>
+                        </b-col>
+                        <b-col cols="6" class="box-contadador">
+                            <div id="contadorCyberMobile" class="flipdown flipdownMobile" style="margin-top: 17px;"></div>
+                        </b-col>
+                    </b-row>
+                </b-col>
+                <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
                 
-                <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
-                    <div class="d-flex align-items-center logo-franja">
-                        <img width="160" src="./../../static/media/interseguroVehicular_v2/cuponazo_liston_desktop.svg" alt="">          
-                        <p>
-                            ¡Últimos días! Protege tu auto hoy con <span style="color: #FFD527"> 15% de dscto.</span> y lleváte la <span style="color: #FFD527">2da cuota gratis</span>
-                        </p>
-                    </div>
-                    <div id="contadorCyber2" class="flipdown"></div>
-                    
-                </div>
-                <div class="closeListon" @click="closeListon()">X</div>
-            </div>
-        </div>  -->
+            </b-row>
+        </b-container>
+
         <div>
             <b-navbar>
                 <b-navbar-nav>
@@ -70,7 +87,7 @@ export default {
         }
     },
     mounted(){
-        // this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -103,8 +120,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
+            var flipdown2 = new FlipDown(1634273999, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1634273999, 'contadorCyberMobile').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -188,64 +205,7 @@ export default {
         color: #fff;
         font-size: 18px;
     }
-    .liston{        
-        flex-direction: column;
-        background-color: #0855C4;
-        width: 100%;
-        height: 70px;
-        left: 0;
-        justify-content: center;
-        padding-left: 4px;
-        display: flex;
-        .liston-black{
-            display: flex;
-            align-items: center;
-            margin-left: auto;
-            margin-right: auto;
-            img{
-                position: relative;
-                width: 31px;
-                height: auto;
-                left: -8px;
-            }
-        }
-        .box-texto-img{
-                display: flex;
-                height: 45px;
-               align-items: center;
-
-        }
-        .box-img-liston{
-            width: 84px;
-            .img-liston{                
-               width: 50px;
-            //    animation: zoom 1.7s infinite ease-in-out;
-            //    animation: zoom 12s infinite;
-            }
-        }
-        
-        p{
-            text-align: left;
-            font-size: 14px;
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.3;
-            letter-spacing: normal;
-            color: #fff;
-            font-family: 'Omnes Regular' !important;
-        }
-        .example{
-            width: 100%;
-        }
-        .logo-franja{
-            margin-left: auto;
-            margin-right: auto;
-            img{
-                width: 150px;
-            }
-        }
-    }
+    
 
     .liston-mobile{
         display: flex;
@@ -298,7 +258,41 @@ export default {
                 .contacto{
                     padding-right: 70px;
                 }             
+            }            
+        }
+        .liston{
+            display: flex;        
+            flex-direction: column;
+            background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
+            height: 70px;
+            padding-left: 70px;
+            padding-right: 70px;          
+            .logo-franja{
+                display: flex;
+                flex-direction: column;
+                max-width: 150px;
+                img{
+                    width: 150px;
+                    height: 70px;
+                }
             }
+            .text{
+                padding-left: 20px;
+                font-family: 'Omnes Medium' !important;
+                text-align: left;
+                font-size: 19px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+                color: #fff;
+                
+            }
+            .box-contadador{
+                max-width: 250px !important;
+            }
+            
+            
         }
     }
  
@@ -323,8 +317,42 @@ export default {
             }
             .navbar-expand .navbar-nav .nav-link  {
                 padding: 0px;
-            }            
-        
+            } 
+        }
+        .liston{
+            display: flex;        
+            flex-direction: column;
+            background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
+            height: 70px;
+            padding-left: 10px;
+            padding-right: 2px;          
+            .logo-franja{
+                display: flex;
+                flex-direction: column;
+                max-width: 150px;
+                img{
+                    width: 150px;
+                    height: 70px;
+                }
+            }
+            .text{
+                padding-left: 10px;
+                font-family: 'Omnes Medium' !important;
+                text-align: left;
+                font-size: 15px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+                color: #fff;
+                
+            }
+            .box-contadador{
+                padding: 0px;
+                max-width: 185px !important;
+            }
+            
+            
         }
     }
 </style>

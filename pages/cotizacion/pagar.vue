@@ -1,6 +1,6 @@
 <template>
-    <section class="pagina-pagar" v-bind:class="{'pt-sinBlack':this.$store.state.common.flagCloseListon == 0}">
-        <div id="newModal" style="display:none" >
+    <section class="pagina-pagar">
+        <!-- <div id="newModal" style="display:none" >
             <div class="phoneContent">
                  <a class="phoneS" style="color : #5b85c5" href="tel:015000000">
                   <img src="./../../static/media/interseguroVehicular_v2/cardImage.svg" alt="telefono">
@@ -14,7 +14,7 @@
                 opacity: 1;">{{textErrModal}}
             <br>{{textErrModalTwo}}</p>
 
-        </div>   
+        </div>  -->  
 
         <b-container>
             <b-row class="mi-breadcrumb">
@@ -943,7 +943,7 @@
         </div>
 
 
-        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -964,7 +964,31 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
+
+        <!--Modal campania-->
+     <b-modal id="leavePayment" class="leaveModal" static centered hide-footer hide-header >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-verano"  src="../../static/media/img/campania/img-modal.svg" alt="">              
+              <p class="mt-2 msj-modal">
+                <strong class="name-client"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
+                <span class="white">¡Hot Sale Interseguro!  </span><br>
+                <span class="white">Asegura tu auto HOY, y por hacerlo en Plan Full, </span><br>
+                <span class="white">llévate  </span>
+                <span class="yelow">una cuota gratis + vale de S/100 </span>                     
+              </p>                
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leavePayment')">TERMINAR COMPRA</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
 
     </section>
 </template>

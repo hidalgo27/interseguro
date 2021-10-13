@@ -48,6 +48,63 @@ input[type="color"]:focus,
 /*******************************************************
         INICIO DE ESTILOS REUTILIZABLES
 *******************************************************/
+.leaveModal {
+    font-family: 'Omnes Regular';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    .modal-lg {
+        max-width: 660px;
+    }
+    h2 {
+        font-size: 32px;
+        color: #0854c4;
+    }
+    h3 {
+        font-size: 20px;
+        color: #454a6c;
+    }
+    span {
+        font-family: 'Omnes Medium';
+    }
+    img {
+        margin-top: 30px;
+    }
+    .btn{
+        background-color: #ea0c90;
+        color: white;
+        height: 50px;
+        width: 300px;
+        line-height: 0.5;
+        font-size: 16px;
+        border-radius: 3px;
+        border: none;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    
+    .msj-modal{
+        color : #FFFFFF;
+        font-size: 19px;
+        .name-client{ 
+            color: #FFFFFF;
+            font-size: 30px
+        }
+        .yelow{
+            color: #FFD527;
+            font-size: 19px
+        }
+        .white{
+            color: #FFFFFF;
+            font-size: 19px
+        }
+    }
+
+}
 .v2-seleccion-planes{
     display: flex;
     //justify-content: space-between;

@@ -207,7 +207,9 @@
   }
   
   .pagina-cotizador{
-    margin-top: 72px;
+    //margin-top: 72px;
+    //margin-top para campaña
+    margin-top: 142px;
     padding-bottom: 45px;
     .planInactivo{
       box-shadow: none;
@@ -958,7 +960,9 @@
   @media (max-width: 991.9px) {
     .pagina-cotizador{
       margin-top: 60px;
-      padding-bottom: 45px;
+      //margin-top para campaña
+      margin-top: 132px;
+      padding-bottom: 40px;
       .col-custom{
         margin-top: 20px;
         margin-bottom: 10px;
