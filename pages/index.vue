@@ -66,7 +66,7 @@
       <b-container>
         <b-row class="d-block d-xl-none" >
           <b-col cols="12" class="banner-mobile" align-self="center">
-            <img src="./../static/media/img/campania/img-mobile.svg" alt="">
+            <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="">
           </b-col> 
           <b-col cols="12" class="banner-mobile text-contador pt-2">
             <p>La oferta termina en :</p>
@@ -125,7 +125,7 @@
             <div >
               <b-row class="campania">
                 <b-col cols="12">
-                  <img src="./../static/media/img/campania/img-desktop.png" alt="" style="margin-left: 70px"> 
+                  <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px"> 
                 </b-col>
                 <b-col class="box-contador">
                   <b-row align-v="center">
@@ -1235,6 +1235,22 @@ export default {
         this.createMail()
         this.updateFields()
         this.getVehicle()  
+         window.dataLayer = window.dataLayer || [ ];
+          dataLayer.push({
+              'event': 'detail',
+              'product' : {
+                'name': '',
+                'category': 'Seguro',
+                'brand': 'Vehicular',
+                'variant': 'black $0/mes',
+                'amount': '',
+                'quota': '',
+                'discount': '',
+                'startDate': '',
+                'credit': '',
+                'sku': ''
+              }
+          })
       }
     },
     updateFields () {

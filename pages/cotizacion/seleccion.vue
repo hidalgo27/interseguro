@@ -2,12 +2,12 @@
     <div class="pagina-seleccion">
         <div class="container"> 
             <b-row class="mi-breadcrumb">
-                <b-col cols="12" class="box-steps">
-                    <ul class="steps" style="display: inline-flex">
-                        <div class="steps__item "><span>Pago</span></div>
-                        <div class="steps__item ">Planes</div>
-                        <div class="steps__item steps--active  paso1"><span>Mi carro</span></div>
-                        <li class="steps--progressBar" ></li>
+                <b-col cols="12" class="box-steps2">
+                    <ul class="steps2" style="display: inline-flex">
+                        <div class="steps2__item "><span>Pago</span></div>
+                        <div class="steps2__item ">Planes</div>
+                        <div class="steps2__item steps2--active  paso1"><span>Mi carro</span></div>
+                        <li class="steps2--progressBar" ></li>
                     </ul>
                 </b-col>
             </b-row>

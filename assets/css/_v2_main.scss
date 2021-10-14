@@ -1,0 +1,104 @@
+.modal-close2 {
+  width: 46px;
+  height: 48px;
+  position: absolute;
+  right: -14px;
+  top: -22px;
+  background: transparent !important;
+  z-index: 1;
+}
+.btn-mail{
+  width: 263px;
+  background: #EA0C90;
+  color: white;
+  font-size: 19px;
+  font-family: 'Omnes Regular';
+  height: 50px;
+}
+
+.modal-subtitulo-mail{
+  color: #0855C4;
+  font-size: 32px;
+  font-family: 'Omnes medium';
+  text-align: center;
+  line-height: normal;
+  width: 450px;
+  margin: auto;
+  margin-bottom: 24px;
+}
+
+#modalEnviarEmail2{
+  .modal-content{
+    display: flex;
+    width: 338px;
+    height: 305px;
+  }
+}
+
+.leaveModal2 .modal-body{
+  font-family: 'Omnes Regular';
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+
+  background: #FFFFFF;
+  //fondo modal campaña
+  //background: url("./../../static/media/img/campania/fondo-modal.svg") ;
+  //background: #0759c6;
+  background-size: cover;
+  .modal-lg {
+    max-width: 660px;
+  }
+  h2 {
+      font-size: 32px;
+      color: #0854c4;
+  }
+  h3 {
+      font-size: 20px;
+      color: #454a6c;
+  }
+  span {
+      font-family: 'Omnes Medium';
+  }
+  img {
+      margin-top: 30px;
+  }
+  p{
+    color: #0855C4 !important;
+    font-family: 'Omnes Regular';
+  }
+  .modal-content{
+    background-size: cover !important;
+  }
+  .img-verano{
+    max-width: 360px;
+  }
+  .btn {
+    background-color: #ea0c90;
+    color: white;
+    height: 50px;
+    width: 300px;
+    line-height: 0.5;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+  }
+}
+
+@media (min-width: 992px) {
+  #modalEnviarEmail2{
+    .modal-content{
+      display: flex;
+      width: 520px;
+      height: 365px;
+    }
+  }
+}
+
+
+
+
+
