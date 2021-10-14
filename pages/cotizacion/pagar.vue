@@ -966,7 +966,7 @@
         </b-modal> -->
 
         <!--Modal campania-->
-     <b-modal id="leavePayment" class="leaveModal" static centered hide-footer hide-header >
+     <b-modal id="leavePayment" class="leaveModal2" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">

@@ -460,6 +460,26 @@
 
       </b-row>
 
+      <b-modal id="modal1" ref="ingresaTuPlaca" title="Bootstrap-Vue" hide-footer hide-header size="lg" >
+        <div class="modal-content modal-datosPersonales">
+          <b-btn
+            class="mt-3"
+            @click="hideModal()"
+            style="background: white; border: none"
+          >
+            <img
+              src="https://uploads-ssl.webflow.com/5b29b333e01a7071fadb2f1c/5b5f46206abb673bc5374fdb_icon-close.svg"
+              width="40"
+              alt="icon close"
+              class="image-9"
+            />
+          </b-btn>
+          <modalTerminosCondiciones></modalTerminosCondiciones>
+
+        </div>
+      </b-modal>
+
+
       <!--Modal Abandono-->
       <!-- 
     <b-modal id="leaveDocument" class="leaveModal" size="lg" static centered hide-footer hide-header >
@@ -515,7 +535,7 @@
       </b-modal>
  -->
     <!--Modal campania-->
-     <b-modal id="leaveDocument" class="leaveModal" static centered hide-footer hide-header >
+     <b-modal id="leaveDocument" class="leaveModal2" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
