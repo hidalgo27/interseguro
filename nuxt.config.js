@@ -56,7 +56,7 @@ module.exports = {
 
       { hid: 'fb:og:type', property: 'og:type', content: 'seguros' },
       { hid: 'fb:og:type', property: 'og:locale', content: 'es_PE' },
-      
+
       { hid: 'fb:og:site_name', property: 'og:site_name', content: 'Seguro Vehicular | Interseguro' },
       { hid: 'fb:og:url', property: 'og:url', content: 'https://www.interseguro.pe/vehicular/' },
       { hid: 'fb:og:image:width', property: 'og:image:width', content: '800' },
@@ -88,7 +88,7 @@ module.exports = {
     { src: '~plugins/clipboard.js', ssr: false },
     { src: '~plugins/hotjar.js', ssr: false },
     { src: '~plugins/chat.js', ssr: false },
-    { src: '~plugins/ga.js', ssr: false },
+    // { src: '~plugins/ga.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
     // { src: '~plugins/bing.js', ssr: false },
     // { src: '~/plugins/sentry.js', ssr: false },
