@@ -1,3 +1,7 @@
+.pagina-pagar{
+    padding-top: 72px;
+    padding-bottom: 100px;
+}
 select:focus,
       textarea:focus,
       input[type="text"]:focus,
@@ -21,37 +25,7 @@ select:focus,
         padding-right: 0;
         outline: 0 none;
     }
-.pagina-pagar{
-    padding-top: 80px;
-    padding-bottom: 80px;
-    .resumen-proteccion{
-        .datos-personales{
-            .datos-personales-card{
-                border:none;
-                .card-body{
-                    padding: 0;
-                }
-            }
-        }
-    }
-    
-    /* .btn-pagar {
-        background-color: #ea0c90;
-        color: white;
-        height: 52px;
-        line-height: 0.5;
-        font-size: 19px;
-        width: 100%;
-        border: none;
-        border-radius: 3px;
-        text-transform: none;
-        &:disabled {
-          background: #E4E9F7;
-          color: #82859D;
-        }
-    } */
-    
-}
+
 .container-box-mensaje{
     padding: 0px 15px 0px 15px;
 }
@@ -321,7 +295,6 @@ input.form-control.text-uppercase.iptGral__input:focus {
         width: 170px;
         height: 115px;
         bottom: 105px;
-        // background: #005EA1;
         z-index: 99;
         img{
             width: 100%;
@@ -563,37 +536,8 @@ input.form-control.text-uppercase.iptGral__input:focus {
     font-size: 11px; 
 }
 
-@media (min-width: 768px) {
-    .leaveModal {
-        .img-verano{
-            max-width: 380px;
-        }
-    }
-    .metodo-pago{ 
-        border: 1px solid #CCD1DD;
-        border-radius: 3px;
-        opacity: 1;           
-        &__comoPagar{
-            padding: 22px 28px;
-        }  
-        &__ingresatarjeta{
-            padding: 22px 28px;
-        }
-    }
-    /* .card-custom__date .form-group-custom:nth-child(1) {
-        width: 135px;
-        position: relative;
-    }
-    .card-custom__date .form-group-custom:nth-child(2) {
-        width: initial;
-        position: relative;
-    } */
-}
-
 @media (max-width: 992px) {
-    .pagina-pagar{
-        padding-top: 60px;
-        padding-bottom: 40px;
+    .pagina-pagar{        
         .form-control {
             display: block;
             width: 100%;
@@ -623,7 +567,6 @@ input.form-control.text-uppercase.iptGral__input:focus {
             }  
             &__ingresatarjeta{
                 border-radius:  0 5px  5px 0;
-                //padding: 0;
             }
         }
         .box-btn-pagar{
