@@ -779,7 +779,7 @@
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.png" alt="">
+              <img class="img-verano" width="100%"  src="./../../static/media/img/campania/img-modal.svg" alt="">
               <p class="mt-2 " style="color : #ffffff; font-size: 18px">
                 <strong style="color : #ffffff; font-size: 30px"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
                 <span style="color : #ffffff; font-style: 'Omnes Medium'">¡Hot Sale Interseguro!  </span><br>
