@@ -68,7 +68,7 @@
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class="mt-4 box-img-campania  d-flex  justify-content-center  d-lg-none">
-              <img src="./../static/media/img/campania/banner-home-mobile.png" alt="" style="width: 100%; ">
+              <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="" style="width: 100%; ">
             </div>
             <p class="d-flex  d-md-none" style="margin-left: 14px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 16px;margin-bottom: -8px;margin-top: 4px;">La oferta termina en : </p>
             <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">
@@ -120,12 +120,12 @@
         </div>
         <div class="home-banner__der" >
 
-
-            <div class="box-contador" >
-              <img src="./../static/media/img/campania/banner-home-desktop.png" alt="" style="margin-left: 70px;margin-top: 55px;width: 85%;">
-              <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 46px;">La oferta termina en : </p>
-              <div  class="example  d-none  d-md-flex"
-              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 133px;">
+            
+            <div class="box-contador" >              
+              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px;margin-top: 55px;width: 500px;"> 
+              <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 46px;">La oferta termina en : </p>             
+              <div  class="example  d-none  d-md-flex"  
+              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 10px;">                  
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
 
                   </div>
