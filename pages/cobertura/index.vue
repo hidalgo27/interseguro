@@ -996,620 +996,6 @@
     </div>
 </template>
 <script>
-export default {
-  head: {
-    title: 'Cobertura de seguro vehicular por plan',
-    meta: [
-      { hid: 'description', name: 'description', content: "Conoce la cobertura de seguro vehicular por cada plan. Recibe beneficios adicionales como auxilio vehicular, asistencia mecánica, vehículo de reemplazo y más" },
-    ],
-  },
-}
-</script>
-<style lang="scss" scope>
-.ausencia-control-mobile{
-  flex-direction: column;
-  display: flex;
-  .ausencia-control{
-    font-size: 11px;
-  }
-}
-.ausencia-control{
-    color: #979696;
-}
-.minitabla{
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    td{
-        font-size: 14px;
-        text-align: center;
-    }
-    &__titulo{
-        background: #c1eafc;
-        text-align: center;
-        color: #0667ba;
-        font-size: 15px;
-    }
-
-}
-.tab-servicios{
-    .box-mapa{
-        display: none;
-    }
-    .contenedor{
-        padding-right: 0px;
-    }
-    .section-header__title {
-        line-height: 1;
-    }
-    ul{
-        border: 0;
-        margin-top: 48px;
-    }
-    .brujula{
-        position: absolute;
-        height: 70px;
-        right: 175px;
-        top: 0;
-    }
-    .point-desc{
-        padding-left: 8px;
-        width: 350px;
-        font-size: 13px;
-    }
-    .nav-item{
-        margin: 0;
-        padding: 0;
-        .main-nav__logo--iso{
-            width: 30px;
-        }
-        &:nth-child(1){
-            a{
-                width: 150px;
-                padding-left: 10px;
-            }
-        }
-        &:nth-child(2){
-            a{
-                width: 150px;
-                padding-left: 40px;
-                &:before{
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    border-right: 0;
-                    border-top: 63px solid transparent;
-                    border-left: 35px solid #e6e6e6;
-                    left: -2px;
-                    z-index: 9;
-                    height: 65px;
-                }
-                &:after{
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    border-right: 0;
-                    border-top: 63px solid transparent;
-                    border-left: 35px solid #e6e6e6;
-                    right: -32px;
-                    z-index: 9;
-                    height: 65px;
-                }
-            }
-        }
-        p{
-            padding-left: 8px;
-        }
-    }
-    .box-tab{
-        .main-nav__logo--iso{
-            position: relative;
-            width: 30px;
-        }
-        &__item{
-            height: 48px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            border-bottom: 2px solid #C1C1C1;
-            color: #7F7F7F;
-
-            .point{
-                border-right: 2px solid #C1C1C1;
-                width: 100px;
-                justify-content: center;
-                color: #5E5E5E;
-            }
-
-            p{
-                margin: 0;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                margin-bottom: 0;
-            }
-            &:last-child{
-                border-bottom: none;
-            }
-        }
-    }
-    .nav-tabs .nav-link {
-        background: #e6e6e6;
-        color: #7F7F7F;
-        height: 65px;
-        font-size: 14px;
-        line-height: 1;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        border: 0;
-
-    }
-    .nav-tabs .nav-link.active {
-        background: white;
-        &:after{
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-right: 0;
-            border-top: 63px solid transparent;
-            border-left: 35px solid #ffffff;
-            border-bottom: 0 solid #ffffff;
-            right: -33px;
-            z-index: 999;
-            height: 65px;
-        }
-    }
-    p{
-        align-items: center;
-        margin-bottom: 0;
-    }
-}
-.v2_cobertura{
-    background: #f7f4fc;
-    padding-top: 100px;
-    p,div{
-        margin: 0;
-    }
-    .detalle-coberturas{
-        padding: 24px 0;
-    }
-    .servicios-tranquilidad{
-        font-family: 'Omnes Medium';
-        background: #fff;
-        .tab-content{
-            padding-top: 12px;
-        }
-        .section-servicios{
-            max-width: 1140px;
-            margin: auto;
-        }
-        .section-header{
-            padding: 24px 0;
-        }
-        .coverage-tab{
-            color: #505050;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.08;
-            letter-spacing: normal;
-            .nav-tabs .nav-link {
-                font-family: 'Omnes Regular';
-                font-size: 22px;
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: 1;
-                letter-spacing: normal;
-                text-align: center;
-                color: #838383;
-                height: 65px;
-                line-height: 1;
-                display: inline-block;
-                width: 100%;
-                vertical-align: middle;
-            }
-            .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-                color: #00adee;
-                background-color: #fff;
-                border-color: #00adee #00adee #fff;
-                font-family: 'Omnes Medium';
-                font-size: 22px;
-                font-weight: 500;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: 1;
-                letter-spacing: normal;
-                color: #00adee;
-                text-align: center;
-                border-right: 2px solid;
-                border-left: 2px solid;
-                border-top: 2px solid;
-            }
-            .nav-tabs .nav-item a{
-                border-bottom: 2px solid #00adee;
-                text-align: center;
-            }
-        }
-    }
-}
-.tcobertura{
-    width: 100%;
-    background: white;
-    &__cabecera{
-    }
-    thead{
-        tr{
-            height: 47px;
-            p{
-                color: #696969;
-            }
-        }
-        .plata{
-            background: #b1b1b1;
-            color: white;
-            width: 75px;
-        }
-        .oro{
-            background: #e6ac38;
-            color: white;
-            width: 75px;
-        }
-        .black{
-            background: #27362d;
-            color: white;
-            width: 75px;
-        }
-        .texto-titulo{
-            font-family: 'Omnes Medium';
-            font-size: 20px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1;
-            letter-spacing: normal;
-            text-align: center;
-            color: #696969;
-        }
-    }
-    tbody{
-        .texto-izq{
-            font-family: 'Omnes Medium';
-            font-size: 20px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.25;
-            letter-spacing: 0.11px;
-            text-align: left;
-            color: #505050;
-        }
-    }
-}
-.cobertura-mobile{
-    font-family: 'Omnes Medium';
-    .section-header{
-        &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #505050;
-        }
-    }
-    .accordion-tab{
-        .btn {
-            height: 57px;
-            color: #505050;
-            // background-color: #f1f7ff;
-            line-height: 55px;
-            text-align: left;
-            border: 0;
-            border-radius: 0;
-            p{
-                line-height: 45px;
-            }
-            img{
-                margin-top: auto;
-                margin-bottom: auto;
-                width: 15px;
-                height: 10px;
-            }
-        }
-        .card-header {
-            border: 0;
-        }
-        .card-text{
-            color: #5e5e5e;
-            font-size: 15px;
-            text-align: center;
-            p{
-                text-align: left;
-                strong{
-                    color: #0855c4;
-                }
-                span{
-                    font-size: 14px;
-                }
-            }
-        }
-        .btn-secondary:not(:disabled):not(.disabled):active,
-        .btn-secondary:not(:disabled):not(.disabled).active,
-        .show > .btn-secondary.dropdown-toggle {
-            color: #505050;
-        }
-        &__blue{
-            .btn-secondary:not(:disabled):not(.disabled):active,
-            .btn-secondary:not(:disabled):not(.disabled).active,
-            .show > .btn-secondary.dropdown-toggle {
-                background-color: #f1f7ff;
-            }
-            .btn-secondary {
-                background-color: #f1f7ff;
-            }
-        }
-        &__white{
-            .btn-secondary:not(:disabled):not(.disabled):active,
-            .btn-secondary:not(:disabled):not(.disabled).active,
-            .show > .btn-secondary.dropdown-toggle {
-                background-color: #f8f8f8;
-            }
-            .btn-secondary {
-                background-color: #f8f8f8;
-            }
-        }
-    }
-    .benefit-tab{
-        color: #5e5e5e;
-        font-family: 'Omnes Medium';
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        letter-spacing: normal;
-        font-size: 18px;
-        div{
-            height: 53px;
-            padding-left: 12px;
-            padding-right: 12px;
-            line-height: 50px;
-        }
-        a{
-            font-size: 14px;
-            color: #0497ce;
-            text-decoration-line: underline;
-        }
-        &__blue{
-            background-color: #f1f7ff;
-        }
-        &__white{
-            background-color: #f8f8f8;
-        }
-    }
-    .modal-coverage{
-        display: flex;
-        flex-direction: column;
-        margin-top: -15px;
-        .btn-secondary {
-            background: white;
-            border: none;
-            position: relative;
-            height: 26px;
-            img{
-                position: absolute;
-                right: 10px;
-            }
-        }
-        .modal-description{
-            font-family: 'Omnes Medium';
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.25;
-            letter-spacing: normal;
-            strong{
-                font-size: 22px;
-                color: #0855c4;
-                font-weight: 600;
-                line-height: 1;
-            }
-            p{
-                font-size: 16px;
-            }
-            span{
-                font-size: 12px;
-            }
-            table{
-                border-collapse: separate;
-                border-spacing: 15px;
-            }
-        }
-        .btn-secondary:focus,
-        .btn-secondary:not(:disabled):not(.disabled).active:focus {
-            box-shadow: none;
-        }
-        .btn:focus {
-            box-shadow: none;
-        }
-    }
-}
-.servicios-tranquilidad{
-    .section-header{
-        &__title {
-            font-size: 44px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #505050;
-        }
-    }
-}
-.cobertura-desktop{
-    font-family: 'Omnes Medium';
-    max-width: 1140px;
-    margin: auto !important;
-    .section-header{
-        padding: 24px 0;
-        &__title {
-            font-size: 44px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #505050;
-        }
-    }
-    .coverage-detail{
-        table{
-            margin-right: auto;
-            margin-left: auto;
-            font-size: 18px;
-            border: 0.2px solid #dbe6e4;
-            // border-collapse: collapse;
-            h1{
-                font-size: 20px;
-                font-weight: 500;
-                color: #696969;
-            }
-            .tcobertura__cabecera{
-                p{
-                color: #0667ba;
-                }
-            }
-            p{
-                color: #696969;
-                font-family: 'Omnes Medium';
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                letter-spacing: 0.07px;
-                strong{
-                    font-size: 14px;
-                    color: #0667ba;
-                }
-                span{
-                    font-size: 14px;
-                }
-            }
-            td{
-                padding-left: 10px;
-                padding-right: 10px;
-                border-left: 0.2px solid #dbe6e4;
-                border-right: 0.2px solid #dbe6e4;
-            }
-        }
-    }
-
-}
-
-
-.cobertura-3{
-    box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
-    background-color: #fcfcfc;
-    .section-header{
-        &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #696969;
-        }
-    }
-    .cobertura-3-item{
-        width: 180px !important;
-        height: 180px !important;
-        border-radius: 200px !important;
-        background-color: #F1F7FF;
-        margin-left: auto;
-        margin-right: auto;
-        .cobertura-icon{
-            width: 100px;
-            height: 85px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img{
-                height: 66px;
-                width: auto;
-            }
-        }
-        &__title{
-            font-family: 'Omnes Regular';
-            color: #505050;
-            font-weight: 600;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.35;
-            letter-spacing: normal;
-            text-align: center;
-
-        }
-        .item-box{
-            &__enlace{
-                background: transparent;
-                &--detalle{
-                    text-decoration: underline;
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: 1.55;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #00adee;
-                    font-family: 'Omnes Regular';
-                }
-            }
-        }
-    }
-}
-
-.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
-    color: #fff;
-    background-color: transparent;
-    border-color: transparent !important;
-}
-.btn-secondary:focus, .btn-secondary.focus {
-    color: #fff;
-    background-color: transparent;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-.btn-secondary {
-    background-color: transparent;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-@media (min-width: 1200px) {
-    .cobertura-3{
-        .cobertura-3-item{
-            &__title{
-                font-size: 26px;
-                font-weight: 500;
-            }
-        }
-        .section-header{
-            &__title{
-                font-size: 44px;
-            }
-        }
-    }
-}
-</style>
-
-<script>
 import Modal2 from '@/components/modals/modal2'
 export default {
     layout: 'InterseguroHome',
@@ -1702,6 +1088,12 @@ export default {
             ]
         }
     },
+    head: {
+      title: 'Cobertura de seguro vehicular por plan',
+      meta: [
+        { hid: 'description', name: 'description', content: "Conoce la cobertura de seguro vehicular por cada plan. Recibe beneficios adicionales como auxilio vehicular, asistencia mecánica, vehículo de reemplazo y más" },
+      ],
+    },
     components:{
         'modal2-is': Modal2
     },
@@ -1753,3 +1145,607 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scope>
+.ausencia-control-mobile{
+  flex-direction: column;
+  display: flex;
+  .ausencia-control{
+    font-size: 11px;
+  }
+}
+.ausencia-control{
+  color: #979696;
+}
+.minitabla{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  td{
+    font-size: 14px;
+    text-align: center;
+  }
+  &__titulo{
+    background: #c1eafc;
+    text-align: center;
+    color: #0667ba;
+    font-size: 15px;
+  }
+
+}
+.tab-servicios{
+  .box-mapa{
+    display: none;
+  }
+  .contenedor{
+    padding-right: 0px;
+  }
+  .section-header__title {
+    line-height: 1;
+  }
+  ul{
+    border: 0;
+    margin-top: 48px;
+  }
+  .brujula{
+    position: absolute;
+    height: 70px;
+    right: 175px;
+    top: 0;
+  }
+  .point-desc{
+    padding-left: 8px;
+    width: 350px;
+    font-size: 13px;
+  }
+  .nav-item{
+    margin: 0;
+    padding: 0;
+    .main-nav__logo--iso{
+      width: 30px;
+    }
+    &:nth-child(1){
+      a{
+        width: 150px;
+        padding-left: 10px;
+      }
+    }
+    &:nth-child(2){
+      a{
+        width: 150px;
+        padding-left: 40px;
+        &:before{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-right: 0;
+          border-top: 63px solid transparent;
+          border-left: 35px solid #e6e6e6;
+          left: -2px;
+          z-index: 9;
+          height: 65px;
+        }
+        &:after{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-right: 0;
+          border-top: 63px solid transparent;
+          border-left: 35px solid #e6e6e6;
+          right: -32px;
+          z-index: 9;
+          height: 65px;
+        }
+      }
+    }
+    p{
+      padding-left: 8px;
+    }
+  }
+  .box-tab{
+    .main-nav__logo--iso{
+      position: relative;
+      width: 30px;
+    }
+    &__item{
+      height: 48px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 2px solid #C1C1C1;
+      color: #7F7F7F;
+
+      .point{
+        border-right: 2px solid #C1C1C1;
+        width: 100px;
+        justify-content: center;
+        color: #5E5E5E;
+      }
+
+      p{
+        margin: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+  .nav-tabs .nav-link {
+    background: #e6e6e6;
+    color: #7F7F7F;
+    height: 65px;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border: 0;
+
+  }
+  .nav-tabs .nav-link.active {
+    background: white;
+    &:after{
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-right: 0;
+      border-top: 63px solid transparent;
+      border-left: 35px solid #ffffff;
+      border-bottom: 0 solid #ffffff;
+      right: -33px;
+      z-index: 999;
+      height: 65px;
+    }
+  }
+  p{
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+.v2_cobertura{
+  background: #f7f4fc;
+  padding-top: 100px;
+  p,div{
+    margin: 0;
+  }
+  .detalle-coberturas{
+    padding: 24px 0;
+  }
+  .servicios-tranquilidad{
+    font-family: 'Omnes Medium';
+    background: #fff;
+    .tab-content{
+      padding-top: 12px;
+    }
+    .section-servicios{
+      max-width: 1140px;
+      margin: auto;
+    }
+    .section-header{
+      padding: 24px 0;
+    }
+    .coverage-tab{
+      color: #505050;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.08;
+      letter-spacing: normal;
+      .nav-tabs .nav-link {
+        font-family: 'Omnes Regular';
+        font-size: 22px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        text-align: center;
+        color: #838383;
+        height: 65px;
+        line-height: 1;
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+      }
+      .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        color: #00adee;
+        background-color: #fff;
+        border-color: #00adee #00adee #fff;
+        font-family: 'Omnes Medium';
+        font-size: 22px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #00adee;
+        text-align: center;
+        border-right: 2px solid;
+        border-left: 2px solid;
+        border-top: 2px solid;
+      }
+      .nav-tabs .nav-item a{
+        border-bottom: 2px solid #00adee;
+        text-align: center;
+      }
+    }
+  }
+}
+.tcobertura{
+  width: 100%;
+  background: white;
+  &__cabecera{
+  }
+  thead{
+    tr{
+      height: 47px;
+      p{
+        color: #696969;
+      }
+    }
+    .plata{
+      background: #b1b1b1;
+      color: white;
+      width: 75px;
+    }
+    .oro{
+      background: #e6ac38;
+      color: white;
+      width: 75px;
+    }
+    .black{
+      background: #27362d;
+      color: white;
+      width: 75px;
+    }
+    .texto-titulo{
+      font-family: 'Omnes Medium';
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: center;
+      color: #696969;
+    }
+  }
+  tbody{
+    .texto-izq{
+      font-family: 'Omnes Medium';
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: 0.11px;
+      text-align: left;
+      color: #505050;
+    }
+  }
+}
+.cobertura-mobile{
+  font-family: 'Omnes Medium';
+  .section-header{
+    &__title {
+      font-size: 22px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #505050;
+    }
+  }
+  .accordion-tab{
+    .btn {
+      height: 57px;
+      color: #505050;
+      // background-color: #f1f7ff;
+      line-height: 55px;
+      text-align: left;
+      border: 0;
+      border-radius: 0;
+      p{
+        line-height: 45px;
+      }
+      img{
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 15px;
+        height: 10px;
+      }
+    }
+    .card-header {
+      border: 0;
+    }
+    .card-text{
+      color: #5e5e5e;
+      font-size: 15px;
+      text-align: center;
+      p{
+        text-align: left;
+        strong{
+          color: #0855c4;
+        }
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+    .btn-secondary:not(:disabled):not(.disabled):active,
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .show > .btn-secondary.dropdown-toggle {
+      color: #505050;
+    }
+    &__blue{
+      .btn-secondary:not(:disabled):not(.disabled):active,
+      .btn-secondary:not(:disabled):not(.disabled).active,
+      .show > .btn-secondary.dropdown-toggle {
+        background-color: #f1f7ff;
+      }
+      .btn-secondary {
+        background-color: #f1f7ff;
+      }
+    }
+    &__white{
+      .btn-secondary:not(:disabled):not(.disabled):active,
+      .btn-secondary:not(:disabled):not(.disabled).active,
+      .show > .btn-secondary.dropdown-toggle {
+        background-color: #f8f8f8;
+      }
+      .btn-secondary {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+  .benefit-tab{
+    color: #5e5e5e;
+    font-family: 'Omnes Medium';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    font-size: 18px;
+    div{
+      height: 53px;
+      padding-left: 12px;
+      padding-right: 12px;
+      line-height: 50px;
+    }
+    a{
+      font-size: 14px;
+      color: #0497ce;
+      text-decoration-line: underline;
+    }
+    &__blue{
+      background-color: #f1f7ff;
+    }
+    &__white{
+      background-color: #f8f8f8;
+    }
+  }
+  .modal-coverage{
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+    .btn-secondary {
+      background: white;
+      border: none;
+      position: relative;
+      height: 26px;
+      img{
+        position: absolute;
+        right: 10px;
+      }
+    }
+    .modal-description{
+      font-family: 'Omnes Medium';
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      strong{
+        font-size: 22px;
+        color: #0855c4;
+        font-weight: 600;
+        line-height: 1;
+      }
+      p{
+        font-size: 16px;
+      }
+      span{
+        font-size: 12px;
+      }
+      table{
+        border-collapse: separate;
+        border-spacing: 15px;
+      }
+    }
+    .btn-secondary:focus,
+    .btn-secondary:not(:disabled):not(.disabled).active:focus {
+      box-shadow: none;
+    }
+    .btn:focus {
+      box-shadow: none;
+    }
+  }
+}
+.servicios-tranquilidad{
+  .section-header{
+    &__title {
+      font-size: 44px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #505050;
+    }
+  }
+}
+.cobertura-desktop{
+  font-family: 'Omnes Medium';
+  max-width: 1140px;
+  margin: auto !important;
+  .section-header{
+    padding: 24px 0;
+    &__title {
+      font-size: 44px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #505050;
+    }
+  }
+  .coverage-detail{
+    table{
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 18px;
+      border: 0.2px solid #dbe6e4;
+      // border-collapse: collapse;
+      h1{
+        font-size: 20px;
+        font-weight: 500;
+        color: #696969;
+      }
+      .tcobertura__cabecera{
+        p{
+          color: #0667ba;
+        }
+      }
+      p{
+        color: #696969;
+        font-family: 'Omnes Medium';
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: 0.07px;
+        strong{
+          font-size: 14px;
+          color: #0667ba;
+        }
+        span{
+          font-size: 14px;
+        }
+      }
+      td{
+        padding-left: 10px;
+        padding-right: 10px;
+        border-left: 0.2px solid #dbe6e4;
+        border-right: 0.2px solid #dbe6e4;
+      }
+    }
+  }
+
+}
+
+
+.cobertura-3{
+  box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
+  background-color: #fcfcfc;
+  .section-header{
+    &__title {
+      font-size: 22px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #696969;
+    }
+  }
+  .cobertura-3-item{
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 200px !important;
+    background-color: #F1F7FF;
+    margin-left: auto;
+    margin-right: auto;
+    .cobertura-icon{
+      width: 100px;
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        height: 66px;
+        width: auto;
+      }
+    }
+    &__title{
+      font-family: 'Omnes Regular';
+      color: #505050;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.35;
+      letter-spacing: normal;
+      text-align: center;
+
+    }
+    .item-box{
+      &__enlace{
+        background: transparent;
+        &--detalle{
+          text-decoration: underline;
+          font-size: 20px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.55;
+          letter-spacing: normal;
+          text-align: left;
+          color: #00adee;
+          font-family: 'Omnes Regular';
+        }
+      }
+    }
+  }
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent !important;
+}
+.btn-secondary:focus, .btn-secondary.focus {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.btn-secondary {
+  background-color: transparent;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 1200px) {
+  .cobertura-3{
+    .cobertura-3-item{
+      &__title{
+        font-size: 26px;
+        font-weight: 500;
+      }
+    }
+    .section-header{
+      &__title{
+        font-size: 44px;
+      }
+    }
+  }
+}
+</style>

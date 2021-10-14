@@ -5,7 +5,7 @@ const SentryWebpackPlugin = require("@sentry/webpack-plugin");
 
 module.exports = {
   //Prod
-  /* 
+  /*
   BASE_URL      =     https://www.interseguro.pe/
   API_BASE_URL  =     https://www.interseguro.pe/vehicular-api/
   CULQI_PK      =     pk_live_mrWwATMNEg6JuUVG
@@ -14,7 +14,7 @@ module.exports = {
  */
 
   //Test
-  /* 
+  /*
   BASE_URL      =     https://test.interseguro.pe/
   API_BASE_URL  =     https://test.interseguro.pe/vehicular-api/
   CULQI_PK      =     pk_test_RrlEyfOK587sZBN0
@@ -39,21 +39,21 @@ module.exports = {
   mode: 'universal',
   router: {
     base: '/vehicular/'
-  },  
+  },
   head: {
     title: 'Seguro Vehicular | Interseguro',
     htmlAttrs: {
       lang: 'es',
-    },    
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1, maximum-scale=6, minimum-scale=1' },
       { hid: 'description', name: 'description', content: "¿Qué cubre el Seguro Vehicular? Te cubrimos en todo el Perú. Cotiza Online, desde $12 mensuales. Compra aquí tu seguro peru. " },
       { hid: 'keywords', name: 'keywords', content: 'Seguro Vehicular / Seguro de auto / Seguro Vehicular Peru' },
-      { hid: 'author', name: 'author', content: 'Seguro vehicular | Interseguro' },     
+      { hid: 'author', name: 'author', content: 'Seguro vehicular | Interseguro' },
       { hid: 'copyright', name: 'copyright', content: 'Seguro vehicular | Interseguro' },
       //Facebook
-      
+
       { hid: 'fb:og:type', property: 'og:type', content: 'seguros' },
       { hid: 'fb:og:type', property: 'og:locale', content: 'es_PE' },
       
@@ -62,7 +62,7 @@ module.exports = {
       { hid: 'fb:og:image:width', property: 'og:image:width', content: '800' },
       { hid: 'fb:og:image:height', property: 'og:image:height', content: '418' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' }],    
+    link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' }],
   },
 
   loading: { color: '#fff' },
@@ -73,26 +73,26 @@ module.exports = {
     'vue-sweetalert2/nuxt',
   ],
   plugins: [
-    '~/plugins/bootstrap.js',    
+    '~/plugins/bootstrap.js',
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
-    
+
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
-    { src: '~plugins/vue-carousel.js', sync: false },           
+    { src: '~plugins/vue-carousel.js', sync: false },
     { src: '~plugins/vue-slide.js', sync: false },
     { src: '~plugins/vue-tabs.js', ssr: false },
     { src: '~plugins/vue-tab.js', ssr: false },
     { src: '~/plugins/localStorage.js', ssr: false },
     { src: '~plugins/vue-cliploader.js', ssr: false },
-    { src: '~plugins/clipboard.js', ssr: false }, 
+    { src: '~plugins/clipboard.js', ssr: false },
     { src: '~plugins/hotjar.js', ssr: false },
     { src: '~plugins/chat.js', ssr: false },
     { src: '~plugins/ga.js', ssr: false },
     { src: '~plugins/zepto.js', ssr: false },
     // { src: '~plugins/bing.js', ssr: false },
     // { src: '~/plugins/sentry.js', ssr: false },
-    
+
   ],
   axios: {
     baseURL: process.env.API_BASE_URL,
@@ -106,13 +106,13 @@ module.exports = {
         config.module.rules.push(
           {
             test: /\.(pdf|docx)$/,
-            use: [ { loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/images/' }} ] 
+            use: [ { loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/images/' }} ]
           }
         )
     }
   },
   env: {
-    
+
     environment: process.env.ENVIRONMENT,
     URL: process.env.BASE_URL,
     baseURL: process.env.API_BASE_URL,
