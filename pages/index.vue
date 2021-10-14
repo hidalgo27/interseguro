@@ -1,8 +1,8 @@
 <template>
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
-    <!-- 
-    <div class="boxHome-banner">      
+    <!--
+    <div class="boxHome-banner">
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -10,7 +10,7 @@
                 <img class="img-form" src="./../static/media/img/home/img-form.png" alt="banner">
                 Manejar tranquilo <br> ahora es más fácil
             </p>
-            <b-form class="formCotizador">                         
+            <b-form class="formCotizador">
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
               </div>
@@ -23,11 +23,11 @@
                     maxlength="6"
                     autocomplete="off"
                     type="text"
-                    v-model="item.plateNumber"                    
+                    v-model="item.plateNumber"
                     required
                     placeholder="Ingresa tu Placa"
                     name="Placa"
-                    aria-label="placa"                
+                    aria-label="placa"
                     autofocus
                 ></b-form-input>
               </b-form-group>
@@ -57,13 +57,13 @@
               <span style="background: transparent;border: 1px solid #454A6C;margin-right: 12px;border-radius: 28px;width: 28px;height: 28px;display: flex;justify-content: center;align-items: center;color: #454A6C;font-size: 15px;text-align: center;padding-left: 4px;">&#9658;</span>  <span class="efecto-enlace" > Mira el video</span>
             </p>
           </div>
-          
+
         </div>
       </div>
     </div>
      -->
     <!--Habilitar  en campaña-->
-    <div class="boxHome-banner">      
+    <div class="boxHome-banner">
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -71,15 +71,15 @@
               <img src="./../static/media/img/campania/banner-home-mobile.png" alt="" style="width: 100%; ">
             </div>
             <p class="d-flex  d-md-none" style="margin-left: 14px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 16px;margin-bottom: -8px;margin-top: 4px;">La oferta termina en : </p>
-            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">                            
+            <div class="mb-3  box-flotante-covid  d-flex  d-md-none " style="position: relative;justify-content: flex-start;position: relative;top: 9px;left: 12px;">
               <div class="box-contador"  >
                 <div  class="example  d-md-flex">
-                    <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;">                        
-                    </div> 
+                    <div id="contadorCyberMobile" class="flipdown" style="width: 178px !important;">
+                    </div>
                 </div>
               </div>
             </div>
-            <b-form class="formCotizador">                         
+            <b-form class="formCotizador">
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
               </div>
@@ -92,11 +92,11 @@
                     maxlength="6"
                     autocomplete="off"
                     type="text"
-                    v-model="item.plateNumber"                    
+                    v-model="item.plateNumber"
                     required
                     placeholder="Ingresa tu Placa"
                     name="Placa"
-                    aria-label="placa"                
+                    aria-label="placa"
                     autofocus
                 ></b-form-input>
               </b-form-group>
@@ -115,27 +115,27 @@
                   <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
                 </p>
               </div>
-            </b-form>            
+            </b-form>
           </div>
         </div>
         <div class="home-banner__der" >
 
-            
-            <div class="box-contador" >              
-              <img src="./../static/media/img/campania/banner-home-desktop.png" alt="" style="margin-left: 70px;margin-top: 55px;width: 85%;"> 
-              <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 46px;">La oferta termina en : </p>             
-              <div  class="example  d-none  d-md-flex"  
-              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 133px;">                  
+
+            <div class="box-contador" >
+              <img src="./../static/media/img/campania/banner-home-desktop.png" alt="" style="margin-left: 70px;margin-top: 55px;width: 85%;">
+              <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 46px;">La oferta termina en : </p>
+              <div  class="example  d-none  d-md-flex"
+              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 133px;">
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
-                      
-                  </div> 
+
+                  </div>
               </div>
             </div>
-          
+
         </div>
       </div>
-    </div> 
-   
+    </div>
+
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
       </div>
@@ -144,11 +144,11 @@
         <div class="home-pasos__planes--titulo">
           <p class="como-funciona">Es fácil, en solo 3 pasos</p>
         </div>
-        
+
         <div class="home-pasos__cuerpo   pasos">
           <div class="pasos__item">
             <div class="pasos__item--img">
-              <img src="./../static/media/img/home/lupa.png" alt="lupa">            
+              <img src="./../static/media/img/home/lupa.png" alt="lupa">
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Cotiza</p>
@@ -160,7 +160,7 @@
           </div>
           <div class="pasos__item">
             <div class="pasos__item--img">
-              <img src="./../static/media/img/home/flecha.png" alt="flecha">            
+              <img src="./../static/media/img/home/flecha.png" alt="flecha">
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Elige</p>
@@ -172,15 +172,15 @@
           </div>
           <div class="pasos__item  pb-0">
             <div class="pasos__item--img">
-              <img src="./../static/media/img/home/candado.png" alt="candado">            
+              <img src="./../static/media/img/home/candado.png" alt="candado">
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Paga</p>
               <p class="descripcion">¡Listo! <br> Ya estás asegurado</p>
-            </div>          
+            </div>
           </div>
         </div>
-        
+
         <div class="home-pasos__planes--titulo   pt-2   d-block">
           <p class="nuevos-planes">¡Elige tu plan! </p>
         </div>
@@ -195,7 +195,7 @@
                 <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>      
+                <p style="width: 100%"><nuxt-link class=""  to="/cobertura/">Ver detalle</nuxt-link></p>
               </div>
             </div>
           </div>
@@ -248,10 +248,10 @@
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">Inspección Digital </p>
-        
+
             <p  class="">Desde tu celular <br> y en solo 5 minutos <span></span></p>
           </div>
-          
+
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
@@ -263,7 +263,7 @@
             </p>
             <p  class="">Hasta 5 choferes <br> de reemplazo al año  <span></span> </p>
           </div>
-          
+
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
@@ -272,7 +272,7 @@
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
               Auxilio mecánico
-            </p>    
+            </p>
             <p  class=""><span></span> Te ayudamos en donde estés <br>hasta 2 veces al mes  </p>
           </div>
         </div>
@@ -282,8 +282,8 @@
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
-              Programa de beneficios 
-            </p>     
+              Programa de beneficios
+            </p>
             <p  class=""><span></span> Descuentos en miles <br> de establecimientos </p>
           </div>
         </div>
@@ -442,6 +442,13 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       components: {
         'fade-loader': FadeLoader
       },
+      head: {
+        title: 'Cotizar seguro vehicular en 2 pasos',
+        meta: [
+          { hid: 'description', name: 'description', content: "Cotizar seguro vehicular es muy fácil. Protege desde robo de piezas, choques hasta pérdida total.  Obtén auxilio mecánico a todo Perú desde $12 mensuales" },
+        ],
+        link: [{ rel: 'canonical', href: 'https://www.interseguro.pe/vehicular/' }],
+      },
       created() {
         this.showLoader = true
       },
@@ -457,7 +464,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           window.dataLayer.push({
               event:'Errores',
               category: 'ErroresPago',
-              action: error_detectado, 
+              action: error_detectado,
               error_detectado: error_detectado
           });
         },
@@ -484,7 +491,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               this.$nuxt.$router.push({path: "/cotiza/cotizacion-sin-placa"})
             })
           },
-          consultarPlaca(event, ms) {  
+          consultarPlaca(event, ms) {
             if(this.item.plateNumber.length == 6){
               this.loading = true
               this.isDisabled = true
@@ -495,7 +502,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               }, ms)
             }else{
               this.isDisabled =false
-            }      
+            }
           },
           validacionInput(event) {
             this.item.plateNumber = this.item.plateNumber.replace(/[^a-z0-9\s]/gi, "").replace(/[_\s]/g, "");
@@ -508,7 +515,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               this.getGeolocation()
               this.createMail()
               this.updateFields()
-              this.getVehicle()  
+              this.getVehicle()
             }
           },
           updateFields () {
@@ -531,7 +538,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               const respuesta = res.data.body;
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
-              
+
                 if(respuesta.useType){
                    const useType = respuesta.useType.toString().toLowerCase();
                     if(useType === 'particular' || useType === 'escolar' || useType === 'Personal'){
@@ -547,8 +554,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                       })
                       this.$swal({
                         // title: "Oops...",
-                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
-                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular.
+                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso
                          ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
                         <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                         type: "warning",
@@ -561,7 +568,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                 }else{
                       this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
                 }
-               
+
 
                 if (respuesta.appDiscount == true) {
                   if (respuesta.activePolicy === true) {
@@ -569,7 +576,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                   }else{
                     this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
                   }
-                  
+
                 }else{
                   /* Existe en nuestra base de datos */
                     this.$store.commit('common/setObjVehiculo', res.data.body)
@@ -580,14 +587,14 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                         this.$store.commit('common/setClienteSOAT', respuesta.client)
                         this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
                         this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
-                        
+
                       }else {
                         this.$store.commit('common/setOrigenCliente', 1)
                       }
                       /* Tiene una poliza activa */
                       if (respuesta.activePolicy === true) {
                         this.$nuxt.$router.push({path: "/placa-registrada"})
-                      } else {             
+                      } else {
                         this.loading = false
                         if (document.location.hostname == "www.interseguro.pe"){
                           fbq('track', 'CompleteResgistration');
@@ -601,7 +608,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                         this.$store.commit('common/setOrigenCliente', 2)
                       }else{
                         this.$store.commit('common/setOrigenCliente', 1)
-                      }          
+                      }
                       this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
                       this.$store.commit('common/setVehicleState', 0)
                       this.loading = false
@@ -613,10 +620,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                       this.$nuxt.$router.push("/cotiza/cotizacion/")
                     }
                 }
-                
-                
+
+
               }
-              
+
               else if(res.data.code === 307){
                   this.loading = false;
                   window.dataLayer = window.dataLayer || [ ];
@@ -628,7 +635,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                   })
                   this.$swal({
                   // title: "Oops...",
-                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}.
                   Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                   type: "warning",
                   showCancelButton: false,
@@ -648,17 +655,17 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           },
       },
       computed: {
-          
+
       },
       mounted () {
         this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
-        
+
         this.$store.commit('common/setFlagCloseListon', 1)
         this.$store.commit('common/setPromocion', false)
-        
+
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
         this.$store.commit('common/setBusinessId', 1)
@@ -671,11 +678,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.$store.commit('common/setCurrent', null)
         this.$store.commit('common/setFlujoDetectado', 'interseguro')
         this.PaginaVista()
-        
+
         /************************************************************************ */
         /********************* CONFIGURACIONES GLOBALES************************* */
         /************************************************************************ */
-        
+
         this.$store.commit('common/setDiscountType', '')
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
@@ -687,7 +694,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           window.criteo_q = window.criteo_q || [];
           window.criteo_q.push(
             { event: "setAccount", account: 64802}, // You should never update this line
-            { event: "setEmail", email: "" }, // Can be an empty string 
+            { event: "setEmail", email: "" }, // Can be an empty string
             { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
             { event: "viewBasket", item: [{id: "Home-vehicular", price: "", quantity: 1 }]}
           )
@@ -702,14 +709,14 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         /************************************************************************ */
         /************************************************************************ */
 
-        
+
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
 
-        /* RESET DE ESTADOS */        
+        /* RESET DE ESTADOS */
         // if (localStorage.getItem("flagCloseListon") == 0) {
         //     this.flagCloseListon = 0
         //     localStorage.setItem("flagCloseListon", 0)
-        // }else if  (localStorage.getItem("flagCloseListon") == 1) {           
+        // }else if  (localStorage.getItem("flagCloseListon") == 1) {
         //     this.flagCloseListon = 1
         //     localStorage.setItem("flagCloseListon", 1)
         // }else{
@@ -824,7 +831,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     //margin-top: 115px;
     margin-top: 60px;
     font-size: 16px;
-    background-color: #fff;    
+    background-color: #fff;
     .home-pasos{
       background-color: #fff;
       //padding-top: 130px;
@@ -832,7 +839,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       padding-top: 280px;
       padding-bottom: 48px;
       .parrafo-video{
-        font-size: 30px; 
+        font-size: 30px;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -868,7 +875,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           color: #0854c4;
           max-width: 300px;
           margin: auto;
-          padding-bottom: 42px;          
+          padding-bottom: 42px;
         }
         .nuevos-planes{
           font-family: 'Omnes Medium';
@@ -893,7 +900,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           justify-content: flex-start;
           position: relative;
           padding-bottom: 32px;
-          padding-left: 18%;          
+          padding-left: 18%;
           &--img{
             img{
               width: 70px;
@@ -910,8 +917,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               line-height: 1.25;
               text-align: left;
               display: flex;
-              align-items: center;              
-            }            
+              align-items: center;
+            }
             .descripcion{
               font-size: 16px;
               font-weight: normal;
@@ -927,7 +934,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             img{
               width: 14px;
             }
-          }          
+          }
         }
       }
       .planes{
@@ -940,7 +947,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           width: 100%;
           margin-bottom: 48px;
           max-width: 380px;
-        }        
+        }
         .plata, .oro, .black{
           .plan--cabecera{
             height: 45px;
@@ -950,38 +957,38 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             align-items: center;
           }
         }
-        .plata{        
-          .plan--cabecera{  
+        .plata{
+          .plan--cabecera{
             background-color: #b1b1b1;
             &:before{
               background-image: url(./../static/media/img/home/plata_dto.png);
-            } 
+            }
             &:after{
               background-image: url(./../static/media/img/home/plata.png);
               bottom: -9px;
-            }            
+            }
           }
         }
-        .oro{        
-          .plan--cabecera{  
+        .oro{
+          .plan--cabecera{
             background-color: #e6ac38;
             &:before{
               background-image: url(./../static/media/img/home/oro_dto.png);
             }
             &:after{
               background-image: url(./../static/media/img/home/oro.png);
-            } 
+            }
           }
         }
-        .black{        
-          .plan--cabecera{  
+        .black{
+          .plan--cabecera{
             background-color: #27362d;
             &:before{
               background-image: url(./../static/media/img/home/black_dto.png);
             }
             &:after{
               background-image: url(./../static/media/img/home/black.png);
-            } 
+            }
           }
         }
       }
@@ -992,7 +999,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         min-height: 175px;
         position: relative;
         &--cabecera{
-          text-align: center;          
+          text-align: center;
           position: relative;
           &:after{
           }
@@ -1046,15 +1053,15 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           }
         }
       }
-    }  
+    }
     .boxHome-banner{
       position: relative;
       height: 296px;
-      background: #e6eef9;      
+      background: #e6eef9;
       //background campaña
       background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       //background: #0857c5;
-      
+
       .home-banner{
         margin: auto;
         background-repeat: no-repeat;
@@ -1074,7 +1081,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           align-items: flex-start;
           width: 90%;
           //border-bottom: 1px solid white !important;
-          
+
           input{
             max-width: 360px;
             width: 100%;
@@ -1155,7 +1162,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
 
     .box-formCotizador{
       width: 100%;
-      padding: 0;      
+      padding: 0;
       .titulo-formulario{
         font-size: 1.5rem;
         font-weight: 500;
@@ -1195,7 +1202,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       background: #fff;
       box-shadow: -3px 4px 12px -1px #ccc;
       position: relative;
-      margin: auto;      
+      margin: auto;
       margin-top: 0;
       h1{
         font-family: 'Omnes Medium';
@@ -1247,8 +1254,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       height: 10px;
       border-radius: 50%;
     }
-    
-    
+
+
     .home-talleres{
       background-color: #f1f7ff;
       padding-top: 42px;
@@ -1500,7 +1507,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           }
         }
         &__item{
-          height: 300px !important;          
+          height: 300px !important;
           .carousel-caption {
             height: 100%;
             display: flex;
@@ -1520,8 +1527,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                 line-height: 0.89;
                 letter-spacing: normal;
                 text-align: center;
-                color: #696969;    
-                font-family: 'Omnes Regular';        
+                color: #696969;
+                font-family: 'Omnes Regular';
               }
             }
           }
@@ -1555,7 +1562,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           color: #0854c4;
         }
       }
-      
+
       &__titulo{
         p{
           font-family: 'Omnes Medium';
@@ -1630,10 +1637,10 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             line-height: 1.2;
             letter-spacing: normal;
             text-align: left;
-            color: #454A6C;            
+            color: #454A6C;
           }
         }
-      }      
+      }
     }
   }
   #vehicleModelPlate{
@@ -1645,7 +1652,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     border-color: #0855c4 !important;
     border-width: 1.5px !important;
   }
-  
+
   @media (min-width: 992px) {
     .home-is{
       //margin-top: 50px;
@@ -1671,7 +1678,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-repeat: no-repeat;
         background-position: center;
         height: auto;
-        height: 485px;        
+        height: 485px;
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
@@ -1683,7 +1690,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             height: calc(85vh);
             display: flex;
             align-items: center;
-            width: auto;            
+            width: auto;
             input{
               width: 360px;
               height: 51px;
@@ -1767,7 +1774,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
         position: relative;
-      
+
         h1{
           font-size: 1.35rem;
           font-weight: 500;
@@ -1777,7 +1784,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           letter-spacing: normal;
           text-align: center;
           color: #003aad;
-          
+
         }
         &__msg{
           padding: 7px 0;
@@ -1859,7 +1866,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               }
             }
           }
-          
+
         }
         .planes{
           display: flex;
@@ -1872,7 +1879,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             max-width: 270px;
             .black{
               .plan--cuerpo{
-               padding-top: 8px; 
+               padding-top: 8px;
               }
             }
             .oro{
@@ -1881,7 +1888,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               }
             }
           }
-        }        
+        }
         .plan--cuerpo{
           p{
             height: auto;
@@ -1957,7 +1964,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               position: absolute;
             }
           }
-          
+
         }
         .planes{
           display: flex;
@@ -1970,7 +1977,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             max-width: 270px;
             .black{
               .plan--cuerpo{
-               padding-top: 8px; 
+               padding-top: 8px;
               }
             }
             .oro{
@@ -1979,7 +1986,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               }
             }
           }
-        }        
+        }
         .plan--cuerpo{
           p{
             height: auto;
@@ -2102,7 +2109,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             top: 42px;
           } */
       }
-      
+
       .formCotizador{
         height: 300px;
         margin-top: 40px;
@@ -2175,7 +2182,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
         }
-        
+
         .plata{
           min-height: 330px;
         }
@@ -2221,7 +2228,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
               width: initial;
               height: 110px;
             }
-            
+
           }
           .beneficios-desc{
             width: initial;
@@ -2276,7 +2283,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   }
   @media (min-width: 1440px) {
     .home-is{
-      .boxHome-banner{              
+      .boxHome-banner{
         .home-banner{
           padding-left: 128px;
           max-width: 1440px;
@@ -2294,7 +2301,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
 
   @media (min-width: 1900px) {
     .home-is{
-      .boxHome-banner{              
+      .boxHome-banner{
         .home-banner{
           padding-left: 0;
           &__der{

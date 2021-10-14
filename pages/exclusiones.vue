@@ -5,11 +5,11 @@
                 <div class="section-header ">
                     <h3 class="section-header__title title blue mb-4">Exclusiones</h3>
                     <div class="text-center subtitle">
-                       Esta Póliza no cubre los Daños y/o pérdidas y/o responsabilidad civil y/o Daños Personales 
-                       que resulten o que sean causados directa o indirectamente por los siniestros: 
+                       Esta Póliza no cubre los Daños y/o pérdidas y/o responsabilidad civil y/o Daños Personales
+                       que resulten o que sean causados directa o indirectamente por los siniestros:
                     </div>
                 </div>
-            </b-container>  
+            </b-container>
         </section>
         <section>
             <div role="tablist" class="pt-4 mt-3  mb-5 pb-2 tablist">
@@ -17,7 +17,7 @@
                     <hr  class="active">
                     <div v-for="(value,key) in exclusiones" v-bind:key = 'key'>
                          <b-container>
-                        <div class="row listExclusiones"> 
+                        <div class="row listExclusiones">
                             <b-col cols=1 lg="1" class="spanNumber blue">{{ key+1 }}.</b-col>
                             <b-col cols=11 lg="11" class="description">{{ value }}</b-col>
                         </div>
@@ -36,7 +36,7 @@
 export default {
     layout: 'InterseguroHome',
     data: () => ({
-        exclusiones :['Producidos cuando el Vehículo no sea de uso particular a menos que otro uso hubiera sido específicamente incluido al contratarse el seguro.' , 
+        exclusiones :['Producidos cuando el Vehículo no sea de uso particular a menos que otro uso hubiera sido específicamente incluido al contratarse el seguro.' ,
                         'Causados por personas, animales u objetos cargados, trasladados, descargados o remolcados con el Vehículo o durante estas acciones, así como los que causen a terceros independientemente de que ocurra un Accidente o Incendio',
                         'Producidas por transporte de mercaderías y/o insumos peligrosos, inflamables, corrosivos y explosivos, salvo que el vehículo está diseñado para tal fin. No cubre daños o pérdidas que ocasionen a terceros.',
                         'Causados por desgaste, sobrecarga, uso indebido, desperfecto mecánico o por falta de adecuado y oportuno mantenimiento.',
@@ -65,9 +65,15 @@ export default {
                         ' INTERSEGURO no estará obligada a intervenir en los juicios ni en las diligencias policiales para establecer el grado de responsabilidad ni a pagar indemnizaciones con cargo a alguna de las coberturas de la póliza, ni a otorgar fianzas o garantías para obtener la libertad del Contratante o Conductor.',
                         'Causadas por reparaciones y/o cambios de piezas sin autorización de INTERSEGURO que dificultan determinar las causas del siniestro o el daño.',
                         'Responsabilidad contractual.',
-                        'Ocasionados cuando el vehículo no tuviera instalado el sistema GPS (Global Position System) a la fecha de ocurrencia del siniestro y dicho requerimiento hubiere sido informado en las Condiciones Particulares de la póliza.' 
+                        'Ocasionados cuando el vehículo no tuviera instalado el sistema GPS (Global Position System) a la fecha de ocurrencia del siniestro y dicho requerimiento hubiere sido informado en las Condiciones Particulares de la póliza.'
         ]
-  })
+  }),
+  head: {
+    title: 'Exclusiones: Casos en los que no cubre',
+    meta: [
+      { hid: 'description', name: 'description', content: "Conoce las exclusiones de tu seguro vehicular y casos en los que no cubrimos o tenemos restricciones. Seguro con cobertura a todo Perú" },
+    ],
+  },
 }
 </script>
 

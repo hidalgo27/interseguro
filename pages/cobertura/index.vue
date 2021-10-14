@@ -25,7 +25,7 @@
                                         <br>
                                         <br>Si ocasionas daños a personas que estaban dentro del carro al momento del accidente.
                                         <br>
-                                        <br>Cubrimos hasta: US$ 10,000 por ocupante, máximo 5 ocupantes  
+                                        <br>Cubrimos hasta: US$ 10,000 por ocupante, máximo 5 ocupantes
                                         <br>
                                         <br>Pago mínimo : $150
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -64,7 +64,7 @@
                                     <p>
                                         Si te roban el carro por completo.
                                         <br>
-                                        <br>Cubrimos hasta: Valor asegurado del carro   
+                                        <br>Cubrimos hasta: Valor asegurado del carro
                                         <br>
                                         <br><span>Cobertura en:</span>
                                         <br>
@@ -226,7 +226,7 @@
                                     <p>
                                         Si rompieron una o más de tus lunas.
                                         <br>
-                                        <br>Cubrimos hasta: Valor asegurado del carro  
+                                        <br>Cubrimos hasta: Valor asegurado del carro
                                         <br>
                                         <br>Pago mínimo : $0 nacionales, $150 internacionales
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -255,7 +255,7 @@
                                     <p>
                                         Si tuviste un accidente manejando en vías no autorizadas, bajo los efectos de drogas y/o alcohol, o habiendo cometido infracciones declaradas como "Muy Grave" o "Grave" por el Reglamento Nacional de Tránsito.
                                         <br>
-                                        <br>Cubrimos hasta: Daños al carro por el valor asegurado del mismo; Hasta US$ 50,000 por Responsabilidad Civil 
+                                        <br>Cubrimos hasta: Daños al carro por el valor asegurado del mismo; Hasta US$ 50,000 por Responsabilidad Civil
                                         <br>
                                         <br>Pago mínimo : $150
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -352,7 +352,7 @@
                     </div>
                 </div>
         </section>
-        
+
         <section class="cobertura-desktop d-none d-md-block   pb-5">
             <div>
                 <div class="section-header  detalle-coberturas">
@@ -362,7 +362,7 @@
                     <table class="tcobertura">
                         <thead class="tcobertura__cabecera">
                             <tr align="center">
-                                <td><p class="texto-titulo">Coberturas</p></td>                                
+                                <td><p class="texto-titulo">Coberturas</p></td>
                                 <td><p class="texto-titulo">¿Hasta cuánto podemos cubrir?</p></td>
                                 <td><p class="texto-titulo" style="width: 128px">Pago mínimo</p></td>
                                 <td><p class="texto-titulo"  style="width: 128px">Pago máximo</p></td>
@@ -381,7 +381,7 @@
                                         <b-tooltip target="disabled-wrapper">Se incluyen todos los que hayan sido observados durante la inspección vehicular. (ejm: radio, aros, gps, etc)</b-tooltip>
                                     </div> -->
                                 </td>
-                                
+
                                 <td><p><strong>Frente a Ocupantes:</strong><br><span>$10,000 por ocupante. Máximo 5 ocupantes</span></p></td>
                                 <td align="center" rowspan="2"><p><span>$150</span></p></td>
                                 <td align="center" rowspan="2"><p><span>10% del monto a<br>indemnizar</span></p></td>
@@ -406,26 +406,26 @@
                             </tr>
                             <tr style="background-color: #ebf4ff;">
                                 <td class="texto-izq">Pérdida parcial por choques</td>
-                                
+
                                 <td><p><strong>Si tu carro sufre daños por un choque o<br>accidente involuntario.</strong><br><span>Hasta 75% del valor asegurado del carro.</span></p></td>
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$150</td>
                                             <td style="width: calc(49% - 0px);">10% del monto a indemnizar</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"  class="minitabla__titulo">En taller concesionario</td>                                            
+                                            <td colspan="2"  class="minitabla__titulo">En taller concesionario</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$200</td>
                                             <td style="width: calc(49% - 0px);">15% del monto a indemnizar</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"  class="minitabla__titulo">En taller no afiliado a Interseguro</td>                                            
+                                            <td colspan="2"  class="minitabla__titulo">En taller no afiliado a Interseguro</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$300</td>
@@ -439,7 +439,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
                             <tr>
-                                <td rowspan="4" class="texto-izq">Accidentes de ocupantes</td>                                
+                                <td rowspan="4" class="texto-izq">Accidentes de ocupantes</td>
                                 <td><p><strong>Muerte de ocupantes</strong><br>
                                 <span>$20,000 por ocupante, máximo 5 ocupantes</span></p></td>
                                 <td align="center"><p><span>-</span></p></td>
@@ -500,7 +500,7 @@
                                 <td><p><strong>Si rompieron una o más de tus lunas.</strong><br><span>Cubrimos hasta: Valor total asegurado del carro</span><br>
                                  <span class="ausencia-control">
                                     <img width="14" src="../../static/media/img/exclamacion.png" alt="">Las lunas importadas se atienden vía reembolso</span>
-                                 
+
                                 </p></td>
                                 <td align="center"><p><span>Nacionales : $0</span> <br> <span>Importadas: $150</span></p></td>
                                 <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
@@ -514,7 +514,7 @@
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$150</td>
@@ -531,7 +531,7 @@
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$150</td>
@@ -548,7 +548,7 @@
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$200</td>
@@ -556,7 +556,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                
+
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -597,8 +597,8 @@
                     </p>
                 </div>
             </div>
-            
-           
+
+
         </section>
 
         <section class="servicios-tranquilidad  d-none  d-lg-block   pb-5">
@@ -621,7 +621,7 @@
                                     </b-col>
                                     <b-col>
                                         <h4>¿Hasta donde llegan  nuestros servicio de grúas?</h4>
-                                        <div class="tab-servicios">                                           
+                                        <div class="tab-servicios">
                                             <div class="box-tab" style="background: white;">
                                                 <div class="box-tab__item">
                                                     <p class="point">Sur</p>
@@ -667,7 +667,7 @@
                                     </b-col>
                                     <b-col>
                                         <h4>¿Hasta donde llegan  nuestros servicio de grúas?</h4>
-                                        <div class="tab-servicios">                                           
+                                        <div class="tab-servicios">
                                             <div class="box-tab" style="background: white;">
                                                 <div class="box-tab__item">
                                                     <p class="point">Sur</p>
@@ -749,9 +749,9 @@
                     </b-tabs>
                 </div>
             </div>
-            
+
         </section>
-        
+
         <section id="nomecubre" class="cobertura-3" ref="nomecubre">
             <div class="cobertura-desktop">
                 <div class="section-header">
@@ -767,17 +767,17 @@
                             </div>
                             <div class="cobertura-3-item__detalle">
                                 <b-btn v-b-modal="'modal-' + item.id" class="item-box__enlace w-inline-block clearfix">
-                                    <div  class="item-box__enlace--detalle" @click="verDetalleNoMeCubre(item)">Ver más</div>                                  
+                                    <div  class="item-box__enlace--detalle" @click="verDetalleNoMeCubre(item)">Ver más</div>
                                 </b-btn>
                             </div>
-                            
+
                             </div>
                             <modal2-is :obj2="item"></modal2-is>
                         </b-col>
                     </b-row>
                 </div>
             </div>
-            
+
         </section>
 
         <section>
@@ -803,7 +803,7 @@
                                     <br>
                                     <br>
                                 </p>
-                                <div class="tab-servicios">                                           
+                                <div class="tab-servicios">
                                     <div class="box-tab" style="background: white;">
                                         <div class="box-tab__item">
                                             <p class="point">Sur</p>
@@ -857,7 +857,7 @@
                                     <br>
                                     <br>
                                 </p>
-                                <div class="tab-servicios">                                           
+                                <div class="tab-servicios">
                                     <div class="box-tab" style="background: white;">
                                         <div class="box-tab__item">
                                             <p class="point">Sur</p>
@@ -891,7 +891,7 @@
                             </div>
                         </div>
                     </b-modal>
-                </div>            
+                </div>
                 <!-- Asistencia mecánica -->
                 <div>
                     <b-modal id="modalam" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalAM" size="lg">
@@ -937,7 +937,7 @@
                             </div>
                         </div>
                     </b-modal>
-                </div>                
+                </div>
                 <!-- Ambulancias -->
                 <div>
                     <b-modal id="modala" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalA" size="lg">
@@ -995,7 +995,16 @@
 
     </div>
 </template>
-
+<script>
+export default {
+  head: {
+    title: 'Cobertura de seguro vehicular por plan',
+    meta: [
+      { hid: 'description', name: 'description', content: "Conoce la cobertura de seguro vehicular por cada plan. Recibe beneficios adicionales como auxilio vehicular, asistencia mecánica, vehículo de reemplazo y más" },
+    ],
+  },
+}
+</script>
 <style lang="scss" scope>
 .ausencia-control-mobile{
   flex-direction: column;
@@ -1008,8 +1017,8 @@
     color: #979696;
 }
 .minitabla{
-    padding: 0; 
-    margin: 0;    
+    padding: 0;
+    margin: 0;
     width: 100%;
     td{
         font-size: 14px;
@@ -1021,7 +1030,7 @@
         color: #0667ba;
         font-size: 15px;
     }
-    
+
 }
 .tab-servicios{
     .box-mapa{
@@ -1061,7 +1070,7 @@
             }
         }
         &:nth-child(2){
-            a{                    
+            a{
                 width: 150px;
                 padding-left: 40px;
                 &:before{
@@ -1074,7 +1083,7 @@
                     border-left: 35px solid #e6e6e6;
                     left: -2px;
                     z-index: 9;
-                    height: 65px;  
+                    height: 65px;
                 }
                 &:after{
                     content: "";
@@ -1086,7 +1095,7 @@
                     border-left: 35px solid #e6e6e6;
                     right: -32px;
                     z-index: 9;
-                    height: 65px;  
+                    height: 65px;
                 }
             }
         }
@@ -1106,20 +1115,20 @@
             align-items: center;
             border-bottom: 2px solid #C1C1C1;
             color: #7F7F7F;
-            
+
             .point{
                 border-right: 2px solid #C1C1C1;
                 width: 100px;
                 justify-content: center;
                 color: #5E5E5E;
             }
-            
+
             p{
                 margin: 0;
                 height: 40px;
                 display: flex;
-                align-items: center;   
-                margin-bottom: 0;                                     
+                align-items: center;
+                margin-bottom: 0;
             }
             &:last-child{
                 border-bottom: none;
@@ -1138,7 +1147,7 @@
         padding: 0;
         position: relative;
         border: 0;
-        
+
     }
     .nav-tabs .nav-link.active {
         background: white;
@@ -1153,12 +1162,12 @@
             border-bottom: 0 solid #ffffff;
             right: -33px;
             z-index: 999;
-            height: 65px;   
+            height: 65px;
         }
     }
     p{
-        align-items: center;  
-        margin-bottom: 0;                                      
+        align-items: center;
+        margin-bottom: 0;
     }
 }
 .v2_cobertura{
@@ -1171,7 +1180,7 @@
         padding: 24px 0;
     }
     .servicios-tranquilidad{
-        font-family: 'Omnes Medium';        
+        font-family: 'Omnes Medium';
         background: #fff;
         .tab-content{
             padding-top: 12px;
@@ -1284,7 +1293,7 @@
 }
 .cobertura-mobile{
     font-family: 'Omnes Medium';
-    .section-header{ 
+    .section-header{
         &__title {
             font-size: 22px;
             font-weight: 500;
@@ -1431,7 +1440,7 @@
     }
 }
 .servicios-tranquilidad{
-    .section-header{  
+    .section-header{
         &__title {
             font-size: 44px;
             font-weight: 500;
@@ -1494,19 +1503,19 @@
             td{
                 padding-left: 10px;
                 padding-right: 10px;
-                border-left: 0.2px solid #dbe6e4; 
+                border-left: 0.2px solid #dbe6e4;
                 border-right: 0.2px solid #dbe6e4;
             }
         }
     }
-    
+
 }
 
 
 .cobertura-3{
     box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
     background-color: #fcfcfc;
-    .section-header{  
+    .section-header{
         &__title {
             font-size: 22px;
             font-weight: 500;
@@ -1544,7 +1553,7 @@
             line-height: 1.35;
             letter-spacing: normal;
             text-align: center;
-            
+
         }
         .item-box{
             &__enlace{
@@ -1617,7 +1626,7 @@ export default {
             isVisibleOR: false,
             ListNoCubrimos: [
                 {
-                    id: 300,    
+                    id: 300,
                     titulo: "Si te portas mal",
                     url: require("../../static/media/img/exclusion-01.png"),
                     detalles:[
@@ -1625,11 +1634,11 @@ export default {
                         {descripcion:'Si huiste del lugar del accidente y dañan tu carro, a menos que sea para evitar el accidente.'},
                         {descripcion:'Si manejaron tu carro sin tener brevete, o si lo tenían vencido o suspendido. '},
                         {descripcion:'Si tu carro se daña porque participaste activamente en peleas o alteraciones del orden público.'},
-                        {descripcion:'Si tu carro sufre daños porque cometiste una infracción a las normas de tránsito.'},                
+                        {descripcion:'Si tu carro sufre daños porque cometiste una infracción a las normas de tránsito.'},
                     ]
                 },
                 {
-                    id: 301,  
+                    id: 301,
                     titulo: "Sobre lo que llevas",
                     url: require("../../static/media/img/exclusion-02.png"),
                     detalles:[
@@ -1637,31 +1646,31 @@ export default {
                         {descripcion:'Si causan daños a los remolques, casas rodantes o furgones acoplados a tu carro. Tampoco si se lastiman o mueren las personas que iban dentro, ni las cosas que se dañen.'},
                         {descripcion:'Si tu carro se daña porque estabas remolcando otro carro.'},
                         {descripcion:'Si tu carro estaba siendo transportado por una grúa que no es nuestra.'},
-                        {descripcion:'Si tu carro se daña porque participaste activamente en peleas o alteraciones del orden público.'},     
-                        {descripcion:'Si los animales, personas u objetos que llevabas en tu carro lo dañan; así como los daños que causen a terceros.'},                
+                        {descripcion:'Si tu carro se daña porque participaste activamente en peleas o alteraciones del orden público.'},
+                        {descripcion:'Si los animales, personas u objetos que llevabas en tu carro lo dañan; así como los daños que causen a terceros.'},
                     ]
                 },
                 {
-                    id: 302,    
+                    id: 302,
                     titulo: "Sobre lo que dañas",
                     url: require("../../static/media/img/exclusion-03.png"),
                     detalles:[
                         {descripcion:'Si se dañan tus propiedades o propiedades bajo tu control, no cubrimos esas reparaciones.'},
                         {descripcion:'Si se dañan la capota de lona o los accesorios, piezas o partes de descapotables.'},
-                        {descripcion:'Si se dañan los neumáticos o cámaras, a menos que sea debido a un accidente cubierto.'}             
+                        {descripcion:'Si se dañan los neumáticos o cámaras, a menos que sea debido a un accidente cubierto.'}
                     ]
                 },
                 {
-                    id: 303,  
+                    id: 303,
                     titulo: "Alguien lleva tu carro",
                     url: require("../../static/media/img/exclusion-04.png"),
                     detalles:[
                         {descripcion:'Si tu carro se daña cuando lo remolcan o lo transporta una grúa que no sea nuestra. Por favor, evita transportarlo con otros medios que no sean nuestros.'},
-                        {descripcion:'Si hay daños causados a otras personas cuando robaron tu carro, salvo si te lastimaron a ti o a las personas que iban contigo justo antes del robo.'},          
+                        {descripcion:'Si hay daños causados a otras personas cuando robaron tu carro, salvo si te lastimaron a ti o a las personas que iban contigo justo antes del robo.'},
                     ]
                 },
                 {
-                    id: 304,  
+                    id: 304,
                     titulo: "Desgaste o mal uso",
                     url: require("../../static/media/img/exclusion-05.png"),
                     detalles:[
@@ -1671,26 +1680,26 @@ export default {
                     ]
                 },
                 {
-                    id: 305,  
+                    id: 305,
                     titulo: "Casos extremos",
                     url: require("../../static/media/img/exclusion-06.png"),
                     detalles:[
                         {descripcion:'Si los daños a tu carro sucedieron porque se proclamó un estado de sitio o alguna autoridad decidió confiscar, expropiar, nacionalizar o destruir bienes.'},
                         {descripcion:'Si los daños fueron causados debido a una guerra, civil o internacional.'},
-                        {descripcion:'Si fueron causados por una reacción o radiación nuclear, o contaminación radioactiva.'}             
+                        {descripcion:'Si fueron causados por una reacción o radiación nuclear, o contaminación radioactiva.'}
                     ]
                 },
                 {
-                    id: 307,  
+                    id: 307,
                     titulo: "Otros",
                     url: require("../../static/media/img/exclusion-07.png"),
                     detalles:[
                         {descripcion:'Si los daños ocurrieron cuando usaste tu carro como taxi, colectivo, auto de instrucción, movilidad escolar, para arrendamiento o cualquier otro uso comercial, solo aseguramos uso particular.'},
                         {descripcion:'Si los daños ocurrieron cuando tu carro iba por zonas que no están destinadas al paso de vehículos, a menos que sean trayectos obligados.'},
-                        {descripcion:'Si los daños no son causados de forma accidental.'}             
+                        {descripcion:'Si los daños no son causados de forma accidental.'}
                     ]
                 }
-            ]       
+            ]
         }
     },
     components:{
@@ -1727,7 +1736,7 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/cobertura', 
+                'page-url': '/vehicular/cobertura',
                 'page-title': 'Cobertura'
             })
         }
@@ -1739,7 +1748,7 @@ export default {
             })
         }else{
         }
-        
+
         this.PaginaVista()
     }
 }
