@@ -102,9 +102,10 @@
   }
 }
 .leaveModal .modal-body{
+  background: #FFFFFF;
   //fondo modal campaña
   //background: url("./../../static/media/img/campania/fondo-modal.svg") ;
-  background: #0759c6;
+  //background: #0759c6;
   background-size: cover;
   // background-position: center;
   p{
@@ -207,6 +208,7 @@
     width: 45px;
     cursor: pointer;
   }
+
   .modal-titulo{
     color: #0855C4;
     font-size: 23px;
@@ -216,6 +218,15 @@
     margin: auto;
     margin-bottom: 24px;
   }
+  .btn-mail{
+    width: 263px;
+    background: #EA0C90;
+    color: white;
+    font-size: 19px;
+    font-family: 'Omnes Regular';
+    height: 50px;
+  }
+
   .box-btns{
     width: 100%;
     margin: auto;
@@ -236,6 +247,7 @@
     min-height: 305px;
   }
 }
+
 .modalEnviarEmail{
   display: flex;
   flex-direction: column;
@@ -839,7 +851,7 @@
 @media (min-width: 992px) {
   .writeme img {
     width: 13.5rem;
-}
+  }
   #modalNumeroCelular2{
     
     .modal-body{

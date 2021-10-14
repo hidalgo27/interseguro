@@ -1,13 +1,13 @@
 <template>
   <section >
-    <div class="container  contenedor-principal  page-ingresa-placa">
+    <div class="container page-ingresa-placa">
       <b-row class="mi-breadcrumb">
-          <b-col cols="12" class="box-steps">
-              <ul class="steps" style="display: inline-flex">
-                  <div class="steps__item "><span>Pago</span></div>
-                  <div class="steps__item ">Planes</div>
-                  <div class="steps__item steps--active  paso1"><span>Mi carro</span></div>
-                  <li class="steps--progressBar" ></li>
+          <b-col cols="12" class="box-steps2">
+              <ul class="steps2" style="display: inline-flex">
+                  <div class="steps2__item "><span>Pago</span></div>
+                  <div class="steps2__item ">Planes</div>
+                  <div class="steps2__item steps--active  paso1"><span>Mi carro</span></div>
+                  <li class="steps2--progressBar" ></li>
               </ul>
           </b-col>
       </b-row>
@@ -38,29 +38,23 @@
                   autofocus
                 ></b-form-input>
                 <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
-            </b-col>
-            <!-- <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="row-btn">
-              <button>
-                  Continuar
-                  <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
-              </button>
-            </b-col> -->
+            </b-col>            
           </b-row>
         </b-col>
       </b-row>
     </div>
-  </section>
-  
+  </section>  
 </template>
 <style lang="scss">
     $is-v-azul : #0855c4;
     $is-v-border: #CCD1DD;
     $is-v-gris-disabled: #82859D;
-    .contenedor-principal{
-        margin-top: 72px;
-    }
+    
     .page-ingresa-placa{
-      padding-bottom: 306px;
+      margin-top: 72px;
+      //padding-bottom: 100px;
+      min-height:calc(100vh - 72px - 124px);
+      //padding-bottom: 306px;
         .pantalla-actual{
             p{
                 color: $is-v-azul;
@@ -88,20 +82,8 @@
             }
         }
     }
-    @media (min-width: 600px) {
-    }
-    @media (max-width: 768px) {
-        .page-ingresa-placa{
-            .box-placa{
-              .row-general{
-                padding-top: 8px;
-              }
-              .row-btn{
-                padding-top: 20px;
-              }
-            }
-        }
-    }
+
+
     @media (min-width: 992px) {
         .page-ingresa-placa{
             .box-placa{

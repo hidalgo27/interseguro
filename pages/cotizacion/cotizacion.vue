@@ -4,12 +4,12 @@
 
       <div class="container">
         <b-row class="mi-breadcrumb">
-          <b-col cols="12" class="box-steps">
-            <ul class="steps" style="display: inline-flex">
-                <div class="steps__item"><span>Pago</span></div>
-                <div class="steps__item steps--active">Planes</div>
-                <div class="steps__item"><span>Mi carro</span></div>
-                <li class="steps--progressBar"></li>
+          <b-col cols="12" class="box-steps2">
+            <ul class="steps2" style="display: inline-flex">
+                <div class="steps2__item"><span>Pago</span></div>
+                <div class="steps2__item steps2--active">Planes</div>
+                <div class="steps2__item"><span>Mi carro</span></div>
+                <li class="steps2--progressBar"></li>
               </ul>
           </b-col>
         </b-row>
@@ -692,8 +692,8 @@
     </b-container>
 
     <!--Modal e-mail-->
-    <b-modal title="Bootstrap-Vue" hide-footer hide-header ref="modalEnviarEmail" id="modalEnviarEmail" >
-      <img @click="hideModalEnviarEmail()" src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" />
+    <b-modal title="Bootstrap-Vue" hide-footer hide-header ref="modalEnviarEmail" id="modalEnviarEmail2" class="enviar-cotizacion">
+      <img @click="hideModalEnviarEmail()" src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close2" />
       <div class="box-mensajeEnviadoCotizacion" v-bind:class="{ mostrarMensajeEnviadoCotizacion: mostrarMensajeEnviadoCotizacion, }" >
         <p class="modal-subtitulo-mail">
           Ingresa tu correo para enviarte <br />
@@ -701,14 +701,10 @@
           al mejor precio del mercado :)
         </p>
       </div>
-
-      <div class="modalEnviarEmail">
-        <div class="fechaCotizador">
-          <b-form-input
-            id="input-small"
-            placeholder="Ejem. lperez@gmail.com"
-            v-model="email"
-          ></b-form-input>
+      <div>
+        <div>
+          <b-form-input id="input-small" placeholder="Ejem. lperez@gmail.com" v-model="email" >
+          </b-form-input>
         </div>
         <div class="box-btns">
           <button class="btn btn-mail" @click="enviarMail()">Enviar cotización</button>
@@ -850,7 +846,7 @@
 
     <!--Modal fecha inicio-->
     <b-modal title="Bootstrap-Vue" hide-footer hide-header ref="modalInicioVigencia" id="modalInicioVigencia2" >
-      <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" @click="hideModalInicioVigencia()" />
+      <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close2" @click="hideModalInicioVigencia()" />
       <div class="modal-content fechaVigenciaCotizador">
         <p class="modal-titulo">
           Elige la fecha que iniciará <br />
@@ -880,7 +876,7 @@
     <!--Fin Modal fecha inicio-->
 
     <b-modal id="v2modalGPS" title="Bootstrap-Vue" hide-footer hide-header ref="v2modalGPS" >
-      <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" @click="hideModalGPS()" />
+      <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close2" @click="hideModalGPS()" />
       <div class="d-block text-center v2modalGPS">
         <b-row align-h="center" >
            <b-col cols="12" class="v2modalGPS-header">
@@ -1235,7 +1231,7 @@
 
     <!--Modal entidad financiera-->
     <b-modal id="modalEntidadFinanciera2" title="Bootstrap-Vue" hide-footer hide-header ref="modalEntidadFinanciera2" >
-      <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close" @click="hidemodalEntidadFinanciera()" />
+      <img src="./../../static/media/img/root/close.png" width="30" alt="icon close" class="modal-close2" @click="hidemodalEntidadFinanciera()" />
       <!-- <div class="box-mensajeEnviadoEndosar" v-bind:class="{ mostrarMensajeEnviadoEndosar: mostrarMensajeEnviadoEndosar }" >
         <div class="endosar-item">
           <img width="80" class="check-enviado" src="./../../static/media/interseguroVehicular_v2/mensaje-enviado-cotizacion.png" alt="" />
@@ -1266,7 +1262,7 @@
 
     <b-modal
       id="leaveQuote2"
-      class="leaveModal"
+      class="leaveModal2"
       size="lg"
       static
       centered

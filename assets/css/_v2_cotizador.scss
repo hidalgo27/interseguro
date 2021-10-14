@@ -208,7 +208,7 @@
   
   .pagina-cotizador{
     margin-top: 72px;
-    padding-bottom: 45px;
+    padding-bottom: 100px;
     .planInactivo{
       box-shadow: none;
     }
@@ -624,13 +624,7 @@
     }
   }  
 
-  @media (max-width: 576px) {
-    .pagina-cotizador{
-      
-      
-      
-      
-    }
+  @media (max-width: 576px) {    
     .modal-subtitulo-mail{
       color: #0855C4;
       font-size: 21px;
@@ -830,10 +824,7 @@
     
   }
 
-  @media (min-width: 768.1px) {
-    .pagina-cotizador{
-      
-    }
+  @media (min-width: 768.1px) {    
     .v2modalGPS{
       margin-left: 15px;
       margin-right: 15px;
@@ -957,8 +948,6 @@
 
   @media (max-width: 991.9px) {
     .pagina-cotizador{
-      margin-top: 60px;
-      padding-bottom: 45px;
       .col-custom{
         margin-top: 20px;
         margin-bottom: 10px;
