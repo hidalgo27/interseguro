@@ -25,7 +25,7 @@
                                         <br>
                                         <br>Si ocasionas daños a personas que estaban dentro del carro al momento del accidente.
                                         <br>
-                                        <br>Cubrimos hasta: US$ 10,000 por ocupante, máximo 5 ocupantes  
+                                        <br>Cubrimos hasta: US$ 10,000 por ocupante, máximo 5 ocupantes
                                         <br>
                                         <br>Pago mínimo : $150
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -64,7 +64,7 @@
                                     <p>
                                         Si te roban el carro por completo.
                                         <br>
-                                        <br>Cubrimos hasta: Valor asegurado del carro   
+                                        <br>Cubrimos hasta: Valor asegurado del carro
                                         <br>
                                         <br><span>Cobertura en:</span>
                                         <br>
@@ -226,7 +226,7 @@
                                     <p>
                                         Si rompieron una o más de tus lunas.
                                         <br>
-                                        <br>Cubrimos hasta: Valor asegurado del carro  
+                                        <br>Cubrimos hasta: Valor asegurado del carro
                                         <br>
                                         <br>Pago mínimo : $0 nacionales, $150 internacionales
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -255,7 +255,7 @@
                                     <p>
                                         Si tuviste un accidente manejando en vías no autorizadas, bajo los efectos de drogas y/o alcohol, o habiendo cometido infracciones declaradas como "Muy Grave" o "Grave" por el Reglamento Nacional de Tránsito.
                                         <br>
-                                        <br>Cubrimos hasta: Daños al carro por el valor asegurado del mismo; Hasta US$ 50,000 por Responsabilidad Civil 
+                                        <br>Cubrimos hasta: Daños al carro por el valor asegurado del mismo; Hasta US$ 50,000 por Responsabilidad Civil
                                         <br>
                                         <br>Pago mínimo : $150
                                         <br>Pago máximo: 10% del monto a indemnizar
@@ -352,7 +352,7 @@
                     </div>
                 </div>
         </section>
-        
+
         <section class="cobertura-desktop d-none d-md-block   pb-5">
             <div>
                 <div class="section-header  detalle-coberturas">
@@ -362,7 +362,7 @@
                     <table class="tcobertura">
                         <thead class="tcobertura__cabecera">
                             <tr align="center">
-                                <td><p class="texto-titulo">Coberturas</p></td>                                
+                                <td><p class="texto-titulo">Coberturas</p></td>
                                 <td><p class="texto-titulo">¿Hasta cuánto podemos cubrir?</p></td>
                                 <td><p class="texto-titulo" style="width: 128px">Pago mínimo</p></td>
                                 <td><p class="texto-titulo"  style="width: 128px">Pago máximo</p></td>
@@ -381,7 +381,7 @@
                                         <b-tooltip target="disabled-wrapper">Se incluyen todos los que hayan sido observados durante la inspección vehicular. (ejm: radio, aros, gps, etc)</b-tooltip>
                                     </div> -->
                                 </td>
-                                
+
                                 <td><p><strong>Frente a Ocupantes:</strong><br><span>$10,000 por ocupante. Máximo 5 ocupantes</span></p></td>
                                 <td align="center" rowspan="2"><p><span>$150</span></p></td>
                                 <td align="center" rowspan="2"><p><span>10% del monto a<br>indemnizar</span></p></td>
@@ -406,26 +406,26 @@
                             </tr>
                             <tr style="background-color: #ebf4ff;">
                                 <td class="texto-izq">Pérdida parcial por choques</td>
-                                
+
                                 <td><p><strong>Si tu carro sufre daños por un choque o<br>accidente involuntario.</strong><br><span>Hasta 75% del valor asegurado del carro.</span></p></td>
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$150</td>
                                             <td style="width: calc(49% - 0px);">10% del monto a indemnizar</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"  class="minitabla__titulo">En taller concesionario</td>                                            
+                                            <td colspan="2"  class="minitabla__titulo">En taller concesionario</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$200</td>
                                             <td style="width: calc(49% - 0px);">15% del monto a indemnizar</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"  class="minitabla__titulo">En taller no afiliado a Interseguro</td>                                            
+                                            <td colspan="2"  class="minitabla__titulo">En taller no afiliado a Interseguro</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$300</td>
@@ -439,7 +439,7 @@
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
                             </tr>
                             <tr>
-                                <td rowspan="4" class="texto-izq">Accidentes de ocupantes</td>                                
+                                <td rowspan="4" class="texto-izq">Accidentes de ocupantes</td>
                                 <td><p><strong>Muerte de ocupantes</strong><br>
                                 <span>$20,000 por ocupante, máximo 5 ocupantes</span></p></td>
                                 <td align="center"><p><span>-</span></p></td>
@@ -500,7 +500,7 @@
                                 <td><p><strong>Si rompieron una o más de tus lunas.</strong><br><span>Cubrimos hasta: Valor total asegurado del carro</span><br>
                                  <span class="ausencia-control">
                                     <img width="14" src="../../static/media/img/exclamacion.png" alt="">Las lunas importadas se atienden vía reembolso</span>
-                                 
+
                                 </p></td>
                                 <td align="center"><p><span>Nacionales : $0</span> <br> <span>Importadas: $150</span></p></td>
                                 <td align="center"><p><span>10% del monto a<br>indemnizar</span></p></td>
@@ -514,7 +514,7 @@
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$150</td>
@@ -531,7 +531,7 @@
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$150</td>
@@ -548,7 +548,7 @@
                                 <td align="center" colspan="2" style="padding: 0; border: none;">
                                     <table class="minitabla"  border="0">
                                         <tr>
-                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>                                            
+                                            <td colspan="2" class="minitabla__titulo">En taller preferente</td>
                                         </tr>
                                         <tr>
                                             <td style="width: calc(49% - 0px);">$200</td>
@@ -556,7 +556,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                
+
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center"><img src="../../static/media/img/cobertura/check.png"/></td>
@@ -597,8 +597,8 @@
                     </p>
                 </div>
             </div>
-            
-           
+
+
         </section>
 
         <section class="servicios-tranquilidad  d-none  d-lg-block   pb-5">
@@ -621,7 +621,7 @@
                                     </b-col>
                                     <b-col>
                                         <h4>¿Hasta donde llegan  nuestros servicio de grúas?</h4>
-                                        <div class="tab-servicios">                                           
+                                        <div class="tab-servicios">
                                             <div class="box-tab" style="background: white;">
                                                 <div class="box-tab__item">
                                                     <p class="point">Sur</p>
@@ -667,7 +667,7 @@
                                     </b-col>
                                     <b-col>
                                         <h4>¿Hasta donde llegan  nuestros servicio de grúas?</h4>
-                                        <div class="tab-servicios">                                           
+                                        <div class="tab-servicios">
                                             <div class="box-tab" style="background: white;">
                                                 <div class="box-tab__item">
                                                     <p class="point">Sur</p>
@@ -749,9 +749,9 @@
                     </b-tabs>
                 </div>
             </div>
-            
+
         </section>
-        
+
         <section id="nomecubre" class="cobertura-3" ref="nomecubre">
             <div class="cobertura-desktop">
                 <div class="section-header">
@@ -767,17 +767,17 @@
                             </div>
                             <div class="cobertura-3-item__detalle">
                                 <b-btn v-b-modal="'modal-' + item.id" class="item-box__enlace w-inline-block clearfix">
-                                    <div  class="item-box__enlace--detalle" @click="verDetalleNoMeCubre(item)">Ver más</div>                                  
+                                    <div  class="item-box__enlace--detalle" @click="verDetalleNoMeCubre(item)">Ver más</div>
                                 </b-btn>
                             </div>
-                            
+
                             </div>
                             <modal2-is :obj2="item"></modal2-is>
                         </b-col>
                     </b-row>
                 </div>
             </div>
-            
+
         </section>
 
         <section>
@@ -803,7 +803,7 @@
                                     <br>
                                     <br>
                                 </p>
-                                <div class="tab-servicios">                                           
+                                <div class="tab-servicios">
                                     <div class="box-tab" style="background: white;">
                                         <div class="box-tab__item">
                                             <p class="point">Sur</p>
@@ -857,7 +857,7 @@
                                     <br>
                                     <br>
                                 </p>
-                                <div class="tab-servicios">                                           
+                                <div class="tab-servicios">
                                     <div class="box-tab" style="background: white;">
                                         <div class="box-tab__item">
                                             <p class="point">Sur</p>
@@ -891,7 +891,7 @@
                             </div>
                         </div>
                     </b-modal>
-                </div>            
+                </div>
                 <!-- Asistencia mecánica -->
                 <div>
                     <b-modal id="modalam" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalAM" size="lg">
@@ -937,7 +937,7 @@
                             </div>
                         </div>
                     </b-modal>
-                </div>                
+                </div>
                 <!-- Ambulancias -->
                 <div>
                     <b-modal id="modala" title="Bootstrap-Vue" hide-footer hide-header ref="hideModalA" size="lg">
@@ -995,611 +995,6 @@
 
     </div>
 </template>
-
-<style lang="scss" scope>
-.ausencia-control-mobile{
-  flex-direction: column;
-  display: flex;
-  .ausencia-control{
-    font-size: 11px;
-  }
-}
-.ausencia-control{
-    color: #979696;
-}
-.minitabla{
-    padding: 0; 
-    margin: 0;    
-    width: 100%;
-    td{
-        font-size: 14px;
-        text-align: center;
-    }
-    &__titulo{
-        background: #c1eafc;
-        text-align: center;
-        color: #0667ba;
-        font-size: 15px;
-    }
-    
-}
-.tab-servicios{
-    .box-mapa{
-        display: none;
-    }
-    .contenedor{
-        padding-right: 0px;
-    }
-    .section-header__title {
-        line-height: 1;
-    }
-    ul{
-        border: 0;
-        margin-top: 48px;
-    }
-    .brujula{
-        position: absolute;
-        height: 70px;
-        right: 175px;
-        top: 0;
-    }
-    .point-desc{
-        padding-left: 8px;
-        width: 350px;
-        font-size: 13px;
-    }
-    .nav-item{
-        margin: 0;
-        padding: 0;
-        .main-nav__logo--iso{
-            width: 30px;
-        }
-        &:nth-child(1){
-            a{
-                width: 150px;
-                padding-left: 10px;
-            }
-        }
-        &:nth-child(2){
-            a{                    
-                width: 150px;
-                padding-left: 40px;
-                &:before{
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    border-right: 0;
-                    border-top: 63px solid transparent;
-                    border-left: 35px solid #e6e6e6;
-                    left: -2px;
-                    z-index: 9;
-                    height: 65px;  
-                }
-                &:after{
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    border-right: 0;
-                    border-top: 63px solid transparent;
-                    border-left: 35px solid #e6e6e6;
-                    right: -32px;
-                    z-index: 9;
-                    height: 65px;  
-                }
-            }
-        }
-        p{
-            padding-left: 8px;
-        }
-    }
-    .box-tab{
-        .main-nav__logo--iso{
-            position: relative;
-            width: 30px;
-        }
-        &__item{
-            height: 48px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            border-bottom: 2px solid #C1C1C1;
-            color: #7F7F7F;
-            
-            .point{
-                border-right: 2px solid #C1C1C1;
-                width: 100px;
-                justify-content: center;
-                color: #5E5E5E;
-            }
-            
-            p{
-                margin: 0;
-                height: 40px;
-                display: flex;
-                align-items: center;   
-                margin-bottom: 0;                                     
-            }
-            &:last-child{
-                border-bottom: none;
-            }
-        }
-    }
-    .nav-tabs .nav-link {
-        background: #e6e6e6;
-        color: #7F7F7F;
-        height: 65px;
-        font-size: 14px;
-        line-height: 1;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        border: 0;
-        
-    }
-    .nav-tabs .nav-link.active {
-        background: white;
-        &:after{
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-right: 0;
-            border-top: 63px solid transparent;
-            border-left: 35px solid #ffffff;
-            border-bottom: 0 solid #ffffff;
-            right: -33px;
-            z-index: 999;
-            height: 65px;   
-        }
-    }
-    p{
-        align-items: center;  
-        margin-bottom: 0;                                      
-    }
-}
-.v2_cobertura{
-    background: #f7f4fc;
-    padding-top: 100px;
-    p,div{
-        margin: 0;
-    }
-    .detalle-coberturas{
-        padding: 24px 0;
-    }
-    .servicios-tranquilidad{
-        font-family: 'Omnes Medium';        
-        background: #fff;
-        .tab-content{
-            padding-top: 12px;
-        }
-        .section-servicios{
-            max-width: 1140px;
-            margin: auto;
-        }
-        .section-header{
-            padding: 24px 0;
-        }
-        .coverage-tab{
-            color: #505050;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.08;
-            letter-spacing: normal;
-            .nav-tabs .nav-link {
-                font-family: 'Omnes Regular';
-                font-size: 22px;
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: 1;
-                letter-spacing: normal;
-                text-align: center;
-                color: #838383;
-                height: 65px;
-                line-height: 1;
-                display: inline-block;
-                width: 100%;
-                vertical-align: middle;
-            }
-            .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-                color: #00adee;
-                background-color: #fff;
-                border-color: #00adee #00adee #fff;
-                font-family: 'Omnes Medium';
-                font-size: 22px;
-                font-weight: 500;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: 1;
-                letter-spacing: normal;
-                color: #00adee;
-                text-align: center;
-                border-right: 2px solid;
-                border-left: 2px solid;
-                border-top: 2px solid;
-            }
-            .nav-tabs .nav-item a{
-                border-bottom: 2px solid #00adee;
-                text-align: center;
-            }
-        }
-    }
-}
-.tcobertura{
-    width: 100%;
-    background: white;
-    &__cabecera{
-    }
-    thead{
-        tr{
-            height: 47px;
-            p{
-                color: #696969;
-            }
-        }
-        .plata{
-            background: #b1b1b1;
-            color: white;
-            width: 75px;
-        }
-        .oro{
-            background: #e6ac38;
-            color: white;
-            width: 75px;
-        }
-        .black{
-            background: #27362d;
-            color: white;
-            width: 75px;
-        }
-        .texto-titulo{
-            font-family: 'Omnes Medium';
-            font-size: 20px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1;
-            letter-spacing: normal;
-            text-align: center;
-            color: #696969;
-        }
-    }
-    tbody{
-        .texto-izq{
-            font-family: 'Omnes Medium';
-            font-size: 20px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.25;
-            letter-spacing: 0.11px;
-            text-align: left;
-            color: #505050;
-        }
-    }
-}
-.cobertura-mobile{
-    font-family: 'Omnes Medium';
-    .section-header{ 
-        &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #505050;
-        }
-    }
-    .accordion-tab{
-        .btn {
-            height: 57px;
-            color: #505050;
-            // background-color: #f1f7ff;
-            line-height: 55px;
-            text-align: left;
-            border: 0;
-            border-radius: 0;
-            p{
-                line-height: 45px;
-            }
-            img{
-                margin-top: auto;
-                margin-bottom: auto;
-                width: 15px;
-                height: 10px;
-            }
-        }
-        .card-header {
-            border: 0;
-        }
-        .card-text{
-            color: #5e5e5e;
-            font-size: 15px;
-            text-align: center;
-            p{
-                text-align: left;
-                strong{
-                    color: #0855c4;
-                }
-                span{
-                    font-size: 14px;
-                }
-            }
-        }
-        .btn-secondary:not(:disabled):not(.disabled):active,
-        .btn-secondary:not(:disabled):not(.disabled).active,
-        .show > .btn-secondary.dropdown-toggle {
-            color: #505050;
-        }
-        &__blue{
-            .btn-secondary:not(:disabled):not(.disabled):active,
-            .btn-secondary:not(:disabled):not(.disabled).active,
-            .show > .btn-secondary.dropdown-toggle {
-                background-color: #f1f7ff;
-            }
-            .btn-secondary {
-                background-color: #f1f7ff;
-            }
-        }
-        &__white{
-            .btn-secondary:not(:disabled):not(.disabled):active,
-            .btn-secondary:not(:disabled):not(.disabled).active,
-            .show > .btn-secondary.dropdown-toggle {
-                background-color: #f8f8f8;
-            }
-            .btn-secondary {
-                background-color: #f8f8f8;
-            }
-        }
-    }
-    .benefit-tab{
-        color: #5e5e5e;
-        font-family: 'Omnes Medium';
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        letter-spacing: normal;
-        font-size: 18px;
-        div{
-            height: 53px;
-            padding-left: 12px;
-            padding-right: 12px;
-            line-height: 50px;
-        }
-        a{
-            font-size: 14px;
-            color: #0497ce;
-            text-decoration-line: underline;
-        }
-        &__blue{
-            background-color: #f1f7ff;
-        }
-        &__white{
-            background-color: #f8f8f8;
-        }
-    }
-    .modal-coverage{
-        display: flex;
-        flex-direction: column;
-        margin-top: -15px;
-        .btn-secondary {
-            background: white;
-            border: none;
-            position: relative;
-            height: 26px;
-            img{
-                position: absolute;
-                right: 10px;
-            }
-        }
-        .modal-description{
-            font-family: 'Omnes Medium';
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.25;
-            letter-spacing: normal;
-            strong{
-                font-size: 22px;
-                color: #0855c4;
-                font-weight: 600;
-                line-height: 1;
-            }
-            p{
-                font-size: 16px;
-            }
-            span{
-                font-size: 12px;
-            }
-            table{
-                border-collapse: separate;
-                border-spacing: 15px;
-            }
-        }
-        .btn-secondary:focus,
-        .btn-secondary:not(:disabled):not(.disabled).active:focus {
-            box-shadow: none;
-        }
-        .btn:focus {
-            box-shadow: none;
-        }
-    }
-}
-.servicios-tranquilidad{
-    .section-header{  
-        &__title {
-            font-size: 44px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #505050;
-        }
-    }
-}
-.cobertura-desktop{
-    font-family: 'Omnes Medium';
-    max-width: 1140px;
-    margin: auto !important;
-    .section-header{
-        padding: 24px 0;
-        &__title {
-            font-size: 44px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #505050;
-        }
-    }
-    .coverage-detail{
-        table{
-            margin-right: auto;
-            margin-left: auto;
-            font-size: 18px;
-            border: 0.2px solid #dbe6e4;
-            // border-collapse: collapse;
-            h1{
-                font-size: 20px;
-                font-weight: 500;
-                color: #696969;
-            }
-            .tcobertura__cabecera{
-                p{
-                color: #0667ba;
-                }
-            }
-            p{
-                color: #696969;
-                font-family: 'Omnes Medium';
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                letter-spacing: 0.07px;
-                strong{
-                    font-size: 14px;
-                    color: #0667ba;
-                }
-                span{
-                    font-size: 14px;
-                }
-            }
-            td{
-                padding-left: 10px;
-                padding-right: 10px;
-                border-left: 0.2px solid #dbe6e4; 
-                border-right: 0.2px solid #dbe6e4;
-            }
-        }
-    }
-    
-}
-
-
-.cobertura-3{
-    box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
-    background-color: #fcfcfc;
-    .section-header{  
-        &__title {
-            font-size: 22px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #696969;
-        }
-    }
-    .cobertura-3-item{
-        width: 180px !important;
-        height: 180px !important;
-        border-radius: 200px !important;
-        background-color: #F1F7FF;
-        margin-left: auto;
-        margin-right: auto;
-        .cobertura-icon{
-            width: 100px;
-            height: 85px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img{
-                height: 66px;
-                width: auto;
-            }
-        }
-        &__title{
-            font-family: 'Omnes Regular';
-            color: #505050;
-            font-weight: 600;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.35;
-            letter-spacing: normal;
-            text-align: center;
-            
-        }
-        .item-box{
-            &__enlace{
-                background: transparent;
-                &--detalle{
-                    text-decoration: underline;
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: 1.55;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #00adee;
-                    font-family: 'Omnes Regular';
-                }
-            }
-        }
-    }
-}
-
-.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
-    color: #fff;
-    background-color: transparent;
-    border-color: transparent !important;
-}
-.btn-secondary:focus, .btn-secondary.focus {
-    color: #fff;
-    background-color: transparent;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-.btn-secondary {
-    background-color: transparent;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-@media (min-width: 1200px) {
-    .cobertura-3{
-        .cobertura-3-item{
-            &__title{
-                font-size: 26px;
-                font-weight: 500;
-            }
-        }
-        .section-header{
-            &__title{
-                font-size: 44px;
-            }
-        }
-    }
-}
-</style>
-
 <script>
 import Modal2 from '@/components/modals/modal2'
 export default {
@@ -1617,7 +1012,7 @@ export default {
             isVisibleOR: false,
             ListNoCubrimos: [
                 {
-                    id: 300,    
+                    id: 300,
                     titulo: "Si te portas mal",
                     url: require("../../static/media/img/exclusion-01.png"),
                     detalles:[
@@ -1625,11 +1020,11 @@ export default {
                         {descripcion:'Si huiste del lugar del accidente y dañan tu carro, a menos que sea para evitar el accidente.'},
                         {descripcion:'Si manejaron tu carro sin tener brevete, o si lo tenían vencido o suspendido. '},
                         {descripcion:'Si tu carro se daña porque participaste activamente en peleas o alteraciones del orden público.'},
-                        {descripcion:'Si tu carro sufre daños porque cometiste una infracción a las normas de tránsito.'},                
+                        {descripcion:'Si tu carro sufre daños porque cometiste una infracción a las normas de tránsito.'},
                     ]
                 },
                 {
-                    id: 301,  
+                    id: 301,
                     titulo: "Sobre lo que llevas",
                     url: require("../../static/media/img/exclusion-02.png"),
                     detalles:[
@@ -1637,31 +1032,31 @@ export default {
                         {descripcion:'Si causan daños a los remolques, casas rodantes o furgones acoplados a tu carro. Tampoco si se lastiman o mueren las personas que iban dentro, ni las cosas que se dañen.'},
                         {descripcion:'Si tu carro se daña porque estabas remolcando otro carro.'},
                         {descripcion:'Si tu carro estaba siendo transportado por una grúa que no es nuestra.'},
-                        {descripcion:'Si tu carro se daña porque participaste activamente en peleas o alteraciones del orden público.'},     
-                        {descripcion:'Si los animales, personas u objetos que llevabas en tu carro lo dañan; así como los daños que causen a terceros.'},                
+                        {descripcion:'Si tu carro se daña porque participaste activamente en peleas o alteraciones del orden público.'},
+                        {descripcion:'Si los animales, personas u objetos que llevabas en tu carro lo dañan; así como los daños que causen a terceros.'},
                     ]
                 },
                 {
-                    id: 302,    
+                    id: 302,
                     titulo: "Sobre lo que dañas",
                     url: require("../../static/media/img/exclusion-03.png"),
                     detalles:[
                         {descripcion:'Si se dañan tus propiedades o propiedades bajo tu control, no cubrimos esas reparaciones.'},
                         {descripcion:'Si se dañan la capota de lona o los accesorios, piezas o partes de descapotables.'},
-                        {descripcion:'Si se dañan los neumáticos o cámaras, a menos que sea debido a un accidente cubierto.'}             
+                        {descripcion:'Si se dañan los neumáticos o cámaras, a menos que sea debido a un accidente cubierto.'}
                     ]
                 },
                 {
-                    id: 303,  
+                    id: 303,
                     titulo: "Alguien lleva tu carro",
                     url: require("../../static/media/img/exclusion-04.png"),
                     detalles:[
                         {descripcion:'Si tu carro se daña cuando lo remolcan o lo transporta una grúa que no sea nuestra. Por favor, evita transportarlo con otros medios que no sean nuestros.'},
-                        {descripcion:'Si hay daños causados a otras personas cuando robaron tu carro, salvo si te lastimaron a ti o a las personas que iban contigo justo antes del robo.'},          
+                        {descripcion:'Si hay daños causados a otras personas cuando robaron tu carro, salvo si te lastimaron a ti o a las personas que iban contigo justo antes del robo.'},
                     ]
                 },
                 {
-                    id: 304,  
+                    id: 304,
                     titulo: "Desgaste o mal uso",
                     url: require("../../static/media/img/exclusion-05.png"),
                     detalles:[
@@ -1671,27 +1066,33 @@ export default {
                     ]
                 },
                 {
-                    id: 305,  
+                    id: 305,
                     titulo: "Casos extremos",
                     url: require("../../static/media/img/exclusion-06.png"),
                     detalles:[
                         {descripcion:'Si los daños a tu carro sucedieron porque se proclamó un estado de sitio o alguna autoridad decidió confiscar, expropiar, nacionalizar o destruir bienes.'},
                         {descripcion:'Si los daños fueron causados debido a una guerra, civil o internacional.'},
-                        {descripcion:'Si fueron causados por una reacción o radiación nuclear, o contaminación radioactiva.'}             
+                        {descripcion:'Si fueron causados por una reacción o radiación nuclear, o contaminación radioactiva.'}
                     ]
                 },
                 {
-                    id: 307,  
+                    id: 307,
                     titulo: "Otros",
                     url: require("../../static/media/img/exclusion-07.png"),
                     detalles:[
                         {descripcion:'Si los daños ocurrieron cuando usaste tu carro como taxi, colectivo, auto de instrucción, movilidad escolar, para arrendamiento o cualquier otro uso comercial, solo aseguramos uso particular.'},
                         {descripcion:'Si los daños ocurrieron cuando tu carro iba por zonas que no están destinadas al paso de vehículos, a menos que sean trayectos obligados.'},
-                        {descripcion:'Si los daños no son causados de forma accidental.'}             
+                        {descripcion:'Si los daños no son causados de forma accidental.'}
                     ]
                 }
-            ]       
+            ]
         }
+    },
+    head: {
+      title: 'Cobertura de seguro vehicular por plan',
+      meta: [
+        { hid: 'description', name: 'description', content: "Conoce la cobertura de seguro vehicular por cada plan. Recibe beneficios adicionales como auxilio vehicular, asistencia mecánica, vehículo de reemplazo y más" },
+      ],
     },
     components:{
         'modal2-is': Modal2
@@ -1727,7 +1128,7 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/cobertura', 
+                'page-url': '/vehicular/cobertura',
                 'page-title': 'Cobertura'
             })
         }
@@ -1739,8 +1140,612 @@ export default {
             })
         }else{
         }
-        
+
         this.PaginaVista()
     }
 }
 </script>
+
+<style lang="scss" scope>
+.ausencia-control-mobile{
+  flex-direction: column;
+  display: flex;
+  .ausencia-control{
+    font-size: 11px;
+  }
+}
+.ausencia-control{
+  color: #979696;
+}
+.minitabla{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  td{
+    font-size: 14px;
+    text-align: center;
+  }
+  &__titulo{
+    background: #c1eafc;
+    text-align: center;
+    color: #0667ba;
+    font-size: 15px;
+  }
+
+}
+.tab-servicios{
+  .box-mapa{
+    display: none;
+  }
+  .contenedor{
+    padding-right: 0px;
+  }
+  .section-header__title {
+    line-height: 1;
+  }
+  ul{
+    border: 0;
+    margin-top: 48px;
+  }
+  .brujula{
+    position: absolute;
+    height: 70px;
+    right: 175px;
+    top: 0;
+  }
+  .point-desc{
+    padding-left: 8px;
+    width: 350px;
+    font-size: 13px;
+  }
+  .nav-item{
+    margin: 0;
+    padding: 0;
+    .main-nav__logo--iso{
+      width: 30px;
+    }
+    &:nth-child(1){
+      a{
+        width: 150px;
+        padding-left: 10px;
+      }
+    }
+    &:nth-child(2){
+      a{
+        width: 150px;
+        padding-left: 40px;
+        &:before{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-right: 0;
+          border-top: 63px solid transparent;
+          border-left: 35px solid #e6e6e6;
+          left: -2px;
+          z-index: 9;
+          height: 65px;
+        }
+        &:after{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-right: 0;
+          border-top: 63px solid transparent;
+          border-left: 35px solid #e6e6e6;
+          right: -32px;
+          z-index: 9;
+          height: 65px;
+        }
+      }
+    }
+    p{
+      padding-left: 8px;
+    }
+  }
+  .box-tab{
+    .main-nav__logo--iso{
+      position: relative;
+      width: 30px;
+    }
+    &__item{
+      height: 48px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 2px solid #C1C1C1;
+      color: #7F7F7F;
+
+      .point{
+        border-right: 2px solid #C1C1C1;
+        width: 100px;
+        justify-content: center;
+        color: #5E5E5E;
+      }
+
+      p{
+        margin: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+  .nav-tabs .nav-link {
+    background: #e6e6e6;
+    color: #7F7F7F;
+    height: 65px;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border: 0;
+
+  }
+  .nav-tabs .nav-link.active {
+    background: white;
+    &:after{
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-right: 0;
+      border-top: 63px solid transparent;
+      border-left: 35px solid #ffffff;
+      border-bottom: 0 solid #ffffff;
+      right: -33px;
+      z-index: 999;
+      height: 65px;
+    }
+  }
+  p{
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+.v2_cobertura{
+  background: #f7f4fc;
+  padding-top: 100px;
+  p,div{
+    margin: 0;
+  }
+  .detalle-coberturas{
+    padding: 24px 0;
+  }
+  .servicios-tranquilidad{
+    font-family: 'Omnes Medium';
+    background: #fff;
+    .tab-content{
+      padding-top: 12px;
+    }
+    .section-servicios{
+      max-width: 1140px;
+      margin: auto;
+    }
+    .section-header{
+      padding: 24px 0;
+    }
+    .coverage-tab{
+      color: #505050;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.08;
+      letter-spacing: normal;
+      .nav-tabs .nav-link {
+        font-family: 'Omnes Regular';
+        font-size: 22px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        text-align: center;
+        color: #838383;
+        height: 65px;
+        line-height: 1;
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+      }
+      .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        color: #00adee;
+        background-color: #fff;
+        border-color: #00adee #00adee #fff;
+        font-family: 'Omnes Medium';
+        font-size: 22px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #00adee;
+        text-align: center;
+        border-right: 2px solid;
+        border-left: 2px solid;
+        border-top: 2px solid;
+      }
+      .nav-tabs .nav-item a{
+        border-bottom: 2px solid #00adee;
+        text-align: center;
+      }
+    }
+  }
+}
+.tcobertura{
+  width: 100%;
+  background: white;
+  &__cabecera{
+  }
+  thead{
+    tr{
+      height: 47px;
+      p{
+        color: #696969;
+      }
+    }
+    .plata{
+      background: #b1b1b1;
+      color: white;
+      width: 75px;
+    }
+    .oro{
+      background: #e6ac38;
+      color: white;
+      width: 75px;
+    }
+    .black{
+      background: #27362d;
+      color: white;
+      width: 75px;
+    }
+    .texto-titulo{
+      font-family: 'Omnes Medium';
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: center;
+      color: #696969;
+    }
+  }
+  tbody{
+    .texto-izq{
+      font-family: 'Omnes Medium';
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: 0.11px;
+      text-align: left;
+      color: #505050;
+    }
+  }
+}
+.cobertura-mobile{
+  font-family: 'Omnes Medium';
+  .section-header{
+    &__title {
+      font-size: 22px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #505050;
+    }
+  }
+  .accordion-tab{
+    .btn {
+      height: 57px;
+      color: #505050;
+      // background-color: #f1f7ff;
+      line-height: 55px;
+      text-align: left;
+      border: 0;
+      border-radius: 0;
+      p{
+        line-height: 45px;
+      }
+      img{
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 15px;
+        height: 10px;
+      }
+    }
+    .card-header {
+      border: 0;
+    }
+    .card-text{
+      color: #5e5e5e;
+      font-size: 15px;
+      text-align: center;
+      p{
+        text-align: left;
+        strong{
+          color: #0855c4;
+        }
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+    .btn-secondary:not(:disabled):not(.disabled):active,
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .show > .btn-secondary.dropdown-toggle {
+      color: #505050;
+    }
+    &__blue{
+      .btn-secondary:not(:disabled):not(.disabled):active,
+      .btn-secondary:not(:disabled):not(.disabled).active,
+      .show > .btn-secondary.dropdown-toggle {
+        background-color: #f1f7ff;
+      }
+      .btn-secondary {
+        background-color: #f1f7ff;
+      }
+    }
+    &__white{
+      .btn-secondary:not(:disabled):not(.disabled):active,
+      .btn-secondary:not(:disabled):not(.disabled).active,
+      .show > .btn-secondary.dropdown-toggle {
+        background-color: #f8f8f8;
+      }
+      .btn-secondary {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+  .benefit-tab{
+    color: #5e5e5e;
+    font-family: 'Omnes Medium';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    font-size: 18px;
+    div{
+      height: 53px;
+      padding-left: 12px;
+      padding-right: 12px;
+      line-height: 50px;
+    }
+    a{
+      font-size: 14px;
+      color: #0497ce;
+      text-decoration-line: underline;
+    }
+    &__blue{
+      background-color: #f1f7ff;
+    }
+    &__white{
+      background-color: #f8f8f8;
+    }
+  }
+  .modal-coverage{
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+    .btn-secondary {
+      background: white;
+      border: none;
+      position: relative;
+      height: 26px;
+      img{
+        position: absolute;
+        right: 10px;
+      }
+    }
+    .modal-description{
+      font-family: 'Omnes Medium';
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      strong{
+        font-size: 22px;
+        color: #0855c4;
+        font-weight: 600;
+        line-height: 1;
+      }
+      p{
+        font-size: 16px;
+      }
+      span{
+        font-size: 12px;
+      }
+      table{
+        border-collapse: separate;
+        border-spacing: 15px;
+      }
+    }
+    .btn-secondary:focus,
+    .btn-secondary:not(:disabled):not(.disabled).active:focus {
+      box-shadow: none;
+    }
+    .btn:focus {
+      box-shadow: none;
+    }
+  }
+}
+.servicios-tranquilidad{
+  .section-header{
+    &__title {
+      font-size: 44px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #505050;
+    }
+  }
+}
+.cobertura-desktop{
+  font-family: 'Omnes Medium';
+  max-width: 1140px;
+  margin: auto !important;
+  .section-header{
+    padding: 24px 0;
+    &__title {
+      font-size: 44px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #505050;
+    }
+  }
+  .coverage-detail{
+    table{
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 18px;
+      border: 0.2px solid #dbe6e4;
+      // border-collapse: collapse;
+      h1{
+        font-size: 20px;
+        font-weight: 500;
+        color: #696969;
+      }
+      .tcobertura__cabecera{
+        p{
+          color: #0667ba;
+        }
+      }
+      p{
+        color: #696969;
+        font-family: 'Omnes Medium';
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: 0.07px;
+        strong{
+          font-size: 14px;
+          color: #0667ba;
+        }
+        span{
+          font-size: 14px;
+        }
+      }
+      td{
+        padding-left: 10px;
+        padding-right: 10px;
+        border-left: 0.2px solid #dbe6e4;
+        border-right: 0.2px solid #dbe6e4;
+      }
+    }
+  }
+
+}
+
+
+.cobertura-3{
+  box-shadow: 0 -9px 10px 0 rgba(0, 0, 0, 0.04);
+  background-color: #fcfcfc;
+  .section-header{
+    &__title {
+      font-size: 22px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #696969;
+    }
+  }
+  .cobertura-3-item{
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 200px !important;
+    background-color: #F1F7FF;
+    margin-left: auto;
+    margin-right: auto;
+    .cobertura-icon{
+      width: 100px;
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        height: 66px;
+        width: auto;
+      }
+    }
+    &__title{
+      font-family: 'Omnes Regular';
+      color: #505050;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.35;
+      letter-spacing: normal;
+      text-align: center;
+
+    }
+    .item-box{
+      &__enlace{
+        background: transparent;
+        &--detalle{
+          text-decoration: underline;
+          font-size: 20px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.55;
+          letter-spacing: normal;
+          text-align: left;
+          color: #00adee;
+          font-family: 'Omnes Regular';
+        }
+      }
+    }
+  }
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent !important;
+}
+.btn-secondary:focus, .btn-secondary.focus {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.btn-secondary {
+  background-color: transparent;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 1200px) {
+  .cobertura-3{
+    .cobertura-3-item{
+      &__title{
+        font-size: 26px;
+        font-weight: 500;
+      }
+    }
+    .section-header{
+      &__title{
+        font-size: 44px;
+      }
+    }
+  }
+}
+</style>

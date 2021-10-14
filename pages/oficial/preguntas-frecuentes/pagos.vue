@@ -8,8 +8,8 @@
         b-row.centrar
           b-col.ocultar-div(sm="12" md="4" style="padding-bottom: 30px")
             nuevoTextLinks
-          b-col.sinborde(sm="12" md="8")   
-            preguntasFrecuentesGenerico(  
+          b-col.sinborde(sm="12" md="8")
+            preguntasFrecuentesGenerico(
               :preguntas="preguntas"
               :itemsMenu="itemsMenu"
               :imagenMenu="imagenMenu"
@@ -28,18 +28,18 @@ export default {
   layout: "InterseguroHome",
    data() {
     return {
-      TextoTab: "Pagos", 
+      TextoTab: "Pagos",
       imagenMenu: require("@/static/media/img/root/pf/pagos.png"),
       regresarPrincipal: '/oficial/preguntas-frecuentes/',
       preguntas: [
         {
-          title: "¿Dónde puedo comprar el seguro vehicular?", 
+          title: "¿Dónde puedo comprar el seguro vehicular?",
           respuesta: ["<p class='parrafo omnes-medium  pb-2'>Online.</p>"],
           id: "pregunta4.1",
           identificador: "pregunta4.1"
         },
         {
-          title: "¿El pago en cuotas tiene intereses?", 
+          title: "¿El pago en cuotas tiene intereses?",
           respuesta: ["<p class='parrafo omnes-medium  pb-2'>No.</p>"],
           id: "pregunta4.2",
           identificador: "pregunta4.2"
@@ -57,46 +57,52 @@ export default {
           identificador: "pregunta4.4"
         }
       ],
-      
+
       itemsMenu: [
         {
-          title : "Asistencias",          
+          title : "Asistencias",
           id: "accordeon1",
           to: "inspeccion"
         },
         {
-          title : "Cobertura",          
+          title : "Cobertura",
           id: "accordeon2",
           to: "cobertura"
         },
         {
-          title : "Inspección",          
+          title : "Inspección",
           id: "accordeon3",
           to: "inspeccion"
         },
         {
-          title : "Pagos",          
+          title : "Pagos",
           id: "accordeon4",
           to: "pagos"
         },
         {
-          title : "Que pasa si",          
+          title : "Que pasa si",
           id: "accordeon5",
           to: "que-pasa-si"
         },
         {
-          title : "Siniestros",          
+          title : "Siniestros",
           id: "accordeon6",
           to: "siniestros"
         },
       ]
     };
   },
+  head: {
+    title: 'Pagar tu seguro vehicular es muy fácil',
+    meta: [
+      { hid: 'description', name: 'description', content: "¡Cotiza fácil y rápido! Pagar tu seguro vehicular es sencillo desde la web y con cualquier tarjeta de débito o crédito. Paga desde $12 mensual sin intereses" },
+    ],
+  },
   created() {
     this.$nuxt.$emit("nro-cotizaciones-flag", { flag: true });
   },
   mounted() {
-    
+
   },
   components: {
     preguntasFrecuentesGenerico,
@@ -104,7 +110,7 @@ export default {
     nuevoTextLinks
   },
   methods: {
-    
+
   }
 };
 </script>

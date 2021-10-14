@@ -8,8 +8,8 @@
         b-row.centrar
           b-col.ocultar-div(sm="12" md="4" style="padding-bottom: 30px")
             nuevoTextLinks
-          b-col.sinborde(sm="12" md="8")   
-            preguntasFrecuentesGenerico(  
+          b-col.sinborde(sm="12" md="8")
+            preguntasFrecuentesGenerico(
               :preguntas="preguntas"
               :itemsMenu="itemsMenu"
               :imagenMenu="imagenMenu"
@@ -28,7 +28,7 @@ export default {
   layout: "InterseguroHome",
    data() {
     return {
-      TextoTab: "¿Qué pasa si...?", 
+      TextoTab: "¿Qué pasa si...?",
       imagenMenu: require("@/static/media/img/root/pf/que_pasa_si.png"),
       regresarPrincipal: '/oficial/preguntas-frecuentes/',
       preguntas: [
@@ -74,48 +74,54 @@ export default {
           id: "pregunta6.7",
           identificador: "pregunta6.7"
         }
-        
+
       ],
-      
+
       itemsMenu: [
         {
-          title : "Asistencias",          
+          title : "Asistencias",
           id: "accordeon1",
           to: "inspeccion"
         },
         {
-          title : "Cobertura",          
+          title : "Cobertura",
           id: "accordeon2",
           to: "cobertura"
         },
         {
-          title : "Inspección",          
+          title : "Inspección",
           id: "accordeon3",
           to: "inspeccion"
         },
         {
-          title : "Pagos",          
+          title : "Pagos",
           id: "accordeon4",
           to: "pagos"
         },
         {
-          title : "Que pasa si",          
+          title : "Que pasa si",
           id: "accordeon5",
           to: "que-pasa-si"
         },
         {
-          title : "Siniestros",          
+          title : "Siniestros",
           id: "accordeon6",
           to: "siniestros"
         },
       ]
     };
   },
+  head: {
+    title: 'Seguro vehicular: ¿Qué pasa si...?',
+    meta: [
+      { hid: 'description', name: 'description', content: "¿Qué pasa con tu seguro vehicular si...? Conoce coberturas y exclusiones de tu seguro vehicular y casos frecuentes para resolver tus dudas" },
+    ],
+  },
   created() {
     this.$nuxt.$emit("nro-cotizaciones-flag", { flag: true });
   },
   mounted() {
-    
+
   },
   components: {
     preguntasFrecuentesGenerico,
@@ -123,7 +129,7 @@ export default {
     nuevoTextLinks
   },
   methods: {
-    
+
   }
 };
 </script>

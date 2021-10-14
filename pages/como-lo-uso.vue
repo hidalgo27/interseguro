@@ -60,12 +60,12 @@
                     <tab name="Asistencia mecánica y otros servicios" >
                         <div>
                             <h2 class="tabs-content__panel--title  text-center"><strong>Asistencia mecánica y otros servicios</strong></h2>
-                            <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Llámanos al (01) 500 0000 
+                            <p class="tabs-content__panel--parrafo"><span class="span-number">1. </span>Llámanos al (01) 500 0000
                                 <br>‍<br><span class="span-number">2.</span> Cuéntanos lo que necesitas, y envíanos tu ubicación por Whatsapp.<br>‍<br><span
                                 class="span-number">3.</span> Te guiamos por el proceso. <br>‍</p>
                         </div>
                     </tab>
-                   
+
 
                 </tabs>
             </div>
@@ -81,14 +81,14 @@
                     <h3 class="section-header__title ">¿Necesitas más <span class="span-primario">ayuda?</span></h3>
                     <h3 class="section-header__subtitle  pd-b16">Aquí te damos algunas respuestas</h3>
                     <h3 class="section-header__parrafo  pd-t16">
-                    <strong class="bold-text-6">Estas son las consultas más frecuentes que recibimos. Si tienes alguna otra,  </strong>                        
-                    <span class="text-span-16"> 
+                    <strong class="bold-text-6">Estas son las consultas más frecuentes que recibimos. Si tienes alguna otra,  </strong>
+                    <span class="text-span-16">
                         <strong class="span-primario"> llámanos al <a href="tel:015000000" class="span-primario">500 0000</a></strong>
                         </span>
                     </h3>
                 </div>
                 <nuxt-link class="button"  to="/oficial/preguntas-frecuentes">ver Preguntas frecuentes</nuxt-link>
-                
+
             </b-container>
         </section>
 
@@ -165,7 +165,7 @@
                 </p>
             </b-container>
             </div>
-            
+
     </div>
 </template>
 <script>
@@ -178,7 +178,13 @@ export default {
             cartaanulacion: ""
         }
     },
-  
+  head: {
+    title: 'Cómo usar seguro vehicular por accidente',
+    meta: [
+      { hid: 'description', name: 'description', content: "Protege tu auto con seguro vehicular ante choque, accidente vehicular, robo de autopartes, pérdida total, desastres naturales. Te asistimos las 24 horas" },
+    ],
+  },
+
     methods: {
         evento1(){
             window.dataLayer = window.dataLayer || [ ];
@@ -197,7 +203,7 @@ export default {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'pagina_vista',
-                'page-url': '/vehicular/como-lo-uso', 
+                'page-url': '/vehicular/como-lo-uso',
                 'page-title': 'Como Lo Uso'
             });
         }
@@ -230,7 +236,7 @@ export default {
 </script>
 <style lang="scss">
 .como-lo-uso{
-    padding-bottom: 0; 
+    padding-bottom: 0;
     padding-top: 120px;
 }
 .tabs-content__panel--parrafo{
@@ -248,7 +254,7 @@ export default {
     }
 }
 .with-shape-second{
-    padding-top: 0; 
+    padding-top: 0;
 }
 .tabs-component-tabs {
   border: solid 1px #ddd;
@@ -312,8 +318,8 @@ export default {
     border-bottom-color: #00ADEE;
     background-color: #00ADEE1a;
     color: #333;
-    left: 0;    
-    
+    left: 0;
+
   }
 }
 
