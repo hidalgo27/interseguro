@@ -460,51 +460,7 @@
 
       </b-row>
 
-      <!-- <b-modal
-        id="leaveBlackWeek"
-        class="modal-blackWeek"
-        static
-        centered
-        hide-footer
-        hide-header
-      >
-        <b-container style="height: 100%">
-          <b-row class="align-items-center" style="height: 100%">
-            <b-col cols="12">
-              <div class="banner-modal">
-                <img
-                  src="./../../static/media/modalBlackWeek/modal.svg"
-                  alt=""
-                />
-              </div>
-            </b-col>
-            <b-col cols="12" class="mb-2">
-              <p>
-                Aprovecha esta oferta y participa en el <br />
-                sorteo de
-                <strong
-                  >2 Smart TV 50" <br />
-                  y 3 Nintendo Switch + 2 juegos
-                </strong>
-              </p>
-            </b-col>
-            <b-col class="text-center mb-4" cols="12">
-              <b-button @click="hideModalBlackWeek()"
-                >QUIERO CONTINUAR</b-button
-              >
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-modal> -->
-
-      <!-- <b-modal
-        id="modal1"
-        ref="ingresaTuPlaca"
-        title="Bootstrap-Vue"
-        hide-footer
-        hide-header
-        size="lg"
-      >
+      <b-modal id="modal1" ref="ingresaTuPlaca" title="Bootstrap-Vue" hide-footer hide-header size="lg" >
         <div class="modal-content modal-datosPersonales">
           <b-btn
             class="mt-3"
@@ -521,7 +477,87 @@
           <modalTerminosCondiciones></modalTerminosCondiciones>
 
         </div>
-      </b-modal> -->
+      </b-modal>
+
+
+      <!--Modal Abandono-->
+      <!-- 
+    <b-modal id="leaveDocument" class="leaveModal" size="lg" static centered hide-footer hide-header >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img
+                src="../../static/media/modal/leave-datos.png"
+                alt="Abandonar Seguro Vehicular"
+              />
+            </b-col>
+          </b-row>
+          <b-row class="text-center">
+            <b-col cols="12" class="mb-3">
+              <h2 v-if="this.planSeleccionado == 4">
+                <span>¡Buena elección!</span> <br />
+                Tu auto estará <br />
+                protegido en caso lo roben
+              </h2>
+              <h2 v-if="this.planSeleccionado == 6">
+                <span>¡Buena elección!</span> <br />
+                Has elegido el plan <br />
+                perfecto para tu
+                {{ this.$store.state.common.itemElegido.brand }}
+              </h2>
+              <h2
+                v-if="this.planSeleccionado == 3 || this.planSeleccionado == 10"
+              >
+                <span>¡Buena elección!</span> <br />
+                Has elegido el plan que te <br />
+                protege contra Todo Riesgo
+              </h2>
+            </b-col>
+            <b-col cols="12" class="mb-3">
+              <h3>
+                No lo dejes pasar, protege tu
+                {{ this.$store.state.common.itemElegido.brand }} <br />
+                hoy por solo ${{ this.$store.state.common.montoPagar }}.
+              </h3>
+            </b-col>
+            <b-col cols="12" class="mb-2">
+              <h3>Continúa tu cotización en el siguiente paso.</h3>
+            </b-col>
+          </b-row>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')"
+                >QUIERO CONTINUAR</b-button
+              >
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
+ -->
+    <!--Modal campania-->
+     <b-modal id="leaveDocument" class="leaveModal2" static centered hide-footer hide-header >
+        <b-container>
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-3" cols="12">
+              <img class="img-verano"  src="../../static/media/img/campania/img-modal.svg" alt="">              
+              <p class="mt-2 msj-modal">
+                <strong class="name-client"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
+                <span class="white">¡Hot Sale Interseguro!  </span><br>
+                <span class="white">Asegura tu auto HOY, y por hacerlo en Plan Full, </span><br>
+                <span class="white">llévate  </span>
+                <span class="yelow">una cuota gratis + vale de S/100 </span>                     
+              </p>                
+            </b-col>
+          </b-row>
+          
+          <b-row class="justify-content-center">
+            <b-col class="text-center mb-4" cols="12">
+              <b-button @click="$nuxt.$emit('bv::hide::modal', 'leaveDocument')">TERMINAR COMPRA</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
+
     </b-container>
   </section>
 </template>
@@ -559,7 +595,7 @@
       },
       monto_pagar_steps3: "",
       ocultarInputDocumento: false,
-      //planSeleccionado: 0,
+      planSeleccionado: 0,
       objError: {
         page: "",
         flow: "",

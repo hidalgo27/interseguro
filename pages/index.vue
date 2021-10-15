@@ -1,7 +1,7 @@
 <template>
   
   <div class="nuevo-home" @scroll="handleScroll()">
-    <div class="banner content">
+    <div class="banner content" v-if="!this.isCampania">
       <div class="banner-blue    d-xl-none"></div>
       <b-container>
         <b-row class="d-block d-xl-none banner-textos text-center" align-h="center">
@@ -12,7 +12,6 @@
             <p class="subtitulo">Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong></p>
           </b-col>         
         </b-row>
-
         <b-form class="formCotizador">                         
           <div class="formCotizador__msg">
             Desde US$ 12 al mes
@@ -59,10 +58,97 @@
             Compra hoy cualquiera de nuestros planes<span><br>con</span> <strong> 10% de descuento anual.</strong>
           </p>
         </div>
-        <div class="fondo-banner d-none  d-lg-inline-block">
-            
-        </div>
           
+      </b-container>
+    </div>
+    <div v-else class="banner content">
+      <div class="banner-blue    d-xl-none"></div>
+      <b-container>
+        <b-row class="d-block d-xl-none" >
+          <b-col cols="12" class="banner-mobile" align-self="center">
+            <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="">
+          </b-col> 
+          <b-col cols="12" class="banner-mobile text-contador pt-2">
+            <p>La oferta termina en :</p>
+          </b-col> 
+          <b-col cols="12" class="banner-mobile pt-1 pb-3">
+            <div  class="example  d-md-flex">
+                    <div id="contadorCyberMobile" class="flipdown">                        
+                    </div> 
+            </div>
+          </b-col>      
+        </b-row>
+        <b-row align-v="center">
+          <b-col cols="12" sm="12" md="12" lg="12" xl="5">
+            <b-form class="formCotizador">                         
+              <div class="formCotizador__msg">
+                Desde US$ 12 al mes
+              </div>
+              <h1>Cotiza tu seguro vehicular ahora</h1>
+              <b-form-group>
+                  <b-form-input
+                    id="vehicleModelPlate"
+                    class="text-uppercase form-control"
+                    @keyup.native="consultarPlaca($event,750)"
+                    maxlength="6"
+                    autocomplete="off"
+                    type="text"
+                    v-model="item.plateNumber"                    
+                    required
+                    placeholder="Ingresa tu Placa"
+                    name="Placa"
+                    aria-label="placa"                
+                    autofocus
+                ></b-form-input>
+              </b-form-group>
+              <div class="box-btn-homeForm">
+                <button type="button" >
+                  COTIZAR
+                    <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
+                </button>
+                <p class="numero_asegurados">
+                    
+                </p>
+                
+                <p class="asegurados">
+                  <img src="./../static/media/imagenes/home/escudo.svg" alt="">
+                  <strong>Más de 2,000,000</strong> de asegurados
+                </p>
+                <p class="respaldo-intercorp">
+                  <span> Con el respaldo del grupo</span>
+                  <img src="./../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
+                </p>
+              </div>
+            </b-form>
+          </b-col>
+          <b-col cols="12" sm="12" md="12" lg="12" xl="7" class="d-none d-xl-block">
+            <div >
+              <b-row class="campania">
+                <b-col cols="12">
+                  <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px"> 
+                </b-col>
+                <b-col class="box-contador">
+                  <b-row align-v="center">
+                    <b-col cols="5">
+                      <p class="text">  La oferta termina en :  </p>
+                    </b-col>
+                    <b-col>
+                      <div  class="example  d-none  d-md-flex" >                  
+                        <div id="contadorCyberDesktop" class="flipdown contador">
+                            
+                        </div> 
+                      </div>
+                    </b-col>
+                  </b-row>
+                  
+                   
+                </b-col>
+              </b-row>              
+            </div>
+          </b-col>
+        </b-row>
+        
+        
       </b-container>
     </div>
 
@@ -993,6 +1079,7 @@ export default {
   layout: "InterseguroHome",
   data() {
     return {
+      isCampania: true,
       slide: 0,
       sliding: null,
       isOculto: true,
@@ -1060,6 +1147,10 @@ export default {
     }
   },
   methods: {
+    contador(){
+      var flipdown2 = new FlipDown(1634273999, 'contadorCyberDesktop').start()
+      var flipdown = new FlipDown(1634273999, 'contadorCyberMobile').start()
+    },
     onSlideStart(slide) {
         this.sliding = true
       },
@@ -1302,6 +1393,9 @@ export default {
       }
   },
   mounted() {
+    if(this.isCampania){
+      this.contador();
+    }    
     this.$store.commit('common/resetState')
     this.handleScroll()
   }

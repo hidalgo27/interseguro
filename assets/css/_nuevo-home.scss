@@ -187,6 +187,25 @@ $vehicular_parrafo_v2: #383C5A;
             }
         }
 
+        .banner-mobile{
+            z-index: 9;
+        }
+
+        .banner-mobile{
+            z-index: 9;
+            /* img{
+                height: 173px;
+                width: 345px;
+            } */
+            
+        }
+        .text-contador{
+            color: #FFFFFF;
+            font-family: 'Omnes Medium';
+            font-style: italic;
+            font-size: 16px;
+        }
+
         .fondo-banner{
             width: 780px;
             height: 350px;
@@ -1050,10 +1069,10 @@ $vehicular_parrafo_v2: #383C5A;
         .banner{
             height: 468px;
             //background-color: $vehicular_primario;
-            background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
+            //background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
+            background-image: url('./../../static/media/img/campania/banner-campania.svg');
             //background-repeat: no-repeat;
             .container{
-                //background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
                 height: 100%;
                 align-items: center;
                 display: flex;            
@@ -1112,6 +1131,7 @@ $vehicular_parrafo_v2: #383C5A;
                 }
                 
             }
+            
             /* .fondo-banner{
                 width: 780px;
                 height: 350px;
@@ -1133,6 +1153,23 @@ $vehicular_parrafo_v2: #383C5A;
                 line-height:3.125rem;
                 //max-width: 810px;                
             }
+        }
+        .campania{
+            .box-contador{
+                padding-top: 30px;
+                .text{                
+                    margin-left: 70px;
+                    color: #FFFFFF;
+                    font-family: 'Omnes Medium';
+                    font-style: italic;
+                    font-size: 18px;
+                    
+                }
+                .contador{
+                    margin-left: -30px;
+                }
+            }
+            
         }
         
         .beneficios{

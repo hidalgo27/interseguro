@@ -44,10 +44,10 @@
   letter-spacing: normal;
   text-align: center;
 
-  background: #FFFFFF;
+  //background: #FFFFFF;
   //fondo modal campaña
   //background: url("./../../static/media/img/campania/fondo-modal.svg") ;
-  //background: #0759c6;
+  background: #0759c6;
   background-size: cover;
   .modal-lg {
     max-width: 660px;
@@ -86,6 +86,23 @@
     border-radius: 3px;
     border: none;
   }
+
+  .msj-modal{
+    color : #FFFFFF;
+    font-size: 19px;
+    .name-client{ 
+        color: #FFFFFF;
+        font-size: 30px
+    }
+    .yelow{
+        color: #FFD527;
+        font-size: 19px
+    }
+    .white{
+        color: #FFFFFF;
+        font-size: 19px
+    }
+}
 }
 
 @media (min-width: 992px) {
