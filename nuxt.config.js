@@ -52,6 +52,8 @@ module.exports = {
       { hid: 'keywords', name: 'keywords', content: 'Seguro Vehicular / Seguro de auto / Seguro Vehicular Peru' },
       { hid: 'author', name: 'author', content: 'Seguro vehicular | Interseguro' },
       { hid: 'copyright', name: 'copyright', content: 'Seguro vehicular | Interseguro' },
+      { hid: 'msapplication-TileColor', name: 'msapplication-TileColor', content: '#00aba9' },
+      { hid: 'theme-color', name: 'theme-color', content: '#ffffff' },
       //Facebook
 
       { hid: 'fb:og:type', property: 'og:type', content: 'seguros' },
@@ -62,7 +64,14 @@ module.exports = {
       { hid: 'fb:og:image:width', property: 'og:image:width', content: '800' },
       { hid: 'fb:og:image:height', property: 'og:image:height', content: '418' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' }],
+    // link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.interseguro.pe/vehicular/interseguro.ico' }],
+    link: [
+      { rel: 'apple-touch-icon', sizes: '180x180', href: 'favicon/apple-touch-icon.png' },
+      { rel: 'icon', sizes: '32x32', href: 'favicon/favicon-32x32.png' },
+      { rel: 'icon', sizes: '16x16', href: 'favicon/favicon-16x16.png' },
+      { rel: 'manifest', href: 'favicon/site.webmanifest' },
+      { rel: 'mask-icon', color: '#0056b3', href: 'favicon/safari-pinned-tab.svg' }
+    ],
   },
 
   loading: { color: '#fff' },
