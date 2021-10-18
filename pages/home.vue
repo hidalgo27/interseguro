@@ -122,10 +122,10 @@
 
             
             <div class="box-contador" >              
-              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px;margin-top: 55px;width: 85%;"> 
+              <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px; margin-top: 55px;width: 500px;"> 
               <p style="margin-left: 136px;color: rgb(255, 255, 255);font-family: 'Omnes Medium';font-style: italic;font-size: 18px;padding-top: 46px;">La oferta termina en : </p>             
               <div  class="example  d-none  d-md-flex"  
-              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 133px;">                  
+              style="flex-direction: column;align-items: flex-end;justify-content: flex-end;position: relative;top: -62px;right: 10px;">                  
                   <div id="contadorCyberDesktop" class="flipdown" style="width: 268px !important;">
                       
                   </div> 

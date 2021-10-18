@@ -20,8 +20,8 @@
         <div class="menu-nav">
             <div class="menu-nav__izq">
                 <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso img-home" alt="seguros vehiculares">
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
+                    <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--iso img-home" alt="seguros vehiculares">
+                    <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
                 <div class="nav-contacto  d-flex  d-xl-none">  
                         <div class="main-nav__toggle menu-icon "  id="nav-checkbox1" @click="showHide($event)">

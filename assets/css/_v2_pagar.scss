@@ -590,13 +590,13 @@ input.form-control.text-uppercase.iptGral__input:focus {
         }
         .metodo-pago{
             border: 1px solid #CCD1DD;
-            border-radius: 3px;
+            border-radius: 3px !important;
             opacity: 1; 
             &__comoPagar{                
                 border-radius: 5px 5px 0 0;
             }  
             &__ingresatarjeta{
-                border-radius:  0 5px  5px 0;
+                border-radius:  5px;
             }
         }
         .box-btn-pagar{
@@ -643,7 +643,7 @@ input.form-control.text-uppercase.iptGral__input:focus {
                 border: 1px solid #CCD1DD;
                 border-radius: 3px;
                 opacity: 1;
-                border-radius:  0 5px  5px 0;
+                border-radius:  5px;
                 padding: 50px;
             }
         }

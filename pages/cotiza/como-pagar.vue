@@ -1839,6 +1839,7 @@ a.steps__item.paso1:after{
         }
     }
     .metodo-pago{
+        border: none !important;
         border-radius: 20px;
         margin: 0 16px;
         margin-bottom: 24px;

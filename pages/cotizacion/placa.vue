@@ -52,9 +52,9 @@
     
     .page-ingresa-placa{
       margin-top: 72px;
-      //padding-bottom: 100px;
       min-height:calc(100vh - 72px - 124px);
-      //padding-bottom: 306px;
+      //campaña
+      margin-top: 142px;
         .pantalla-actual{
             p{
                 color: $is-v-azul;

@@ -48,7 +48,7 @@
                 <b-navbar-nav>
                     <b-nav-item href="#" class="logo">
                         <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
-                            <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso d-none d-md-block" alt="seguros vehiculares">
+                            <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--iso d-none d-md-block" alt="seguros vehiculares">
                             <img src="./../../static/media/imagenes/home/logo-header-mobile.svg" class="main-nav__logo--iso img-flujo d-md-none" alt="seguros vehiculares">
                         </nuxt-link>
                     </b-nav-item>                    

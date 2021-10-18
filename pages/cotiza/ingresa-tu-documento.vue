@@ -650,7 +650,7 @@
         </b-col>
       </b-row>
 
-      <b-modal
+      <!-- <b-modal
         id="leaveBlackWeek"
         class="modal-blackWeek"
         static
@@ -685,7 +685,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
       <b-modal
         id="modal1"
         ref="ingresaTuPlaca"
@@ -884,7 +884,8 @@ a.steps__item.paso1:after {
   background: white;
   padding-top: 50px;
   //campaña
-  padding-top: 125px;  
+  padding-top: 125px;
+  min-height:calc(100vh - 72px - 124px);  
 }
 .edit-input {
   cursor: auto !important;
@@ -1329,6 +1330,7 @@ input:focus {
 }
 @media (min-width: 1024px) {
   .steps-box {
+    min-height:calc(100vh - 72px - 124px);
     .steps-plan {
       background: transparent;
     }

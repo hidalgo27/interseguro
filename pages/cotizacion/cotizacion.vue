@@ -266,7 +266,7 @@
           <!-- <div class="plan-item plan3 black" @click="seleccionarPLanDesktop(3)" v-bind:class="{ planInactivoDesktop: planInactivo }" > -->
             <b-row align-h="center">
               <b-col cols="10">
-                  <div class="plan-recomendado d-flex">
+                  <div class="plan-recomendado-full d-flex">
                     <img src="@/static/media/imagenes/home/star-white.svg" alt="Start">
                     <span style="margin-left: 10px">MÁS VENDIDO</span>
                   </div>

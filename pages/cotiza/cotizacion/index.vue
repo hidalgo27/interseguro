@@ -768,7 +768,7 @@
 
       </b-row>
     </b-container>
-    <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
+    <!-- <b-modal id="leaveBlackWeek" class=" modal-blackWeek"  static centered hide-footer hide-header>
             <b-container  style="height: 100%;">
                 <b-row class="align-items-center" style="height: 100%;">
                     <b-col cols="12">
@@ -784,7 +784,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-      </b-modal>
+      </b-modal> -->
     <b-modal
         title="Bootstrap-Vue"
         hide-footer
