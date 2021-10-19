@@ -468,7 +468,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: "pagina_vista",
-            "page-url": "/vehicular/",
+            "page-url": "/vehicular/home",
             "page-title": "Home",
             ecommerce: {
               checkout: {

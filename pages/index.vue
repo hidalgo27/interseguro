@@ -1120,6 +1120,19 @@ export default {
       
       this.$nuxt.$router.push("/cotizacion/seleccion/")
     },
+    PaginaVista() {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "pagina_vista",
+            "page-url": "/vehicular/",
+            "page-title": "Home",
+            ecommerce: {
+              checkout: {
+                actionField: { step: 1 } // esto marca el primer paso en el embudo
+              }
+            }
+          });
+        },
     consultarPlaca(event, ms) {  
       if(this.item.plateNumber.length == 6){
         this.loading = true
@@ -1304,6 +1317,7 @@ export default {
   mounted() {
     this.$store.commit('common/resetState')
     this.handleScroll()
+    this.PaginaVista()
   }
 }
 </script>
