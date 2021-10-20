@@ -773,7 +773,7 @@ const actions = {
     },
     getSoat ({ commit, state }, item){
         return new Promise((resolve, reject) => {
-            this.$axios.post("/provider/v1/vehicle/external/data", {
+            this.$axios.post("vehicular-api/provider/v1/vehicle/external/data", {
                 brandId: item.brandId,
                 modelId: item.modelId,
                 modelYear: item.modelYear,
