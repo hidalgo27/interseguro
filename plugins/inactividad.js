@@ -11,7 +11,7 @@ function getUsuarioActivo() {
   axios
     .post(
       process.env.baseURL +
-        "manage/v1/remarketing/send/" +
+        "vehicular-api/manage/v1/remarketing/send/" +
         objJWT.common.codigoRemarketingGenerado
     )
     .then(function(response) {

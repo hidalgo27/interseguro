@@ -162,6 +162,10 @@
                                                 </div>
                                                 <div class="error-gral">Error momentáneo</div>                 
                                                 <br>
+                                                <div>
+                                                    <span>¿Un colaborador de Interseguro te recomeno este seguro?</span>
+                                                    <input placeholder="Ingresa el DNI del colaborador aquí" type="tel" />
+                                                </div>
                                             </form>                    
                                         </b-col>
                                     </b-row>
