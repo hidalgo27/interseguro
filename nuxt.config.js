@@ -7,7 +7,7 @@ module.exports = {
   //Prod
   /* 
   BASE_URL      =     https://www.interseguro.pe/
-  API_BASE_URL  =     https://www.interseguro.pe/vehicular-api/
+  API_BASE_URL  =     https://www.interseguro.pe/
   CULQI_PK      =     pk_live_mrWwATMNEg6JuUVG
   CULQI_URL     =     https://www.interseguro.pe/vehicular/cotiza/como-pagar
   API_BASE_URL_REMARKETING = https://www.interseguro.pe/
@@ -16,7 +16,7 @@ module.exports = {
   //Test
   /* 
   BASE_URL      =     https://test.interseguro.pe/
-  API_BASE_URL  =     https://test.interseguro.pe/vehicular-api/
+  API_BASE_URL  =     https://test.interseguro.pe/
   CULQI_PK      =     pk_test_RrlEyfOK587sZBN0
   CULQI_URL     =     https://test.interseguro.pe/vehicular/cotiza/como-pagar
   API_BASE_URL_REMARKETING = https://test.interseguro.pe/

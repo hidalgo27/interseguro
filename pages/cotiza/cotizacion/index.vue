@@ -553,16 +553,16 @@
                 </div>
               </div>
 
-              <div class="v2-seleccion-planes  d-lg-none">
-                <div class="v2-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
+              <div class="v1-seleccion-planes  d-lg-none">
+                <div class="v1-seleccion-planes__item  plan4  plata" @click="seleccionarPLan(4)" v-bind:class="{planInactivo: planInactivo}">
                   <p>PLATA</p>
                   <p>US$ {{this.listaBasica.policy.monthly}}</p>
                 </div>
-                <div class="v2-seleccion-planes__item planorito  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
+                <div class="v1-seleccion-planes__item planorito  plan6  oro" @click="seleccionarPLan(6)" v-bind:class="{planInactivo: planInactivo}">
                   <p>ORO</p>
                   <p>US$ {{this.listaMedia.policy.monthly}}</p>
                 </div>
-                <div class="v2-seleccion-planes__item  plan3  black" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
+                <div class="v1-seleccion-planes__item  plan3  black" @click="seleccionarPLan(3)" v-bind:class="{planInactivo: planInactivo}">
                   <p>BLACK</p>
                   <p>US$ {{this.listaFull.policy.monthly}}</p>
                 </div>
@@ -1968,7 +1968,7 @@
       seleccionarPLan(id){
         id = id+""
         this.planInactivo = true
-        let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
+        let elemento1 = document.querySelectorAll(".v1-seleccion-planes__item")
         for (let index = 0; index < elemento1.length; index++) {
           elemento1[index].classList.remove("planActivo")      
         }
@@ -3916,7 +3916,7 @@ button:focus{
   }
 }
 
-.v2-seleccion-planes{
+.v1-seleccion-planes{
   display: flex;
   justify-content: space-between;
   
