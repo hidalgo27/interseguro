@@ -505,10 +505,29 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             } else if (longitudDePlaca == 6) {
               event.preventDefault()
 
+
               this.getGeolocation()
               this.createMail()
               this.updateFields()
-              this.getVehicle()  
+              this.getVehicle() 
+              
+              window.dataLayer = window.dataLayer || [ ];
+              dataLayer.push({
+                  'event': 'detail',
+                  'product' : {
+                    'name': '',
+                    'category': 'Seguro',
+                    'brand': 'Vehicular',
+                    'variant': 'black $0/mes',
+                    'amount': '',
+                    'quota': '',
+                    'discount': '',
+                    'startDate': '',
+                    'credit': '',
+                    'sku': ''
+                  }
+              })
+
             }
           },
           updateFields () {
@@ -561,7 +580,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
                 }else{
                       this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
                 }
-               
 
                 if (respuesta.appDiscount == true) {
                   if (respuesta.activePolicy === true) {
@@ -720,7 +738,11 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.$store.commit('common/setLeaveMessage',0);
         this.showLoader = false
         console.log("HOME BASE")
+        this.$store.commit('common/resetState')
+        this.handleScroll()
+        this.PaginaVista()
       }
+
   }
 </script>
 
