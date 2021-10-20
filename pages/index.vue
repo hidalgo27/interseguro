@@ -739,7 +739,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         this.showLoader = false
         console.log("HOME BASE")
         this.$store.commit('common/resetState')
-        this.handleScroll()
         this.PaginaVista()
       }
 

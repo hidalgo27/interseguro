@@ -1173,6 +1173,19 @@ export default {
           this.contactanos = true;
       }
     },
+    PaginaVista() {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "pagina_vista",
+            "page-url": "/vehicular/",
+            "page-title": "Home",
+            ecommerce: {
+              checkout: {
+                actionField: { step: 1 } // esto marca el primer paso en el embudo
+              }
+            }
+          });
+        },
     seleccionarPlan(id){
       this.planInactivo = true;
       let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
@@ -1398,6 +1411,8 @@ export default {
     }    
     this.$store.commit('common/resetState')
     this.handleScroll()
+    this.PaginaVista()
+
   }
 }
 </script>
