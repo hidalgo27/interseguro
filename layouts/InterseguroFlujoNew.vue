@@ -12,10 +12,10 @@
 
 <script>
 import HeaderIBK from '@/components/headers/HeaderInterbank'
-import Header from '@/components/headers/HeaderFlujo'
+import Header from '@/components/headers/HeaderFlujoNew'
 // import Header from '@/components/headers/HeaderInterseguro'
 import HeaderCotizador from '@/components/headers/HeaderInterseguroCotizador'
-import FooterFlujo from '@/components/footers/Footer'
+import FooterFlujo from '@/components/footers/FooterFlujoNew'
 export default {
   data () {
     return {

@@ -978,7 +978,7 @@ import { validationMixin } from 'vuelidate'
                         this.$nuxt.$emit('show-payment',  { payment: 'CULQI' })
                         this.opacidad =false
                         this.$store.commit('common/setPolicy_id',res.data.body.policyId)
-                        this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
+                        this.$nuxt.$router.push({path: '/cotiza/pago-procesado2'})
                     }else if(res.data.code == 100){
 
                         this.opacidad =false

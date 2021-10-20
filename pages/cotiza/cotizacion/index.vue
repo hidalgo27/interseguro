@@ -3408,7 +3408,7 @@
   background: white;
   //padding-top: 50px;
   //campaña
-  padding-top: 120px;
+  padding-top: 160px;
   .img-close{
     position: absolute;
     right: -24px;

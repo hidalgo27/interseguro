@@ -206,7 +206,7 @@
 </template>
 <script>
     export default {
-        layout: "InterseguroFlujo",
+        layout: "InterseguroFlujoNew",
         data() {
             return {
                 editDataExistente : false,

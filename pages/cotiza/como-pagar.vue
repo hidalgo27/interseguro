@@ -1515,7 +1515,7 @@ a.steps__item.paso1:after{
 .steps-box{    
     //padding-top: 50px;
     //campaña
-    padding-top: 125px;
+    padding-top: 160px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{

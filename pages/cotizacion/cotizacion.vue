@@ -115,7 +115,7 @@
               <div class="box-titulo">
                 <p class="titulo-principal-planes">
                   Básico:
-                  <span class="titulo-descripcion">Protección contra robo</span>
+                  <span class="titulo-descripcion">Protección contra Robos</span>
                 </p>
               </div>
               <hr />
@@ -186,7 +186,7 @@
                     <div class="box-titulo">
                       <p class="titulo-principal-planes">
                         Intermedio:
-                        <span class="titulo-descripcion">Protección accidentes</span>
+                        <span class="titulo-descripcion">Protección contra Accidentes</span>
                       </p>
                     </div>
                     <hr />
@@ -275,7 +275,7 @@
             <div class="detalle-plan-select">
                 <div class="box-titulo">
                   <p class="titulo-principal-planes">
-                    Full: <span class="titulo-descripcion">Protección total</span>
+                    Full: <span class="titulo-descripcion">Protección Total</span>
                   </p>
                 </div>
                 <hr />
@@ -438,13 +438,13 @@
               <div class="box-titulo">
                 <div class="titulo-principal-planes">
                   <p  v-if="this.planSeleccionado == 4">
-                    Protección contra robo
+                    Protección contra Robos
                   </p>
                   <p  v-if="this.planSeleccionado == 6">
-                    Protección accidentes
+                    Protección contra Accidentes
                   </p>
                   <p  v-if="this.planSeleccionado == 3">
-                    Protección total
+                    Protección Total
                   </p>
                 </div>
               </div>
@@ -565,13 +565,13 @@
               <div class="box-titulo">
                 <div class="titulo-principal-planes">
                   <p v-if="this.planSeleccionado == 4">
-                    Protección contra robo
+                    Protección contra Robos
                   </p>
                   <p v-if="this.planSeleccionado == 6">
-                    Protección accidentes
+                    Protección contra Accidentes
                   </p>
                   <p v-if="this.planSeleccionado == 3">
-                    Protección total
+                    Protección Total
                   </p>
                 </div>
               </div>
@@ -1343,7 +1343,7 @@ const state = {
 };
 
 export default {
-  layout: "InterseguroFlujo",
+  layout: "InterseguroFlujoNew",
   data() {
     return {
       editDataExistente: false,

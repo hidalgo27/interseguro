@@ -566,7 +566,7 @@
 <script>
   import modalTerminosCondiciones from "./../../components/modals/CondicionesUsoPoliticaPrivacidad";
   export default {
-  layout: "InterseguroFlujo",
+  layout: "InterseguroFlujoNew",
   data() {
     return {
       flagVerMas: 1,

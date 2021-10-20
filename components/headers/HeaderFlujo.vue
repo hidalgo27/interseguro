@@ -1,68 +1,167 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <b-container fluid>
-            <b-row id="liston-desktop">
-                <!-- Liston Desktop -->
-                <b-col class="liston d-none d-md-block" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
-                    <b-row align-v="center">
-                        <b-col class="logo-franja">
-                            <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">
-                        </b-col>
-                        <b-col>
-                            <p class="text">                                
-                                <span style="color: #ffffff">¡Hot Sale! </span>
-                                <span style="color: #ffd527"> Llévate una cuota gratis y un vale de S/100 </span>
-                                <span style="color: #ffffff"> por comprar en Plan Full </span> 
-                            </p>
-                        </b-col>
-                        <b-col cols="3" class="box-contadador">
-                            <div id="contadorCyberDesktop" class="flipdown"></div>
-                        </b-col>
-                    </b-row>
-                </b-col>
-                <!-- Liston Mobile -->
-                <b-col class="liston d-md-none" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
-                    <b-row align-v="center">
-                        <!-- <b-col class="logo-franja">
-                            <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">
-                        </b-col> -->
-                        <b-col class="p-0">
-                            <p class="text">
-                                <span style="color: #ffd527"> 1 cuota gratis + vale de S/100 </span>
-                                <span style="color: #ffffff"> por comprar en Plan Full </span> 
-                            </p>
-                        </b-col>
-                        <b-col cols="6" class="box-contadador">
-                            <div id="contadorCyberMobile" class="flipdown flipdownMobile" style="margin-top: 17px;"></div>
-                        </b-col>
-                    </b-row>
-                </b-col>
-                <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
-                
-            </b-row>
-        </b-container>
-
         <div>
-            <b-navbar>
-                <b-navbar-nav>
-                    <b-nav-item href="#" class="logo">
-                        <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
-                            <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--iso d-none d-md-block" alt="seguros vehiculares">
-                            <img src="./../../static/media/imagenes/home/logo-header-mobile.svg" class="main-nav__logo--iso img-flujo d-md-none" alt="seguros vehiculares">
-                        </nuxt-link>
-                    </b-nav-item>                    
-                </b-navbar-nav>
+            <div id="liston-desktop" class="liston" 
+            style="background: transparent radial-gradient(closest-side at 48% 51%, #0374e1 0%, #0374e1 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
+            v-bind:class="{'d-none': flagCloseListon == 0  }">
+                <div class="d-md-none  liston-mobile">
+                                       
+                   <div class="liston-mobile--parrafo">
+                       <div style="font-size: 14px;width: 235px;margin-left: 3px;margin-top: -5px;">
+                            <p> 
+                                 <span style="color:#ffd527; font-family:'Omnes Medium'">1 cuota gratis + vale de S/100 </span><br>
+                                 <span style="color:#ffffff; font-family:'Omnes Medium'">por comprar en Plan Black  </span>                                 
+ 
+                            </p>                                                           
+                        </div>
+                        </div>
+                        <div  class="example" style="position: relative;">            
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: -3px;top: -28px;display: block;width: 176px !important;">
+                        </div>
+                    </div>
+                </div>
+                
+                <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
+                    <div class="d-flex align-items-center logo-franja">
+                         <img width="190" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
+                            <p style="width: 658px;font-size: 19px;margin-left: 33px;">                                
+                                <span style="color: #ffffff; font-family:'Omnes Medium'">¡Hot Sale! </span>
+                                <span style="color: #ffd527; font-family:'Omnes Medium'"> Llévate una cuota gratis y un vale de S/100 </span>
+                                <span style="color: #ffffff; font-family:'Omnes Medium'"> por comprar en Plan Black </span> 
+                            </p>                              
+                    </div>
+                    <div id="contadorCyber12" class="flipdown"></div>
+                    
+                </div>
+                <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
+            </div>
+        </div>
+        
+        <div class="menu-nav">
+            <div class="menu-nav__izq">
+                <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
+                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares">
+                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
+                </nuxt-link>
+                <div class="nav-contacto  d-flex  d-xl-none">                
+                    
+                        <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
+                            <a style="text-decoration: none;" href="tel:015000000">               
+                                <img src="../../static/media/img/home/telefono-header.png" alt="email">
+                            </a>
+                        </div>
+                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
+                            <img src="../../static/media/img/home/menu.png" alt="menu">
+                        </div>
+                        <div class="main-nav__menu" id="main-menu">
+                            <div class="main-menu">
+                                <div class="box-logo">
+                                    <img src="../../static/media/interseguroVehicular_v2/logo_blanco.png" alt="logo_blanco">
+                                </div>
+                                <div class="box-close" @click="closeNav($event)">
+                                    <img src="../../static/media/img/home/close.png" alt="close">
+                                </div>
+                            </div>
+                            <ul class="">
+                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
+                                <nuxt-link class="menu-item__enlace"  to="/">  Inicio</nuxt-link>
+                                </li>
+                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
+                                <nuxt-link class="menu-item__enlace"  to="/cobertura">¿Qué me cubre?</nuxt-link>
+                                </li>        
+                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
+                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿Cómo lo uso?</nuxt-link>
+                                </li>
+                                <li class="main-nav__menu--item menu-item"  @click="enlaceTest()">
+                                <nuxt-link class="menu-item__enlace" to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
+                                </li>
+                                <div class="nav-contacto">
+                                <div class="footer-menu">
+                                    <p>Síguenos en:</p>
+                                    <div class="footer-menu__redes">
+                                        <span>
+                                            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+                                        </span>
+                                        <span>
+                                            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+                                        </span>
+                                        <span>
+                                            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+                                        </span>
+                                        <span>
+                                            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+                                        </span>
+                                    </div>
+                                </div>
+                                </div>
+                            </ul>
+                        </div>
+                        
+                </div>
+            </div>
+            <div class="menu-nav__der">
 
-                <b-collapse id="nav-collapse" is-nav>
-                    <!-- Right aligned nav items -->
-                    <b-navbar-nav class="ml-auto contacto">
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=51934792742&text=%C2%A1Hola%21+Vengo+de+la+Web+de+Seguro+Vehicular+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+el+seguro" rel="noopener" data-v-d5c59bf2="">                            
-                            <img src="./../../static/media/imagenes/home/img-watsapp.svg" alt="Escribir algún contacto" class="img-whatsapp">
-                        </a>
-                    </b-navbar-nav>
-                </b-collapse>
-            </b-navbar>
+                <ul>
+                    <li class="" >
+                        <nuxt-link class=""  to="/cobertura/">¿Qué me cubre?</nuxt-link>
+                    </li>        
+                    <li class="" >
+                        <nuxt-link class=""  to="/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
+                    </li>
+                    <li class="" >
+                        <nuxt-link class="" to="/oficial/preguntas-frecuentes/"> Preguntas frecuentes</nuxt-link>
+                    </li>
+                    <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
+                        <div class="telefono">
+                            <div class="d-flex  telefono-desktop">
+                                <div class=" telefono-desktop-img">
+                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
+                                </div>
+                                <div>
+                                    <span style="text-align:left; display: flex" class="ml-2">Llámanos<br>(01)500 0000</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="d-none  d-lg-flex  box-cotiza"  v-bind:class="{ oculto: isOculto }">
+                        <!-- <div class="btn-cotiza">
+                            <a
+                              href="/"
+                              class="text-center"
+                              @click="cotizarTop($event)"
+                              style="cursor: pointer; width: 180px; height: 36px;"
+                            >COTIZAR</a>
+                        </div> -->
+                    </div>
+
+                </ul>
+                <div id="capa" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
+            <div class="campaniatv-home__texto">
+                <div class="campania-lado-izq">
+                    <h2>15% de descuento con cuenta sueldo</h2>
+                </div>
+                <div class="campania-lado-der">
+                    <img class="logo-interbank" src="../../static/media/img/Interbank.png" alt="logo interbank">
+                </div>        
+            </div>
+        </div>
+
+        <div v-if="this.tarjetaoh" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
+            <div class="campaniatv-home__texto">
+                <div class="campania-lado-izq">
+                    <h2>15% de descuento con tarjetaoh!</h2>
+                </div>
+                <div class="campania-lado-der">
+                    <img  class="logo-tarjetaoh" src="../../static/media/img/oh.png" alt="logo tarjeta oh">
+                </div>        
+            </div>
         </div>
 
 
@@ -120,8 +219,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1634273999, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1634273999, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1634878799, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1634878799, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -195,8 +294,8 @@ export default {
     .closeListon{        
         cursor: pointer;
         position: absolute;
-        right: 4px;
-        height: 30px;
+        right: 0px;
+        height: 20px;
         top: 5px;
         border-radius: 45px;
         width: 30px;
@@ -205,7 +304,65 @@ export default {
         color: #fff;
         font-size: 18px;
     }
-    
+    .liston{        
+        flex-direction: column;
+        background-color: #0855C4;
+        background-image: url('../../static/media/img/campania/fondo-liston-desktop.svg');
+        width: 100%;
+        height: 70px;
+        left: 0;
+        justify-content: center;
+        padding-left: 4px;
+        display: flex;
+        .liston-black{
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            img{
+                position: relative;
+                width: 31px;
+                height: auto;
+                left: -8px;
+            }
+        }
+        .box-texto-img{
+                display: flex;
+                height: 45px;
+               align-items: center;
+
+        }
+        .box-img-liston{
+            width: 84px;
+            .img-liston{                
+               width: 50px;
+            //    animation: zoom 1.7s infinite ease-in-out;
+            //    animation: zoom 12s infinite;
+            }
+        }
+        
+        p{
+            text-align: left;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.3;
+            letter-spacing: normal;
+            color: #fff;
+            //font-family: 'Omnes Regular' !important;
+        }
+        .example{
+            width: 100%;
+        }
+        .logo-franja{
+            margin-left: auto;
+            margin-right: auto;
+            img{
+                width: 150px;
+            }
+        }
+    }
 
     .liston-mobile{
         display: flex;
@@ -217,7 +374,7 @@ export default {
             font-size: 11px;
         }
         .img-liston{
-            width: 175px;
+            width: 120px;
             height: auto;
         }
     }
@@ -237,122 +394,399 @@ export default {
             }
         }
     }
-
-    
-    @media (min-width: 768px){        
-        .header-planes{
-            background: white;
-            height: 72px;
-            position: fixed;
-            width: 100%;
-            margin: auto;
-            top:0;
-            z-index: 999;
-            .navbar{
-                height: 72px;
-                background-color: #FFFFFF;
-                border-bottom: 1px solid #DDE0EA; 
-                .logo{
-                    padding-left: 70px;
-                }  
-                .contacto{
-                    padding-right: 70px;
-                }             
-            }            
+#nav-checkbox{
+    display: none !important;
+}
+.main-nav__menu{
+    padding-top: 70px;
+    ul{
+        border-bottom: 2px solid white;
+        padding-left: 0;
+    }
+    .box-logo{
+        img{
+            height: 45px;
+            width: auto !important;
         }
-        .liston{
-            display: flex;        
+    }
+    .box-close{
+        position: absolute;
+        right: 16px;
+        top: 44px;
+        img{
+            width: 28px !important;
+        }
+    }
+    .menu-item__enlace{
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+    }
+}
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.11);
+    }
+
+    100% {
+        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.11);
+    }
+}
+
+@keyframes shadow-pulse-big {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.11);
+    }
+
+    100% {
+        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.11);
+    }
+}
+.telefono-desktop-img{
+    img{
+        width: 28px;
+
+    }
+}
+.wapp-desktop-img{
+    img{
+        width: 28px !important;
+    }
+    
+}
+.box-cotiza a {
+  animation: shadow-pulse 1s infinite;
+}
+    .oculto{
+        display: none !important;
+    }
+    .header-planes{
+        background: white;
+        height: 68px;
+        position: fixed;
+        width: 100%;
+        margin: auto;
+        top:0;
+        z-index: 999;
+        border-bottom: 1px solid #d4d4d4;
+        .menu-nav{
+            display: flex;
             flex-direction: column;
-            background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
-            height: 70px;
-            padding-left: 70px;
-            padding-right: 70px;          
-            .logo-franja{
+            position: relative;
+            .nav-contacto{
                 display: flex;
-                flex-direction: column;
-                max-width: 150px;
+                .telefono_custom{
+                    width: 40px;
+                }
                 img{
-                    width: 150px;
-                    height: 70px;
+                    width: 20px;
+                }
+                span{
+                    color: #0855c4;
+                    font-size: 14px;
                 }
             }
-            .text{
-                padding-left: 20px;
-                font-family: 'Omnes Medium' !important;
-                text-align: left;
-                font-size: 19px;
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                letter-spacing: normal;
-                color: #fff;
+            &__izq{
+                height: 68px;
+                display: flex;
+                justify-content: space-between;
+                padding-left: 15px;
+                border-bottom: 1px solid white;
+                background: white;
+            }
+            &__der{
+                background: #f3f3f3;
+                height: 68px;
+                display: none;
                 
+                ul{
+                    text-align: center;
+                    padding-left: 0px;
+                    margin-bottom: 0;
+                    display: flex;
+                    list-style: none;
+                    align-items: center;
+                    width: 100%;
+                    li{
+                        text-decoration: none;
+                        width: 33%;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                        a{
+                            font-size: 13px;
+                            font-weight: 500;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: 0.77;
+                            letter-spacing: normal;
+                            text-align: left;
+                            color: #696969;
+                        }
+                        &:hover{
+                            a{
+                                transition: all 0.5s;
+                                color: #0855c4;
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+        .btn-cotiza a {
+            border: 2px solid #EA0C90 !important;
+            background: #EA0C90;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 16px;
+            &:hover{
+                background: #d6058b;
+                text-decoration: none;
             }
-            .box-contadador{
-                max-width: 250px !important;
+        }
+        .logo-interbank{
+            width: 200px;
+            right: 19%;
+            bottom: 8px;
+        }
+        .logo-tarjetaoh{
+            width: 58px;
+            right: 19%;
+            bottom: 8px;
+        }
+        .campaniatv-home.cuentaSueldo{
+            background: #00bb31;
+            .campania-lado-der{
+                p{
+                    height: 50px;
+                    overflow: hidden;
+                }
             }
-            
+        }
+        .campaniatv-home.tarjetaoh{
+            background: #d2232a;
+        }
+        .campaniatv-home{
+            background: #000;
+            background-repeat: repeat-x;
+            background-size: contain;
+            display: flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px; 
+            top: 50px;
+            .campania-lado-der{
+                height: 50px;
+                line-height: 40px;
+                border-left: 50px solid transparent;
+                width: 55%;
+                color: #FFFFFF;
+                font-size: 29px;
+                font-weight: 500;
+                text-align: left;
+                text-transform: uppercase;
+            }
+            .campania-lado-izq{
+                width: 61%;
+                text-align: right;
+                overflow: hidden;
+                height: 50px;
+            }
+            h2{
+                color: #FFFFFF;
+                font-family: 'Omnes Medium';
+                font-weight: 600;
+                text-align: left;
+                margin-bottom: 0;
+                padding-left: 5%;
+                padding-bottom: 0;
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                word-spacing: 2px;
+                font-weight: 500;
+            }
+        }
+    }
+    @media (min-width: 768px){
+        .footer-menu{
+            width: 30%;
+            &__redes{
+                img{
+                }
+            }
+        }
+    }
+    @media (min-width: 992px){
+        .logo-franja{
+            img{
+                width: 150px !important;
+            }
+        }
+        .footer-menu{
+            width: 25%;
+            &__redes{
+                img{
+                }
+            }
+        }
+        .box-logo{
+            text-align: center;
+        }
+         .header-planes{
+            .menu-nav{
+                .nav-contacto{
+                    .telefono{
+                    }
+                    .whatsapp{
+                    }
+                }
+                &__izq{
+                    padding-left: 45px;            
+                }
+            }
+         }
+    }
+    @media (min-width: 1024px){
+        .logo-franja{
+            img{
+                width: 160px !important;
+                //height: 60px;
+            }
+        }
+        .liston{
+            height: 70px;
+            .contadorCyber12{
+                margin-left: 30px;
+            }
+        }
+         .header-planes{
+            .menu-nav{
+                &__izq{
+                    padding-left: 65px;            
+                }
+            }
+         }
+    }
+    @media (min-width: 1200px){
+        .liston{
+            flex-direction: row;
+            justify-content: space-between;
+            display: flex;
+            padding-left: 65px;
+            p{
+                padding-left: 8px;
+                font-size: 18px;
+                font-family: 'Omnes Regular' !important;
+            }
+            .closeListon{
+                right: 70px;
+            }
+        }
+        
+        .header-planes{
+            .menu-nav{
+                flex-direction: row;
+                justify-content: space-between;
+                .nav-contacto{
+                    .telefono{
+                        width: 132px;
+                    }
+                    .whatsapp{
+                        width: 132px;
+                    }
+                }
+                &__izq{
+                    flex-basis: auto;
+                    padding-left: 65px;            
+                }
+                &__der{
+                    background: white;
+                    flex-grow: 1;
+                    display: flex;
+                    padding-right: 65px;
+                    ul{
+                        justify-content: flex-end;
+                        li{
+                            width: auto;
+                            margin-left: 0;
+                            margin-right: 16px;
+                            a{
+                                font-size: 1rem;
+                                color: #454a6c;
+                            }
+                            &:hover{
+                                a{
+                                    transition: all 0.5s;
+                                    color: #0855c4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .header-planes{
+            .menu-nav{
+                width: 100%;
+                margin: auto;
+                
+                &__der{
+                    ul{
+                        li{
+                            a{
+
+                            }
+                            &:hover{
+                                a{
+                                    transition: all 0.5s;
+                                    color: #0855c4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1366px){
+        .liston{
+            padding-right: 102px;
+            padding-left: 128px;
+            .box-texto-img{
+                height: 62px;
+            }
+            .closeListon{
+                right: 20px;
+             }
+        }
+        .header-planes{
+            .campaniatv-home{
+                .campania-lado-izq{
+                    padding-left: 0%;
+                    width: 55%;
+                }
+                .campania-lado-der{
+                    width: 45%;
+                }
+            }
+        }
+    }
+    @media (min-width: 1440px){
+        .header-planes{
+            .menu-nav{
+                &__izq{
+                    padding-left: 128px;            
+                }
+                &__der{
+                    padding-right: 128px;            
+                }
+            }
             
         }
     }
- 
-
-    @media (max-width: 768px) { 
-        .header-planes{
-            background: white;
-            height: 60px;
-            position: fixed;
-            width: 100%;
-            margin: auto;
-            top:0;
-            z-index: 999;
-            .navbar{
-                height: 60px;
-                background-color: #FFFFFF;
-                border-bottom: 1px solid #DDE0EA;                
-                .img-whatsapp{                    
-                    width: 117px;
-                    height: 36px;
-                }
-            }
-            .navbar-expand .navbar-nav .nav-link  {
-                padding: 0px;
-            } 
-        }
-        .liston{
-            display: flex;        
-            flex-direction: column;
-            background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
-            height: 70px;
-            padding-left: 10px;
-            padding-right: 2px;          
-            .logo-franja{
-                display: flex;
-                flex-direction: column;
-                max-width: 150px;
-                img{
-                    width: 150px;
-                    height: 70px;
-                }
-            }
-            .text{
-                padding-left: 10px;
-                font-family: 'Omnes Medium' !important;
-                text-align: left;
-                font-size: 15px;
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                letter-spacing: normal;
-                color: #fff;
-                
-            }
-            .box-contadador{
-                padding: 0px;
-                max-width: 185px !important;
-            }
-            
-            
+    @media (max-width: 405px) {
+        .liston-mobile--parrafo{
         }
     }
 </style>

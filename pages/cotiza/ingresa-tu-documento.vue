@@ -884,8 +884,7 @@ a.steps__item.paso1:after {
   background: white;
   padding-top: 50px;
   //campaña
-  padding-top: 125px;
-  min-height:calc(100vh - 72px - 124px);  
+  padding-top: 160px;  
 }
 .edit-input {
   cursor: auto !important;
@@ -894,6 +893,7 @@ a.steps__item.paso1:after {
   box-shadow: 0 2px 10px 0 rgba(0, 40, 80, 0.07);
   background: white;
   border-radius: 24px;
+  padding: 15px;
 }
 .maestra {
   width: 100%;

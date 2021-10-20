@@ -1,34 +1,30 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!-- <div>
-            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0}">
+            <div id="liston-desktop" class="liston" v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-black">
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
                     <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
-                </div>                
+                </div>
+                
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
                         <img src="./../../static/media/modal/logo-franja-10.svg" alt="">          
-                        <p>Compra con 10% de dscto. en todos nuestros planes</p>
+                        <p >Compra con 10% de dscto. en todos nuestros planes</p>
                     </div>                    
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
         </div> -->
+
         <div class="menu-nav">
             <div class="menu-nav__izq">
-                <nuxt-link :to="{ path: this.urlLocal = this.urlLocal != undefined ? this.urlLocal : '/' }" class="main-nav__logo">
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--iso" alt="seguros vehiculares">
-                    <img src="../../static/media/interseguroVehicular_v2/logo.png" class="main-nav__logo--full" alt="intersguro seguro vehicular">
+                <nuxt-link to="/home" class="main-nav__logo">
+                    <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--iso img-home" alt="seguros vehiculares">
+                    <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
-                <div class="nav-contacto  d-flex  d-xl-none">                
-                    
-                        <div class="telefono  telefono_custom  d-none" v-bind:class="{ oculto: !isOculto }">   
-                            <a style="text-decoration: none;" href="tel:015000000">               
-                                <img src="../../static/media/img/home/telefono-header.png" alt="email">
-                            </a>
-                        </div>
-                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox2" @click="showHide($event)">
+                <div class="nav-contacto  d-flex  d-xl-none">  
+                        <div class="main-nav__toggle menu-icon "  id="nav-checkbox1" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div>
                         <div class="main-nav__menu" id="main-menu">
@@ -45,14 +41,17 @@
                                 <nuxt-link class="menu-item__enlace"  to="/">  Inicio</nuxt-link>
                                 </li>
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/cobertura">¿Qué me cubre?</nuxt-link>
+                                <nuxt-link class="menu-item__enlace"  to="/coberturas">¿QUÉ ME CUBRE?</nuxt-link>
                                 </li>        
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿Cómo lo uso?</nuxt-link>
+                                <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿CÓMO LO USO?</nuxt-link>
+                                </li>
+                                <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
+                                    <a href="https://www.interseguro.pe/vivemas" class="menu-item__enlace" target="_blank">BENEFICIOS</a>
                                 </li>
                                 <li class="main-nav__menu--item menu-item"  @click="enlaceTest()">
-                                <nuxt-link class="menu-item__enlace" v-if="this.nuevoProducto" to="/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                <nuxt-link class="menu-item__enlace" v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
+                                <nuxt-link class="menu-item__enlace" v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS </nuxt-link>
+                                <nuxt-link class="menu-item__enlace" v-else  to="/oficial/preguntas-frecuentes">AYUDA Y PREGUNTAS </nuxt-link>
                                 </li>
                                 <div class="nav-contacto">
                                 <div class="footer-menu">
@@ -82,54 +81,25 @@
 
                 <ul>
                     <li class="" >
-                        <nuxt-link class=""  to="/cobertura/">¿Qué me cubre?</nuxt-link>
+                        <nuxt-link class=""  to="/coberturas/">¿QUÉ ME CUBRE?</nuxt-link>
                     </li>        
                     <li class="" >
-                        <nuxt-link class=""  to="/como-lo-uso/">¿Cómo lo uso?</nuxt-link>
+                        <nuxt-link class=""  to="/como-lo-uso/">¿CÓMO LO USO?</nuxt-link>
                     </li>
                     <li class="" >
-                    <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
-                                <nuxt-link v-else  to="/oficial/preguntas-frecuentes">Preguntas frecuentes </nuxt-link>
+                        <a href="https://www.interseguro.pe/vivemas" target="_blank">BENEFICIOS</a>
                     </li>
-                    <div v-if="this.contactanos" class="nav-contacto  d-none  d-lg-flex">
-                        <div class="telefono ">
-                            <div class="d-flex  telefono-desktop">
-                                <div class=" telefono-desktop-img">
-                                    <span><img  width="28" src="../../static/media/img/home/telefono-header.png" alt="email"></span>
-                                </div>
-                                <div>
-                                    <span style="text-align:left; display: flex" class="ml-2">Llámanos<br>(01)500 0000</span>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-
-
+                    <li class="" >
+                    <nuxt-link v-if="this.nuevoProducto" to="/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
+                                <nuxt-link v-else  to="/oficial/preguntas-frecuentes">AYUDA Y PREGUNTAS</nuxt-link>
+                    </li>
+                    <li class="d-none  d-lg-flex"  v-bind:class="{ oculto: isOculto }">
+                        <button type="button" @click="cotizar()"><span>COTIZAR</span></button>
+                    </li>
                 </ul>
                 <div id="capa" style="display: none;"></div>
-            </div>            
-        </div>
-
-        <div v-if="this.cuentaSueldo" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
-            <div class="campaniatv-home__texto">
-                <div class="campania-lado-izq">
-                    <h2>15% de descuento con cuenta sueldo</h2>
-                </div>
-                <div class="campania-lado-der">
-                    <img class="logo-interbank" src="../../static/media/img/Interbank.png" alt="logo interbank">
-                </div>        
             </div>
-        </div>
-
-        <div v-if="this.tarjetaoh" class="campaniatv-home  d-none  d-lg-block" v-bind:class="{ cuentaSueldo: cuentaSueldo, tarjetaoh: tarjetaoh  }">
-            <div class="campaniatv-home__texto">
-                <div class="campania-lado-izq">
-                    <h2>15% de descuento con tarjetaoh!</h2>
-                </div>
-                <div class="campania-lado-der">
-                    <img  class="logo-tarjetaoh" src="../../static/media/img/oh.png" alt="logo tarjeta oh">
-                </div>        
-            </div>
+            
         </div>
 
 
@@ -145,19 +115,18 @@ export default {
     data(){
         return{
         nuevoProducto: false,
-            flagCloseListon: 0,
-            contactanos: true,
-            isOculto: true,
-            urlLocal: "",
-            ocultarBanner:false,
-            cuentaSueldo: false,
-            tarjetaoh: false,
-            baseIS: false,
+        flagCloseListon: 0,
+        contactanos: true,
+        isOculto: true,
+        urlLocal: "",
+        ocultarBanner:false,
+        cuentaSueldo: false,
+        tarjetaoh: false,
+        baseIS: false,
         }
     },
     mounted(){
-        // this.contador()
-        
+        // this.contador()        
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
@@ -187,14 +156,16 @@ export default {
                 this.baseIS = false
             }
         },0);
-        this.handleScroll()
+        this.handleScroll();
+        document.getElementById("main-menu").style.display = "none";
     },
     computed: {},
     methods:{
         contador(){
-            var flipdown2 = new FlipDown(1620104399, 'contadorCyber2').start()
-            var flipdown = new FlipDown(1620104399, 'contadorCyber').start()
+            // var flipdown2 = new FlipDown(1617253199, 'contadorCyber2').start()
+            // var flipdown = new FlipDown(1617253199, 'contadorCyber').start()
         },
+
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
             this.flagCloseListon = 0            
@@ -207,16 +178,16 @@ export default {
             var div = document.getElementById("capa")
             div.style.display = "none";
             document.getElementById("main-menu").style.display = "none"
-            document.getElementById("nav-checkbox").checked = false
+            //document.getElementById("nav-checkbox").checked = false
         },
         close(eve) {
             this.ocultarBanner = true
         },
         handleScroll(eve) {
-            if (window.scrollY >= 600) {
+            if (window.scrollY >= 400) {
                 if(true){
-                    this.isOculto = false
-                    this.contactanos = false;                    
+                    this.isOculto = false;
+                    this.contactanos = false;                   
                 }
             } else {
                 this.isOculto = true
@@ -231,6 +202,11 @@ export default {
             }
             this.$nuxt.$router.push({
                 path: "/"
+            });
+        },
+        cotizar(){
+            this.$nuxt.$router.push({
+                path: "/cotizacion/placa"
             });
         },
         showHide(e) {
@@ -248,12 +224,14 @@ export default {
                 document.getElementById("main-menu").style.display = "none"
                 div.style.display = "none"
             }
-        }
+        },
+        
+
     },
     created(){
-    setTimeout(()=>{
-    this.nuevoProducto = this.$store.state.common.nuevoProducto
-    },1000)
+        setTimeout(()=>{
+        this.nuevoProducto = this.$store.state.common.nuevoProducto
+        },1000)
         if (process.browser) {
             window.addEventListener("scroll", this.handleScroll);
             document.addEventListener('touchstart', this.handleScroll, {passive: true});
@@ -432,170 +410,14 @@ export default {
     }
     
 }
-.box-cotiza a {
+/* .box-cotiza button{
   animation: shadow-pulse 1s infinite;
+} */
+.oculto{
+    display: none !important;
 }
-    .oculto{
-        display: none !important;
-    }
-    .header-planes{
-        background: white;
-        height: 68px;
-        position: fixed;
-        width: 100%;
-        margin: auto;
-        top:0;
-        z-index: 999;
-        border-bottom: 1px solid #d4d4d4;
-        .menu-nav{
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            .nav-contacto{
-                display: flex;
-                .telefono_custom{
-                    width: 40px;
-                }
-                img{
-                    width: 20px;
-                }
-                span{
-                    color: #0855c4;
-                    font-size: 14px;
-                }
-            }
-            &__izq{
-                height: 68px;
-                display: flex;
-                justify-content: space-between;
-                padding-left: 15px;
-                
-                background: white;
-            }
-            &__der{
-                background: #f3f3f3;
-                height: 68px;
-                display: none;
-                
-                ul{
-                    text-align: center;
-                    padding-left: 0px;
-                    margin-bottom: 0;
-                    display: flex;
-                    list-style: none;
-                    align-items: center;
-                    width: 100%;
-                    li{
-                        text-decoration: none;
-                        width: 33%;
-                        margin-left: 20px;
-                        margin-right: 20px;
-                        a{
-                            font-size: 13px;
-                            font-weight: 500;
-                            font-stretch: normal;
-                            font-style: normal;
-                            line-height: 0.77;
-                            letter-spacing: normal;
-                            text-align: left;
-                            color: #696969;
-                        }
-                        &:hover{
-                            a{
-                                transition: all 0.5s;
-                                color: #0855c4;
-                            }
-                        }
-                    }
-                }
-            }            
-        }
-        .btn-cotiza a {
-            border: 2px solid #EA0C90 !important;
-            background: #EA0C90;
-            color: #fff;
-            border-radius: 3px;
-            font-size: 16px;
-            &:hover{
-                background: #d6058b;
-                text-decoration: none;
-            }
-        }
-        .logo-interbank{
-            width: 200px;
-            right: 19%;
-            bottom: 8px;
-        }
-        .logo-tarjetaoh{
-            width: 58px;
-            right: 19%;
-            bottom: 8px;
-        }
-        .campaniatv-home.cuentaSueldo{
-            background: #00bb31;
-            .campania-lado-der{
-                p{
-                    height: 50px;
-                    overflow: hidden;
-                }
-            }
-        }
-        .campaniatv-home.tarjetaoh{
-            background: #d2232a;
-        }
-        .campaniatv-home{
-            background: #000;
-            background-repeat: repeat-x;
-            background-size: contain;
-            display: flex;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 50px; 
-            top: 50px;
-            .campania-lado-der{
-                height: 50px;
-                line-height: 40px;
-                border-left: 50px solid transparent;
-                width: 55%;
-                color: #FFFFFF;
-                font-size: 29px;
-                font-weight: 500;
-                text-align: left;
-                text-transform: uppercase;
-            }
-            .campania-lado-izq{
-                width: 61%;
-                text-align: right;
-                overflow: hidden;
-                height: 50px;
-            }
-            h2{
-                color: #FFFFFF;
-                font-family: 'Omnes Medium';
-                font-weight: 600;
-                text-align: left;
-                margin-bottom: 0;
-                padding-left: 5%;
-                padding-bottom: 0;
-                display: inline-block;
-                height: 50px;
-                line-height: 50px;
-                word-spacing: 2px;
-                font-weight: 500;
-            }
-        }
-    }
-    @media (min-width: 768px){
-        .footer-menu{
-            width: 30%;
-            &__redes{
-                img{
-                }
-            }
-        }
-    }
-    @media (min-width: 992px){
+    
+@media (min-width: 992px){
         .footer-menu{
             width: 25%;
             &__redes{
@@ -606,36 +428,179 @@ export default {
         .box-logo{
             text-align: center;
         }
-         .header-planes{
+        .header-planes{
+            background: white;
+            height: 72px;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            top:0;
+            z-index: 999;
+            border-bottom: 1px solid #d4d4d4;
             .menu-nav{
+                display: flex;
+                flex-direction: column;
+                position: relative;
                 .nav-contacto{
-                    .telefono{
+                    display: flex;
+                    .telefono_custom{
+                        width: 40px;
                     }
-                    .whatsapp{
+                    img{
+                        padding-top: 20px;
+                        width: 20px;
+                    }
+                    span{
+                        color: #0855c4;
+                        font-size: 14px;
                     }
                 }
                 &__izq{
-                    padding-left: 45px;            
+                    height: 68px;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 15px;
+                    border-bottom: 1px solid white;
+                    background: white;
+                }
+                &__der{
+                    background: #f3f3f3;
+                    height: 68px;
+                    display: none;
+                    
+                    ul{
+                        text-align: center;
+                        padding-left: 0px;
+                        margin-bottom: 0;
+                        display: flex;
+                        list-style: none;
+                        align-items: center;
+                        width: 100%;
+                        li{
+                            text-decoration: none;
+                            width: 33%;
+                            margin-left: 20px;
+                            margin-right: 20px;
+                            a{
+                                font-size: 13px;
+                                font-weight: 500;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: 0.77;
+                                letter-spacing: normal;
+                                text-align: left;
+                                color: #696969;
+                            }
+                            &:hover{
+                                a{
+                                    transition: all 0.5s;
+                                    color: #0855c4;
+                                }
+                            }
+                            button{
+                                width: 193px;
+                                height: 40px;
+                                background-color: #EA0F8F  !important;
+                                border: #EA0F8F !important;
+                                border-radius: 3px;
+                                opacity: 1;                
+                                margin-left: 20px;
+                                outline: none;
+                                span{
+                                    font-style: normal;
+                                    text-align: center;
+                                    letter-spacing: 0px;
+                                    color: #FFFFFF;
+                                    opacity: 1;
+                                }
+                            }
+                            button:hover{
+                                border: #FD179D !important;
+                                background-color: #FD179D !important;
+                            }
+                        }
+                    }
+                    
+                }            
+            }
+            .btn-cotiza a {
+                border: 2px solid #EA0C90 !important;
+                background: #EA0C90;
+                color: #fff;
+                border-radius: 3px;
+                font-size: 16px;
+                &:hover{
+                    background: #d6058b;
+                    text-decoration: none;
                 }
             }
-         }
-    }
-    @media (min-width: 1024px){
-        .liston {
-            // flex-direction: row;
-            height: 42px;
+            .logo-interbank{
+                width: 200px;
+                right: 19%;
+                bottom: 8px;
+            }
+            .logo-tarjetaoh{
+                width: 58px;
+                right: 19%;
+                bottom: 8px;
+            }
+            .campaniatv-home.cuentaSueldo{
+                background: #00bb31;
+                .campania-lado-der{
+                    p{
+                        height: 50px;
+                        overflow: hidden;
+                    }
+                }
+            }
+            .campaniatv-home.tarjetaoh{
+                background: #d2232a;
+            }
+            .campaniatv-home{
+                background: #000;
+                background-repeat: repeat-x;
+                background-size: contain;
+                display: flex;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 50px; 
+                top: 50px;
+                .campania-lado-der{
+                    height: 50px;
+                    line-height: 40px;
+                    border-left: 50px solid transparent;
+                    width: 55%;
+                    color: #FFFFFF;
+                    font-size: 29px;
+                    font-weight: 500;
+                    text-align: left;
+                    text-transform: uppercase;
+                }
+                .campania-lado-izq{
+                    width: 61%;
+                    text-align: right;
+                    overflow: hidden;
+                    height: 50px;
+                }
+                h2{
+                    color: #FFFFFF;
+                    font-family: 'Omnes Medium';
+                    font-weight: 600;
+                    text-align: left;
+                    margin-bottom: 0;
+                    padding-left: 5%;
+                    padding-bottom: 0;
+                    display: inline-block;
+                    height: 50px;
+                    line-height: 50px;
+                    word-spacing: 2px;
+                    font-weight: 500;
+                }
+            }
         }
-        // .liston .box-texto-img {
-        //     height: 56px;
-        // }
-         .header-planes{
-            .menu-nav{
-                &__izq{
-                    padding-left: 65px;            
-                }
-            }
-         }
     }
+
     @media (min-width: 1200px){
         .liston{       
             height: 42px;     
@@ -695,70 +660,55 @@ export default {
                 }
             }
         }
-        .header-planes{
-            .menu-nav{
-                width: 100%;
-                margin: auto;
-                
-                &__der{
-                    ul{
-                        li{
-                            a{
+        
+    }
+ 
 
-                            }
-                            &:hover{
-                                a{
-                                    transition: all 0.5s;
-                                    color: #0855c4;
-                                }
-                            }
-                        }
+    @media (max-width: 992px) { 
+        .header-planes{
+            background: white;
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            top:0;
+            z-index: 999;
+            border-bottom: 1px solid #d4d4d4;
+            .menu-nav{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                .nav-contacto{
+                    display: flex;
+                    .telefono_custom{
+                        width: 40px;
+                    }
+                    img{
+                        padding-top: 20px;
+                        width: 20px;
+                    }
+                    span{
+                        color: #0855c4;
+                        font-size: 14px;
                     }
                 }
-            }
-        }
-    }
-    @media (min-width: 1366px){
-        // .example{
-        //         padding-top: 5px;
-        // }
-        .liston{
-            height: 42px;
-            padding-right: 102px;
-            padding-left: 128px;
-            .box-texto-img{
-                height: 62px;
-            }
-            .closeListon{
-                right: 20px;
-             }
-        }
-        .header-planes{
-            .campaniatv-home{
-                .campania-lado-izq{
-                    padding-left: 0%;
-                    width: 55%;
-                }
-                .campania-lado-der{
-                    width: 45%;
-                }
-            }
-        }
-    }
-    @media (min-width: 1440px){
-        .liston p {
-            font-size:16px;
-        }
-        .header-planes{
-            .menu-nav{
                 &__izq{
-                    padding-left: 128px;            
+                    height: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 15px;
+                    border-bottom: 1px solid white;
+                    background: white;
                 }
                 &__der{
-                    padding-right: 128px;            
-                }
-            }
-            
+                    background: #f3f3f3;
+                    height: 60px;
+                    display: none;
+                }            
+            }                
+        
         }
     }
+
+
 </style>

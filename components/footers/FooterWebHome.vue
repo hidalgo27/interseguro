@@ -9,10 +9,10 @@
             </p>
             <p class="footer--txt">© Copyright - All Rights Reserved Interseguro 2018</p>
             <div class="imgs"  style=" padding-bottom:10px;">
-                <span><img width="30" src="../../static/media/img/visa.svg" alt="Asegura tu auto"></span>
+                <!-- <span><img width="30" src="../../static/media/img/visa.svg" alt="Asegura tu auto"></span> -->
                 <span><img width="30" src="../../static/media/img/mastercard.svg" alt="mastercard seguro vehicular"></span>
                 <span><img width="30" src="../../static/media/img/amex.png" alt="amex seguro vehicular"></span>
-                <span v-if="this.businessId == 1"><img width="60" src="../../static/media/img/dinners.svg" alt="dinners seguro vehicular"></span>
+                <!-- <span v-if="this.businessId == 1"><img width="60" src="../../static/media/img/dinners.svg" alt="dinners seguro vehicular"></span> -->
             </div>
           </div>
           <div class="col-12  col-sm-2  lista-enlacesFooter">

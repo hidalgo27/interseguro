@@ -1006,7 +1006,7 @@ import { validationMixin } from 'vuelidate'
         }
     };
     export default {
-        layout: 'InterseguroFlujo',
+        layout: 'InterseguroFlujoNew',
         data(){
             return {
                 isIconFirstName: false,
@@ -1360,7 +1360,7 @@ import { validationMixin } from 'vuelidate'
                                 this.opacidad =false
                                 // this.validarROOT()
                                 this.$store.commit('common/setPolicy_id',res.body.policyId)
-                                this.$nuxt.$router.push({path: '/cotiza/pago-procesado'})
+                                this.$nuxt.$router.push({path: '/cotiza/pago-procesado2'})
                             }else if(res.code == 100){
            
                                 this.opacidad =false
@@ -1781,7 +1781,7 @@ import { validationMixin } from 'vuelidate'
                     "correo": this.$store.state.common.email.trim().replace(/ /g,''),
                     "codigoVenta": this.$store.state.common.codeRmkt,
                     "pantalla": 3,
-                    "enviarCorreo":0,
+                    "enviarCorreo":2,
                     "datosCorreo":{
                         "url": process.env.URL+ (this.$store.state.common.businessId == 1 ? "vehicular" : "vehicular/interbank"),
                         "plantilla": this.objPlantilla,
