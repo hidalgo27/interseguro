@@ -6406,7 +6406,7 @@ export default {
         getFinancialInstitution() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .get("provider/v1/other/financial-institution")
+                .get("vehicular-api/provider/v1/other/financial-institution")
                 .then(res => {
                     if (res) {
                         this.listEndoso = res.data.body                                
@@ -6437,7 +6437,7 @@ export default {
         },
         getcreateRemarketing() {
             return new Promise((resolve, reject) => {
-                this.$axios.post("/provider/v1/vehicle/create-remarketing", {
+                this.$axios.post("vehicular-api/provider/v1/vehicle/create-remarketing", {
                     email: this.email
                 })
                 .then(res => {
@@ -6523,7 +6523,7 @@ export default {
         updateClient() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .put("provider/v1/client/", {
+                .put("vehicular-api/provider/v1/client/", {
                     firstName: this.capitalize(this.objClients.firstName),
                     firstLastName: this.capitalize(this.objClients.firstLastName),
                     secondLastName: this.capitalize(this.objClients.secondLastName),
@@ -6552,7 +6552,7 @@ export default {
         updateRuc() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .put("provider/v1/client/", {
+                .put("vehicular-api/provider/v1/client/", {
                     firstName: this.capitalize(this.objClients.firstName),
                     address: this.objClients.address,
                     phoneNumber: this.objClients.phoneNumber,
@@ -6580,7 +6580,7 @@ export default {
         createRuc() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .post("provider/v1/client/", {
+                .post("vehicular-api/provider/v1/client/", {
                     firstName: this.capitalize(this.objClients.firstName),
                     address: this.objClients.address,
                     phoneNumber: this.objClients.phoneNumber,
@@ -6608,7 +6608,7 @@ export default {
         createClient() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .post("provider/v1/client/", {
+                .post("vehicular-api/provider/v1/client/", {
                     firstName: this.capitalize(this.objClients.firstName),
                     firstLastName: this.capitalize(this.objClients.firstLastName),
                     secondLastName: this.capitalize(this.objClients.secondLastName),
@@ -6961,7 +6961,7 @@ export default {
         getPagoProcesado() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .get("manage/v1/policy/details/" + this.objPagoProcesado.id)
+                .get("vehicular-api/manage/v1/policy/details/" + this.objPagoProcesado.id)
                 .then(res => {
                     if (res.data.code == 0) {
                     this.transaccion = res.data.body;
@@ -7053,7 +7053,7 @@ export default {
         },
         createPolicy () {                
             return new Promise((resolve, reject) => {
-            this.$axios.post('manage/v1/policy/payment/'+ this.placa.toUpperCase()+'/'+ this.documentoLocal, this.listCotizacion)                
+            this.$axios.post('vehicular-api/manage/v1/policy/payment/'+ this.placa.toUpperCase()+'/'+ this.documentoLocal, this.listCotizacion)                
                 .then(res => {
                     if(res){
                          if (res.data.code == 0) {
@@ -7185,7 +7185,7 @@ export default {
         getClient() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .get("provider/v1/client/" + this.documentoLocal+"?discountType="+this.discountType )
+                .get("vehicular-api/provider/v1/client/" + this.documentoLocal+"?discountType="+this.discountType )
                 .then(res => {
                     if (res.data.code == 0) {
                         this.objClients = res.data.body;
@@ -7226,7 +7226,7 @@ export default {
         getVehicle() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .post("provider/v1/vehicle/plate/" + this.placa.toUpperCase(), {
+                .post("vehicular-api/provider/v1/vehicle/plate/" + this.placa.toUpperCase(), {
                     email: this.email
                 })
                 .then(res => {
@@ -7289,7 +7289,7 @@ export default {
         getBrand() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .get("provider/v1/other/brand/group")
+                .get("vehicular-api/provider/v1/other/brand/group")
                 .then(res => {
                     if(res){
                         this.listBrand = res.data.body
@@ -7306,7 +7306,7 @@ export default {
         getYear() {
             return new Promise ((resolve, reject) => {
                 this.$axios
-                .get("provider/v1/other/years")
+                .get("vehicular-api/provider/v1/other/years")
                 .then(res => {
                     if(res){
                         this.listYear = res.data.body
@@ -7330,7 +7330,7 @@ export default {
         getUses() {
             return new Promise ((resolve,reject) => {
                 this.$axios
-                .get("provider/v1/other/uses")
+                .get("vehicular-api/provider/v1/other/uses")
                 .then(res => {
                     if (res) {
                         this.listUses = res.data.body
@@ -7349,8 +7349,8 @@ export default {
                 this.remarketingId = this.remarketingId == null ? "" : this.remarketingId
                 this.discountType = this.discountType == null ? "" : this.discountType
                 let url = current == null
-                    ? "provider/v2/policy/price-plans/" + this.placa +"/" + this.objVehicle.modelYear +"?remarketingId=" + this.remarketingId
-                    : "provider/v2/policy/price-plans/" + this.placa + "/" + this.objVehicle.modelYear +"?assignedPrice=" + current + "&remarketingId=" + this.remarketingId;
+                    ? "vehicular-api/provider/v2/policy/price-plans/" + this.placa +"/" + this.objVehicle.modelYear +"?remarketingId=" + this.remarketingId
+                    : "vehicular-api/provider/v2/policy/price-plans/" + this.placa + "/" + this.objVehicle.modelYear +"?assignedPrice=" + current + "&remarketingId=" + this.remarketingId;
                 this.$axios
                   .get(url + "&discountType=" + this.discountType + "&businessId=" + localStorage.getItem("businessId"))
                   .then(res => {
@@ -7408,7 +7408,7 @@ export default {
         getModelLocal() {
             return new Promise ((resolve, reject) => {
                 this.$axios
-                .post("provider/v1/other/models-available/" + this.objVehicle.brandId + "/" + this.objVehicle.modelYear)
+                .post("vehicular-api/provider/v1/other/models-available/" + this.objVehicle.brandId + "/" + this.objVehicle.modelYear)
                 .then(res => {
                     if(res) {
                         this.listModel = res.data.body
@@ -7465,7 +7465,7 @@ export default {
         updateVehicle() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .put("provider/v1/vehicle", {
+                .put("vehicular-api/provider/v1/vehicle", {
                     brandId: this.objVehicle.brandId,
                     modelId: this.objVehicle.modelId,
                     modelYear: this.objVehicle.modelYear,
@@ -7534,7 +7534,7 @@ export default {
         createVehicle() {
             return new Promise((resolve, reject) => {
                 this.$axios
-                .post("provider/v1/vehicle", {
+                .post("vehicular-api/provider/v1/vehicle", {
                     brandId: this.objVehicle.brandId,
                     modelId: this.objVehicle.modelId,
                     modelYear: this.objVehicle.modelYear,
