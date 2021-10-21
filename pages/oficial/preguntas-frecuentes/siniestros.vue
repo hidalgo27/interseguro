@@ -8,8 +8,8 @@
         b-row.centrar
           b-col.ocultar-div(sm="12" md="4" style="padding-bottom: 30px")
             nuevoTextLinks
-          b-col.sinborde(sm="12" md="8")   
-            preguntasFrecuentesGenerico(  
+          b-col.sinborde(sm="12" md="8")
+            preguntasFrecuentesGenerico(
               :preguntas="preguntas"
               :itemsMenu="itemsMenu"
               :imagenMenu="imagenMenu"
@@ -28,7 +28,7 @@ export default {
   layout: "InterseguroHome",
    data() {
     return {
-      TextoTab: "Siniestros", 
+      TextoTab: "Siniestros",
       imagenMenu: require("@/static/media/img/root/pf/siniestros.png"),
       regresarPrincipal: '/oficial/preguntas-frecuentes/',
       preguntas: [
@@ -57,46 +57,52 @@ export default {
           identificador: "pregunta5.4"
         }
       ],
-      
+
       itemsMenu: [
         {
-          title : "Asistencias",          
+          title : "Asistencias",
           id: "accordeon1",
           to: "inspeccion"
         },
         {
-          title : "Cobertura",          
+          title : "Cobertura",
           id: "accordeon2",
           to: "cobertura"
         },
         {
-          title : "Inspección",          
+          title : "Inspección",
           id: "accordeon3",
           to: "inspeccion"
         },
         {
-          title : "Pagos",          
+          title : "Pagos",
           id: "accordeon4",
           to: "pagos"
         },
         {
-          title : "Que pasa si",          
+          title : "Que pasa si",
           id: "accordeon5",
           to: "que-pasa-si"
         },
         {
-          title : "Siniestros",          
+          title : "Siniestros",
           id: "accordeon6",
           to: "siniestros"
         },
       ]
     };
   },
+  head: {
+    title: '¿Qué hacer ante un siniestro vehicular?',
+    meta: [
+      { hid: 'description', name: 'description', content: "¿Qué hacer ante un siniestro vehicular? Estamos para atenderte las 24 horas. Llegamos a todo el Perú para brindarte auxilio mecánico, servicio de grúa y más" },
+    ],
+  },
   created() {
     this.$nuxt.$emit("nro-cotizaciones-flag", { flag: true });
   },
   mounted() {
-    
+
   },
   components: {
     preguntasFrecuentesGenerico,
@@ -104,7 +110,7 @@ export default {
     nuevoTextLinks
   },
   methods: {
-    
+
   }
 };
 </script>

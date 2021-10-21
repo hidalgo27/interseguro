@@ -8,8 +8,8 @@
         b-row.centrar
           b-col.ocultar-div(sm="12" md="4" style="padding-bottom: 30px")
             nuevoTextLinks
-          b-col.sinborde(sm="12" md="8")   
-            preguntasFrecuentesGenerico(  
+          b-col.sinborde(sm="12" md="8")
+            preguntasFrecuentesGenerico(
               :preguntas="preguntas"
               :itemsMenu="itemsMenu"
               :imagenMenu="imagenMenu"
@@ -28,7 +28,7 @@ export default {
   layout: "InterseguroHome",
    data() {
     return {
-      TextoTab: "Inspección", 
+      TextoTab: "Inspección",
       imagenMenu: require("@/static/media/img/root/pf/inspeccion.png"),
       regresarPrincipal: '/oficial/preguntas-frecuentes/',
       preguntas: [
@@ -51,46 +51,52 @@ export default {
           identificador: "pregunta3.3"
         }
       ],
-      
+
       itemsMenu: [
         {
-          title : "Asistencias",          
+          title : "Asistencias",
           id: "accordeon1",
           to: "inspeccion"
         },
         {
-          title : "Cobertura",          
+          title : "Cobertura",
           id: "accordeon2",
           to: "cobertura"
         },
         {
-          title : "Inspección",          
+          title : "Inspección",
           id: "accordeon3",
           to: "inspeccion"
         },
         {
-          title : "Pagos",          
+          title : "Pagos",
           id: "accordeon4",
           to: "pagos"
         },
         {
-          title : "Que pasa si",          
+          title : "Que pasa si",
           id: "accordeon5",
           to: "que-pasa-si"
         },
         {
-          title : "Siniestros",          
+          title : "Siniestros",
           id: "accordeon6",
           to: "siniestros"
         },
       ]
     };
   },
+  head: {
+    title: 'Inspección Vehicular 100% online',
+    meta: [
+      { hid: 'description', name: 'description', content: "La inspección Vehicular es 100% online desde nuestra app. Puedes hacer tu inspección vehicular en el momento y lugar que quieras al instante" },
+    ],
+  },
   created() {
     this.$nuxt.$emit("nro-cotizaciones-flag", { flag: true });
   },
   mounted() {
-    
+
   },
   components: {
     preguntasFrecuentesGenerico,
@@ -98,7 +104,7 @@ export default {
     nuevoTextLinks
   },
   methods: {
-    
+
   }
 };
 </script>

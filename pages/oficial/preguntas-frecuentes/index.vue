@@ -29,7 +29,7 @@
                   div
                     router-link(to="/oficial/preguntas-frecuentes/inspeccion" target="_self")
                       div.text-center
-                        div.w-100.omnes-medium.text-secondary ¿Cómo hago mi inspección? 
+                        div.w-100.omnes-medium.text-secondary ¿Cómo hago mi inspección?
                 b-col(md="12" sm="12" xl="4")
                   div
                     router-link(to="/oficial/preguntas-frecuentes/siniestros" target="_self")
@@ -46,7 +46,7 @@
                     router-link(to="/oficial/preguntas-frecuentes/que-pasa-si" target="_self")
                       div.text-center
                         div.w-100.omnes-medium.text-secondary ¿Qué pasa si choco contra un carro que no tiene seguro vehicular?
-                
+
       b-container.preguntas-tema
         b-row
           b-col.mt-4.mb-3.mt-xl-5.mb-xl-4.text-center
@@ -56,7 +56,7 @@
 
           b-row.justify-content-md-center
 
-            b-col(xs="12" md="12" sm="12" xl="4" v-for="(item,key) in itemsMenu" :key="item.id") 
+            b-col(xs="12" md="12" sm="12" xl="4" v-for="(item,key) in itemsMenu" :key="item.id")
               div
                 router-link(:to="'/oficial/'+item.to" )
                   div
@@ -118,7 +118,7 @@ export default {
               resp: "Chofer de reemplazo, asistencia mecánica, ambulancia, grúa, vehículo de reemplazo, asistencia legal. ",
               id: "pregunta2.1"
             },
-            { 
+            {
               preg: "¿Cuántos choferes de reemplazo tengo?", resp: "Cinco",
               id: "pregunta2.2"
             },
@@ -255,6 +255,12 @@ export default {
       ]
     };
   },
+  head: {
+    title: 'Consulta tus dudas de seguro vehicular',
+    meta: [
+      { hid: 'description', name: 'description', content: "Consulta aquí todo sobre seguro vehicular. Recuerda que aquí tienes cobertura nacional, auxilio mecánico las 24 horas y más beneficios de acuerdo a tu plan" },
+    ],
+  },
   created() {
     this.$nuxt.$emit("nro-cotizaciones-flag", { flag: true });
   },
@@ -269,7 +275,7 @@ export default {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'pagina_vista',
-            'page-url': '/vehicular/oficial/preguntas-frecuentes', 
+            'page-url': '/vehicular/oficial/preguntas-frecuentes',
             'page-title': 'oficial Preguntas frecuentes'
         });
     }
@@ -287,7 +293,7 @@ export default {
     .container {
       max-width: 1170px;
     }
-    
+
     .preguntas {
       margin-bottom: 3rem;
       a > div {
