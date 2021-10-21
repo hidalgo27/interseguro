@@ -1088,12 +1088,12 @@ export default {
             ]
         }
     },
-    head: {
-      title: 'Cobertura de seguro vehicular por plan',
-      meta: [
-        { hid: 'description', name: 'description', content: "Conoce la cobertura de seguro vehicular por cada plan. Recibe beneficios adicionales como auxilio vehicular, asistencia mecánica, vehículo de reemplazo y más" },
-      ],
-    },
+  head: {
+    title: 'Cobertura de seguro vehicular por plan',
+    meta: [
+      { hid: 'description', name: 'description', content: "Conoce la cobertura de seguro vehicular por cada plan. Recibe beneficios adicionales como auxilio vehicular, asistencia mecánica, vehículo de reemplazo y más" },
+    ],
+  },
     components:{
         'modal2-is': Modal2
     },
