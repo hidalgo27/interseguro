@@ -467,8 +467,20 @@
                         </b-col>                              
                                 
                     </b-row>
+                    <div class="referido">
+                          <b-row>
+                            <b-col cols="12" sm="10" md="12" >
+                              <p class="pReferido">¿Un colaborador de Interseguro te recomendó este seguro?</p>
+                            </b-col>
+                            <b-col cols="12" lg="10">
+                                <input placeholder="Ingresa el DNI del colaborador aquí"
+                                   id="referidoDocumento" name="referidoDocumento" v-model="objReferido.documentNumber"
+                                    arial-label="Ingresa el DNI del colaborador aquí" maxlength="11" type="tel" class="btnReferido"/>
+                            </b-col>
+                          </b-row>
+                    </div>
                     <b-row class="text-center condiciones">
-                                <b-col cols="12">
+                                <b-col cols="12" style="left:10px">
                                     <input class="form-check-input" type="checkbox" @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         <template v-if="tabIndex == 1">
@@ -493,7 +505,7 @@
                                 </b-col>
                     </b-row>
                     <b-row class="justify-content-center">                                            
-                        <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="box-btn-pagar">                                                
+                        <b-col cols="12" sm="12" md="12" lg="6" xl="6" class="box-btn-pagar" style="left:35px;">                                                
                             <button type="button" @click="continuar" :disabled='this.isDisabledPayment'>
                                 <span>PAGAR ${{this.monto_pagar}} </span>
                             </button>
@@ -1183,6 +1195,9 @@ import { validationMixin } from 'vuelidate'
                 campoDocumentoInicial: null,
                 todoCompleto: false,
                 loadingPersona: false,
+                objReferido:{
+                    documentNumber:''
+                },
             }
         },
         methods: {
@@ -1332,6 +1347,7 @@ import { validationMixin } from 'vuelidate'
                             channelId: 1,
                             plateNumber: this.$store.state.common.plateNumber,
                             documentNumber: this.$store.state.common.documentoLocal,
+                            referredNumber: this.objReferido.documentNumber,
                             discountType: this.discountType,
                             policy: {
                                 startDate: this.$store.state.common.fechaVigencia,
@@ -2323,4 +2339,26 @@ import { validationMixin } from 'vuelidate'
     }
 </script>
 
-
+<style lang="scss" scope>
+.referido{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 266px;
+    max-height: 165px;
+    text-align: center;
+    font-family: 'Omnes Regular';
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    .btnReferido{
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 266px;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid #B2B4C7;
+    }
+}
+</style>

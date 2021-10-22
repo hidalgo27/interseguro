@@ -166,13 +166,25 @@
                                         </b-col>
                                     </b-row>
                                 </div>
+                                <div class="referido">
+                                    <b-row>
+                                        <b-col cols="12" sm="10" md="12">
+                                        <p class="pReferido">¿Un colaborador de Interseguro te recomendó este seguro?</p>
+                                        </b-col>
+                                        <b-col cols="12" lg="10">
+                                            <input placeholder="Ingresa el DNI del colaborador aquí"
+                                                id="referidoDocumento" name="referidoDocumento" v-model="objReferido.documentNumber"
+                                                arial-label="Ingresa el DNI del colaborador aquí" maxlength="11" type="tel" class="btnReferido"/>
+                                        </b-col>
+                                    </b-row>
+                                </div>
                                 <div class="panel-custom pt-0">
                                     <b-row>
                                         <b-col cols="12" md="12">
                                             <div class="checkbox-aux font-nunito">
                                                 <label  class="box-checkbox"  id="show-modal">
                                                     <input type="checkbox"  @change="isTrueTerminos" v-model="checkDocs" id="checkDocs">
-                                                    <span class=checkbox-aux__span>
+                                                    <span class="checkbox-aux__span">
                                                         <i class="checkbox-aux__span--icon fa fa-check"></i>
                                                     </span>
 
@@ -605,6 +617,9 @@ import { validationMixin } from 'vuelidate'
                     isValid:''
                 },
                 objCulqi:{},
+                objReferido:{
+                    documentNumber: ''
+                },
                 /**************************************************************
                  * *********************** REMARKETING ************************
                  * ***********************************************************/
@@ -821,6 +836,7 @@ import { validationMixin } from 'vuelidate'
                             channelId: 1,
                             plateNumber: this.$store.state.common.plateNumber,
                             documentNumber: this.$store.state.common.documentoLocal,
+                            referredNumber: this.objReferido.documentNumber,
                             discountType: this.discountType,
                             policy: {
                                 startDate: this.$store.state.common.fechaVigencia,
@@ -1926,6 +1942,7 @@ a.steps__item.paso1:after{
                 }
             }
             .checkbox-aux__span {
+                left: 35px !important;
                 width: 18px;
                 height: 18px;
             }  
@@ -1934,6 +1951,7 @@ a.steps__item.paso1:after{
                 position: absolute;
             }     
             .checkbox-aux__descripcion{
+                left: 85px !important;
                 margin-left: -12px;
                 width: 86%;
                 a{
@@ -2043,6 +2061,12 @@ a.steps__item.paso1:after{
             &__ingresatarjeta{
                 // padding: 4px 15px;
                 padding: 22px 28px;
+                .checkbox-aux__span{
+                    left: 55px !important;
+                }
+                .checkbox-aux__descripcion{
+                    left: 110px !important;
+                }
             }
         }
         .btn-movil{
@@ -2791,6 +2815,26 @@ a.steps__item.paso1:after{
 //     width: 320px;
 //     }
 // }
-
+.referido{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 266px;
+    max-height: 165px;
+    text-align: center;
+    font-family: 'Omnes Regular';
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    .btnReferido{
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 266px;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid #B2B4C7;
+    }
+}
 </style>
 
