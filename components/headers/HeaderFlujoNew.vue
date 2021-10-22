@@ -1,9 +1,8 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <b-container fluid>
+        <!-- <b-container fluid>
             <b-row id="liston-desktop">
-                <!-- Liston Desktop -->
                 <b-col class="liston d-none d-md-block" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
                     <b-row align-v="center">
                         <b-col class="logo-franja">
@@ -21,12 +20,8 @@
                         </b-col>
                     </b-row>
                 </b-col>
-                <!-- Liston Mobile -->
                 <b-col class="liston d-md-none" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
                     <b-row align-v="center">
-                        <!-- <b-col class="logo-franja">
-                            <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">
-                        </b-col> -->
                         <b-col class="p-0">
                             <p class="text">
                                 <span style="color: #ffd527"> 1 cuota gratis + vale de S/100 </span>
@@ -41,7 +36,7 @@
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
                 
             </b-row>
-        </b-container>
+        </b-container> -->
 
         <div>
             <b-navbar>
@@ -87,7 +82,7 @@ export default {
         }
     },
     mounted(){
-        this.contador()
+        //this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
