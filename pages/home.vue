@@ -1,5 +1,5 @@
 <template>
-  
+
   <div class="nuevo-home" @scroll="handleScroll()">
     <div class="banner content" v-if="!this.isCampania">
       <div class="banner-blue    d-xl-none"></div>
@@ -7,12 +7,12 @@
         <b-row class="d-block d-xl-none banner-textos text-center" align-h="center">
           <b-col cols="12">
             <p class="titulo-mobile">Proteger tu auto no  <span><br></span> tiene porque ser caro.</p>
-          </b-col> 
+          </b-col>
           <b-col cols="12">
             <p class="subtitulo">Todos nuestros planes con <span><br></span> <strong>10% de descuento anual.</strong></p>
-          </b-col>         
+          </b-col>
         </b-row>
-        <b-form class="formCotizador">                         
+        <b-form class="formCotizador">
           <div class="formCotizador__msg">
             Desde US$ 12 al mes
           </div>
@@ -25,11 +25,11 @@
                 maxlength="6"
                 autocomplete="off"
                 type="text"
-                v-model="item.plateNumber"                    
+                v-model="item.plateNumber"
                 required
                 placeholder="Ingresa tu Placa"
                 name="Placa"
-                aria-label="placa"                
+                aria-label="placa"
                 autofocus
             ></b-form-input>
           </b-form-group>
@@ -39,9 +39,9 @@
                 <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
             </button>
             <p class="numero_asegurados">
-                
+
             </p>
-            
+
             <p class="asegurados">
               <img src="./../static/media/imagenes/home/escudo.svg" alt="">
               <strong>Más de 2,000,000</strong> de asegurados
@@ -58,7 +58,7 @@
             Compra hoy cualquiera de nuestros planes<span><br>con</span> <strong> 10% de descuento anual.</strong>
           </p>
         </div>
-          
+
       </b-container>
     </div>
     <div v-else class="banner content">
@@ -67,20 +67,20 @@
         <b-row class="d-block d-xl-none" >
           <b-col cols="12" class="banner-mobile" align-self="center">
             <img src="./../static/media/img/campania/banner-home-mobile.svg" alt="">
-          </b-col> 
+          </b-col>
           <b-col cols="12" class="banner-mobile text-contador pt-2">
             <p>La oferta termina en :</p>
-          </b-col> 
+          </b-col>
           <b-col cols="12" class="banner-mobile pt-1 pb-3">
             <div  class="example  d-md-flex">
-                    <div id="contadorCyberMobile" class="flipdown">                        
-                    </div> 
+                    <div id="contadorCyberMobile" class="flipdown">
+                    </div>
             </div>
-          </b-col>      
+          </b-col>
         </b-row>
         <b-row align-v="center">
           <b-col cols="12" sm="12" md="12" lg="12" xl="5">
-            <b-form class="formCotizador">                         
+            <b-form class="formCotizador">
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
               </div>
@@ -93,11 +93,11 @@
                     maxlength="6"
                     autocomplete="off"
                     type="text"
-                    v-model="item.plateNumber"                    
+                    v-model="item.plateNumber"
                     required
                     placeholder="Ingresa tu Placa"
                     name="Placa"
-                    aria-label="placa"                
+                    aria-label="placa"
                     autofocus
                 ></b-form-input>
               </b-form-group>
@@ -107,9 +107,9 @@
                     <clip-loader class="cliploader" :loading="loading" :color="color" :size="size"></clip-loader>
                 </button>
                 <p class="numero_asegurados">
-                    
+
                 </p>
-                
+
                 <p class="asegurados">
                   <img src="./../static/media/imagenes/home/escudo.svg" alt="">
                   <strong>Más de 2,000,000</strong> de asegurados
@@ -125,7 +125,7 @@
             <div >
               <b-row class="campania">
                 <b-col cols="12">
-                  <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px"> 
+                  <img src="./../static/media/img/campania/banner-home-desktop.svg" alt="" style="margin-left: 70px">
                 </b-col>
                 <b-col class="box-contador">
                   <b-row align-v="center">
@@ -133,22 +133,22 @@
                       <p class="text">  La oferta termina en :  </p>
                     </b-col>
                     <b-col>
-                      <div  class="example  d-none  d-md-flex" >                  
+                      <div  class="example  d-none  d-md-flex" >
                         <div id="contadorCyberDesktop" class="flipdown contador">
-                            
-                        </div> 
+
+                        </div>
                       </div>
                     </b-col>
                   </b-row>
-                  
-                   
+
+
                 </b-col>
-              </b-row>              
+              </b-row>
             </div>
           </b-col>
         </b-row>
-        
-        
+
+
       </b-container>
     </div>
 
@@ -157,7 +157,7 @@
         <b-col cols="12" >
           <div class="section-title">
             <p class="d-none d-sm-block">Más de 550,000 clientes ya protegen <br> su auto con nosotros</p>
-            <p class="d-block d-sm-none">Más de 550,000 clientes <br> ya protegen su auto <br> con nosotros</p>            
+            <p class="d-block d-sm-none">Más de 550,000 clientes <br> ya protegen su auto <br> con nosotros</p>
           </div>
         </b-col>
       </b-row>
@@ -253,9 +253,9 @@
             </div>
         </b-col>
       </b-row>
-      
+
       <b-row class="text-center row-start">
-        <b-col class="stars"> 
+        <b-col class="stars">
           <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
           <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
           <img src="./../static/media/imagenes/home/star-fucsia.svg"/>
@@ -278,7 +278,7 @@
         </b-row>
       </b-container>
 
-      <b-container class="planes">        
+      <b-container class="planes">
         <!-- Inicio planes Desktop -->
         <b-row class="d-none  d-lg-flex" align-v="stretch">
 
@@ -294,35 +294,35 @@
                     <b-row class="box-titulo">
                       <b-col>
                         <p class="titulo-principal">Básico: <span class="titulo-descripcion">Protección contra robo</span> </p>
-                      </b-col>                    
+                      </b-col>
                     </b-row>
                     <hr>
                     <b-row class="monto-frecuencia">
                       <b-col>
-                        <p>Desde <span  class="monto">US$ 12</span>/mes</p>                        
+                        <p>Desde <span  class="monto">US$ 12</span>/mes</p>
                       </b-col>
                     </b-row>
-                    
+
                     <b-row>
                       <b-col>
                         <div class="que-me-cubre">
                           <div class="titulo-box-planes">
                             Este plan incluye:
                           </div>
-                          
+
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Beneficios Interseguro</span> 
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Beneficios Interseguro</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Central de emergencias</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Central de emergencias</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Responsabilidad Civil</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Responsabilidad Civil</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Robo total</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span>Robo total</span>
                           </p>
-                        </div>                      
+                        </div>
                       </b-col>
                     </b-row>
                   </b-col>
@@ -331,9 +331,9 @@
                       <router-link to="/coberturas/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                     </div>
                   </b-col>
-                  
+
                 </b-row>
-                
+
               </b-col>
 
             </b-row>
@@ -351,7 +351,7 @@
                     <b-row class="box-titulo">
                       <b-col>
                         <p class="titulo-principal">Intermedio: <span class="titulo-descripcion">Protección accidentes</span> </p>
-                      </b-col>                    
+                      </b-col>
                     </b-row>
                     <hr>
                     <b-row class="monto-frecuencia">
@@ -359,33 +359,33 @@
                         <p>Desde <span  class="monto">US$ 25</span>/mes</p>
                       </b-col>
                     </b-row>
-                    
+
                     <b-row>
                       <b-col>
                         <div class="que-me-cubre">
                           <div class="titulo-box-planes">
                             Este plan incluye:
                           </div>
-                          
+
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>
                           </p>
-                        </div>                      
+                        </div>
                       </b-col>
                     </b-row>
                   </b-col>
@@ -394,9 +394,9 @@
                       <router-link to="/coberturas/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                     </div>
                   </b-col>
-                  
+
                 </b-row>
-                
+
               </b-col>
 
             </b-row>
@@ -416,56 +416,56 @@
                     <b-row class="box-titulo">
                       <b-col>
                         <p class="titulo-principal">Full: <span class="titulo-descripcion">Protección total</span> </p>
-                      </b-col>                    
+                      </b-col>
                     </b-row>
                     <hr>
                     <b-row class="monto-frecuencia">
                       <b-col>
-                        <p>Desde <span  class="monto">US$ 33</span>/mes</p> 
+                        <p>Desde <span  class="monto">US$ 33</span>/mes</p>
                       </b-col>
                     </b-row>
-                    
+
                     <b-row>
                       <b-col>
                         <div class="que-me-cubre">
                           <div class="titulo-box-planes">
                             Este plan incluye:
                           </div>
-                          
+
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span> 
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Beneficios Interseguro</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Central de emergencias</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Responsabilidad Civil</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./..//static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>                        
+                            <img src="./..//static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Robo total</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida parcial por accidente</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accidentes de ocupantes</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accesorios musicales</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Accesorios musicales</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Rotura de lunas</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Rotura de lunas</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Desastres naturales, vandalismo, incendios.</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Desastres naturales, vandalismo, incendios.</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida total por accidente</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Pérdida total por accidente</span>
                           </p>
                           <p class="que-me-cubre__item">
-                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Ausencia de control*</span>                        
+                            <img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""><span >Ausencia de control*</span>
                           </p>
-                        </div>                      
+                        </div>
                       </b-col>
                     </b-row>
                   </b-col>
@@ -474,17 +474,17 @@
                       <router-link to="/coberturas/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                     </div>
                   </b-col>
-                  
+
                 </b-row>
-                
+
               </b-col>
 
             </b-row>
           </b-col>
 
         </b-row>
-        
-        
+
+
         <!-- Fin Desktop -->
 
         <!-- Inicio Planes Mobile -->
@@ -527,100 +527,100 @@
                   <span>¡Plan recomendado!</span>
                 </div>
               </b-col>
-            </b-row>            
+            </b-row>
           </b-col>
           <b-col class="box-plan-recomendado" cols="12">
             <b-row style="height: 100%; " class="detalle-plan">
               <b-col align-self="start">
                 <b-row class="box-titulo">
                   <b-col>
-                    <p class="titulo-principal">{{planSeleccionado == 0 ? "Básico" : planSeleccionado == 1 ? "Medio" : "Full"}} : 
-                       <span class="titulo-descripcion">{{proteccion}}</span> 
+                    <p class="titulo-principal">{{planSeleccionado == 0 ? "Básico" : planSeleccionado == 1 ? "Medio" : "Full"}} :
+                       <span class="titulo-descripcion">{{proteccion}}</span>
                     </p>
-                  </b-col>                    
+                  </b-col>
                 </b-row>
                 <hr>
                 <b-row class="monto-frecuencia">
                   <b-col>
-                    <p>Desde <span  class="monto">US$ {{precio}}</span>/mes</p>                        
+                    <p>Desde <span  class="monto">US$ {{precio}}</span>/mes</p>
                   </b-col>
                 </b-row>
-                
+
                 <b-row>
                   <b-col>
                     <div class="que-me-cubre">
                       <div class="titulo-box-planes">
                         Este plan incluye:
                       </div>
-                      
+
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Beneficios Interseguro</b-col>
-                        </b-row> 
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Central de emergencias</b-col>
-                        </b-row>                       
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Responsabilidad Civil</b-col>
-                        </b-row>                        
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 0 || planSeleccionado == 1 || planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Robo total</b-col>
-                        </b-row>                       
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 1 || planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Daños al vehículo por accidente</b-col>
-                        </b-row>                       
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 1 || planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Accidentes personales</b-col>
-                        </b-row>                        
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >ccesorios musicales</b-col>
-                        </b-row>                        
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Rotura de lunas</b-col>
-                        </b-row>                       
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Desastres naturales, vandalismo, incendios.</b-col>
-                        </b-row>                                                
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >Pérdida total por accidente</b-col>
-                        </b-row>                         
+                        </b-row>
                       </p>
                       <p class="que-me-cubre__item" v-if="planSeleccionado == 2">
                         <b-row>
                           <b-col cols="1"><img src="./../static/media/imagenes/cotizacion/check-lg.svg" alt=""></b-col>
                           <b-col >usencia de control*</b-col>
-                        </b-row>                        
+                        </b-row>
                       </p>
 
-                    </div>                      
+                    </div>
                   </b-col>
                 </b-row>
               </b-col>
@@ -628,15 +628,15 @@
                 <div class="detalle">
                   <router-link to="/coberturas/" class="ver-detalle"><span>Ver detalle </span> <img src="./../static/media/imagenes/home/row-rigth.svg" alt=""></router-link>
                 </div>
-              </b-col>              
-            </b-row>            
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
         <!-- Fin Mobile -->
       </b-container>
     </b-container>
 
-    
+
 
     <b-container class="home-seccion">
       <b-row>
@@ -648,7 +648,7 @@
           </div>
         </b-col>
       </b-row>
-      
+
       <b-row>
         <b-col cols="12">
           <div class="beneficios">
@@ -660,11 +660,11 @@
                   <p class="d-none  d-xl-block" style="padding-left: 24px;"><span class="titulo">Atenciónes médica,</span> <span class="descripcion">Descuentos <br> y beneficios en Atención médica:</span> </p>
                   <ul class="d-none  d-xl-block descripcion" style="text-align: left;">
                     <li>
-                      <p>Descuento de S/50 en atención <br> médica covid-19 a domicilio</p>                       
+                      <p>Descuento de S/50 en atención <br> médica covid-19 a domicilio</p>
                     </li>
                     <li>
                       <p>Descuento de S/40 en teleconsulta <br> médica con especialista</p>
-                      
+
                     </li>
                   </ul>
                 </div>
@@ -724,7 +724,7 @@
       <b-row class="home-video">
         <div class="col-12">
           <p class="text-video">
-            Mira nuestro video y descubre <br class="d-xl-none"> nuestro programa de beneficios <strong>VIVE+</strong> 
+            Mira nuestro video y descubre <br class="d-xl-none"> nuestro programa de beneficios <strong>VIVE+</strong>
           </p>
           <div class="box2-btn">
             <a class="btn-azulVehicular ver-video" href="https://www.youtube.com/watch?v=Bff41WXOtak" target="_blank">VER VIDEO</a>
@@ -733,7 +733,7 @@
       </b-row>
     </b-container>
 
-    
+
     <div class="elegirnos">
       <b-container>
         <b-row align-v="end">
@@ -785,13 +785,13 @@
               <b-col cols="8" lg="12" xl="12" class="text-mobile">
                 <p class="elegirnos__item--titulo">Siempre contigo</p>
                 <p class="elegirnos__item--text">Te brindamos  <span class="d-none  d-xl-inline"><br></span> atención 24/7
-                </p> 
+                </p>
               </b-col>
             </b-row>
           </b-col>
         </b-row>
       </b-container>
-      
+
     </div>
 
     <b-container class="home-seccion  preguntas">
@@ -808,7 +808,7 @@
               id="carousel-2"
               v-model="slide"
               :interval="4000"
-              
+
               indicators
               background="#ababab"
               img-width="768"
@@ -816,7 +816,7 @@
               style="background:#FFFFFF"
               @sliding-start="onSlideStart"
               @sliding-end="onSlideEnd"
-            >             
+            >
               <b-carousel-slide img-blank style="background:#FFFFFF">
                 <b-row align-v="center" class="text-center dudas-consultas__item">
                   <b-col cols="12" class="imagen">
@@ -824,7 +824,7 @@
                   </b-col>
                   <b-col cols="12" class="titulo">
                     <p >¡Tengo una emergencia!</p>
-                  </b-col> 
+                  </b-col>
                   <b-col cols="12" class="text">
                     <p >¿tu carro acaba de chocar o sufrir un incidente? ¿te robaron?</p>
                   </b-col>
@@ -833,18 +833,18 @@
                       <button type="button" class="btn-home-cotizar" >
                         LLÁMANOS
                       </button>
-                    </a>   
-                  </b-col>           
+                    </a>
+                  </b-col>
                 </b-row>
               </b-carousel-slide>
               <b-carousel-slide img-blank style="background:#FFFFFF">
                 <b-row align-v="center" class="text-center dudas-consultas__item">
                   <b-col cols="12" class="imagen">
                     <img src="@/static/media/imagenes/home/donde-llevo-carro.svg"/>
-                  </b-col> 
+                  </b-col>
                   <b-col cols="12" class="titulo">
                     <p >¿Dónde llevo mi carro ?</p>
-                  </b-col> 
+                  </b-col>
                   <b-col cols="12" class="text">
                     <p >Visita nuestra red de talleres afiliados</p>
                   </b-col>
@@ -852,17 +852,17 @@
                     <a href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf" target="_blank">
                       <span>Ver talleres afiliados</span>
                     </a>
-                  </b-col>             
+                  </b-col>
                 </b-row>
               </b-carousel-slide>
               <b-carousel-slide img-blank style="background:#FFFFFF">
                 <b-row align-v="center" class="text-center dudas-consultas__item">
                   <b-col cols="12" class="imagen">
                     <img src="@/static/media/imagenes/home/necesito-asesor.svg"/>
-                  </b-col> 
+                  </b-col>
                   <b-col cols="12" class="titulo">
                     <p >¿Necesito un asesor</p>
-                  </b-col> 
+                  </b-col>
                   <b-col cols="12" class="text">
                     <p >Necesitas ayuda o consulta de un asesor?</p>
                   </b-col>
@@ -871,8 +871,8 @@
                       <button type="button" class="btn-home-cotizar" >
                         LLÁMANOS
                       </button>
-                    </a> 
-                  </b-col>           
+                    </a>
+                  </b-col>
                 </b-row>
               </b-carousel-slide>
             </b-carousel>
@@ -910,7 +910,7 @@
               <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel" v-model="isVisible2" >
                 <b-card-body>
                   <b-card-text>
-                    Toda la inspección será digital (por Whatsapp), sin necesidad que alguien tenga que ir a tu casa. 
+                    Toda la inspección será digital (por Whatsapp), sin necesidad que alguien tenga que ir a tu casa.
                     Enviando fotos y respondiendo dos preguntas sobre tu carro podrás acabar tu inspección en menos de 10 minutos
                   </b-card-text>
                 </b-card-body>
@@ -970,7 +970,7 @@
       <!-- Desktop -->
       <!-- class="d-none d-xl-block" -->
       <b-container class="d-none d-xl-block mt-4">
-        <b-row align-v="strech">        
+        <b-row align-v="strech">
           <b-col cols="4" class="pl-4 pr-4">
             <b-row class="row-dudas">
               <b-col class="box-dudas">
@@ -1013,7 +1013,7 @@
                       <b-col cols="12" align-self="end">
                         <a href="https://www.interseguro.pe/vehicular/resources/Talleres_afiliados.pdf" target="_blank">
                           <span>Ver talleres afiliados</span>
-                        </a>                        
+                        </a>
                       </b-col>
                     </b-row>
                   </b-col>
@@ -1043,18 +1043,18 @@
                   </b-col>
                 </b-row>
               </b-col>
-            </b-row>          
+            </b-row>
           </b-col>
         </b-row>
       </b-container>
-      
+
       <!-- v-bind:class="{ oculto: isOculto }" -->
       <b-row class="d-block d-sm-none mt-4 box-btn-home-cotizar-flotante" v-bind:class="{ oculto: isOculto }">
         <b-col cols="6" class="mt-2">
           <span class="desde">Desde</span><br>
           <span class="monto">US$ 12</span>
           <span class="text">al mes</span>
-            
+
         </b-col>
         <b-col cols="6">
           <button type="button" class="btn-home-cotizar-flotante" @click="cotizar()">
@@ -1064,14 +1064,14 @@
       </b-row>
 
 
-      
+
 
     </b-container>
 
   </div>
 </template>
 <style lang="scss">
-  
+
 </style>
 
 <script>
@@ -1079,7 +1079,7 @@ export default {
   layout: "InterseguroHomeNew",
   data() {
     return {
-      isCampania: true,
+      isCampania: false,
       slide: 0,
       sliding: null,
       isOculto: true,
@@ -1146,6 +1146,13 @@ export default {
       ],
     }
   },
+  head: {
+    title: 'Cotizar seguro vehicular en 2 pasos',
+    meta: [
+      { hid: 'description', name: 'description', content: "Cotizar seguro vehicular es muy fácil. Protege desde robo de piezas, choques hasta pérdida total.  Obtén auxilio mecánico a todo Perú desde $12 mensuales" },
+    ],
+    link: [{ rel: 'canonical', href: 'https://www.interseguro.pe/vehicular/' }],
+  },
   methods: {
     contador(){
       var flipdown2 = new FlipDown(1634878799, 'contadorCyberDesktop').start()
@@ -1166,7 +1173,7 @@ export default {
       if (window.scrollY >= 480) {
           if(true){
               this.isOculto = false;
-              this.contactanos = false;                   
+              this.contactanos = false;
           }
       } else {
           this.isOculto = true
@@ -1190,7 +1197,7 @@ export default {
       this.planInactivo = true;
       let elemento1 = document.querySelectorAll(".v2-seleccion-planes__item")
       for (let index = 0; index < elemento1.length; index++) {
-        elemento1[index].classList.remove("planActivo")      
+        elemento1[index].classList.remove("planActivo")
       }
       setTimeout(() => {
         let arreglo = document.querySelectorAll(".plan"+id)
@@ -1221,10 +1228,10 @@ export default {
       }
     },
     pageContinue(){
-      
+
       this.$nuxt.$router.push("/cotizacion/seleccion/")
     },
-    consultarPlaca(event, ms) {  
+    consultarPlaca(event, ms) {
       if(this.item.plateNumber.length == 6){
         this.loading = true
         this.isDisabled = true
@@ -1235,7 +1242,7 @@ export default {
         }, ms)
       }else{
         this.isDisabled =false
-      }      
+      }
     },
     validacionInput(event) {
       this.item.plateNumber = this.item.plateNumber.replace(/[^a-z0-9\s]/gi, "").replace(/[_\s]/g, "");
@@ -1247,7 +1254,7 @@ export default {
 
         this.createMail()
         this.updateFields()
-        this.getVehicle()  
+        this.getVehicle()
          window.dataLayer = window.dataLayer || [ ];
           dataLayer.push({
               'event': 'detail',
@@ -1283,12 +1290,12 @@ export default {
       this.item.plateNumber = this.item.plateNumber.toUpperCase();
       this.$store.dispatch('common/getVehicle', this.item)
       .then((res) =>{
-        
+
 
         const respuesta = res.data.body;
         /* Code 0 = > el servicio respondio correctamente */
         if (res.data.code == 0) {
-        
+
           if(respuesta.useType){
               const useType = respuesta.useType.toString().toLowerCase();
               if(useType === 'particular' || useType === 'escolar'){
@@ -1304,8 +1311,8 @@ export default {
                 })
                 this.$swal({
                   // title: "Oops...",
-                  html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
-                  La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                  html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular.
+                  La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso
                     ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
                   <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                   type: "warning",
@@ -1323,7 +1330,7 @@ export default {
             this.$nuxt.$router.push({path: "/app/"+this.item.plateNumber})
           }else{
             /* Existe en nuestra base de datos */
-              
+
             if (respuesta.exists == true) {
               this.$store.commit('common/setVehicleState', 1)
               if(respuesta.client.externalId > 0 ){
@@ -1331,14 +1338,14 @@ export default {
                 this.$store.commit('common/setClienteSOAT', respuesta.client)
                 this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
                 this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
-                
+
               }else {
                 this.$store.commit('common/setOrigenCliente', 1)
               }
               /* Tiene una poliza activa */
               if (respuesta.activePolicy === true) {
                 this.$nuxt.$router.push({path: "/placa-registrada"})
-              } else {             
+              } else {
                 this.loading = false
                 if (document.location.hostname == "www.interseguro.pe"){
                   fbq('track', 'CompleteResgistration');
@@ -1354,7 +1361,7 @@ export default {
                 this.$store.commit('common/setOrigenCliente', 2)
               }else{
                 this.$store.commit('common/setOrigenCliente', 1)
-              }          
+              }
               this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
               this.$store.commit('common/setVehicleState', 0)
               this.loading = false
@@ -1365,10 +1372,10 @@ export default {
               this.pageContinue()
             }
           }
-          
-          
+
+
         }
-        
+
         else if(res.data.code === 307){
             this.loading = false;
             window.dataLayer = window.dataLayer || [ ];
@@ -1380,7 +1387,7 @@ export default {
             })
             this.$swal({
             // title: "Oops...",
-            html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+            html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}.
             Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
             type: "warning",
             showCancelButton: false,
@@ -1408,7 +1415,7 @@ export default {
   mounted() {
     if(this.isCampania){
       this.contador();
-    }    
+    }
     this.$store.commit('common/resetState')
     this.handleScroll()
     this.PaginaVista()

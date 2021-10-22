@@ -954,7 +954,7 @@
             <img src="../../static/media/interseguroVehicular_v2/carga.gif" alt="capa de carga para loading">            
         </div>
 
-        <!-- <b-modal id="leavePayment" class="leaveModal2" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal2" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -975,10 +975,10 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
 
         <!--Modal campania-->
-     <b-modal id="leavePayment" class="leaveModal2" static centered hide-footer hide-header >
+     <!-- <b-modal id="leavePayment" class="leaveModal2" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
@@ -999,7 +999,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
     </section>
 </template>

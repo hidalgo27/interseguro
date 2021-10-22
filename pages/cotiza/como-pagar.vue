@@ -411,7 +411,7 @@
         </div>
         
         
-        <!-- <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
+        <b-modal id="leavePayment" class="leaveModal" size="lg"  static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">
@@ -432,10 +432,10 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal> -->
+        </b-modal>
         
         <!-- modal campaña -->
-        <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
+        <!-- <b-modal id="leavePayment" class=" leaveModal"   static centered hide-footer hide-header>
             <b-container>
                 <b-row class="justify-content-center">
                     <b-col class="text-center mb-3" cols="12">                    
@@ -456,7 +456,7 @@
                     </b-col>
                 </b-row>
             </b-container>
-        </b-modal>
+        </b-modal> -->
          
     </section>
 </template>
@@ -1529,9 +1529,9 @@ a.steps__item.paso1:after{
   background: #27362d;
 }
 .steps-box{    
-    //padding-top: 50px;
+    padding-top: 50px;
     //campaña
-    padding-top: 160px;
+    //padding-top: 160px;
     padding-bottom: 0;
     background: #ffffff;
     .steps-plan{

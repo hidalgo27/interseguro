@@ -1376,7 +1376,7 @@
     </b-modal>
 
   
- <!-- <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
+ <b-modal id="leaveQuote2" class="leaveModal" size="lg" static centered hide-footer hide-header>
       <b-container>
         <b-row class="justify-content-center">
           <b-col class="text-center mb-3" cols="12">
@@ -1402,10 +1402,10 @@
           </b-col>
         </b-row>
       </b-container>
-    </b-modal> -->
+    </b-modal>
     
     <!--Modal campania-->
-     <b-modal
+     <!-- <b-modal
         id="leaveQuote2"
         class="leaveModal"
         static
@@ -1436,7 +1436,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
       
   </section>
 </template>
@@ -3406,9 +3406,9 @@
 }
 .page-cotizador{
   background: white;
-  //padding-top: 50px;
+  padding-top: 50px;
   //campaña
-  padding-top: 160px;
+  //padding-top: 160px;
   .img-close{
     position: absolute;
     right: -24px;
