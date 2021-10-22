@@ -481,7 +481,7 @@
 
 
       <!--Modal Abandono-->
-      <!-- 
+      
     <b-modal id="leaveDocument" class="leaveModal" size="lg" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
@@ -533,9 +533,9 @@
           </b-row>
         </b-container>
       </b-modal>
- -->
+
     <!--Modal campania-->
-     <b-modal id="leaveDocument" class="leaveModal2" static centered hide-footer hide-header >
+     <!-- <b-modal id="leaveDocument" class="leaveModal2" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
@@ -556,7 +556,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
     </b-container>
   </section>

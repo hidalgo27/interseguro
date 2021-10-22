@@ -1079,7 +1079,7 @@ export default {
   layout: "InterseguroHomeNew",
   data() {
     return {
-      isCampania: true,
+      isCampania: false,
       slide: 0,
       sliding: null,
       isOculto: true,
