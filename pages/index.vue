@@ -1,7 +1,7 @@
 <template>
   <div class="home  home-is" v-bind:class="{'mt-5': this.$store.state.common.flagCloseListon == 0  }">
     <fade-loader v-if="showLoader"></fade-loader>
-    
+    <!-- 
     <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
@@ -60,11 +60,11 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     
     <!--Habilitar  en campaña-->
 
-    <!-- <div class="boxHome-banner">      
+    <div class="boxHome-banner">      
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
@@ -135,7 +135,7 @@
           
         </div>
       </div>
-    </div>  -->
+    </div> 
    
     <div class="home-pasos" >
       <div class="home-pasos__titulo">
@@ -450,8 +450,8 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         onSubmit(){
         },
         contador(){
-            var flipdown2 = new FlipDown(1634878799, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1634878799, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1635483599, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1635483599, 'contadorCyberMobile').start()
         },
         pago_datalayer(error_detectado){
           window.dataLayer = window.dataLayer || [];
@@ -670,7 +670,7 @@ import FadeLoader from '@/components/loaders/FadeLoader'
           
       },
       mounted () {
-        //this.contador()
+        this.contador()
         this.$store.commit('common/setUrlGlobal', 'vehicular/promocion/')
         this.$store.commit('common/setPromocion', true)
         localStorage.setItem("urlLocal", "/promocion")
@@ -842,16 +842,15 @@ import FadeLoader from '@/components/loaders/FadeLoader'
       text-decoration: none;
     }
   }
-  .home-is{
-    //margin-top: 115px;
-    margin-top: 60px;
+  .home-is{   
     font-size: 16px;
-    background-color: #fff;    
+    background-color: #fff; 
+    margin-top: 60px;      
     .home-pasos{
       background-color: #fff;
       padding-top: 130px;
       //pasos mobile campaña
-      //padding-top: 280px;
+      padding-top: 280px;
       padding-bottom: 48px;
       .parrafo-video{
         font-size: 30px; 
@@ -1072,9 +1071,9 @@ import FadeLoader from '@/components/loaders/FadeLoader'
     .boxHome-banner{
       position: relative;
       height: 296px;
-      background: #e6eef9;      
+      //background: #e6eef9;      
       //background campaña
-      //background: url('./../static/media/img/campania/fondo-home-desktop.svg');
+      background: url('./../static/media/img/campania/fondo-home-desktop.svg');
       //background: #0857c5;
       
       .home-banner{
@@ -1083,20 +1082,15 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-size: 700px;
         background-position-y: bottom;
         background-position-x: right;
-        // background-position: right;
         display: flex;
         align-items: center;
         height: 100%;
         flex-direction: column;
         &__izq{
-          // margin-top: 24px;
-          // padding-top: 68px !important;
           height: 500px;
           display: flex;
           align-items: flex-start;
-          width: 90%;
-          //border-bottom: 1px solid white !important;
-          
+          width: 90%;          
           input{
             max-width: 360px;
             width: 100%;
@@ -1670,8 +1664,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
   
   @media (min-width: 992px) {
     .home-is{
-      //margin-top: 50px;
-      margin-top: 0px;
       .home-beneficios2{
         &__titulo{
           p{
@@ -1693,15 +1685,15 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         background-repeat: no-repeat;
         background-position: center;
         height: auto;
-        //height: 485px;        
+        //campaña
+        height: 485px;        
         .home-banner{
           flex-direction: row;
           padding-left: 45px;
-          //min-height: 445px;
+          min-height: 445px;
           min-height: 485px;
 
           &__izq{
-            // padding-top: 68px !important;
             height: calc(85vh);
             display: flex;
             align-items: center;
@@ -1749,15 +1741,12 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             -webkit-box-align: center;
             background-size: 90%;
             //mostrar Automovil
-            background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
+            //background-image: url("./../static/media/interseguroVehicular_v2/banner_img.svg");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: right;
             width: 100%;
-            // justify-content: flex-start;
             align-items: flex-start;
-            // flex-direction: column;
-            // padding-left: 32px;
             .box-titulo{
               padding-top: 150px;
               padding-left: 24px;
@@ -2119,10 +2108,6 @@ import FadeLoader from '@/components/loaders/FadeLoader'
             }
           }
         }
-        /* .box-contador{
-            position: relative;
-            top: 42px;
-          } */
       }
       
       .formCotizador{
@@ -2336,16 +2321,21 @@ import FadeLoader from '@/components/loaders/FadeLoader'
         .boxHome-banner{
           background-position: center;
           background-repeat: no-repeat;
-          .home-banner{
-            // &__izq{
-            //   height: calc(100vh - 290px);
-            //   min-height: 580px;
-            // }
-            // &__der{
-            //   height: calc(100vh - 290px);
-            //   min-height: 580px;
-            // }
-          }
+        }
+    }
+  }
+
+  @media (max-width: 768px){
+    .home-is{
+        .boxHome-banner{
+          position: relative;
+          //height: 400px !important;
+          //background: #e6eef9;      
+          //background campaña
+          background: url('./../static/media/img/campania/fondo-home-mobile.svg');
+          //background: #0857c5;
+          background-position: center;
+          background-repeat: no-repeat;
         }
     }
   }
