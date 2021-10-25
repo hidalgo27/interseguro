@@ -482,7 +482,7 @@
 
       <!--Modal Abandono-->
       
-    <b-modal id="leaveDocument" class="leaveModal" size="lg" static centered hide-footer hide-header >
+    <!-- <b-modal id="leaveDocument" class="leaveModal" size="lg" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
@@ -532,20 +532,20 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal>
+      </b-modal> -->
 
     <!--Modal campania-->
-     <!-- <b-modal id="leaveDocument" class="leaveModal2" static centered hide-footer hide-header >
+     <b-modal id="leaveDocument" class="leaveModal2" static centered hide-footer hide-header >
         <b-container>
           <b-row class="justify-content-center">
             <b-col class="text-center mb-3" cols="12">
-              <img class="img-verano"  src="../../static/media/img/campania/img-modal.svg" alt="">              
+              <img class="img-verano"  src="../../static/media/img/campania/img-modal-full.svg" alt="">              
               <p class="mt-2 msj-modal">
                 <strong class="name-client"> {{this.$store.state.common.objCliente.firstName}} </strong> <br> 
-                <span class="white">¡Hot Sale Interseguro!  </span><br>
-                <span class="white">Asegura tu auto HOY, y por hacerlo en Plan Full, </span><br>
-                <span class="white">llévate  </span>
-                <span class="yelow">una cuota gratis + vale de S/100 </span>                     
+                <span class="white">Asegura tu auto HOY y paga solo 11 meses  </span><br>
+                <span class="white">por un año de cobertura. Además, por comprar </span><br>
+                <span class="white">en Plan Black,  </span>
+                <span class="yelow">gana un vale de S/100  </span>                     
               </p>                
             </b-col>
           </b-row>
@@ -556,7 +556,7 @@
             </b-col>
           </b-row>
         </b-container>
-      </b-modal> -->
+      </b-modal>
 
     </b-container>
   </section>

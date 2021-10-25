@@ -150,7 +150,8 @@ $vehicular_parrafo_v2: #383C5A;
         .banner-blue{
             position: absolute;
             height: 350px;
-            background-color: $vehicular_primario;
+            //background-color: $vehicular_primario;
+            background-image: url('./../../static/media/img/campania/fondo-home-mobile.svg');
             width: 100%;
             z-index: 9;
         }
@@ -1069,8 +1070,9 @@ $vehicular_parrafo_v2: #383C5A;
         .banner{
             height: 468px;
             //background-color: $vehicular_primario;
-            background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
-            //background-image: url('./../../static/media/img/campania/banner-campania.svg');
+            //background-image: url('./../../static/media/imagenes/home/banner-main2.svg');
+            //campaña
+            background-image: url('./../../static/media/img/campania/fondo-home-desktop.svg');
             //background-repeat: no-repeat;
             .container{
                 height: 100%;

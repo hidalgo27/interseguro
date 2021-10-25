@@ -1,34 +1,32 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <!-- <div>
+        <div>
             <div id="liston-desktop" class="liston" 
-            style="background: transparent radial-gradient(closest-side at 48% 51%, #0374e1 0%, #0374e1 201%) 0% 0% no-repeat padding-box;    opacity: 1;" 
             v-bind:class="{'d-none': flagCloseListon == 0  }">
                 <div class="d-md-none  liston-mobile">
                                        
                    <div class="liston-mobile--parrafo">
-                       <div style="font-size: 14px;width: 235px;margin-left: 3px;margin-top: -5px;">
+                       <div style="font-size: 12px;width: 235px;margin-left: 3px;margin-top: -17px;">
                             <p> 
-                                 <span style="color:#ffd527; font-family:'Omnes Medium'">1 cuota gratis + vale de S/100 </span><br>
-                                 <span style="color:#ffffff; font-family:'Omnes Medium'">por comprar en Plan Black  </span>                                 
- 
+                                 <span style="color:#ffd527; font-family:'Omnes Medium'">1 CUOTA GRATIS + VALE DE S/100 </span><br>
+                                 <span style="color:#ffffff; font-family:'Omnes Medium'">POR COMPRAR EN PLAN BLACK  </span>
                             </p>                                                           
                         </div>
                         </div>
                         <div  class="example" style="position: relative;">            
-                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: -3px;top: -28px;display: block;width: 176px !important;">
+                            <div id="contadorCyber11" class="flipdown  flipdownMobile" style="position: absolute;right: -18px;top: -15px;display: block;width: 187px !important;">
                         </div>
                     </div>
                 </div>
                 
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                         <img width="190" src="./../../static/media/img/campania/liston-desktop.svg" alt="">  
-                            <p style="width: 658px;font-size: 19px;margin-left: 33px;">                                
-                                <span style="color: #ffffff; font-family:'Omnes Medium'">¡Hot Sale! </span>
-                                <span style="color: #ffd527; font-family:'Omnes Medium'"> Llévate una cuota gratis y un vale de S/100 </span>
-                                <span style="color: #ffffff; font-family:'Omnes Medium'"> por comprar en Plan Black </span> 
+                         <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">  
+                            <p style="width: 750px;font-size: 26px;margin-left: 33px;">
+                                <span style="color: #ffd527; font-family:'Omnes Medium'"> 2DA CUOTA GRATIS + S/ 100 SOLES </span>
+                                <span style="color: #ffffff; font-family:'Omnes Medium'"> EN VALE </span> 
+                                <span style="color: #ffffff; font-family:'Omnes Medium'; font-size:16px"> POR COMPRAR EN PLAN BLACK </span>
                             </p>                              
                     </div>
                     <div id="contadorCyber12" class="flipdown"></div>
@@ -36,7 +34,7 @@
                 </div>
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
             </div>
-        </div> -->
+        </div>
         
         <div class="menu-nav">
             <div class="menu-nav__izq">
@@ -186,7 +184,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -219,8 +217,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1634878799, 'contadorCyber12').start()
-            var flipdown = new FlipDown(1634878799, 'contadorCyber11').start()
+            var flipdown2 = new FlipDown(1635483599, 'contadorCyber12').start()
+            var flipdown = new FlipDown(1635483599, 'contadorCyber11').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -306,7 +304,7 @@ export default {
     }
     .liston{        
         flex-direction: column;
-        background-color: #0855C4;
+        //background-color: #0855C4;
         background-image: url('../../static/media/img/campania/fondo-liston-desktop.svg');
         width: 100%;
         height: 70px;
@@ -650,7 +648,7 @@ export default {
     @media (min-width: 1024px){
         .logo-franja{
             img{
-                width: 160px !important;
+                width: 100px !important;
                 //height: 60px;
             }
         }

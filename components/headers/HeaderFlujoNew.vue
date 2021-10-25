@@ -1,7 +1,7 @@
 <template>
     <header class="header-planes" @scroll="handleScroll()" >
         <!--Cintillo campaña-->
-        <!-- <b-container fluid>
+        <b-container fluid>
             <b-row id="liston-desktop">
                 <b-col class="liston d-none d-md-block" v-bind:class="{'d-none': flagCloseListon == 0  }" align-v="center" cols="12"  >
                     <b-row align-v="center">
@@ -9,10 +9,10 @@
                             <img src="./../../static/media/img/campania/img-liston-desktop.svg" alt="">
                         </b-col>
                         <b-col>
-                            <p class="text">                                
-                                <span style="color: #ffffff">¡Hot Sale! </span>
-                                <span style="color: #ffd527"> Llévate una cuota gratis y un vale de S/100 </span>
-                                <span style="color: #ffffff"> por comprar en Plan Full </span> 
+                            <p class="text">
+                                <span style="color: #ffd527"> 2DA CUOTA GRATIS + S/ 100 SOLES </span>
+                                <span style="color: #ffffff"> EN VALE </span> 
+                                <span style="color: #ffffff; font-size:16px"> POR COMPRAR EN PLAN FULL</span>
                             </p>
                         </b-col>
                         <b-col cols="3" class="box-contadador">
@@ -24,8 +24,8 @@
                     <b-row align-v="center">
                         <b-col class="p-0">
                             <p class="text">
-                                <span style="color: #ffd527"> 1 cuota gratis + vale de S/100 </span>
-                                <span style="color: #ffffff"> por comprar en Plan Full </span> 
+                                <span style="color: #ffd527"> 1 CUOTA GRATIS + VALE DE S/100 </span>
+                                <span style="color: #ffffff"> POR COMPRAR EN PLAN FULL </span>
                             </p>
                         </b-col>
                         <b-col cols="6" class="box-contadador">
@@ -36,7 +36,7 @@
                 <div class="closeListon" @click="closeListon()" style="margin-top: -10px;">X</div>
                 
             </b-row>
-        </b-container> -->
+        </b-container>
 
         <div>
             <b-navbar>
@@ -82,7 +82,7 @@ export default {
         }
     },
     mounted(){
-        //this.contador()
+        this.contador()
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
@@ -115,8 +115,8 @@ export default {
     methods:{
         
         contador(){
-            var flipdown2 = new FlipDown(1634878799, 'contadorCyberDesktop').start()
-            var flipdown = new FlipDown(1634878799, 'contadorCyberMobile').start()
+            var flipdown2 = new FlipDown(1635483599, 'contadorCyberDesktop').start()
+            var flipdown = new FlipDown(1635483599, 'contadorCyberMobile').start()
         },
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
@@ -258,7 +258,9 @@ export default {
         .liston{
             display: flex;        
             flex-direction: column;
-            background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
+            //background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
+            //campaña
+            background-image: url('../../static/media/img/campania/fondo-liston-desktop.svg');
             height: 70px;
             padding-left: 70px;
             padding-right: 70px;          
@@ -267,7 +269,7 @@ export default {
                 flex-direction: column;
                 max-width: 150px;
                 img{
-                    width: 150px;
+                    width: 100px;
                     height: 70px;
                 }
             }
@@ -317,7 +319,7 @@ export default {
         .liston{
             display: flex;        
             flex-direction: column;
-            background-image: url('./../../static/media/img/campania/banner-flujo-desktop.svg');
+            background-image: url('./../../static/media/img/campania/fondo-liston-mobile.svg');
             height: 70px;
             padding-left: 10px;
             padding-right: 2px;          
