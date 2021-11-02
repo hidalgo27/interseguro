@@ -1,13 +1,12 @@
 <template>
-    <div>      
-      
-      <header-is-ibk v-if="this.businessId == 2"></header-is-ibk>
-      <header-is v-else></header-is>
-        <div>
+    <div>
+<!--      <header-is-ibk v-if="this.businessId == 2"></header-is-ibk>-->
+<!--      <header-is v-else></header-is>-->
+
           <nuxt/>
-        </div>
-      <footer-is-app v-if="this.nuevoProducto == true"></footer-is-app>
-      <footer-is v-else></footer-is>
+
+<!--      <footer-is-app v-if="this.nuevoProducto == true"></footer-is-app>-->
+<!--      <footer-is v-else></footer-is>-->
     </div>
 </template>
 
@@ -33,7 +32,7 @@ export default {
     }
   },
   methods: {
-    
+
   },
   components: {
     'header-is-ibk': HeaderIBK,
@@ -41,8 +40,8 @@ export default {
     'footer-is': Footer,
     'footer-is-app': FooteraApp,
   },
-  created() {      
-      if(this.$route.name == "pagogss-pagogss"){        
+  created() {
+      if(this.$route.name == "pagogss-pagogss"){
         this.loadinggss = true
       }else{
         this.loadinggss = false

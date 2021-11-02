@@ -43,7 +43,7 @@ module.exports = {
   },
   head: {
     script: [
-      { src: 'https://pocpaymentserve.s3.amazonaws.com/payform.min.js'}
+      { src: 'https://pocpaymentserve.s3.amazonaws.com/payform.min.js'},
     ],
 
     title: 'Seguro Vehicular | Interseguro',
@@ -81,23 +81,45 @@ module.exports = {
 
   loading: { color: '#fff' },
   css: ['@/assets/css/main.scss'],
-  modules: [
-    '@nuxtjs/axios',
-    'bootstrap-vue/nuxt',
-    'vue-sweetalert2/nuxt',
+  buildModules: [
+    '@nuxtjs/fontawesome',
   ],
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: true,
+      brands: true
+    }
+  },
+  modules: [
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/axios',
+    'vue-sweetalert2/nuxt'
+  ],
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
+  styleResources: {
+    scss: '@/assets/scss/_variables.scss'
+  },
   plugins: [
-    '~/plugins/bootstrap.js',
+    // '~/plugins/bootstrap.js',
     '~/plugins/vuelidate.js',
     '~/plugins/eventBus.js',
 
     { src: '~/plugins/inactividad.js', ssr: false },
     { src: '~/plugins/vuejs-datepicker.js', ssr: false },
-    { src: '~plugins/vue-carousel.js', sync: false },
-    { src: '~plugins/vue-slide.js', sync: false },
-    { src: '~plugins/vue-tabs.js', ssr: false },
-    { src: '~plugins/vue-tab.js', ssr: false },
+    // { src: '~plugins/vue-carousel.js', sync: false },
+    // { src: '~plugins/vue-slide.js', sync: false },
+    { src: '~plugins/vue-carousel.js', mode: 'client' },
+    // { src: '~plugins/vue-tabs.js', ssr: false },
+    // { src: '~plugins/vue-tab.js', ssr: false },
     { src: '~/plugins/localStorage.js', ssr: false },
+
+    // { src: '~/plugins/test.js', ssr: false },
+
     { src: '~plugins/vue-cliploader.js', ssr: false },
     { src: '~plugins/clipboard.js', ssr: false },
     { src: '~plugins/hotjar.js', ssr: false },

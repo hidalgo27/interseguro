@@ -1,14 +1,20 @@
 // @import 'bootstrap/dist/css/bootstrap.css';
 // @import 'bootstrap-vue/dist/bootstrap-vue.css';
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+//@import url("//db.onlinewebfonts.com/c/8d4288d9428bdc9c0e1888766a5c6758?family=Omnes");
+
 @import './../../static/fonts/fonts.css';
-@import "_variables";
+
+//@import "_variables";
 @import "_v2_variables";
+@import "_page";
 //@import "_home";
-@import "_webflow";
+//@import "_webflow";
 @import "_helpers";
 @import "_main";
 @import "_v2_main";
-@import "_generales";
+//@import "_generales";
 @import "_header";
 @import "_cobertura";
 @import "_como-lo-uso";
@@ -39,3 +45,11 @@
   }
 
 }
+
+
+//@font-face {font-family: "Omnes"; src: url("//db.onlinewebfonts.com/t/8d4288d9428bdc9c0e1888766a5c6758.eot");
+//  src: url("//db.onlinewebfonts.com/t/8d4288d9428bdc9c0e1888766a5c6758.eot?#iefix") format("embedded-opentype"),
+//  url("//db.onlinewebfonts.com/t/8d4288d9428bdc9c0e1888766a5c6758.woff2") format("woff2"),
+//  url("//db.onlinewebfonts.com/t/8d4288d9428bdc9c0e1888766a5c6758.woff") format("woff"),
+//  url("//db.onlinewebfonts.com/t/8d4288d9428bdc9c0e1888766a5c6758.ttf") format("truetype"),
+//  url("//db.onlinewebfonts.com/t/8d4288d9428bdc9c0e1888766a5c6758.svg#Omnes") format("svg"); }

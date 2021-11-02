@@ -1,17 +1,17 @@
-body{
-    // background-color: aqua;
-}
+//body{
+//    // background-color: aqua;
+//}
 #modalEditarCorreo .modal-dialog{
     width: 380px;
 }
 #modalEditarCelular, #modalEditarCorreo, #modalEntidadFinanciera, #modalInicioVigencia, #modal-confirmaTusDatos-app{
-    .btn-principal{        
+    .btn-principal{
         background-color: $vehicular_secundario ;
         border-radius: 4px;
         color: white;
         cursor: pointer;
         font-family: 'Omnes Regular';
-        width: 245px;   
+        width: 245px;
         text-align: center;
         height: 45px;
     }
@@ -21,7 +21,7 @@ body{
         padding-top: 24px;
         position: relative;
         text-align: center;
-        width: 100%;        
+        width: 100%;
     }
     .modal-close{
         position: absolute;
@@ -89,14 +89,14 @@ body{
         max-width: 440px;
         line-height: 33px;
     }
-    .btn-principal{        
+    .btn-principal{
         background-color: $vehicular_secundario ;
         border: none;
         border-radius: 4px;
         color: white;
         cursor: pointer;
         font-family: 'Omnes Regular';
-        width: 245px;   
+        width: 245px;
         text-align: center;
         height: 45px;
     }
@@ -154,7 +154,7 @@ body{
             display: flex;
             align-items: center;
         }
-        .edit_app{            
+        .edit_app{
             position: relative;
             right: -4px;
             top: 0px;
@@ -171,12 +171,12 @@ body{
         }
         &--box{
             align-items: center;
-            display: flex;            
+            display: flex;
             padding: 0px 12px 0 2px;
             .monto-minimo, .monto-actual{
-                width: 100px;          
+                width: 100px;
             }
-            
+
         }
         p{
             font-size: 1.2rem;
@@ -256,7 +256,7 @@ body{
         display: flex;
         justify-content: space-between;
         max-width: 470px;
-        padding-bottom: 24px;        
+        padding-bottom: 24px;
         .btn-ver-resumen{
             border: none;
             background-color: #0855C4;
@@ -297,7 +297,7 @@ body{
                 margin-right: 8px;
             }
             span{
-                
+
                 cursor: pointer;
                 text-decoration: underline;
                 font-family: 'Omnes Medium';
@@ -312,7 +312,7 @@ body{
         .datos-tarjeta{
             padding-top: 0;
         }
-        .enlace-tyc{         
+        .enlace-tyc{
             font-size: 15px;
         }
         .detalle-item{
@@ -351,13 +351,13 @@ body{
                 font-size: 18px;
             }
             .select{
-                width: 212px;                
+                width: 212px;
             }
             .custom-select{
                 font-size: 17px;
             }
         }
-        
+
         .resumen-tu-seguro,.ingresa-datos{
             font-size: 24.5px;
             line-height: 33px;

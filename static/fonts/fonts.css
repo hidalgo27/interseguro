@@ -2,25 +2,25 @@
 @font-face {
   font-family: "Geometria Bold";
   font-display: swap;
-  src: 
+  src:
        url("./../fonts/omnes/Geometria-Bold.ttf") format('truetype');
 }
 @font-face {
   font-family: "Geometria Medium";
   font-display: swap;
-  src: 
+  src:
        url("./../fonts/omnes/Geometria-Medium.ttf") format('truetype');
 }
 @font-face {
   font-family: "Montserrat Medium";
   font-display: swap;
-  src: 
+  src:
        url("./../fonts/omnes/Montserrat-Medium.ttf") format('truetype');
 }
 @font-face {
   font-family: "Montserrat Regular";
   font-display: swap;
-  src: 
+  src:
        url("./../fonts/omnes/Montserrat-Regular.ttf") format('truetype');
 }
 /* Font Family Omnes */
@@ -77,11 +77,11 @@
 /* Fonts */
 .omnes-black { font-family: 'Omnes Black'!important; }
 .omnes-bold { font-family: 'Omnes Bold'!important; }
-.omnes-extralight { font-family: 'Omnes ExtraLight'!important; }
-.omnes-light { font-family: 'Omnes Light'!important; }
+.omnes-semibold { font-family: 'Omnes Semibold'!important; }
 .omnes-medium { font-family: 'Omnes Medium'!important; }
 .omnes-regular { font-family: 'Omnes Regular'!important; }
-.omnes-semibold { font-family: 'Omnes Semibold'!important; }
+.omnes-light { font-family: 'Omnes Light'!important; }
+.omnes-extralight { font-family: 'Omnes ExtraLight'!important; }
 
 .g-bold { font-family: "Geometria Bold";}
 .g-medium {  font-family: "Geometria Medium";}

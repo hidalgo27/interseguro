@@ -1,0 +1,67 @@
+//$font-family-base: 'Omnes';
+$font-family-sans-serif: "Omnes Light";
+//$body-color: #cccccc!default;
+//$border-width: .8rem;
+$border-radius: .8rem;
+$v-primary:    #0855c4 !default;
+$v-secondary:   #ea0c90 !default;
+$v-light:   #F9F9FB !default;
+$v-green: #0BD360 !default;
+
+$v-gray-light: #F4F5F8 !default;
+$v-gray: #6b7280 !default;
+$v-gray-dark: #374151 !default;
+
+$v-text:   #454A6C !default;
+$v-subtitle: #454A6C !default;
+$v-blue-light: #f1f7ff !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "v-primary": $v-primary,
+  "v-secondary": $v-secondary,
+  "v-text": $v-text,
+  "v-subtitle": $v-subtitle,
+  "v-green": $v-green,
+  "v-blue-light": $v-blue-light,
+
+  "v-gray-light": $v-gray-light,
+  "v-gray": $v-gray,
+  "v-gray-dark": $v-gray-dark
+
+), $theme-colors);
+
+$font-size-base:              1rem !default; // 1rem = 16px
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+$vehicular_primario: #0855c4;
+$vehicular_secundario: #ea0c90;
+$vehicular_parrafo: #454A6C;
+$vehicular_titulo_seccion: #0855C4;
+$vehicular_subtitulo: #454A6C;
+
+$primario: #00ADEE;
+$secundario: #0BD360;
+$secundario-2:#0BD360;
+$blanco: #fff;
+$gris-1: #535D66;
+$gris-2: #373737;
+$secundario_cyan : #0855c4;
+$secundario_magenta : #ea0c90;
+
+$v2gris_claro: #BAB9B9;
+$v2gris_oscuro: #333;
+$v2color_primario: #0855c4;
+
+$is-v-border: #CCD1DD;
+$is-v-azul : #0855c4;
+$secundario_magenta : #ea0c90;
+
+
+$vehicular_parrafo_v2: #383C5A;

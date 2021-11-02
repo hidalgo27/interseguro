@@ -6,12 +6,12 @@
                     <img  class="img-liston" src="../../static/media/modal/logo-franja-10.svg" alt="">
                     <p>Compra con 10% de dscto. <br> en todos nuestros planes</p>
                 </div>
-                
+
                 <div  class="example  d-none  d-md-flex  align-items-center  justify-content-between">
                     <div class="d-flex align-items-center logo-franja">
-                        <img src="./../../static/media/modal/logo-franja-10.svg" alt="">          
+                        <img src="./../../static/media/modal/logo-franja-10.svg" alt="">
                         <p >Compra con 10% de dscto. en todos nuestros planes</p>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="closeListon" @click="closeListon()">X</div>
             </div>
@@ -23,7 +23,7 @@
                     <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--iso img-home" alt="seguros vehiculares">
                     <img src="../../static/media/img/home/logo.svg" class="main-nav__logo--full" alt="intersguro seguro vehicular">
                 </nuxt-link>
-                <div class="nav-contacto  d-flex  d-xl-none">  
+                <div class="nav-contacto  d-flex  d-xl-none">
                         <div class="main-nav__toggle menu-icon "  id="nav-checkbox1" @click="showHide($event)">
                             <img src="../../static/media/img/home/menu.png" alt="menu">
                         </div>
@@ -42,7 +42,7 @@
                                 </li>
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
                                 <nuxt-link class="menu-item__enlace"  to="/coberturas">¿QUÉ ME CUBRE?</nuxt-link>
-                                </li>        
+                                </li>
                                 <li class="main-nav__menu--item menu-item" @click="enlaceTest()">
                                 <nuxt-link class="menu-item__enlace"  to="/como-lo-uso">¿CÓMO LO USO?</nuxt-link>
                                 </li>
@@ -58,23 +58,23 @@
                                     <p>Síguenos en:</p>
                                     <div class="footer-menu__redes">
                                         <span>
-                                            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+                                            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>
                                         </span>
                                         <span>
-                                            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+                                            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>
                                         </span>
                                         <span>
-                                            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+                                            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>
                                         </span>
                                         <span>
-                                            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+                                            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>
                                         </span>
                                     </div>
                                 </div>
                                 </div>
                             </ul>
                         </div>
-                        
+
                 </div>
             </div>
             <div class="menu-nav__der">
@@ -82,7 +82,7 @@
                 <ul>
                     <li class="" >
                         <nuxt-link class=""  to="/coberturas/">¿QUÉ ME CUBRE?</nuxt-link>
-                    </li>        
+                    </li>
                     <li class="" >
                         <nuxt-link class=""  to="/como-lo-uso/">¿CÓMO LO USO?</nuxt-link>
                     </li>
@@ -99,7 +99,7 @@
                 </ul>
                 <div id="capa" style="display: none;"></div>
             </div>
-            
+
         </div>
 
 
@@ -126,12 +126,12 @@ export default {
         }
     },
     mounted(){
-        // this.contador()        
+        // this.contador()
         localStorage.setItem('flagCloseListon',1)
         if (localStorage.getItem("flagCloseListon") == 0) {
             this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
-        }else if  (localStorage.getItem("flagCloseListon") == 1) {           
+        }else if  (localStorage.getItem("flagCloseListon") == 1) {
             this.flagCloseListon = 1
             localStorage.setItem("flagCloseListon", 1)
         }else{
@@ -143,7 +143,7 @@ export default {
         }, 250)
         setTimeout(() => {
             if(this.$store.state.common.cuentasueldo == 'Y'){
-                this.tarjetaoh = false        
+                this.tarjetaoh = false
                 this.baseIS = true
                 this.cuentaSueldo = true
             } else if(this.$store.state.common.tarjetaoh == 'Y'){
@@ -168,11 +168,11 @@ export default {
 
         closeListon(){
             document.getElementById("liston-desktop").style.display = "none"
-            this.flagCloseListon = 0            
+            this.flagCloseListon = 0
             localStorage.setItem("flagCloseListon", 0)
             this.$bus.$emit('updatingTest', 0)
             this.$store.commit('common/setFlagCloseListon',0)
-        
+
         },
         enlaceTest(){
             var div = document.getElementById("capa")
@@ -187,7 +187,7 @@ export default {
             if (window.scrollY >= 400) {
                 if(true){
                     this.isOculto = false;
-                    this.contactanos = false;                   
+                    this.contactanos = false;
                 }
             } else {
                 this.isOculto = true
@@ -225,7 +225,7 @@ export default {
                 div.style.display = "none"
             }
         },
-        
+
 
     },
     created(){
@@ -248,7 +248,7 @@ export default {
 
 <style lang="scss" scoped>
     .closeListon{
-        
+
         cursor: pointer;
         position: absolute;
         right: 4px;
@@ -262,7 +262,7 @@ export default {
         font-size: 18px;
 
     }
-    .liston{        
+    .liston{
         flex-direction: column;
         background: #0855c4;
         width: 100%;
@@ -291,13 +291,13 @@ export default {
         }
         .box-img-liston{
             width: 84px;
-            .img-liston{                
+            .img-liston{
                width: 50px;
             //    animation: zoom 1.7s infinite ease-in-out;
             //    animation: zoom 12s infinite;
             }
         }
-        
+
         p{
             text-align: left;
             font-size: 14px;
@@ -408,7 +408,7 @@ export default {
     img{
         width: 28px !important;
     }
-    
+
 }
 /* .box-cotiza button{
   animation: shadow-pulse 1s infinite;
@@ -416,7 +416,7 @@ export default {
 .oculto{
     display: none !important;
 }
-    
+
 @media (min-width: 992px){
         .footer-menu{
             width: 25%;
@@ -467,7 +467,7 @@ export default {
                     background: #f3f3f3;
                     height: 68px;
                     display: none;
-                    
+
                     ul{
                         text-align: center;
                         padding-left: 0px;
@@ -503,7 +503,7 @@ export default {
                                 background-color: #EA0F8F  !important;
                                 border: #EA0F8F !important;
                                 border-radius: 3px;
-                                opacity: 1;                
+                                opacity: 1;
                                 margin-left: 20px;
                                 outline: none;
                                 span{
@@ -520,8 +520,8 @@ export default {
                             }
                         }
                     }
-                    
-                }            
+
+                }
             }
             .btn-cotiza a {
                 border: 2px solid #EA0C90 !important;
@@ -564,7 +564,7 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                height: 50px; 
+                height: 50px;
                 top: 50px;
                 .campania-lado-der{
                     height: 50px;
@@ -602,8 +602,8 @@ export default {
     }
 
     @media (min-width: 1200px){
-        .liston{       
-            height: 42px;     
+        .liston{
+            height: 42px;
             flex-direction: row;
             justify-content: space-between;
             display: flex;
@@ -617,7 +617,7 @@ export default {
                 right: 70px;
             }
         }
-        
+
         .header-planes{
             .menu-nav{
                 flex-direction: row;
@@ -632,7 +632,7 @@ export default {
                 }
                 &__izq{
                     flex-basis: auto;
-                    padding-left: 65px;            
+                    padding-left: 65px;
                 }
                 &__der{
                     background: white;
@@ -660,11 +660,11 @@ export default {
                 }
             }
         }
-        
-    }
- 
 
-    @media (max-width: 992px) { 
+    }
+
+
+    @media (max-width: 992px) {
         .header-planes{
             background: white;
             height: 60px;
@@ -704,9 +704,9 @@ export default {
                     background: #f3f3f3;
                     height: 60px;
                     display: none;
-                }            
-            }                
-        
+                }
+            }
+
         }
     }
 

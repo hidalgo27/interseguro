@@ -1,0 +1,120 @@
+.top-0{
+  top: 0;
+}
+.right-10r{
+  right: 10rem;
+}
+.bottom-2r{
+  bottom: 2rem;
+}
+.right-0{
+  right: 0;
+}
+.bottom-11{
+  bottom: 0.688rem;
+}
+.-mt-40{
+  margin-top: -40px;
+}
+.font-size-15{
+  font-size: 0.938rem;
+}
+.-z-index-1{
+  z-index: -1;
+}
+.-z-index-2{
+  z-index: -2;
+}
+.-z-index-3{
+  z-index: -3;
+}
+.z-index-0{
+  z-index: 0;
+}
+.z-index-1{
+  z-index: 1;
+}
+.z-index-2{
+  z-index: 2;
+}
+.z-index-3{
+  z-index: 3;
+}
+.mb-30{
+  margin-bottom: 1.875rem;
+}
+.bg-header-top{
+  background-image: url('../../static/media/img/campania/fondo-home-desktop.svg');
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cliploader{
+  width: 100%;
+  right: 0;
+  //height: 51px;
+  top: 0;
+  border-radius: 0;
+  padding: 15px;
+  bottom: 0;
+  background-color: rgba(255,255,255,.8);
+}
+// .bg-light-gray- {
+//   background-color: #f7fbff;
+// }
+.bg-blue-light {
+  background-color: #f1f7ff;
+}
+.box-interseguro{
+  border-radius: 30px 4px !important;
+}
+
+.box-interseguro-left{
+  border-radius: 30px 4px 0 0 !important;
+}
+.box-interseguro-bottom-right{
+  border-radius: 0 0 30px 0 !important;
+}
+.border-v-radius {
+  border-radius: .8rem;
+}
+.border-v-radius-top {
+  border-radius: .8rem .8rem 0 0;
+}
+
+.parallax__container {
+  clip: rect(0, auto, auto, 0);
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -100;
+}
+
+.parallax {
+  position: fixed;
+  top: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 100%;
+
+  /* BG behaviour */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.border-hover-line:hover{
+  border: 1px solid #0855c4 !important;
+  transition: .5s;
+  color: #0855c4;
+}
+.bg-hover-primary:hover{
+  background: #0855c4 !important;
+  transition: .7s;
+  color: white;
+}

@@ -1,16 +1,16 @@
-$primario:#00ADEE;
-$secundario: #0BD360;
-$primario_alt: #7c4dff;
-$white:#FFF;
-$gris-1:#000;
-$gris-2: #212529;
+//$primario:#00ADEE;
+//$secundario: #0BD360;
+//$primario_alt: #7c4dff;
+//$white:#FFF;
+//$gris-1:#000;
+//$gris-2: #212529;
 .main-nav__contact{
     display: none;
 }
 #main-nav{
     z-index: 9999;
     position: relative;
-    
+
 }
 .main-nav#nav-checkbox {
     display: none;
@@ -55,7 +55,7 @@ $gris-2: #212529;
   }
   .main-nav{
       &__menu{
-        
+
         &--item{
             height: 60px;
         }
@@ -121,10 +121,10 @@ $gris-2: #212529;
     transition: all ease-in 0.25s;
 }
 
-.btn-cotiza{    
+.btn-cotiza{
     color: white;
-    font-size: 14px; 
-    top: 0px;   
+    font-size: 14px;
+    top: 0px;
     a{
         background: #0bd360;
         padding: 6px 8px ;
@@ -135,18 +135,18 @@ $gris-2: #212529;
         width: 100%;
         max-width: 120px;
         text-transform: uppercase;
-         
+
     }
     &:hover{
         opacity: 1;
-    }  
+    }
 }
 .main-header {
     z-index: 999;
     position: fixed;
     top: 0;
-    width: 100%; 
-    background: $primario; 
+    width: 100%;
+    background: $primario;
 }
 #nav-checkbox2{
     display: flex;
@@ -243,7 +243,7 @@ $gris-2: #212529;
     background-color: #fff;
     text-align: center;
     color: $secundario;
-    
+
     &:hover {
         opacity: 0.97;
         text-decoration: none;
@@ -285,7 +285,7 @@ $gris-2: #212529;
         color: white !important;
         border-radius: 0.2rem;
         padding-top: 10px;
-        padding-bottom: 10px; 
+        padding-bottom: 10px;
     }
 }
 }
@@ -344,7 +344,7 @@ header .box-cotiza{
 
 /******************************************/
 @media (min-width: 768px) {
-    
+
     .main-nav{
         &__contact{
             display: block;
@@ -374,7 +374,7 @@ header .box-cotiza{
     }
     .main-nav{
         &__menu{
-          
+
           &--item{
               text-align: center;
           }
@@ -396,6 +396,6 @@ header .box-cotiza{
         &__menu{
             width: 30%;
         }
-        
+
     }
 }
