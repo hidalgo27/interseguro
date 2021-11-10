@@ -79,52 +79,52 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col cols="6" md="3" class="mb-4">
-            <div class="border border-v-radius px-3 py-4 border-hover-line">
-              <b-row align-h="center" align-v="center" class="no-gutters text-center">
-                <b-col cols="4" md="4" class="mb-2 mb-md-0 pr-md-3">
+          <b-col cols="12" md="3" class="mb-2">
+            <div class="border border-v-radius px-3 py-3 py-md-4 border-hover-line">
+              <b-row align-v="center" class="no-gutters">
+                <b-col cols="2" md="4" class="pr-3">
                   <img src="@/static/media/imagenes/home/cotizaciones.svg" alt="" class="w-100">
                 </b-col>
-                <b-col cols="12" md="8">
+                <b-col cols="9" md="8">
                   <h3 class="h3 omnes-medium mb-0">+15,000</h3>
                   <p>Cotizaciones diarias</p>
                 </b-col>
               </b-row>
             </div>
           </b-col>
-          <b-col cols="6" md="3" class="mb-4">
-            <div class="border border-v-radius px-3 py-4 border-hover-line">
-              <b-row align-h="center" align-v="center" class="no-gutters text-center">
-                <b-col cols="4" md="4" class="mb-2 mb-md-0 pr-md-3">
+          <b-col cols="12" md="3" class="mb-2">
+            <div class="border border-v-radius px-3 py-3 py-md-4 border-hover-line">
+              <b-row align-v="center" class="no-gutters">
+                <b-col cols="3" md="4" class="pr-3">
                   <img src="@/static/media/imagenes/home/asistencia.svg" alt="" class="w-100">
                 </b-col>
-                <b-col cols="12" md="8">
+                <b-col cols="9" md="8">
                   <h3 class="h3 omnes-medium mb-0">+3,000</h3>
                   <p>Asistencias brindadas</p>
                 </b-col>
               </b-row>
             </div>
           </b-col>
-          <b-col cols="6" md="3">
-            <div class="border border-v-radius px-3 py-4 border-hover-line">
-              <b-row align-h="center" align-v="center" class="no-gutters text-center">
-                <b-col cols="4" md="4" class="mb-2 mb-md-0 pr-md-3">
+          <b-col cols="12" md="3" class="mb-2">
+            <div class="border border-v-radius px-3 py-3 py-md-4 border-hover-line">
+              <b-row align-v="center" class="no-gutters">
+                <b-col cols="3" md="4" class="pr-3">
                   <img src="@/static/media/imagenes/home/siniestros.svg" alt="" class="w-100">
                 </b-col>
-                <b-col cols="12" md="8">
+                <b-col cols="9" md="8">
                   <h3 class="h3 omnes-medium mb-0">+3,000</h3>
                   <p>Siniestros atendidos</p>
                 </b-col>
               </b-row>
             </div>
           </b-col>
-          <b-col cols="6" md="3">
-            <div class="border border-v-radius px-3 py-4 border-hover-line">
-              <b-row align-h="center" align-v="center" class="no-gutters text-center">
-                <b-col cols="4" md="4" class="mb-2 mb-md-0 pr-md-3">
+          <b-col cols="12" md="3" class="mb-2">
+            <div class="border border-v-radius px-3 py-3 py-md-4 border-hover-line">
+              <b-row align-v="center" class="no-gutters">
+                <b-col cols="3" md="4" class="pr-3">
                   <img src="@/static/media/imagenes/home/tiempo.svg" alt="" class="w-100">
                 </b-col>
-                <b-col cols="12" md="8">
+                <b-col cols="9" md="8">
                   <h3 class="h3 omnes-medium mb-0">25 min</h3>
                   <p>Tiempo de llegada</p>
                 </b-col>
@@ -147,7 +147,7 @@
 <!--      </div>-->
 <!--    </section>-->
 
-    <section class="my-5">
+    <section class="mb-5 mt-4">
       <b-container>
         <b-row align-h="center">
           <b-col cols="12" md="6">
@@ -307,8 +307,19 @@
             <h2 class="text-v-primary h1 mb-5">¡Elige el mejor plan para ti!</h2>
           </b-col>
         </b-row>
+        <b-row class="mb-4">
+          <b-col>
+            <button type="button" class="btn btn-v-primary btn-block" @click="plan(1)">Basico</button>
+          </b-col>
+          <b-col>
+            <button type="button" class="btn btn-v-primary btn-block" @click="plan(3)">Full</button>
+          </b-col>
+          <b-col>
+            <button type="button" class="btn btn-v-primary btn-block" @click="plan(2)">Intermedio</button>
+          </b-col>
+        </b-row>
         <b-row>
-          <b-col cols="12" md="4" class="mb-4 mb-md-0">
+          <b-col v-if="is_plan === 1" cols="12" md="4" class="">
             <div class="card h-100 border-v-radius">
               <div class="card-body">
                 <h6 class="card-title text-v-gray-dark text-center omnes-semibold">BÁSICO: <span class="omnes-light">Protección contra robo</span></h6>
@@ -332,7 +343,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" md="4" class="mb-5 mb-md-0">
+          <b-col v-if="is_plan === 2" cols="12" md="4" class="">
             <div class="card h-100 border-v-radius">
               <div class="card-body">
                 <h6 class="card-title text-v-gray-dark text-center omnes-semibold">INTERMEDIO: <span class="omnes-light">Protección accidentes</span></h6>
@@ -358,7 +369,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" md="4" class="mt-3 mt-md-0">
+          <b-col v-if="is_plan === 3" cols="12" md="4" class="mt-4 mt-md-0">
             <div class="card h-100 border-v-radius border-2  border-v-primary position-relative shadow-sm">
               <div class="position-absolute w-100 px-4 -mt-40">
                 <div class="bg-v-primary text-center text-white bottom-0 p-2 border-v-radius-top">
@@ -776,100 +787,119 @@
           </b-col>
         </b-row>
 
-        <b-row class="mb-30 row-cols-1">
-          <b-col cols="12" md="6" class="mb-30 mb-md-0">
+        <b-row class="row-cols-1">
+          <b-col cols="12" md="6" class="mb-2 mb-md-4">
             <div class="card bg-hover-primary h-100 align-items-center">
               <div class="card-body align-items-center">
-                <b-row align-v="center" align-h="center" class="my-3">
-                  <b-col cols="4" md="4">
+                <b-row align-h="center" class="my-0 my-md-3">
+                  <b-col cols="3" md="4">
                     <img src="@/static/media/imagenes/home/beneficio-atencion.svg" alt="" class="w-100">
                   </b-col>
-                  <b-col cols="8" md="8">
-                    <p class="mb-2"><b class="omnes-regular">Atenciónes médica</b>, Descuentos y beneficios en Atención médica:</p>
-                    <ul class="p-0 pl-3 m-0">
+                  <b-col cols="9" md="8">
+                    <p class="mb-2 d-none d-md-block"><b class="omnes-regular">Atenciónes médica</b>, Descuentos y beneficios en Atención médica:</p>
+                    <ul class="p-0 pl-3 m-0 d-none d-md-block">
                       <li>Descuento de S/50 en atención médica covid-19 a domicilio</li>
                       <li>Descuento de S/40 en teleconsulta médica con especialista</li>
                     </ul>
+
+                    <p class="d-block d-md-none">Chofer de reemplazo
+                      <b class="omnes-regular d-block">Hasta 5 veces al año</b>
+                    </p>
+
                   </b-col>
                 </b-row>
               </div>
             </div>
           </b-col>
-          <b-col cols="6" md="3">
+          <b-col class="mb-2 mb-md-4" cols="12" md="3">
             <div class="card h-100 bg-hover-primary">
-              <div class="card-body text-center">
-                <b-row align-h="center" class="mb-4 pt-1">
-                  <b-col cols="9" md="7">
+              <div class="card-body">
+                <b-row align-h="center" align-v="center" class="">
+                  <b-col cols="3" md="7" class="mb-md-4 pt-md-1">
                     <img src="@/static/media/imagenes/home/beneficio-chofer.svg" alt="" class="w-100">
                   </b-col>
+                  <b-col cols="9" md="12" class="text-md-center">
+                    <p class="d-block">Chofer de reemplazo
+                      <b class="omnes-regular d-block">Hasta 5 veces al año</b>
+                    </p>
+                  </b-col>
                 </b-row>
-                <p class="d-block">Chofer de reemplazo
-                  <b class="omnes-regular d-block">Hasta 5 veces al año</b>
-                </p>
+
               </div>
             </div>
           </b-col>
-          <b-col cols="6" md="3">
+          <b-col class="mb-2 mb-md-4" cols="12" md="3">
             <div class="card h-100 bg-hover-primary">
-              <div class="card-body text-center">
-                <b-row align-h="center" class="mb-4 pt-1">
-                  <b-col cols="9" md="7">
+              <div class="card-body">
+                <b-row align-h="center" align-v="center" class="">
+                  <b-col cols="3" md="7" class="mb-md-4 pt-md-1">
                     <img src="@/static/images/icons/llave-desarmador.png" alt="" class="w-100">
                   </b-col>
+                  <b-col cols="9" md="12" class="text-md-center">
+                    <p class="card-text d-block">Auxilio mecánico
+                      <b class="omnes-regular d-block">Carga de batería, grúas y más</b></p>
+                  </b-col>
                 </b-row>
-                <p class="card-text d-block">Auxilio mecánico
-                  <b class="omnes-regular d-block">Carga de batería, grúas y más</b></p>
               </div>
             </div>
           </b-col>
         </b-row>
 
         <b-row class="row-cols-1 row-cols-md-4">
-          <b-col class="mb-30 mb-md-0" cols="6" md="3">
+          <b-col class="mb-2 mb-md-4" cols="12" md="3">
             <div class="card h-100 bg-hover-primary">
-              <div class="card-body text-center">
-                <b-row align-h="center" class="mb-4 pt-1">
-                  <b-col cols="9" md="7">
+              <div class="card-body">
+                <b-row align-h="center" align-v="center" class="">
+                  <b-col cols="3" md="7" class="mb-md-4 pt-md-1">
                     <img src="@/static/media/imagenes/home/beneficio-inspeccion.svg" alt="" class="w-100">
                   </b-col>
+                  <b-col cols="9" md="12" class="text-md-center">
+                    <p class="d-block">Inspección digital en menos <b class="omnes-regular d-block">de 5 minutos y sin salir de casa</b></p>
+                  </b-col>
                 </b-row>
-                <p class="d-block">Inspección digital en menos <b class="omnes-regular d-block">de 5 minutos y sin salir de casa</b></p>
+
               </div>
             </div>
           </b-col>
-          <b-col class="mb-30 mb-md-0" cols="6" md="3">
+          <b-col class="mb-2 mb-md-4" cols="12" md="3">
             <div class="card h-100 bg-hover-primary">
-              <div class="card-body text-center">
-                <b-row align-h="center" class="mb-4 pt-1">
-                  <b-col cols="9" md="7">
+              <div class="card-body">
+                <b-row align-h="center" align-v="center" class="">
+                  <b-col cols="3" md="7" class="mb-md-4 pt-md-1">
                     <img src="@/static/media/imagenes/home/beneficio-diagnostico.svg" alt="" class="w-100">
                   </b-col>
+                  <b-col cols="9" md="12" class="text-md-center">
+                    <p class="d-block"><b class="omnes-regular d-block">50% de dscto. en diagnóstico</b> previo a Revisión técnica</p>
+                  </b-col>
                 </b-row>
-                <p class="d-block"><b class="omnes-regular d-block">50% de dscto. en diagnóstico</b> previo a Revisión técnica</p>
               </div>
             </div>
           </b-col>
-          <b-col cols="6" md="3">
+          <b-col class="mb-2 mb-md-4" cols="12" md="3">
             <div class="card h-100 bg-hover-primary">
-              <div class="card-body text-center">
-                <b-row align-h="center" class="mb-4 pt-1">
-                  <b-col cols="9" md="7">
+              <div class="card-body">
+                <b-row align-h="center" align-v="center" class="">
+                  <b-col cols="3" md="7" class="mb-md-4 pt-md-1">
                     <img src="@/static/media/imagenes/home/beneficio-asistencia.svg" alt="" class="w-100">
                   </b-col>
+                  <b-col cols="9" md="12" class="text-md-center">
+                    <p class="d-block">Asistencias para <b class="omnes-regular d-block">el hogar hasta por S/ 150</b></p>
+                  </b-col>
                 </b-row>
-                <p class="d-block">Asistencias para <b class="omnes-regular d-block">el hogar hasta por S/ 150</b></p>
               </div>
             </div>
           </b-col>
-          <b-col cols="6" md="3">
+          <b-col class="mb-2 mb-md-4" cols="12" md="3">
             <div class="card h-100 bg-hover-primary">
-              <div class="card-body text-center">
-                <b-row align-h="center" class="mb-4 pt-1">
-                  <b-col cols="9" md="7">
+              <div class="card-body">
+                <b-row align-h="center" align-v="center" class="">
+                  <b-col cols="3" md="7" class="mb-md-4 pt-md-1">
                     <img src="@/static/media/imagenes/home/beneficio-delivery.svg" alt="" class="w-100">
                   </b-col>
+                  <b-col cols="9" md="12" class="text-md-center">
+                    <p class="d-block"><b class="omnes-regular d-block">Hasta 25% dscto. en</b> comida por delivery</p>
+                  </b-col>
                 </b-row>
-                <p class="d-block"><b class="omnes-regular d-block">Hasta 25% dscto. en</b> comida por delivery</p>
               </div>
             </div>
           </b-col>
@@ -892,54 +922,46 @@
             <h2 class="font-weight-normal text-v-primary h1 mb-4">¿Por qué deberían elegirnos?</h2>
           </b-col>
         </b-row>
-        <b-row align-v="end">
-          <b-col cols="6" md="3" class="mb-30 mb-md-0">
-            <b-row align-h="center" class="mb-4">
-              <b-col cols="7" md="6">
+        <b-row align-v="end" align-h="center">
+          <b-col cols="10" md="3" class="mb-4 mb-md-4">
+            <b-row align-h="center">
+              <b-col cols="3" md="6" class="mb-0 mb-md-4">
                 <img src="@/static/media/seguroVehicular/home/elegirnos_mejor_precio.svg" alt="" class="w-100">
               </b-col>
-            </b-row>
-            <b-row>
-              <b-col class="text-center">
+              <b-col cols="9" md="12" class="text-left text-md-center">
                 <h5 class="omnes-medium">Mejor precio</h5>
                 <p>Eliminamos a los <br>brókers e intermediarios</p>
               </b-col>
             </b-row>
           </b-col>
-          <b-col cols="6" md="3" class="mb-30 mb-md-0">
-            <b-row align-h="center" class="mb-4">
-              <b-col cols="7" md="6">
+          <b-col cols="10" md="3" class="mb-4 mb-md-4">
+            <b-row align-h="center">
+              <b-col cols="3" md="6" class="mb-0 mb-md-4">
                 <img src="@/static/media/seguroVehicular/home/elegirnos_somos_intercorp.svg" alt="" class="w-100">
               </b-col>
-            </b-row>
-            <b-row>
-              <b-col class="text-center">
+              <b-col cols="9" md="12" class="text-left text-md-center">
                 <h5 class="omnes-medium">Somos Intercorp</h5>
                 <p>El grupo económico <br> más importante del país</p>
               </b-col>
             </b-row>
           </b-col>
-          <b-col cols="6" md="3">
-            <b-row align-h="center" class="mb-4">
-              <b-col cols="7" md="6">
+          <b-col cols="10" md="3" class="mb-4 mb-md-4">
+            <b-row align-h="center">
+              <b-col cols="3" md="6" class="mb-0 mb-md-4">
                 <img src="@/static/media/seguroVehicular/home/elegirnos_100_online.svg" alt="" class="w-100">
               </b-col>
-            </b-row>
-            <b-row>
-              <b-col class="text-center">
+              <b-col cols="9" md="12" class="text-left text-md-center">
                 <h5 class="omnes-medium">100% online</h5>
                 <p>Protege tu auto en solo 3 <br> clics desde donde estés</p>
               </b-col>
             </b-row>
           </b-col>
-          <b-col cols="6" md="3">
-            <b-row align-h="center" class="mb-4">
-              <b-col cols="7" md="6">
+          <b-col cols="10" md="3" class="mb-4 mb-md-4">
+            <b-row align-h="center">
+              <b-col cols="3" md="6" class="mb-0 mb-md-4">
                 <img src="@/static/media/seguroVehicular/home/elegirnos_siempre_contigo.svg" alt="" class="w-100">
               </b-col>
-            </b-row>
-            <b-row>
-              <b-col class="text-center">
+              <b-col cols="9" md="12" class="text-left text-md-center">
                 <h5 class="omnes-medium">Siempre contigo</h5>
                 <p>Te brindamos <br> atención 24/7</p>
               </b-col>
@@ -1066,6 +1088,7 @@ export default {
         autoplay: true,
         speed: 1000
       },
+      is_plan: 3,
       // slide: 0,
       active_color: 0,
       sliding: null,
@@ -1179,6 +1202,9 @@ export default {
   },
 
   methods: {
+    plan(id){
+      this.is_plan = id;
+    },
     active_collapse(id){
       this.active_color = id
       // console.log('hola peru'+id)

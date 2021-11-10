@@ -25,8 +25,8 @@
 <!--      </div>-->
 <!--    </header>-->
 
-    <section class="text-white text-center py-5 position-relative">
-      <div class="parallax" data-parallax-image="images/pista-blue.jpg"></div>
+    <section class="text-white text-center py-5 position-relative bg-v-primary">
+<!--      <div class="parallax" data-parallax-image="images/pista-blue.jpg"></div>-->
 
       <b-container>
         <b-row>
