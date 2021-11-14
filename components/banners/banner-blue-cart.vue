@@ -25,21 +25,22 @@
 <!--      </div>-->
 <!--    </header>-->
 
-    <section class="text-white text-center py-5 position-relative bg-v-primary">
-<!--      <div class="parallax" data-parallax-image="images/pista-blue.jpg"></div>-->
+    <section class="bg-header-top text-white text-center py-4 py-md-5 position-relative">
+<!--      <div class="parallax" data-parallax-image=" "></div>-->
 
       <b-container>
         <b-row>
           <b-col md="5" order="2" order-md="1">
             <form-home></form-home>
           </b-col>
-          <b-col class="pl-5 text-left" order-md="2">
-            <h3 class="h1 omnes-light">Proteger tu auto no <br> tiene por que ser caro.</h3>
-            <p class="h4 omnes-light">¡Si compras en plan anual te damos <br> 10% de descuento!</p>
+          <b-col class="pl-md-5 pl-0 text-center text-md-left" order-md="2">
+            <h3 class="h1 text-h1 omnes-regular">Proteger tu auto no <br> tiene por que ser caro.</h3>
+            <p class="h4 text-h5 omnes-light my-3 my-md-0">¡Si compras en plan anual te damos <br> 10% de descuento!</p>
+
           </b-col>
         </b-row>
       </b-container>
-      <div class="position-absolute right-10r bottom-2r d-none d-md-flex">
+      <div class="position-absolute car-right-position bottom-2r d-none d-md-flex">
         <img src="@/static/images/vehiculo.png" alt="" class="w-75">
       </div>
 

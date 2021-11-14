@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="151.179" height="24.805" viewBox="0 0 151.179 24.805">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Trazado_3675" data-name="Trazado 3675" d="M575-921.544h24.281v24.805H575Z" transform="translate(-575 921.544)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Trazado_3674" data-name="Trazado 3674" d="M447-179.837H1655.261V-935H447Z" transform="translate(-447 935)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectángulo_40" data-name="Rectángulo 40" width="24.658" height="25.956" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <path id="Trazado_3673" data-name="Trazado 3673" d="M593.607-903.641l-12.937,2.389V-914.6l12.937-2.389Zm-15.366-17.9A3.285,3.285,0,0,0,575-918.216v21.477h21.034a3.288,3.288,0,0,0,3.244-3.331l0-21.474Z" transform="translate(-575 921.544)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <path id="Trazado_3672" data-name="Trazado 3672" d="M575-895.989h24.333V-922H575Z" transform="translate(-575 922)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <path id="Trazado_3678" data-name="Trazado 3678" d="M768.839-921a.839.839,0,0,1,.839.839v22.655a.839.839,0,0,1-.839.839.839.839,0,0,1-.839-.839v-22.655A.839.839,0,0,1,768.839-921Z" transform="translate(-768 921)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_11872" data-name="Grupo 11872" transform="translate(0 0)">
+    <g id="Grupo_2872" data-name="Grupo 2872" transform="translate(41.179 1.869)">
+      <text id="Seguro_Vehicular" data-name="Seguro Vehicular" transform="translate(0 14)" fill="#0854c4" font-size="15" font-family="OmnesMedium, Omnes"><tspan x="0" y="0">Seguro Vehicular</tspan></text>
+    </g>
+    <g id="Grupo_2893" data-name="Grupo 2893" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <g id="Grupo_2892" data-name="Grupo 2892" transform="translate(-107.401 -11.29)" clip-path="url(#clip-path-2)">
+        <g id="Grupo_2891" data-name="Grupo 2891" transform="translate(107.401 10.699)" style="mix-blend-mode: normal;isolation: isolate">
+          <g id="Grupo_2890" data-name="Grupo 2890" transform="translate(0 0)" clip-path="url(#clip-path-3)">
+            <g id="Grupo_2889" data-name="Grupo 2889" transform="translate(0 0.591)" clip-path="url(#clip-path-4)">
+              <g id="Grupo_2888" data-name="Grupo 2888" transform="translate(0 -0.382)" clip-path="url(#clip-path-5)">
+                <path id="Trazado_3671" data-name="Trazado 3671" d="M570-893.348h32.671v-33.2H570Z" transform="translate(-574.195 922.731)" fill="#0854c4"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Grupo_2895" data-name="Grupo 2895" transform="translate(32.891)" clip-path="url(#clip-path-6)">
+      <g id="Grupo_2894" data-name="Grupo 2894" transform="translate(-269.342 -11.747)" clip-path="url(#clip-path-2)">
+        <path id="Trazado_3676" data-name="Trazado 3676" d="M763-893.276h10.069V-926H763Z" transform="translate(-497.854 933.552)" fill="#0854c4"/>
+      </g>
+    </g>
+  </g>
+</svg>

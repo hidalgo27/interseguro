@@ -1,14 +1,17 @@
 .top-0{
   top: 0;
 }
-.right-10r{
-  right: 10rem;
-}
 .bottom-2r{
   bottom: 2rem;
 }
 .right-0{
   right: 0;
+}
+.right-45{
+  right: 45%;
+}
+.-bottom-45r{
+  bottom: -.45rem;
 }
 .bottom-11{
   bottom: 0.688rem;
@@ -44,7 +47,7 @@
   margin-bottom: 1.875rem;
 }
 .bg-header-top{
-  background-image: url('../../static/media/img/campania/fondo-home-desktop.svg');
+  background-image: url('../../static/images/pista-blue.jpg');
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -118,3 +121,101 @@
   transition: .7s;
   color: white;
 }
+//.VueCarousel-dot-container{
+//  margin: 0 !important;
+//}
+//.VueCarousel-dot {
+//  margin: 0 !important;
+//}
+.footer-collapse{
+  background-color: #3772D1;
+}
+
+.flecha-down {
+  width:0px;
+  height:0px;
+  border-left:7px solid transparent; /* izquierda flecha */
+  border-right:7px solid transparent; /* derecha flecha */
+  border-top:7px solid #0855c4; /* base flecha y color*/
+  font-size:0px;
+  line-height:0px;
+}
+
+.banner-wrapper {
+  /*z-index: 99;*/
+  transition: all 300ms ease-in-out;
+  width: 100%;
+}
+.banner {
+  width: 100%;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /*background: rgba(162, 197, 35, 1);*/
+  transition: all 300ms ease-in-out;
+}
+.animateIn{
+  transform: translateY(0px);
+  transition: all 300ms ease-in-out;
+}
+.animateOut{
+  transform: translateY(-100%);
+  transition: all 300ms ease-in-out;
+}
+
+.animateRight{
+  transform: translateX(100%);
+  transition: all 300ms ease-in-out;
+}
+.animateLeft{
+  transform: translatex(0);
+  transition: all 300ms ease-in-out;
+}
+
+.console-underscore {
+  display:inline-block;
+  position:relative;
+  left:5px;
+}
+
+
+//responsive
+@include media-breakpoint-only(xs) {
+  .text-h1{
+    font-size: 2rem !important;
+  }
+  .text-h5{
+    font-size: 1.25rem !important;
+  }
+}
+@include media-breakpoint-only(sm) {
+  .text-sm-h1{
+    font-size: 2rem !important;
+  }
+}
+@include media-breakpoint-only(md) {
+  .text-md-h1{
+    font-size: 2rem !important;
+  }
+  .car-right-position{
+    right: -20rem;
+  }
+}
+@include media-breakpoint-only(lg) {
+  //.text-h1{
+  //  font-size: 2rem !important;
+  //}
+  .car-right-position{
+    right: -10rem;
+  }
+}
+@include media-breakpoint-only(xl) {
+  //.text-h1{
+  //  font-size: 2rem !important;
+  //}
+  .car-right-position{
+    right: 1rem;
+  }
+}
+

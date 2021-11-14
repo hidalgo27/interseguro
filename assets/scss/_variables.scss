@@ -1,6 +1,6 @@
 //$font-family-base: 'Omnes';
-$font-family-sans-serif: "Omnes Light";
-//$body-color: #cccccc!default;
+$font-family-sans-serif: "Omnes Regular";
+$body-color: #74799A !default;
 //$border-width: .8rem;
 $border-radius: .5rem;
 $v-primary:    #0855c4 !default;
@@ -31,14 +31,14 @@ $theme-colors: map-merge((
 
 ), $theme-colors);
 
-$font-size-base:              1rem !default; // 1rem = 16px
-
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+//$font-size-base:              1rem !default; // 1rem = 16px
+//
+//$h1-font-size:                $font-size-base * 2.5 !default;
+//$h2-font-size:                $font-size-base * 2 !default;
+//$h3-font-size:                $font-size-base * 1.75 !default;
+//$h4-font-size:                $font-size-base * 1.5 !default;
+//$h5-font-size:                $font-size-base * 1.25 !default;
+//$h6-font-size:                $font-size-base !default;
 
 $vehicular_primario: #0855c4;
 $vehicular_secundario: #ea0c90;
@@ -65,3 +65,4 @@ $secundario_magenta : #ea0c90;
 
 
 $vehicular_parrafo_v2: #383C5A;
+
