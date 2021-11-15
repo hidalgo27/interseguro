@@ -7,14 +7,14 @@
 </noscript>
 
 <!-- End Facebook Pixel Code -->
-    <div class="boxHome-banner">      
+    <div class="boxHome-banner">
       <div  class="home-banner"  >
         <div class="home-banner__izq">
           <div class="box-formCotizador">
             <div class=" box-flotante-covid  d-flex  d-md-none " >
               <p><span style="background: rgb(221, 122, 134);display: inline-block;padding: 6px;border: 1px;"> Ahorra 35%</span> en tu Seguro <br> Vehicular por ser <br> parte del Grupo <br> Intercorp</p>
             </div>
-            <b-form class="formCotizador">                         
+            <b-form class="formCotizador">
               <div class="formCotizador__msg">
                 Desde US$ 12 al mes
               </div>
@@ -27,11 +27,11 @@
                     maxlength="6"
                     autocomplete="off"
                     type="text"
-                    v-model="item.plateNumber"                    
+                    v-model="item.plateNumber"
                     required
                     placeholder="Ingresa tu Placa"
                     name="Placa"
-                    aria-label="placa"                
+                    aria-label="placa"
                     autofocus
                 ></b-form-input>
               </b-form-group>
@@ -50,7 +50,7 @@
                   <img src="./../../static/media/img/home/respaldo-intercorp.svg" alt="respaldo_intercorp">
                 </p>
               </div>
-            </b-form>            
+            </b-form>
           </div>
         </div>
         <div class="home-banner__der">
@@ -71,11 +71,11 @@
         <div class="home-pasos__planes--titulo">
           <p class="como-funciona">¡Protege tu auto en solo 3 pasos!</p>
         </div>
-        
+
         <div class="home-pasos__cuerpo   pasos">
           <div class="pasos__item">
             <div class="pasos__item--img">
-              <img src="./../../static/media/img/ibk/cotiza.svg" alt="lupa">            
+              <img src="./../../static/media/img/ibk/cotiza.svg" alt="lupa">
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Cotiza</p>
@@ -87,7 +87,7 @@
           </div>
           <div class="pasos__item">
             <div class="pasos__item--img">
-              <img src="./../../static/media/img/ibk/elige.svg" alt="flecha">            
+              <img src="./../../static/media/img/ibk/elige.svg" alt="flecha">
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Elige</p>
@@ -99,15 +99,15 @@
           </div>
           <div class="pasos__item  pb-0">
             <div class="pasos__item--img">
-              <img src="./../../static/media/img/ibk/paga.svg" alt="candado">            
+              <img src="./../../static/media/img/ibk/paga.svg" alt="candado">
             </div>
             <div class="pasos__item--desc">
               <p class="titulo">Paga</p>
               <p class="descripcion">¡Listo! <br> Ya estás asegurado</p>
-            </div>          
+            </div>
           </div>
         </div>
-        
+
         <div class="home-pasos__planes--titulo   d-block">
           <p class="nuevos-planes">¡Elige tu plan! </p>
         </div>
@@ -125,7 +125,7 @@
                 <p><span class="check">&#10004;</span> <span>Responsabilidad Civil frente a terceros hasta $150,000</span></p>
                 <br>
                 <p><span class="check">&#10004;</span> <span>Robo Total - Te devolvemos el valor de tu carro</span></p>
-                <p style="width: 100%"><nuxt-link class=""  to="/intercorp/cobertura/">Ver detalle</nuxt-link></p>      
+                <p style="width: 100%"><nuxt-link class=""  to="/intercorp/cobertura/">Ver detalle</nuxt-link></p>
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@
       </div>
     </div>
 
-    
+
 
     <div class="home-beneficios2  p-47px">
       <div class="home-beneficios2__titulo">
@@ -186,10 +186,10 @@
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">Revisión técnica</p>
-        
+
             <p  class="">50% de dscto. en <br> diagnóstico previo<span></span></p>
           </div>
-          
+
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
@@ -201,7 +201,7 @@
             </p>
             <p  class="">Hasta 5 choferes <br> de reemplazo al año  <span></span> </p>
           </div>
-          
+
         </div>
         <div class="beneficios2__item">
           <div class="img-box">
@@ -210,7 +210,7 @@
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
               Auxilio mecánico
-            </p>    
+            </p>
             <p  class=""><span></span> Te ayudamos en donde estés hasta 2 veces al mes  </p>
           </div>
         </div>
@@ -220,8 +220,8 @@
           </div>
           <div class="beneficios-desc">
             <p class="beneficios-titulo">
-              Programa de beneficios 
-            </p>     
+              Programa de beneficios
+            </p>
             <p  class=""><span></span> Descuentos en miles <br> de establecimientos </p>
           </div>
         </div>
@@ -238,7 +238,7 @@
         </div>
       </div>
     </div>
-<!-- 
+<!--
       <div class="home-clientes2 p-47px d-none  d-lg-flex">
         <div class="box-titulo">
           <p class="titulo-clientes">Estos colaboradores ya ahorran con el <br> Seguro Vehicular del grupo Intercorp</p>
@@ -253,12 +253,12 @@
             <p class="protegido">
               Carro protegido <br> <strong>KIA CERATO</strong>
             </p>
-            
+
           </div>
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <img src="./../../static/media/img/ibk/cliente2.png" alt="">
-            <p class="cliente"></p>Carolina Chavez</p>            
+            <p class="cliente"></p>Carolina Chavez</p>
             <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
             <p class="protegido">
               Carro protegido <br> <strong>MAZDA 3</strong>
@@ -267,7 +267,7 @@
           <div class="box-slider">
             <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
             <img src="./../../static/media/img/ibk/cliente3.png" alt="">
-            <p class="cliente">Enrique Quispe</p>            
+            <p class="cliente">Enrique Quispe</p>
             <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!"</p>
             <p class="protegido">
               Carro protegido <br> <strong>SUZUKI VITARA</strong>
@@ -298,7 +298,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente1.png" alt="">
-                <p class="cliente">Manuela Augusto</p>                
+                <p class="cliente">Manuela Augusto</p>
                 <p class="descripcion">‘’Fue facilísimo contratar el seguro, en comparación con la gestión tradicional.‘’</p>
                 <p class="protegido">
                   Carro protegido <br> <strong>KIA CERATO</strong>
@@ -312,7 +312,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente2.png" alt="">
-                <p class="cliente">Carolina Chavez</p>                
+                <p class="cliente">Carolina Chavez</p>
                 <p class="descripcion">‘’Aún no tengo un siniestro con mi carro, pero el nivel de respuesta hasta el momento ha sido rápido.‘’</p>
                 <p class="protegido">
                   Carro protegido <br> <strong>MAZDA 3</strong>
@@ -326,7 +326,7 @@
               <div class="box-slider">
                 <img class="escudo-cliente" src="./../../static/media/img/root/clientes.png" alt="">
                 <img src="./../../static/media/img/ibk/cliente3.png" alt="">
-                <p class="cliente">Enrique Quispe</p>                
+                <p class="cliente">Enrique Quispe</p>
                 <p class="descripcion">‘’La info que me enviaron sobre la cobertura era concisa y simple de entender!‘’</p>
                 <p class="protegido">
                   Carro protegido <br> <strong>SUZUKI VITARA</strong>
@@ -418,7 +418,7 @@
           window.dataLayer.push({
               event:'Errores',
               category: 'ErroresPago',
-              action: error_detectado, 
+              action: error_detectado,
               error_detectado: error_detectado
           });
         },
@@ -448,7 +448,7 @@
               this.$nuxt.$router.push({path: "/cotiza/cotizacion-sin-placa"})
             })
           },
-          consultarPlaca(event, ms) {  
+          consultarPlaca(event, ms) {
             if(this.item.plateNumber.length == 6){
               this.loading = true
               this.isDisabled = true
@@ -459,7 +459,7 @@
               }, ms)
             }else{
               this.isDisabled =false
-            }      
+            }
           },
           validacionInput(event) {
             this.item.plateNumber = this.item.plateNumber.replace(/[^a-z0-9\s]/gi, "").replace(/[_\s]/g, "");
@@ -472,7 +472,7 @@
               this.getGeolocation()
               this.createMail()
               this.updateFields()
-              this.getVehicle()  
+              this.getVehicle()
             }
           },
           updateFields () {
@@ -492,12 +492,12 @@
             this.item.plateNumber = this.item.plateNumber.toUpperCase();
             this.$store.dispatch('common/getVehicle', this.item)
             .then((res) =>{
-              
+
 
               const respuesta = res.data.body;
               /* Code 0 = > el servicio respondio correctamente */
               if (res.data.code == 0) {
-              
+
                 if(respuesta.useType){
                    const useType = respuesta.useType.toString().toLowerCase();
                     if(useType === 'particular' || useType === 'escolar'){
@@ -506,8 +506,8 @@
                       this.loading = false;
                       this.$swal({
                         // title: "Oops...",
-                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular. 
-                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso 
+                        html: `Lo sentimos, por el momento solo aseguramos autos de Uso Particular.
+                        La placa ${this.item.plateNumber} tiene un SOAT registrado con Uso
                          ${String(useType).toUpperCase()}. Para mayor información contáctanos al <br>
                         <a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                         type: "warning",
@@ -520,7 +520,7 @@
                 }else{
                       this.$store.commit('common/setAppDiscount', respuesta.appDiscount)
                 }
-               
+
 
                 if (respuesta.appDiscount == true) {
                   if (respuesta.activePolicy === true) {
@@ -538,14 +538,14 @@
                         this.$store.commit('common/setClienteSOAT', respuesta.client)
                         this.$store.commit('common/setDocumentoLocal', respuesta.client.documentNumber)
                         this.$store.commit('common/setEmail',res.data.body.client.emailAddress)
-                        
+
                       }else {
                         this.$store.commit('common/setOrigenCliente', 1)
                       }
                       /* Tiene una poliza activa */
                       if (respuesta.activePolicy === true) {
                         this.$nuxt.$router.push({path: "/placa-registrada"})
-                      } else {             
+                      } else {
                         this.loading = false
                         if (document.location.hostname == "www.interseguro.pe"){
                           fbq('track', 'CompleteResgistration');
@@ -559,7 +559,7 @@
                         this.$store.commit('common/setOrigenCliente', 2)
                       }else{
                         this.$store.commit('common/setOrigenCliente', 1)
-                      }          
+                      }
                       this.$store.commit('common/setCodeRmkt', res.data.body.remarketingId)
                       this.$store.commit('common/setVehicleState', 0)
                       this.loading = false
@@ -571,15 +571,15 @@
                       this.$nuxt.$router.push("./cotizacion/")
                     }
                 }
-                
-                
+
+
               }
-              
+
               else if(res.data.code === 307){
                   this.loading = false;
                   this.$swal({
                   // title: "Oops...",
-                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}. 
+                  html: `Lo sentimos, por el momento no podemos asegurar el vehículo de placa ${this.item.plateNumber}.
                   Para mayor información contáctanos al <br><a style="color : #5b85c5" href="tel:015000000">(01)500-0000</a>`,
                   type: "warning",
                   showCancelButton: false,
@@ -599,11 +599,11 @@
           },
       },
       computed: {
-          
+
       },
       mounted () {
         this.$store.commit('common/setBusinessId', 3)
-        this.$store.commit('common/setFlagCloseListon', 1)        
+        this.$store.commit('common/setFlagCloseListon', 1)
         // this.$store.commit('common/resetState')
         this.$store.commit('common/setNuevoProducto', false)
         this.$store.commit('common/setFechaVigencia', '')
@@ -615,11 +615,11 @@
         this.$store.commit('common/setCurrent', null)
         this.$store.commit('common/setFlujoDetectado', 'interseguro')
         this.PaginaVista()
-        
+
         /************************************************************************ */
         /********************* CONFIGURACIONES GLOBALES************************* */
         /************************************************************************ */
-        
+
         this.$store.commit('common/setDiscountType', '')
         this.$store.commit('common/setCuentasueldo', 'N')
         this.$store.commit('common/setTarjetaoh', 'N')
@@ -629,7 +629,7 @@
           window.criteo_q = window.criteo_q || [];
           window.criteo_q.push(
             { event: "setAccount", account: 64802}, // You should never update this line
-            { event: "setEmail", email: "" }, // Can be an empty string 
+            { event: "setEmail", email: "" }, // Can be an empty string
             { event: "setSiteType", type: /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d"},
             { event: "viewBasket", item: [{id: "Home-vehicular", price: "", quantity: 1 }]}
           )
@@ -644,14 +644,14 @@
         /************************************************************************ */
         /************************************************************************ */
 
-        
+
         // let objJWT = JSON.parse(localStorage.setItem("jwt",{}))
 
-        /* RESET DE ESTADOS */        
+        /* RESET DE ESTADOS */
         // if (localStorage.getItem("flagCloseListon") == 0) {
         //     this.flagCloseListon = 0
         //     localStorage.setItem("flagCloseListon", 0)
-        // }else if  (localStorage.getItem("flagCloseListon") == 1) {           
+        // }else if  (localStorage.getItem("flagCloseListon") == 1) {
         //     this.flagCloseListon = 1
         //     localStorage.setItem("flagCloseListon", 1)
         // }else{
@@ -659,7 +659,7 @@
         //     this.flagCloseListon = 1
         // }
         this.createMail()
-        this.$store.commit('common/setLeaveMessage',0) 
+        this.$store.commit('common/setLeaveMessage',0)
       }
   }
 </script>
@@ -761,7 +761,7 @@
   .home-intercorp{
     margin-top: 70px;
     font-size: 16px;
-    background-color: #fff;  
+    background-color: #fff;
     .box-flotante-covid {
       flex-direction: column;
       background-image: url("./../../static/media/interseguroVehicular_v2/home-banner-intercorp.svg");
@@ -778,7 +778,7 @@
         font-size: 21px;
         line-height: 28px;
       }
-  }  
+  }
   .box-flotante-covid .box-contador {
     position: absolute;
     bottom: 5px;
@@ -787,9 +787,9 @@
     .home-pasos{
       background-color: #fff;
       padding-top: 140px;
-      
+
       .parrafo-video{
-        font-size: 30px; 
+        font-size: 30px;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -825,7 +825,7 @@
           color: #005DAB;
           max-width: 300px;
           margin: auto;
-          padding-bottom: 42px;          
+          padding-bottom: 42px;
         }
         .nuevos-planes{
           padding: 40px 0;
@@ -851,7 +851,7 @@
           justify-content: flex-start;
           position: relative;
           padding-bottom: 32px;
-          padding-left: 18%;          
+          padding-left: 18%;
           &--img{
             img{
               width: 70px;
@@ -867,9 +867,9 @@
               line-height: 1.25;
               text-align: left;
               display: flex;
-              align-items: center; 
-              font-family: "Geometria Bold";             
-            }            
+              align-items: center;
+              font-family: "Geometria Bold";
+            }
             .descripcion{
               font-size: 16px;
               font-weight: normal;
@@ -885,7 +885,7 @@
             img{
               width: 14px;
             }
-          }          
+          }
         }
       }
       .planes{
@@ -898,7 +898,7 @@
           width: 100%;
           margin-bottom: 48px;
           max-width: 380px;
-        }        
+        }
         .plata, .oro, .black{
           .plan--cabecera{
             height: 45px;
@@ -908,44 +908,44 @@
             align-items: center;
           }
         }
-        .plata{        
-          .plan--cabecera{  
+        .plata{
+          .plan--cabecera{
             background-color: #b1b1b1;
             .flotante{
               background-color: #DDDDDD;
               color: #5F5F5F;
               font-family: 'Geometria Medium';
-            } 
+            }
             &:after{
               background-image: url(./../../static/media/img/home/plata.png);
               bottom: -9px;
-            }            
+            }
           }
         }
-        .oro{        
-          .plan--cabecera{  
+        .oro{
+          .plan--cabecera{
             background-color: #e6ac38;
             .flotante{
               background-color: #FFD96E;
               color: #AC7812;
               font-family: 'Geometria Medium';
-            } 
+            }
             &:after{
               background-image: url(./../../static/media/img/home/oro.png);
-            } 
+            }
           }
         }
-        .black{        
-          .plan--cabecera{  
+        .black{
+          .plan--cabecera{
             background-color: #27362d;
             .flotante{
               background-color: #AABCB1;
               color: #27362D;
               font-family: 'Geometria Medium';
-            } 
+            }
             &:after{
               background-image: url(./../../static/media/img/home/black.png);
-            } 
+            }
           }
         }
       }
@@ -956,7 +956,7 @@
         min-height: 175px;
         position: relative;
         &--cabecera{
-          text-align: center;          
+          text-align: center;
           position: relative;
           font-family: 'Geometria Medium';
           &:after{
@@ -1012,7 +1012,7 @@
           }
         }
       }
-    }  
+    }
     .boxHome-banner{
       position: relative;
       height: 360px;
@@ -1020,7 +1020,7 @@
       padding-top: 34px;
       // background-color: linear-gradient(to right, rgba(0,99,138,1) 0%, rgba(0,26,35,1) 50%, rgba(0,99,138,1) 100%);
       .home-banner{
-        
+
         margin: auto;
         background-repeat: no-repeat;
         background-size: 700px;
@@ -1107,7 +1107,7 @@
     }
     .box-formCotizador{
       width: 100%;
-      padding: 0;      
+      padding: 0;
       .titulo-formulario{
         font-size: 1.5rem;
         font-weight: 500;
@@ -1147,7 +1147,7 @@
       background: #fff;
       box-shadow: -3px 4px 12px -1px #ccc;
       position: relative;
-      margin: auto;      
+      margin: auto;
       h1{
         font-family: 'Geometria Medium';
         font-size: 1.1rem;
@@ -1198,8 +1198,8 @@
       height: 10px;
       border-radius: 50%;
     }
-    
-    
+
+
     .home-talleres{
       padding-top: 42px;
       padding-bottom: 42px;
@@ -1460,7 +1460,7 @@
           }
         }
         &__item{
-          height: 400px !important;          
+          height: 400px !important;
           .carousel-caption {
             height: 100%;
             display: flex;
@@ -1480,8 +1480,8 @@
                 line-height: 0.89;
                 letter-spacing: normal;
                 text-align: center;
-                color: #696969;    
-                font-family: 'Montserrat Regular';        
+                color: #696969;
+                font-family: 'Montserrat Regular';
               }
             }
           }
@@ -1515,7 +1515,7 @@
           color: #333333;
         }
       }
-      
+
       &__titulo{
         p{
           font-family: 'Geometria Medium';
@@ -1590,10 +1590,10 @@
             line-height: 1.2;
             letter-spacing: normal;
             text-align: left;
-            color: #333333;            
+            color: #333333;
           }
         }
-      }      
+      }
     }
   }
   #vehicleModelPlate{
@@ -1647,7 +1647,7 @@
             display: flex;
             align-items: flex-start;
             width: auto;
-            border-bottom: 0 !important;         
+            border-bottom: 0 !important;
             input{
               width: 360px;
               height: 51px;
@@ -1725,7 +1725,7 @@
         background: #fff;
         box-shadow: -3px 4px 12px -1px #ccc;
         position: relative;
-        
+
         h1{
           font-size: 1.35rem;
           font-weight: 500;
@@ -1735,7 +1735,7 @@
           letter-spacing: normal;
           text-align: center;
           color: #333333;
-          
+
         }
         &__msg{
           padding: 7px 0;
@@ -1818,7 +1818,7 @@
               }
             }
           }
-          
+
         }
         .planes{
           display: flex;
@@ -1831,7 +1831,7 @@
             max-width: 270px;
             .black{
               .plan--cuerpo{
-               padding-top: 8px; 
+               padding-top: 8px;
               }
             }
             .oro{
@@ -1840,7 +1840,7 @@
               }
             }
           }
-        }        
+        }
         .plan--cuerpo{
           p{
             height: auto;
@@ -1890,7 +1890,7 @@
       .home-banner{
         padding-left: 65px;
       }
-      
+
       .home-beneficios2{
           padding-top: 48px;
           padding-bottom: 48px;
@@ -1918,7 +1918,7 @@
               position: absolute;
             }
           }
-          
+
         }
         .planes{
           display: flex;
@@ -1930,7 +1930,7 @@
             max-width: 270px;
             .black{
               .plan--cuerpo{
-               padding-top: 8px; 
+               padding-top: 8px;
               }
             }
             .oro{
@@ -1939,7 +1939,7 @@
               }
             }
           }
-        }        
+        }
         .plan--cuerpo{
           p{
             height: auto;
@@ -1984,7 +1984,7 @@
         background-color: #ffffff;
         .home-talleresBox{
           background-color: #528ACC;
-          background-image: url('./../../static/media/interseguroVehicular_v2/talleres1.png');
+          background-image: url('static/media/interseguroVehicular_v2/talleres1.png');
           height: 339px;
           width: 90%;
           border-radius: 12px;
@@ -2022,7 +2022,7 @@
         .titulo-clientes{
           font-family: 'Geometria Medium';
         }
-        
+
       }
       .home-pasos .plan--cabecera:after {
         bottom: -15px !important;
@@ -2050,8 +2050,8 @@
         background-position: right bottom;
         background-size: 40%;
         .home-banner{
-          
-          
+
+
           padding: 0;
           padding-left: 65px;
           &__der{
@@ -2068,7 +2068,7 @@
           }
         }
       }
-      
+
       .formCotizador{
         height: 300px;
       }
@@ -2141,7 +2141,7 @@
             }
           }
         }
-        
+
         .plata{
           min-height: 330px;
         }
@@ -2190,7 +2190,7 @@
               width: initial;
               height: 110px;
             }
-            
+
           }
           .beneficios-desc{
             width: initial;
@@ -2247,11 +2247,11 @@
         max-width: 1200px;
     }
     .home-intercorp{
-      .boxHome-banner{              
+      .boxHome-banner{
         .home-banner{
           max-width: 1200px;
           padding-left: 0;
-          
+
           &__der{
             background: transparent ;
             margin-left: 0;
@@ -2267,7 +2267,7 @@
 
   @media (min-width: 1900px) {
     .home-intercorp{
-      .boxHome-banner{              
+      .boxHome-banner{
         .home-banner{
           padding-left: 0;
           &__der{

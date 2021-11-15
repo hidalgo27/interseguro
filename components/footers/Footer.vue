@@ -10,7 +10,7 @@
 
     <section class="footerv2 d-block d-md-none">
       <div class="footerv2__acordeon">
-        
+
         <div role="tablist">
             <b-card no-body>
             <b-card-header header-tag="header" class="p-0" role="tab">
@@ -57,7 +57,7 @@
               </b-card-body>
             </b-collapse>
           </b-card>
-          
+
 
           <b-card no-body>
             <b-card-header header-tag="header" class="p-0" role="tab">
@@ -224,16 +224,16 @@
         <p>Síguenos en:</p>
         <div class="box-redes">
           <span>
-            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+            <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>
           </span>
           <span>
-            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+            <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>
           </span>
           <span>
-            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+            <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>
           </span>
           <span>
-            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+            <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>
           </span>
         </div>
       </div>
@@ -278,16 +278,16 @@
             <p>Síguenos en:</p>
             <div class="box-redes">
               <span>
-                <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+                <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>
               </span>
               <span>
-                <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+                <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>
               </span>
               <span>
-                <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+                <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>
               </span>
               <span>
-                <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+                <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>
               </span>
             </div>
           </div>
@@ -437,16 +437,16 @@
                 <p>Síguenos en:</p>
                 <div class="box-redes">
                   <span>
-                    <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>            
+                    <a href="https://www.instagram.com/interseguroperu/"><img src="../../static/media/interseguroVehicular_v2/instagram.png" alt="instagram"></a>
                   </span>
                   <span>
-                    <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>            
+                    <a href="https://www.facebook.com/interseguro/"><img src="../../static/media/interseguroVehicular_v2/facebook.png" alt="facebook"></a>
                   </span>
                   <span>
-                    <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>            
+                    <a href="https://www.interseguro.pe/blog/"><img src="../../static/media/interseguroVehicular_v2/blog.png" alt="blog"></a>
                   </span>
                   <span>
-                    <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>            
+                    <a href="https://www.linkedin.com/company/interseguro-aseguradora/"><img src="../../static/media/interseguroVehicular_v2/linkedin.png" alt="linkedin"></a>
                   </span>
                 </div>
               </div>
@@ -498,7 +498,7 @@ export default {
     })
   },
   mounted() {
-    
+
 
 
     this.businessId = this.$store.state.common.businessId
@@ -513,8 +513,8 @@ export default {
     this.urlExclusiones = require("./../../static/media/documentos/Exclusiones.pdf");
     this.PoliticaGPS = require("./../../static/media/documentos/Politica_GPS_Interseguro.pdf");
 
-    
-    
+
+
   }
 };
 </script>
